@@ -10,7 +10,6 @@ Context: `morph_box.csv` is the morphological box for the d-box (central, bi-dir
 |---|---|---|---|---|
 | `zapuk-main/` | ZaPuK: Zielarchitektur für Postfach- und Kommunikationslösungen (FITKO / FIT-AB, IT-Planungsrat). 196 files. | German | Markdown, PDF | Architecture decisions, requirements, legal framework, glossary. The richest source for dimensions and options. |
 | `neo-solution-architecture-develop/` | "Neo": Matrix-based, E2EE G2C communication channel (FITKO/BMDS), a child of ZaPuK. 64 files, arc42. | English | Markdown, Structurizr DSL | A concrete reference implementation: homeserver topology, BundID integration, message model, delivery legal concept. |
-| `d-box-assets-2026-11-11/` | d-box project context: StS meeting notes, kick-off decks, Miro board exports. 6 binary files. | German | docx, pptx, PDF | Scope, Prämissen, timeline, purpose of the morphological box. |
 
 ## 1. zapuk-main/
 
@@ -78,41 +77,25 @@ Snapshot of the public FITKO repo "Matrix G2C/G2X Communication Solution Archite
 - Process or meta only (skip): `13_methodology.md`, `docs/`, `CONTRIBUTING.md`, `SECURITY.md`, `LICENSES/`, `publiccode.yml`, CI and lint config.
 - The parent ZaPuK is referenced only by link. It is the `zapuk-main/` source.
 
-## 3. d-box-assets-2026-11-11/
-
-Six binary project-context documents (Oct-Nov 2026), with no code or CSV. `quellen/` is empty. Versioning is by filename. Text can be extracted from the docx, pptx and `Kick-Start` PDF. The three `d-box_Projekt Management*.pdf` files are image-only Miro exports with no text layer; they need visual reading or OCR.
-
-| File | Content | Authority |
-|---|---|---|
-| `d-box-assets-2026-11-11/d-box_Projekt Management.pdf` | Miro overview of the work plan. Explains what the morphological box is for (rows = necessary decisions, columns = known options), the next steps, and the work packages 1a, 1b, 2, 3 and 4. | Best source for the box's purpose and method. Date unclear. |
-| `d-box-assets-2026-11-11/261030_DCDS_BMDS_Kick-Start.pptx.pdf` | Kick-off, 30.10.2026. d-box goals, 4-step approach, phases (Zielbild by 27.11.2026, MVP by Q2 2027, rollout by end 2027), teams. | Most current for scope and timeline. |
-| `d-box-assets-2026-11-11/20261021 - DCDS __ BMDS ZaPuK StS Richter.docx` | Gesprächsnotiz of 21.10.2026 with StS Richter. Prämissen: ID = Modul 1, Postfach = Modul 2, bidirektional, Bescheidzustellung, "so klein wie möglich", keine eigenen Clients, E2E, ZaPuK-fähiger Messenger-Layer, FIT-Connect and 4-Corner. | Hard constraints, but informal notes, not a decision. |
-| `d-box-assets-2026-11-11/d-box_Projekt Management_Frage 4_v2.pdf` | Miro zoom on Frage 4 (Recht, Bestand, zentrale Dienste, Governance, Finanzierung), with DoD and the Bestand strand (BundID-Postfach, ELSTER, Postfach 2.0, Mein Justizpostfach, ZBP, ...). | Current. Supersedes v1. |
-| `d-box-assets-2026-11-11/d-box_Projekt Management_Frage 4.pdf` | Earlier version of the above. | Outdated. |
-| `d-box-assets-2026-11-11/261015_DCDS_BM Termin_Storyboard_v6_DS.pptx` | DCDS-wide storyboard (operating model, budget, d-box/d-app/SPARK/d-deploy). Slide 14 covers the d-box. | Background only. |
-
 ## Which source for which morph_box topic
 
 | Topic | Start with |
 |---|---|
-| Anbindung von Fachverfahren / Behörden | zapuk ADR-0008, 0009, 1145, 1148; neo `03_context_and_scope.md`; assets Prämissen (FIT-Connect) |
+| Anbindung von Fachverfahren / Behörden | zapuk ADR-0008, 0009, 1145, 1148; neo `03_context_and_scope.md` |
 | Topologie, Betrieb, Hosting | zapuk ADR-0002 to 0007, 1103, 1114; neo ADR-0001 to 0003, `structurizr/model/backend.dsl` |
-| Bestandssysteme, Transition, Dekommissionierung | zapuk Architekturkonzept Ch. 3, ADR-0010; assets Kick-Start p. 8 and 10, Frage 4 v2 |
+| Bestandssysteme, Transition, Dekommissionierung | zapuk Architekturkonzept Ch. 3, ADR-0010 |
 | Adressierung | zapuk ADR-1104, 1105, 1111 |
 | Identität, Authentifizierung, EUDI-Wallet | zapuk ADR-0013 to 0016, 1106 to 1110, 1146; neo structurizr, glossary |
 | Verschlüsselung, Sicherheit | zapuk ADR-0011, 0012, 1100, 1101, 1130, 1147; neo `02_architecture_constraints.md` |
 | Zustellung, Bescheid, Fristen, Rechtssicherheit | zapuk ADR-0018, 1118 to 1120, Rahmenbedingungen; neo `concepts/303-*.md` |
-| Benachrichtigung | zapuk (open ADR, D-Stack Beschluss 2026/18-IT); assets Prämissen (AU/UK) |
+| Benachrichtigung | zapuk (open ADR, D-Stack Beschluss 2026/18-IT) |
 | Funktionspostfächer, Vertretung | zapuk ADR-1102, 1109, 1112, 1113 |
 | Aufbewahrung, Veraktung | zapuk ADR-1135 |
-| Clients / Frontends | neo `03_context_and_scope.md`; assets Prämissen (keine eigenen Clients, D-App) |
-| Governance, Länder, Finanzierung | zapuk README Beschlüsse, Zusammenfassung 3.3 and 4.x; assets Frage 4 v2, Kick-Start p. 8 |
+| Clients / Frontends | neo `03_context_and_scope.md` |
+| Governance, Länder, Finanzierung | zapuk README Beschlüsse, Zusammenfassung 3.3 and 4.x |
 | Requirements as decision criteria | zapuk `Konsolidierte-Anforderungen/README.md` |
 
 ## Gaps and caveats
 
 - No concrete hosting, cost, sizing or SLA data exists in neo (empty chapters). For cost, see zapuk `Zusammenfassung` 3.3.
-- Reference models from other countries (CH, AU, UK, DK, EU) are mentioned in the assets but not documented in any source here.
-- The Bestand analysis (ELSTER, MuK, MJP, ZBP) is only a plan in the Miro exports, with no content yet.
-- The Miro PDFs are image-only and the details in this map come from a visual read, so verify before quoting.
 - The ZaPuK architecture documents (v1.0) are partly outdated relative to the later ADRs.

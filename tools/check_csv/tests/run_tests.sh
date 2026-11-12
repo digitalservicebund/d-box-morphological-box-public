@@ -40,6 +40,7 @@ expect_error() {
 
 printf 'Echte Datei\n'
 expect_ok morph_box "$tests_dir/../../../morph_box.csv"
+expect_ok existing_solutions "$tests_dir/../../../existing_solutions.csv"
 expect_error datei_fehlt "$fixtures/gibt_es_nicht.csv" "Datei nicht gefunden"
 
 printf '\nMehrere Dateien in einem Aufruf\n'
@@ -75,6 +76,20 @@ done
 
 for expected in "$fixtures"/bad/*.expected; do
   [[ -f "${expected%.expected}.csv" ]] || nok "$(basename "$expected")" "zugehörige .csv fehlt"
+done
+
+printf '\nDaten für existing_solutions.csv\n'
+for file in "$fixtures"/solutions/good/*/existing_solutions.csv; do
+  expect_ok "solutions_$(basename "$(dirname "$file")")" "$file"
+done
+for file in "$fixtures"/solutions/bad/*/existing_solutions.csv; do
+  name="$(basename "$(dirname "$file")")"
+  expected="$(dirname "$file")/expected"
+  if [[ ! -f "$expected" ]]; then
+    nok "solutions_$name" "fehlende Datei $expected"
+    continue
+  fi
+  expect_error "solutions_$name" "$file" "$(<"$expected")"
 done
 
 printf '\n%d bestanden, %d fehlgeschlagen\n' "$pass" "$fail"
