@@ -1,0 +1,138 @@
+<mxfile>
+  <diagram name="Option 2E" id="C8PzX9P2SceVY9qGcjM9">
+    <mxGraphModel dx="1200" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1200" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-1" value="Authentisierungssysteme" style="html=1;outlineConnect=0;whiteSpace=wrap;shape=mxgraph.archimate3.application;appType=grouping;archiType=square;dashed=1;verticalAlign=top;fillColor=none;align=left;spacingLeft=8;" parent="1" vertex="1">
+          <mxGeometry x="330" y="20" width="820" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-2" value="Bereich A" style="html=1;outlineConnect=0;whiteSpace=wrap;shape=mxgraph.archimate3.application;appType=grouping;archiType=square;dashed=1;verticalAlign=top;fillColor=none;align=left;spacingLeft=8;" parent="1" vertex="1">
+          <mxGeometry x="330" y="210" width="395" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-3" value="Bereich B" style="html=1;outlineConnect=0;whiteSpace=wrap;shape=mxgraph.archimate3.application;appType=grouping;archiType=square;dashed=1;verticalAlign=top;fillColor=none;align=left;spacingLeft=8;" parent="1" vertex="1">
+          <mxGeometry x="755" y="210" width="395" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-4" value="Betreiber des Postfach-Backends" style="html=1;outlineConnect=0;whiteSpace=wrap;shape=mxgraph.archimate3.application;appType=grouping;archiType=square;dashed=1;verticalAlign=top;fillColor=none;align=right;spacingRight=36;" parent="1" vertex="1">
+          <mxGeometry x="330" y="420" width="820" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-5" value="BundID&lt;br&gt;&lt;i style=&#39;font-size:11px&#39;&gt;eigener Dienst je Bereich&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" parent="1" vertex="1">
+          <mxGeometry x="350" y="60" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-6" value="eID-Server&lt;br&gt;&lt;i style=&#39;font-size:11px&#39;&gt;Berechtigungszertifikat mit&lt;br&gt;eigenem Sektor je Bereich&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" parent="1" vertex="1">
+          <mxGeometry x="620" y="60" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-7" value="EUDI-Wallet&lt;br&gt;&lt;i style=&#39;font-size:11px&#39;&gt;eigene Relying Party je Bereich&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" parent="1" vertex="1">
+          <mxGeometry x="890" y="60" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-8" value="Zuordnungsdienst&lt;br&gt;Bereich A" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" parent="1" vertex="1">
+          <mxGeometry x="345" y="250" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-9" value="Zuordnung Bereich A&lt;br&gt;&lt;i style=&#39;font-size:11px&#39;&gt;Kennungen für Bereich A&lt;br&gt;→ @x7k3j9p2:privat.post.gov.de&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=passive;archiType=square;spacingTop=10;" parent="1" vertex="1">
+          <mxGeometry x="535" y="250" width="185" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-10" value="Zuordnungsdienst&lt;br&gt;Bereich B" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" parent="1" vertex="1">
+          <mxGeometry x="770" y="250" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-11" value="Zuordnung Bereich B&lt;br&gt;&lt;i style=&#39;font-size:11px&#39;&gt;Kennungen für Bereich B&lt;br&gt;→ @m4q8r1t6:privat.post.gov.de&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=passive;archiType=square;spacingTop=10;" parent="1" vertex="1">
+          <mxGeometry x="960" y="250" width="185" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-12" value="Postfach-Backend für Privatpersonen" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" parent="1" vertex="1">
+          <mxGeometry x="345" y="460" width="790" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-13" value="Konten&lt;br&gt;&lt;i style=&#39;font-size:11px&#39;&gt;@x7k3j9p2:privat.post.gov.de&lt;br&gt;@m4q8r1t6:privat.post.gov.de&lt;br&gt;ohne Kennungen der Authentisierungssysteme&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=passive;archiType=square;spacingTop=10;" parent="1" vertex="1">
+          <mxGeometry x="630" y="560" width="250" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-14" value="Betreibt diese Stelle auch die Zuordnungsdienste, darf sie nicht zugleich die BundID betreiben." style="shape=note;size=14;whiteSpace=wrap;html=1;align=left;spacingLeft=6;fillColor=#ffffff;" parent="1" vertex="1">
+          <mxGeometry x="350" y="560" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-15" value="Privatperson" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.application;appType=actor;archiType=square;" parent="1" vertex="1">
+          <mxGeometry x="20" y="50" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-16" value="Zentraler Postfach-Zugang&lt;br&gt;&lt;i style=&#39;font-size:11px&#39;&gt;Sitzung je Bereichs-MXID&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" parent="1" vertex="1">
+          <mxGeometry x="20" y="460" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-17" value="Bereichsliste&lt;br&gt;&lt;i style=&#39;font-size:11px&#39;&gt;A → @x7k3j9p2:privat.post.gov.de&lt;br&gt;B → @m4q8r1t6:privat.post.gov.de&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=passive;archiType=square;spacingTop=10;" parent="1" vertex="1">
+          <mxGeometry x="20" y="570" width="200" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-18" value="Fachportal&lt;br&gt;Bereich A" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" parent="1" vertex="1">
+          <mxGeometry x="20" y="700" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="vLN0Rop7KSPFUIY4Xl2Q-1" target="vLN0Rop7KSPFUIY4Xl2Q-15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-20" value="Authentisierung" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];labelBackgroundColor=none;" parent="vLN0Rop7KSPFUIY4Xl2Q-19" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="0" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;exitX=0.1098;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="vLN0Rop7KSPFUIY4Xl2Q-1" target="vLN0Rop7KSPFUIY4Xl2Q-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-22" value="Kennungen nur&lt;br&gt;für Bereich A" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;" parent="vLN0Rop7KSPFUIY4Xl2Q-21" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="8" y="0" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;exitX=0.628;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="vLN0Rop7KSPFUIY4Xl2Q-1" target="vLN0Rop7KSPFUIY4Xl2Q-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-24" value="Kennungen nur&lt;br&gt;für Bereich B" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;" parent="vLN0Rop7KSPFUIY4Xl2Q-23" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="8" y="0" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 2;startArrow=open;startFill=0;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="vLN0Rop7KSPFUIY4Xl2Q-8" target="vLN0Rop7KSPFUIY4Xl2Q-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 2;startArrow=open;startFill=0;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="vLN0Rop7KSPFUIY4Xl2Q-10" target="vLN0Rop7KSPFUIY4Xl2Q-11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.0949;entryY=0;entryDx=0;entryDy=0;" parent="1" source="vLN0Rop7KSPFUIY4Xl2Q-8" target="vLN0Rop7KSPFUIY4Xl2Q-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-28" value="nur Bereichs-MXID" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;" parent="vLN0Rop7KSPFUIY4Xl2Q-27" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="8" y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.6329;entryY=0;entryDx=0;entryDy=0;" parent="1" source="vLN0Rop7KSPFUIY4Xl2Q-10" target="vLN0Rop7KSPFUIY4Xl2Q-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-30" value="nur Bereichs-MXID" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;" parent="vLN0Rop7KSPFUIY4Xl2Q-29" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="8" y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 2;startArrow=open;startFill=0;endArrow=open;endFill=0;exitX=0.519;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="vLN0Rop7KSPFUIY4Xl2Q-12" target="vLN0Rop7KSPFUIY4Xl2Q-13" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="vLN0Rop7KSPFUIY4Xl2Q-12" target="vLN0Rop7KSPFUIY4Xl2Q-16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;exitX=0;exitY=0.8333;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="vLN0Rop7KSPFUIY4Xl2Q-12" target="vLN0Rop7KSPFUIY4Xl2Q-18" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="275" y="510" />
+              <mxPoint x="275" y="730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 2;startArrow=open;startFill=0;endArrow=open;endFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="vLN0Rop7KSPFUIY4Xl2Q-16" target="vLN0Rop7KSPFUIY4Xl2Q-17" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="vLN0Rop7KSPFUIY4Xl2Q-16" target="vLN0Rop7KSPFUIY4Xl2Q-15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="vLN0Rop7KSPFUIY4Xl2Q-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="vLN0Rop7KSPFUIY4Xl2Q-18" target="vLN0Rop7KSPFUIY4Xl2Q-15" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="5" y="730" />
+              <mxPoint x="5" y="80" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

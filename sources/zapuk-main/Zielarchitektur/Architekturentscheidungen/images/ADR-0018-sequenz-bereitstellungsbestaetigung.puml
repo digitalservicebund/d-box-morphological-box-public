@@ -1,0 +1,38 @@
+@startuml
+
+participant "Absender\n(Postfach-Zugang)" as Alice
+participant "Postfach-Backend\n(Absender)" as SA
+participant "Postfach-Backend\n(Empfänger)" as SB
+participant "Quittungsdienst\n(Empfänger-Backend)" as Bot
+participant "Zeitstempeldienst\n(qualifiziert)" as Z
+participant "Empfänger\n(Postfach-Zugang)" as Bob
+
+Alice -> SA : verschlüsselte Nachricht\nan Empfänger
+SA -> SB : Föderation (Nachricht)
+SB --> SA :
+
+SB -> Bot : Event weiterleiten\n(Eingang im Machtbereich)
+Bot --> SB : Bestätigung (sofort)
+
+Bot -> Bot : Hash über den\nCiphertext bilden
+Bot -> Z : Zeitstempel anfordern\n(über Hash)
+Z --> Bot : qualifizierter Zeitstempel
+Bot -> Bot : Bereitstellungsbestätigung\nsiegeln (asynchron)
+Bot -> SB : Bereitstellungsbestätigung\n(unverschlüsseltes Event)
+
+SB -> SA : Föderation (Bereitstellungsbestätigung)
+SA --> SB :
+
+SA --> Alice : (via sync)
+SB --> Bob : (via sync)
+
+note right of Bot
+  Bereitstellungsbestätigung (ADR-0018):
+  - Referenz auf die Nachricht
+  - Empfängeradresse (MXID)
+  - Eingangszeitpunkt als qualifizierter Zeitstempel
+  - Hash über den Ciphertext
+  - fortgeschrittenes Siegel des Betreibers
+    (Siegelzertifikat im SSP registriert, ADR-1144)
+end note
+@enduml

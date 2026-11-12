@@ -1,0 +1,45 @@
+@startuml
+|Organisation bzw. Betreiber|
+start
+:Anmeldung über das Org-Konto,
+Anschlussbedingungen annehmen;
+|Self-Service-Portal|
+:Organisation automatisch
+prüfen und registrieren
+(Opt-in für die Adressierbarkeit);
+|Organisation bzw. Betreiber|
+if (eigenes Postfach-Backend?
+(Betriebsmodell C)) then (ja)
+  :je Backend Domain und
+  Schlüssel registrieren;
+  |Self-Service-Portal|
+  :Kontrolle der Domain und
+  Besitz der Schlüssel
+  automatisch prüfen;
+  |Zuständige Stelle|
+  :manuelle Freigabe;
+  |Self-Service-Portal|
+  :Backend in die Föderationsliste
+  aufnehmen, bei zentralen Backends
+  auch die Nachweisstelle
+  in die Trust-Liste;
+else (nein)
+endif
+|Organisation bzw. Betreiber|
+:Funktionspostfächer und Adressen
+im zentralen oder eigenen
+Postfach-Backend einrichten;
+if (eigene Systeme?
+(Betriebsmodell B, C)) then (ja)
+  :RMS, Fachverfahren und ggf.
+  Org-IdP-Adapter registrieren;
+  |Self-Service-Portal|
+  :Org-IdP-Adapter ohne Freigabe
+  in die Trust-Liste aufnehmen;
+else (nein)
+endif
+|Self-Service-Portal|
+:aktive Adressen im
+Adressregister gelistet;
+stop
+@enduml

@@ -1,0 +1,44 @@
+@startuml
+actor "Privatperson" as P
+participant "Postfach-Zugang" as C
+participant "Postfach-Backend" as B
+participant "Zuordnungsdienst\nBereich A" as Z
+participant "BundID" as BI
+participant "eID-Server" as E
+
+== Erste Anmeldung im Bereich A ==
+P -> C : Behörde im Bereich A anschreiben
+C -> C : Bereich der Behörde ermitteln\n(Adressregister-Abfrage)
+C -> B : Anmeldung starten
+B -> Z : Weiterleitung zum Zuordnungsdienst
+Z -> BI : Authentifizierung anfordern\n(Dienst des Bereichs A)
+BI --> Z : bPK2 für Bereich A
+Z -> P : Kennung unbekannt, Verknüpfung\nmit bestehendem Postfach anbieten
+P --> Z : kein Postfach im Bereich A,\nneues anlegen
+Z -> Z : zufällige Bereichs-MXID erzeugen\nund bPK2 zuordnen
+Z --> B : nur Bereichs-MXID
+B --> C : Sitzung für die Bereichs-MXID
+C -> C : Bereich A und Bereichs-MXID\nin der Bereichsliste speichern
+
+== Weiteres Authentisierungssystem verknüpfen ==
+P -> C : eID verknüpfen
+C -> Z : Verknüpfung anfordern\n(angemeldet mit der Bereichs-MXID)
+Z -> E : Restricted ID anfordern\n(Berechtigungszertifikat des Bereichs A)
+E --> Z : Restricted ID für Bereich A
+Z -> Z : Restricted ID der\nbestehenden Bereichs-MXID zuordnen
+
+== Spätere Anmeldung mit der eID ==
+P -> C : Postfach für Bereich A öffnen,\netwa auf einem weiteren Gerät
+C -> B : Anmeldung starten
+B -> Z : Weiterleitung zum Zuordnungsdienst
+Z -> E : Restricted ID anfordern
+E --> Z : Restricted ID für Bereich A
+Z -> Z : Kennung bekannt,\nBereichs-MXID ermitteln
+Z --> B : nur Bereichs-MXID
+B --> C : Sitzung für dieselbe Bereichs-MXID
+
+note over B
+  Das Postfach-Backend erfährt keine
+  Kennungen der Authentisierungssysteme.
+end note
+@enduml

@@ -1,0 +1,11 @@
+citizen -> frontend_ios
+frontend_ios -> matrix_multi.citizens.c2s "Structured communication" "Matrix C2S API"
+matrix_multi.citizens_mas -> citizens_bundid_proxy "Upstream IdP" "OIDC"
+citizens_bundid_proxy.bundid_extension -> auth "Upstream IdP" "SAML"
+auth -> citizen "Request credentials"
+citizen -> auth "Provide credentials" "HTTPS"
+auth -> citizens_bundid_proxy.bundid_extension "Return authentication response" "SAML"
+citizens_bundid_proxy -> matrix_multi.citizens_mas "Return authentication response" "OIDC"
+matrix_multi.citizens_mas -> matrix_multi.citizens_mas "Verify Keycloak authentication response" "OIDC"
+matrix_multi.citizens_mas -> matrix_multi.citizens_mas "Create Matrix account with bPK2 as localpart"
+matrix_multi.citizens_mas -> frontend_ios "Grant access_token" "Matrix C2S API"

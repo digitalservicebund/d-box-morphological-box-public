@@ -1,0 +1,29 @@
+@startuml
+participant "Absender\n(Postfach-Zugang)" as C
+participant "Authentisierungssystem\n(BundID, Org-Konto,\ninternes IAM)" as Q
+participant "Nachweisstelle\n(zentral oder\nOrg-IdP-Adapter)" as N
+participant "Postfach-Backends" as B
+participant "Empfänger\n(Postfach-Zugang)" as E
+participant "Trust-Liste" as T
+
+== Ausstellung (Option C) ==
+C -> N : Identitätsnachweis anfordern
+N -> Q : Authentisierung weiterleiten
+Q --> N : Assertion mit Vertrauensniveau
+C -> N : Besitz des Schlüssels nachweisen\n(Schlüsselidentität der MXID)
+N --> C : Identitätsnachweis mit Pseudonym\nbzw. Organisation, Vertrauensniveau\nund Ausstellungszeitpunkt,\ngebunden an den Schlüssel
+
+== Übermittlung ==
+C -> C : Nachweis an den Vorgangsraum\nbinden und mit der Nachricht\nverschlüsseln
+C -> B : verschlüsselte Nachricht mit Nachweis
+B -> E : verschlüsselte Nachricht mit Nachweis
+E -> E : entschlüsseln
+E -> T : Schlüssel und Status der\nNachweisstellen abrufen
+T --> E : signierte Trust-Liste
+E -> E : Nachweis prüfen\n(Nachweisstelle zugelassen,\nBindung an den Schlüssel des Absenders,\ngültig zum Versandzeitpunkt)
+
+== Zielbild Option A, Privatperson an Behörde ==
+C -> E : Authentisierung mit eID oder\nEUDI-Wallet direkt bei der Behörde
+E -> E : Identität an die Schlüsselidentität\nder Bereichs-MXID binden\n(Key Verification Framework)
+note over N, T : ohne Nachweisstelle und Trust-Liste\n(Behörde betreibt Wallet-Adapter oder eID-Server)
+@enduml

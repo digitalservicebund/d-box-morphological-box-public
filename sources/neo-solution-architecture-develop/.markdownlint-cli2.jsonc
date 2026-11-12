@@ -1,0 +1,47 @@
+// SPDX-FileCopyrightText: 2025, 2026 FITKO (Föderale IT-Kooperation)
+//
+// SPDX-License-Identifier: CC0-1.0
+
+{
+  "config": {
+    // we can override default rules value in this section
+    "MD003": { // heading-style
+      "style": "atx"
+    },
+    "MD013": { // line-length
+      "line_length": 500,
+      "code_blocks": false,
+      "tables": false
+    },
+    "MD024": {
+      "siblings_only": true
+    },
+    "MD060": { // table-column-style
+      "style": "compact",
+      "aligned_delimiter": true
+    }
+  },
+
+  // allow the ADR frontmatter (REUSE header followed by YAML frontmatter)
+  "frontMatter": [
+    "^(<!--[\\s\\S]*?-->\\s*)?(---[\\s\\S]*?---\\s*)?"
+  ],
+  "gitignore": true,
+
+  "ignores": [
+    ".gitlab/**/*.md",
+    "architecture_decisions/templates/*.md",
+    "CHANGELOG.md"
+  ],
+
+  // Disable banner message on stdout (only valid at root)
+  "noBanner": true,
+
+  // Disable progress on stdout (only valid at root)
+  "noProgress": true,
+
+  // Use a specific formatter (only valid at root)
+  "outputFormatters": [
+    [ "markdownlint-cli2-formatter-default" ]
+  ]
+}

@@ -1,0 +1,22 @@
+@startuml
+participant "Antragstellende\nOrganisation" as O
+participant "Fachverfahren\n(Behörde)" as F
+participant "Postfach-Backend der\nRückantwortadresse\n(Profilschnittstelle)" as B
+participant "Föderationsliste" as L
+
+O -> F : Antrag mit Rückantwortadresse\nund Identitätsnachweis (ADR-1106)
+F -> B : Profil der Rückantwortadresse abfragen
+B --> F : signierter Registereintrag\n(Adresse, Organisationsidentität,\nStatus, Registrierungszeitpunkt,\nbei öffentlichen Stellen Bereich)
+F -> L : Eintrag des Backends abfragen
+L --> F : Domain, Inhaber und\nSchlüssel des Backends
+F -> F : Signatur des Registereintrags prüfen
+F -> F : bei dezentralen Backends prüfen,\nob die Organisation zur Domain gehört
+F -> F : Organisationsidentität mit der\nantragstellenden Organisation abgleichen
+F -> F : Status prüfen
+
+alt Prüfung erfolgreich
+  F -> B : Antwort an die Rückantwortadresse
+else Prüfung fehlgeschlagen
+  F -> F : keine Übermittlung an diese Adresse
+end
+@enduml
