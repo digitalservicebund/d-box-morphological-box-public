@@ -6,16 +6,23 @@ This file is meant to be shared across a small engineering team and used as a so
 
 `sources.md` contains the main pointers to call in context on demand.
 
+## Format check
+
+The technical CSV format is enforced by `tools/check_csv/check_csv.sh` (run automatically as a lefthook pre-commit hook). It checks: UTF-8 without BOM, consistent line endings, comma delimiter, balanced quoting, exact header and column count, `Auswahl` values, no gaps between `Ausprägung` cells, and no Markdown in cell values.
+
+Run it after every edit:
+
+```sh
+tools/check_csv/check_csv.sh
+```
+
 ## Core rules
 
 - Work primarily in `morph_box.csv`.
-- Preserve the CSV as valid UTF-8 encoded text.
-- Preserve the exact column order and header names.
 - Do not reorder rows unless explicitly requested.
 - Keep the original row numbering and labels unless there is a clear, explicit task to change them.
 - Preserve the German language and domain terminology already used in the table.
-- Keep the table machine-readable: no markdown tables, no prose inserted into the CSV, no extra columns.
-- Output strictly plain text inside the CSV cells. Do not use Markdown formatting (for example, `**bold**`, `*italics*`, or bullet lists) inside the cell values.
+- Keep the table machine-readable: no prose inserted into the CSV outside of cells.
 
 ## CSV schema
 
@@ -34,14 +41,7 @@ Meaning of columns:
 - `Was wird hier entschieden`: explanatory text describing the decision dimension
 - `Ausprägung 1` ... `Ausprägung 8`: possible values / variants for that dimension
 
-Important:
-
-- Empty cells are valid and should remain empty.
-- Trailing empty values may be left blank.
-- Do not insert new columns.
-- Do not rename columns.
-- Strictly use a comma (`,`) as the column delimiter, never a semicolon (`;`).
-- Do not convert the CSV into Excel-specific formatting or other locale-specific output.
+Empty cells are valid and should remain empty.
 
 ## Editing policy
 
@@ -52,19 +52,14 @@ When changing values:
 - If a row's meaning is corrected or clarified, do so in the same style as the existing document.
 - Preserve punctuation, capitalization, and wording wherever possible.
 - If adding a new option, place it in the next available `Ausprägung N` slot and leave unused trailing cells empty.
-- If removing an option, do not leave dangling commas or malformed quoting; retain valid CSV syntax.
+- If removing an option, shift the following options left so no gap remains.
 
 ## Miro import/export compatibility
 
 Because this repository is used to move content between the CSV and Miro, the CSV must remain import-friendly:
 
-- Use plain CSV quoting rules with double quotes around values that contain commas.
-- Preserve embedded commas, quotes, and apostrophes correctly.
-- If a cell value requires line breaks, the entire cell value MUST be wrapped in double quotes.
-- Do not wrap the entire file in markdown fences or add comments inside the CSV.
-- Keep newline handling stable; standard LF or CRLF is acceptable as long as the file remains valid CSV.
-- Strictly use a comma (`,`) as the column delimiter, never a semicolon (`;`).
-- Avoid locale-specific formatting such as decimal separators, date formatting, or semicolon-based CSV.
+- Do not add comments inside the CSV.
+- Avoid locale-specific formatting such as decimal separators or date formatting.
 
 ## Safe AI workflow
 
@@ -77,10 +72,7 @@ Before editing:
 
 After editing:
 
-1. Verify the CSV still parses as valid CSV.
-2. Verify headers and column count remain unchanged.
-3. Ensure quotes are balanced and no rows are malformed.
-4. Keep the file easy to import into Miro without manual cleanup.
+1. Run `tools/check_csv/check_csv.sh` and fix all reported errors.
 
 ## What not to do
 
@@ -90,7 +82,6 @@ After editing:
 - Do not convert text to English unless explicitly requested.
 - Do not create new files unless clearly needed for a workflow helper.
 - Do not add secrets, credentials, or environment-specific config to the repository.
-- Do not use Markdown formatting inside cell values.
 
 ## When in doubt
 

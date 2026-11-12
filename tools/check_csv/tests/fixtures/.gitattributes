@@ -1,0 +1,5 @@
+# Fixtures enthalten absichtlich BOM, CRLF und ungültiges UTF-8.
+# Git darf daran nichts verändern.
+* -text -diff
+.gitattributes text
+.editorconfig text

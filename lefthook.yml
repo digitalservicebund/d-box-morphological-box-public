@@ -1,0 +1,12 @@
+pre-commit:
+  commands:
+    check-csv:
+      glob: "*.csv"
+      exclude:
+        - "tools/check_csv/tests/fixtures/**"
+      run: tools/check_csv/check_csv.sh {staged_files}
+
+pre-push:
+  commands:
+    test-check-csv:
+      run: tools/check_csv/tests/run_tests.sh

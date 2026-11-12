@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+# Tests für check_csv.sh.
+#
+# Testdaten liegen in fixtures/:
+#   good/<name>.csv       muss vom Checker als OK akzeptiert werden
+#   bad/<name>.csv        muss vom Checker abgelehnt werden
+#   bad/<name>.expected   Text, der in der Fehlermeldung vorkommen muss
+#
+# Neuer Testfall: Datei in good/ oder bad/ anlegen (bei bad/ mit .expected).
+# Die Fixtures enthalten absichtlich kaputte Bytes (BOM, CRLF, ungültiges
+# UTF-8); .gitattributes und .editorconfig in fixtures/ schützen sie davor,
+# von Git oder Editoren verändert zu werden.
+#
+# Aufruf:  tools/check_csv/tests/run_tests.sh
+
+set -uo pipefail
+
+tests_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+checker="$tests_dir/../check_csv.sh"
+fixtures="$tests_dir/fixtures"
+
+pass=0
+fail=0
+
+ok()   { pass=$((pass + 1)); printf '  ok    %s\n' "$1"; }
+nok()  { fail=$((fail + 1)); printf '  FAIL  %s: %s\n' "$1" "$2"; }
+
+expect_ok() {
+  local name="$1" file="$2" out
+  if out=$("$checker" "$file" 2>&1); then ok "$name"
+  else nok "$name" "erwartet OK, bekam:"$'\n'"$out"; fi
+}
+
+expect_error() {
+  local name="$1" file="$2" msg="$3" out
+  if out=$("$checker" "$file" 2>&1); then nok "$name" "erwartet Fehler \"$msg\", bekam OK"
+  elif [[ "$out" != *"$msg"* ]]; then nok "$name" "erwartet Fehler \"$msg\", bekam:"$'\n'"$out"
+  else ok "$name"; fi
+}
+
+printf 'Echte Datei\n'
+expect_ok morph_box "$tests_dir/../../../morph_box.csv"
+expect_error datei_fehlt "$fixtures/gibt_es_nicht.csv" "Datei nicht gefunden"
+
+printf '\nMehrere Dateien in einem Aufruf\n'
+# Ein Fehler in einer Datei muss den Gesamtaufruf scheitern lassen,
+# egal ob die fehlerhafte Datei zuerst oder zuletzt geprüft wird.
+expect_multi() {
+  local name="$1" msg="$2" out
+  shift 2
+  if out=$("$checker" "$@" 2>&1); then nok "$name" "erwartet Fehler \"$msg\", bekam OK"
+  elif [[ "$out" != *"$msg"* ]]; then nok "$name" "erwartet Fehler \"$msg\", bekam:"$'\n'"$out"
+  else ok "$name"; fi
+}
+expect_multi mehrere_schlecht_zuerst "UTF-8-BOM" "$fixtures/bad/bom.csv" "$fixtures/good/nur_lf.csv"
+expect_multi mehrere_schlecht_zuletzt "UTF-8-BOM" "$fixtures/good/nur_lf.csv" "$fixtures/bad/bom.csv"
+if out=$("$checker" "$fixtures/good/nur_lf.csv" "$fixtures/good/nur_crlf.csv" 2>&1); then ok mehrere_gut
+else nok mehrere_gut "erwartet OK, bekam:"$'\n'"$out"; fi
+
+printf '\nGute Daten (fixtures/good)\n'
+for file in "$fixtures"/good/*.csv; do
+  expect_ok "$(basename "$file" .csv)" "$file"
+done
+
+printf '\nSchlechte Daten (fixtures/bad)\n'
+for file in "$fixtures"/bad/*.csv; do
+  name="$(basename "$file" .csv)"
+  expected="${file%.csv}.expected"
+  if [[ ! -f "$expected" ]]; then
+    nok "$name" "fehlende Datei bad/$name.expected"
+    continue
+  fi
+  expect_error "$name" "$file" "$(<"$expected")"
+done
+
+for expected in "$fixtures"/bad/*.expected; do
+  [[ -f "${expected%.expected}.csv" ]] || nok "$(basename "$expected")" "zugehörige .csv fehlt"
+done
+
+printf '\n%d bestanden, %d fehlgeschlagen\n' "$pass" "$fail"
+[[ $fail -eq 0 ]]
