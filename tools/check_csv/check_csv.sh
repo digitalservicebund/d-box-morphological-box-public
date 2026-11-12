@@ -1,0 +1,162 @@
+#!/usr/bin/env bash
+# Prüft das Format von morph_box.csv (bzw. der übergebenen CSV-Dateien).
+#
+# Geprüft wird:
+#   - Kodierung: gültiges UTF-8, kein BOM
+#   - Zeilenenden: einheitlich LF oder CRLF, keine Leerzeilen
+#   - CSV-Syntax: Komma als Trennzeichen, korrekt balancierte Anführungszeichen,
+#     Zeilenumbrüche nur in quotierten Zellen
+#   - Header: exakte Spaltennamen und Reihenfolge
+#   - Spaltenanzahl: jede Zeile hat genau so viele Spalten wie der Header
+#   - Spalte "Zeile": nicht leer
+#   - Spalte "Auswahl": nur "exklusiv" oder "Bündel"
+#   - Ausprägungen: keine Lücken (belegte Zelle nach leerer Zelle)
+#   - Zellinhalte: kein Markdown (**fett**, *kursiv*, __, `code`, [Link](url),
+#     Aufzählungen, Überschriften)
+#
+# Aufruf:  tools/check_csv/check_csv.sh [datei.csv ...]
+# Ohne Argument wird morph_box.csv im Repository-Root geprüft.
+# Exit-Code 0 = alles in Ordnung, 1 = Formatfehler gefunden.
+
+set -euo pipefail
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [[ $# -eq 0 ]]; then
+  set -- "$script_dir/../../morph_box.csv"
+fi
+
+expected_header='Zeile|Auswahl|Was wird hier entschieden|Ausprägung 1|Ausprägung 2|Ausprägung 3|Ausprägung 4|Ausprägung 5|Ausprägung 6|Ausprägung 7|Ausprägung 8'
+
+status=0
+
+check_file() {
+  local file="$1"
+  local errors=0
+
+  if [[ ! -f "$file" ]]; then
+    echo "$file: Datei nicht gefunden" >&2
+    return 1
+  fi
+
+  # Kodierung
+  if ! iconv -f UTF-8 -t UTF-8 "$file" >/dev/null 2>&1; then
+    echo "$file: kein gültiges UTF-8" >&2
+    errors=$((errors + 1))
+  fi
+  if [[ "$(head -c 3 "$file" | od -An -tx1 | tr -d ' \n')" == "efbbbf" ]]; then
+    echo "$file: enthält ein UTF-8-BOM (bitte ohne BOM speichern)" >&2
+    errors=$((errors + 1))
+  fi
+
+  # Zeilenenden: entweder alle CRLF oder alle LF
+  local total crlf
+  total=$(grep -c '' "$file" || true)
+  crlf=$(grep -c $'\r$' "$file" || true)
+  if [[ "$crlf" -ne 0 && "$crlf" -ne "$total" ]]; then
+    echo "$file: gemischte Zeilenenden (LF und CRLF)" >&2
+    errors=$((errors + 1))
+  fi
+
+  # CSV-Struktur und Inhalte
+  if ! awk -v file="$file" -v expected="$expected_header" '
+    BEGIN {
+      ncols = split(expected, hdr, "|")
+      errs = 0; rec = 0; nf = 0; buf = ""
+      in_q = 0; was_q = 0; after_q = 0; bad = 0
+    }
+    function err(line, msg) {
+      printf "%s:%d: %s\n", file, line, msg > "/dev/stderr"
+      errs++
+    }
+    function flush_field() {
+      nf++; f[nf] = buf
+      buf = ""; was_q = 0; after_q = 0
+    }
+    function is_markdown(s) {
+      if (s ~ /\*\*/ || s ~ /__/ || s ~ /`/) return 1
+      if (s ~ /\[[^]]*\]\([^)]*\)/) return 1
+      if (s ~ /(^|[ \n(])\*[^ *\n][^*\n]*\*/) return 1
+      if (s ~ /(^|\n)[ \t]*[-*+][ \t]/) return 1
+      if (s ~ /(^|\n)#+[ \t]/) return 1
+      return 0
+    }
+    function check_record(   i, gap) {
+      rec++
+      if (bad) return
+      if (nf != ncols) {
+        err(start, "erwartet " ncols " Spalten, gefunden " nf " (Trennzeichen muss \",\" sein)")
+        return
+      }
+      if (rec == 1) {
+        for (i = 1; i <= ncols; i++)
+          if (f[i] != hdr[i])
+            err(start, "Header Spalte " i ": erwartet \"" hdr[i] "\", gefunden \"" f[i] "\"")
+        return
+      }
+      if (f[1] == "") err(start, "Spalte \"Zeile\" ist leer")
+      if (f[2] != "exklusiv" && f[2] != "Bündel")
+        err(start, "Spalte \"Auswahl\" muss \"exklusiv\" oder \"Bündel\" sein, gefunden \"" f[2] "\"")
+      gap = 0
+      for (i = 4; i <= ncols; i++) {
+        if (f[i] == "") gap = i
+        else if (gap) { err(start, "Lücke: \"" hdr[gap] "\" ist leer, aber \"" hdr[i] "\" ist belegt"); break }
+      }
+      for (i = 1; i <= ncols; i++)
+        if (is_markdown(f[i]))
+          err(start, "Markdown-Formatierung in Spalte \"" hdr[i] "\"")
+    }
+    {
+      sub(/\r$/, "")
+      if (!in_q) {
+        start = NR; nf = 0; bad = 0
+        if ($0 == "") { err(NR, "Leerzeile"); next }
+      }
+      n = length($0)
+      for (i = 1; i <= n; i++) {
+        c = substr($0, i, 1)
+        if (in_q) {
+          if (c == "\"") {
+            if (substr($0, i + 1, 1) == "\"") { buf = buf "\""; i++ }
+            else { in_q = 0; after_q = 1 }
+          } else buf = buf c
+        } else if (c == ",") {
+          flush_field()
+        } else if (after_q) {
+          if (!bad) {
+            if (c == ";") err(NR, "Semikolon als Trennzeichen gefunden, erlaubt ist nur \",\"")
+            else err(NR, "Zeichen nach schließendem Anführungszeichen (Quote nicht verdoppelt?)")
+          }
+          bad = 1; buf = buf c
+        } else if (c == "\"") {
+          if (buf == "" && !was_q) { in_q = 1; was_q = 1 }
+          else {
+            if (!bad) err(NR, "Anführungszeichen in nicht quotierter Zelle")
+            bad = 1; buf = buf c
+          }
+        } else buf = buf c
+      }
+      if (in_q) { buf = buf "\n"; next }
+      flush_field()
+      check_record()
+    }
+    END {
+      if (in_q) err(start, "Anführungszeichen nicht geschlossen (Datensatz beginnt hier)")
+      if (NR == 0) err(1, "Datei ist leer")
+      exit errs > 0
+    }
+  ' "$file"; then
+    errors=$((errors + 1))
+  fi
+
+  if [[ $errors -eq 0 ]]; then
+    echo "$file: OK"
+    return 0
+  fi
+  return 1
+}
+
+for file in "$@"; do
+  check_file "$file" || status=1
+done
+
+exit $status
