@@ -4,6 +4,8 @@ This repository stores a single CSV file, `morph_box.csv`, that represents a mor
 
 This file is meant to be shared across a small engineering team and used as a source for import/export into Miro and other lightweight tooling. AI agents must treat it as a structured data artifact, not as free-form prose.
 
+`sources.md` contains the main pointers to call in context on demand.
+
 ## Core rules
 
 - Work primarily in `morph_box.csv`.

@@ -16,7 +16,7 @@ Context: `morph_box.csv` is the morphological box for the d-box (central, bi-dir
 
 Mirror of the openCode repo ZaPuK. Document repo, no code. Target architecture for the federal mailbox and communication infrastructure (G2C/G2B, Bescheide, Rückfragen). It is meant to consolidate BundID-Postfach, ZBP, MJP, OZG-Plus-Postfach, TI-Messenger, BundesMessenger, EGVP and others.
 
-Core stance: hybrid, federated architecture. Matrix as Kommunikationsschicht (ADR-0011). MLS for E2EE (ADR-0012). One central Postfach-Backend and one central Zugang, plus openness for third parties. Self-Service-Portal and SDKs. No bridges to third-party systems (ADR-0010).
+Core stance: hybrid, federated architecture. Matrix as Kommunikationsschicht (ADR-0011). MLS for E2EE (ADR-0012). One central Postfach-Backend and one central Zugang, plus openness for third parties. Self-Service-Portal and SDKs. No messaging bridges for existing systems; they must migrate to Matrix and MLS (Architekturkonzept 3.2). Interoperability with systems outside the scope, e.g. EU systems, only via Protocol Converters that keep E2EE (ADR-0010).
 
 Status caveat: `Zielarchitektur/Architekturkonzept` and `Zusammenfassung` reflect v1.0 (summer 2025). The ADRs from 1100 onward are more current (Sep-Nov 2026).
 
@@ -43,7 +43,7 @@ Status caveat: `Zielarchitektur/Architekturkonzept` and `Zusammenfassung` reflec
 |---|---|
 | Topologie, Betrieb, Bereitstellung | 0001, 0002, 0003, 0004, 0005, 0006, 0007, 1103 (Betriebsmodelle Mehrbenutzer-Organisationen), 1114 (getrennter Betrieb nach Teilnehmendengruppen) |
 | Anbindung, Onboarding | 0008 (Self-Service-Portal), 0009 (SDKs), 1145 (Anschlussbedingungen, Föderationskontrolle), 1148 (Onboarding im SSP) |
-| Interoperabilität / Bestandssysteme | 0010 (Bridge, Protocol Converter, none, full standardization) |
+| Interoperabilität / Bestandssysteme | 0010 (Bridge, Protocol Converter, none, full standardization; chosen: Protocol Converter). Bridge ban and Channel Adapter for existing systems: Architekturkonzept 3.2 |
 | Protokoll, Verschlüsselung | 0011 (Matrix), 0012 (MLS/E2EE), 1100, 1101, 1147 (Schlüsselwiederherstellung), 1144 (PKI) |
 | Identität, Authentizität | 0013-0017, 1106-1108, 1110 (Entkopplung Nutzerkonto und Postfach), 1146 (EUDI-Wallet) |
 | Adressierung | 1104 (MXID, Domain-Governance), 1105 (pseudonyme Adressen), 1111 (organisationsbezogene Adressen) |
