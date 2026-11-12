@@ -1,20 +1,22 @@
 # AGENTS.md
 
-This repository stores a single CSV file, `morph_box.csv`, that represents a morphological box used for decision-making and stakeholder discussion.
+This repository stores a morphological box in `morph_box.csv` and a comparison of existing solutions in `existing_solutions.csv`. They support decision-making and stakeholder discussion.
 
-This file is meant to be shared across a small engineering team and used as a source for import/export into Miro and other lightweight tooling. AI agents must treat it as a structured data artifact, not as free-form prose.
+These files are meant to be shared across a small engineering team and used with Miro and other lightweight tooling. AI agents must treat them as structured data artifacts, not as free-form prose.
 
 `sources.md` contains the main pointers to call in context on demand.
 
 ## Format check
 
-The technical CSV format is enforced by `tools/check_csv/check_csv.sh` (run automatically as a lefthook pre-commit hook). It checks: UTF-8 without BOM, consistent line endings, comma delimiter, balanced quoting, exact header and column count, `Auswahl` values, no gaps between `Ausprägung` cells, and no Markdown in cell values.
+The technical format of both CSV files is enforced by `tools/check_csv/check_csv.sh` (run automatically as a lefthook pre-commit hook). It checks UTF-8 without BOM, consistent line endings, CSV syntax, column count and Markdown. For `morph_box.csv`, it also checks the exact header, `Auswahl` values and gaps between `Ausprägung` cells. For `existing_solutions.csv`, it checks the `Zeile` header and nonempty, unique solution names.
 
 Run it after every edit:
 
 ```sh
 tools/check_csv/check_csv.sh
 ```
+
+Pass `existing_solutions.csv` explicitly to check it; the default is `morph_box.csv`.
 
 ## Core rules
 
@@ -42,6 +44,14 @@ Meaning of columns:
 - `Ausprägung 1` ... `Ausprägung 8`: possible values / variants for that dimension
 
 Empty cells are valid and should remain empty.
+
+## Existing solutions
+
+`existing_solutions.csv` compares existing German and international solutions against the dimensions in `morph_box.csv`. Its first column, `Zeile`, contains the same dimension labels in the same order as the morphological box; each subsequent column represents one solution or country. Each cell describes how that solution addresses the dimension, potentially including qualifications or several aspects. It is not required to reproduce an `Ausprägung` verbatim.
+
+Keep all solution columns and existing information when aligning dimensions, unless explicitly asked otherwise. When dimensions change, move or combine information only where it fits the current dimension. Leave cells for new dimensions empty unless an existing value or the current morphological box makes the assignment unambiguous. An empty cell means no assignment is recorded, not necessarily that the solution lacks the feature; preserve explicit uncertainty such as `?`.
+
+The file has its own CSV schema, not the `Auswahl` and `Ausprägung` columns of `morph_box.csv`. Maintain valid UTF-8 CSV with a consistent column count and verify its dimension labels and order against `morph_box.csv` after changes.
 
 ## Editing policy
 

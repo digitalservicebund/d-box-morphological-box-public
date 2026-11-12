@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
-# Prüft das Format von morph_box.csv (bzw. der übergebenen CSV-Dateien).
+# Prüft morph_box.csv und existing_solutions.csv (bzw. übergebene CSV-Dateien).
 #
 # Geprüft wird:
 #   - Kodierung: gültiges UTF-8, kein BOM
 #   - Zeilenenden: einheitlich LF oder CRLF, keine Leerzeilen
 #   - CSV-Syntax: Komma als Trennzeichen, korrekt balancierte Anführungszeichen,
 #     Zeilenumbrüche nur in quotierten Zellen
-#   - Header: exakte Spaltennamen und Reihenfolge
+#   - Header: je nach Datei exakte Spaltennamen oder eindeutige Lösungsnamen
 #   - Spaltenanzahl: jede Zeile hat genau so viele Spalten wie der Header
 #   - Spalte "Zeile": nicht leer
-#   - Spalte "Auswahl": nur "exklusiv" oder "Bündel"
-#   - Ausprägungen: keine Lücken (belegte Zelle nach leerer Zelle)
+#   - morph_box.csv: gültige "Auswahl" und keine Lücken in Ausprägungen
 #   - Zellinhalte: kein Markdown (**fett**, *kursiv*, __, `code`, [Link](url),
 #     Aufzählungen, Überschriften)
 #
@@ -30,8 +29,12 @@ expected_header='Zeile|Auswahl|Was wird hier entschieden|Ausprägung 1|Ausprägu
 status=0
 
 check_file() {
-  local file="$1"
+  local file="$1" schema=morph
   local errors=0
+
+  if [[ "$(basename "$file")" == "existing_solutions.csv" ]]; then
+    schema=solutions
+  fi
 
   if [[ ! -f "$file" ]]; then
     echo "$file: Datei nicht gefunden" >&2
@@ -58,7 +61,7 @@ check_file() {
   fi
 
   # CSV-Struktur und Inhalte
-  if ! awk -v file="$file" -v expected="$expected_header" '
+  if ! awk -v file="$file" -v expected="$expected_header" -v schema="$schema" '
     BEGIN {
       ncols = split(expected, hdr, "|")
       errs = 0; rec = 0; nf = 0; buf = ""
@@ -83,6 +86,18 @@ check_file() {
     function check_record(   i, gap) {
       rec++
       if (bad) return
+      if (schema == "solutions" && rec == 1) {
+        ncols = nf
+        if (f[1] != "Zeile") err(start, "Header Spalte 1: erwartet \"Zeile\", gefunden \"" f[1] "\"")
+        if (ncols < 2) err(start, "Header benötigt mindestens eine Lösungsspalte")
+        for (i = 1; i <= ncols; i++) {
+          hdr[i] = f[i]
+          if (i > 1 && f[i] == "") err(start, "Header Spalte " i " ist leer")
+          if (i > 1 && f[i] != "" && seen[f[i]]++) err(start, "doppelter Header: \"" f[i] "\"")
+          if (is_markdown(f[i])) err(start, "Markdown-Formatierung in Header Spalte " i)
+        }
+        return
+      }
       if (nf != ncols) {
         err(start, "erwartet " ncols " Spalten, gefunden " nf " (Trennzeichen muss \",\" sein)")
         return
@@ -94,12 +109,14 @@ check_file() {
         return
       }
       if (f[1] == "") err(start, "Spalte \"Zeile\" ist leer")
-      if (f[2] != "exklusiv" && f[2] != "Bündel")
-        err(start, "Spalte \"Auswahl\" muss \"exklusiv\" oder \"Bündel\" sein, gefunden \"" f[2] "\"")
-      gap = 0
-      for (i = 4; i <= ncols; i++) {
-        if (f[i] == "") gap = i
-        else if (gap) { err(start, "Lücke: \"" hdr[gap] "\" ist leer, aber \"" hdr[i] "\" ist belegt"); break }
+      if (schema == "morph") {
+        if (f[2] != "exklusiv" && f[2] != "Bündel")
+          err(start, "Spalte \"Auswahl\" muss \"exklusiv\" oder \"Bündel\" sein, gefunden \"" f[2] "\"")
+        gap = 0
+        for (i = 4; i <= ncols; i++) {
+          if (f[i] == "") gap = i
+          else if (gap) { err(start, "Lücke: \"" hdr[gap] "\" ist leer, aber \"" hdr[i] "\" ist belegt"); break }
+        }
       }
       for (i = 1; i <= ncols; i++)
         if (is_markdown(f[i]))
