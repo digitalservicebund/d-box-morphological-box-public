@@ -23,7 +23,7 @@
 
 | Alt | Neu | Änderung |
 |---|---|---|
-| 1a Anbindung von Fachverfahren | B1 Anbindung von Fachverfahren | unverändert |
+| 1a Anbindung von Fachverfahren | B1 Anbindung von Fachverfahren | Channel Adapter präzisiert |
 | 1b Allgemeines Behörden-Postfach | B2 Zugang ohne Fachverfahren | umbenannt |
 | 2 Adressierung von Personen oder Organisationen | B3 Adressierung der Person / Organisation | umbenannt |
 | 11 Nachrichtenmodus und Format | B4 Inhalt an die Person / Organisation + Ü1 Modus | geteilt |
@@ -45,12 +45,14 @@
 
 ### Behörde
 
+- **B1 Anbindung von Fachverfahren:** Der Channel Adapter beschreibt die Übergangsintegration des Frontends einer Bestandslösung außerhalb der Ende-zu-Ende-Verschlüsselung.
 - **B4 Inhalt an die Person / Organisation** (neu, `Bündel`): Die alte Zeile 11 hat den Übermittlungsmodus mit dem Format des Inhalts vermischt. B4 enthält jetzt die Formatseite. „Link statt Inhalt“ aus Datenhaltung hierher verschoben, weil es beschreibt, was beim Empfänger ankommt. Über den Begriff „Anhänge“ werden Dokumente ausdrücklich erfasst. Aufbewahrung und Veraktung von Dokumenten liegen bewusst außerhalb des Produkts.
 
 ### Person / Organisation
 
 - **P2 Authentifizierung:** Das Vertrauensniveau ist ein Bewertungskriterium für die gewählten Verfahren, keine eigene Dimension des Lösungspfads. Kriterien und offene Prüfungen stehen in [bewertungskriterien.md](bewertungskriterien.md).
 - **P3 Organisationszugang** und **P4 Vertretung:** zwei unabhängige Entscheidungen, die davor in einer einzelnen `exklusiv`-Zeile vermengt waren. Funktionspostfächer sind etwas anderes als Vollmachten. (ZaPuK trennt das ebenfalls: ADR-1102 und 1112 behandeln Funktionspostfächer, ADR-1113 die externe Bevollmächtigung.)
+- **P4 Vertretung** ist ein `Bündel`, damit Vertretungswege nebeneinander bestehen können; „keine Vertretung“ ist nicht mit ihnen kombinierbar. Die Vertretung mit eigener Identität und eigenem Postfach sowie einem Nachweis im Nachrichtenkontext oder als Dokument ist als eigener Weg ergänzt (ZaPuK ADR-1113).
 - **P5 Clients:** „Ort des Lesens“ war zu eng, Antworten haben gefehlt. Die Ausprägung „mehrere Clients“ aus der alten Zeile 7b gehört hierher, unter „Drittclients“.
 - **P6 Anbindung eigener Systeme** (neu): Unternehmen binden ERP-, Steuer- oder Kanzleisoftware an ihr Postfach an. Das spiegelt B1 und B2: P5 deckt Oberflächen für Menschen ab, P6 die maschinelle Verarbeitung.
 - **P7 Antwort und Erstkontakt:**
