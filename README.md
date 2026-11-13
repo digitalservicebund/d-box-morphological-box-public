@@ -18,9 +18,9 @@ To run the check manually:
 tools/check_csv/check_csv.sh
 ```
 
-The default checks `morph_box.csv`; pass `existing_solutions.csv` to check the comparison file, or pass both file names to check both.
+The default checks `morph_box.csv`; pass `morph_box_clustered.csv` or `existing_solutions.csv` to check those files, or pass multiple file names to check them together. The clustered file has its own header and additionally permits `gesetzt` in `Auswahl`.
 
-The checker has its own tests, which run automatically before each push. When changing the checker, add a good and a bad test case for each new or changed check in `tools/check_csv/tests/fixtures/` (`good/<name>.csv`, or `bad/<name>.csv` plus `bad/<name>.expected` containing the expected error message). For the solution schema, use `solutions/good/<name>/existing_solutions.csv` or `solutions/bad/<name>/existing_solutions.csv` with an `expected` file in the same directory:
+The checker has its own tests, which run automatically before each push. When changing the checker, add a good and a bad test case for each new or changed check in `tools/check_csv/tests/fixtures/` (`good/<name>.csv`, or `bad/<name>.csv` plus `bad/<name>.expected` containing the expected error message). For the solution schema, use `solutions/good/<name>/existing_solutions.csv` or `solutions/bad/<name>/existing_solutions.csv` with an `expected` file in the same directory. For the clustered schema, use the same structure under `clustered/` with the filename `morph_box_clustered.csv`:
 
 ```sh
 tools/check_csv/tests/run_tests.sh
