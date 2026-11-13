@@ -1,4 +1,6 @@
-# Änderungen: morph_box.csv → morph_box_clustered.csv
+# Änderungen: ursprünglicher → geclusterter morphologischer Kasten
+
+Der geclusterte Kasten steht in [morph_box.csv](morph_box.csv). Die Zuordnung beschreibt die Umstellung von der früheren, ungeclusterten Fassung.
 
 ## Leitlinien
 

@@ -1,6 +1,6 @@
 # Bewertungskriterien für Lösungswege
 
-Der morphologische Kasten in [morph_box_clustered.csv](morph_box_clustered.csv) beschreibt mögliche Lösungswege. Die folgenden Fragen dienen dazu, einen gewählten Weg zu bewerten; sie sind keine zusätzlichen Ausprägungen. Ein Kriterium kann mehrere Dimensionen betreffen.
+Der morphologische Kasten in [morph_box.csv](morph_box.csv) beschreibt mögliche Lösungswege. Die folgenden Fragen dienen dazu, einen gewählten Weg zu bewerten; sie sind keine zusätzlichen Ausprägungen. Ein Kriterium kann mehrere Dimensionen betreffen.
 
 Für eine Bewertung den betrachteten Lösungsweg und Vorgang benennen, die Fragen anhand von Belegen beantworten und offene Punkte als „ungeklärt“ kennzeichnen. Es sind noch keine Gewichtungen, Schwellenwerte oder Bewertungen einzelner Lösungen festgelegt. Eine gesetzliche oder projektseitige Vorgabe ist gesondert auf Erfüllung zu prüfen, nicht durch eine gute Gesamtbewertung auszugleichen.
 

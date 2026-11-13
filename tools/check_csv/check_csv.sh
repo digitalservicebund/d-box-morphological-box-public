@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# Prüft morph_box.csv, morph_box_clustered.csv und existing_solutions.csv
-# (bzw. übergebene CSV-Dateien).
+# Prüft morph_box.csv und existing_solutions.csv (bzw. übergebene CSV-Dateien).
 #
 # Geprüft wird:
 #   - Kodierung: gültiges UTF-8, kein BOM
@@ -10,7 +9,7 @@
 #   - Header: je nach Datei exakte Spaltennamen oder eindeutige Lösungsnamen
 #   - Spaltenanzahl: jede Zeile hat genau so viele Spalten wie der Header
 #   - Spalte "Zeile": nicht leer
-#   - morph_box*.csv: gültige "Auswahl" und keine Lücken in Ausprägungen
+#   - morph_box.csv: gültige "Auswahl" und keine Lücken in Ausprägungen
 #   - Zellinhalte: kein Markdown (**fett**, *kursiv*, __, `code`, [Link](url),
 #     Aufzählungen, Überschriften)
 #
@@ -25,19 +24,17 @@ if [[ $# -eq 0 ]]; then
   set -- "$script_dir/../../morph_box.csv"
 fi
 
-expected_header='Zeile|Auswahl|Was wird hier entschieden|Ausprägung 1|Ausprägung 2|Ausprägung 3|Ausprägung 4|Ausprägung 5|Ausprägung 6|Ausprägung 7|Ausprägung 8'
-clustered_header='Cluster|Zeile|Auswahl|Wer entscheidet|Was wird hier entschieden|Ausprägung 1|Ausprägung 2|Ausprägung 3|Ausprägung 4|Ausprägung 5|Ausprägung 6|Ausprägung 7|Ausprägung 8'
+expected_header='Cluster|Zeile|Auswahl|Wer entscheidet|Was wird hier entschieden|Ausprägung 1|Ausprägung 2|Ausprägung 3|Ausprägung 4|Ausprägung 5|Ausprägung 6|Ausprägung 7|Ausprägung 8'
 
 status=0
 
 check_file() {
-  local file="$1" schema=morph header="$expected_header"
+  local file="$1" schema=morph
   local errors=0
 
-  case "$(basename "$file")" in
-    existing_solutions.csv) schema=solutions ;;
-    morph_box_clustered.csv) schema=clustered; header="$clustered_header" ;;
-  esac
+  if [[ "$(basename "$file")" == "existing_solutions.csv" ]]; then
+    schema=solutions
+  fi
 
   if [[ ! -f "$file" ]]; then
     echo "$file: Datei nicht gefunden" >&2
@@ -64,11 +61,11 @@ check_file() {
   fi
 
   # CSV-Struktur und Inhalte
-  if ! awk -v file="$file" -v expected="$header" -v schema="$schema" '
+  if ! awk -v file="$file" -v expected="$expected_header" -v schema="$schema" '
     BEGIN {
       ncols = split(expected, hdr, "|")
-      zeile = 1; auswahl = 2; first_option = 4
-      if (schema == "clustered") { zeile = 2; auswahl = 3; first_option = 6 }
+      zeile = 2; auswahl = 3; first_option = 6
+      if (schema == "solutions") zeile = 1
       errs = 0; rec = 0; nf = 0; buf = ""
       in_q = 0; was_q = 0; after_q = 0; bad = 0
     }
@@ -114,11 +111,9 @@ check_file() {
         return
       }
       if (f[zeile] == "") err(start, "Spalte \"Zeile\" ist leer")
-      if (schema == "morph" || schema == "clustered") {
-        if (f[auswahl] != "exklusiv" && f[auswahl] != "Bündel" && !(schema == "clustered" && f[auswahl] == "gesetzt")) {
-          allowed = schema == "clustered" ? "\"exklusiv\", \"Bündel\" oder \"gesetzt\"" : "\"exklusiv\" oder \"Bündel\""
-          err(start, "Spalte \"Auswahl\" muss " allowed " sein, gefunden \"" f[auswahl] "\"")
-        }
+      if (schema == "morph") {
+        if (f[auswahl] != "exklusiv" && f[auswahl] != "Bündel" && f[auswahl] != "gesetzt")
+          err(start, "Spalte \"Auswahl\" muss \"exklusiv\", \"Bündel\" oder \"gesetzt\" sein, gefunden \"" f[auswahl] "\"")
         gap = 0
         for (i = first_option; i <= ncols; i++) {
           if (f[i] == "") gap = i
