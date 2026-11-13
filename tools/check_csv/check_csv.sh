@@ -24,7 +24,7 @@ if [[ $# -eq 0 ]]; then
   set -- "$script_dir/../../morph_box.csv"
 fi
 
-expected_header='Zeile|Auswahl|Was wird hier entschieden|Ausprägung 1|Ausprägung 2|Ausprägung 3|Ausprägung 4|Ausprägung 5|Ausprägung 6|Ausprägung 7|Ausprägung 8'
+expected_header='Cluster|Zeile|Auswahl|Wer entscheidet|Was wird hier entschieden|Ausprägung 1|Ausprägung 2|Ausprägung 3|Ausprägung 4|Ausprägung 5|Ausprägung 6|Ausprägung 7|Ausprägung 8'
 
 status=0
 
@@ -64,6 +64,8 @@ check_file() {
   if ! awk -v file="$file" -v expected="$expected_header" -v schema="$schema" '
     BEGIN {
       ncols = split(expected, hdr, "|")
+      zeile = 2; auswahl = 3; first_option = 6
+      if (schema == "solutions") zeile = 1
       errs = 0; rec = 0; nf = 0; buf = ""
       in_q = 0; was_q = 0; after_q = 0; bad = 0
     }
@@ -108,12 +110,12 @@ check_file() {
             err(start, "Header Spalte " i ": erwartet \"" hdr[i] "\", gefunden \"" f[i] "\"")
         return
       }
-      if (f[1] == "") err(start, "Spalte \"Zeile\" ist leer")
+      if (f[zeile] == "") err(start, "Spalte \"Zeile\" ist leer")
       if (schema == "morph") {
-        if (f[2] != "exklusiv" && f[2] != "Bündel")
-          err(start, "Spalte \"Auswahl\" muss \"exklusiv\" oder \"Bündel\" sein, gefunden \"" f[2] "\"")
+        if (f[auswahl] != "exklusiv" && f[auswahl] != "Bündel" && f[auswahl] != "gesetzt")
+          err(start, "Spalte \"Auswahl\" muss \"exklusiv\", \"Bündel\" oder \"gesetzt\" sein, gefunden \"" f[auswahl] "\"")
         gap = 0
-        for (i = 4; i <= ncols; i++) {
+        for (i = first_option; i <= ncols; i++) {
           if (f[i] == "") gap = i
           else if (gap) { err(start, "Lücke: \"" hdr[gap] "\" ist leer, aber \"" hdr[i] "\" ist belegt"); break }
         }

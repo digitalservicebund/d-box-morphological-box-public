@@ -42,6 +42,8 @@ printf 'Echte Datei\n'
 expect_ok morph_box "$tests_dir/../../../morph_box.csv"
 expect_ok existing_solutions "$tests_dir/../../../existing_solutions.csv"
 expect_error datei_fehlt "$fixtures/gibt_es_nicht.csv" "Datei nicht gefunden"
+if out=$("$checker" 2>&1); then ok standard_morph_box
+else nok standard_morph_box "erwartet OK, bekam:"$'\n'"$out"; fi
 
 printf '\nMehrere Dateien in einem Aufruf\n'
 # Ein Fehler in einer Datei muss den Gesamtaufruf scheitern lassen,
@@ -57,6 +59,8 @@ expect_multi mehrere_schlecht_zuerst "UTF-8-BOM" "$fixtures/bad/bom.csv" "$fixtu
 expect_multi mehrere_schlecht_zuletzt "UTF-8-BOM" "$fixtures/good/nur_lf.csv" "$fixtures/bad/bom.csv"
 if out=$("$checker" "$fixtures/good/nur_lf.csv" "$fixtures/good/nur_crlf.csv" 2>&1); then ok mehrere_gut
 else nok mehrere_gut "erwartet OK, bekam:"$'\n'"$out"; fi
+if out=$("$checker" "$tests_dir/../../../morph_box.csv" "$tests_dir/../../../existing_solutions.csv" 2>&1); then ok mehrere_schemas
+else nok mehrere_schemas "erwartet OK, bekam:"$'\n'"$out"; fi
 
 printf '\nGute Daten (fixtures/good)\n'
 for file in "$fixtures"/good/*.csv; do
@@ -90,6 +94,20 @@ for file in "$fixtures"/solutions/bad/*/existing_solutions.csv; do
     continue
   fi
   expect_error "solutions_$name" "$file" "$(<"$expected")"
+done
+
+printf '\nDaten für morph_box.csv\n'
+for file in "$fixtures"/clustered/good/*/morph_box.csv; do
+  expect_ok "morph_$(basename "$(dirname "$file")")" "$file"
+done
+for file in "$fixtures"/clustered/bad/*/morph_box.csv; do
+  name="$(basename "$(dirname "$file")")"
+  expected="$(dirname "$file")/expected"
+  if [[ ! -f "$expected" ]]; then
+    nok "morph_$name" "fehlende Datei $expected"
+    continue
+  fi
+  expect_error "morph_$name" "$file" "$(<"$expected")"
 done
 
 printf '\n%d bestanden, %d fehlgeschlagen\n' "$pass" "$fail"

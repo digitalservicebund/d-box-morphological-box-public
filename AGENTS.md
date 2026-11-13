@@ -33,13 +33,15 @@ The file uses a standard CSV layout with a header row and one data row per optio
 Header:
 
 ```csv
-"Zeile","Auswahl","Was wird hier entschieden","Ausprägung 1","Ausprägung 2","Ausprägung 3","Ausprägung 4","Ausprägung 5","Ausprägung 6","Ausprägung 7","Ausprägung 8"
+"Cluster","Zeile","Auswahl","Wer entscheidet","Was wird hier entschieden","Ausprägung 1","Ausprägung 2","Ausprägung 3","Ausprägung 4","Ausprägung 5","Ausprägung 6","Ausprägung 7","Ausprägung 8"
 ```
 
 Meaning of columns:
 
-- `Zeile`: row label / decision dimension, e.g. `1 Anbindung der Behörde`
-- `Auswahl`: decision type. `exklusiv` means only one option can be chosen for this row. `Bündel` means multiple options can be combined.
+- `Cluster`: group of related decision dimensions
+- `Zeile`: row label / decision dimension, e.g. `B1 Anbindung von Fachverfahren`
+- `Auswahl`: decision type. `exklusiv` means only one option can be chosen, `Bündel` means multiple options can be combined, and `gesetzt` indicates a predetermined value.
+- `Wer entscheidet`: decision-maker, if specified
 - `Was wird hier entschieden`: explanatory text describing the decision dimension
 - `Ausprägung 1` ... `Ausprägung 8`: possible values / variants for that dimension
 
