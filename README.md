@@ -4,6 +4,8 @@ A morphological box (Morphologischer Kasten) for structured decision-making, sto
 
 Each row is a decision dimension (`Zeile`) with its options (`Ausprägung`). The file can be imported into and exported from Miro.
 
+The clustered version is in [`morph_box_clustered.csv`](morph_box_clustered.csv). [Bewertungskriterien](bewertungskriterien.md) describes how to assess a solution path separately from its selected options.
+
 ## Setup
 
 The CSV format is checked automatically before each commit via [lefthook](https://github.com/evilmartians/lefthook). After cloning, install lefthook and activate the hooks once:

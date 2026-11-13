@@ -36,10 +36,10 @@
 | — | P8 Inhalt an die Behörde | neu |
 | 12 Schutz: Vertraulichkeit | Ü2 Vertraulichkeit | umbenannt |
 | 10 Echtheit und Schriftform | Ü3 Echtheit + R1 Schriftformersatz | geteilt |
-| 6 Nachweise an die Behörde | Ü4 Ereignisse und Bestätigungen + R3 Zustellung und Beweiskraft | geteilt |
+| 6 Nachweise an die Behörde | Ü4 Ereignisse und Bestätigungen + R3 Bekanntgabe und förmliche Zustellung | geteilt |
 | 7a Einbettung + 7b Betreibermodell | I1 Betrieb und Governance | zusammengeführt |
 | 13 Datenhaltung | I2 Datenhaltung und Versand | überarbeitet |
-| 8 Teilnahme | R2 Teilnahmepflicht | umbenannt |
+| 8 Teilnahme | R2 Teilnahmepflicht + R4 Teilnahme der Behörden | nach Teilnehmerseite geteilt |
 
 ## Wichtige Änderungen
 
@@ -49,6 +49,7 @@
 
 ### Person / Organisation
 
+- **P2 Authentifizierung:** Das Vertrauensniveau ist ein Bewertungskriterium für die gewählten Verfahren, keine eigene Dimension des Lösungspfads. Kriterien und offene Prüfungen stehen in [bewertungskriterien.md](bewertungskriterien.md).
 - **P3 Organisationszugang** und **P4 Vertretung:** zwei unabhängige Entscheidungen, die davor in einer einzelnen `exklusiv`-Zeile vermengt waren. Funktionspostfächer sind etwas anderes als Vollmachten. (ZaPuK trennt das ebenfalls: ADR-1102 und 1112 behandeln Funktionspostfächer, ADR-1113 die externe Bevollmächtigung.)
 - **P5 Clients:** „Ort des Lesens“ war zu eng, Antworten haben gefehlt. Die Ausprägung „mehrere Clients“ aus der alten Zeile 7b gehört hierher, unter „Drittclients“.
 - **P6 Anbindung eigener Systeme** (neu): Unternehmen binden ERP-, Steuer- oder Kanzleisoftware an ihr Postfach an. Das spiegelt B1 und B2: P5 deckt Oberflächen für Menschen ab, P6 die maschinelle Verarbeitung.
@@ -56,7 +57,7 @@
   - Die Frage enthält jetzt auch, wie die Person die Behörde findet (Adressierung ohne eigene Zeile).
   - „Freie Nachricht ohne Anlass“ ist in zwei Ausprägungen geteilt: Auswahl der Behörde über ein Verzeichnis (ZaPuK-Adressregister, ADR-1111) oder Einstieg über die Website der Behörde.
   - Die Formular-Ausprägung ist nach P8 gewandert.
-  - Die Polen-Ausprägung ist nach R3 gewandert, weil sie den Nachweis betrifft und nicht, wann eine Person schreibt.
+  - Der qualifizierte Nachweis nach eIDAS (Polen) ist nach R3 gewandert, weil er den Nachweis betrifft und nicht, wann eine Person schreibt.
 - **P8 Inhalt an die Behörde** (neu, `Bündel`): Gegenstück zu B4. Die beiden Richtungen werden getrennt entschieden, wie Dänemark und ELSTER zeigen, deshalb hat eine Zeile nicht gereicht.
 
 ### Übermittlung
@@ -65,7 +66,7 @@
   - Umfasst jetzt „Nachricht und Anhänge“.
   - `exklusiv` -> `Bündel`, weil Siegel der Behörde und Signatur der Person kombinierbar sind.
   - Die Schriftform-Frage ist nach R1 gewandert als `gesetzt`.
-- **Ü4 Ereignisse und Bestätigungen:** verallgemeinert von „welchen Nachweis bekommt die Behörde“ zu „welche Ereignisse werden erfasst, und wer sieht sie“. Das deckt beide Richtungen und den Betreiber ab und biete Platz für das bisher fehlende „Lesebestätigung an die Person“. Der rechtliche Teil der alten Zeile 6 ist nach R3 gewandert. *Hier ist eine weitere Trennung in die beiden Parteien denkbar.*
+- **Ü4 Ereignisse und Bestätigungen:** verallgemeinert von „welchen Nachweis bekommt die Behörde“ zu „welche Ereignisse werden erfasst, und wer sieht sie“. Das deckt beide Richtungen und den Betreiber ab und bietet Platz für die „Lesebestätigung an die Person“ sowie die Eingangsbestätigung für die eigene Nachricht. Der rechtliche Teil der alten Zeile 6 ist nach R3 gewandert.
 ### Infrastruktur und Betrieb
 
 Governance (I1) und Technik (I2) sind getrennte Zeilen, da sie divergieren können: Neo hat ein staatliches System, aber getrennte Betreiber je Nutzergruppe, und Schweden hat eine zentrale Infrastruktur mit privaten Operatoren.
@@ -81,11 +82,11 @@ Governance (I1) und Technik (I2) sind getrennte Zeilen, da sie divergieren könn
 
 - **R1 Schriftformersatz** (`gesetzt`): Den Schriftformersatz in beide Richtungen gibt das Projekt vor, darum keine Wahl. Die Ausprägungen in Ü3 sind die Wege, ihn zu erfüllen.
 
-- **R3 Zustellung und Beweiskraft:** aus der alten Zeile 6 herausgelöst. Die Polen-Ausprägung lautet jetzt „in beide Richtungen“.
+- **R2 Teilnahmepflicht** und **R4 Teilnahme der Behörden:** trennen die Teilnahme der Empfängerseite von der Anbindung der Behörden. R4 macht Freiwilligkeit, Anreize und eine gesetzliche Pflicht mit möglichen Stichtagen sichtbar.
+- **R3 Bekanntgabe und förmliche Zustellung:** Beide Arten und die entsprechenden Verfahren können als Bündel gewählt werden. Die Ausprägung ohne förmliche Zustellung über die d-box ist nicht mit der entsprechenden elektronischen Zustellung kombinierbar. Kriterien und offene Rechtsfragen stehen in [bewertungskriterien.md](bewertungskriterien.md).
 
 ### Übergreifend
 
 - „Person / Organisation“ wird überall gleich geschrieben, mit Leerzeichen um den Schrägstrich. „Bürger:in“ wurde ersetzt.
 - Die Sätze „Hier geht es um …, nicht um … (Zeile X)“ wurden aus den Fragen entfernt, weil die geschärften Namen die Abgrenzung klar machen.
 - Beispiele, die die Quellen nicht bestätigen, sind mit `[unverifiziert]` markiert.
-
