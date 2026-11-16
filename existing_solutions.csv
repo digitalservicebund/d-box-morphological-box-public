@@ -15,7 +15,7 @@
 "Ü1 Modus","","","","","asynchroner digitaler Brief","","","","","","",""
 "Ü2 Vertraulichkeit","","","","","verschlüsselte Übermittlung und Speicherung, Inhalte beim Betreiber zugänglich; keine Ende-zu-Ende-Verschlüsselung","","","","","","",""
 "Ü3 Echtheit","","","","","Echtheit folgt aus dem angebundenen Absendersystem und dem Transportweg [unverifiziert]; Personen über MitID identifiziert","","","","","","",""
-"Ü4 Ereignisse und Bestätigungen","","","","","bei forenklet digital forkyndelse der Gerichte automatische Benachrichtigung des Gerichts beim Öffnen; Aktivitätsprotokoll für Postfachinhaber:in; sonstige Bestätigungen [unverifiziert]","","","","","","",""
+"Ü4 Ereignisse und Bestätigungen","","","","","Bereitstellung an Behörde; bei forenklet digital forkyndelse der Gerichte automatische Benachrichtigung des Gerichts beim Öffnen; Aktivitätsprotokoll für Postfachinhaber:in","","","","","","",""
 "Ü5 Interoperabilität mit Systemen außerhalb","","","","","keine [unverifiziert]","","","","","","",""
 "Ü6 Malware-Prüfung","","","","","?","","","","","","",""
 "I1 Betrieb und Governance","","","","","Digitaliseringsstyrelsen als staatlicher Betreiber; Entwicklung und Betrieb durch Netcompany, Fellowmind und Statens IT","","","","","","",""
