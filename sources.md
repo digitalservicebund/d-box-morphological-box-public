@@ -132,6 +132,8 @@ Web research on the Zentrales Bürgerpostfach of the BundID (live since March 20
 
 **Start with `BundID-ZBP/ZBP-Zusammenfassung.md`** (German): a condensed analysis of the ZBP along all `morph_box.csv` dimensions (section 5), with short codes for sources (DSE, FAQ, FC-T, D5367 …), evidence markers (**[Folgerung]**, **[unverifiziert]**, **[veraltet?]**), contradictions (section 6) and gaps (section 7).
 
+**`BundID-ZBP-Quellen.md`** (German, next to the folder): source list in the style of `GOV-UK-Notify.md`, with short codes, local paths and URLs, evidence per dimension for the BundID entries in `morph_box.csv`, checked on 2026-11-17, plus the deviations from `ZBP-Zusammenfassung.md` found during the check.
+
 Each subfolder of `BundID-ZBP/quellen/` has an `_index.md` with URL, publisher, date and a content note per file. Read the index before opening a file.
 
 ### Subfolders
@@ -165,7 +167,7 @@ Each subfolder of `BundID-ZBP/quellen/` has an `_index.md` with URL, publisher, 
 | Governance, Länder, Finanzierung | zapuk README Beschlüsse, Zusammenfassung 3.3 and 4.x |
 | Requirements as decision criteria | zapuk `Konsolidierte-Anforderungen/README.md` |
 | ELSTER as existing solution (Postfach, Postfach 2.0, Bekanntgabe, Vollmacht, Anbindung) | `ELSTER/ELSTER-Zusammenfassung.md` first, then `ELSTER/`: Entwicklerhandbuch 5.2, 7.5, 9.2, 9.3, 9.15 to 9.17; `ElsterBereitstellung-SSB`; `ElsterDatenabholung-v32` |
-| BundID / ZBP as existing solution (Anbindung, Postkorb-Handle, Bekanntgabe nach § 9 OZG, Betrieb) | `BundID-ZBP/ZBP-Zusammenfassung.md` first, then the `_index.md` of the relevant `BundID-ZBP/quellen/` subfolder |
+| BundID / ZBP as existing solution (Anbindung, Postkorb-Handle, Bekanntgabe nach § 9 OZG, Betrieb) | `BundID-ZBP-Quellen.md` for evidence per dimension, `BundID-ZBP/ZBP-Zusammenfassung.md` for context, then the `_index.md` of the relevant `BundID-ZBP/quellen/` subfolder |
 | Rechtsrahmen Bürgerkonto und Postfach (OZG, DIdG, IT-PLR Beschlüsse) | `BundID-ZBP/quellen/recht-governance/_index.md`; zapuk Rahmenbedingungen |
 | Österreich / Mein Postkorb as existing solution | `Mein-Postkorb-Oesterreich.md` |
 | UK / GOV.UK Notify as existing solution | `GOV-UK-Notify.md` |
