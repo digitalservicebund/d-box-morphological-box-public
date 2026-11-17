@@ -12,6 +12,7 @@ Context: `morph_box.csv` is the morphological box for the d-box (central, bi-dir
 | `neo-solution-architecture-develop/` | "Neo": Matrix-based, E2EE G2C communication channel (FITKO/BMDS), a child of ZaPuK. 64 files, arc42. | English | Markdown, Structurizr DSL | A concrete reference implementation: homeserver topology, BundID integration, message model, delivery legal concept. |
 | `ELSTER/` | ERiC developer documentation package (ELSTER, BayLfSt), ERiC 44.1.6.0, May 2026. About 2,100 files, 227 MB. | German | PDF, XSD, XML, ODS, HTML | How an existing German mailbox works technically: ELSTER-Postfach and Postfach 2.0, Datenabholung, Bereitstellung by other authorities, certificates, encryption, DIVA (elektronische Bekanntgabe), Vollmachten. Reference for the `ELSTER-Postfach` column in `existing_solutions.csv`. |
 | `BundID-ZBP/` | Zentrales Bürgerpostfach (ZBP, "BundID-Postfach"): condensed analysis plus local copies of primary sources from the BundID operator, FITKO / FIT-Connect, IT-PLR, Bundestag and Bundesrat. 94 files, retrieved 2026-11-17. | German | Markdown, PDF, JSON Schema, OpenAPI, Java | How the existing federal citizen mailbox works: operation and governance, Anbindung (direct REST or FIT-Connect ZBP-Adapter), Postkorb-Handle addressing, Bekanntgabe nach § 9 OZG, legal history. Reference for the `BundID heute (Deutschland)` column in `existing_solutions.csv`. |
+| `Referenzen-BundID-ZBP.md` | Source list for the Zentrales Bürgerpostfach (BundID): short codes, local paths in `BundID-ZBP/quellen/` and URLs, evidence per dimension, deviations found during the check. Checked 2026-11-17. | German | Markdown | Reference for the `BundID heute (Deutschland)` column in `existing_solutions.csv` and the BundID entries in `morph_box.csv`. |
 | `Referenzen-Mein-Postkorb-Oesterreich.md` | Source list for the Austrian E-Zustellung ("Mein Postkorb"): ZustG, E-GovG, BKA white paper and ZUSE specification, oesterreich.gv.at, USP, with evidence per dimension. Links only, no local copies. | German | Markdown | Reference for the `Österreich` column in `existing_solutions.csv` and the Österreich entries in `morph_box.csv`. |
 | `Referenzen-GOV-UK-Notify.md` | Source list for GOV.UK Notify (UK, GDS): service pages on features, security, pricing, data retention, files, received text messages, plus REST API documentation, with evidence per dimension. Links only, no local copies. | German | Markdown | Reference for the `UK (kein zentrales Postfach)` column in `existing_solutions.csv` and the GOV.UK Notify entries in `morph_box.csv`. |
 
@@ -87,7 +88,7 @@ Unpacked `ERiC-<version>-Dokumentation.zip` from the ELSTER developer area (requ
 
 **Start with `ELSTER/ELSTER-Zusammenfassung.md`** (German): a condensed analysis of ELSTER along all `morph_box.csv` dimensions, with chapter and page pointers into this package and the relevant web sources.
 
-**`ELSTER/ELSTER-Quellen.md`** (German): source list in the style of `GOV-UK-Notify.md`, with short codes and evidence per dimension for the `ELSTER-Postfach (Deutschland)` column in `existing_solutions.csv` and the ELSTER entries in `morph_box.csv`, checked on 2026-11-17, plus the deviations found during the check.
+**`ELSTER/ELSTER-Quellen.md`** (German): source list in the style of `Referenzen-GOV-UK-Notify.md`, with short codes and evidence per dimension for the `ELSTER-Postfach (Deutschland)` column in `existing_solutions.csv` and the ELSTER entries in `morph_box.csv`, checked on 2026-11-17, plus the deviations found during the check.
 
 All paths below are relative to `ELSTER/Dev Dokumentation/`. Most of the volume is per-tax schemas (`Datenarten/ElsterErklaerung`, `ElsterAnmeldung`, `ElsterBilanz`, `ElsterLohn*`) and `Deltadokumentation/`, which are irrelevant for the d-box.
 
@@ -132,7 +133,7 @@ Web research on the Zentrales Bürgerpostfach of the BundID (live since March 20
 
 **Start with `BundID-ZBP/ZBP-Zusammenfassung.md`** (German): a condensed analysis of the ZBP along all `morph_box.csv` dimensions (section 5), with short codes for sources (DSE, FAQ, FC-T, D5367 …), evidence markers (**[Folgerung]**, **[unverifiziert]**, **[veraltet?]**), contradictions (section 6) and gaps (section 7).
 
-**`BundID-ZBP-Quellen.md`** (German, next to the folder): source list in the style of `GOV-UK-Notify.md`, with short codes, local paths and URLs, evidence per dimension for the BundID entries in `morph_box.csv`, checked on 2026-11-17, plus the deviations from `ZBP-Zusammenfassung.md` found during the check.
+**`Referenzen-BundID-ZBP.md`** (German, next to the folder): source list in the style of `Referenzen-GOV-UK-Notify.md`, with short codes, local paths and URLs, evidence per dimension for the BundID entries in `morph_box.csv`, checked on 2026-11-17, plus the deviations from `ZBP-Zusammenfassung.md` found during the check.
 
 Each subfolder of `BundID-ZBP/quellen/` has an `_index.md` with URL, publisher, date and a content note per file. Read the index before opening a file.
 
@@ -167,7 +168,7 @@ Each subfolder of `BundID-ZBP/quellen/` has an `_index.md` with URL, publisher, 
 | Governance, Länder, Finanzierung | zapuk README Beschlüsse, Zusammenfassung 3.3 and 4.x |
 | Requirements as decision criteria | zapuk `Konsolidierte-Anforderungen/README.md` |
 | ELSTER as existing solution (Postfach, Postfach 2.0, Bekanntgabe, Vollmacht, Anbindung) | `ELSTER/ELSTER-Zusammenfassung.md` first, then `ELSTER/`: Entwicklerhandbuch 5.2, 7.5, 9.2, 9.3, 9.15 to 9.17; `ElsterBereitstellung-SSB`; `ElsterDatenabholung-v32` |
-| BundID / ZBP as existing solution (Anbindung, Postkorb-Handle, Bekanntgabe nach § 9 OZG, Betrieb) | `BundID-ZBP-Quellen.md` for evidence per dimension, `BundID-ZBP/ZBP-Zusammenfassung.md` for context, then the `_index.md` of the relevant `BundID-ZBP/quellen/` subfolder |
+| BundID / ZBP as existing solution (Anbindung, Postkorb-Handle, Bekanntgabe nach § 9 OZG, Betrieb) | `Referenzen-BundID-ZBP.md` for evidence per dimension, `BundID-ZBP/ZBP-Zusammenfassung.md` for context, then the `_index.md` of the relevant `BundID-ZBP/quellen/` subfolder |
 | Rechtsrahmen Bürgerkonto und Postfach (OZG, DIdG, IT-PLR Beschlüsse) | `BundID-ZBP/quellen/recht-governance/_index.md`; zapuk Rahmenbedingungen |
 | Österreich / Mein Postkorb as existing solution | `Referenzen-Mein-Postkorb-Oesterreich.md` |
 | UK / GOV.UK Notify as existing solution | `Referenzen-GOV-UK-Notify.md` |
