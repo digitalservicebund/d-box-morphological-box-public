@@ -11,6 +11,7 @@ Context: `morph_box.csv` is the morphological box for the d-box (central, bi-dir
 | `zapuk-main/` | ZaPuK: Zielarchitektur für Postfach- und Kommunikationslösungen (FITKO / FIT-AB, IT-Planungsrat). 196 files. | German | Markdown, PDF | Architecture decisions, requirements, legal framework, glossary. The richest source for dimensions and options. |
 | `neo-solution-architecture-develop/` | "Neo": Matrix-based, E2EE G2C communication channel (FITKO/BMDS), a child of ZaPuK. 64 files, arc42. | English | Markdown, Structurizr DSL | A concrete reference implementation: homeserver topology, BundID integration, message model, delivery legal concept. |
 | `ELSTER Dev Documentation/` | ERiC developer documentation package (ELSTER, BayLfSt), ERiC 44.1.6.0, May 2026. About 2,100 files, 227 MB. | German | PDF, XSD, XML, ODS, HTML | How an existing German mailbox works technically: ELSTER-Postfach and Postfach 2.0, Datenabholung, Bereitstellung by other authorities, certificates, encryption, DIVA (elektronische Bekanntgabe), Vollmachten. Reference for the `ELSTER-Postfach` column in `existing_solutions.csv`. |
+| `BundID-ZBP/` | Zentrales Bürgerpostfach (ZBP, "BundID-Postfach"): condensed analysis plus local copies of primary sources from the BundID operator, FITKO / FIT-Connect, IT-PLR, Bundestag and Bundesrat. 94 files, retrieved 2026-11-17. | German | Markdown, PDF, JSON Schema, OpenAPI, Java | How the existing federal citizen mailbox works: operation and governance, Anbindung (direct REST or FIT-Connect ZBP-Adapter), Postkorb-Handle addressing, Bekanntgabe nach § 9 OZG, legal history. Reference for the `BundID heute (Deutschland)` column in `existing_solutions.csv`. |
 | `Mein-Postkorb-Oesterreich.md` | Source list for the Austrian E-Zustellung ("Mein Postkorb"): ZustG, E-GovG, BKA white paper and ZUSE specification, oesterreich.gv.at, USP, with evidence per dimension. Links only, no local copies. | German | Markdown | Reference for the `Österreich` column in `existing_solutions.csv` and the Österreich entries in `morph_box.csv`. |
 | `GOV-UK-Notify.md` | Source list for GOV.UK Notify (UK, GDS): service pages on features, security, pricing, data retention, files, received text messages, plus REST API documentation, with evidence per dimension. Links only, no local copies. | German | Markdown | Reference for the `UK (kein zentrales Postfach)` column in `existing_solutions.csv` and the GOV.UK Notify entries in `morph_box.csv`. |
 
@@ -123,6 +124,27 @@ All paths below are relative to `ELSTER Dev Documentation/Dokumentation/`. Most 
 - Attachment rules per Datenart are in the XSDs, e.g. `Datenarten/ElsterNachricht/Belegnachreichung/Schema/24/Belegnachreichung-24-Nutzdaten.xsd` (PDF only, 20 attachments, 100 pages).
 - The Datenabholung Vertretung feature is marked as test operation only (SSb v32, 6.1).
 
+## 4. BundID-ZBP/
+
+Web research on the Zentrales Bürgerpostfach of the BundID (live since March 2024, operated by ITZBund for the BMDS, developed by AKDB). Receive-only for natural persons; replies only when the Behörde enables them. Neo and ZaPuK plan to replace it.
+
+**Start with `BundID-ZBP/ZBP-Zusammenfassung.md`** (German): a condensed analysis of the ZBP along all `morph_box.csv` dimensions (section 5), with short codes for sources (DSE, FAQ, FC-T, D5367 …), evidence markers (**[Folgerung]**, **[unverifiziert]**, **[veraltet?]**), contradictions (section 6) and gaps (section 7).
+
+Each subfolder of `BundID-ZBP/quellen/` has an `_index.md` with URL, publisher, date and a content note per file. Read the index before opening a file.
+
+### Subfolders
+
+- `BundID-ZBP/quellen/bundid-betreiber/`: operator and product view. id.bund.de privacy notice (Postkorb-Handle, deletion periods), FAQ, Postfach UI texts and the full web text bundle, Impressum; Personalausweisportal pages (SSP onboarding, Postfach-Zertifikate); the 2024 migration notice; practice reports (SID Sachsen on Bescheidübermittlung, M-V on Bekanntgabe nach § 9 OZG, Dataport on Postfachreferenz); AKDB DSGVO information sheet.
+- `BundID-ZBP/quellen/fitko-fit-connect/`: sender-side Anbindung. FIT-Connect docs on the ZBP (`fc-docs_zbp-entscheider.md`, `fc-docs_zbp-technische-anbindung.md`, `fc-docs_sdk-rezept-zbp-anbinden.md`), reply channels, metadata, encryption, authentication, limits, roadmap; ZBP-Adapter checklist and process diagrams; ZBP message JSON Schema, FIT-Connect metadata schemas and OpenAPI specs; Java SDK `zbp-client` code (endpoints, token, envelope signature); IT-PLR 2024/28 Bebauungsplan and 2025/28 ZaPuK overview.
+- `BundID-ZBP/quellen/recht-governance/`: law, politics, history. OZG (current version) and § 41 VwVfG; OZGÄndG legislative documents (BT-Drs. 20/8093, 20/10417, 20/11790); DIdG documents (BR-Drs. 322/26, 322/26B, 618/26, BT-Drs. 21/8617); Bundestag answers (BT-Drs. 20/9824, 21/5367 on Statusmonitor and Bidirektionalität, 21/9020 on Deutschland-Stack); BfDI report 2024; IT-PLR Beschlüsse 2022/04 (with Whitepaper), 2023/29 (with Statusbericht), 2024/28, 2025/28, B-2026/03-IT, B-2026/18-IT, B-2026/19-IT; Organisationserlass 2025; Föderale Modernisierungsagenda.
+
+### Caveats
+
+- The actual ZBP API documentation (allowed HTML tags, error codes, current limits) is in the BundID-SSP Hilfecenter, which needs a login. It is not stored here.
+- Some statements (encryption at rest, Abruf- and Lesebestätigung) are only documented for 2022 (Whitepaper 2022/04).
+- Bidirektionalität: the Bundesregierung announced it for July 2026 (BT-Drs. 21/5367); the FIT-Connect roadmap still marks it as open.
+- A few PDFs exist in two subfolders (SID Kundenforum 2025, FITKO "stellt vor: Neo" 2026-01-23).
+
 ## Which source for which morph_box topic
 
 | Topic | Start with |
@@ -141,6 +163,8 @@ All paths below are relative to `ELSTER Dev Documentation/Dokumentation/`. Most 
 | Governance, Länder, Finanzierung | zapuk README Beschlüsse, Zusammenfassung 3.3 and 4.x |
 | Requirements as decision criteria | zapuk `Konsolidierte-Anforderungen/README.md` |
 | ELSTER as existing solution (Postfach, Postfach 2.0, Bekanntgabe, Vollmacht, Anbindung) | `ELSTER-Zusammenfassung.md` first, then ELSTER Dev Documentation: Entwicklerhandbuch 5.2, 7.5, 9.2, 9.3, 9.15 to 9.17; `ElsterBereitstellung-SSB`; `ElsterDatenabholung-v32` |
+| BundID / ZBP as existing solution (Anbindung, Postkorb-Handle, Bekanntgabe nach § 9 OZG, Betrieb) | `BundID-ZBP/ZBP-Zusammenfassung.md` first, then the `_index.md` of the relevant `BundID-ZBP/quellen/` subfolder |
+| Rechtsrahmen Bürgerkonto und Postfach (OZG, DIdG, IT-PLR Beschlüsse) | `BundID-ZBP/quellen/recht-governance/_index.md`; zapuk Rahmenbedingungen |
 | Österreich / Mein Postkorb as existing solution | `Mein-Postkorb-Oesterreich.md` |
 | UK / GOV.UK Notify as existing solution | `GOV-UK-Notify.md` |
 
