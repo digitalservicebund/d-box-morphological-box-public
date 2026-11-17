@@ -10,7 +10,7 @@ Context: `morph_box.csv` is the morphological box for the d-box (central, bi-dir
 |---|---|---|---|---|
 | `zapuk-main/` | ZaPuK: Zielarchitektur für Postfach- und Kommunikationslösungen (FITKO / FIT-AB, IT-Planungsrat). 196 files. | German | Markdown, PDF | Architecture decisions, requirements, legal framework, glossary. The richest source for dimensions and options. |
 | `neo-solution-architecture-develop/` | "Neo": Matrix-based, E2EE G2C communication channel (FITKO/BMDS), a child of ZaPuK. 64 files, arc42. | English | Markdown, Structurizr DSL | A concrete reference implementation: homeserver topology, BundID integration, message model, delivery legal concept. |
-| `ELSTER Dev Documentation/` | ERiC developer documentation package (ELSTER, BayLfSt), ERiC 44.1.6.0, May 2026. About 2,100 files, 227 MB. | German | PDF, XSD, XML, ODS, HTML | How an existing German mailbox works technically: ELSTER-Postfach and Postfach 2.0, Datenabholung, Bereitstellung by other authorities, certificates, encryption, DIVA (elektronische Bekanntgabe), Vollmachten. Reference for the `ELSTER-Postfach` column in `existing_solutions.csv`. |
+| `ELSTER/` | ERiC developer documentation package (ELSTER, BayLfSt), ERiC 44.1.6.0, May 2026. About 2,100 files, 227 MB. | German | PDF, XSD, XML, ODS, HTML | How an existing German mailbox works technically: ELSTER-Postfach and Postfach 2.0, Datenabholung, Bereitstellung by other authorities, certificates, encryption, DIVA (elektronische Bekanntgabe), Vollmachten. Reference for the `ELSTER-Postfach` column in `existing_solutions.csv`. |
 | `BundID-ZBP/` | Zentrales Bürgerpostfach (ZBP, "BundID-Postfach"): condensed analysis plus local copies of primary sources from the BundID operator, FITKO / FIT-Connect, IT-PLR, Bundestag and Bundesrat. 94 files, retrieved 2026-11-17. | German | Markdown, PDF, JSON Schema, OpenAPI, Java | How the existing federal citizen mailbox works: operation and governance, Anbindung (direct REST or FIT-Connect ZBP-Adapter), Postkorb-Handle addressing, Bekanntgabe nach § 9 OZG, legal history. Reference for the `BundID heute (Deutschland)` column in `existing_solutions.csv`. |
 | `Mein-Postkorb-Oesterreich.md` | Source list for the Austrian E-Zustellung ("Mein Postkorb"): ZustG, E-GovG, BKA white paper and ZUSE specification, oesterreich.gv.at, USP, with evidence per dimension. Links only, no local copies. | German | Markdown | Reference for the `Österreich` column in `existing_solutions.csv` and the Österreich entries in `morph_box.csv`. |
 | `GOV-UK-Notify.md` | Source list for GOV.UK Notify (UK, GDS): service pages on features, security, pricing, data retention, files, received text messages, plus REST API documentation, with evidence per dimension. Links only, no local copies. | German | Markdown | Reference for the `UK (kein zentrales Postfach)` column in `existing_solutions.csv` and the GOV.UK Notify entries in `morph_box.csv`. |
@@ -81,13 +81,13 @@ Snapshot of the public FITKO repo "Matrix G2C/G2X Communication Solution Archite
 - Process or meta only (skip): `13_methodology.md`, `docs/`, `CONTRIBUTING.md`, `SECURITY.md`, `LICENSES/`, `publiccode.yml`, CI and lint config.
 - The parent ZaPuK is referenced only by link. It is the `zapuk-main/` source.
 
-## 3. ELSTER Dev Documentation/
+## 3. ELSTER/
 
 Unpacked `ERiC-<version>-Dokumentation.zip` from the ELSTER developer area (requires a Hersteller registration). It documents ERiC (ELSTER Rich Client), the C library through which tax software, payroll and accounting software, and other authorities talk to the ELSTER servers. It is not product or governance documentation: Mein ELSTER (web portal), ElsterSecure, registration and operation are only mentioned in passing.
 
-**Start with `ELSTER Dev Documentation/ELSTER-Zusammenfassung.md`** (German): a condensed analysis of ELSTER along all `morph_box.csv` dimensions, with chapter and page pointers into this package and the relevant web sources.
+**Start with `ELSTER/ELSTER-Zusammenfassung.md`** (German): a condensed analysis of ELSTER along all `morph_box.csv` dimensions, with chapter and page pointers into this package and the relevant web sources.
 
-All paths below are relative to `ELSTER Dev Documentation/Dokumentation/`. Most of the volume is per-tax schemas (`Datenarten/ElsterErklaerung`, `ElsterAnmeldung`, `ElsterBilanz`, `ElsterLohn*`) and `Deltadokumentation/`, which are irrelevant for the d-box.
+All paths below are relative to `ELSTER/Dev Dokumentation/`. Most of the volume is per-tax schemas (`Datenarten/ElsterErklaerung`, `ElsterAnmeldung`, `ElsterBilanz`, `ElsterLohn*`) and `Deltadokumentation/`, which are irrelevant for the d-box.
 
 ### Entry points (reading order)
 
@@ -120,7 +120,7 @@ All paths below are relative to `ELSTER Dev Documentation/Dokumentation/`. Most 
 ### Caveats
 
 - Developer view only: no statements on governance, costs, operating sites, Mein ELSTER UI or ElsterSecure.
-- Partly outdated legal text: the handbook still states that a Bescheid is deemed bekannt gegeben on the third day after the notification (7.5, footnotes 47 and 48), whereas § 122a Abs. 4 AO uses the fourth day after Bereitstellung since 1 January 2025 (Postrechtsmodernisierungsgesetz). Legal sources and other web findings are listed in `ELSTER Dev Documentation/ELSTER-Zusammenfassung.md`, section 7.
+- Partly outdated legal text: the handbook still states that a Bescheid is deemed bekannt gegeben on the third day after the notification (7.5, footnotes 47 and 48), whereas § 122a Abs. 4 AO uses the fourth day after Bereitstellung since 1 January 2025 (Postrechtsmodernisierungsgesetz). Legal sources and other web findings are listed in `ELSTER/ELSTER-Zusammenfassung.md`, section 7.
 - Attachment rules per Datenart are in the XSDs, e.g. `Datenarten/ElsterNachricht/Belegnachreichung/Schema/24/Belegnachreichung-24-Nutzdaten.xsd` (PDF only, 20 attachments, 100 pages).
 - The Datenabholung Vertretung feature is marked as test operation only (SSb v32, 6.1).
 
@@ -162,7 +162,7 @@ Each subfolder of `BundID-ZBP/quellen/` has an `_index.md` with URL, publisher, 
 | Clients / Frontends | neo `03_context_and_scope.md` |
 | Governance, Länder, Finanzierung | zapuk README Beschlüsse, Zusammenfassung 3.3 and 4.x |
 | Requirements as decision criteria | zapuk `Konsolidierte-Anforderungen/README.md` |
-| ELSTER as existing solution (Postfach, Postfach 2.0, Bekanntgabe, Vollmacht, Anbindung) | `ELSTER Dev Documentation/ELSTER-Zusammenfassung.md` first, then ELSTER Dev Documentation: Entwicklerhandbuch 5.2, 7.5, 9.2, 9.3, 9.15 to 9.17; `ElsterBereitstellung-SSB`; `ElsterDatenabholung-v32` |
+| ELSTER as existing solution (Postfach, Postfach 2.0, Bekanntgabe, Vollmacht, Anbindung) | `ELSTER/ELSTER-Zusammenfassung.md` first, then `ELSTER/`: Entwicklerhandbuch 5.2, 7.5, 9.2, 9.3, 9.15 to 9.17; `ElsterBereitstellung-SSB`; `ElsterDatenabholung-v32` |
 | BundID / ZBP as existing solution (Anbindung, Postkorb-Handle, Bekanntgabe nach § 9 OZG, Betrieb) | `BundID-ZBP/ZBP-Zusammenfassung.md` first, then the `_index.md` of the relevant `BundID-ZBP/quellen/` subfolder |
 | Rechtsrahmen Bürgerkonto und Postfach (OZG, DIdG, IT-PLR Beschlüsse) | `BundID-ZBP/quellen/recht-governance/_index.md`; zapuk Rahmenbedingungen |
 | Österreich / Mein Postkorb as existing solution | `Mein-Postkorb-Oesterreich.md` |

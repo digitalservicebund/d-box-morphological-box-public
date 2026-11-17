@@ -2,7 +2,7 @@
 
 Wie ELSTER mit Personen, Organisationen und Behörden kommuniziert, eingeordnet nach den Zeilen von `morph_box.csv`. Die Zusammenfassung verweist auf die Quellen, statt sie zu wiederholen. Für Details den Pointer öffnen.
 
-Stand: 2026-11-17. Grundlage ist die ERiC-Dokumentation 44.1.6.0 (Mai 2026) in `Dokumentation/`, ergänzt um Webquellen und die ZaPuK- und Neo-Quellen.
+Stand: 2026-11-17. Grundlage ist die ERiC-Dokumentation 44.1.6.0 (Mai 2026) in `Dev Dokumentation/`, ergänzt um Webquellen und die ZaPuK- und Neo-Quellen.
 
 ## Kennzeichnung
 
@@ -12,7 +12,7 @@ Stand: 2026-11-17. Grundlage ist die ERiC-Dokumentation 44.1.6.0 (Mai 2026) in `
 
 ## Kürzel für Quellen
 
-Pfade relativ zu `sources/ELSTER Dev Documentation/Dokumentation/`.
+Pfade relativ zu `sources/ELSTER/Dev Dokumentation/`.
 
 | Kürzel | Datei | Inhalt |
 |---|---|---|
