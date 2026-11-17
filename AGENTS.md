@@ -55,6 +55,8 @@ Keep all solution columns and existing information when aligning dimensions, unl
 
 The file has its own CSV schema, not the `Auswahl` and `Ausprägung` columns of `morph_box.csv`. Maintain valid UTF-8 CSV with a consistent column count and verify its dimension labels and order against `morph_box.csv` after changes.
 
+Document the evidence for each researched solution in `sources/<Name>.md`, modelled on `sources/Mein-Postkorb-Oesterreich.md`: a `Hauptquellen` table with a short code (`Kürzel`) and link per source, then a `Nachweise je Dimension` table mapping each `Zeile` to its statement and source codes. Mark statements without explicit evidence as `[unverifiziert]` in both the source file and the CSV cell. Register the file in `sources.md`, both in the overview table and in the topic table.
+
 ## Editing policy
 
 When changing values:
