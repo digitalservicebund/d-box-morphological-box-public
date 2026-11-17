@@ -87,6 +87,8 @@ Unpacked `ERiC-<version>-Dokumentation.zip` from the ELSTER developer area (requ
 
 **Start with `ELSTER/ELSTER-Zusammenfassung.md`** (German): a condensed analysis of ELSTER along all `morph_box.csv` dimensions, with chapter and page pointers into this package and the relevant web sources.
 
+**`ELSTER/ELSTER-Quellen.md`** (German): source list in the style of `GOV-UK-Notify.md`, with short codes and evidence per dimension for the `ELSTER-Postfach (Deutschland)` column in `existing_solutions.csv` and the ELSTER entries in `morph_box.csv`, checked on 2026-11-17, plus the deviations found during the check.
+
 All paths below are relative to `ELSTER/Dev Dokumentation/`. Most of the volume is per-tax schemas (`Datenarten/ElsterErklaerung`, `ElsterAnmeldung`, `ElsterBilanz`, `ElsterLohn*`) and `Deltadokumentation/`, which are irrelevant for the d-box.
 
 ### Entry points (reading order)
