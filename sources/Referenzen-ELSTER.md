@@ -99,7 +99,7 @@ Lokale Pfade relativ zu `sources/ELSTER/Dev Dokumentation/`.
 
 ## Abweichungen bei der Prüfung
 
-Abgleich der Belege mit `ELSTER-Zusammenfassung.md` und den CSV-Texten, 2026-11-17.
+Abgleich der Belege mit `ELSTER/ELSTER-Zusammenfassung.md` und den CSV-Texten, 2026-11-17.
 
 - **P3, I4 („mehrere Organisationszertifikate je Steuernummer“):** ZERT-LF sagt „je Unternehmen / Organisation“; das Zertifikat beruht auf der Steuernummer. Die CSV-Formulierung ist abgeleitet.
 - **P4 („eigenes Postfach“ der Bevollmächtigten):** nur die eigene Kennung (`vnid`) und die eigene Einwilligung sind belegt.
