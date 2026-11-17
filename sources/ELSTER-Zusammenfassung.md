@@ -61,7 +61,12 @@ Clearingstelle / Annahmeserver ──► Verteilung an die Fachverfahren der Lä
 ## 2. Betrieb, Governance, Teilnahme
 
 - **Betreiber:** Der Freistaat Bayern, vertreten durch das BayLfSt, „als bundesweiter Koordinator des Verfahrens ELSTER der Finanzverwaltungen von Bund und Ländern“ (LIZ § 1). Laut Web betreibt das BayLfSt ELSTER im Auftrag von Bund und Ländern auf Grundlage von § 20 Abs. 3 FVG **[Web]**.
-- **Steuerung:** über KONSENS, also BMF und die Finanzministerien der Länder **[unverifiziert]**.
+- **Steuerung:** über KONSENS nach dem KONSENS-Gesetz (KONSENS-G vom 14.08.2017, anzuwenden ab 01.01.2019; löst das Verwaltungsabkommen KONSENS von 2007 im Bereich der Auftragsverwaltung ab, § 29) **[Web]**:
+  - Auftraggeber-Gremium aus Bund und allen Ländern, Vorsitz Bund; Vorhabensplan zur Genehmigung durch die Finanzminister von Bund und Ländern (§ 8).
+  - Steuerungsgruppe Informationstechnik aus Bund und BW, BY, HE, NI, NW: „Beschlüsse der Steuerungsgruppe Informationstechnik binden alle Länder und verpflichten diese zur Umsetzung.“ (§ 9 Abs. 4). Sie bestimmt das Auftrag nehmende Land (§ 11).
+  - Geschäftsstelle IT beim BMF (§ 10), operative Gesamtleitung (§ 13); Kosten: Länder nach Königsteiner Schlüssel, Bund 13 % (§ 24).
+  - ELSTER „wird in Bayern im Auftrag des Bundes und der Länder im Vorhaben „KONSENS“ entwickelt“ (PM Bayerisches Finanzministerium Nr. 161/24 vom 13.06.2024). KONSENS-Broschüre NRW 2015: Auftrag nehmende Länder BY und NW, Verfahrensmanagement in BY, ZPS ELSTER-Betrieb und -Hotline in BY, ELSTER-Support in NI (Stand 2015). Das BayLfSt nimmt die stellvertretende Gesamtleitung von KONSENS wahr.
+  - KONSENS-G, FVG und AO nennen ELSTER nicht ausdrücklich; die Zuordnung stammt aus Verwaltungsquellen.
 - **Postfach als Basisdienst:** Für andere Behörden ist das Postfach eine „IT-Komponente im Sinne des § 2 Abs. 7 OZG“. Für die Inhalte haftet die Finanzverwaltung nicht (LIZ § 18).
 - **Software-Hersteller:**
   - Registrierung im Entwicklerbereich, das BayLfSt prüft die Absicht **[Web]**.
@@ -132,7 +137,9 @@ Die Ziffern verweisen auf die Ausprägungen der jeweiligen Zeile in `morph_box.c
 - **B2 Zugang ohne Fachverfahren:** In der Entwickler-Doku nichts dokumentiert. Laut Web:
   - ELSTER-Transfer (ETR) gibt es als Mein ELSTER und als Java-Anwendung „mit Web-Interface und Command-line-Interface“. Die Anwendung läuft „üblicherweise ständig auf einem Server oder Rechner“, mit Ein- und Ausgangsordnern, JSON-Adressdateien und REST-API (ETR-Hilfe) **[Web]**.
   - Für Bescheide in das Postfach „ist die ELSTER-Transfer-Anwendung zwingend erforderlich“; webbasiertes ETR in Mein ELSTER ist „nicht für den Rückkanal geeignet“ (Leitfaden Gewerbesteuerbescheid, 24.08.2023) **[Web]**.
-  - Abschnitt 4.3.2 „Upload über ELSTER-Transfer (direkt)“ deutet einen manuellen Upload ohne HKR-System an; der Inhalt liegt nur als Bild vor **[unverifiziert]**.
+  - Abschnitt 4.3.2 „Upload über ELSTER-Transfer (direkt)“ besteht nur aus Screenshots (S. 10–11): In der lokalen Web-Oberfläche „Bereitstellung von Dokumenten“ → „Neues Dokument bereitstellen“; Datenart wählen, Empfänger als Benutzerkonto-ID, Datei(en) hochladen (im Beispiel PDF), Datum des Bescheids, optional Lieferticket und Geschäftszeichen **[Web]**. Postfach 2.0 Featureübersicht, Abschnitt 2.1, beschreibt denselben Ablauf für `EPBescheid` mit Empfängerreferenz und Anschreiben **[Web]**.
+  - FAQ Digitaler Gewerbesteuerbescheid (26.07.2024), Frage 9: „Ferner erlaubt die ELSTER-Transfer-Anwendung auch eine manuelle Bedienung des Rückkanals.“ Frage 15: maschinelle Bekanntgabe über die REST-API „wird … empfohlen“, die manuelle Bekanntgabe ist „-aktuell noch mögliche-“ **[Web]**.
+  - Ohne Fachverfahren heißt also nicht ohne ELSTER-Transfer: Die Anwendung mit Organisationszertifikat und Berechtigung muss installiert sein. Ob beim manuellen Gewerbesteuerbescheid PDF/A-3 mit eingebettetem XML Pflicht ist (Abschnitt 4.2 verlangt es für das HKR-System), ist offen.
   - Ein zentraler Versanddienst oder Druckdienst ist nicht beschrieben.
 - **B3 Adressierung: 1.** Ordnungsbegriffe (SSb-B 5.2, 7.5–7.7, 8.5, 8.16):
   - `accountId`: 10 Ziffern, oder pseudonym als **`ek-` + 40 Hex-Zeichen**, aufgelöst über WIESEL.
@@ -209,7 +216,12 @@ Die Ziffern verweisen auf die Ausprägungen der jeweiligen Zeile in `morph_box.c
 - **I1 Betrieb und Governance: 1.** Siehe Abschnitt 2.
 - **I2 Datenhaltung und Versand: 1.** Zentral in BEST-DB und OTTER. Wo die Rechenzentren genau stehen, ist offen. Das BayLfSt betreibt eigene Rechenzentren **[Web]**.
 - **I3 Betriebsmodell für Organisationen: 1.**
-- **I4 Funktionspostfächer und interne Bearbeitung: 5.** Wie die Finanzämter eingehende Nachrichten intern verteilen, ist öffentlich nicht dokumentiert; vermutlich in den KONSENS-Fachverfahren **[unverifiziert]**. Organisationen teilen sich ein Organisationszertifikat oder CEZ (siehe P3).
+- **I4 Funktionspostfächer und interne Bearbeitung: 5.**
+  - Adressierung: „Ihr zuständiges Finanzamt und die zuständigen Bearbeiter können Sie über die Eingabe eines der folgenden Felder adressieren: Steuernummer …“ (Technisches Finanzamt Cottbus, Anleitung ELSTER-Kontaktformular, 2026) **[Web]**.
+  - ELSTER liefert strukturierte Daten für eine „vorgangsgesteuerte, teilweise sogar bereits halbautomatische Weiterverarbeitung“ in den Fachverfahren (Nds. Landtag Drs. 18/909, 07.05.2018) **[Web]**. Eine E-Akte der Steuerverwaltung ist im Aufbau (Rechnungshof RLP 2019).
+  - Wie Nachrichten im Finanzamt an Bearbeiter verteilt werden (Posteingangskorb, Verteilregeln, Bearbeitungsdauer), ist öffentlich nicht dokumentiert; vermutlich in den KONSENS-Fachverfahren **[unverifiziert]**.
+  - Rückkanal je Land unterschiedlich: Niedersachsen: „Eine Beantwortung über ELSTER ist dem Finanzamt technisch nicht möglich.“ Baden-Württemberg: bei elektronischer Bekanntgabe Antwort „in Ihr persönliches Postfach in Mein ELSTER“ **[Web]**.
+  - Organisationen teilen sich ein Organisationszertifikat oder CEZ (siehe P3). Leitfaden Organisationszertifikate (03/2024): mehrere Zertifikate je Unternehmen möglich, je Zertifikat ein Benutzerkonto und Mitarbeiterpostfach; „Zusätzlich können Funktionspostfächer angelegt werden, auf die mehrere Mitarbeitende Zugriff haben.“ Die Berechtigungssteuerung ist noch nicht vollständig ausgerollt **[Web]**.
 - **I5 Aufnahme in den Verbund: 1.** Für Drittsoftware faktisch **3**: Lizenzvertrag und Hersteller-ID, Sanktion ist die Sperre.
 
 ### Recht
@@ -226,7 +238,7 @@ Die Ziffern verweisen auf die Ausprägungen der jeweiligen Zeile in `morph_box.c
   - Der Bescheid gilt am **vierten Tag nach Bereitstellung** als bekannt gegeben (§ 122a Abs. 4 Satz 1 AO). „Dritter“ wurde durch Art. 20 des Postrechtsmodernisierungsgesetzes vom 15.07.2024 durch „vierter“ ersetzt, in Kraft seit 01.01.2025 **[Web]**. Übergangsregel Art. 97 § 1 Abs. 15 EGAO: gilt für alle Verwaltungsakte, die „nach dem 31. Dezember 2024 … elektronisch zum Abruf bereit gestellt werden“. Maßgeblich ist die Bereitstellung, nicht der Erlass.
   - Neufassung von § 122a AO durch das Vierte Bürokratieentlastungsgesetz vom 23.10.2024, ab 01.01.2026: Bekanntgabe „soll“ durch Bereitstellung erfolgen, Papier nur auf Antrag (§ 122a Abs. 2 AO). Nach Art. 97 § 28 Abs. 2 EGAO gilt der Regelfall (Abs. 1 Satz 2) erst für Verwaltungsakte, die nach dem 31.12.2026 erlassen werden; die Verschiebung kam mit dem Gesetz zur Anpassung des Mindeststeuergesetzes vom 22.12.2025 **[Web]**.
   - Eine förmliche Zustellung über ELSTER (§ 122 Abs. 5 AO mit VwZG) ist nicht gefunden.
-- **R4 Teilnahme der Behörden:** Finanzämter von Bund und Ländern nehmen gemeinsam teil; eine Rechtsgrundlage für ihre Teilnahme ist nicht gefunden (Betrieb nach § 20 Abs. 3 FVG, siehe Abschnitt 2). Für andere Behörden **1**: freiwillig, nur mit Berechtigung und Anbindung über Postfach 2.0; keine Pflicht und keine Anreize, Wirtschaftsverbände fordern eine Anbindungsverpflichtung (siehe Abschnitt 2).
+- **R4 Teilnahme der Behörden:** Finanzämter von Bund und Ländern nehmen gemeinsam teil. Eine Angebotspflicht in der AO gibt es nicht (§ 87a Abs. 1 AO: Zugangseröffnung). Die Teilnahme folgt aus § 12 KONSENS-G: „Die Länder sind verpflichtet, die durch die Auftrag nehmenden Länder entwickelten IT-Verfahren oder die entwickelte Software einheitlich … im eigenen Land einzusetzen“, und aus § 20 Abs. 3 FVG: technische Hilfstätigkeiten wie „die Entgegennahme elektronischer Steuererklärungen“ und „die elektronische Übermittlung von Steuerverwaltungsakten“ durch ein anderes Land sind „der sachlich und örtlich zuständigen Finanzbehörde zuzurechnen“ **[Web]**. Zusätzlich haben sich die Länder verständigt, statt De-Mail „grundsätzlich nur den Eingangskanal ELSTER“ vorzusehen (Nds. Drs. 18/909) **[Web]**. Für andere Behörden **1**: freiwillig, nur mit Berechtigung und Anbindung über Postfach 2.0; keine Pflicht und keine Anreize, Wirtschaftsverbände fordern eine Anbindungsverpflichtung (siehe Abschnitt 2).
 
 ## 6. Widersprüche und offene Punkte
 
@@ -234,12 +246,11 @@ Die Ziffern verweisen auf die Ausprägungen der jeweiligen Zeile in `morph_box.c
 - **Rechtsgrundlage `EPBescheid`:** EHB 9.15.4 nennt § 9 OZG, EHB Tabelle 9-9 nennt § 122a AO.
 - **Noch nicht belegt:**
   - Siegel oder Signatur auf Bescheiden (Ü3).
-  - Gremienstruktur von KONSENS.
   - Standort der Rechenzentren.
   - Mein-ELSTER-Oberfläche und ElsterSecure im Detail: Die Doku richtet sich an Entwickler.
-  - Interne Verteilung der Eingänge in den Finanzämtern (I4).
-  - Rechtsgrundlage der Teilnahme der Finanzämter (R4).
-  - Inhalt von Abschnitt 4.3.2 im Leitfaden Gewerbesteuerbescheid (B2, nur als Bild).
+  - Interne Verteilung der Eingänge in den Finanzämtern (I4), nur Adressierung per Steuernummer belegt.
+  - Wortlaut des Verwaltungsabkommens KONSENS von 2007.
+  - PDF/A-3-Pflicht beim manuellen Upload von Gewerbesteuerbescheiden (B2).
 - **Datenart `Vertretung` (SSb-D 6.1):** bisher nur im Testbetrieb.
 - **Einwand der Steuerberaterkammer:** Laut `bewertungskriterien.md` bestreitet sie, dass das Nutzerkonto für Steuerbescheide ausreicht. Das ist noch rechtlich zu prüfen.
 
@@ -253,7 +264,9 @@ Die Ziffern verweisen auf die Ausprägungen der jeweiligen Zeile in `morph_box.c
 - Vollmachten: [ELSTER Vollmachtsdatenbank](https://www.elster.de/elsterweb/infoseite/vollmachtsdatenbank), [BStBK Vollmachtsdatenbank](https://www.bstbk.de/de/themen/vollmachtsdatenbank)
 - Anhänge an Finanzämter: [Sachsen-Anhalt, digitale Belegübersendung](https://sachsen-anhalt.de/fileadmin/tsa_rssinclude/ministerium-der-finanzen_28_11_2020_pressemitteilung_jetzt-neu-digitale-beleguebersendung-an-finanzaemter.pdf)
 - Organisationskonto und Teilnahme: [BayVV Betriebsbedingungen Organisationskonto vom 30.03.2022](https://www.gesetze-bayern.de/Content/Document/BayVV_206_D_12940/true), [Bremen, Senatsvorlage zur Verwaltungsvereinbarung Organisationskonto, 02.12.2022](https://www.rathaus.bremen.de/sixcms/media.php/13/top%202_20221220_Verwaltungsvereinbarung_Organisationskonto_Bremen.pdf), [Modulares Unternehmenskonto auf Basis von ELSTER](https://download.elster.de/download/dokumente/Modulares_Unternehmenskonto_auf_der_Basis_von_ELSTER.pdf)
-- KONSENS und Verwaltung: [ELSTER für die Verwaltung](https://www.elster.de/elsterweb/infoseite/verwaltung?locale=de_DE), [Bremische Bürgerschaft Drs. 20/774](https://www.bremische-buergerschaft.de/drs_abo/2021-01-12_Drs-20-774_70e38.pdf)
+- KONSENS und Verwaltung: [ELSTER für die Verwaltung](https://www.elster.de/elsterweb/infoseite/verwaltung?locale=de_DE), [Bremische Bürgerschaft Drs. 20/774](https://www.bremische-buergerschaft.de/drs_abo/2021-01-12_Drs-20-774_70e38.pdf), [KONSENS-G](https://www.gesetze-im-internet.de/konsens-g/), [§ 20 FVG](https://www.gesetze-im-internet.de/fvg_1971/__20.html), [BT-Drs. 18/12589 (Begründung KONSENS-G, S. 132–133)](https://dserver.bundestag.de/btd/18/125/1812589.pdf), [PM Bayerisches Finanzministerium Nr. 161/24 (Kopie schweinfurt.de)](https://schweinfurt.de/rathaus-politik/amtliche-bekanntmachungen/m_51974), [KONSENS-Broschüre NRW 2015](https://www.finanzverwaltung.nrw.de/sites/default/files/asset/document/konsens_broschuere_2015_web_reduziert_0.pdf), [BayLfSt Gebäudebroschüre 2024](https://www.lfst.bayern.de/fileadmin/RESSOURCEN/LfSt/UEber_uns/Gebaeudebroschuere_neu_20240430.pdf), [SH Landtag Umdruck 18/6914 (Änderung Verwaltungsabkommen KONSENS)](https://www.landtag.ltsh.de/infothek/wahl18/umdrucke/6900/umdruck-18-6914.pdf)
+- Manueller Upload: [FAQ Digitaler Gewerbesteuerbescheid, 26.07.2024](https://download.elster.de/download/elstertransfer/dokumente/20240726_FAQ_Digitaler_Gewerbesteuerbescheid.pdf)
+- Eingänge im Finanzamt: [FA Cottbus, Anleitung ELSTER-Kontaktformular](https://finanzamt.brandenburg.de/sixcms/media.php/9/Anleitung-zur-Nutzung-des-ELSTER-Kontaktformulars_07-2026.pdf), [LStN Niedersachsen, sonstige Nachricht](https://lstn.niedersachsen.de/download/165131), [Nds. Landtag Drs. 18/909](https://www.landtag-niedersachsen.de/Drucksachen/Drucksachen_18_02500/00501-01000/18-00909.pdf), [Finanzämter BW, Kontaktformular](https://finanzamt-bw.fv-bwl.de/,Lde/Startseite/Service/Kontaktformular), [Rechnungshof RLP 2019 Nr. 05](https://rechnungshof.rlp.de/fileadmin/rechnungshof/Jahresberichte/2019/Jahresbericht_2019_Nr._05_Struktur_der_Steuerverwaltung.pdf), [Leitfaden ELSTER-Organisationszertifikate 03/2024](https://info.mein-unternehmenskonto.de/wp-content/uploads/2024/03/20240313_Zertifikatsleitfaden.pdf)
 - Anhangslimits in Mein ELSTER (Forum): [Maximale Dateigrößen bei Belegnachreichungen](https://forum.elster.de/anwenderforum/forum/elster-webanwendungen/mein-elster/412772-maximale-dateigr%C3%B6%C3%9Fen-bei-belegnachreichungen-viel-zu-klein)
 - Gesetz: [§ 87a AO](https://www.gesetze-im-internet.de/ao_1977/__87a.html), [§ 122a AO](https://www.gesetze-im-internet.de/ao_1977/__122a.html), [§ 357 AO](https://www.gesetze-im-internet.de/ao_1977/__357.html), [Art. 97 § 1 EGAO](https://www.gesetze-im-internet.de/aoeg_1977/art_97__1.html), [Art. 97 § 28 EGAO](https://www.gesetze-im-internet.de/aoeg_1977/art_97__28.html), [AEAO zu § 87a (Abschrift steuerschroeder.de, AO-Handbuch 2026)](https://www.steuerschroeder.de/steuergesetze/aeao/87a), [Änderungshistorie § 122a AO (buzer.de)](https://www.buzer.de/122a_AO.htm)
 
