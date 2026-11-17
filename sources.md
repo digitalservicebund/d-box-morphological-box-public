@@ -10,6 +10,7 @@ Context: `morph_box.csv` is the morphological box for the d-box (central, bi-dir
 |---|---|---|---|---|
 | `zapuk-main/` | ZaPuK: Zielarchitektur für Postfach- und Kommunikationslösungen (FITKO / FIT-AB, IT-Planungsrat). 196 files. | German | Markdown, PDF | Architecture decisions, requirements, legal framework, glossary. The richest source for dimensions and options. |
 | `neo-solution-architecture-develop/` | "Neo": Matrix-based, E2EE G2C communication channel (FITKO/BMDS), a child of ZaPuK. 64 files, arc42. | English | Markdown, Structurizr DSL | A concrete reference implementation: homeserver topology, BundID integration, message model, delivery legal concept. |
+| `ELSTER Dev Documentation/` | ERiC developer documentation package (ELSTER, BayLfSt), ERiC 44.1.6.0, May 2026. About 2,100 files, 227 MB. | German | PDF, XSD, XML, ODS, HTML | How an existing German mailbox works technically: ELSTER-Postfach and Postfach 2.0, Datenabholung, Bereitstellung by other authorities, certificates, encryption, DIVA (elektronische Bekanntgabe), Vollmachten. Reference for the `ELSTER-Postfach` column in `existing_solutions.csv`. |
 
 ## 1. zapuk-main/
 
@@ -77,6 +78,48 @@ Snapshot of the public FITKO repo "Matrix G2C/G2X Communication Solution Archite
 - Process or meta only (skip): `13_methodology.md`, `docs/`, `CONTRIBUTING.md`, `SECURITY.md`, `LICENSES/`, `publiccode.yml`, CI and lint config.
 - The parent ZaPuK is referenced only by link. It is the `zapuk-main/` source.
 
+## 3. ELSTER Dev Documentation/
+
+Unpacked `ERiC-<version>-Dokumentation.zip` from the ELSTER developer area (requires a Hersteller registration). It documents ERiC (ELSTER Rich Client), the C library through which tax software, payroll and accounting software, and other authorities talk to the ELSTER servers. It is not product or governance documentation: Mein ELSTER (web portal), ElsterSecure, registration and operation are only mentioned in passing.
+
+**Start with `ELSTER-Zusammenfassung.md`** (German): a condensed analysis of ELSTER along all `morph_box.csv` dimensions, with chapter and page pointers into this package and the relevant web sources.
+
+All paths below are relative to `ELSTER Dev Documentation/Dokumentation/`. Most of the volume is per-tax schemas (`Datenarten/ElsterErklaerung`, `ElsterAnmeldung`, `ElsterBilanz`, `ElsterLohn*`) and `Deltadokumentation/`, which are irrelevant for the d-box.
+
+### Entry points (reading order)
+
+1. `Liesmich.txt`: package overview and recommended reading order.
+2. `ERiC-Entwicklerhandbuch.pdf` (514 pages). Relevant chapters only:
+   - 5.2: certificates (CEZ, Portalzertifikat POZ, Ad-hoc-Zertifikat for nPA/eAT), Vorgangsarten `send-Auth` / `send-NoSig`, nPA via ELSTER eID-Server.
+   - 5.3.13: TLS cipher suites.
+   - 5.4.11: attachments, server-side malware scan and removal of active content, AnhangRueckmeldung.
+   - 6.5: Hersteller-ID, test tax offices, Testmerker.
+   - 7.4 and 7.5: Bescheiddatenrückübermittlung, elektronische Bekanntgabe Stufe 1 and 2.
+   - 9.2 and 9.3: ElsterDatenabholung (PostfachAnfrage, PostfachBestaetigung, PostfachStatus), list of Bereitstellungsdatenarten, deletion periods, OTTER object store and the `otto` client.
+   - 9.10: DauerPostBeStAntrag / -Widerruf (permanent opt-out to paper under § 122a AO).
+   - 9.11: ElsterNachricht, the citizen-to-tax-office channel (Einspruch, SonstigeNachrichten, Belegnachreichung, Fristverlängerung …).
+   - 9.15: Bescheide und Mitteilungen von Organisationen außerhalb der Finanzverwaltung (Postfach 2.0: EPBescheid, EPMitteilung, EPKurzmitteilung, EPAntwort, OZGPPNachricht) and the reply mechanism.
+   - 9.16 and 9.17: DIVA Einwilligungserklärung, Vollmachten, Abrufvollmacht, Kammer-Vollmachtsdatenbank.
+3. `Datenarten/ElsterBereitstellung/Dokumentation/ElsterBereitstellung-SSB-V5.0.8.pdf`: sender-side interface into the ELSTER-Postfach and Postfach 2.0 (BEM, BEST-DB, addressing via accountId / pseudonymous `ek-` ID / AGS, WIESEL pool key, e-mail notification, DIVA Ordnungsbegriffe, EPAntwort).
+4. `Datenarten/ElsterDatenabholung/Dokumentation/ElsterDatenabholung-v32.pdf`: recipient-side interface (Anfrage, Abholung, Bestätigung), Vertretung (in test), Statusabfrage with status codes 05 to 99 and Abrufzeitpunkt.
+5. `ElsterBasisSchema/Dokumentation/Einheitliche_Datenschnittstelle_XML_11.pdf`: ElsterXML envelope, CMS hybrid encryption (RSA-OAEP 3072 / AES-256-CBC), HTTPS to the Clearingstelle.
+6. `lizenz.pdf`: ERiC licence (Freistaat Bayern / BayLfSt as bundesweiter Koordinator; free of charge; purpose limited to §§ 72a, 87b-87d AO; blocking of Hersteller-ID; § 18 Postfach as IT-Komponente nach § 2 Abs. 7 OZG for other authorities).
+
+### Other content
+
+- `Tutorial/ERiC-Tutorial.pdf` and `Tutorial/Beispiele/PostfachAnfrage.xml`, `PostfachBestaetigung.xml`: worked examples.
+- `Datenarten/ElsterDatenabholung/DatenartBereitstellung/*/Dokumentation/*.pdf`: small specs for AnhangRueckmeldung, DIVA-Rückmeldungen, EBilanzRueckmeldung.
+- `Datenarten/ElsterBRM/`: DIVA Einwilligung and Vollmachten schemas; `Vollmachten/Dokumentation/20240306_Vollmachten_fuer_LStHV_SSb-V01.00.pdf`.
+- `Datenarten/ElsterNachricht/Einspruch/Zusatzinformationen_zur_Datenart_Einspruch.pdf`.
+- `API-Referenz/` (Doxygen HTML and PDF), `API-Rueckgabe-Schemata/`, `Unterstuetzte_Signaturkarten_und_Sticks/`: API detail, rarely needed.
+- `ERiC-Releasenotes.pdf`: change history.
+
+### Caveats
+
+- Developer view only: no statements on governance, costs, operating sites, Mein ELSTER UI or ElsterSecure.
+- Partly outdated legal text: the handbook still states that a Bescheid is deemed bekannt gegeben on the third day after the notification (7.5, footnotes 47 and 48), whereas current § 122a Abs. 4 AO uses the fourth day after Bereitstellung.
+- The Datenabholung Vertretung feature is marked as test operation only (SSb v32, 6.1).
+
 ## Which source for which morph_box topic
 
 | Topic | Start with |
@@ -94,6 +137,7 @@ Snapshot of the public FITKO repo "Matrix G2C/G2X Communication Solution Archite
 | Clients / Frontends | neo `03_context_and_scope.md` |
 | Governance, Länder, Finanzierung | zapuk README Beschlüsse, Zusammenfassung 3.3 and 4.x |
 | Requirements as decision criteria | zapuk `Konsolidierte-Anforderungen/README.md` |
+| ELSTER as existing solution (Postfach, Postfach 2.0, Bekanntgabe, Vollmacht, Anbindung) | `ELSTER-Zusammenfassung.md` first, then ELSTER Dev Documentation: Entwicklerhandbuch 5.2, 7.5, 9.2, 9.3, 9.15 to 9.17; `ElsterBereitstellung-SSB`; `ElsterDatenabholung-v32` |
 
 ## Gaps and caveats
 
