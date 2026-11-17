@@ -49,6 +49,7 @@ Belege für die Spalte `BundID heute (Deutschland)` in `existing_solutions.csv`,
 |---|---|---|
 | B1 | direkt über die REST-API des ZBP (`PUT /v6/mailbox/messages`, `POST /v6/mailbox/applications/states`), nur aus NdB oder Verbindungsnetz; mTLS mit BPKI-Zertifikat, selbst signiertes JWT (RS512, 30 Minuten gültig) | FC-E Z. 13–14; FC-T Z. 26, 309–310; FC-R Z. 16–17, 232–233; SDK `ZBPApiService.java` Z. 22–23, `TokenGenerator.java` Z. 20, 34, 41 |
 | B1 | außerhalb von NdB / VN über den ZBP-Adapter von FIT-Connect, signierter Umschlag mit `authorCertificate`, `authorToken`, `sha512sum`; SDKs für Java und .NET; Onboarding über das BundID-Self-Service-Portal mit Postfach-Zertifikat, Testphase, Technikerworkshop | FC-E Z. 29–33; FC-T Z. 141–146; PAP Z. 20, 27, 33 |
+| B1 | teils über zentrale Postfachdienste der Länder, die an das ZBP weiterleiten | SID F24–F33; MV F6–F7; DP |
 | B2 | kein Zugang für Behörden ohne Fachverfahren [unverifiziert] | Fehlanzeige; FC-E Z. 13–14 nennt nur die beiden technischen Wege |
 | B3 | Postkorb-Handle (`mailboxUuid`) aus der Anmeldung über die BundID, vom Onlinedienst an das Fachverfahren weitergereicht; für Bürger:innen in der Betroffenenauskunft (PDF, „Kontodaten“); Statusmonitor über `applicationId`; nur natürliche Personen | DSE 6.4 (Z. 37); SID F24–25; META `replyChannel.idBundDeMailbox`; FC-T Z. 130–133; FC-R Z. 122, 132, 186; OZG § 2 Abs. 5 |
 | B3 | kein zentrales Verzeichnis; Adressierung ohne vorherigen Antrag mit BundID-Login nicht vorgesehen [unverifiziert] | Fehlanzeige |
