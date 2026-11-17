@@ -1,0 +1,1750 @@
+openapi: 3.1.0
+info:
+  version: 3.1.0
+  title: FIT-Connect Destination API V3
+  description: Diese API dient dem Verwalten von Zustellpunkten.
+  contact:
+    name: FITKO
+    url: https://docs.fitko.de/fit-connect/contact
+  license:
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+    name: Creative Commons Attribution Share Alike 4.0 (CC BY-SA 4.0)
+  termsOfService: https://docs.fitko.de/fit-connect/docs/details/terms-of-use-testing/
+servers:
+  - url: https://test.fit-connect.fitko.dev/destination-api
+    description: Testumgebung
+  - url: https://stage.fit-connect.fitko.net/destination-api
+    description: Stageumgebung
+  - url: https://prod.fit-connect.fitko.net/destination-api
+    description: Produktivumgebung
+externalDocs:
+  description: FIT-Connect-Dokumentationsportal mit Dokumentation zur API-Nutzung
+  url: https://docs.fitko.de/fit-connect
+paths:
+  /v3/destinations:
+    get:
+      operationId: get-my-destinations
+      summary: Eigene Zustellpunkte auflisten
+      description: |
+        Mit diesem Request können alle selbst angelegten Zustellpunkte sowie deren Konfigurationen abgerufen werden. Die Einträge haben eine stabile, aber nicht näher spezifizierte Reihenfolge.
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/manage-destinations
+            - https://schema.fitko.de/fit-connect/oauth/scopes/subscribe-destinations
+      parameters:
+        - $ref: '#/components/parameters/minimal'
+        - $ref: '#/components/parameters/status'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control-no-cache'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/destination-list'
+              examples:
+                Empty List:
+                  $ref: '#/components/examples/destination-list-empty'
+                Several Destinations:
+                  $ref: '#/components/examples/destination-list'
+        default:
+          $ref: '#/components/responses/detailed-error'
+    post:
+      operationId: create-destination
+      summary: Zustellpunkt anlegen
+      description: |
+        Dient dem Anlegen eines neuen Zustellpunktes mit entsprechender Konfiguration zum Empfang von Einreichungen. Ein detaillierte Beschreibung ist in der [Dokumentation](https://docs.fitko.de/fit-connect/docs/getting-started/receiving/destination) zu finden.
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/manage-destinations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create-destination'
+            examples:
+              Beispiel:
+                $ref: '#/components/examples/create-destination'
+      responses:
+        '201':
+          description: Created
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control-no-cache'
+            Location:
+              $ref: '#/components/headers/location'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/destination-private'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/destination-private'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/destinations/{destinationId}:
+    parameters:
+      - $ref: '#/components/parameters/destinationId'
+    get:
+      operationId: get-destination-info
+      summary: Zustellpunkt abfragen
+      description: Ruft die Details eines Zustellpunktes ab.
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/manage-destinations
+            - https://schema.fitko.de/fit-connect/oauth/scopes/subscribe-destinations
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control-no-cache'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/destination-private'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/destination-private'
+        default:
+          $ref: '#/components/responses/detailed-error'
+    put:
+      operationId: update-destination
+      summary: Zustellpunkt speichern
+      description: |
+        Ermöglicht es, einen Zustellpunkt vollständig zu aktualisieren bzw überschreiben.
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/manage-destinations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/destination-put'
+            examples:
+              Beispiel:
+                $ref: '#/components/examples/update-destination'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control-no-cache'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/destination-private'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/destination-private'
+        default:
+          $ref: '#/components/responses/detailed-error'
+    patch:
+      operationId: patch-destination
+      summary: Zustellpunkt partiell aktualisieren
+      description: |
+        Ermöglicht es einen Zustellpunkt partiell zu aktualisieren. Ein Beispiel wäre die Änderung des Feldes `encryptionKid` bei Schlüssel-Rollover.
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/manage-destinations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/destination-patch'
+            examples:
+              Patch Status:
+                $ref: '#/components/examples/patch-destination-status'
+              Patch Contact:
+                $ref: '#/components/examples/patch-destination-contact'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control-no-cache'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/destination-private'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/destination-private'
+        default:
+          $ref: '#/components/responses/detailed-error'
+    delete:
+      operationId: delete-destination
+      summary: Zustellpunkt löschen
+      description: Dieser Endpunkt ermöglicht es, einen Zustellpunkt zu löschen, solange sich dieser im status 'created' befindet.
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/manage-destinations
+      responses:
+        '204':
+          description: Zustellpunkt erfolgreich gelöscht.
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/destinations/{destinationId}/keys:
+    parameters:
+      - $ref: '#/components/parameters/destinationId'
+    get:
+      operationId: list-destination-keys
+      summary: Liste aller öffentlichen Schlüssel eines Zustellpunktes
+      description: Alle einem Zustellpunkt zugeordneten öffentlichen Schlüssel werden über diesen Endpunkt im JWKS [RFC7517](https://datatracker.ietf.org/doc/html/rfc7517#section-5) Format gelistet.
+      security: []
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jwks-with-paging'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/jwks-with-paging'
+        default:
+          $ref: '#/components/responses/detailed-error'
+    post:
+      operationId: add-destination-key
+      summary: Fügt dem Zustellpunkt einen JWK hinzu.
+      description: Um einem Zustellpunkt verschlüsselte Datensätze zu schicken benötigt man dessen öffentlichen Schlüssel. Diesen Schlüssel kann man als Verwalter eines Zustellpunktes über diesen Endpunkt setzen.
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/manage-destinations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/jwk'
+            examples:
+              Beispiel Signatur-Public-Key:
+                $ref: '#/components/examples/jwk-verify'
+              Beispiel Verschlüsselungs-Public-Key:
+                $ref: '#/components/examples/jwk-wrapKey'
+      responses:
+        '201':
+          description: Schlüssel hinzugefügt oder existiert bereits
+          headers:
+            Location:
+              $ref: '#/components/headers/location'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/destinations/{destinationId}/limits:
+    parameters:
+      - $ref: '#/components/parameters/destinationId'
+    get:
+      operationId: get-destination-limits
+      summary: Destination-Limits abfragen
+      description: Ruft die Attachment-Limits einer Destination ab.
+      tags:
+        - Destination Attachment Limits Verwaltung
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/manage-all
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control-no-cache'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/attachment-limit-response'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/attachment-limit-response'
+        default:
+          $ref: '#/components/responses/detailed-error'
+    patch:
+      operationId: request-destination-limit-change
+      summary: Destination-Limit-Änderung beantragen
+      description: |
+        Reicht einen Antrag auf Veränderung ein, ändert den bestehenden Antrag oder nimmt den Antrag zurück, je nach 'status'.
+        Soll ein Antrag zurückgenommen werden, genügt es, das 'status'-Feld mit dem Wert 'WITHDRAWN' zu senden.
+        Soll ein Antrag auf Veränderung gestellt werden, müssen die Felder unter 'values' gesendet werden, ein 'reason' muss
+        angegeben werden und das 'status'-Feld muss den Wert 'PENDING' haben. Die Angabe von 'contactEmail' ist optional
+        und dient dazu, eine Benachrichtigung über den Ausgang des Antrags zuzustellen. Ein neuer Antrag überschreibt
+        stets einen unter Umständen bestehenden offenen Antrag.
+      tags:
+        - Destination Attachment Limits Verwaltung
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/manage-all
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/attachment-limit-request'
+            examples:
+              Beispiel:
+                $ref: '#/components/examples/attachment-limit-request'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control-no-cache'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/attachment-limit-response'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/attachment-limit-response'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/destinations/{destinationId}/keys/{keyId}:
+    parameters:
+      - $ref: '#/components/parameters/destinationId'
+      - $ref: '#/components/parameters/keyId'
+    get:
+      operationId: get-destination-key
+      summary: Ruft einen JWK des Zustelldienstes ab
+      description: Ermöglicht es, Public Keys eines Zustellpunktes abzufragen.
+      security: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Access-Control-Allow-Origin:
+              $ref: '#/components/headers/access-control-allow-origin'
+            Cache-Control:
+              $ref: '#/components/headers/cache-control-no-cache'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jwk'
+              examples:
+                Beispiel Signatur-Public-Key:
+                  $ref: '#/components/examples/jwk-verify'
+                Beispiel Verschlüsselungs-Public-Key:
+                  $ref: '#/components/examples/jwk-wrapKey'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/info:
+    get:
+      operationId: get-info
+      summary: Rufe die Version der bereitgestellten Destination API ab
+      description: Für Debugging oder Informationszwecke angebotener Endpunkt
+      tags:
+        - Fachlich
+      security: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Access-Control-Allow-Origin:
+              $ref: '#/components/headers/access-control-allow-origin'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/info'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/info'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /.well-known/jwks.json:
+    get:
+      operationId: get-jwks.json
+      summary: Rufe die öffentlichen Schlüssel des Zustelldienstes ab
+      description: Vom Zustelldienstes signierte Datensätze können mit einem dieser Schlüssel signiert werden.
+      tags:
+        - Fachlich
+      security: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Access-Control-Allow-Origin:
+              $ref: '#/components/headers/access-control-allow-origin'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jwks'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/jwks-verify'
+        default:
+          $ref: '#/components/responses/detailed-error'
+components:
+  securitySchemes:
+    OAuth2:
+      description: Authentifizierungsmethode, um den Zugriff nach RFC8725 zu autorisieren
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth-testing.fit-connect.fitko.dev/token
+          scopes:
+            https://schema.fitko.de/fit-connect/oauth/scopes/manage-destinations: Erlaubt das Anlegen, Lesen, Verändern und Löschen von Zustellpunkten
+  parameters:
+    destinationId:
+      name: destinationId
+      in: path
+      description: Die UUID des Zustellpunktes
+      required: true
+      schema:
+        $ref: '#/components/schemas/destination-id'
+    minimal:
+      name: minimal
+      in: query
+      description: Beschränkt die zurückgegebenen Felder einer Destination auf destinationId, name, status.
+      required: false
+      schema:
+        type: boolean
+    status:
+      name: status
+      in: query
+      description: Filtert Destinations nach Status (Mehrfachangabe möglich wie z.B. ?status=created&status=draft). Destinations aller Zustände werden zurückgegeben, wenn der Parameter weggelassen wird.
+      required: false
+      schema:
+        type: array
+        items:
+          $ref: '#/components/schemas/destination-status'
+    search:
+      name: search
+      in: query
+      description: Durchsucht destinationId und name nach diesem Freitext. Die Suche ist dabei fuzzy ("string.contains(search)") und case-insensitive.
+      required: false
+      schema:
+        type: string
+    limit:
+      name: limit
+      in: query
+      description: Anzahl der zurückzugebenden Ergebnisse. Maximum ist 500. Standard ist 100.
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 500
+    offset:
+      name: offset
+      in: query
+      description: Startposition der Teilmenge zurückzugebender Ergebnisse aus der Gesamtergebnismenge. Standard ist 0.
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+    keyId:
+      name: keyId
+      in: path
+      required: true
+      schema:
+        type: string
+        minLength: 8
+        maxLength: 36
+      description: Die Id eines JWK
+  schemas:
+    ContactInformation:
+      $ref: '#/components/schemas/contact-information'
+    CreateCallback:
+      $ref: '#/components/schemas/create-callback'
+    CreateDestination:
+      $ref: '#/components/schemas/create-destination'
+    DestinationSimpleList:
+      $ref: '#/components/schemas/destination-list'
+    PrivateDestination:
+      $ref: '#/components/schemas/destination-private'
+    DestinationId:
+      $ref: '#/components/schemas/destination-id'
+    DestinationName:
+      $ref: '#/components/schemas/destination-name'
+    DestinationPublicService:
+      $ref: '#/components/schemas/destination-service'
+    JWK:
+      $ref: '#/components/schemas/jwk'
+    JWKS:
+      $ref: '#/components/schemas/jwks'
+    SupportedMetadataVersions:
+      $ref: '#/components/schemas/supported-metadata-versions'
+    PatchDestination:
+      $ref: '#/components/schemas/destination-patch'
+    destination-status:
+      type: string
+      enum:
+        - draft
+        - created
+        - active
+        - inactive
+        - decommissioned
+      description: Status des Zustellpunktes. Eine Beschreibung der Status finden Sie in den Detailinformationen unter [Zustellpunktverwaltung](https://docs.fitko.de/fit-connect/docs/details/destination-management).
+    destination-id:
+      type: string
+      format: uuid
+      minLength: 32
+      maxLength: 36
+      description: Identifikator des Zustellpunktes im Format einer UUID
+    supported-metadata-versions:
+      title: Liste unterstützter Metadatenschemataversionen
+      description: Eine Liste unterstützter Versionen des Metadatenschemas gemäß [Semantic Versioning](https://semver.org/).
+      type: array
+      uniqueItems: true
+      items:
+        type: string
+        pattern: ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$
+        example: 1.1.1
+    service-region:
+      title: Region
+      type: string
+      description: Amtlicher Regionalschlüssel (ARS), vorangestellt mit 'DE'.
+      minLength: 2
+      maxLength: 14
+      pattern: ^DE[0-9]{0,12}$
+      example: DE094750156156
+    submission-schema:
+      title: Fachdatenschema
+      description: Referenz auf ein Schema, das die Struktur der Fachdaten einer Einreichung beschreibt.
+      type: object
+      properties:
+        mimeType:
+          type:
+            - 'null'
+            - string
+          description: Mimetype (z.B. application/json oder application/xml) des referenzierten Schemas (z.B. XSD- oder JSON-Schema).
+          enum:
+            - application/json
+            - application/xml
+        schemaUri:
+          type:
+            - 'null'
+            - string
+          format: uri
+          description: URI des Fachschemas. Wird hier eine URL verwendet, sollte das Schema unter der angegebenen URL abrufbar sein. Eine Verfügbarkeit des Schemas unter der angegebenen URL darf jedoch nicht vorausgesetzt werden.
+    reply-channels:
+      type:
+        - object
+        - 'null'
+      description: |
+        Hier kann eine empfangende Stelle angeben, welche Rückkanäle es für Einreichungen an diesen Zustellpunkt unterstützt. Sofern keine Reply Channels angegeben werden, kann ein sendendes System davon ausgehen, dass die Behörde nur über den Papierweg im Rückkanal kommuniziert.
+      minProperties: 1
+      properties:
+        eMail:
+          description: Hiermit kann den sendenden Systemen signalisiert werden, dass die empfangende Stelle für Einreichungen an diesen Zustellpunkt eine Rückkanalkommunikation per E-Mail unterstützt.
+          type: object
+          properties:
+            usePgp:
+              type: boolean
+              description: Hiermit kann den sendenden Systemen signalisiert werden, dass die empfangende Stelle für die Rückkanalkommunikation per E-Mail eine Verschlüsselung mit PGP unterstützt, sofern eine PGP Schlüssel über die Metadaten der Einreichung oder einen anderen Mechanismus übermittelt wurden.
+        deMail:
+          type: object
+          description: Hiermit kann den sendenden Systemen signalisiert werden, dass die empfangende Stelle für Einreichungen an diesen Zustellpunkt eine Rückkanalkommunikation per DE-Mail unterstützt.
+        fink:
+          deprecated: true
+          type: object
+          description: Hiermit kann den sendenden Systemen signalisiert werden, dass die empfangende Stelle für Einreichungen an diesen Zustellpunkt eine Rückkanalkommunikation an die interoperablen Postfächer der FINK Föderation unterstützt.
+        elster:
+          type: object
+          description: Hiermit kann den sendenden Systemen signalisiert werden, dass die empfangende Stelle für Einreichungen an diesen Zustellpunkt eine Rückkanalkommunikation per Elster-Transfer unterstützt.
+        fitConnect:
+          type: object
+          description: Hiermit kann den sendenden Systemen signalisiert werden, dass die empfangende Stelle für Einreichungen an diesen Zustellpunkt eine Rückkanalkommunikation per FIT-Connect unterstützt.
+          required:
+            - processStandards
+          properties:
+            processStandards:
+              description: |
+                Hier ist eine eindeutige Referenz auf den zu verwendenden Datenaustauschstandard (einschließlich der Version) mittels der offiziellen URI des Datenaustauschstandards zu hinterlegen.
+              type: array
+              minItems: 1
+              items:
+                type: string
+                format: uri
+        idBundDeMailbox:
+          type: object
+          description: Hiermit kann dem Onlinediensten signalisiert werden, dass das Verwaltungssystem das zentrale Bürgerpostfach der DeutschlandID unterstützt.
+          required:
+            - useStatusMonitor
+          properties:
+            useStatusMonitor:
+              type: boolean
+              description: Hiermit signalisiert das Verwaltungssystem, dass es den Statusmmonitor der DeutschlandID nutzt und der Onlinedienst einen Status anlegen darf.
+    destination-service:
+      title: Verwaltungsleistung
+      description: Verwaltungsleistung, die eine Destination anbietet.
+      type: object
+      properties:
+        identifier:
+          title: Leistungs-Identifikator
+          description: |
+            URN einer Leistung. Im Falle einer Leistung aus dem Leistungskatalog sollte hier `urn:de:fim:leika:leistung:` vorangestellt werden.
+          type:
+            - 'null'
+            - string
+          minLength: 7
+          maxLength: 255
+          pattern: ^urn:[a-z0-9][a-z0-9-]{0,31}:[a-z0-9()+,.:=@;$_!*'%/?#-]+$
+          example: urn:de:fim:leika:leistung:99400048079000
+        regions:
+          description: Amtliche Regionalschlüssel (ARS) der Regionen in denen die Leistung angeboten wird. Vorangestellt mit 'DE'.
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/service-region'
+        submissionSchemas:
+          title: Unterstützte Fachschemata
+          description: Auflistung aller unterstützten Fachschemata des Zustellpunktes.
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/submission-schema'
+        replyChannels:
+          $ref: '#/components/schemas/reply-channels'
+    process-model-id:
+      title: Prozessreferenz
+      description: |
+        URI einer Prozessdefinition, z.B. `https://schema.example.com/foo/bar.bpmn` oder `bpmn:960116c1-f862-4060-beaa-f99e410f8325:v2`.
+      type: string
+      format: uri
+      maxLength: 512
+      example: https://schema.example.com/foo/bar.bpmn
+    message-id:
+      title: Prozessschritt
+      description: |
+        ID eines Prozessschrittes innerhalb des durch `processModelId` definierten Prozesses.
+      type: string
+      maxLength: 255
+      example: 172ff473-ef69-4ce6-a8d6-a50308e355e3
+    destination-process-message:
+      title: Prozessverarbeitungsleistung
+      description: Auflistung der unterstützten Prozessnachrichten des Zustellpunktes.
+      type: object
+      properties:
+        processModelId:
+          $ref: '#/components/schemas/process-model-id'
+        messageId:
+          $ref: '#/components/schemas/message-id'
+        regions:
+          description: Amtliche Regionalschlüssel (ARS) der Regionen, für die eine Prozessverarbeitung angeboten wird. Vorangestellt mit 'DE'.
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/service-region'
+        schemas:
+          title: Unterstützte Schemas
+          description: Auflistung aller unterstützten Schemas des Zustellpunktes für diese Prozessnachricht.
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/submission-schema'
+    destination-type:
+      type: string
+      enum:
+        - A
+        - B
+        - C
+      description: Der Typ eines Zustellpunktes (erforderlich)
+    destination-possible-next-status:
+      type: array
+      items:
+        $ref: '#/components/schemas/destination-status'
+      minItems: 0
+      description: Eine Liste von möglichen nächsten Status des Zustellpunktes, ausgehend vom aktuellen Zustand des Zustellpunktes. Eine Beschreibung der Status finden Sie in den Detailinformationen unter [Zustellpunktverwaltung](https://docs.fitko.de/fit-connect/docs/details/destination-management).
+    destination-can-be-decomissioned-at:
+      type: string
+      format: date-time
+      description: Frühstmöglicher Zeitpunkt, an dem der Zustellpunkt auf 'decommissioned' gesetzt werden darf.
+      example: '2024-03-20T09:12:28Z'
+    destination-name:
+      type:
+        - 'null'
+        - string
+      minLength: 0
+      maxLength: 128
+      description: Name des Zustellpunktes
+    contact-information:
+      title: Kontakt
+      description: Angaben zum Ansprechpartner des Zustellpunktes
+      type:
+        - object
+        - 'null'
+      properties:
+        legalName:
+          type: string
+          description: Juristischer Name der verantwortlichen Organisation
+          example: Max Mustermann
+        address:
+          type: string
+          description: Adresse der verantwortlichen Organisation
+        phone:
+          type: string
+          description: Telefonnummer der verantwortlichen Stelle
+        email:
+          type: string
+          format: email
+          description: E-Mail-Adresse der verantwortlichen Stelle (Funktionspostfach). Falls kein Funktionspostfach vorhanden ist, kann auch eine personalisierte Adresse des Supportverantwortlichen eingetragen werden.
+          example: Max@Mustermann.de
+        cc:
+          type: array
+          maxItems: 20
+          uniqueItems: true
+          description: Optionale Liste zusätzlicher E-Mail-Adressen (CC), die bei Benachrichtigungen zum Zustellpunkt zusätzlich zum technischen Ansprechpartner (`email`) einbezogen werden. Damit können z. B. externe Stellen wie der Support eines Fachverfahrensherstellers in die Benachrichtigungen einbezogen werden.
+          items:
+            type: string
+            format: email
+          example:
+            - support@dienstleister.not
+            - team@mustermann.not
+        unit:
+          type: string
+          description: Verantwortliche Untereinheit (Abteilung, Referat, etc.) der Organisation. Kann zur Vereinfachung von Klärungsfragen angegeben werden.
+    callback-url:
+      title: Konfiguration des eingerichteten Callbacks
+      type: object
+      properties:
+        url:
+          title: Callback-URL
+          description: Öffentlich erreichbare Callbackadresse, um Benachrichtigungen durch den Zustelldienst zu empfangen. Muss eine valide HTTPS-URL sein.
+          type: string
+          minLength: 9
+          format: uri
+          pattern: ^https://.+
+    client-id:
+      type: string
+      format: uuid
+      minLength: 32
+      maxLength: 36
+      description: Die UUID eines Clients
+    destination-sender-access-restricted:
+      type: object
+      required:
+        - enabled
+      properties:
+        enabled:
+          type: boolean
+          description: |
+            Gibt an, ob das Senden an diesen Zustellpunkt beschränkt ist oder nicht.
+            Falls `true` dürfen ausschließlich Clients, deren ID in `allowedSenders` enthalten ist,
+            **oder** Destinations, deren ID in `allowedSenderDestinations` enthalten ist,
+            an diesen Zustellpunkt senden.
+        allowedSenders:
+          deprecated: true
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/client-id'
+          description: |
+            **Deprecated.** Auflistung der Client-IDs, die an diesen Zustellpunkt senden dürfen.
+            Die Clients müssen existieren und vom Typ `SENDER` sein.
+
+            Über V3 können bestehende Einträge entfernt werden, aber keine neuen Client-IDs hinzugefügt werden.
+            Für neue Sendebeschränkungen sollte stattdessen `allowedSenderDestinations` verwendet werden.
+          minItems: 0
+        allowedSenderDestinations:
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/destination-id'
+          description: |
+            Auflistung der Destination-IDs, die an diesen Zustellpunkt senden dürfen.
+            In GET-Antworten ist dieses Feld immer vorhanden (ggf. als leeres Array).
+          minItems: 0
+    destination-signature:
+      type: string
+      description: Signatur des Zustellpunktes, siehe https://docs.fitko.de/fit-connect/docs/sending/get-destination/#checkDestinationSignature. Diese Signature wird nur für Zustellpunkte außerhalb des 'draft' Status berechnet und zurückgegeben.
+    destination-public-for-routing:
+      type: boolean
+      description: Schalter für die Steuerung des vereinfachten Routings (ausschließlich) in der FIT-Connect Testumgebung. Der Zustellpunkt wird über das vereinfachte Routing nur dann gefunden, wenn das Feld den Wert `true` hat. Diese Steuerung befindet sich in Vorbereitung und wird erst in Zukunft aktiviert.
+    destination-in-list:
+      title: Zustellpunkt
+      description: Repräsentation eines Zustellpunktes, wenn er in einer Liste abgerufen wird.
+      type: object
+      required:
+        - destinationId
+        - status
+        - clientCount
+        - updatedAt
+      properties:
+        destinationId:
+          $ref: '#/components/schemas/destination-id'
+        encryptionKid:
+          type: string
+          maxLength: 64
+          description: Key-ID des Verschlüsselungsschlüssels der Destination. Zu finden in der Subressource `keys/<keyId>`.
+        metadataVersions:
+          $ref: '#/components/schemas/supported-metadata-versions'
+        publicServices:
+          title: Unterstützte Verwaltungsleistungen
+          description: Auflistung aller unterstützten Verwaltungsleistungen des Zustellpunktes.
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/destination-service'
+        processMessages:
+          title: Prozessverarbeitungsleistungen
+          description: Eine Liste unterstützter Prozessnachrichten des Zustellpunktes.
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/destination-process-message'
+        status:
+          $ref: '#/components/schemas/destination-status'
+        type:
+          $ref: '#/components/schemas/destination-type'
+        possibleNextStatus:
+          $ref: '#/components/schemas/destination-possible-next-status'
+        canBeDecommissionedAt:
+          $ref: '#/components/schemas/destination-can-be-decomissioned-at'
+        updatedAt:
+          type: string
+          format: date-time
+          description: Zeitstempel der letzten Änderung
+          example: '2024-03-20T09:12:28Z'
+        name:
+          $ref: '#/components/schemas/destination-name'
+        clientCount:
+          type: integer
+          format: int32
+          description: Anzahl zugeordneter Clients
+        contactInformation:
+          $ref: '#/components/schemas/contact-information'
+        callback:
+          $ref: '#/components/schemas/callback-url'
+        senderAccessRestricted:
+          $ref: '#/components/schemas/destination-sender-access-restricted'
+        destinationSignature:
+          $ref: '#/components/schemas/destination-signature'
+        publicForRouting:
+          $ref: '#/components/schemas/destination-public-for-routing'
+    destination-list:
+      title: Liste selbst angelegter Zustellpunkte
+      type: object
+      required:
+        - destinations
+      properties:
+        count:
+          type: integer
+          format: int32
+          description: Anzahl zurückgegebener Zustellpunkte
+          maximum: 500
+          minimum: 0
+        offset:
+          type: integer
+          format: int32
+          description: Startposition der Teilmenge zurückgegebener Zustellpunkte aus der Gesamtergebnismenge.
+          minimum: 0
+        totalCount:
+          type: integer
+          format: int32
+          description: Gesamtanzahl der Zustellpunkte
+          minimum: 0
+        destinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/destination-in-list'
+          description: Eine Auflistung aller selbst angelegten Zustellpunkte
+          maxItems: 500
+          minItems: 0
+    destination-status-initial:
+      type: string
+      enum:
+        - draft
+        - created
+        - active
+      description: Status des anzulegenden Zustellpunktes. Eine Beschreibung der Status finden Sie in den Detailinformationen unter [Zustellpunktverwaltung](https://docs.fitko.de/fit-connect/docs/details/destination-management).
+    create-callback:
+      title: Objekt zur Konfiguration von Callbacks
+      type: object
+      properties:
+        url:
+          title: Callback-URL
+          description: Öffentlich erreichbare Callbackadresse, um Benachrichtigungen durch den Zustelldienst zu empfangen. Muss eine valide HTTPS-URL sein.
+          type: string
+          minLength: 9
+          format: uri
+          pattern: ^https://.+
+          example: https://fachverfahren.beispielstadt.example.org/callbacks/fit-connect
+        secret:
+          title: Callback-Secret
+          description: Callback-Secret zur Erzeugung des zur Absicherung eines Callback verwendeten HMACs. Das Callback-Secret kann über die API nur geschrieben, aber nicht abgerufen werden.
+          type: string
+          minLength: 32
+          maxLength: 512
+          example: insecure_unsafe_qHScgrg_kP-R31jHUwp3GkVkGJolvBchz65b74Lzue0
+    jwk:
+      title: JSON Web Key (JWK)
+      type: object
+      description: JSON Web Key - RFC 7517
+      required:
+        - kty
+        - key_ops
+        - alg
+        - x5c
+        - kid
+        - 'n'
+        - e
+      properties:
+        kty:
+          type: string
+          description: |
+            Der Parameter "kty" (Schlüsseltyp) identifiziert die kryptografische Algorithmus Familie, die mit dem Schlüssel verwendet wird, z. B. "RSA" oder "EC". In FIT-Connect sind aktuell nur RSA-Schlüssel erlaubt.
+          enum:
+            - RSA
+        key_ops:
+          type: array
+          description: |
+            Der Parameter "key_ops" (Schlüsseloperationen) identifiziert die Operation(en) für die der Schlüssel verwendet werden soll. Die Bedeutung der Erlaubten Operationen sind:
+              - `verify`: Digitale Signatur oder MAC überprüfen
+              - `wrapKey`: Verschlüsselungsschlüssel
+          items:
+            type: string
+            enum:
+              - verify
+              - wrapKey
+        alg:
+          type: string
+          description: |
+            Der Parameter "alg" (Algorithmus) identifiziert den Algorithmus, der für Verwendung mit dem Schlüssel vorgesehen ist. In FIT-Connect wird `PS512` für Signaturschlüssel und `RSA-OAEP-256` für Verschlüsselungsschlüssel genutzt.
+          enum:
+            - PS512
+            - RSA-OAEP-256
+        x5c:
+          type: array
+          description: |
+            Der Parameter "x5c" (X.509 certificate chain) enthält eine Kette von einem oder mehreren PKIX-Zertifikaten [RFC5280]. Die Zertifikatskette wird als JSON-Array von Zertifikatswert-Strings dargestellt.
+          minItems: 1
+          items:
+            type: string
+        kid:
+          type: string
+          description: |
+            Der Parameter "kid" (Schlüssel-Id) wird verwendet, um einen bestimmten Schlüssel zu finden. Dieser wird z. B. verwendet, um zwischen einer Reihe von Schlüsseln innerhalb eines JWK-Sets zu wählen während des Schlüssel-Rollover.
+          minLength: 8
+          maxLength: 64
+        'n':
+          type: string
+          description: Modulus des Schlüssels. Die minimale Länge von 683 Zeichen repräsentiert eine Schlüssellange von mindestens 4096 Bit.
+          minLength: 683
+        e:
+          type: string
+          description: Öffentliche Exponent des Schlüssels
+          enum:
+            - AQAB
+    create-destination:
+      title: Struktur zum Erzeugen eines Zustellpunktes
+      description: Notwendige Struktur, um einen Zustellpunkt anzulegen.
+      type: object
+      required:
+        - type
+      properties:
+        name:
+          $ref: '#/components/schemas/destination-name'
+        status:
+          $ref: '#/components/schemas/destination-status-initial'
+        type:
+          $ref: '#/components/schemas/destination-type'
+        contactInformation:
+          $ref: '#/components/schemas/contact-information'
+        publicServices:
+          title: Unterstützte Verwaltungsleistungen
+          description: Auflistung aller unterstützten Verwaltungsleistungen des Zustellpunktes.
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/destination-service'
+        processMessages:
+          title: Prozessverarbeitungsleistungen
+          description: Eine Liste unterstützter Prozessnachrichten des Zustellpunktes.
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/destination-process-message'
+        callback:
+          $ref: '#/components/schemas/create-callback'
+        encryptionKid:
+          type: string
+          maxLength: 64
+          description: |
+            Identifikator des Schlüssels der Destination. Muss zur `kid` im Feld `encryptionPublicKey` passen.
+        encryptionPublicKey:
+          $ref: '#/components/schemas/jwk'
+        signingPublicKey:
+          $ref: '#/components/schemas/jwk'
+        metadataVersions:
+          $ref: '#/components/schemas/supported-metadata-versions'
+        senderAccessRestricted:
+          $ref: '#/components/schemas/destination-sender-access-restricted'
+        publicForRouting:
+          $ref: '#/components/schemas/destination-public-for-routing'
+    destination-private:
+      title: Zustellpunkt
+      description: Repräsentation eines Zustellpunktes
+      type: object
+      required:
+        - destinationId
+        - status
+        - type
+        - metadataVersions
+        - updatedAt
+      properties:
+        destinationId:
+          $ref: '#/components/schemas/destination-id'
+        encryptionKid:
+          type: string
+          maxLength: 64
+          description: Key-ID des Verschlüsselungsschlüssels der Destination. Zu finden in der Subressource `keys/<keyId>`.
+        metadataVersions:
+          $ref: '#/components/schemas/supported-metadata-versions'
+        publicServices:
+          title: Unterstützte Verwaltungsleistungen
+          description: Auflistung aller unterstützten Verwaltungsleistungen des Zustellpunktes.
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/destination-service'
+        processMessages:
+          title: Prozessverarbeitungsleistungen
+          description: Eine Liste unterstützter Prozessnachrichten des Zustellpunktes.
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/destination-process-message'
+        status:
+          $ref: '#/components/schemas/destination-status'
+        type:
+          $ref: '#/components/schemas/destination-type'
+        possibleNextStatus:
+          $ref: '#/components/schemas/destination-possible-next-status'
+        canBeDecommissionedAt:
+          $ref: '#/components/schemas/destination-can-be-decomissioned-at'
+        updatedAt:
+          type: string
+          format: date-time
+          description: Zeitstempel der letzten Änderung
+          example: '2024-03-20T09:12:28Z'
+        name:
+          $ref: '#/components/schemas/destination-name'
+        contactInformation:
+          $ref: '#/components/schemas/contact-information'
+        callback:
+          $ref: '#/components/schemas/callback-url'
+        senderAccessRestricted:
+          $ref: '#/components/schemas/destination-sender-access-restricted'
+        destinationSignature:
+          $ref: '#/components/schemas/destination-signature'
+        publicForRouting:
+          $ref: '#/components/schemas/destination-public-for-routing'
+    destination-put:
+      title: Zustellpunkt
+      description: Repräsentation eines Zustellpunktes. Ist dieser nicht im Status 'draft' so sind die properties encryptionKid, metadataVersions und publicServices verpflichtend.
+      type: object
+      required:
+        - status
+      properties:
+        contactInformation:
+          $ref: '#/components/schemas/contact-information'
+        name:
+          $ref: '#/components/schemas/destination-name'
+        callback:
+          $ref: '#/components/schemas/create-callback'
+        destinationId:
+          $ref: '#/components/schemas/destination-id'
+        encryptionKid:
+          type: string
+          maxLength: 64
+          description: Key-ID des Verschlüsselungsschlüssels der Destination. Zu finden in der Subressource `keys/<keyId>`.
+        metadataVersions:
+          $ref: '#/components/schemas/supported-metadata-versions'
+        publicServices:
+          title: Unterstützte Verwaltungsleistungen
+          description: Auflistung aller unterstützten Verwaltungsleistungen des Zustellpunktes.
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/destination-service'
+        processMessages:
+          title: Prozessverarbeitungsleistungen
+          description: Eine Liste unterstützter Prozessnachrichten des Zustellpunktes.
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/destination-process-message'
+        senderAccessRestricted:
+          $ref: '#/components/schemas/destination-sender-access-restricted'
+        status:
+          $ref: '#/components/schemas/destination-status'
+        publicForRouting:
+          $ref: '#/components/schemas/destination-public-for-routing'
+    destination-patch:
+      title: Partielle Aktualisierung eines Zustellpunktes
+      description: Struktur mit Attributen, die aktualisiert werden sollen. Eine Teilaktualisierung einzelner Datenfelder innerhalb der Attribute ist nicht möglich.
+      type: object
+      properties:
+        name:
+          $ref: '#/components/schemas/destination-name'
+        status:
+          $ref: '#/components/schemas/destination-status'
+        contactInformation:
+          $ref: '#/components/schemas/contact-information'
+        publicServices:
+          title: Unterstützte Verwaltungsleistungen
+          description: Auflistung aller unterstützten Verwaltungsleistungen des Zustellpunktes.
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/destination-service'
+        processMessages:
+          title: Prozessverarbeitungsleistungen
+          description: Eine Liste unterstützter Prozessnachrichten des Zustellpunktes.
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/destination-process-message'
+        callback:
+          $ref: '#/components/schemas/create-callback'
+        encryptionKid:
+          type: string
+          maxLength: 64
+          description: Schlüssel-Id des Verschlüsselungsschlüssels des Zustellpunktes.
+        metadataVersions:
+          $ref: '#/components/schemas/supported-metadata-versions'
+        senderAccessRestricted:
+          $ref: '#/components/schemas/destination-sender-access-restricted'
+        publicForRouting:
+          $ref: '#/components/schemas/destination-public-for-routing'
+    jwks-with-paging:
+      title: JSON Web Key Set (JWKS)
+      description: JWKS nach [RFC7517](https://datatracker.ietf.org/doc/html/rfc7517#section-5)
+      type: object
+      required:
+        - keys
+      properties:
+        count:
+          type: integer
+          format: int32
+          description: Anzahl zurückgegebener Schlüssel
+          maximum: 500
+          minimum: 0
+        offset:
+          type: integer
+          format: int32
+          description: Startposition der Teilmenge zurückgegebener Schlüssel aus der Gesamtergebnismenge.
+          minimum: 0
+        totalCount:
+          type: integer
+          format: int32
+          description: Gesamtanzahl der abholbereiten Schlüssel
+          minimum: 0
+        keys:
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/jwk'
+    attachment-limit-tuple:
+      type: object
+      required:
+        - maxNumber
+        - maxSizeIndividualBytes
+        - maxSizeAggregateBytes
+      properties:
+        maxNumber:
+          type: integer
+          minimum: 0
+          description: Maximale Anzahl an Attachments pro Submission oder Reply
+        maxSizeIndividualBytes:
+          type: integer
+          format: int64
+          minimum: 1
+          description: Maximale Dateigröße (in Bytes) eines einzelnen Attachments
+        maxSizeAggregateBytes:
+          type: integer
+          format: int64
+          minimum: 1
+          description: Maximale kumulierte Dateigröße (in Bytes) aller Attachments einer Submission oder eines Replies
+    change-request-id:
+      type: string
+      format: uuid
+      minLength: 36
+      maxLength: 36
+      description: Identifikator des Change-Requests im Format einer UUID
+    attachment-limit-change-request-overview:
+      type: object
+      required:
+        - id
+        - values
+        - requestReason
+        - status
+        - receivedAt
+      properties:
+        id:
+          $ref: '#/components/schemas/change-request-id'
+        values:
+          type: object
+          $ref: '#/components/schemas/attachment-limit-tuple'
+        contactEmail:
+          type: string
+          format: email
+          description: E-Mail-Adresse eines Ansprechpartners, der über das Ergebnis der Beantragung informiert werden möchte.
+          example: Max@Mustermann.de
+        requestReason:
+          type: string
+          description: Kurze Begründung dazu, warum eine Anhebung der Limitierung gewünscht ist.
+        decisionComment:
+          type: string
+          description: Bei Ablehnungen steht hier eine Begründung.
+        status:
+          type: string
+          enum:
+            - PENDING
+            - ACCEPTED
+            - REJECTED
+            - WITHDRAWN
+          description: Zustand des Antrags.
+        receivedAt:
+          type: string
+          format: date-time
+          description: Eingangsdatum des Antrags.
+          example: '2024-03-20T09:12:28Z'
+        decidedAt:
+          type: string
+          format: date-time
+          description: Datum der Bewilligung oder der Ablehnung des Antrags (falls bereits geschehen).
+          example: '2024-03-21T09:12:28Z'
+    attachment-limit-response:
+      type: object
+      required:
+        - attachments
+      properties:
+        attachments:
+          type: object
+          description: |
+            'platform' gibt eine fundamentale Limitierung an, die auch durch Anträge nicht überschritten werden kann.
+            'receive.current' gibt das aktuell für die Destination gültige Limit an (bezogen auf das Senden an diese Destination).
+            'receive.changeRequest' beschreibt, falls gesetzt, den letzten Antrag auf Veränderung (bezogen auf das Senden an diese Destination).
+            'send.current' gibt das aktuell für die Destination gültige Limit an (bezogen auf das Senden von dieser Destination).
+            'send.changeRequest' beschreibt, falls gesetzt, den letzten Antrag auf Veränderung (bezogen auf das Senden von dieser Destination).
+          required:
+            - platform
+            - receive
+            - send
+          properties:
+            platform:
+              type: object
+              $ref: '#/components/schemas/attachment-limit-tuple'
+            receive:
+              type: object
+              required:
+                - current
+              properties:
+                current:
+                  type: object
+                  $ref: '#/components/schemas/attachment-limit-tuple'
+                changeRequest:
+                  type: object
+                  $ref: '#/components/schemas/attachment-limit-change-request-overview'
+              description: Limit, das gilt, wenn an diese Destination Attachments gesendet werden.
+            send:
+              type: object
+              required:
+                - current
+              properties:
+                current:
+                  type: object
+                  $ref: '#/components/schemas/attachment-limit-tuple'
+                changeRequest:
+                  type: object
+                  $ref: '#/components/schemas/attachment-limit-change-request-overview'
+              description: Limit, das gilt, wenn von dieser Destination Attachments gesendet werden.
+    attachment-limit-change-request:
+      type: object
+      required:
+        - status
+      properties:
+        values:
+          type: object
+          $ref: '#/components/schemas/attachment-limit-tuple'
+        contactEmail:
+          type: string
+          format: email
+          description: E-Mail-Adresse eines Ansprechpartners, der über das Ergebnis der Beantragung informiert werden möchte.
+          example: Max@Mustermann.de
+        requestReason:
+          type: string
+          description: Kurze Begründung dazu, warum eine Anhebung der Limitierung gewünscht ist.
+        status:
+          type: string
+          enum:
+            - PENDING
+            - WITHDRAWN
+          description: PENDING für neue Anträge oder zum Editieren eines bestehenden Antrags. WITHDRAWN zum Zurücknehmen.
+    attachment-limit-request:
+      type: object
+      required:
+        - attachments
+      properties:
+        attachments:
+          type: object
+          properties:
+            receive:
+              type: object
+              required:
+                - changeRequest
+              properties:
+                changeRequest:
+                  type: object
+                  $ref: '#/components/schemas/attachment-limit-change-request'
+              description: Limit, das gilt, wenn an diese Destination Attachments gesendet werden.
+            send:
+              type: object
+              required:
+                - changeRequest
+              properties:
+                changeRequest:
+                  type: object
+                  $ref: '#/components/schemas/attachment-limit-change-request'
+              description: Limit, das gilt, wenn von dieser Destination Attachments gesendet werden.
+    version:
+      title: Serviceversion
+      type: object
+      required:
+        - major
+        - minor
+        - patch
+      properties:
+        major:
+          type: integer
+        minor:
+          type: integer
+        patch:
+          type: integer
+    info:
+      title: Version der Submission API
+      type: object
+      required:
+        - version
+      properties:
+        version:
+          $ref: '#/components/schemas/version'
+    jwks:
+      title: JSON Web Key Set (JWKS)
+      description: JWKS nach [RFC 7517](https://datatracker.ietf.org/doc/html/rfc7517#section-5)
+      type: object
+      required:
+        - keys
+      properties:
+        keys:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/jwk'
+  examples:
+    CreateDestination:
+      $ref: '#/components/examples/create-destination'
+    DestinationSimpleListEmpty:
+      $ref: '#/components/examples/destination-list-empty'
+    DestinationSimpleList:
+      $ref: '#/components/examples/destination-list'
+    JWKWrapKey:
+      $ref: '#/components/examples/jwk-wrapKey'
+    JWKVerify:
+      $ref: '#/components/examples/jwk-verify'
+    PrivateDestination:
+      $ref: '#/components/examples/destination-private'
+    PatchDestinationStatus:
+      $ref: '#/components/examples/patch-destination-status'
+    PatchDestinationContact:
+      $ref: '#/components/examples/patch-destination-contact'
+    destination-list-empty:
+      value:
+        count: 0
+        offset: 0
+        totalCount: 0
+        destinations: []
+    destination-list:
+      value:
+        count: 1
+        offset: 1
+        totalCount: 2
+        destinations:
+          - destinationId: de735e92-8ced-4298-a021-5f4aa124cc47
+            name: Niederlassungserlaubnis für Inhaber einer Blauen Karte EU beantragen
+            status: active
+            type: A
+            publicServices:
+              - identifier: urn:de:fim:leika:leistung:99010003001006
+                submissionSchemas:
+                  - schemaUri: https://schema.fitko.de/fim/s00000121_1.0.0.schema.json
+                    mimeType: application/json
+                regions:
+                  - DE094750156156
+                  - DE09330411
+              - identifier: urn:nuernberg:installation-einer-fahrradreparaturstation
+                submissionSchemas:
+                  - schemaUri: https://schema.fitko.de/etc/installation-fahrradreparaturstation.json
+                    mimeType: application/json
+                regions:
+                  - DE09
+            updatedAt: '2024-03-20T09:12:28Z'
+            encryptionKid: 132642dc-f8b0-401a-b519-65f51c6ab728
+            contactInformation:
+              legalName: Max
+              address: Musterstraße 12,12345,Musterstadt
+              phone: '+49170123456789'
+              email: max@mustermann.not
+              cc:
+                - support@dienstleister.not
+                - team@mustermann.not
+              unit: Department XYZ
+            clientCount: 0
+            callback:
+              url: https://fachverfahren.beispielstadt.example.org/callbacks/fit-connect
+            metadataVersions:
+              - 1.0.1
+              - 2.1.2
+          - destinationId: 2f59b8c6-3206-4734-aa21-a7b2a4d92f7a
+            name: Niederlassungserlaubnis für Inhaber einer Blauen Karte EU beantragen
+            status: created
+            type: A
+            publicServices:
+              - identifier: urn:de:fim:leika:leistung:99010003001006
+                submissionSchemas:
+                  - schemaUri: https://schema.fitko.de/fim/s00000121_1.0.0.schema.json
+                    mimeType: application/json
+                regions:
+                  - DE094750156156
+            updatedAt: '2024-03-20T09:12:28Z'
+            encryptionKid: c66e4423-e28d-4a1f-911d-818f9ab60221
+            contactInformation:
+              legalName: Max
+              address: Musterstraße 12,12345,Musterstadt
+              phone: '+49170123456789'
+              email: max@mustermann.not
+              cc:
+                - support@dienstleister.not
+                - team@mustermann.not
+              unit: Department XYZ
+            clientCount: 1
+            callback:
+              url: https://fachverfahren.beispielstadt.example.org/callbacks/fit-connect
+            metadataVersions:
+              - 1.0.1
+              - 2.1.2
+    create-destination:
+      value:
+        name: Bürgeramt Berlin
+        type: A
+        contactInformation:
+          legalName: Max
+          address: Musterstraße 12,12345,Musterstadt
+          phone: '+49170123456789'
+          email: max@mustermann.not
+          cc:
+            - support@dienstleister.not
+            - team@mustermann.not
+          unit: Department XYZ
+        publicServices:
+          - identifier: urn:de:fim:leika:leistung:99010003001006
+            submissionSchemas:
+              - schemaUri: https://schema.fitko.de/fim/s00000121_1.0.0.schema.json
+                mimeType: application/json
+            regions:
+              - DE094750156156
+              - DE09330411
+        senderAccessRestricted:
+          enabled: true
+          allowedSenders: []
+          allowedSenderDestinations:
+            - 3c9b1f7a-0e42-4f8d-bf36-9d2a5c0e7128
+        callback:
+          url: https://fachverfahren.beispielstadt.example.org/callbacks/fit-connect
+          secret: insecure_unsafe_qHScgrg_kP-R31jHUwp3GkVkGJolvBchz65b74Lzue0
+        encryptionKid: c66e4423-e28d-4a1f-911d-818f9ab60221
+        encryptionPublicKey:
+          kty: RSA
+          key_ops:
+            - wrapKey
+          alg: RSA-OAEP-256
+          x5c:
+            - ...(base64 encoded cert)...
+            - ...(base64 encoded intermediate cert)...
+            - ...(base64 encoded root cert)...
+          kid: c66e4423-e28d-4a1f-911d-818f9ab60221
+          'n': hGALqq-nbAymF5MyZIXV9RY-pW4r39BrBnxryp6ukjdrGacVhwKtm-zqN9urUETAhjfQo7CsxuJ7de291In9uPIhXYSvZcTQXH930Gpkv1BeAsU9x5uP6EnfrgRZfODwpmw1HJmAOK6aJ_ARJV7iJ1a_AGSK5ZO1bsmUWhJk-V-tFbs3xTbsmOZxVfxJWC-0pDxmEljmoi4q8f-LtNzVPEIC3-T5LaGEYy0stCU-YkJ-uDKGUJh01fQWRYaG7gCRnoIT9BJNQWUE0kfRjrZ9nOqNHibs9CreliIhD6k0310DDT0JV6-Y55AgOCqWoYCw7Xn3_AACx1aJccaRojC7FqwI6FWx2d3HkAz6o4l1llfTkgELhYjpUdW-m7dfQTbZzVlZRrVWE8lzbza2GXv6IFi3RzEWNso6KJMo-kRJxG-ZCruVhTt6FIyiZk6HpWGH6AGR62Fku8O_GR6YaNchKSB4nkj76iSPGTasLeJi2Sjw7kVZxhiL6MN4bBTT9jAB_sYcSrd9H12-KGV9IwnW8JnO3derCI6gfdGTKOzHTS3z231fDcCsXtDD4tJHHIXsW7_ytDprkwBwl9OLBW1xAniOgAH8sqgX3SGOYFcbd6Zxx0zgSlRNMdj4qkswS7KhC9-vyCA2qBnRdowPd9_1H9CpuHAyo3-iMf3UaBsPj0s
+          e: AQAB
+        signingPublicKey:
+          kty: RSA
+          key_ops:
+            - verify
+          alg: PS512
+          x5c:
+            - ...(base64 encoded cert)...
+            - ...(base64 encoded intermediate cert)...
+            - ...(base64 encoded root cert)...
+          kid: a11e4423-e28d-4a1f-911d-818f9ab64321
+          'n': hGALqq-nbAymF5MyZIXV9RY-pW4r39BrBnxryp6ukjdrGacVhwKtm-zqN9urUETAhjfQo7CsxuJ7de291In9uPIhXYSvZcTQXH930Gpkv1BeAsU9x5uP6EnfrgRZfODwpmw1HJmAOK6aJ_ARJV7iJ1a_AGSK5ZO1bsmUWhJk-V-tFbs3xTbsmOZxVfxJWC-0pDxmEljmoi4q8f-LtNzVPEIC3-T5LaGEYy0stCU-YkJ-uDKGUJh01fQWRYaG7gCRnoIT9BJNQWUE0kfRjrZ9nOqNHibs9CreliIhD6k0310DDT0JV6-Y55AgOCqWoYCw7Xn3_AACx1aJccaRojC7FqwI6FWx2d3HkAz6o4l1llfTkgELhYjpUdW-m7dfQTbZzVlZRrVWE8lzbza2GXv6IFi3RzEWNso6KJMo-kRJxG-ZCruVhTt6FIyiZk6HpWGH6AGR62Fku8O_GR6YaNchKSB4nkj76iSPGTasLeJi2Sjw7kVZxhiL6MN4bBTT9jAB_sYcSrd9H12-KGV9IwnW8JnO3derCI6gfdGTKOzHTS3z231fDcCsXtDD4tJHHIXsW7_ytDprkwBwl9OLBW1xAniOgAH8sqgX3SGOYFcbd6Zxx0zgSlRNMdj4qkswS7KhC9-vyCA2qBnRdowPd9_1H9CpuHAyo3-iMf3UaBsPj0s
+          e: AQAB
+        metadataVersions:
+          - 1.0.1
+          - 2.1.1
+    destination-private:
+      value:
+        destinationId: 7881dba9-4055-4854-8b6d-11ea5b7f3047
+        name: Bürgeramt Nord Nürnberg
+        status: active
+        type: A
+        publicForRouting: false
+        contactInformation:
+          legalName: Max
+          address: Musterstraße 12,12345,Musterstadt
+          phone: '+49170123456789'
+          email: max@mustermann.not
+          cc:
+            - support@dienstleister.not
+            - team@mustermann.not
+          unit: Department XYZ
+        publicServices:
+          - identifier: urn:de:fim:leika:leistung:99010003001006
+            submissionSchemas:
+              - schemaUri: https://schema.fitko.de/fim/s00000121_1.0.0.schema.json
+                mimeType: application/json
+            regions:
+              - DE094750156156
+              - DE09330411
+        senderAccessRestricted:
+          enabled: true
+          allowedSenders: []
+          allowedSenderDestinations:
+            - 3c9b1f7a-0e42-4f8d-bf36-9d2a5c0e7128
+        callback:
+          url: https://fachverfahren.beispielstadt.example.org/callbacks/fit-connect
+        updatedAt: '2024-03-20T09:12:28Z'
+        encryptionKid: c66e4423-e28d-4a1f-911d-818f9ab60221
+        metadataVersions:
+          - 1.0.1
+          - 2.1.2
+    update-destination:
+      value:
+        name: Bürgeramt Nord Nürnberg
+        status: active
+        contactInformation:
+          legalName: Max
+          address: Musterstraße 12,12345,Musterstadt
+          phone: '+49170123456789'
+          email: max@mustermann.not
+          cc:
+            - support@dienstleister.not
+            - team@mustermann.not
+          unit: Department XYZ
+        publicServices:
+          - identifier: urn:de:fim:leika:leistung:99010003001006
+            submissionSchemas:
+              - schemaUri: https://schema.fitko.de/fim/s00000121_1.0.0.schema.json
+                mimeType: application/json
+            regions:
+              - DE094750156156
+              - DE09330411
+        callback:
+          url: https://fachverfahren.beispielstadt.example.org/callbacks/fit-connect
+          secret: insecure_unsafe_qHScgrg_kP-R31jHUwp3GkVkGJolvBchz65b74Lzue0
+        encryptionKid: c66e4423-e28d-4a1f-911d-818f9ab60221
+        metadataVersions:
+          - 1.0.1
+          - 2.1.2
+    patch-destination-status:
+      value:
+        status: active
+    patch-destination-contact:
+      value:
+        contactInformation:
+          legalName: Max
+          address: Musterstraße 12,12345,Musterstadt
+          phone: '+49170123456789'
+          email: max@mustermann.not
+          cc:
+            - support@dienstleister.not
+            - team@mustermann.not
+          unit: Department XYZ
+    jwks-with-paging:
+      value:
+        count: 1
+        offset: 0
+        totalCount: 1
+        keys:
+          - kty: RSA
+            key_ops:
+              - verify
+            alg: PS512
+            kid: u1ZTGUSSqcNoqGfAhN2lV1viizqNs3pbKloXzbrXlHg-verify
+            e: AQAB
+            'n': stC7Pvf_zSLUaC134eYuNVylUf7DHwDCaB4Av4j1If5phSRu0uaIZdLIxF6yvfaPQybza4U3Eh1NSl9Ur5ymF0oL7rzxzDIByCneo3yEz4Z0r5hBVYkzz3YSqqT8fXeWJ7E9WbPVqm0QBXzR4coAncGTfDJb17ALYMNhUKGPYKdfFqY7KDYxvJkXrH2CxW_PQGIbonic3SB22JRgqfGzyWkVWaQHyOac9mewU1JPnExwtkZEZ6Z2g9LnBCooV9jprD3AdQ9ZyfsFannYSM4Ai6uW6qMdru5fQx5QebTy2uDkdb7M77rxgl80nvYLgEuL0TckMlKceSb3bja3gWkQlWSWfjBXHhbSUQ2VvxugyLLB7JLVmLiLvKTc3jStvzWHQEjjkg8iGw1uyJYblYXdZkO55iQE7c4sBoGBqI3bGNm0qe1RTzXaNH9y0hzr5IGjAWSksqQ7GwC6SiK3h4HbiIWkXKwST6Jl9R4px8QVF_POzxlLGCLLKVyM02imuzVpDRHpxWYTRSH7Xw72NlsNqOHJKjJnckJIwEI2vHHv7vZaqioU7EHdIpj9x00wPHqJ-x3yGI_1uFzXQb-B9Y1rgrX8xSkYunU5AN2EfREH5WE9bk80sCjGCMs7vefyfZjQymJw7yG9QLAt_o7Fuv8x0pxprNMT5RqDXmwPQQpQJ-8
+            x5c:
+              - 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
+              - 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
+              - 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
+    jwk-verify:
+      value:
+        kty: RSA
+        key_ops:
+          - verify
+        alg: PS512
+        x5c:
+          - ...(base64 encoded cert)...
+          - ...(base64 encoded intermediate cert)...
+          - ...(base64 encoded root cert)...
+        kid: c66e4423-e28d-4a1f-911d-818f9ab60221
+        'n': hGALqq-nbAymF5MyZIXV9RY-pW4r39BrBnxryp6ukjdrGacVhwKtm-zqN9urUETAhjfQo7CsxuJ7de291In9uPIhXYSvZcTQXH930Gpkv1BeAsU9x5uP6EnfrgRZfODwpmw1HJmAOK6aJ_ARJV7iJ1a_AGSK5ZO1bsmUWhJk-V-tFbs3xTbsmOZxVfxJWC-0pDxmEljmoi4q8f-LtNzVPEIC3-T5LaGEYy0stCU-YkJ-uDKGUJh01fQWRYaG7gCRnoIT9BJNQWUE0kfRjrZ9nOqNHibs9CreliIhD6k0310DDT0JV6-Y55AgOCqWoYCw7Xn3_AACx1aJccaRojC7FqwI6FWx2d3HkAz6o4l1llfTkgELhYjpUdW-m7dfQTbZzVlZRrVWE8lzbza2GXv6IFi3RzEWNso6KJMo-kRJxG-ZCruVhTt6FIyiZk6HpWGH6AGR62Fku8O_GR6YaNchKSB4nkj76iSPGTasLeJi2Sjw7kVZxhiL6MN4bBTT9jAB_sYcSrd9H12-KGV9IwnW8JnO3derCI6gfdGTKOzHTS3z231fDcCsXtDD4tJHHIXsW7_ytDprkwBwl9OLBW1xAniOgAH8sqgX3SGOYFcbd6Zxx0zgSlRNMdj4qkswS7KhC9-vyCA2qBnRdowPd9_1H9CpuHAyo3-iMf3UaBsPj0s
+        e: AQAB
+    jwk-wrapKey:
+      value:
+        kty: RSA
+        key_ops:
+          - wrapKey
+        alg: RSA-OAEP-256
+        x5c:
+          - ...(base64 encoded cert)...
+          - ...(base64 encoded intermediate cert)...
+          - ...(base64 encoded root cert)...
+        kid: c66e4423-e28d-4a1f-911d-818f9ab60221
+        'n': hGALqq-nbAymF5MyZIXV9RY-pW4r39BrBnxryp6ukjdrGacVhwKtm-zqN9urUETAhjfQo7CsxuJ7de291In9uPIhXYSvZcTQXH930Gpkv1BeAsU9x5uP6EnfrgRZfODwpmw1HJmAOK6aJ_ARJV7iJ1a_AGSK5ZO1bsmUWhJk-V-tFbs3xTbsmOZxVfxJWC-0pDxmEljmoi4q8f-LtNzVPEIC3-T5LaGEYy0stCU-YkJ-uDKGUJh01fQWRYaG7gCRnoIT9BJNQWUE0kfRjrZ9nOqNHibs9CreliIhD6k0310DDT0JV6-Y55AgOCqWoYCw7Xn3_AACx1aJccaRojC7FqwI6FWx2d3HkAz6o4l1llfTkgELhYjpUdW-m7dfQTbZzVlZRrVWE8lzbza2GXv6IFi3RzEWNso6KJMo-kRJxG-ZCruVhTt6FIyiZk6HpWGH6AGR62Fku8O_GR6YaNchKSB4nkj76iSPGTasLeJi2Sjw7kVZxhiL6MN4bBTT9jAB_sYcSrd9H12-KGV9IwnW8JnO3derCI6gfdGTKOzHTS3z231fDcCsXtDD4tJHHIXsW7_ytDprkwBwl9OLBW1xAniOgAH8sqgX3SGOYFcbd6Zxx0zgSlRNMdj4qkswS7KhC9-vyCA2qBnRdowPd9_1H9CpuHAyo3-iMf3UaBsPj0s
+        e: AQAB
+    attachment-limit-response:
+      value:
+        attachments:
+          platform:
+            maxNumber: 100
+            maxSizeIndividualBytes: 7000000
+            maxSizeAggregateBytes: 14000000
+          receive:
+            current:
+              maxNumber: 10
+              maxSizeIndividualBytes: 5000000
+              maxSizeAggregateBytes: 12000000
+            changeRequest:
+              id: 148a758a-4d8c-4fe7-91dd-715daab5389a
+              values:
+                maxNumber: 20
+                maxSizeIndividualBytes: 6000000
+                maxSizeAggregateBytes: 13000000
+              contactEmail: foo@example.com
+              requestReason: Ich brauche mehr!
+              decisionComment: Bitte besser begründen!
+              status: REJECTED
+              receivedAt: '2024-03-20T09:12:28Z'
+              decidedAt: '2024-03-21T09:12:28Z'
+          send:
+            current:
+              maxNumber: 10
+              maxSizeIndividualBytes: 5000000
+              maxSizeAggregateBytes: 12000000
+    attachment-limit-request:
+      value:
+        attachments:
+          receive:
+            changeRequest:
+              values:
+                maxNumber: 20
+                maxSizeIndividualBytes: 6000000
+                maxSizeAggregateBytes: 13000000
+              contactEmail: foo@example.com
+              requestReason: Ich brauche mehr!
+              status: PENDING
+    info:
+      value:
+        version:
+          major: 1
+          minor: 0
+          patch: 1
+    jwks-verify:
+      value:
+        keys:
+          - kty: RSA
+            key_ops:
+              - verify
+            alg: PS512
+            kid: u1ZTGUSSqcNoqGfAhN2lV1viizqNs3pbKloXzbrXlHg-verify
+            e: AQAB
+            'n': stC7Pvf_zSLUaC134eYuNVylUf7DHwDCaB4Av4j1If5phSRu0uaIZdLIxF6yvfaPQybza4U3Eh1NSl9Ur5ymF0oL7rzxzDIByCneo3yEz4Z0r5hBVYkzz3YSqqT8fXeWJ7E9WbPVqm0QBXzR4coAncGTfDJb17ALYMNhUKGPYKdfFqY7KDYxvJkXrH2CxW_PQGIbonic3SB22JRgqfGzyWkVWaQHyOac9mewU1JPnExwtkZEZ6Z2g9LnBCooV9jprD3AdQ9ZyfsFannYSM4Ai6uW6qMdru5fQx5QebTy2uDkdb7M77rxgl80nvYLgEuL0TckMlKceSb3bja3gWkQlWSWfjBXHhbSUQ2VvxugyLLB7JLVmLiLvKTc3jStvzWHQEjjkg8iGw1uyJYblYXdZkO55iQE7c4sBoGBqI3bGNm0qe1RTzXaNH9y0hzr5IGjAWSksqQ7GwC6SiK3h4HbiIWkXKwST6Jl9R4px8QVF_POzxlLGCLLKVyM02imuzVpDRHpxWYTRSH7Xw72NlsNqOHJKjJnckJIwEI2vHHv7vZaqioU7EHdIpj9x00wPHqJ-x3yGI_1uFzXQb-B9Y1rgrX8xSkYunU5AN2EfREH5WE9bk80sCjGCMs7vefyfZjQymJw7yG9QLAt_o7Fuv8x0pxprNMT5RqDXmwPQQpQJ-8
+            x5c:
+              - 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
+              - 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
+              - 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
+  headers:
+    Cache-Control-No-Cache:
+      $ref: '#/components/headers/cache-control-no-cache'
+    Location:
+      $ref: '#/components/headers/location'
+    cache-control-no-cache:
+      required: true
+      description: Zustellpunkte dürfen aufgrund ihrer Schlüssel nicht gecached werden
+      schema:
+        type: string
+        default: no-cache
+        enum:
+          - no-cache
+          - no-cache, no-store, max-age=0, must-revalidate
+    location:
+      required: true
+      description: Pfad zum Abrufen der erstellten Ressource
+      schema:
+        type: string
+    access-control-allow-origin:
+      description: Erlaubt Anfragen von beliebigen Quellen
+      schema:
+        type: string
+        default: '*'
+        enum:
+          - '*'
+  responses:
+    detailed-error:
+      description: |
+        Fehler! Generell ist bei ungültigen Anfragen mit jedem HTTP Statuscode aus dem Bereich 4xx zu rechnen - entsprechend dem HTTP-Standard. Insbesondere treten Statuscodes 400, 401, 403, 404, 405, 406, 413, 422 und 429 auf, aber dies ist keine vollständige Auflistung. Ebenso sind Fehler des 5xx-Bereichs möglich bei schweren Fehlern auf Seiten FIT-Connects. API-Clients sollten gemäß RFC 7231 so implementiert sein, dass auch unbekannte HTTP Statuscodes gemäß ihrer Statusklasse (Axx, A=[1,5]) interpretiert werden können. Näheres zum Fehler entnehmen Sie dem HTTP-Body. Dabei kann das Feld "type" verwendet werden, um Fehlerklassen programmatisch zu behandeln. Alle weiteren Felder dienen in erster Linie zur besseren Verständlichkeit des Fehlers.
+      content:
+        application/problem+json:
+          schema:
+            title: Fehler
+            type: object
+            description: Der Inhalt von HTTP Responses bei Fehlern nach RFC7807.
+            required:
+              - type
+              - title
+              - status
+            properties:
+              type:
+                type: string
+                description: Eine URI-Referenz, die den Problemtyp identifiziert.
+              title:
+                type: string
+                description: Eine kurze, von Menschen lesbare Zusammenfassung des Problems.
+              status:
+                type: integer
+                description: Der HTTP-Statuscode der vom Ursprungsserver für dieses Auftreten des Problems generiert wurde.
+                minimum: 400
+                maximum: 599
+              detail:
+                type: string
+                description: Eine von Menschen lesbare Erklärung speziell für dieses Auftreten des Problems.
+              instance:
+                type: string
+                format: uri
+                description: |
+                  Eine URI-Referenz, die das spezifische Auftreten des Problems identifiziert. Sie kann, muss aber nicht, weitere Informationen liefern, wenn sie dereferenziert wird.
+              errorcode:
+                type: string
+                description: Eine eindeutige ID dieses Fehlerfalls, die bei Support-Anfragen hilfreich sein kann.
+              violations:
+                type: array
+                description: Bei nicht-schemakonformen Requests finden sich hier in der Regel Details zu abgelehnten Datenfeldern.
+                items:
+                  type: string
+          example:
+            type: https://schema.fitko.de/fit-connect/submission-api/problems/destination-not-found
+            title: Destination not found
+            status: 404
+            detail: Destination 311b8787-6930-4cd7-938f-3fa1816e25aa does not exist.
+            errorcode: 3af7651916cd43dd8448eb211c80319c

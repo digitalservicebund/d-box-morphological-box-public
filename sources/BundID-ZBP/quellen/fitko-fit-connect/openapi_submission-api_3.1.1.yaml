@@ -1,0 +1,2979 @@
+openapi: 3.1.0
+info:
+  version: 3.1.1
+  title: Submission API V3
+  description: |
+    Die FIT-Connect Submission API ermöglicht das Einreichen von Anträgen und Berichten aus vorgelagerten Systemen (z. B. Onlineantragsdiensten, Fachportalen oder Berichtssystemen) an die Systeme der Verwaltung zur elektronischen Verfahrensbearbeitung (z. B. Fachverfahren, Dokumentenmanagementsysteme oder Prozessplattformen).
+  contact:
+    name: FITKO
+    url: https://docs.fitko.de/fit-connect/contact
+  license:
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+    name: Creative Commons Attribution Share Alike 4.0 (CC BY-SA 4.0)
+  termsOfService: https://docs.fitko.de/fit-connect/docs/details/terms-of-use-testing/
+servers:
+  - url: https://submission-api-testing.fit-connect.fitko.dev
+    description: FIT-Connect Testumgebung
+tags:
+  - name: Einreichungsübermittlung
+    description: Diese Gruppe enthält alle Endpunkte, die für das Versenden von Einreichungen an einen Zustellpunkt notwendig sind.
+    externalDocs:
+      url: https://docs.fitko.de/fit-connect/docs/getting-started/sending/overview
+  - name: Einreichungsempfang
+    description: Diese Gruppe umfasst alle Endpunkte, die für den Empfang und die Abfrage von Einreichungen notwendig sind.
+    externalDocs:
+      url: https://docs.fitko.de/fit-connect/docs/getting-started/receiving/overview
+  - name: Antwort senden
+    description: Diese Gruppe umfasst alle Endpunkte für das Versenden von Antworten auf Einreichungen.
+  - name: Antwort empfangen
+    description: Diese Gruppe umfasst alle Endpunkte für das Empfangen von Antworten auf Einreichungen.
+  - name: Fachlich
+    description: Unter dieser Gruppe sind alle Endpunkte organisiert, die fachliche Informationen über die Instanz des Zustelldienstes liefern.
+  - name: Internal
+    description: Unter dieser Gruppe werden Endpunkte gelistet, die FIT-Connect intern sind und API-Clients nicht zur Verfügung stehen.
+  - name: Vorgangsverwaltung
+    description: Unter dieser Gruppe sind alle Endpunkte organisiert, die sich auf einen Vorgang (Case) in beziehen.
+  - name: Webhooks
+    description: Webhooks (Callbacks), über die FIT-Connect sendende und empfangende Systeme über Ereignisse benachrichtigt.
+externalDocs:
+  description: FIT-Connect-Dokumentationsportal mit Dokumentation zur API-Nutzung
+  url: https://docs.fitko.de/fit-connect
+paths:
+  /v3/destinations/{destinationId}:
+    parameters:
+      - $ref: '#/components/parameters/destinationId'
+    get:
+      operationId: get-destination-info
+      summary: Zustellpunkt abfragen
+      description: |
+        Ruft die öffentlichen Details eines Zustellpunktes ab.
+      tags:
+        - Einreichungsübermittlung
+      security: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Access-Control-Allow-Origin:
+              $ref: '#/components/headers/access-control-allow-origin'
+            Cache-Control:
+              $ref: '#/components/headers/cache-control-no-cache'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/destination-public'
+              examples:
+                Beispiel-Public:
+                  $ref: '#/components/examples/destination-public'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/destinations/{destinationId}/keys/{keyId}:
+    parameters:
+      - $ref: '#/components/parameters/destinationId'
+      - $ref: '#/components/parameters/keyId'
+    get:
+      operationId: get-destination-key
+      summary: Ruft einen JWK des Zustelldienstes ab
+      description: |
+        Ermöglicht es, einen öffentlichen Schlüssel eines Zustellpunktes abzufragen. Randbemerkung: Dieser Endpunkt hat ein exaktes Pendant in der Destination API. Er ist dupliziert, weil die unterschiedlichen Zielgruppen der APIs beide einen solchen Endpunkt benötigen.
+      tags:
+        - Einreichungsübermittlung
+      security: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Access-Control-Allow-Origin:
+              $ref: '#/components/headers/access-control-allow-origin'
+            Cache-Control:
+              $ref: '#/components/headers/cache-control-no-cache'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jwk'
+              examples:
+                Beispiel Signatur-Public-Key:
+                  $ref: '#/components/examples/jwk-verify'
+                Beispiel Verschlüsselungs-Public-Key:
+                  $ref: '#/components/examples/jwk-wrapKey'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/limits/{fromDestinationId}/{toDestinationId}:
+    parameters:
+      - $ref: '#/components/parameters/fromDestinationId'
+      - $ref: '#/components/parameters/toDestinationId'
+    get:
+      operationId: get-destination-limits
+      summary: Ruft Attachment-Limits ab, die für das Senden von Einreichungen oder Antworten von fromDestinationId zu toDestinationId gelten.
+      description: |
+        Dieser Endpunkt liefert die geltenden Limits für das Senden von Einreichungen (Submissions) oder Antworten (Replies) von einem Zustellpunkt zu einem anderen. Die Limits sind unabhängig von den Clients, die verwendet werden, und unabhängig davon, ob es sich um eine Einreichung oder Antwort handelt. Das Feld `applicable` gibt dabei das tatsächlich geltende Limit an. Die anderen Werte haben nur eine erläuternde Funktion. Sie geben das Zustandekommen von `applicable` an, was schlichtweg das Minimum der anderen Werte darstellt.
+      tags:
+        - Einreichungsübermittlung
+      security: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Access-Control-Allow-Origin:
+              $ref: '#/components/headers/access-control-allow-origin'
+            Cache-Control:
+              $ref: '#/components/headers/cache-control-no-cache'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/attachment-limits'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/attachment-limits'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/search-destinations/by-process-message:
+    get:
+      operationId: search-destinations-by-process-message
+      summary: Suche von Zustellpunkten anhand von processModelId, messageId und Region.
+      tags:
+        - Search
+      description: |
+        Dieser Endpunkt bietet Clients die Möglichkeit, nach Zustellpunkten mittels processModelId, messageId und Region zu suchen.
+      security: []
+      parameters:
+        - $ref: '#/components/parameters/process-model-id'
+        - $ref: '#/components/parameters/message-id'
+        - $ref: '#/components/parameters/region'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control-no-cache'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/destination-public-list'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/cases/{caseId}/events:
+    parameters:
+      - $ref: '#/components/parameters/caseId'
+    get:
+      operationId: get-case-events
+      summary: Event Log auslesen
+      description: |
+        Über diesen Endpunkt kann der [Event Log](https://docs.fitko.de/fit-connect/docs/getting-started/event-log/overview) eines Vorgangs abgerufen werden, um z.B. den Status des Vorgangs zu überprüfen. Die Einträge haben eine stabile, aber nicht näher spezifizierte Reihenfolge.
+      tags:
+        - Vorgangsverwaltung
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/subscribe-destinations
+            - https://schema.fitko.de/fit-connect/oauth/scopes/send-submissions
+            - https://schema.fitko.de/fit-connect/oauth/scopes/read-all-event-logs
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/submissionIdInQuery'
+        - $ref: '#/components/parameters/replyIdInQuery'
+        - $ref: '#/components/parameters/eventTypeInQuery'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/event-log'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/event-log'
+        default:
+          $ref: '#/components/responses/detailed-error'
+    post:
+      operationId: send-case-event
+      summary: Event senden
+      description: |
+        Als empfangendes System ist es notwendig die Einreichung entweder zu akzeptieren oder abzulehnen und dadurch die Zustellung abzuschließen. Hierfür muss ein entsprechendes Event im Vorgang hinterlegt werden, indem es den Zustelldienst gesendet wird. Dieses Event kann nach der Validierung der Rahmenstruktur der Einreichung versendet werden, wie [hier](https://docs.fitko.de/fit-connect/docs/receiving/process-and-acknowledge) beschrieben ist.
+      tags:
+        - Vorgangsverwaltung
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/subscribe-destinations
+      requestBody:
+        required: true
+        content:
+          application/jose:
+            schema:
+              $ref: '#/components/schemas/security-event-token'
+            examples:
+              Beispiel:
+                $ref: '#/components/examples/security-event-token'
+      responses:
+        '204':
+          description: 'No Content: Security Event Token angenommen'
+        '409':
+          $ref: '#/components/responses/conflict'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/cases/{caseId}:
+    parameters:
+      - $ref: '#/components/parameters/caseId'
+    get:
+      summary: Vorgang abrufen
+      operationId: get-case
+      description: |
+        Mit diesem Endpunkt kann ein Vorgang abgerufen werden.
+      tags:
+        - Vorgangsverwaltung
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/subscribe-destinations
+            - https://schema.fitko.de/fit-connect/oauth/scopes/send-submissions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/case'
+              examples:
+                Vorgang:
+                  $ref: '#/components/examples/case'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/cases:
+    get:
+      operationId: get-cases
+      summary: Vorgänge auflisten
+      description: |
+        Mit diesem Request werden alle Vorgänge aufgelistet. Die Vorgänge werden anhand des Zeitpunktes der Erzeugung aufsteigend sortiert. Bei Autorisierung als Onlinedienst (`sender`) werden alle Vorgänge gelistet, die vom API-Client auf Basis der OAuth Client-ID initiiert wurden. Bei Autorisierung als Fachverfahren (`subscriber`) werden alle Vorgänge gelistet, die an dessen Destination-ID gesendet wurden.
+      tags:
+        - Vorgangsverwaltung
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/subscribe-destinations
+            - https://schema.fitko.de/fit-connect/oauth/scopes/send-submissions
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control-no-cache'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list-cases'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/list-cases'
+        default:
+          $ref: '#/components/responses/detailed-error'
+    post:
+      operationId: post-case
+      summary: Vorgang explizit anlegen
+      description: |
+        Mit der ersten Submission ohne Case-Bezug wird automatisch ein Case angelegt. Es ist aber auch möglich, einen Case zuvor explizit mit Hilfe dieses Endpunkts anzulegen.
+      tags:
+        - Vorgangsverwaltung
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/send-submissions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create-case'
+            examples:
+              Beispiel:
+                $ref: '#/components/examples/create-case'
+      responses:
+        '201':
+          description: Created
+          headers:
+            Cache-Control:
+              $ref: '#/components/headers/cache-control-no-cache'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/case'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/case'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/replies:
+    get:
+      operationId: get-replies-for-pickup
+      summary: Abholbereite (Status SUBMITTED) Antworten auflisten
+      description: |
+        Mit diesem Request werden alle abholbereiten Antworten aufgelistet. Die Antworten werden anhand des Zeitpunktes der Erzeugung aufsteigend sortiert. Mit dem optionalen 'destinationId' Parameter können die Antworten zudem anhand des adressierten Zustellpunktes gefiltert werden.
+      tags:
+        - Antwort empfangen
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/send-submissions
+      parameters:
+        - $ref: '#/components/parameters/destinationIdInQuery'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/replies-for-pickup'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/replies-for-pickup'
+        default:
+          $ref: '#/components/responses/detailed-error'
+    post:
+      operationId: create-reply
+      summary: Antwort erstellen
+      description: |
+        Über diesen Endpunkt kann das empfangende System dem sendenden System eine Antwort zukommen zu lassen. Empfänger der Antwort ist immer der Zustellpunkt, der den Vorgang angelegt hat (`fromDestinationId` des Vorgangs). Antworten sind nur möglich, wenn dieser Zustellpunkt vom Typ `C` (Onlinedienst) ist; Zustellpunkte vom Typ `A` oder `B` (Fachverfahren) können keine Antworten empfangen.
+      tags:
+        - Antwort senden
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/subscribe-destinations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/create-reply'
+            examples:
+              Beispiel:
+                $ref: '#/components/examples/create-reply'
+      responses:
+        '201':
+          description: Created
+          headers:
+            Location:
+              $ref: '#/components/headers/location'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reply-created'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/reply-created'
+        '422':
+          $ref: '#/components/responses/unprocessable-entity'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/replies/{replyId}:
+    parameters:
+      - $ref: '#/components/parameters/replyId'
+    get:
+      operationId: get-reply
+      summary: Antwort abrufen
+      description: |
+        Hierüber können die Fachdaten, Metadaten und Strukturinformation einer Antwort abgefragt und dann ausgewertet werden. Eine Beschreibung, wie diese Daten weiter verarbeitet werden, ist in der Dokumentation zu finden.
+      tags:
+        - Antwort empfangen
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/send-submissions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reply'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/reply'
+        default:
+          $ref: '#/components/responses/detailed-error'
+    put:
+      operationId: submit-reply
+      summary: Antwort versenden
+      description: |
+        Mit der Übermittlung der Meta- und Fachdaten wird die Antwort an das sendende System (Empfänger der Antwort) abgesendet. Im Ereignisprotokoll (event log) des zugehörigen Vorgangs (case) kann geprüft werden, ob die Antwort den Empfänger erreicht hat bzw. von diesem akzeptiert wurde.
+      tags:
+        - Antwort senden
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/subscribe-destinations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/submit-reply'
+            examples:
+              Beispiel:
+                $ref: '#/components/examples/submit-submission'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reply-reduced'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/reply-reduced'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/replies/{replyId}/accept:
+    parameters:
+      - $ref: '#/components/parameters/replyId'
+    put:
+      summary: Rückantwort akzeptieren
+      description: |
+        Mit der Übermittlung der empfangenen Authentication-Tags wird der Empfang der Antwort dokumentiert. Sofern die Antwort trotz Fehlern empfangen wurde, können diese in der Liste `problems` protokolliert werden.
+      tags:
+        - Antwort empfangen
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/send-submissions
+      operationId: put-reply-accept
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/event-payload-accept-reply'
+            examples:
+              Einfaches Beispiel:
+                $ref: '#/components/examples/accept-reply'
+              Beispiel mit Problemen:
+                $ref: '#/components/examples/accept-reply-with-nonfatal-problems'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/jose:
+              schema:
+                $ref: '#/components/schemas/security-event-token'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/security-event-token'
+        '409':
+          $ref: '#/components/responses/conflict'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/replies/{replyId}/reject:
+    parameters:
+      - $ref: '#/components/parameters/replyId'
+    put:
+      summary: Rückantwort ablehnen
+      description: |
+        Konnte die Antwort wegen technischen Fehlern nicht empfangen werden, so wird sie zurückgewiesen. Die Fehler werden in der Liste `problems` protokolliert.
+      tags:
+        - Antwort empfangen
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/send-submissions
+      operationId: put-reply-reject
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/event-payload-reject'
+            examples:
+              Beispiel:
+                $ref: '#/components/examples/reject-reply'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/jose:
+              schema:
+                $ref: '#/components/schemas/security-event-token'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/security-event-token'
+        '409':
+          $ref: '#/components/responses/conflict'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/replies/{replyId}/attachments/{attachmentId}:
+    parameters:
+      - $ref: '#/components/parameters/replyId'
+      - $ref: '#/components/parameters/attachmentId'
+    get:
+      operationId: get-reply-attachment
+      summary: Anlage einer Antwort abrufen
+      description: |
+        Ruft eine Anlage einer Einreichung im JOSE-Format ab. Genaueres ist in der Dokumentation beschrieben.
+      tags:
+        - Antwort empfangen
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/send-submissions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/jose:
+              schema:
+                $ref: '#/components/schemas/jwe'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/encrypted-message'
+        default:
+          $ref: '#/components/responses/detailed-error'
+    put:
+      operationId: add-reply-attachment
+      summary: Anlage einer Antwort hinzufügen
+      description: |
+        Hochladen der in `announcedAttachments` angekündigten Anlage im JOSE-Format unter der mitgeteilten UUID. Genaueres ist in der Dokumentation beschrieben.
+      tags:
+        - Antwort senden
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/subscribe-destinations
+      requestBody:
+        required: true
+        content:
+          application/jose:
+            schema:
+              $ref: '#/components/schemas/jwe'
+            examples:
+              Beispiel:
+                $ref: '#/components/examples/encrypted-message'
+      responses:
+        '204':
+          description: 'No Content: Anlage erfolgreich hinzugefügt/überschrieben'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/replies/{replyId}/events:
+    parameters:
+      - $ref: '#/components/parameters/replyId'
+    get:
+      operationId: get-reply-events
+      summary: Event Log für Antwort auslesen
+      description: |
+        Über diesen Endpunkt kann das [Event Log](https://docs.fitko.de/fit-connect/docs/getting-started/event-log/overview) zu einer Antwort abgerufen werden. Die Einträge haben eine stabile, aber nicht näher spezifizierte Reihenfolge.
+      tags:
+        - Vorgangsverwaltung
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/subscribe-destinations
+            - https://schema.fitko.de/fit-connect/oauth/scopes/manage-destinations
+            - https://schema.fitko.de/fit-connect/oauth/scopes/send-submissions
+            - https://schema.fitko.de/fit-connect/oauth/scopes/read-all-event-logs
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/event-log'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/event-log'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/submissions:
+    get:
+      operationId: get-submissions-for-pickup
+      summary: Abholbereite (Status SUBMITTED) Einreichungen auflisten
+      description: |
+        Mit diesem Request werden alle abholbereiten Einreichungen sowie deren Zustellpunkte aufgelistet. Die Einreichungen haben eine stabile Reihenfolge und sind nach dem Zeitpunkt der letzten Statusänderung sortiert.
+      tags:
+        - Einreichungsempfang
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/subscribe-destinations
+      parameters:
+        - $ref: '#/components/parameters/destinationIdInQuery'
+        - $ref: '#/components/parameters/public-service'
+          required: false
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/submissions-for-pickup'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/submissions-for-pickup'
+        default:
+          $ref: '#/components/responses/detailed-error'
+    post:
+      operationId: create-submission
+      summary: Einreichung erstellen
+      description: |
+        Dieser Endpunkt ist der erste, initiale Schritt zum Erstellen einer Einreichung. Danach können Anlagen hochgeladen und schließlich die Einreichung an den Zustellpunkt versendet werden, der in diesem Endpunkt angegeben wurde.
+      tags:
+        - Einreichungsübermittlung
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/send-submissions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/create-submission'
+                - $ref: '#/components/schemas/create-submission-with-process'
+            examples:
+              Beispiel:
+                $ref: '#/components/examples/create-submission'
+      responses:
+        '201':
+          description: Created
+          headers:
+            Location:
+              $ref: '#/components/headers/location'
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/submission-created'
+                  - $ref: '#/components/schemas/submission-created-with-process'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/submission-created'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/submissions/{submissionId}:
+    parameters:
+      - $ref: '#/components/parameters/submissionId'
+    get:
+      operationId: get-submission
+      summary: Einreichung abrufen
+      description: |
+        Hierüber können die Fachdaten, Metadaten und Strukturinformation einer Einreichung vom Status submitted oder forwarded abgefragt und dann ausgewertet werden. Eine Beschreibung, wie diese Daten weiter verarbeitet werden ist [hier](https://docs.fitko.de/fit-connect/docs/receiving/download-submission) zu finden.
+      tags:
+        - Einreichungsempfang
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/subscribe-destinations
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/submission'
+                  - $ref: '#/components/schemas/submission-with-process'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/submission'
+        default:
+          $ref: '#/components/responses/detailed-error'
+    put:
+      operationId: submit-submission
+      summary: Einreichung versenden
+      description: |
+        Über den Aufruf dieses Endpunktes wird eine vollständige Einreichung an den Zustellpunkt versendet. Als sendendes System kann der Status der Einreichung überprüft werden, um herauszufinden, ob die Einreichung den Zustellpunkt erreicht hat bzw. von diesem akzeptiert wurde.
+      tags:
+        - Einreichungsübermittlung
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/send-submissions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/submit-submission'
+            examples:
+              Beispiel:
+                $ref: '#/components/examples/submit-submission'
+      responses:
+        '200':
+          description: Accepted
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/submission-created'
+                  - $ref: '#/components/schemas/submission-created-with-process'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/submission-submitted'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/submissions/{submissionId}/attachments/{attachmentId}:
+    parameters:
+      - $ref: '#/components/parameters/submissionId'
+      - $ref: '#/components/parameters/attachmentId'
+    get:
+      operationId: get-submission-attachment
+      summary: Anlage abrufen
+      description: |
+        Ruft eine Anlage einer Einreichung vom Status submitted oder forwarded im JOSE-Format ab. Genaueres ist in der [Dokumentation](https://docs.fitko.de/fit-connect/docs/receiving/download-submission) beschrieben
+      tags:
+        - Einreichungsempfang
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/subscribe-destinations
+      responses:
+        '200':
+          description: OK
+          content:
+            application/jose:
+              schema:
+                $ref: '#/components/schemas/jwe'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/encrypted-message'
+        default:
+          $ref: '#/components/responses/detailed-error'
+    put:
+      operationId: add-submission-attachment
+      summary: Anlage hinzufügen
+      description: |
+        Hochladen der in `announcedAttachments` angekündigten Anlage im JOSE-Format unter der mitgeteilten UUID. Anlagen sind mit dem gültigen Verschlüsselungsschlüssel der Destination (referenziert im Attribut `encryptionKid` der Destination) zu verschlüsseln. Genaueres ist [in der Dokumentation](https://docs.fitko.de/fit-connect/docs/sending/attachments) beschrieben.
+      tags:
+        - Einreichungsübermittlung
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/send-submissions
+      requestBody:
+        required: true
+        content:
+          application/jose:
+            schema:
+              $ref: '#/components/schemas/jwe'
+            examples:
+              Beispiel:
+                $ref: '#/components/examples/encrypted-message'
+      responses:
+        '204':
+          description: 'No Content: Anlage erfolgreich hinzugefügt/überschrieben'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/submissions/{submissionId}/events:
+    parameters:
+      - $ref: '#/components/parameters/submissionId'
+    get:
+      operationId: get-submission-events
+      summary: Event Log für Einreichung auslesen
+      description: |
+        Über diesen Endpunkt kann das [Event Log](https://docs.fitko.de/fit-connect/docs/getting-started/event-log/overview) zu einer Einreichung abgerufen werden. Die Einträge haben eine stabile, aber nicht näher spezifizierte Reihenfolge.
+      tags:
+        - Vorgangsverwaltung
+      security:
+        - OAuth2:
+            - https://schema.fitko.de/fit-connect/oauth/scopes/subscribe-destinations
+            - https://schema.fitko.de/fit-connect/oauth/scopes/manage-destinations
+            - https://schema.fitko.de/fit-connect/oauth/scopes/send-submissions
+            - https://schema.fitko.de/fit-connect/oauth/scopes/read-all-event-logs
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/event-log'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/event-log'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /v3/info:
+    get:
+      operationId: get-info
+      summary: Rufe die Version der bereitgestellten Submission API ab
+      description: Für Debugging oder Informationszwecke angebotener Endpunkt
+      tags:
+        - Fachlich
+      security: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Access-Control-Allow-Origin:
+              $ref: '#/components/headers/access-control-allow-origin'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/info'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/info'
+        default:
+          $ref: '#/components/responses/detailed-error'
+  /.well-known/jwks.json:
+    get:
+      operationId: get-jwks.json
+      summary: Rufe die öffentlichen Schlüssel des Zustelldienstes ab
+      description: Kann z.B. zur Validierung der SETs des Zustelldienstes genutzt werden.
+      tags:
+        - Fachlich
+      security: []
+      responses:
+        '200':
+          description: OK
+          headers:
+            Access-Control-Allow-Origin:
+              $ref: '#/components/headers/access-control-allow-origin'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jwks'
+              examples:
+                Beispiel:
+                  $ref: '#/components/examples/jwks-verify'
+        default:
+          $ref: '#/components/responses/detailed-error'
+webhooks:
+  new-events:
+    post:
+      summary: Webhook für neue Events im Event Log
+      description: |
+        Bei neuen Events im Event Log werden (je nach Event-Typ) sowohl einreichende als auch empfangende Systeme mit Hilfe dieses Webhooks benachrichtigt. Voraussetzung für einreichende Systeme ist die vorherige Konfiguration des Webhooks mit `url` und `secret` beim Senden der Einreichung. Voraussetzung für empfangende Systeme ist die vorherige Konfiguration der [Callback-URL](https://docs.fitko.de/fit-connect/docs/details/callbacks) beim Anlegen des Zustellpunkts.
+      operationId: webhook-new-events
+      parameters:
+        - $ref: '#/components/parameters/hmac-cb-authentication'
+        - $ref: '#/components/parameters/hmac-cb-timestamp'
+      security: []
+      tags:
+        - Webhooks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/new-events'
+      responses:
+        '200':
+          description: OK
+  new-replies:
+    post:
+      summary: Webhook für eine neue Antwort
+      description: |
+        Bei neuen Antworten wird das sendende System der Einreichung mit Hilfe dieses Webhooks benachrichtigt. Voraussetzung ist die vorherige Konfiguration des Webhooks mit `url` und `secret` beim Senden der Einreichung.
+      operationId: webhook-new-replies
+      parameters:
+        - $ref: '#/components/parameters/hmac-cb-authentication'
+        - $ref: '#/components/parameters/hmac-cb-timestamp'
+      security: []
+      tags:
+        - Webhooks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/new-replies'
+      responses:
+        '200':
+          description: OK
+  new-submissions:
+    post:
+      summary: Webhook für eine neue Einreichung
+      description: |
+        Bei neuen Einreichungen wird das empfangende System mit Hilfe dieses Webhooks benachrichtigt. Voraussetzung ist die vorherige Konfiguration der [Callback-URL](https://docs.fitko.de/fit-connect/docs/details/callbacks) beim Anlegen des Zustellpunkts.
+      operationId: webhook-new-submissions
+      parameters:
+        - $ref: '#/components/parameters/hmac-cb-authentication'
+        - $ref: '#/components/parameters/hmac-cb-timestamp'
+      security: []
+      tags:
+        - Webhooks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/new-submissions'
+      responses:
+        '200':
+          description: OK
+components:
+  securitySchemes:
+    OAuth2:
+      description: Authentifizierungsmethode, um den Zugriff nach RFC8725 zu autorisieren
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth-testing.fit-connect.fitko.dev/token
+          scopes:
+            https://schema.fitko.de/fit-connect/oauth/scopes/subscribe-destinations: Erlaubt den Abruf von Einreichungen
+            https://schema.fitko.de/fit-connect/oauth/scopes/manage-destinations: Erlaubt die Verwaltung von Zustellpunkten
+            https://schema.fitko.de/fit-connect/oauth/scopes/send-submissions: Erlaubt das Versenden von Einreichungen an Zustellpunkte
+    InternalOAuth2:
+      description: Authentifizierungsmethode, um den Zugriff nach RFC8725 zu autorisieren. Nur für Wartungszwecke.
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth-testing.fit-connect.fitko.dev/token
+          scopes:
+            https://schema.fitko.de/fit-connect/oauth/scopes/read-all-event-logs: Erlaubt das Lesen von Event Logs. Nur für Wartungszwecke.
+  parameters:
+    destinationId:
+      name: destinationId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+        minLength: 32
+        maxLength: 36
+      description: Die UUID des Zustellpunktes
+    keyId:
+      name: keyId
+      in: path
+      required: true
+      schema:
+        type: string
+        minLength: 8
+        maxLength: 64
+      description: Die Id eines JWK
+    fromDestinationId:
+      name: fromDestinationId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+        minLength: 32
+        maxLength: 36
+      description: Die UUID des Zustellpunktes, der die Einreichung oder Antwort sendet
+    toDestinationId:
+      name: toDestinationId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+        minLength: 32
+        maxLength: 36
+      description: Die UUID des Zustellpunktes, der die Einreichung oder Antwort empfängt
+    process-model-id:
+      name: processModelId
+      in: query
+      required: true
+      schema:
+        title: Prozessreferenz
+        description: |
+          URI einer Prozessdefinition, z.B. `https://schema.example.com/foo/bar.bpmn` oder `bpmn:960116c1-f862-4060-beaa-f99e410f8325:v2`.
+        type: string
+        format: uri
+        maxLength: 512
+        example: https://schema.example.com/foo/bar.bpmn
+    message-id:
+      name: messageId
+      in: query
+      required: true
+      schema:
+        title: messageId
+        description: |
+          ID eines Prozessschrittes innerhalb des durch `processModelId` definierten Prozesses.
+        type: string
+        maxLength: 255
+        example: 172ff473-ef69-4ce6-a8d6-a50308e355e3
+    region:
+      name: region
+      in: query
+      required: true
+      schema:
+        $ref: '#/components/schemas/service-region'
+      description: Zustellpunkte anhand ihrer Region filtern
+    limit:
+      name: limit
+      in: query
+      description: Anzahl der zurückzugebenden Ergebnisse. Maximum ist 500. Standard ist 100.
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 500
+    offset:
+      name: offset
+      in: query
+      description: Startposition der Teilmenge zurückzugebender Ergebnisse aus der Gesamtergebnismenge. Standard ist 0.
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+    caseId:
+      name: caseId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+        minLength: 32
+        maxLength: 36
+      description: Die UUID des Vorgangs
+    submissionIdInQuery:
+      name: submissionId
+      in: query
+      schema:
+        $ref: '#/components/schemas/schema'
+      description: Die UUID der Einreichung, nach der die Events gefiltert werden sollen.
+    replyIdInQuery:
+      name: replyId
+      in: query
+      schema:
+        $ref: '#/components/schemas/schema'
+      description: Die UUID der Antwort, nach der die Events gefiltert werden sollen.
+    eventTypeInQuery:
+      name: event
+      in: query
+      required: false
+      schema:
+        type: string
+      description: Filtert nach Event(-typ). Mögliche Abfragen sind zum Beispiel "?sub=create-submission", oder aber "?sub=submit-submission&sub=accept-submission&sub=reject-submission".
+    destinationIdInQuery:
+      name: destinationId
+      in: query
+      schema:
+        $ref: '#/components/schemas/schema'
+      description: Die UUID des Zustellpunktes
+    replyId:
+      name: replyId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+        minLength: 32
+        maxLength: 36
+      description: Die UUID der Antwort
+    attachmentId:
+      name: attachmentId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+        minLength: 32
+        maxLength: 36
+      description: Die UUID der Anlage. Wird vom Client erstellt, um auf diese z. B. in den Fachdaten zu referenzieren.
+    public-service:
+      name: publicService
+      in: query
+      description: Zustellpunkte oder Einreichungen anhand der unterstützten Verwaltungsleistung filtern
+      schema:
+        type: string
+        title: Leistungsidentifikator
+        description: |
+          URN einer Leistung. Im Falle einer Leistung aus dem Leistungskatalog sollte hier `urn:de:fim:leika:leistung:` vorangestellt werden.
+        minLength: 7
+        maxLength: 255
+        pattern: ^urn:[a-z0-9][a-z0-9-]{0,31}:[a-z0-9()+,.:=@;$_!*'%/?#-]+$
+        example: urn:de:fim:leika:leistung:99400048079000
+    submissionId:
+      name: submissionId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+        minLength: 32
+        maxLength: 36
+      description: Die UUID der Einreichung
+    hmac-cb-authentication:
+      in: header
+      name: Callback-Authentication
+      required: true
+      description: Der Message Authentication Code des übertragenen Callbacks.
+      schema:
+        type: string
+    hmac-cb-timestamp:
+      in: header
+      name: Callback-Timestamp
+      required: true
+      description: Der Timestamp des Message Authentication Code.
+      schema:
+        type: integer
+  schemas:
+    problem:
+      title: Fehler
+      type: object
+      description: Der Inhalt von HTTP Responses bei Fehlern nach RFC7807.
+      additionalProperties: true
+      required:
+        - type
+        - title
+        - status
+      properties:
+        type:
+          type: string
+          description: Eine URI-Referenz, die den Problemtyp identifiziert.
+        title:
+          type: string
+          description: Eine kurze, von Menschen lesbare Zusammenfassung des Problems.
+        status:
+          type: integer
+          description: Der HTTP-Statuscode der vom Ursprungsserver für dieses Auftreten des Problems generiert wurde.
+          minimum: 400
+          maximum: 599
+        detail:
+          type: string
+          description: Eine von Menschen lesbare Erklärung speziell für dieses Auftreten des Problems.
+        instance:
+          type: string
+          format: uri
+          description: |
+            Eine URI-Referenz, die das spezifische Auftreten des Problems identifiziert. Sie kann, muss aber nicht, weitere Informationen liefern, wenn sie dereferenziert wird.
+        errorcode:
+          type: string
+          description: Eine eindeutige ID dieses Fehlerfalls, die bei Support-Anfragen hilfreich sein kann.
+        violations:
+          type: array
+          description: Bei nicht-schemakonformen Requests finden sich hier in der Regel Details zu abgelehnten Datenfeldern.
+          items:
+            type: string
+        issue:
+          type: string
+          description: Bei invalidem Input kann dieses Feld weitere Hinweise enthalten und somit die Fehlersuche erleichtern.
+    supported-metadata-versions:
+      title: Liste unterstützter Metadatenschemataversionen
+      description: Eine Liste unterstützter Versionen des Metadatenschemas gemäß [Semantic Versioning](https://semver.org/).
+      type: array
+      uniqueItems: true
+      minItems: 1
+      items:
+        type: string
+        pattern: ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$
+    service-region:
+      title: Region
+      type: string
+      description: Amtlicher Regionalschlüssel (ARS), vorangestellt mit 'DE'.
+      minLength: 2
+      maxLength: 14
+      pattern: ^DE[0-9]{0,12}$
+      example: DE094750156156
+    submission-schema:
+      title: Fachdatenschema
+      description: Referenz auf ein Schema, das die Struktur der Fachdaten einer Einreichung beschreibt.
+      type: object
+      required:
+        - mimeType
+        - schemaUri
+      properties:
+        mimeType:
+          type: string
+          description: Mimetype (z.B. application/json oder application/xml) des referenzierten Schemas (z.B. XSD- oder JSON-Schema).
+          enum:
+            - application/json
+            - application/xml
+        schemaUri:
+          type: string
+          format: uri
+          description: |
+            URI des Fachschemas. Wird hier eine URL verwendet, sollte das Schema unter der angegebenen URL abrufbar sein. Eine Verfügbarkeit des Schemas unter der angegebenen URL darf jedoch nicht vorausgesetzt werden.
+    destination-process-message:
+      title: Unterstütze Prozessnachricht
+      description: Beschreibt einen Nachrichtenfluss, der von diesem Zustellpunkt empfangen werden kann.
+      type: object
+      required:
+        - processModelId
+        - messageId
+        - regions
+        - schemas
+      properties:
+        processModelId:
+          description: |
+            URI einer Prozessdefinition, z.B. `https://schema.example.com/foo/bar.bpmn` oder `bpmn:960116c1-f862-4060-beaa-f99e410f8325:v2`.
+          type: string
+          maxLength: 512
+          example: https://schema.example.com/foo/bar.bpmn
+        messageId:
+          description: |
+            ID eines Prozessschrittes innerhalb des durch `processModelId` definierten Prozesses.
+          type: string
+          maxLength: 255
+          example: 172ff473-ef69-4ce6-a8d6-a50308e355e3
+        regions:
+          description: |
+            Amtliche Regionalschlüssel (ARS) der Regionen in denen ein Empfang dieser Prozessnachricht angeboten wird. Vorangestellt mit 'DE'.
+          uniqueItems: true
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/service-region'
+        schemas:
+          title: Unterstützte Fachschemata
+          description: Auflistung aller unterstützten Fachschemata, in denen Prozessnachrichten dieses Typs empfangen werden können.
+          uniqueItems: true
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/submission-schema'
+    reply-channels:
+      type: object
+      description: |
+        Hier kann eine empfangende Stelle angeben, welche Rückkanäle es für Einreichungen an diesen Zustellpunkt unterstützt. Sofern keine Reply Channels angegeben werden, kann ein sendendes System davon ausgehen, dass die Behörde nur über den Papierweg im Rückkanal kommuniziert.
+      minProperties: 1
+      properties:
+        eMail:
+          description: Hiermit kann den sendenden Systemen signalisiert werden, dass die empfangende Stelle für Einreichungen an diesen Zustellpunkt eine Rückkanalkommunikation per E-Mail unterstützt.
+          type: object
+          properties:
+            usePgp:
+              type: boolean
+              description: Hiermit kann den sendenden Systemen signalisiert werden, dass die empfangende Stelle für die Rückkanalkommunikation per E-Mail eine Verschlüsselung mit PGP unterstützt, sofern eine PGP Schlüssel über die Metadaten der Einreichung oder einen anderen Mechanismus übermittelt wurden.
+        deMail:
+          type: object
+          description: Hiermit kann den sendenden Systemen signalisiert werden, dass die empfangende Stelle für Einreichungen an diesen Zustellpunkt eine Rückkanalkommunikation per DE-Mail unterstützt.
+        fink:
+          deprecated: true
+          type: object
+          description: Hiermit kann den sendenden Systemen signalisiert werden, dass die empfangende Stelle für Einreichungen an diesen Zustellpunkt eine Rückkanalkommunikation an die interoperablen Postfächer der FINK Föderation unterstützt.
+        elster:
+          type: object
+          description: Hiermit kann den sendenden Systemen signalisiert werden, dass die empfangende Stelle für Einreichungen an diesen Zustellpunkt eine Rückkanalkommunikation per Elster-Transfer unterstützt.
+        fitConnect:
+          type: object
+          description: Hiermit kann den sendenden Systemen signalisiert werden, dass die empfangende Stelle für Einreichungen an diesen Zustellpunkt eine Rückkanalkommunikation per FIT-Connect unterstützt.
+          required:
+            - processStandards
+          properties:
+            processStandards:
+              description: |
+                Hier ist eine eindeutige Referenz auf den zu verwendenden Datenaustauschstandard (einschließlich der Version) mittels der offiziellen URI des Datenaustauschstandards zu hinterlegen.
+              type: array
+              minItems: 1
+              items:
+                type: string
+                format: uri
+        idBundDeMailbox:
+          type: object
+          description: Hiermit kann dem Onlinediensten signalisiert werden, dass das Verwaltungssystem das zentrale Bürgerpostfach der DeutschlandID unterstützt.
+          required:
+            - useStatusMonitor
+          properties:
+            useStatusMonitor:
+              type: boolean
+              description: Hiermit signalisiert das Verwaltungssystem, dass es den Statusmmonitor der DeutschlandID nutzt und der Onlinedienst einen Status anlegen darf.
+    destination-service:
+      title: Verwaltungsleistung
+      description: Verwaltungsleistung, die eine Destination anbietet.
+      type: object
+      required:
+        - identifier
+        - regions
+        - submissionSchemas
+      properties:
+        identifier:
+          title: Leistungs-Identifikator
+          description: |
+            URN einer Leistung. Im Falle einer Leistung aus dem Leistungskatalog sollte hier `urn:de:fim:leika:leistung:` vorangestellt werden.
+          type: string
+          minLength: 7
+          maxLength: 255
+          pattern: ^urn:[a-z0-9][a-z0-9-]{0,31}:[a-z0-9()+,.:=@;$_!*'%/?#-]+$
+        regions:
+          description: |
+            Amtliche Regionalschlüssel (ARS) der Regionen in denen die Leistung angeboten wird. Vorangestellt mit 'DE'.
+          uniqueItems: true
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/service-region'
+        replyChannels:
+          $ref: '#/components/schemas/reply-channels'
+        submissionSchemas:
+          title: Unterstützte Fachschemata
+          description: Auflistung aller unterstützten Fachschemata des Zustellpunktes.
+          uniqueItems: true
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/submission-schema'
+    destination-status:
+      type: string
+      enum:
+        - created
+        - active
+        - inactive
+        - decommissioned
+      description: Status des Zustellpunktes. Eine Beschreibung der Status finden Sie in den Detailinformationen unter [Zustellpunktverwaltung](https://docs.fitko.de/fit-connect/docs/details/destination-management).
+    destination-type:
+      type: string
+      enum:
+        - A
+        - B
+        - C
+      description: Der Typ eines Zustellpunktes
+    client-id:
+      type: string
+      format: uuid
+      minLength: 32
+      maxLength: 36
+      description: Die UUID eines Clients
+    destination-sender-access-restricted:
+      type: object
+      required:
+        - enabled
+        - allowedSenders
+        - allowedSenderDestinations
+      properties:
+        enabled:
+          type: boolean
+          description: |
+            Gibt an, ob das Senden an diesen Zustellpunkt beschränkt ist oder nicht.
+            Falls `true` dürfen ausschließlich Clients, deren ID in `allowedSenders` enthalten ist,
+            oder Zustellpunkte, deren ID in `allowedSenderDestinations` enthalten ist,
+            an diesen Zustellpunkt senden.
+        allowedSenders:
+          deprecated: true
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/client-id'
+          description: |
+            **Deprecated** – Dieses Feld wird in der nächsten Major-Version entfernt.
+            Auflistung der Client-IDs, die an diesen Zustellpunkt senden dürfen.
+            Die Clients müssen existieren und vom Typ `SENDER` sein.
+            Über V3 können keine neuen Einträge hinzugefügt werden; bestehende Einträge können entfernt werden.
+        allowedSenderDestinations:
+          type: array
+          uniqueItems: true
+          items:
+            type: string
+            format: uuid
+            minLength: 36
+            maxLength: 36
+            description: Die UUID eines Zustellpunktes
+          description: |
+            Auflistung der Zustellpunkt-IDs, die an diesen Zustellpunkt senden dürfen.
+    destination-public:
+      title: Zustellpunkt
+      description: Öffentliche Daten eines Zustellpunktes
+      type: object
+      required:
+        - destinationId
+        - metadataVersions
+        - status
+        - type
+      properties:
+        destinationId:
+          type: string
+          minLength: 32
+          format: uuid
+          maxLength: 36
+          description: Identifikator des Zustellpunktes im Format einer UUID
+        encryptionKid:
+          type: string
+          minLength: 8
+          maxLength: 64
+          description: |
+            Key-ID des Verschlüsselungsschlüssels der Destination. Zu finden in der Subressource `keys/<keyId>`.
+        metadataVersions:
+          $ref: '#/components/schemas/supported-metadata-versions'
+        processMessages:
+          title: Prozessverarbeitungsleistungen
+          description: Eine Liste unterstützter Prozessnachrichten des Zustellpunktes.
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/destination-process-message'
+        publicServices:
+          title: Unterstützte Verwaltungsleistungen
+          description: Auflistung aller unterstützten Verwaltungsleistungen des Zustellpunktes.
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/destination-service'
+        status:
+          $ref: '#/components/schemas/destination-status'
+        type:
+          $ref: '#/components/schemas/destination-type'
+        senderAccessRestricted:
+          $ref: '#/components/schemas/destination-sender-access-restricted'
+    jwk:
+      title: JSON Web Key (JWK)
+      type: object
+      description: JSON Web Key - RFC7517
+      required:
+        - kty
+        - key_ops
+        - alg
+        - x5c
+        - kid
+        - 'n'
+        - e
+      properties:
+        kty:
+          type: string
+          description: |
+            Der Parameter "kty" (Schlüsseltyp) identifiziert die kryptografische Algorithmus Familie, die mit dem Schlüssel verwendet wird, z. B. "RSA" oder "EC". In FIT-Connect sind aktuell nur RSA-Schlüssel erlaubt.
+          enum:
+            - RSA
+        key_ops:
+          type: array
+          description: |
+            Der Parameter "key_ops" (Schlüsseloperationen) identifiziert die Operation(en) für die der Schlüssel verwendet werden soll. Die Bedeutung der Erlaubten Operationen sind:
+              - `verify`: Digitale Signatur oder MAC überprüfen
+              - `wrapKey`: Verschlüsselungsschlüssel
+          items:
+            type: string
+            enum:
+              - verify
+              - wrapKey
+        alg:
+          type: string
+          description: |
+            Der Parameter "alg" (Algorithmus) identifiziert den Algorithmus, der für Verwendung mit dem Schlüssel vorgesehen ist. In FIT-Connect wird `PS512` für Signaturschlüssel und `RSA-OAEP-256` für Verschlüsselungsschlüssel genutzt.
+          enum:
+            - PS512
+            - RSA-OAEP-256
+        x5c:
+          type: array
+          description: |
+            Der Parameter "x5c" (X.509 certificate chain) enthält eine Kette von einem oder mehreren PKIX-Zertifikaten [RFC5280]. Die Zertifikatskette wird als JSON-Array von Zertifikatswert-Strings dargestellt.
+          minItems: 1
+          items:
+            type: string
+        kid:
+          type: string
+          description: |
+            Der Parameter "kid" (Schlüssel-Id) wird verwendet, um einen bestimmten Schlüssel zu finden. Dieser wird z. B. verwendet, um zwischen einer Reihe von Schlüsseln innerhalb eines JWK-Sets zu wählen während des Schlüssel-Rollover.
+          minLength: 8
+          maxLength: 64
+        'n':
+          type: string
+          description: Modulus des Schlüssels. Die minimale Länge von 683 Zeichen repräsentiert eine Schlüssellange von mindestens 4096 Bit.
+          minLength: 683
+        e:
+          type: string
+          description: Öffentliche Exponent des Schlüssels
+          enum:
+            - AQAB
+    attachment-limits:
+      type: object
+      required:
+        - attachments
+      properties:
+        attachments:
+          type: object
+          required:
+            - platform
+            - receive
+            - send
+            - applicable
+          properties:
+            platform:
+              type: object
+              description: Fundamentales Limit, das unabhängig von den Beteiligten ist.
+              required:
+                - maxNumber
+                - maxSizeIndividualBytes
+                - maxSizeAggregateBytes
+              properties:
+                maxNumber:
+                  type: integer
+                  minimum: 0
+                  description: Maximale Anzahl an Attachments pro Einreichung oder Antwort
+                maxSizeIndividualBytes:
+                  type: integer
+                  minimum: 1
+                  description: Maximale Dateigröße (in Bytes) eines einzelnen Attachments
+                maxSizeAggregateBytes:
+                  type: integer
+                  minimum: 1
+                  description: Maximale kumulierte Dateigröße (in Bytes) aller Attachments einer Einreichung oder Antwort
+            receive:
+              type: object
+              description: Empfangs-Limit der toDestinationId.
+              required:
+                - maxNumber
+                - maxSizeIndividualBytes
+                - maxSizeAggregateBytes
+              properties:
+                maxNumber:
+                  type: integer
+                  minimum: 0
+                  description: Maximale Anzahl an Attachments pro Einreichung oder Antwort
+                maxSizeIndividualBytes:
+                  type: integer
+                  minimum: 1
+                  description: Maximale Dateigröße (in Bytes) eines einzelnen Attachments
+                maxSizeAggregateBytes:
+                  type: integer
+                  minimum: 1
+                  description: Maximale kumulierte Dateigröße (in Bytes) aller Attachments einer Einreichung oder Antwort
+            send:
+              type: object
+              description: Sende-Limit der fromDestinationId.
+              required:
+                - maxNumber
+                - maxSizeIndividualBytes
+                - maxSizeAggregateBytes
+              properties:
+                maxNumber:
+                  type: integer
+                  minimum: 0
+                  description: Maximale Anzahl an Attachments pro Einreichung oder Antwort
+                maxSizeIndividualBytes:
+                  type: integer
+                  minimum: 1
+                  description: Maximale Dateigröße (in Bytes) eines einzelnen Attachments
+                maxSizeAggregateBytes:
+                  type: integer
+                  minimum: 1
+                  description: Maximale kumulierte Dateigröße (in Bytes) aller Attachments einer Einreichung oder Antwort
+            applicable:
+              type: object
+              description: Tatsächlich geltendes Limit (das Minimum aus den anderen Werten).
+              required:
+                - maxNumber
+                - maxSizeIndividualBytes
+                - maxSizeAggregateBytes
+              properties:
+                maxNumber:
+                  type: integer
+                  minimum: 0
+                  description: Maximale Anzahl an Attachments pro Einreichung oder Antwort
+                maxSizeIndividualBytes:
+                  type: integer
+                  minimum: 1
+                  description: Maximale Dateigröße (in Bytes) eines einzelnen Attachments
+                maxSizeAggregateBytes:
+                  type: integer
+                  minimum: 1
+                  description: Maximale kumulierte Dateigröße (in Bytes) aller Attachments einer Einreichung oder Antwort
+    destination-public-list:
+      title: Liste von Zustellpunkten
+      type: object
+      required:
+        - count
+        - offset
+        - totalCount
+        - destinations
+      properties:
+        count:
+          type: integer
+          format: int32
+          description: Anzahl zurückgegebener Zustellpunkte
+          maximum: 500
+          minimum: 0
+        offset:
+          type: integer
+          format: int32
+          description: Startposition der Teilmenge zurückgegebener Zustellpunkte aus der Gesamtergebnismenge.
+          minimum: 0
+        totalCount:
+          type: integer
+          format: int32
+          description: Gesamtanzahl der Zustellpunkte
+          minimum: 0
+        destinations:
+          type: array
+          items:
+            $ref: '#/components/schemas/destination-public'
+          description: Eine Auflistung aller selbst angelegten Zustellpunkte
+          maxItems: 500
+          minItems: 0
+    schema:
+      type: string
+      format: uuid
+      minLength: 32
+      maxLength: 36
+    security-event-token:
+      title: Security Event Token
+      description: |
+        Ein Security Event Token ist ein signiertes JWT, das verschiedene Events darstellt. Beispiel: Das Akzeptieren bzw. Ablehnen einer Einreichung. Der Aufbau und die Bedeutung der Felder sind [in der Dokumentation beschrieben](https://docs.fitko.de/fit-connect/docs/getting-started/event-log/overview).
+      type: string
+      pattern: \w+\.\w+\.\w+
+    event-log:
+      title: Event Log einer Einreichung
+      description: |
+        Dieses Objekt enthält den [Event Log einer Einreichung](https://docs.fitko.de/fit-connect/docs/getting-started/event-log/overview). Beispiele für Events im Event Log sind das Akzeptieren oder das Ablehnen einer Einreichung. Der Aufbau und die Bedeutung einzelner Events ist [in der Dokumentation zum Abruf von Events beschrieben](https://docs.fitko.de/fit-connect/docs/sending/accept-reject). Neue Events werden am Ende des Event Log hinzugefügt (das letzte Element im Array ist das neuste).
+      type: object
+      required:
+        - eventLog
+      properties:
+        count:
+          type: integer
+          format: int32
+          description: Anzahl zurückgegebener Events
+          maximum: 500
+          minimum: 0
+        offset:
+          type: integer
+          format: int32
+          description: Startposition der Teilmenge zurückgegebener Events aus der Gesamtergebnismenge.
+          minimum: 0
+        totalCount:
+          type: integer
+          format: int32
+          description: Gesamtanzahl der Events
+          minimum: 0
+        eventLog:
+          type: array
+          items:
+            $ref: '#/components/schemas/security-event-token'
+          maxItems: 500
+          minItems: 0
+    from-destination-id-receive:
+      type: string
+      description: |
+        UUID des Zustellpunktes, der als Absender auftritt.
+      format: uuid
+      minLength: 36
+      maxLength: 36
+    service-type-get:
+      type: object
+      title: Verwaltungsleistung
+      description: Beschreibung der Art der Verwaltungsleistung. Eine Verwaltungsleistung sollte immer mit einem LeiKa-Schlüssel beschrieben werden. Ist für die gegebene Verwaltungsleistung kein LeiKa-Schlüssel vorhanden, kann die Verwaltungsleistung übergangsweise über die Angabe einer anderen eindeutigen Schema-URN beschrieben werden.
+      required:
+        - identifier
+      properties:
+        name:
+          type: string
+          description: Name/Bezeichnung der Verwaltungsleistung
+        description:
+          type:
+            - 'null'
+            - string
+          description: (Kurz-)Beschreibung der Verwaltungsleistung
+        identifier:
+          title: Leistungs-Identifikator
+          description: |
+            URN einer Leistung. Im Falle einer Leistung aus dem Leistungskatalog sollte hier `urn:de:fim:leika:leistung:` vorangestellt werden.
+          type: string
+          minLength: 7
+          maxLength: 255
+          pattern: ^urn:[a-z0-9][a-z0-9-]{0,31}:[a-z0-9()+,.:=@;$_!*'%/?#-]+$
+    case:
+      title: Vorgang
+      description: |
+        Beschreibt einen Vorgang (`case`), der auf einer Verwaltungsleistung (`publicService`) basiert.
+      properties:
+        caseId:
+          $ref: '#/components/schemas/schema'
+        fromDestinationId:
+          $ref: '#/components/schemas/from-destination-id-receive'
+        destinationId:
+          $ref: '#/components/schemas/schema'
+        publicService:
+          $ref: '#/components/schemas/service-type-get'
+      required:
+        - caseId
+        - destinationId
+        - fromDestinationId
+        - publicService
+    case-minimal:
+      title: Minimaler Vorgang
+      required:
+        - caseId
+        - destinationId
+        - fromDestinationId
+      properties:
+        caseId:
+          $ref: '#/components/schemas/schema'
+        fromDestinationId:
+          $ref: '#/components/schemas/from-destination-id-receive'
+        destinationId:
+          $ref: '#/components/schemas/schema'
+    list-cases:
+      title: Vorgänge
+      description: Vorgänge eines API-Clients oder Zustellpunktes
+      type: object
+      required:
+        - cases
+      properties:
+        count:
+          type: integer
+          format: int32
+          description: Anzahl zurückgegebener Vorgänge
+          maximum: 500
+          minimum: 0
+        offset:
+          type: integer
+          format: int32
+          description: Offset in die Gesamtanzahl Vorgänge
+          minimum: 0
+        totalCount:
+          type: integer
+          format: int32
+          description: Gesamtanzahl Vorgänge
+          minimum: 0
+        cases:
+          type: array
+          items:
+            $ref: '#/components/schemas/case-minimal'
+          maxItems: 500
+          minItems: 0
+    from-destination-id-send:
+      type: string
+      description: |
+        UUID des Zustellpunktes, der als Absender auftritt. Der sendende Client muss mit diesem Zustellpunkt verbunden sein. Dieses Feld ist erforderlich und kann nicht standardmäßig oder implizit abgeleitet werden.
+      format: uuid
+      minLength: 36
+      maxLength: 36
+    service-type-post:
+      type: object
+      title: Verwaltungsleistung
+      description: Beschreibung der Art der Verwaltungsleistung. Eine Verwaltungsleistung sollte immer mit einem LeiKa-Schlüssel beschrieben werden. Ist für die gegebene Verwaltungsleistung kein LeiKa-Schlüssel vorhanden, kann die Verwaltungsleistung übergangsweise über die Angabe einer anderen eindeutigen Schema-URN beschrieben werden.
+      required:
+        - name
+        - identifier
+      properties:
+        name:
+          type: string
+          description: Name/Bezeichnung der Verwaltungsleistung
+        description:
+          type: string
+          description: (Kurz-)Beschreibung der Verwaltungsleistung
+        identifier:
+          title: Leistungs-Identifikator
+          description: |
+            URN einer Leistung. Im Falle einer Leistung aus dem Leistungskatalog sollte hier `urn:de:fim:leika:leistung:` vorangestellt werden.
+          type: string
+          minLength: 7
+          maxLength: 255
+          pattern: ^urn:[a-z0-9][a-z0-9-]{0,31}:[a-z0-9()+,.:=@;$_!*'%/?#-]+$
+    create-case:
+      title: Vorgang
+      description: |
+        Beschreibt einen Vorgang (`case`), der auf einer Verwaltungsleistung (`publicService`) basiert.
+      properties:
+        fromDestinationId:
+          $ref: '#/components/schemas/from-destination-id-send'
+        destinationId:
+          $ref: '#/components/schemas/schema'
+        publicService:
+          $ref: '#/components/schemas/service-type-post'
+      required:
+        - fromDestinationId
+        - destinationId
+        - publicService
+    reply-for-pickup:
+      type: object
+      title: Abholbereite Antworten
+      description: Eine einzelne abholbereite Antwort, abzurufen beim Vorgang mit der angegebenen `caseId`.
+      required:
+        - replyId
+        - caseId
+      properties:
+        replyId:
+          description: Identifikator der Antwort im Format einer UUID
+          $ref: '#/components/schemas/schema'
+        caseId:
+          description: Vorgangsreferenz des Vorgangs, zu der die Antwort gehört.
+          $ref: '#/components/schemas/schema'
+    replies-for-pickup:
+      type: object
+      title: Abholbereite Antworten
+      description: Beschreibt alle abholbereiten Antworten.
+      required:
+        - replies
+      properties:
+        count:
+          type: integer
+          format: int32
+          description: Anzahl zurückgegebener Antworten
+          maximum: 500
+          minimum: 0
+        offset:
+          type: integer
+          format: int32
+          description: Startposition der Teilmenge zurückgegebener Antworten aus der Gesamtergebnismenge.
+          minimum: 0
+        totalCount:
+          type: integer
+          format: int32
+          description: Gesamtanzahl der abholbereiten Antworten
+          minimum: 0
+        replies:
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/reply-for-pickup'
+          maxItems: 500
+          minItems: 0
+    process-message:
+      title: Prozessverarbeitungsleistung
+      description: Beschreibt den Nachrichtenfluss innerhalb eines Prozesses, den diese Nachricht abbildet.
+      type: object
+      required:
+        - processModelId
+        - messageId
+      properties:
+        processModelId:
+          title: Prozessreferenz
+          description: |
+            URI einer Prozessdefinition, z.B. `https://schema.example.com/foo/bar.bpmn` oder `bpmn:960116c1-f862-4060-beaa-f99e410f8325:v2`.
+          type: string
+          maxLength: 512
+          example: https://schema.example.com/foo/bar.bpmn
+        messageId:
+          title: messageId
+          description: |
+            ID eines Prozessschrittes innerhalb des durch `processModelId` definierten Prozesses.
+          type: string
+          maxLength: 255
+          example: 172ff473-ef69-4ce6-a8d6-a50308e355e3
+    time-to-live-reply:
+      type: integer
+      format: int32
+      minimum: 1
+      description: |
+        Zeitspanne in ganzen Sekunden, nach deren Ablauf die Antwort automatisch mit dem Event `reject-reply` (Problem `time-to-live-expired`) zurückgewiesen wird, sofern der Empfänger sie bis dahin nicht angenommen hat. Die Zeit läuft ab dem Event `submit-reply`. Die Zurückweisung erfolgt zeitnah, aber nicht sekundengenau, da der Zeitpunkt vom Ausführungsintervall des Zustelldienstes abhängt; ein Accept kurz nach Ablauf der Frist kann noch erfolgreich sein. Maßgeblich für den Ausgang ist deshalb allein das eingetroffene Event, nicht der Ablauf der Frist - wer nach Fristablauf ohne `reject-reply`-Event einen anderen Zustellweg wählt, riskiert eine Doppelzustellung. Zulässig ist maximal die betrieblich konfigurierte globale Auto-Reject-Frist; höhere Werte werden mit `400` abgewiesen. Der geltende Wert ist in der [FIT-Connect-Dokumentation](https://docs.fitko.de/fit-connect/docs/getting-started/notifications-and-deletion-deadlines/) dokumentiert.
+    create-reply:
+      title: Objekt zum Erzeugen einer Antwort
+      description: Initiales Objekt zum Erzeugen und Ankündigen einer Antwort
+      type: object
+      required:
+        - caseId
+        - fromDestinationId
+        - announcedAttachments
+      properties:
+        fromDestinationId:
+          $ref: '#/components/schemas/from-destination-id-send'
+        announcedAttachments:
+          type: array
+          description: Eine Liste mit den `attachmentId`s die mit der Antwort hochgeladen werden sollen.
+          minItems: 0
+          items:
+            $ref: '#/components/schemas/schema'
+        caseId:
+          description: Vorgangsreferenz innerhalb welcher eine neue Antwort erstellt (Reply) wird.
+          $ref: '#/components/schemas/schema'
+        processMessage:
+          $ref: '#/components/schemas/process-message'
+        timeToLive:
+          $ref: '#/components/schemas/time-to-live-reply'
+    reply-created:
+      title: Erstellte Antwort
+      description: Antwort bei erfolgreicher Erstellung einer Antwort.
+      type: object
+      required:
+        - fromDestinationId
+        - replyId
+        - caseId
+      properties:
+        fromDestinationId:
+          $ref: '#/components/schemas/from-destination-id-receive'
+        replyId:
+          description: Identifikator der Antwort im Format einer UUID
+          $ref: '#/components/schemas/schema'
+        caseId:
+          description: Vorgangsreferenz des Vorgangs, zu der die Antwort gehört.
+          $ref: '#/components/schemas/schema'
+        processMessage:
+          $ref: '#/components/schemas/process-message'
+        timeToLive:
+          $ref: '#/components/schemas/time-to-live-reply'
+    jwe:
+      title: JWE verschlüsselte Nachricht
+      description: |
+        Verschlüsselte Nachricht im Format JSON Web Encryption Compact Serialization (RFC7516). Wird u.a. verwendet für Fachdaten, Metadaten, Anhänge.
+      type: string
+      pattern: ^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]*\.[A-Za-z0-9_-]+$
+      minLength: 776
+    expires-at:
+      type: string
+      format: date-time
+      description: |
+        Zeitpunkt, zu dem die vom Sender mit `timeToLive` gesetzte Frist abläuft: der Zeitpunkt des Absende-Events (`submit-submission` bzw. `submit-reply`) plus `timeToLive`. Das Feld ist nur vorhanden, wenn der Sender eine Frist gesetzt hat und die Nachricht bereits abgesendet wurde. Die betrieblich konfigurierte globale Auto-Reject-Frist wird hier nicht abgebildet. Der Wert ist informativ; maßgeblich für den Ausgang der Zustellung ist allein das eingetroffene Event im Event Log.
+    reply:
+      title: Antwort
+      description: Die Repräsentation einer Antwort
+      type: object
+      required:
+        - replyId
+        - fromDestinationId
+        - caseId
+        - attachments
+        - encryptedMetadata
+        - encryptedData
+      properties:
+        replyId:
+          description: Identifikator der Antwort im Format einer UUID
+          $ref: '#/components/schemas/schema'
+        fromDestinationId:
+          $ref: '#/components/schemas/from-destination-id-receive'
+        caseId:
+          description: ID des Vorgangs, zu dem die Antwort gehört
+          $ref: '#/components/schemas/schema'
+        attachments:
+          type: array
+          description: Liste von UUIDs der Anlagen, die bereits hochgeladen wurden
+          items:
+            $ref: '#/components/schemas/schema'
+        encryptedMetadata:
+          description: Verschlüsselte Metadaten im Format JSON Web Encryption Compact Serialization (RFC7516).
+          $ref: '#/components/schemas/jwe'
+        encryptedData:
+          description: Verschlüsselte Fachdaten im Format JSON Web Encryption Compact Serialization (RFC7516).
+          $ref: '#/components/schemas/jwe'
+        processMessage:
+          $ref: '#/components/schemas/process-message'
+        timeToLive:
+          $ref: '#/components/schemas/time-to-live-reply'
+        expiresAt:
+          $ref: '#/components/schemas/expires-at'
+    submit-reply:
+      title: Einreichung absenden
+      description: Datenstruktur für den Abschluss einer Antwort.
+      type: object
+      required:
+        - encryptedMetadata
+        - encryptedData
+      properties:
+        encryptedMetadata:
+          description: |
+            Verschlüsselte Metadaten im Format JSON Web Encryption Compact Serialization (RFC7516). Die Verschlüsselung ist mit dem JWK durchzuführen, den das sendende System in der Submission mit den Metadaten übersendetet hat.
+          $ref: '#/components/schemas/jwe'
+        encryptedData:
+          description: |
+            Verschlüsselte Fachdaten im Format JSON Web Encryption Compact Serialization (RFC7516). Die Verschlüsselung ist mit dem JWK durchzuführen, den das sendende System in der Submission mit den Metadaten übersendetet hat.
+          $ref: '#/components/schemas/jwe'
+    reply-reduced:
+      title: Antwort
+      description: Die Repräsentation einer Antwort (ohne `encryptedMetadata` und `encryptedData`)
+      type: object
+      required:
+        - replyId
+        - fromDestinationId
+        - caseId
+        - attachments
+      properties:
+        replyId:
+          description: Identifikator der Antwort im Format einer UUID
+          $ref: '#/components/schemas/schema'
+        fromDestinationId:
+          $ref: '#/components/schemas/from-destination-id-receive'
+        caseId:
+          description: ID des Vorgangs, zu dem die Antwort gehört
+          $ref: '#/components/schemas/schema'
+        attachments:
+          type: array
+          description: Liste von UUIDs der Anlagen, die bereits hochgeladen wurden
+          items:
+            $ref: '#/components/schemas/schema'
+        processMessage:
+          $ref: '#/components/schemas/process-message'
+        timeToLive:
+          $ref: '#/components/schemas/time-to-live-reply'
+        expiresAt:
+          $ref: '#/components/schemas/expires-at'
+    event-payload-problems:
+      title: EventPayloadProblems
+      type: array
+      description: |
+        Datenstruktur für problembehaftete Ereignisse. [Details sind in der Dokumentation zu finden](https://docs.fitko.de/fit-connect/docs/getting-started/event-log/events).
+      items:
+        type: object
+        properties:
+          type:
+            description: Fehlercode in Form einer URI.
+            type: string
+            pattern: ^https:\/\/schema\.fitko\.de\/fit-connect\/events\/problems\/[-a-z]+$
+          title:
+            description: Für Menschen verständliche Fehlermeldung.
+            type: string
+          detail:
+            description: Details zum Fehler, z.B. eine technische Fehlermeldung (optional)
+            type: string
+          instance:
+            description: Betroffener Teil der Übertragung.
+            type: string
+            pattern: ^(data|metadata|attachment:[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[4][0-9A-Fa-f]{3}-[89AB][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}|reply|submission|other)$
+        required:
+          - type
+          - title
+          - instance
+    event-payload-authenticationtag:
+      title: Authentication Tag
+      description: Struktur eines einzelnen Authentication Tags
+      type: string
+      pattern: ^[a-zA-Z0-9-_=]+$
+      minLength: 22
+      maxLength: 86
+    event-payload-reply-authenticationtags:
+      title: Authentication Tag
+      description: Struktur eines einzelnen Authentication Tags für Antworten
+      type: object
+      additionalProperties: false
+      properties:
+        metadata:
+          $ref: '#/components/schemas/event-payload-authenticationtag'
+        data:
+          $ref: '#/components/schemas/event-payload-authenticationtag'
+        attachments:
+          type: object
+          additionalProperties: false
+          patternProperties:
+            ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$:
+              title: Authentication Tag
+              description: Struktur eines einzelnen Authentication Tags
+              type: string
+              pattern: ^[a-zA-Z0-9-_=]+$
+              minLength: 22
+              maxLength: 86
+      required:
+        - metadata
+        - data
+    event-payload-accept-reply:
+      title: Accept einer Antwort
+      description: Technische Bestätigung
+      type: object
+      properties:
+        problems:
+          $ref: '#/components/schemas/event-payload-problems'
+        authenticationTags:
+          $ref: '#/components/schemas/event-payload-reply-authenticationtags'
+      required:
+        - authenticationTags
+    event-payload-reject:
+      title: Reject
+      description: Technische Ablehnung
+      type: object
+      properties:
+        problems:
+          $ref: '#/components/schemas/event-payload-problems'
+      required:
+        - problems
+    submission-for-pickup:
+      type: object
+      title: Abholbereite Einreichungen
+      description: Eine einzelne abholbereite Einreichung, abzurufen beim Zustellpunkt mit der angegebenen `destinationId`.
+      required:
+        - destinationId
+        - submissionId
+        - caseId
+      properties:
+        destinationId:
+          type: string
+          format: uuid
+          minLength: 32
+          maxLength: 36
+          description: Identifikator des Zustellpunktes im Format einer UUID
+        submissionId:
+          type: string
+          format: uuid
+          minLength: 32
+          maxLength: 36
+          description: Identifikator der Einreichung im Format einer UUID
+        caseId:
+          type: string
+          format: uuid
+          minLength: 32
+          maxLength: 36
+          description: Vorgangsreferenz des Vorgangs, zu der die Einreichung gehört.
+        publicService:
+          $ref: '#/components/schemas/service-type-get'
+        processMessage:
+          $ref: '#/components/schemas/process-message'
+    submissions-for-pickup:
+      type: object
+      title: Abholbereite Einreichungen
+      description: Beschreibt alle abholbereiten Einreichungen.
+      required:
+        - submissions
+      properties:
+        count:
+          type: integer
+          format: int32
+          description: Anzahl zurückgegebener Einreichungen
+          maximum: 500
+          minimum: 0
+        offset:
+          type: integer
+          format: int32
+          description: Startposition der Teilmenge zurückgegebener Einreichungen aus der Gesamtergebnismenge.
+          minimum: 0
+        totalCount:
+          type: integer
+          format: int32
+          description: Gesamtanzahl der abholbereiten Einreichungen
+          minimum: 0
+        submissions:
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/submission-for-pickup'
+          maxItems: 500
+          minItems: 0
+    case-selection-exist:
+      title: Vorgangsreferenz - bestehender Vorgang
+      description: Referenz auf einen bestehenden Vorgang mittels caseId
+      type: object
+      required:
+        - caseId
+      properties:
+        caseId:
+          $ref: '#/components/schemas/schema'
+    time-to-live-submission:
+      type: integer
+      format: int32
+      minimum: 1
+      description: |
+        Zeitspanne in ganzen Sekunden, nach deren Ablauf die Einreichung automatisch mit dem Event `reject-submission` (Problem `time-to-live-expired`) zurückgewiesen wird, sofern der Empfänger sie bis dahin nicht angenommen hat. Die Zeit läuft ab dem Event `submit-submission`. Die Zurückweisung erfolgt zeitnah, aber nicht sekundengenau, da der Zeitpunkt vom Ausführungsintervall des Zustelldienstes abhängt; ein Accept kurz nach Ablauf der Frist kann noch erfolgreich sein. Maßgeblich für den Ausgang ist deshalb allein das eingetroffene Event, nicht der Ablauf der Frist - wer nach Fristablauf ohne `reject-submission`-Event einen anderen Zustellweg wählt, riskiert eine Doppelzustellung. Zulässig ist maximal die betrieblich konfigurierte globale Auto-Reject-Frist; höhere Werte werden mit `400` abgewiesen. Der geltende Wert ist in der [FIT-Connect-Dokumentation](https://docs.fitko.de/fit-connect/docs/getting-started/notifications-and-deletion-deadlines/) dokumentiert.
+    create-submission:
+      title: Objekt zum Erzeugen einer Einreichung
+      description: Initiales Objekt zum Erzeugen und Ankündigen einer Einreichung zu einer Verwaltungsleistung. Wenn das `case`-Objekt weggelassen wird, wird ein neuer Vorgang implizit auf Basis der Daten auf Wurzelebene erstellt. Wenn `case` angegeben wird, muss es eine `caseId` für einen bestehenden Vorgang enthalten.
+      type: object
+      required:
+        - destinationId
+        - fromDestinationId
+        - announcedAttachments
+        - publicService
+      properties:
+        fromDestinationId:
+          $ref: '#/components/schemas/from-destination-id-send'
+        destinationId:
+          type: string
+          description: UUID des Zustellpunktes, an den die Einreichung vermittelt werden soll.
+          format: uuid
+          minLength: 32
+          maxLength: 36
+        announcedAttachments:
+          type: array
+          description: Eine Liste mit den `attachmentId`s, die mit der Einreichung hochgeladen werden sollen.
+          minItems: 0
+          items:
+            type: string
+            format: uuid
+            minLength: 32
+            maxLength: 36
+        case:
+          $ref: '#/components/schemas/case-selection-exist'
+          description: Optionale Vorgangsreferenz. Wenn weggelassen, wird ein neuer Vorgang implizit erstellt. Wenn angegeben, muss eine bestehende `caseId` referenziert werden.
+        publicService:
+          $ref: '#/components/schemas/service-type-post'
+        region:
+          $ref: '#/components/schemas/service-region'
+        timeToLive:
+          $ref: '#/components/schemas/time-to-live-submission'
+    case-selection-new:
+      title: Vorgangsreferenz - neuer Vorgang
+      description: Erstellung eines neuen Vorgangs mittels publicService und destinationId
+      type: object
+      required:
+        - publicService
+        - destinationId
+      properties:
+        publicService:
+          $ref: '#/components/schemas/service-type-post'
+        destinationId:
+          type: string
+          description: UUID des Zustellpunktes, an den die Einreichung vermittelt werden soll.
+          format: uuid
+          minLength: 32
+          maxLength: 36
+    case-selection:
+      title: Vorgangsreferenz für Einreichung
+      description: |
+        Objekt zur Angabe einer Vorgangsreferenz. Kann entweder eine bestehende caseId referenzieren oder wird mit publicService und destinationId verwendet, um einen neuen Vorgang zu eröffnen.
+      type: object
+      oneOf:
+        - $ref: '#/components/schemas/case-selection-exist'
+        - $ref: '#/components/schemas/case-selection-new'
+    create-submission-with-process:
+      title: Objekt zum Erzeugen einer Einreichung
+      description: Initiales Objekt zum Erzeugen und Ankündigen einer Einreichung zu einem Prozess. Der Vorgang kann entweder mit `caseId` auf einen bestehenden Vorgang verweisen oder mit `publicService` und `destinationId` ein neuer Vorgang eröffnet werden.
+      type: object
+      required:
+        - destinationId
+        - fromDestinationId
+        - announcedAttachments
+        - case
+        - processMessage
+      properties:
+        fromDestinationId:
+          $ref: '#/components/schemas/from-destination-id-send'
+        destinationId:
+          type: string
+          description: UUID des Zustellpunktes, an den die Einreichung vermittelt werden soll.
+          format: uuid
+          minLength: 32
+          maxLength: 36
+        announcedAttachments:
+          type: array
+          description: Eine Liste mit den `attachmentId`s, die mit der Einreichung hochgeladen werden sollen.
+          minItems: 0
+          items:
+            type: string
+            format: uuid
+            minLength: 32
+            maxLength: 36
+        case:
+          $ref: '#/components/schemas/case-selection'
+        processMessage:
+          $ref: '#/components/schemas/process-message'
+        region:
+          $ref: '#/components/schemas/service-region'
+        timeToLive:
+          $ref: '#/components/schemas/time-to-live-submission'
+    submission-created:
+      title: Erstellte Einreichung
+      description: Antwort bei erfolgreicher Erstellung einer Einreichung mit Bezug auf eine Verwaltungsleistung.
+      type: object
+      required:
+        - fromDestinationId
+        - submissionId
+        - destinationId
+        - caseId
+        - attachments
+        - publicService
+      properties:
+        fromDestinationId:
+          $ref: '#/components/schemas/from-destination-id-receive'
+        destinationId:
+          $ref: '#/components/schemas/schema'
+        submissionId:
+          $ref: '#/components/schemas/schema'
+        caseId:
+          $ref: '#/components/schemas/schema'
+        attachments:
+          type: array
+          description: Liste von UUIDs der Anlagen, die bereits hochgeladen wurden
+          items:
+            type: string
+            format: uuid
+            minLength: 32
+            maxLength: 36
+        publicService:
+          $ref: '#/components/schemas/service-type-get'
+        region:
+          $ref: '#/components/schemas/service-region'
+        timeToLive:
+          $ref: '#/components/schemas/time-to-live-submission'
+        expiresAt:
+          $ref: '#/components/schemas/expires-at'
+    submission-created-with-process:
+      title: Erstellte Einreichung
+      description: Antwort bei erfolgreicher Erstellung einer Einreichung mit Prozessbezug.
+      type: object
+      required:
+        - fromDestinationId
+        - submissionId
+        - destinationId
+        - caseId
+        - attachments
+        - processMessage
+      properties:
+        fromDestinationId:
+          $ref: '#/components/schemas/from-destination-id-receive'
+        destinationId:
+          $ref: '#/components/schemas/schema'
+        submissionId:
+          $ref: '#/components/schemas/schema'
+        caseId:
+          $ref: '#/components/schemas/schema'
+        attachments:
+          type: array
+          description: Liste von UUIDs der Anlagen, die bereits hochgeladen wurden
+          items:
+            type: string
+            format: uuid
+            minLength: 32
+            maxLength: 36
+        processMessage:
+          $ref: '#/components/schemas/process-message'
+        region:
+          $ref: '#/components/schemas/service-region'
+        timeToLive:
+          $ref: '#/components/schemas/time-to-live-submission'
+        expiresAt:
+          $ref: '#/components/schemas/expires-at'
+    optional-jwe:
+      title: JWE verschlüsselte Nachricht
+      description: |
+        Verschlüsselte Nachricht im Format JSON Web Encryption Compact Serialization (RFC7516). Wird u.a. verwendet für Fachdaten, Metadaten, Anhänge.
+      type:
+        - 'null'
+        - string
+      pattern: ^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]*\.[A-Za-z0-9_-]+$
+      minLength: 776
+    submission:
+      title: Einreichung
+      description: Die Repräsentation einer Einreichung mit Bezug auf eine Verwaltungsleistung
+      type: object
+      required:
+        - destinationId
+        - fromDestinationId
+        - submissionId
+        - caseId
+        - attachments
+        - publicService
+        - encryptedMetadata
+      properties:
+        destinationId:
+          $ref: '#/components/schemas/schema'
+        fromDestinationId:
+          $ref: '#/components/schemas/from-destination-id-receive'
+        submissionId:
+          $ref: '#/components/schemas/schema'
+        caseId:
+          $ref: '#/components/schemas/schema'
+        attachments:
+          type: array
+          description: Liste von UUIDs der Anlagen, die bereits hochgeladen wurden
+          items:
+            type: string
+            format: uuid
+            minLength: 32
+            maxLength: 36
+        publicService:
+          $ref: '#/components/schemas/service-type-get'
+        region:
+          $ref: '#/components/schemas/service-region'
+        encryptedMetadata:
+          description: Verschlüsselte Metadaten im Format JSON Web Encryption Compact Serialization (RFC7516).
+          $ref: '#/components/schemas/jwe'
+        encryptedData:
+          description: Verschlüsselte Fachdaten im Format JSON Web Encryption Compact Serialization (RFC7516).
+          $ref: '#/components/schemas/optional-jwe'
+        timeToLive:
+          $ref: '#/components/schemas/time-to-live-submission'
+        expiresAt:
+          $ref: '#/components/schemas/expires-at'
+    submission-with-process:
+      title: Einreichung
+      description: Die Repräsentation einer Einreichung mit Prozessbezug
+      type: object
+      required:
+        - destinationId
+        - fromDestinationId
+        - submissionId
+        - caseId
+        - attachments
+        - processMessage
+        - encryptedMetadata
+      properties:
+        destinationId:
+          $ref: '#/components/schemas/schema'
+        fromDestinationId:
+          $ref: '#/components/schemas/from-destination-id-receive'
+        submissionId:
+          $ref: '#/components/schemas/schema'
+        caseId:
+          $ref: '#/components/schemas/schema'
+        attachments:
+          type: array
+          description: Liste von UUIDs der Anlagen, die bereits hochgeladen wurden
+          items:
+            type: string
+            format: uuid
+            minLength: 32
+            maxLength: 36
+        processMessage:
+          $ref: '#/components/schemas/process-message'
+        region:
+          $ref: '#/components/schemas/service-region'
+        encryptedMetadata:
+          description: Verschlüsselte Metadaten im Format JSON Web Encryption Compact Serialization (RFC7516).
+          $ref: '#/components/schemas/jwe'
+        encryptedData:
+          description: Verschlüsselte Fachdaten im Format JSON Web Encryption Compact Serialization (RFC7516).
+          $ref: '#/components/schemas/optional-jwe'
+        timeToLive:
+          $ref: '#/components/schemas/time-to-live-submission'
+        expiresAt:
+          $ref: '#/components/schemas/expires-at'
+    submit-submission:
+      title: Einreichung absenden
+      description: Datenstruktur für den Abschluss einer Einreichung.
+      type: object
+      required:
+        - encryptedMetadata
+        - encryptedData
+      properties:
+        encryptedMetadata:
+          description: |
+            Verschlüsselte Metadaten im Format JSON Web Encryption Compact Serialization (RFC7516). Ist mit dem JWK der Destination zu verschlüsseln.
+          $ref: '#/components/schemas/jwe'
+        encryptedData:
+          description: |
+            Verschlüsselte Fachdaten im Format JSON Web Encryption Compact Serialization (RFC7516). Ist mit dem JWK der Destination zu verschlüsseln.
+          $ref: '#/components/schemas/jwe'
+    version:
+      title: Serviceversion
+      type: object
+      required:
+        - major
+        - minor
+        - patch
+      properties:
+        major:
+          type: integer
+        minor:
+          type: integer
+        patch:
+          type: integer
+    info:
+      title: Version der Submission API
+      type: object
+      required:
+        - version
+      properties:
+        version:
+          $ref: '#/components/schemas/version'
+    jwks:
+      title: JSON Web Key Set (JWKS)
+      description: JWKS nach [RFC7517](https://datatracker.ietf.org/doc/html/rfc7517#section-5)
+      type: object
+      required:
+        - keys
+      properties:
+        keys:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/jwk'
+    new-events-for-submission:
+      title: Webhook payload for new events in submission
+      type: object
+      required:
+        - caseId
+        - destinationId
+        - submissionId
+      properties:
+        caseId:
+          $ref: '#/components/schemas/schema'
+        destinationId:
+          $ref: '#/components/schemas/schema'
+        submissionId:
+          $ref: '#/components/schemas/schema'
+    new-events-for-reply:
+      title: Webhook payload for new events in reply
+      type: object
+      required:
+        - caseId
+        - replyId
+      properties:
+        caseId:
+          $ref: '#/components/schemas/schema'
+        replyId:
+          $ref: '#/components/schemas/schema'
+    new-events:
+      title: Webhook for new events
+      description: Webhook, der über neue Events im Event Log informiert.
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          title: Art des Webhook
+          description: Es liegen neue Events im Event Log vor
+          type: string
+          enum:
+            - https://schema.fitko.de/fit-connect/submission-api/callbacks/new-events
+        submissionIds:
+          title: Liste der zugehörigen `submissionId`s
+          description: (DEPRECATED) Liste der `submissionId`s, für die neue Events im Event Log bereitstehen
+          deprecated: true
+          type: array
+          minItems: 1
+          items:
+            type: string
+            format: uuid
+            minLength: 32
+            maxLength: 36
+        submissions:
+          title: Liste von Einreichungen mit neuen Events
+          description: Liste von Einreichungen, für die neue Events im Event Log bereitstehen.
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/new-events-for-submission'
+        replies:
+          title: Liste von Antworten mit neuen Events
+          description: Liste von Antworten, für die neue Events im Event Log bereitstehen.
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/new-events-for-reply'
+    new-replies:
+      title: Webhook for new Replies
+      description: Webhook, der über neue Antworten im Vorgang informiert.
+      type: object
+      required:
+        - type
+        - replies
+      properties:
+        type:
+          title: Art des Webhook
+          description: Es liegen neue Antworten im Vorgang vor.
+          type: string
+          enum:
+            - https://schema.fitko.de/fit-connect/submission-api/callbacks/new-replies
+        replies:
+          type: array
+          minItems: 1
+          items:
+            type: object
+            required:
+              - replyId
+              - caseId
+              - destinationId
+            properties:
+              replyId:
+                $ref: '#/components/schemas/schema'
+              caseId:
+                $ref: '#/components/schemas/schema'
+              destinationId:
+                $ref: '#/components/schemas/schema'
+    submission-for-webhook:
+      type: object
+      title: Abholbereite Einreichungen
+      description: Eine einzelne abholbereite Einreichung, abzurufen beim Zustellpunkt mit der angegebenen `destinationId`.
+      required:
+        - destinationId
+        - submissionId
+        - caseId
+      properties:
+        destinationId:
+          type: string
+          format: uuid
+          minLength: 32
+          maxLength: 36
+          description: Identifikator des Zustellpunktes im Format einer UUID
+        submissionId:
+          type: string
+          format: uuid
+          minLength: 32
+          maxLength: 36
+          description: Identifikator der Einreichung im Format einer UUID
+        caseId:
+          type: string
+          format: uuid
+          minLength: 32
+          maxLength: 36
+          description: Vorgangsreferenz des Vorgangs, zu der die Einreichung gehört.
+    new-submissions:
+      title: Webhook for new Submissions
+      description: Webhook, der über abholbereite Einreichungen informiert.
+      type: object
+      required:
+        - type
+        - submissions
+      properties:
+        type:
+          title: Art des Webhook
+          description: Es liegen neue Einreichungen vor.
+          type: string
+          enum:
+            - https://schema.fitko.de/fit-connect/submission-api/callbacks/new-submissions
+        submissionIds:
+          title: Liste abholbereiter Einreichungen
+          description: (DEPRECATED) Liste von `submissionId`s aller Einreichungen, die zur Abholung bereitstehen.
+          deprecated: true
+          type: array
+          minItems: 1
+          items:
+            type: string
+            format: uuid
+            minLength: 32
+            maxLength: 36
+        submissions:
+          title: Liste abholbereiter Einreichungen
+          description: Liste von Einreichungen, die zur Abholung bereitstehen.
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/submission-for-webhook'
+  responses:
+    detailed-error:
+      description: |
+        Fehler! Generell ist bei ungültigen Anfragen mit jedem HTTP Statuscode aus dem Bereich 4xx zu rechnen - entsprechend dem HTTP-Standard. Insbesondere treten Statuscodes 400, 401, 403, 404, 405, 406, 409, 413, 422 und 429 auf, aber dies ist keine vollständige Auflistung. Ebenso sind Fehler des 5xx-Bereichs möglich bei schweren Fehlern auf Seiten FIT-Connects. API-Clients sollten gemäß RFC 7231 so implementiert sein, dass auch unbekannte HTTP Statuscodes gemäß ihrer Statusklasse (Axx, A=[1,5]) interpretiert werden können. Näheres zum Fehler entnehmen Sie dem HTTP-Body. Dabei kann das Feld "type" verwendet werden, um Fehlerklassen programmatisch zu behandeln. Alle weiteren Felder dienen in erster Linie zur besseren Verständlichkeit des Fehlers.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/problem'
+          example:
+            type: https://schema.fitko.de/fit-connect/submission-api/problems/destination-not-found
+            title: Destination not found
+            status: 404
+            detail: Destination 311b8787-6930-4cd7-938f-3fa1816e25aa does not exist.
+            errorcode: 3af7651916cd43dd8448eb211c80319c
+    conflict:
+      description: |
+        Conflict: Der Zustand der Einreichung bzw. der Antwort erlaubt die angeforderte Zustandsänderung nicht.
+        Über das Feld `type` lässt sich der Fall programmatisch unterscheiden:
+
+        * `https://schema.fitko.de/fit-connect/submission-api/problems/submission-expired` - die Einreichung wurde
+          nach Ablauf der vom Sender gesetzten Frist (`timeToLive`) bereits automatisch zurückgewiesen.
+        * `https://schema.fitko.de/fit-connect/submission-api/problems/reply-expired` - dasselbe für eine Antwort.
+        * `https://schema.fitko.de/fit-connect/submission-api/problems/invalid-state-transition` - der Zustand lässt
+          die angeforderte Änderung aus anderen Gründen nicht zu, beispielsweise nach Ablauf der betrieblich
+          konfigurierten globalen Auto-Reject-Frist.
+        * `https://schema.fitko.de/fit-connect/submission-api/problems/update-conflict` - eine gleichzeitige
+          Änderung derselben Einreichung bzw. Antwort ist zuvorgekommen, z. B. die automatische Zurückweisung.
+          Der aktuelle Zustand ist dem Event Log zu entnehmen.
+
+        Der genaue Zeitpunkt der automatischen Zurückweisung ist dem `reject-submission`- bzw.
+        `reject-reply`-Event im Event Log des Vorgangs zu entnehmen (`GET /v3/cases/{caseId}/events`).
+        Die Auflistung ist nicht abschließend.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/problem'
+          examples:
+            submission-expired:
+              summary: Einreichung nach Ablauf der vom Sender gesetzten Frist zurückgewiesen
+              value:
+                type: https://schema.fitko.de/fit-connect/submission-api/problems/submission-expired
+                title: Submission expired
+                status: 409
+                detail: Submission ce75a6b8-d72f-4b94-b09e-af6be35bc2ae was automatically rejected at 2026-09-01T14:23:05Z, after the time to live set by the sender had elapsed.
+                errorcode: 3af7651916cd43dd8448eb211c80319c
+            reply-expired:
+              summary: Antwort nach Ablauf der vom Sender gesetzten Frist zurückgewiesen
+              value:
+                type: https://schema.fitko.de/fit-connect/submission-api/problems/reply-expired
+                title: Reply expired
+                status: 409
+                detail: Reply 0b1c9d4e-6f2a-4c35-8e7b-2d9a51f3c8e0 was automatically rejected at 2026-09-01T14:23:05Z, after the time to live set by the sender had elapsed.
+                errorcode: 3af7651916cd43dd8448eb211c80319c
+            invalid-state-transition:
+              summary: Zustandsänderung aus anderen Gründen nicht zulässig
+              value:
+                type: https://schema.fitko.de/fit-connect/submission-api/problems/invalid-state-transition
+                title: Invalid state transition
+                status: 409
+                detail: Cannot transition submission from REJECTED to ACCEPTED.
+                errorcode: 3af7651916cd43dd8448eb211c80319c
+            update-conflict:
+              summary: Gleichzeitige Änderung derselben Einreichung bzw. Antwort
+              value:
+                type: https://schema.fitko.de/fit-connect/submission-api/problems/update-conflict
+                title: Update Conflict
+                status: 409
+                detail: A concurrent update caused a conflict with your request
+                errorcode: 8019f4dc21e355191b5891b053ce7975
+    unprocessable-entity:
+      description: |
+        Unprocessable Entity: Die Anfrage ist syntaktisch korrekt, kann fachlich aber nicht verarbeitet werden.
+        Über das Feld `type` lässt sich der Fall programmatisch unterscheiden:
+
+        * `https://schema.fitko.de/fit-connect/submission-api/problems/invalid-reply-recipient` - die Antwort kann
+          nicht erstellt werden, weil der Vorgang nicht von einem Zustellpunkt vom Typ `C` (Onlinedienst) angelegt
+          wurde. Das ist der Fall, wenn der anlegende Zustellpunkt (`fromDestinationId` des Vorgangs) vom Typ `A`
+          oder `B` ist, wenn der Vorgang keinen anlegenden Zustellpunkt hat (Vorgänge aus der Zeit vor Einführung
+          der Zustellpunkt-Typen) oder wenn der anlegende Zustellpunkt nicht mehr existiert.
+
+        Die Auflistung ist nicht abschließend.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/problem'
+          examples:
+            invalid-reply-recipient:
+              summary: Vorgang wurde nicht von einem Zustellpunkt vom Typ C angelegt
+              value:
+                type: https://schema.fitko.de/fit-connect/submission-api/problems/invalid-reply-recipient
+                title: Invalid reply recipient
+                status: 422
+                detail: Replies can only be sent to the destination that created the case, and only if it is of type C (Onlinedienst). Case e89e107e-ed79-40e6-ad34-4e770f9df263 was not created by such a destination.
+                errorcode: 3af7651916cd43dd8448eb211c80319c
+  headers:
+    access-control-allow-origin:
+      description: Erlaubt Anfragen von beliebigen Quellen
+      schema:
+        type: string
+        default: '*'
+        enum:
+          - '*'
+    cache-control-no-cache:
+      required: true
+      description: Zustellpunkte dürfen aufgrund ihrer Schlüssel nicht gecached werden
+      schema:
+        type: string
+        default: no-cache
+        enum:
+          - no-cache
+          - no-cache, no-store, max-age=0, must-revalidate
+    location:
+      required: true
+      description: Pfad zum Abrufen der erstellten Ressource
+      schema:
+        type: string
+  examples:
+    destination-public:
+      value:
+        destinationId: 13ad2349-975c-4167-bcd8-da606b4e1d84
+        status: active
+        type: A
+        publicServices:
+          - identifier: urn:de:fim:leika:leistung:99107004018000
+            submissionSchemas:
+              - schemaUri: https://schema.fitko.de/fim/s00000122_1.0.0.schema.json
+                mimeType: application/json
+            regions:
+              - DE09415061516
+              - DE09420411
+            replyChannels:
+              elster: {}
+        encryptionKid: e4142167-7f03-4d4f-a8c9-c7ecc78f55f8
+        metadataVersions:
+          - 1.0.0
+          - 2.1.2
+        senderAccessRestricted:
+          enabled: true
+          allowedSenders: []
+          allowedSenderDestinations:
+            - 9f1e2d3a-4b5c-6d7e-8f9a-0b1c2d3e4f50
+    jwk-verify:
+      value:
+        kty: RSA
+        key_ops:
+          - verify
+        alg: PS512
+        x5c:
+          - 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
+        kid: c66e4423-e28d-4a1f-911d-818f9ab60221
+        'n': hGALqq-nbAymF5MyZIXV9RY-pW4r39BrBnxryp6ukjdrGacVhwKtm-zqN9urUETAhjfQo7CsxuJ7de291In9uPIhXYSvZcTQXH930Gpkv1BeAsU9x5uP6EnfrgRZfODwpmw1HJmAOK6aJ_ARJV7iJ1a_AGSK5ZO1bsmUWhJk-V-tFbs3xTbsmOZxVfxJWC-0pDxmEljmoi4q8f-LtNzVPEIC3-T5LaGEYy0stCU-YkJ-uDKGUJh01fQWRYaG7gCRnoIT9BJNQWUE0kfRjrZ9nOqNHibs9CreliIhD6k0310DDT0JV6-Y55AgOCqWoYCw7Xn3_AACx1aJccaRojC7FqwI6FWx2d3HkAz6o4l1llfTkgELhYjpUdW-m7dfQTbZzVlZRrVWE8lzbza2GXv6IFi3RzEWNso6KJMo-kRJxG-ZCruVhTt6FIyiZk6HpWGH6AGR62Fku8O_GR6YaNchKSB4nkj76iSPGTasLeJi2Sjw7kVZxhiL6MN4bBTT9jAB_sYcSrd9H12-KGV9IwnW8JnO3derCI6gfdGTKOzHTS3z231fDcCsXtDD4tJHHIXsW7_ytDprkwBwl9OLBW1xAniOgAH8sqgX3SGOYFcbd6Zxx0zgSlRNMdj4qkswS7KhC9-vyCA2qBnRdowPd9_1H9CpuHAyo3-iMf3UaBsPj0s
+        e: AQAB
+    jwk-wrapKey:
+      value:
+        kty: RSA
+        key_ops:
+          - wrapKey
+        alg: RSA-OAEP-256
+        x5c:
+          - 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
+        kid: c66e4423-e28d-4a1f-911d-818f9ab60221
+        'n': hGALqq-nbAymF5MyZIXV9RY-pW4r39BrBnxryp6ukjdrGacVhwKtm-zqN9urUETAhjfQo7CsxuJ7de291In9uPIhXYSvZcTQXH930Gpkv1BeAsU9x5uP6EnfrgRZfODwpmw1HJmAOK6aJ_ARJV7iJ1a_AGSK5ZO1bsmUWhJk-V-tFbs3xTbsmOZxVfxJWC-0pDxmEljmoi4q8f-LtNzVPEIC3-T5LaGEYy0stCU-YkJ-uDKGUJh01fQWRYaG7gCRnoIT9BJNQWUE0kfRjrZ9nOqNHibs9CreliIhD6k0310DDT0JV6-Y55AgOCqWoYCw7Xn3_AACx1aJccaRojC7FqwI6FWx2d3HkAz6o4l1llfTkgELhYjpUdW-m7dfQTbZzVlZRrVWE8lzbza2GXv6IFi3RzEWNso6KJMo-kRJxG-ZCruVhTt6FIyiZk6HpWGH6AGR62Fku8O_GR6YaNchKSB4nkj76iSPGTasLeJi2Sjw7kVZxhiL6MN4bBTT9jAB_sYcSrd9H12-KGV9IwnW8JnO3derCI6gfdGTKOzHTS3z231fDcCsXtDD4tJHHIXsW7_ytDprkwBwl9OLBW1xAniOgAH8sqgX3SGOYFcbd6Zxx0zgSlRNMdj4qkswS7KhC9-vyCA2qBnRdowPd9_1H9CpuHAyo3-iMf3UaBsPj0s
+        e: AQAB
+    attachment-limits:
+      value:
+        attachments:
+          platform:
+            maxNumber: 100
+            maxSizeIndividualBytes: 70000000
+            maxSizeAggregateBytes: 999999999
+          receive:
+            maxNumber: 80
+            maxSizeIndividualBytes: 90000000
+            maxSizeAggregateBytes: 90000001
+          send:
+            maxNumber: 15
+            maxSizeIndividualBytes: 80000000
+            maxSizeAggregateBytes: 90000002
+          applicable:
+            maxNumber: 15
+            maxSizeIndividualBytes: 70000000
+            maxSizeAggregateBytes: 90000001
+    event-log:
+      value:
+        count: 2
+        offset: 0
+        totalCount: 2
+        eventLog:
+          - eyJraWQiOiJkZDA0MDllNS00MTBlLTRkOTgtODViNi1mODFhNDBiOGQ5ODAiLCJ0eXAiOiJzZWNldmVudCtqd3QiLCJhbGciOiJQUzUxMiJ9.ewogICJpc3MiOiAiaHR0cHM6Ly9hcGkuZml0a28uZGUvZml0LWNvbm5lY3QvIiwKICAiaWF0IjogMTYyMjc5NDMxOSwKICAianRpIjogIkVEQ0ZCRjIxLTVCMTYtNEQwNi05OUQwLURDNEMyNkY0RkI5RSIsCiAgInN1YiI6ICJzdWJtaXNzaW9uOkY2NUZFQUIyLTQ4ODMtNERGRi04NUZCLTE2OTQ0ODU0NUQ5RiIsCiAgImV2ZW50cyI6IHsKICAgICJodHRwczovL3NjaGVtYS5maXRrby5kZS9maXQtY29ubmVjdC9ldmVudHMvY3JlYXRlLXN1Ym1pc3Npb24iOiB7fQogIH0sCiAgInR4biI6ICJjYXNlOkY3M0QzMEM2LTg4OTQtNDQ0NC04Njg3LTAwQUU3NTZGRUE5MCIKfQ.TQBR_CBsoULi3cGaGg4oqFelQ9GVn8G-cNokzTVDZgZf4D7x_8wjsDcgTd0aamiy8ErlnV1xoAoDcPw81vajrBCaYgf9KI4sNhsW78jlDi_ywK04YhFbkvloDMioGf_5zCNTBreN9bTnU_VYuWB23R_YrYGi2exONft-ZReN_crEvDaKLdG9hqnaCRFwKJ1t8TbLvIyBKLqQYEqP0Oh6m3WA9IRz3EB41S-PZgJCIzmz_GvXdRvw_1B8A_Q7aHr2SQ6Dc-c406UJ5P_7FuypE6tLyuYf5GkmFZSauQ51H4LLl8pLrsW2PJJ28cMavOEx0AWoRLwB7yKK5bAGtcALWw-0W7Wmw1QEX3DZGTpXbEUM0U_7iXeEFrdtfCCbFPMVbmlK-b66IyKK_6yeaOAEjQvCUOrALfa2sSOS6RWiNOKyA1l1L29VoIBXgQ8np72NMV8-AP7UnQO1NPBghBM6LW6tcXceWeP8ayy4eEaZQ639pqH4TJRRkQqnuoTeADpYL9sX2hM9173O4abWiE-Z8zW2AQ1jhUvVXJ8w9ddtMIyjZJZOqoy3TbHxUYpn4UqbedlDyahpUiKCT7-qU2jOjeXAXEPQvWlSzLigNtFvYCEq-fOe1lpeNktoQQrC3Y-szk2vNj5fT_KmJY1QG1bhyrUMoGbA-pe45c-FcCE7ErQ
+          - eyJraWQiOiJkZDA0MDllNS00MTBlLTRkOTgtODViNi1mODFhNDBiOGQ5ODAiLCJ0eXAiOiJzZWNldmVudCtqd3QiLCJhbGciOiJQUzUxMiJ9.ewogICJpc3MiOiAiaHR0cHM6Ly9hcGkuZml0a28uZGUvZml0LWNvbm5lY3QvIiwKICAiaWF0IjogMTYyMjc5NDMxOSwKICAianRpIjogIkVEQ0ZCRjIxLTVCMTYtNEQwNi05OUQwLURDNEMyNkY0RkI5RSIsCiAgInN1YiI6ICJzdWJtaXNzaW9uOkY2NUZFQUIyLTQ4ODMtNERGRi04NUZCLTE2OTQ0ODU0NUQ5RiIsCiAgImV2ZW50cyI6IHsKICAgICJodHRwczovL3NjaGVtYS5maXRrby5kZS9maXQtY29ubmVjdC9ldmVudHMvY3JlYXRlLXN1Ym1pc3Npb24iOiB7fQogIH0sCiAgInR4biI6ICJjYXNlOkY3M0QzMEM2LTg4OTQtNDQ0NC04Njg3LTAwQUU3NTZGRUE5MCIKfQ.TQBR_CBsoULi3cGaGg4oqFelQ9GVn8G-cNokzTVDZgZf4D7x_8wjsDcgTd0aamiy8ErlnV1xoAoDcPw81vajrBCaYgf9KI4sNhsW78jlDi_ywK04YhFbkvloDMioGf_5zCNTBreN9bTnU_VYuWB23R_YrYGi2exONft-ZReN_crEvDaKLdG9hqnaCRFwKJ1t8TbLvIyBKLqQYEqP0Oh6m3WA9IRz3EB41S-PZgJCIzmz_GvXdRvw_1B8A_Q7aHr2SQ6Dc-c406UJ5P_7FuypE6tLyuYf5GkmFZSauQ51H4LLl8pLrsW2PJJ28cMavOEx0AWoRLwB7yKK5bAGtcALWw-0W7Wmw1QEX3DZGTpXbEUM0U_7iXeEFrdtfCCbFPMVbmlK-b66IyKK_6yeaOAEjQvCUOrALfa2sSOS6RWiNOKyA1l1L29VoIBXgQ8np72NMV8-AP7UnQO1NPBghBM6LW6tcXceWeP8ayy4eEaZQ639pqH4TJRRkQqnuoTeADpYL9sX2hM9173O4abWiE-Z8zW2AQ1jhUvVXJ8w9ddtMIyjZJZOqoy3TbHxUYpn4UqbedlDyahpUiKCT7-qU2jOjeXAXEPQvWlSzLigNtFvYCEq-fOe1lpeNktoQQrC3Y-szk2vNj5fT_KmJY1QG1bhyrUMoGbA-pe45c-FcCE7ErQ
+    security-event-token:
+      value: eyJraWQiOiJkZDA0MDllNS00MTBlLTRkOTgtODViNi1mODFhNDBiOGQ5ODAiLCJ0eXAiOiJzZWNldmVudCtqd3QiLCJhbGciOiJQUzUxMiJ9.ewogICJpc3MiOiAiaHR0cHM6Ly9hcGkuZml0a28uZGUvZml0LWNvbm5lY3QvIiwKICAiaWF0IjogMTYyMjc5NDMxOSwKICAianRpIjogIkVEQ0ZCRjIxLTVCMTYtNEQwNi05OUQwLURDNEMyNkY0RkI5RSIsCiAgInN1YiI6ICJzdWJtaXNzaW9uOkY2NUZFQUIyLTQ4ODMtNERGRi04NUZCLTE2OTQ0ODU0NUQ5RiIsCiAgImV2ZW50cyI6IHsKICAgICJodHRwczovL3NjaGVtYS5maXRrby5kZS9maXQtY29ubmVjdC9ldmVudHMvY3JlYXRlLXN1Ym1pc3Npb24iOiB7fQogIH0sCiAgInR4biI6ICJjYXNlOkY3M0QzMEM2LTg4OTQtNDQ0NC04Njg3LTAwQUU3NTZGRUE5MCIKfQ.TQBR_CBsoULi3cGaGg4oqFelQ9GVn8G-cNokzTVDZgZf4D7x_8wjsDcgTd0aamiy8ErlnV1xoAoDcPw81vajrBCaYgf9KI4sNhsW78jlDi_ywK04YhFbkvloDMioGf_5zCNTBreN9bTnU_VYuWB23R_YrYGi2exONft-ZReN_crEvDaKLdG9hqnaCRFwKJ1t8TbLvIyBKLqQYEqP0Oh6m3WA9IRz3EB41S-PZgJCIzmz_GvXdRvw_1B8A_Q7aHr2SQ6Dc-c406UJ5P_7FuypE6tLyuYf5GkmFZSauQ51H4LLl8pLrsW2PJJ28cMavOEx0AWoRLwB7yKK5bAGtcALWw-0W7Wmw1QEX3DZGTpXbEUM0U_7iXeEFrdtfCCbFPMVbmlK-b66IyKK_6yeaOAEjQvCUOrALfa2sSOS6RWiNOKyA1l1L29VoIBXgQ8np72NMV8-AP7UnQO1NPBghBM6LW6tcXceWeP8ayy4eEaZQ639pqH4TJRRkQqnuoTeADpYL9sX2hM9173O4abWiE-Z8zW2AQ1jhUvVXJ8w9ddtMIyjZJZOqoy3TbHxUYpn4UqbedlDyahpUiKCT7-qU2jOjeXAXEPQvWlSzLigNtFvYCEq-fOe1lpeNktoQQrC3Y-szk2vNj5fT_KmJY1QG1bhyrUMoGbA-pe45c-FcCE7ErQ
+    case:
+      value:
+        caseId: e89e107e-ed79-40e6-ad34-4e770f9df263
+        fromDestinationId: 0c41ade9-b555-429a-af8e-926c3ec25655
+        destinationId: 879ee109-a690-4db8-ab32-424284184d7d
+        publicService:
+          name: Bauantrag
+          identifier: urn:de:fim:leika:leistung:99010003001006
+    list-cases:
+      value:
+        count: 1
+        offset: 0
+        totalCount: 5
+        cases:
+          - caseId: e89e107e-ed79-40e6-ad34-4e770f9df263
+            fromDestinationId: 0c41ade9-b555-429a-af8e-926c3ec25655
+            destinationId: 879ee109-a690-4db8-ab32-424284184d7d
+    create-case:
+      value:
+        fromDestinationId: 9a49d8d6-c757-43a0-bfe7-7c9d1e5d2e19
+        destinationId: 879ee109-a690-4db8-ab32-424284184d7d
+        publicService:
+          name: Bauantrag
+          identifier: urn:de:fim:leika:leistung:99010003001006
+    replies-for-pickup:
+      value:
+        count: 3
+        offset: 0
+        totalCount: 3
+        replies:
+          - replyId: b9715dcb-700e-44d9-802f-12b45bf9f8a3
+            caseId: e89e107e-ed79-40e6-ad34-4e770f9df261
+          - replyId: e364430f-5a3b-4284-ba9a-f2867ba421e6
+            caseId: e89e107e-ed79-40e6-ad34-4e770f9df262
+          - replyId: 530ba588-2db9-4899-ab0d-0c0b57689271
+            caseId: e89e107e-ed79-40e6-ad34-4e770f9df263
+    create-reply:
+      value:
+        caseId: e89e107e-ed79-40e6-ad34-4e770f9df263
+        fromDestinationId: f7741b83-3d47-402f-888a-ffac99a1edf7
+        announcedAttachments:
+          - 2d8cef0c-62e1-4936-925c-2da79377d29c
+          - fa9e16fc-0cb1-4d14-9a9a-4130fa51083f
+        timeToLive: 3600
+    reply-created:
+      value:
+        fromDestinationId: 0c41ade9-b555-429a-af8e-926c3ec25655
+        replyId: b9715dcb-700e-44d9-802f-12b45bf9f8a3
+        caseId: e89e107e-ed79-40e6-ad34-4e770f9df26d
+        timeToLive: 3600
+    reply:
+      value:
+        replyId: b9715dcb-700e-44d9-802f-12b45bf9f8a3
+        fromDestinationId: f7741b83-3d47-402f-888a-ffac99a1edf7
+        caseId: e89e107e-ed79-40e6-ad34-4e770f9df26d
+        attachments:
+          - 2d8cef0c-62e1-4936-925c-2da79377d29c
+          - fa9e16fc-0cb1-4d14-9a9a-4130fa51083f
+        encryptedMetadata: eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAtMjU2In0.pvRr5AuqaLug_7fzeEhAZ4aoU01Fy61SoOvX7tW2vGD1KRPbSaEDcaCYdEp5nWKq5A3IiQQRuPT4PjF99Zwb4cOyzYsWMJVt91DRAfOl1C4b6B3ohoG5WlIiAmbIbbDbTsjBeObPOJ37N881U8Y0rEo4KQbQrmU3Me6gwtVM4ksyY5n8gb16ath2VZwjKB4ME9h-owuSr1y_BMEI_7uIWTlOFxv8yDX-yowlGhIzr-c-DJmspVlonuRNh0WMCIcWjuMCCVVqvUYbyoebbfdTVfxFavFnpdZDX4spYL0RC_LP6GAnBiUQo1EiJfMCgMT8FMSwbmJfY_AqGItGSIeyLRGmUa_34wRzCn2rMfDEQlourDo8zMdAHWyKb8NTqywfMNd2ywAZdyK92HKauUKJjO6fFBVqmLRLXLCzcvlSiUG-dnLE0h9U1Akn93Qe6vrYekuN6gSiwsGFeFLgf7wgYfDOXVeqAsl-3nJQy8Tqtwxn5TpgZMfg5_dXSRHxuodg37EIS_S0hvGQb53eUjgOhfYPJHeMCQLKfOUfIKbC6VnPenEtxPlLemQZfSpeDkhn9XQHgl2eVhAFjM06oFn7al0XTbT1TVMQjfVvIVf24SLjAgQyfl5MelLjpXbJanGd6tINIBcfgugFLrSikRzGptq-wenJ6b5jC88XlytEuUY.2PfsQDCzErUNqlJ7.R9nz0jlSsci1MGpVO0nOt9s.S8Jk4BXzuOBCXQcs7psuxw
+        encryptedData: eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAtMjU2In0.pvRr5AuqaLug_7fzeEhAZ4aoU01Fy61SoOvX7tW2vGD1KRPbSaEDcaCYdEp5nWKq5A3IiQQRuPT4PjF99Zwb4cOyzYsWMJVt91DRAfOl1C4b6B3ohoG5WlIiAmbIbbDbTsjBeObPOJ37N881U8Y0rEo4KQbQrmU3Me6gwtVM4ksyY5n8gb16ath2VZwjKB4ME9h-owuSr1y_BMEI_7uIWTlOFxv8yDX-yowlGhIzr-c-DJmspVlonuRNh0WMCIcWjuMCCVVqvUYbyoebbfdTVfxFavFnpdZDX4spYL0RC_LP6GAnBiUQo1EiJfMCgMT8FMSwbmJfY_AqGItGSIeyLRGmUa_34wRzCn2rMfDEQlourDo8zMdAHWyKb8NTqywfMNd2ywAZdyK92HKauUKJjO6fFBVqmLRLXLCzcvlSiUG-dnLE0h9U1Akn93Qe6vrYekuN6gSiwsGFeFLgf7wgYfDOXVeqAsl-3nJQy8Tqtwxn5TpgZMfg5_dXSRHxuodg37EIS_S0hvGQb53eUjgOhfYPJHeMCQLKfOUfIKbC6VnPenEtxPlLemQZfSpeDkhn9XQHgl2eVhAFjM06oFn7al0XTbT1TVMQjfVvIVf24SLjAgQyfl5MelLjpXbJanGd6tINIBcfgugFLrSikRzGptq-wenJ6b5jC88XlytEuUY.2PfsQDCzErUNqlJ7.R9nz0jlSsci1MGpVO0nOt9s.S8Jk4BXzuOBCXQcs7psuxw
+        timeToLive: 3600
+        expiresAt: '2026-09-01T14:23:05Z'
+    submit-submission:
+      value:
+        encryptedMetadata: eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAtMjU2In0.pvRr5AuqaLug_7fzeEhAZ4aoU01Fy61SoOvX7tW2vGD1KRPbSaEDcaCYdEp5nWKq5A3IiQQRuPT4PjF99Zwb4cOyzYsWMJVt91DRAfOl1C4b6B3ohoG5WlIiAmbIbbDbTsjBeObPOJ37N881U8Y0rEo4KQbQrmU3Me6gwtVM4ksyY5n8gb16ath2VZwjKB4ME9h-owuSr1y_BMEI_7uIWTlOFxv8yDX-yowlGhIzr-c-DJmspVlonuRNh0WMCIcWjuMCCVVqvUYbyoebbfdTVfxFavFnpdZDX4spYL0RC_LP6GAnBiUQo1EiJfMCgMT8FMSwbmJfY_AqGItGSIeyLRGmUa_34wRzCn2rMfDEQlourDo8zMdAHWyKb8NTqywfMNd2ywAZdyK92HKauUKJjO6fFBVqmLRLXLCzcvlSiUG-dnLE0h9U1Akn93Qe6vrYekuN6gSiwsGFeFLgf7wgYfDOXVeqAsl-3nJQy8Tqtwxn5TpgZMfg5_dXSRHxuodg37EIS_S0hvGQb53eUjgOhfYPJHeMCQLKfOUfIKbC6VnPenEtxPlLemQZfSpeDkhn9XQHgl2eVhAFjM06oFn7al0XTbT1TVMQjfVvIVf24SLjAgQyfl5MelLjpXbJanGd6tINIBcfgugFLrSikRzGptq-wenJ6b5jC88XlytEuUY.2PfsQDCzErUNqlJ7.R9nz0jlSsci1MGpVO0nOt9s.S8Jk4BXzuOBCXQcs7psuxw
+        encryptedData: eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAtMjU2In0.pvRr5AuqaLug_7fzeEhAZ4aoU01Fy61SoOvX7tW2vGD1KRPbSaEDcaCYdEp5nWKq5A3IiQQRuPT4PjF99Zwb4cOyzYsWMJVt91DRAfOl1C4b6B3ohoG5WlIiAmbIbbDbTsjBeObPOJ37N881U8Y0rEo4KQbQrmU3Me6gwtVM4ksyY5n8gb16ath2VZwjKB4ME9h-owuSr1y_BMEI_7uIWTlOFxv8yDX-yowlGhIzr-c-DJmspVlonuRNh0WMCIcWjuMCCVVqvUYbyoebbfdTVfxFavFnpdZDX4spYL0RC_LP6GAnBiUQo1EiJfMCgMT8FMSwbmJfY_AqGItGSIeyLRGmUa_34wRzCn2rMfDEQlourDo8zMdAHWyKb8NTqywfMNd2ywAZdyK92HKauUKJjO6fFBVqmLRLXLCzcvlSiUG-dnLE0h9U1Akn93Qe6vrYekuN6gSiwsGFeFLgf7wgYfDOXVeqAsl-3nJQy8Tqtwxn5TpgZMfg5_dXSRHxuodg37EIS_S0hvGQb53eUjgOhfYPJHeMCQLKfOUfIKbC6VnPenEtxPlLemQZfSpeDkhn9XQHgl2eVhAFjM06oFn7al0XTbT1TVMQjfVvIVf24SLjAgQyfl5MelLjpXbJanGd6tINIBcfgugFLrSikRzGptq-wenJ6b5jC88XlytEuUY.2PfsQDCzErUNqlJ7.R9nz0jlSsci1MGpVO0nOt9s.S8Jk4BXzuOBCXQcs7psuxw
+    reply-reduced:
+      value:
+        replyId: b9715dcb-700e-44d9-802f-12b45bf9f8a3
+        fromDestinationId: f7741b83-3d47-402f-888a-ffac99a1edf7
+        caseId: e89e107e-ed79-40e6-ad34-4e770f9df26d
+        attachments:
+          - 2d8cef0c-62e1-4936-925c-2da79377d29c
+          - fa9e16fc-0cb1-4d14-9a9a-4130fa51083f
+        timeToLive: 3600
+        expiresAt: '2026-09-01T14:23:05Z'
+    accept-reply:
+      value:
+        authenticationTags:
+          metadata: XFBoMYUZodetZdvTiFvSkQ
+          data: UCGiqJxhBI3IFVdPalHHvA
+          attachments:
+            2d8cef0c-62e1-4936-925c-2da79377d29c: rT99rwrBTbTI7IJM8fU3El
+            fa9e16fc-0cb1-4d14-9a9a-4130fa51083f: d48LxeolRdtFF4nzQibeYO
+    accept-reply-with-nonfatal-problems:
+      value:
+        authenticationTags:
+          metadata: XFBoMYUZodetZdvTiFvSkQ
+          data: UCGiqJxhBI3IFVdPalHHvA
+          attachments:
+            2d8cef0c-62e1-4936-925c-2da79377d29c: rT99rwrBTbTI7IJM8fU3El
+            fa9e16fc-0cb1-4d14-9a9a-4130fa51083f: d48LxeolRdtFF4nzQibeYO
+        problems:
+          - type: https://schema.fitko.de/fit-connect/events/problems/an-example
+            title: Nur ein Beispiel
+            detail: Es darf kein Beispiel verwendet werden.
+            instance: metadata
+    reject-reply:
+      value:
+        problems:
+          - type: https://schema.fitko.de/fit-connect/events/problems/an-example
+            title: Nur ein Beispiel
+            detail: Es darf kein Beispiel verwendet werden.
+            instance: metadata
+    encrypted-message:
+      value: eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAtMjU2In0.pvRr5AuqaLug_7fzeEhAZ4aoU01Fy61SoOvX7tW2vGD1KRPbSaEDcaCYdEp5nWKq5A3IiQQRuPT4PjF99Zwb4cOyzYsWMJVt91DRAfOl1C4b6B3ohoG5WlIiAmbIbbDbTsjBeObPOJ37N881U8Y0rEo4KQbQrmU3Me6gwtVM4ksyY5n8gb16ath2VZwjKB4ME9h-owuSr1y_BMEI_7uIWTlOFxv8yDX-yowlGhIzr-c-DJmspVlonuRNh0WMCIcWjuMCCVVqvUYbyoebbfdTVfxFavFnpdZDX4spYL0RC_LP6GAnBiUQo1EiJfMCgMT8FMSwbmJfY_AqGItGSIeyLRGmUa_34wRzCn2rMfDEQlourDo8zMdAHWyKb8NTqywfMNd2ywAZdyK92HKauUKJjO6fFBVqmLRLXLCzcvlSiUG-dnLE0h9U1Akn93Qe6vrYekuN6gSiwsGFeFLgf7wgYfDOXVeqAsl-3nJQy8Tqtwxn5TpgZMfg5_dXSRHxuodg37EIS_S0hvGQb53eUjgOhfYPJHeMCQLKfOUfIKbC6VnPenEtxPlLemQZfSpeDkhn9XQHgl2eVhAFjM06oFn7al0XTbT1TVMQjfVvIVf24SLjAgQyfl5MelLjpXbJanGd6tINIBcfgugFLrSikRzGptq-wenJ6b5jC88XlytEuUY.2PfsQDCzErUNqlJ7.R9nz0jlSsci1MGpVO0nOt9s.S8Jk4BXzuOBCXQcs7psuxw
+    submissions-for-pickup:
+      value:
+        count: 3
+        offset: 0
+        totalCount: 3
+        submissions:
+          - destinationId: 879ee109-a690-4db8-ab32-424284184d7d
+            submissionId: ce75a6b8-d72f-4b94-b09e-af6be35bc2ae
+            caseId: e89e107e-ed79-40e6-ad34-4e770f9df261
+            publicService:
+              name: Bauantrag
+              identifier: urn:de:fim:leika:leistung:99010003001006
+          - destinationId: 19c8489b-29b8-422f-b7db-919852cfb04b
+            submissionId: e364430f-5a3b-4284-ba9a-f2867ba421e6
+            caseId: e89e107e-ed79-40e6-ad34-4e770f9df262
+            processMessage:
+              processModelId: urn:de:fitko:process:99025010261000#1.0.10
+              messageId: Anzeige_an_Behoerde_uebermitteln
+          - destinationId: 80a0aac3-148d-42bb-9366-516ce6355348
+            submissionId: 530ba588-2db9-4899-ab0d-0c0b57689271
+            caseId: e89e107e-ed79-40e6-ad34-4e770f9df263
+    create-submission:
+      value:
+        destinationId: 879ee109-a690-4db8-ab32-424284184d7d
+        fromDestinationId: 91a06e5c-8c54-49bf-800d-276a69f0a2bd
+        announcedAttachments:
+          - 879ee109-a690-4db8-ab32-424284184d7d
+          - 2046f9f1-dc89-4440-9c24-c76a8f40d668
+        publicService:
+          name: Bauantrag
+          identifier: urn:de:fim:leika:leistung:99010003001006
+        timeToLive: 3600
+    submission-created:
+      value:
+        destinationId: 879ee109-a690-4db8-ab32-424284184d7d
+        fromDestinationId: 0c41ade9-b555-429a-af8e-926c3ec25655
+        submissionId: ce75a6b8-d72f-4b94-b09e-af6be35bc2ae
+        caseId: e89e107e-ed79-40e6-ad34-4e770f9df26d
+        attachments:
+          - 879ee109-a690-4db8-ab32-424284184d7d
+          - 2046f9f1-dc89-4440-9c24-c76a8f40d668
+        publicService:
+          name: Bauantrag
+          identifier: urn:de:fim:leika:leistung:99010003001006
+        timeToLive: 3600
+    submission:
+      value:
+        destinationId: 879ee109-a690-4db8-ab32-424284184d7d
+        fromDestinationId: 91a06e5c-8c54-49bf-800d-276a69f0a2bd
+        submissionId: ce75a6b8-d72f-4b94-b09e-af6be35bc2ae
+        caseId: e89e107e-ed79-40e6-ad34-4e770f9df26d
+        attachments:
+          - 879ee109-a690-4db8-ab32-424284184d7d
+          - 2046f9f1-dc89-4440-9c24-c76a8f40d668
+        encryptedMetadata: eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAtMjU2In0.pvRr5AuqaLug_7fzeEhAZ4aoU01Fy61SoOvX7tW2vGD1KRPbSaEDcaCYdEp5nWKq5A3IiQQRuPT4PjF99Zwb4cOyzYsWMJVt91DRAfOl1C4b6B3ohoG5WlIiAmbIbbDbTsjBeObPOJ37N881U8Y0rEo4KQbQrmU3Me6gwtVM4ksyY5n8gb16ath2VZwjKB4ME9h-owuSr1y_BMEI_7uIWTlOFxv8yDX-yowlGhIzr-c-DJmspVlonuRNh0WMCIcWjuMCCVVqvUYbyoebbfdTVfxFavFnpdZDX4spYL0RC_LP6GAnBiUQo1EiJfMCgMT8FMSwbmJfY_AqGItGSIeyLRGmUa_34wRzCn2rMfDEQlourDo8zMdAHWyKb8NTqywfMNd2ywAZdyK92HKauUKJjO6fFBVqmLRLXLCzcvlSiUG-dnLE0h9U1Akn93Qe6vrYekuN6gSiwsGFeFLgf7wgYfDOXVeqAsl-3nJQy8Tqtwxn5TpgZMfg5_dXSRHxuodg37EIS_S0hvGQb53eUjgOhfYPJHeMCQLKfOUfIKbC6VnPenEtxPlLemQZfSpeDkhn9XQHgl2eVhAFjM06oFn7al0XTbT1TVMQjfVvIVf24SLjAgQyfl5MelLjpXbJanGd6tINIBcfgugFLrSikRzGptq-wenJ6b5jC88XlytEuUY.2PfsQDCzErUNqlJ7.R9nz0jlSsci1MGpVO0nOt9s.S8Jk4BXzuOBCXQcs7psuxw
+        encryptedData: eyJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAtMjU2In0.pvRr5AuqaLug_7fzeEhAZ4aoU01Fy61SoOvX7tW2vGD1KRPbSaEDcaCYdEp5nWKq5A3IiQQRuPT4PjF99Zwb4cOyzYsWMJVt91DRAfOl1C4b6B3ohoG5WlIiAmbIbbDbTsjBeObPOJ37N881U8Y0rEo4KQbQrmU3Me6gwtVM4ksyY5n8gb16ath2VZwjKB4ME9h-owuSr1y_BMEI_7uIWTlOFxv8yDX-yowlGhIzr-c-DJmspVlonuRNh0WMCIcWjuMCCVVqvUYbyoebbfdTVfxFavFnpdZDX4spYL0RC_LP6GAnBiUQo1EiJfMCgMT8FMSwbmJfY_AqGItGSIeyLRGmUa_34wRzCn2rMfDEQlourDo8zMdAHWyKb8NTqywfMNd2ywAZdyK92HKauUKJjO6fFBVqmLRLXLCzcvlSiUG-dnLE0h9U1Akn93Qe6vrYekuN6gSiwsGFeFLgf7wgYfDOXVeqAsl-3nJQy8Tqtwxn5TpgZMfg5_dXSRHxuodg37EIS_S0hvGQb53eUjgOhfYPJHeMCQLKfOUfIKbC6VnPenEtxPlLemQZfSpeDkhn9XQHgl2eVhAFjM06oFn7al0XTbT1TVMQjfVvIVf24SLjAgQyfl5MelLjpXbJanGd6tINIBcfgugFLrSikRzGptq-wenJ6b5jC88XlytEuUY.2PfsQDCzErUNqlJ7.R9nz0jlSsci1MGpVO0nOt9s.S8Jk4BXzuOBCXQcs7psuxw
+        publicService:
+          name: Bauantrag
+          identifier: urn:de:fim:leika:leistung:99010003001006
+        timeToLive: 3600
+        expiresAt: '2026-09-01T14:23:05Z'
+    submission-submitted:
+      value:
+        destinationId: 879ee109-a690-4db8-ab32-424284184d7d
+        fromDestinationId: 0c41ade9-b555-429a-af8e-926c3ec25655
+        submissionId: ce75a6b8-d72f-4b94-b09e-af6be35bc2ae
+        caseId: e89e107e-ed79-40e6-ad34-4e770f9df26d
+        attachments:
+          - 879ee109-a690-4db8-ab32-424284184d7d
+          - 2046f9f1-dc89-4440-9c24-c76a8f40d668
+        publicService:
+          name: Bauantrag
+          identifier: urn:de:fim:leika:leistung:99010003001006
+        timeToLive: 3600
+        expiresAt: '2026-09-01T14:23:05Z'
+    info:
+      value:
+        version:
+          major: 1
+          minor: 0
+          patch: 1
+    jwks-verify:
+      value:
+        keys:
+          - kty: RSA
+            key_ops:
+              - verify
+            alg: PS512
+            kid: u1ZTGUSSqcNoqGfAhN2lV1viizqNs3pbKloXzbrXlHg-verify
+            e: AQAB
+            'n': stC7Pvf_zSLUaC134eYuNVylUf7DHwDCaB4Av4j1If5phSRu0uaIZdLIxF6yvfaPQybza4U3Eh1NSl9Ur5ymF0oL7rzxzDIByCneo3yEz4Z0r5hBVYkzz3YSqqT8fXeWJ7E9WbPVqm0QBXzR4coAncGTfDJb17ALYMNhUKGPYKdfFqY7KDYxvJkXrH2CxW_PQGIbonic3SB22JRgqfGzyWkVWaQHyOac9mewU1JPnExwtkZEZ6Z2g9LnBCooV9jprD3AdQ9ZyfsFannYSM4Ai6uW6qMdru5fQx5QebTy2uDkdb7M77rxgl80nvYLgEuL0TckMlKceSb3bja3gWkQlWSWfjBXHhbSUQ2VvxugyLLB7JLVmLiLvKTc3jStvzWHQEjjkg8iGw1uyJYblYXdZkO55iQE7c4sBoGBqI3bGNm0qe1RTzXaNH9y0hzr5IGjAWSksqQ7GwC6SiK3h4HbiIWkXKwST6Jl9R4px8QVF_POzxlLGCLLKVyM02imuzVpDRHpxWYTRSH7Xw72NlsNqOHJKjJnckJIwEI2vHHv7vZaqioU7EHdIpj9x00wPHqJ-x3yGI_1uFzXQb-B9Y1rgrX8xSkYunU5AN2EfREH5WE9bk80sCjGCMs7vefyfZjQymJw7yG9QLAt_o7Fuv8x0pxprNMT5RqDXmwPQQpQJ-8
+            x5c:
+              - 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
+              - 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
+              - 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

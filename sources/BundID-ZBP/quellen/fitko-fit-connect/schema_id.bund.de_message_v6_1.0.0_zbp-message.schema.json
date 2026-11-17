@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.fitko.de/fit-connect/id.bund.de/message_v6/1.0.0/zbp-message.schema.json",
+  "title": "Nachricht Zentrales Bürgerpostfach BundID",
+  "properties": {
+    "authorCertificate": {
+      "description": "Ist das PKI-Zertifikat des Autors als PEM-Format-String. Dieser Wertmuss angegeben werden, wenn die Nachricht über einen Brückenkopf an das ZBP gesendet wird und somit der Nachrichtensender und -signierer nur der Übermittler (Brückenkopf) und nicht der eigentliche Nachrichtenautor (Drittanwendung) ist.",
+      "type": "string"
+    },
+    "authorToken": {
+      "description": "Ist das JSON Web Token (JWT) des Autors bei Verwendung eines Brückenkopfs in Form eines Token-String. Dieser Wert muss angegeben werden, wenn die Nachricht über einen Brückenkopf an das ZBP gesendet wird und somit der Nachrichtensender und Nachrichtensignierer nur der Übermittler (Brückenkopf) und nicht der eigentliche Nachrichtenautor (Drittanwendung) ist.",
+      "type": "string"
+    },
+    "content": {
+      "description": "JSON-serialisierte Nachricht",
+      "type": "string"
+    },
+    "sha512sum": {
+      "description": "Signatur über das content-Feld, gebildet mit dem privaten BPKI-Schlüssel, SHA512 und RSA512",
+      "type": "string",
+      "minLength": 684,
+      "maxLength": 684
+    }
+  },
+  "required": [
+    "authorCertificate",
+    "authorToken",
+    "content",
+    "sha512sum"
+  ]
+}
