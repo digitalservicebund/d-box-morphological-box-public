@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Schema automatisch generiert von ElsterRules 55.0.0 -->
+<!-- Schema entsprechend eXML-Spezifikation Version 2.0 -->
+<!-- DauerPostBeStAntrag - 1 - 1.2 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://finkonsens.de/elster/elstersignatur/dauerpostbestantrag/v1" targetNamespace="http://finkonsens.de/elster/elstersignatur/dauerpostbestantrag/v1" xmlns:exml="http://finkonsens.de/elster/elstersignatur/dauerpostbestantrag/v1">
+    <!-- XML-Typdefinitionen fuer eXML -->
+    <!-- Definition der datenartspezifischen eXML-Struktur -->
+    <xs:simpleType name="JaTrueBaseSType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="DauerPostBeStAntrag" type="DauerPostBeStAntrag_CType"/>
+    <xs:complexType name="DauerPostBeStAntrag_CType">
+        <xs:sequence>
+            <xs:element name="Antrag" type="Antrag_2121071193_CType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="version" fixed="1" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="Antrag_2121071193_CType">
+        <xs:sequence>
+            <xs:element name="AntragdpBSetzen" type="JaTrueBaseSType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Hiermit beantrage ich mit Wirkung für die Zukunft mir dauerhaft alle Bescheide bzw. sonstige Schreiben auf dem Postweg zu übersenden.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

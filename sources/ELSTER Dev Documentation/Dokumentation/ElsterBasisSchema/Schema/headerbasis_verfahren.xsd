@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Version: 2026.2.0.1 Erstelldatum: 2026-04-16 -->
+<xs:schema xmlns:headerbasis="http://www.elster.de/elsterxml/schema/headerbasis/v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.elster.de/elsterxml/schema/headerbasis/v3" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1">
+	<xs:include schemaLocation="./headerbasis_datentypen.xsd"/>
+	<xs:simpleType name="VerfahrenSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Der erlaubte Zeichensatz für Verfahren ist: [a-zA-Z0-9] {1,25}
+			Auflistung der gültigen Verfahren:</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="headerbasis:BaseStringSType">
+			<xs:enumeration value="ElsterALIEN"/>
+			<xs:enumeration value="ElsterAnmeldung"/>
+			<xs:enumeration value="ElsterAuswertung"/>
+			<xs:enumeration value="ElsterBereitstellung"/>
+			<xs:enumeration value="ElsterBereitstellungRM"/>
+			<xs:enumeration value="ElsterBilanz"/>
+			<xs:enumeration value="ElsterBrief"/>
+			<xs:enumeration value="ElsterBRM"/>
+			<xs:enumeration value="ElsterBRMOrg"/>
+			<xs:enumeration value="ElsterConnectTest"/>
+			<xs:enumeration value="ElsterDAME"/>
+			<xs:enumeration value="ElsterDatenabholung"/>
+			<xs:enumeration value="ElsterDatenversand"/>
+			<xs:enumeration value="ElsterDIVA"/>
+			<xs:enumeration value="ElsterDIVAOZG"/>
+			<xs:enumeration value="ElsterDRVBund"/>
+			<xs:enumeration value="ElsterDuebel"/>
+			<xs:enumeration value="ElsterDVEtoLKS"/>
+			<xs:enumeration value="ElsterEARL"/>
+			<xs:enumeration value="ElsterEGVP"/>
+			<xs:enumeration value="ElsterElfe"/>
+			<xs:enumeration value="ElsterElfeEibe"/>
+			<xs:enumeration value="ElsterEMail"/>
+			<xs:enumeration value="ElsterErklaerung"/>
+			<xs:enumeration value="ElsterExtern"/>
+			<xs:enumeration value="ElsterFSE"/>
+			<xs:enumeration value="ElsterFT"/>
+			<xs:enumeration value="ElsterGeCoASYN"/>
+			<xs:enumeration value="ElsterGeCoSYN"/>
+			<xs:enumeration value="ElsterGINSTER"/>
+			<xs:enumeration value="ElsterGinsterKomet"/>
+			<xs:enumeration value="ElsterGinsterVDB"/>
+			<xs:enumeration value="ElsterIDRecherche"/>
+			<xs:enumeration value="ElsterInKA"/>
+			<xs:enumeration value="ElsterKaFE"/>
+			<xs:enumeration value="ElsterKapESt"/>
+			<xs:enumeration value="ElsterKDialog"/>
+			<xs:enumeration value="ElsterKMV"/>
+			<xs:enumeration value="ElsterKMVIdNr"/>
+			<xs:enumeration value="ElsterKMVProtokoll"/>
+			<xs:enumeration value="ElsterKMVZentraleAuswertung"/>
+			<xs:enumeration value="ElsterKontakt"/>
+			<xs:enumeration value="ElsterKontoabfrage"/>
+			<xs:enumeration value="ElsterKontoablage"/>
+			<xs:enumeration value="ElsterKStoKS"/>
+			<xs:enumeration value="ElsterLanguste"/>
+			<xs:enumeration value="ElsterLavendel"/>
+			<xs:enumeration value="ElsterLKStoDVE"/>
+			<xs:enumeration value="ElsterLKStoZF"/>
+			<xs:enumeration value="ElsterLohn"/>
+			<xs:enumeration value="ElsterLohn2"/>
+			<xs:enumeration value="ElsterLohnIntern"/>
+			<xs:enumeration value="ElsterLohnProtokoll"/>
+			<xs:enumeration value="ElsterLStZerlegung"/>
+			<xs:enumeration value="ElsterLStZerlegungProtokoll"/>
+			<xs:enumeration value="ElsterMOSS"/>
+			<xs:enumeration value="ElsterNachricht"/>
+			<xs:enumeration value="ElsterObjektspeicher"/>
+			<xs:enumeration value="ElsterOZG"/>
+			<xs:enumeration value="ElsterPortal"/>
+			<xs:enumeration value="ElsterRabe"/>
+			<xs:enumeration value="ElsterSelfServicePortal"/>
+			<xs:enumeration value="ElsterSignatur"/>
+			<xs:enumeration value="ElsterSignaturNachricht"/>
+			<xs:enumeration value="ElsterSuch"/>
+			<xs:enumeration value="ElsterSuchExtern"/>
+			<xs:enumeration value="ElsterTransferAsynchron"/>
+			<xs:enumeration value="ElsterTransferSynchron"/>
+			<xs:enumeration value="ElsterVaSt"/>
+			<xs:enumeration value="ElsterVIES"/>
+			<xs:enumeration value="ElsterVirenscan"/>
+			<xs:enumeration value="ElsterVO"/>
+			<xs:enumeration value="ElsterVollmachtDB"/>
+			<xs:enumeration value="ElsterZANS"/>
+			<xs:enumeration value="ElsterZebra"/>
+			<xs:enumeration value="ElsterZfaZivit"/>
+			<xs:enumeration value="ElsterZFtoLKS"/>
+			<xs:enumeration value="ElsterZObEL"/>
+			<xs:enumeration value="OpenZoll"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

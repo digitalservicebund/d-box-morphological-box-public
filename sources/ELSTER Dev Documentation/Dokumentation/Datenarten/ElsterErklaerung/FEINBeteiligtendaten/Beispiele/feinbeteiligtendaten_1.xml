@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Elster xmlns="http://www.elster.de/elsterxml/schema/v11">
+    <TransferHeader version="11">
+        <Verfahren>ElsterErklaerung</Verfahren>
+        <DatenArt>FEINBeteiligtendaten</DatenArt>
+        <Vorgang>send-Auth</Vorgang>
+        <Testmerker>700000004</Testmerker>
+        <HerstellerID>74931<!-- Bitte durch die eigene Hersteller-ID ersetzen --></HerstellerID>
+        <DatenLieferant>Softwaretester ERiC</DatenLieferant>
+        <Datei>
+            <Verschluesselung>CMSEncryptedData</Verschluesselung>
+            <Kompression>NO_BASE64</Kompression>
+            <TransportSchluessel/>
+        </Datei>
+    </TransferHeader>
+    <DatenTeil>
+        <Nutzdatenblock>
+            <NutzdatenHeader version="11">
+                <NutzdatenTicket>123</NutzdatenTicket>
+                <Empfaenger id="F">9198</Empfaenger>
+            </NutzdatenHeader>
+            <Nutzdaten>
+                <E05 xmlns="http://finkonsens.de/elster/elstererklaerung/feinbeteiligtendaten/e05/v1" version="1">
+                    <ESt1B>
+                        <Allg>
+                            <Gesellsch>
+                                <E9750005>Gesellschaft</E9750005>
+                                <Str_Adr>
+                                    <E9750021>Musterstraße</E9750021>
+                                    <E9750022>42</E9750022>
+                                    <E9750007>12345</E9750007>
+                                    <E9750008>Musterort</E9750008>
+                                </Str_Adr>
+                            </Gesellsch>
+                        </Allg>
+                        <Art_Auft>
+                            <E9011011>0</E9011011>
+                        </Art_Auft>
+                    </ESt1B>
+                    <FB>
+                        <Beteiligter>1</Beteiligter>
+                        <Allg>
+                            <Nat_Pers>
+                                <E9146013>Vorname</E9146013>
+                                <E9146011>Nachname</E9146011>
+                                <Adr>
+                                    <Str_Adr>
+                                        <E9846027>12345</E9846027>
+                                        <E9846028>Musterort</E9846028>
+                                    </Str_Adr>
+                                </Adr>
+                            </Nat_Pers>
+                        </Allg>
+                        <Art_Bet_gung>
+                            <Bet_gung_Beg_WJ>
+                                <E9145101>6</E9145101>
+                            </Bet_gung_Beg_WJ>
+                        </Art_Bet_gung>
+                        <Art_Bet_ter>
+                            <Bet_ter_Beg_WJ>
+                                <E9145770>1</E9145770>
+                            </Bet_ter_Beg_WJ>
+                        </Art_Bet_ter>
+                    </FB>
+                    <FB>
+                        <Beteiligter>2</Beteiligter>
+                        <Allg>
+                            <Nat_Pers>
+                                <E9146013>Vorname</E9146013>
+                                <E9146011>Nachname</E9146011>
+                                <Adr>
+                                    <Str_Adr>
+                                        <E9846027>12345</E9846027>
+                                        <E9846028>Musterort</E9846028>
+                                    </Str_Adr>
+                                </Adr>
+                            </Nat_Pers>
+                            <Ordn_Krit>
+                                <E9146070>02476291358</E9146070>
+                            </Ordn_Krit>
+                        </Allg>
+                        <Art_Bet_gung>
+                            <Bet_gung_Beg_WJ>
+                                <E9145101>11</E9145101>
+                            </Bet_gung_Beg_WJ>
+                        </Art_Bet_gung>
+                        <Art_Bet_ter>
+                            <Bet_ter_Beg_WJ>
+                                <E9145770>0</E9145770>
+                            </Bet_ter_Beg_WJ>
+                        </Art_Bet_ter>
+                    </FB>
+                    <Vorsatz>
+                        <Unterfallart>05</Unterfallart>
+                        <Vorgang>01</Vorgang>
+                        <StNr>9198081508152</StNr>
+                        <Zeitraum>2026</Zeitraum>
+                        <AbsName>Max Mustermann</AbsName>
+                        <AbsStr>Musterstraße 1</AbsStr>
+                        <AbsOrt>Musterort</AbsOrt>
+                        <Copyright>Produktname</Copyright>
+                        <OrdNrArt>S</OrdNrArt>
+                        <Rueckuebermittlung>
+                            <Bescheid>2</Bescheid>
+                        </Rueckuebermittlung>
+                    </Vorsatz>
+                </E05>
+            </Nutzdaten>
+        </Nutzdatenblock>
+    </DatenTeil>
+</Elster>

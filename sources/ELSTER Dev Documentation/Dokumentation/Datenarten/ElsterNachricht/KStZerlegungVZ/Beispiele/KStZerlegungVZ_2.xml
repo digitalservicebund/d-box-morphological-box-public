@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Elster xmlns="http://www.elster.de/elsterxml/schema/v11">
+    <TransferHeader version="11">
+        <Verfahren>ElsterNachricht</Verfahren>
+        <DatenArt>KStZerlegungVZ</DatenArt>
+        <Vorgang>send-Auth</Vorgang>
+        <Testmerker>700000004</Testmerker>
+        <HerstellerID>74931<!-- Bitte durch die eigene Hersteller ID ersetzen --></HerstellerID>
+        <DatenLieferant>ERiC Beispiele</DatenLieferant>
+        <Datei>
+            <Verschluesselung>CMSEncryptedData</Verschluesselung>
+            <Kompression>GZIP</Kompression>
+        </Datei>
+    </TransferHeader>
+    <DatenTeil>
+        <Nutzdatenblock>
+            <NutzdatenHeader version="11">
+                <NutzdatenTicket>1</NutzdatenTicket>
+                <Empfaenger id="F">2388</Empfaenger>
+            </NutzdatenHeader>
+            <Nutzdaten>
+                <KStZerlegungVZ xmlns="http://finkonsens.de/elster/elsternachricht/kstzerlegungvz/v2" version="2">
+                    <KStZerl2Vorausz>
+                        <Steuernummer>2388098060252</Steuernummer>
+                        <Allgemein>
+                            <WID>DE247818512</WID>
+                            <VZ>2026</VZ>
+                            <Bezeichnung>Körperschaft</Bezeichnung>
+                        </Allgemein>
+                        <Ang_Zerl>
+                            <Art>
+                                <Zerlegung>5</Zerlegung>
+                                <Zerlegung_P30>1</Zerlegung_P30>
+                            </Art>
+                            <Abweichung>
+                                <Zerl>
+                                    <Zerlegungsmassstab>Zerl2</Zerlegungsmassstab>
+                                    <Bezeichnung>installierte Leistung</Bezeichnung>
+                                    <Einheit>kWh</Einheit>
+                                    <Gewichtung>200</Gewichtung>
+                                </Zerl>
+                                <Zerl>
+                                    <Zerlegungsmassstab>Zerl1</Zerlegungsmassstab>
+                                    <Bezeichnung>autem</Bezeichnung>
+                                    <Einheit>Anz</Einheit>
+                                    <Gewichtung>600</Gewichtung>
+                                </Zerl>
+                            </Abweichung>
+                        </Ang_Zerl>
+                        <Steuerberater>
+                            <Mitwirkung>
+                                <Mitwirk>1</Mitwirk>
+                            </Mitwirkung>
+                        </Steuerberater>
+                    </KStZerl2Vorausz>
+                    <KStZerl2VorauszBS>
+                        <BS>
+                            <Land>10</Land>
+                        </BS>
+                        <Zerl>
+                            <Anteil>
+                                <Zerlegungsmassstab>Zerl1</Zerlegungsmassstab>
+                                <Anteil_Zerl>40</Anteil_Zerl>
+                            </Anteil>
+                        </Zerl>
+                    </KStZerl2VorauszBS>
+                </KStZerlegungVZ>
+            </Nutzdaten>
+        </Nutzdatenblock>
+    </DatenTeil>
+</Elster>

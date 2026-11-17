@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Elster xmlns="http://www.elster.de/elsterxml/schema/v11">
+    <TransferHeader version="11">
+        <Verfahren>ElsterNachricht</Verfahren>
+        <DatenArt>KStAntragEinlagenrueck</DatenArt>
+        <Vorgang>send-Auth</Vorgang>
+        <Testmerker>700000004</Testmerker>
+        <HerstellerID>74931<!-- Bitte durch die eigene Hersteller ID ersetzen --></HerstellerID>
+        <DatenLieferant>ERiC Beispiele</DatenLieferant>
+        <Datei>
+            <Verschluesselung>CMSEncryptedData</Verschluesselung>
+            <Kompression>GZIP</Kompression>
+        </Datei>
+    </TransferHeader>
+    <DatenTeil>
+        <Nutzdatenblock>
+            <NutzdatenHeader version="11">
+                <NutzdatenTicket>1</NutzdatenTicket>
+                <Empfaenger id="F">9198</Empfaenger>
+            </NutzdatenHeader>
+            <Nutzdaten>
+                <KStAntragEinlagenrueck xmlns="http://finkonsens.de/elster/elsternachricht/kstantrageinlagenrueck/v2" version="2">
+                    <KSt1F_27_8>
+                        <BeginnWj>31.08.2025</BeginnWj>
+                        <EndeWj>01.09.2025</EndeWj>
+                        <Allgemein>
+                            <OrdNrArt>S</OrdNrArt>
+                            <Steuernummer>9198081508152</Steuernummer>
+                            <Name>Beispielname</Name>
+                            <Ausl_RF>Beispielrechtsform</Ausl_RF>
+                            <Strasse>Beispielstrasse</Strasse>
+                            <Hausnummer>1</Hausnummer>
+                            <PLZ>99999</PLZ>
+                            <Ort>Beispielort</Ort>
+                            <GL>Ort der Geschäftsleitung</GL>
+                            <Sitz>Beispielsitz</Sitz>
+                            <Waehrung>Testwaehrung</Waehrung>
+                            <Empfangsvollmacht>
+                                <Empfang_Name>Beispielempfaenger</Empfang_Name>
+                                <Empfang_Strasse>Beispielstrasse</Empfang_Strasse>
+                                <Empfang_PLZ>99999</Empfang_PLZ>
+                            </Empfangsvollmacht>
+                        </Allgemein>
+                        <Vorhergehend>
+                            <ELK>
+                                <ELK_Datum>01.01.2025</ELK_Datum>
+                                <ELK_Steuernummer>1096057746808</ELK_Steuernummer>
+                            </ELK>
+                            <ELKRueVorjahr>
+                                <Rue_DatumWJ>01.01.2000</Rue_DatumWJ>
+                                <Rue_Aktenzeichen_BZSt>Aktenzeichen xy</Rue_Aktenzeichen_BZSt>
+                            </ELKRueVorjahr>
+                        </Vorhergehend>
+                        <Fest>
+                            <ELKRuek>500</ELKRuek>
+                        </Fest>
+                        <Leistungen>
+                            <Leistung>
+                                <Leistung_Bezeichnung>Beispielbezeichnung</Leistung_Bezeichnung>
+                                <Leistung_Beschluss>01.01.2025</Leistung_Beschluss>
+                                <Leistung_Abfluss>01.09.2025</Leistung_Abfluss>
+                                <Leistung_P28>500</Leistung_P28>
+                                <Leistung_ELKRueck>499</Leistung_ELKRueck>
+                            </Leistung>
+                            <Leistung>
+                                <Leistung_Bezeichnung>Beispielbezeichnung</Leistung_Bezeichnung>
+                                <Leistung_Beschluss>01.01.1980</Leistung_Beschluss>
+                                <Leistung_Abfluss>01.09.2025</Leistung_Abfluss>
+                                <Leistung_P28>2</Leistung_P28>
+                                <Leistung_ELKRueck>1</Leistung_ELKRueck>
+                            </Leistung>
+                        </Leistungen>
+                        <Uebermittlung>
+                            <HR>1</HR>
+                            <Firmenuebersicht>2</Firmenuebersicht>
+                            <Vertrag>1</Vertrag>
+                            <Nachweis_Bar>2</Nachweis_Bar>
+                            <Nachweis_Sach>1</Nachweis_Sach>
+                            <Nachweis_Hoehe_Sach>3</Nachweis_Hoehe_Sach>
+                            <Uebermittlung_NK>
+                                <NK_Entwicklung>2</NK_Entwicklung>
+                                <Nachweis_EinlageNK>2</Nachweis_EinlageNK>
+                                <Nachweis_NKRueck>2</Nachweis_NKRueck>
+                                <Nachweis_NKVeraenderung>2</Nachweis_NKVeraenderung>
+                            </Uebermittlung_NK>
+                        </Uebermittlung>
+                    </KSt1F_27_8>
+                    <AE>
+                        <Allgemein>
+                            <AE_Name>Beispielname</AE_Name>
+                            <AE_Strasse>Beispielstrasse</AE_Strasse>
+                            <AE_PLZ_Ort>99999 Beispielort</AE_PLZ_Ort>
+                        </Allgemein>
+                        <Besitzdauern>
+                            <BetBeginn>
+                                <Anfang>54</Anfang>
+                                <Anfang_Gesamt>54</Anfang_Gesamt>
+                            </BetBeginn>
+                        </Besitzdauern>
+                    </AE>
+                </KStAntragEinlagenrueck>
+            </Nutzdaten>
+        </Nutzdatenblock>
+    </DatenTeil>
+</Elster>

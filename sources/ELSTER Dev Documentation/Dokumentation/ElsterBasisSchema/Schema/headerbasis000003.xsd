@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Version: 2026.2.0.1 Erstelldatum: 2026-04-16 -->
+<xs:schema xmlns:headerbasis="http://www.elster.de/elsterxml/schema/headerbasis/v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.elster.de/elsterxml/schema/headerbasis/v3" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1">
+	<xs:include schemaLocation="./headerbasis_verfahren.xsd"/>
+	<xs:include schemaLocation="./headerbasis_datenarten.xsd"/>
+	<xs:include schemaLocation="./headerbasis_datentypen.xsd"/>
+</xs:schema>

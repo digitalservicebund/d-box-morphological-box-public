@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Elster xmlns="http://www.elster.de/elsterxml/schema/v11">
+  <TransferHeader version="11">
+    <Verfahren>ElsterNachricht</Verfahren>
+    <DatenArt>StrafNachricht</DatenArt>
+    <Vorgang>send-Auth</Vorgang>
+    <Testmerker>700000004</Testmerker>
+    <HerstellerID>74931<!-- Bitte durch die eigene Hersteller ID ersetzen --></HerstellerID>
+    <DatenLieferant>ERiC Beispiele</DatenLieferant>
+    <Datei>
+      <Verschluesselung>CMSEncryptedData</Verschluesselung>
+      <Kompression>GZIP</Kompression>
+    </Datei>
+  </TransferHeader>
+  <DatenTeil>
+    <Nutzdatenblock>
+      <NutzdatenHeader version="11">
+        <NutzdatenTicket>1</NutzdatenTicket>
+        <Empfaenger id="L">BE</Empfaenger>
+      </NutzdatenHeader>
+      <Nutzdaten>
+        <StrafNachricht xmlns="http://finkonsens.de/elster/elsternachricht/strafnachricht/v1" version="1">
+          <Nachricht>
+            <Strafaktenzeichen>2799D202313475956</Strafaktenzeichen>
+            <Betroffener>
+              <Typ>NichtNatPerson</Typ>
+              <Bezeichnung>Porro tenetur repellat reiciendis illo alias volu.</Bezeichnung>
+              <Name>sint</Name>
+              <Telefon>87540673819220597</Telefon>
+              <Email>Markus.Musterhuber@example.net</Email>
+              <Adresse>
+                <StrAdrInl>
+                  <Str>Straad</Str>
+                  <HausNr>10</HausNr>
+                  <Plz>12121</Plz>
+                  <Ort>Musterburg</Ort>
+                </StrAdrInl>
+              </Adresse>
+            </Betroffener>
+            <AbweichenderAbsender>
+              <Bezeichnung>Natus blanditiis natus et.</Bezeichnung>
+              <Name>Iste Aliquid et Amet</Name>
+              <Vorname>Minus</Vorname>
+              <Telefon>6431890846125375924</Telefon>
+              <Email>Erika.Musterfrau@example.com</Email>
+              <Adresse>
+                <StrAdrInl>
+                  <Str>Musterstraße</Str>
+                  <HausNr>435</HausNr>
+                  <HausNrZu>D</HausNrZu>
+                  <AdressErg>Zimmer 990</AdressErg>
+                  <Plz>34343</Plz>
+                  <Ort>Musterhausen</Ort>
+                </StrAdrInl>
+              </Adresse>
+            </AbweichenderAbsender>
+            <Verteidiger>
+              <Name>Normalverbraucher</Name>
+              <Adresse>
+                <StrAdrInl>
+                  <Str>Mustergasse</Str>
+                  <HausNr>336</HausNr>
+                  <HausNrZu>c</HausNrZu>
+                  <AdressErg>Apt. 975</AdressErg>
+                  <Plz>12121</Plz>
+                  <Ort>Musterburg</Ort>
+                </StrAdrInl>
+              </Adresse>
+            </Verteidiger>
+            <Inhalt>
+              <Betreff>Meine Angelegenheit</Betreff>
+              <Text>Modi magnam in.</Text>
+            </Inhalt>
+          </Nachricht>
+        </StrafNachricht>
+      </Nutzdaten>
+    </Nutzdatenblock>
+  </DatenTeil>
+</Elster>

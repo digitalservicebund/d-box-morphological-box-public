@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Version: 2026.2.0.1 Erstelldatum: 2026-04-16 -->
+<xs:schema xmlns:headerbasis="http://www.elster.de/elsterxml/schema/headerbasis/v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.elster.de/elsterxml/schema/headerbasis/v3" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1">
+	<xs:simpleType name="BaseStringSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Der Zeichensatzumfang ISO 8859-15  wird um die nicht druckbaren Zeichen reduziert. (KONSENS-Vorgabe: VDMZulZeichensatz)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[&#x000a;&#x000d;&#x0020;&#x0021;&#x0022;&#x0023;&#x0024;&#x0025;&#x0026;&#x0027;&#x0028;&#x0029;&#x002a;&#x002b;&#x002c;&#x002d;&#x002e;&#x002f;&#x0030;&#x0031;&#x0032;&#x0033;&#x0034;&#x0035;&#x0036;&#x0037;&#x0038;&#x0039;&#x003a;&#x003b;&#x003c;&#x003d;&#x003e;&#x003f;&#x0040;&#x0041;&#x0042;&#x0043;&#x0044;&#x0045;&#x0046;&#x0047;&#x0048;&#x0049;&#x004a;&#x004b;&#x004c;&#x004d;&#x004e;&#x004f;&#x0050;&#x0051;&#x0052;&#x0053;&#x0054;&#x0055;&#x0056;&#x0057;&#x0058;&#x0059;&#x005a;\\\[&#x005c;&#x005d;&#x005e;&#x005f;&#x0060;&#x0061;&#x0062;&#x0063;&#x0064;&#x0065;&#x0066;&#x0067;&#x0068;&#x0069;&#x006a;&#x006b;&#x006c;&#x006d;&#x006e;&#x006f;&#x0070;&#x0071;&#x0072;&#x0073;&#x0074;&#x0075;&#x0076;&#x0077;&#x0078;&#x0079;&#x007a;&#x007b;&#x007c;&#x007d;&#x007e;&#x00a1;&#x00a2;&#x00a3;&#x00a5;&#x00a7;&#x00aa;&#x00ab;&#x00ac;&#x00ae;&#x00af;&#x00b0;&#x00b1;&#x00b2;&#x00b3;&#x00b5;&#x00b9;&#x00ba;&#x00bb;&#x00bf;&#x00c0;&#x00c1;&#x00c2;&#x00c3;&#x00c4;&#x00c5;&#x00c6;&#x00c7;&#x00c8;&#x00c9;&#x00ca;&#x00cb;&#x00cc;&#x00cd;&#x00ce;&#x00cf;&#x00d0;&#x00d1;&#x00d2;&#x00d3;&#x00d4;&#x00d5;&#x00d6;&#x00d7;&#x00d8;&#x00d9;&#x00da;&#x00db;&#x00dc;&#x00dd;&#x00de;&#x00df;&#x00e0;&#x00e1;&#x00e2;&#x00e3;&#x00e4;&#x00e5;&#x00e6;&#x00e7;&#x00e8;&#x00e9;&#x00ea;&#x00eb;&#x00ec;&#x00ed;&#x00ee;&#x00ef;&#x00f0;&#x00f1;&#x00f2;&#x00f3;&#x00f4;&#x00f5;&#x00f6;&#x00f7;&#x00f8;&#x00f9;&#x00fa;&#x00fb;&#x00fc;&#x00fd;&#x00fe;&#x00ff;&#x0152;&#x0153;&#x0160;&#x0161;&#x0178;&#x017d;&#x017e;&#x20ac;]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BUFANrSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">siehe Elster Developers Toolkit</xs:documentation>
+			<xs:documentation xml:lang="DE">4-stellig numerisch</xs:documentation>
+			<xs:documentation xml:lang="DE">Bundesfinanzamtsnummer</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="headerbasis:BaseStringSType">
+			<xs:length value="4"/>
+			<xs:pattern value="10\d{2}"/>
+			<xs:pattern value="11\d{2}"/>
+			<xs:pattern value="21\d{2}"/>
+			<xs:pattern value="22\d{2}"/>
+			<xs:pattern value="23\d{2}"/>
+			<xs:pattern value="24\d{2}"/>
+			<xs:pattern value="26\d{2}"/>
+			<xs:pattern value="27\d{2}"/>
+			<xs:pattern value="28\d{2}"/>
+			<xs:pattern value="30\d{2}"/>
+			<xs:pattern value="31\d{2}"/>
+			<xs:pattern value="32\d{2}"/>
+			<xs:pattern value="40\d{2}"/>
+			<xs:pattern value="41\d{2}"/>
+			<xs:pattern value="51\d{2}"/>
+			<xs:pattern value="52\d{2}"/>
+			<xs:pattern value="53\d{2}"/>
+			<xs:pattern value="54\d{2}"/>
+			<xs:pattern value="55\d{2}"/>
+			<xs:pattern value="56\d{2}"/>
+			<xs:pattern value="91\d{2}"/>
+			<xs:pattern value="92\d{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BundeslandSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Einheitliche Abkuerzungen fuer die Bundeslaender bzw. alternative Empfaenger</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="headerbasis:BaseStringSType">
+			<xs:enumeration value="BB">
+				<xs:annotation>
+					<xs:documentation>Brandenburg</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BE">
+				<xs:annotation>
+					<xs:documentation>Berlin</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BF">
+				<xs:annotation>
+					<xs:documentation>Bundesamt für Finanzen</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BW">
+				<xs:annotation>
+					<xs:documentation>Baden-Württemberg</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BY">
+				<xs:annotation>
+					<xs:documentation>Bayern</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CD">
+				<xs:annotation>
+					<xs:documentation>Clearingstelle Düsseldorf = ZPS Fachlichkeit in Düsseldorf</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CM">
+				<xs:annotation>
+					<xs:documentation>veraltet, CM = ZPS - Kommunikation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CS">
+				<xs:annotation>
+					<xs:documentation>Clearingstelle = ZPS-ELSTER-Kommunikation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DS">
+				<xs:annotation>
+					<xs:documentation>DESTATIS</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HB">
+				<xs:annotation>
+					<xs:documentation>Hansestadt Bremen</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HE">
+				<xs:annotation>
+					<xs:documentation>Hessen</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HH">
+				<xs:annotation>
+					<xs:documentation>Hansestadt Hamburg</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MV">
+				<xs:annotation>
+					<xs:documentation>Mecklenburg-Vorpommern</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NI">
+				<xs:annotation>
+					<xs:documentation>Niedersachsen</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NW">
+				<xs:annotation>
+					<xs:documentation>Nordrhein-Westfalen</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="OP">
+				<xs:annotation>
+					<xs:documentation>ElsterOnline Portal</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RP">
+				<xs:annotation>
+					<xs:documentation>Rheinland-Pfalz</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SH">
+				<xs:annotation>
+					<xs:documentation>Schleswig-Holstein</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SL">
+				<xs:annotation>
+					<xs:documentation>Saarland</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SN">
+				<xs:annotation>
+					<xs:documentation>Sachsen</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ST">
+				<xs:annotation>
+					<xs:documentation>Sachsen-Anhalt</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TH">
+				<xs:annotation>
+					<xs:documentation>Thüringen</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TK">
+				<xs:annotation>
+					<xs:documentation>Testcenter KONSENS</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ZF">
+				<xs:annotation>
+					<xs:documentation>Zentrale Zulagenstelle für Altersvermögen</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DatenLieferantInternSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Datenlieferant der Nutzdaten - Steuerpflichtiger selbst bzw. dessen Lohnbuchhaltungsbuero / Steuerberater</xs:documentation>
+			<xs:documentation xml:lang="DE">String der Lieferanteninformationen enthaelt ; Ansprechpartner mit Telefon. Email etc. Bei ESt: Steuerpflichtiger oder Steuerberater/Firma  (entfaellt hier u.U. auch)Aufbau: Lieferant (Firma); Ansprechpartner; Telefon; E-Mail Adresse; Ort; PLZ; Straße; Land;</xs:documentation>
+			<xs:documentation xml:lang="DE">Der Inhalt des Elements "DatenLieferant" darf vor der Verschluesselung nicht laenger als 256 Zeichen sein.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="headerbasis:BaseStringSType">
+			<xs:maxLength value="256"/>
+			<!-- <xs:minLength value="1"/> -->
+			<xs:minLength value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DatenLieferantExternSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Datenlieferant der Nutzdaten - Steuerpflichtiger selbst bzw. dessen Lohnbuchhaltungsbuero / Steuerberater</xs:documentation>
+			<xs:documentation xml:lang="DE">String der Lieferanteninformationen enthaelt ; Ansprechpartner mit Telefon. Email etc. Bei ESt: Steuerpflichtiger oder Steuerberater/Firma  (entfaellt hier u.U. auch)Aufbau: Lieferant (Firma); Ansprechpartner; Telefon; E-Mail Adresse; Ort; PLZ; Straße; Land;</xs:documentation>
+			<xs:documentation xml:lang="DE">Der Inhalt des Elements "DatenLieferant" darf vor der Verschluesselung nicht laenger als 256 Zeichen sein. Der Inhalt des Elements "TransferHeader/DatenLieferant" ist nach demselben Verfahren zu verschluesseln, wie der Inhalt des Elements DatenTeil.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="headerbasis:BaseStringSType">
+			<!-- <xs:minLength value="1"/> -->
+			<xs:minLength value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DatumSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Datum und Uhrzeit 14-stellig ohne Trennzeichen</xs:documentation>
+			<xs:documentation xml:lang="DE">Format : JJJJMMTThhmmss</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="headerbasis:BaseStringSType">
+			<xs:length value="14"/>
+			<xs:pattern value="\d{14}"/>
+			<!--  <xs:pattern value="\d{4}[01][0-9]([012][0-9]|3[01])([01][0-9]|2[0-4])([012345][0-9]){2}"/> -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EingangsDatumSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="de">Serverseitiges Eingangsdatum
+
+Datum und Uhrzeit, wann die Daten beim Server eingegangen sind
+Als Eingangsdatum wird das Datum der Beendigung der Übermittlung bezeichnet.
+
+Numerisch,  14-stellig, JJJJMMTThhmmss
+			</xs:documentation>
+			<xs:documentation>Wird nur serverseitig gefüllt!</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="headerbasis:DatumSType"/>
+	</xs:simpleType>
+	<xs:simpleType name="EmpfaengerIDSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">
+							Attribut, ob Laenderschluessel oder BundesFinanzamtsnummer
+							L= Laenderschluessel (z.B. bei LStB.)
+							F= BundesFinanzamtsnummer (z.B. bei ESt)
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="headerbasis:BaseStringSType">
+			<xs:length value="1"/>
+			<xs:enumeration value="L"/>
+			<xs:enumeration value="F"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EmpfaengerSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Bundeslandkuerzel oder Finanzamtsnummer</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="headerbasis:BundeslandSType headerbasis:BUFANrSType"/>
+	</xs:simpleType>
+	<xs:simpleType name="HerstellerIDSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Die HerstellerID ist eine für jeden Hersteller eindeutige Zuordnungsnummer.
+Nur Fälle, die von registrierten Softwareherstellern gesendet  werden, werden angenommen und verarbeitet.
+Numerisch 5-stellig (beantragte HerstellerID)
+Die HerstellerID muss von jedem teilnehmenden Hersteller bei dem Bayerischen Landesamt für Steuern beantragt werden im Entwicklerbereich von elster.de
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="headerbasis:BaseStringSType">
+			<xs:length value="5"/>
+			<xs:pattern value="\d{5}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="KompressionSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Mit welcher Kompression wurden die Inhalte von den Elementen DatenLieferant und ggf. SigUser im TransferHeader und dem Element DatenTeil komprimiert.
+
+Beim ElsterXML müssen die Inhalte der folgenden Elemente komprimiert werden:
+-	Datenlieferant
+-	SigUser
+-	TransportSchluessel
+-	DatenTeil
+			</xs:documentation>
+			<xs:documentation>Text, max. 42 Zeichen</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="headerbasis:BaseStringSType">
+			<xs:enumeration value="GZIP"/>
+			<xs:enumeration value="NO_BASE64"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NutzdatenBlockTicketSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Ticket fuer Fehlerbehandlung zur Identifizierung der einzelnen Nutzdatenblöcke.
+Ist nur ein Nutzdatenblock vorhanden, so bietet sich hier der Wert _1_ an.
+Wird vom Datenlieferant gefuellt und muss in der Datenlieferung eindeutig sein.			</xs:documentation>
+			<xs:documentation xml:lang="DE">32-stellig alphanummerisch</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="headerbasis:BaseStringSType">
+			<xs:maxLength value="32"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TestmerkerSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="de">Kennzeichnung der Datenlieferung ob es sich um einen Testfall handelt, gilt fuer die gesamte Datenlieferung.</xs:documentation>
+			<xs:documentation xml:lang="de">Ein Echtfall enthält dieses Element nicht.
+			
+Ein Testfall muss mit einem Testmerker versehen werden, damit er nicht wie ein Echtfall verarbeitet wird.
+Handelt es sich um Daten, die nur zum Testen des Frontends versendet wurden, müssen sie nicht mehr weiter verarbeitet werden.			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="headerbasis:BaseStringSType">
+			<xs:length value="9"/>
+			<xs:enumeration value="010000001">
+				<xs:annotation>
+					<xs:documentation>Testmerker für ERiClet - Test ElsterInfo-Element: Hier wird in der Serverantwort eine Test-ElsterInfo Nachricht eingefügt</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="080000001">
+				<xs:annotation>
+					<xs:documentation>Testmerker für ElsterSignatur (Nur zur internen Verwendung)--080000001 Zum Test des Abrufcodes</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="120000001">
+				<xs:annotation>
+					<xs:documentation>Testmerker für ElsterExtern, Kompletttest zwischen BOP und ITZ-Bund und zurück</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="160000001">
+				<xs:annotation>
+					<xs:documentation>Testmerker für ElsterKapESt (Nur zur internen Verwendung)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="160000002">
+				<xs:annotation>
+					<xs:documentation>Testmerker für ElsterKapESt (Nur zur internen Verwendung)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="220000000">
+				<xs:annotation>
+					<xs:documentation>Testmerker für ElsterLohn: Protokollerzeugung und Kompletttest mit Einspeicherung in den eSpeicher des Landes</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="220002000">
+				<xs:annotation>
+					<xs:documentation>Kompletttest mit Einspeicherung in den eSpeicher des Landes</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="230000001">
+				<xs:annotation>
+					<xs:documentation>Testmerker nur für intern!</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="230000002">
+				<xs:annotation>
+					<xs:documentation>Testmerker nur für intern!</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="240000000">
+				<xs:annotation>
+					<xs:documentation>Testmerker für ElsterKMV: Zur internen Verwendung - genauere Angaben siehe Fachverfahren</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="300000001">
+				<xs:annotation>
+					<xs:documentation>Test der Signatur in der ZPS ELSTER Kommunikation: muss von jedem Fachverfahren in der jeweiligen ImplKlasse als gültiger Testmerker implementiert werden. Nach erfolgreicher Signaturprüfung wird das Ergebnis an den Aufrufer zurück gegeben. Die Daten erreichen nicht das jeweilige Fachverfahren</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="300000002">
+				<xs:annotation>
+					<xs:documentation>Testmerker für internes Projekt PKCS#1v2.1. Die Antwort von Elster bei dem Verschlüsselungstag CMSEnvelopedData erfolgt mit RSA-OAEP</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="300000003">
+				<xs:annotation>
+					<xs:documentation>Test der VDB</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="370000001">
+				<xs:annotation>
+					<xs:documentation>AbC Testmerker: Dieser dient dazu den Versand des Abrufcodes zu testen. Dabei wird der Request der Code-Generierung an das Wiesel geschickt, dort wird der Code generiert und per Postman and den Mailservice geschickt. Dazu muss vom EOP immer die aktuelle Email-Adresse mit übermittelt werden, da in Wiesel keine aktuellen Email-Adressen vorliegen.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="480000001">
+				<xs:annotation>
+					<xs:documentation>Testmerker für ElsterIDRecherche (intern)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="500000003">
+				<xs:annotation>
+					<xs:documentation>Testmerker für Portal (Nur zur internen Verwendung): Wiesel erzeugt TestCA (Rc an Portal = ID+Code) - (COMNODE steuert das Registrierungs-XML in den Testcontainer der LKS, nicht in den Produktionscontainer) - Wegwerfen im Länderadaper (Testmerker!) - Portal erzeugt Mail, es wird kein PIN-Brief gedruckt</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="500000006">
+				<xs:annotation>
+					<xs:documentation>Testmerker für Portal (Nur zur internen Verwendung): Wiesel erzeugt ElsterStickSpezialTestCA  (COMNODE steuert das Registrierungs-XML in den Testcontainer der LKS, nicht in den Produktionscontainer) und Wegwerfen im Länderadaper (Testmerker!) - Portal erzeugt Mail, es wird kein PIN-Brief gedruckt</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="500000014">
+				<xs:annotation>
+					<xs:documentation>Testmerker für Portal (Nur zur internen Verwendung): Registrierung mit Echt-nPA: IdNr-Daten werden aus Echt-IdNr-DB abgerufen, Wiesel erzeugt jedoch TestCA. (COMNODE steuert das Registrierungs-XML in den Testcontainer der LKS, nicht in den Produktionscontainer)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="500000015">
+				<xs:annotation>
+					<xs:documentation>Testmerker für Portal (Nur zur internen Verwendung): Registrierung mit Echt-nPA: IdNr-Daten werden jedoch aus der Test-IdNr-DB abgerufen, Wiesel erzeugt TestCA. Für eine erfolgreiche Registrierung müssen die echten nPA-Informationen mit Zustimmung des nPA-Inhabers für eine fiktive IdNr in der Test-IdNr-DB hinterlegt sein (COMNODE steuert das Registrierungs-XML in den Testcontainer der LKS, nicht in den Produktionscontainer)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="510000001">
+				<xs:annotation>
+					<xs:documentation>Test-Ginster schickt Daten über ElsterBasis zu Test-Zobel</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="700000001">
+				<xs:annotation>
+					<xs:documentation>Aussteuerung im Land (GeCo, ggf aber je nach Verfahren auch anderes Programm)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="700000002">
+				<xs:annotation>
+					<xs:documentation>Aussteuerung im Host, sofern durch einzelne Länder umgesetzt</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="700000003">
+				<xs:annotation>
+					<xs:documentation>Die Anfragen mit dem Testmerker 700000003 werden an das Abnahmesystem auf Bund-Seite weitergeleitet.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="700000004">
+				<xs:annotation>
+					<xs:documentation>Aussteuerung in der ZPS ELSTER Kommunikation durch PuDeL nach Durchlaufen der Module (grds. nur für PuDeL Datenflüsse. Ausnahme: ggf. bei alten Verfahren/Datenarten)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="700000005">
+				<xs:annotation>
+					<xs:documentation>Aussteuerung in der ZPS ELSTER Kommunikation durch PuDeL vor Durchlaufen der Module (grds. nur für PuDeL Datenflüsse)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="700000007">
+				<xs:annotation>
+					<xs:documentation>Testmerker zum Nachstellen von Produktionsfehlern im Rahmen der W-IdNr. Mit dem Testmerker 700000007 wird die Testumgebung TST05 auf Bund-Seite angesteuert.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="700001001">
+				<xs:annotation>
+					<xs:documentation>nur für interne Verwendung: Testmerker für das Routing in eine Schulungsumgebung. Der Testmerker ist für die Kommunikation der drei Schulungsumgebungen SU-BY (Bayern - siehe Kontaktperson), ZSU (Baden-Württemberg) und SCN (Dataport) untereinander sowie mit externen Diensten vorbehalten. Mit diesem Testmerker dürfen ausschließlich synthetische Daten übermittelt werden. Die Übertragung von Echtdaten ist nicht zulässig.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="700004001">
+				<xs:annotation>
+					<xs:documentation>nur für interne Verwendung: Testmerker für die Kommunikation mit der bayerischen BIENE-Testumgebung. Die Nutzung des Testmerkers unter Verwendung des Zieles BY ist mit den Umgebungsverantwortlichen der BIENE-Testumgebung (Funktion.BIENE.Testumgebung.TP7@lfst.bayern.de) vorab abzustimmen.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="900000001">
+				<xs:annotation>
+					<xs:documentation>EGVPNachricht: Nachricht wurde an eines der Testpostfächer versendet. Die Aussteuerung, oder Weiterleitung muss im Land erfolgen.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="900000002">
+				<xs:annotation>
+					<xs:documentation>Empfangsbekenntnis, LKSNachricht: Kompletttest zwischen Finanzverwaltung und Gerichte (Nachricht wird als MessageType Testnachricht versendet)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="900000003">
+				<xs:annotation>
+					<xs:documentation>Empfangsbekenntnis, LKSNachricht: Streckentest zwischen Finanzverwaltung und der Komponente LEGAL. Wird in der ZPS Elster Kommunikation ausgesteuert.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="900000010">
+				<xs:annotation>
+					<xs:documentation>Allgemeiner Testmerker für verfahrensübergreifende Tests im Integrationssystem. Dieser Testmerker darf ausschließlich von GeCo verwendet werden.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="900000011">
+				<xs:annotation>
+					<xs:documentation>Allgemeiner Testmerker (eigentlich für DIVA) für verfahrensübergreifende Tests in Produktion (Aussteuerung, bzw. Testverarbeitung bei GeCo, je nach Umstetzung). Dieser Testmerker darf ausschließlich von GeCo verwendet werden. In ELSTER wird dieser Testmerker nirgends ausgewertet.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TransferTicketSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Das TransferTicket enthaelt eine 32-stellige alphanumerische ETID zur serverseitigen Protokollierung der Datenlieferung. Eindeutiges Zuordnungskriterium der Datenlieferung Identifizierung des gesamten Sendepakets, zur Zuordnung der Datenlieferung und der Antwort zum richtigen Sender und Zeitpunkt.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="headerbasis:BaseStringSType">
+			<xs:pattern value="[0-9a-km-z]{2}[0-9]{3}[0-9a-km-z]{27}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TransportSchluesselSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Öffentlicher Schluessel des Clients
+Fuer die Transportverschluesselung vom Server zum Client ist der oeffentlicher Schluessel des Clients/Datenlieferers noetig, dieser muss beim Hinweg zum Server mitgeschickt werden.
+
+Dieses Element kann sowohl das Zertifikat für das Protokoll bei ElsterLohn beinhalten als auch das Zertifikat bei PKCS#7v1.5enveloped
+
+Für die Transportverschlüsselung vom Server zum Client bei einer offline Meldung ist der öffentliche Schlüssel des Clients/Datenlieferers nötig (daher ist dieser beim Versand der Daten mitzuschicken, also beim Hinweg zum Server). 
+
+Der Inhalt dieses Elements ist mit demselben Schlüssel, wie der Inhalt des Datenteils (öffentlichen Schlüssel der Clearingstelle) verschlüsselt.			</xs:documentation>
+			<xs:documentation>Base 64-codierter String des X509- Zertifikats</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="VerschluesselungSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Mit welcher Verschluesselungsart wurden die Inhalte von den Elementen DatenLieferant und ggf. SigUser im TransferHeader und dem Element DatenTeil verschluesselt</xs:documentation>
+			<xs:documentation xml:lang="DE">Protokoll der Verschluesselung. Es kann vorkommen, dass verschieden Verschluesselungsarten eingesetzt werden, eine Unterscheidung ist hier noetig, um das richtige Entschluesselungstool anzusteuern.</xs:documentation>
+			<xs:documentation>Protokoll der Verschlüsselung
+
+Es kann vorkommen, dass verschiedene Verschlüsselungsarten eingesetzt werden, eine Unterscheidung ist hier nötig, um das richtige Entschlüsselungstool anzusteuern. 
+
+Beim ElsterXML müssen die Inhalte der folgenden Elemente verschlüsselt übermittelt werden:
+-	DatenLieferant
+-	SigUser
+-	TransportSchluessel
+-	DatenTeil			</xs:documentation>
+			<xs:documentation>Text max. 42 Zeichen</xs:documentation>
+			<xs:documentation xml:lang="DE">Mit welcher Verschluesselungsart wurden die Daten verschluesselt</xs:documentation>
+			<xs:documentation xml:lang="DE">Protokoll der Verschluesselung. Es kann vorkommen, dass verschieden Verschluesselungsarten eingesetzt werden, eine Unterscheidung ist hier noetig, um das richtige Entschluesselungstool anzusteuern, Protokoll der Verschluesselung</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="headerbasis:BaseStringSType">
+			<xs:enumeration value="PKCS#7v1.5"/>
+			<xs:enumeration value="PKCS#7v1.5enveloped"/>
+			<xs:enumeration value="NO_BASE64"/>
+			<xs:enumeration value="CMSEncryptedData"/>
+			<xs:enumeration value="CMSEnvelopedData"/>
+			<xs:enumeration value="EnvelopedData;RSA-OAEP;AES-128;GZip;B64">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Neuer Verschlüsselungstag wird frühestens ab Mai 2016 unterstützt.
+Bei der Verschlüsselungsart " EnvelopedData;RSA-OAEP;AES-128;GZip;B64" muss der symmetrische Teil mit AES128 verschlüsselt sein und der asymmetrische Teil mit RSAES-OAEP mit der Hashfunktion SHA256, der Maskengenerierungsfunktion MGF1 und als Hashfunktion der Maskengenerierungsfunktion ebenso SHA256.					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VersionClientSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Produktversion
+Version des Clientprogramms, das die Daten versendet. 
+
+Das optionale Element soll dem Softwarehersteller zur Selbstverwaltung dienen und es soll ihm ermöglicht werden das Element entsprechend seiner Anforderungen zu füllen.
+
+Wenn bei einer Verschluesselungssoftware eine neuere Version eingesetzt wird, ist es u.U. wichtig, ob die erhaltenen Daten schon mit der neuen oder noch mit der alten Verschluesselung verschluesselt wurden, um die Daten entschluesseln zu koennen.			</xs:documentation>
+			<xs:documentation>Text, max. 42 Zeichen</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="headerbasis:BaseStringSType">
+			<xs:maxLength value="42"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VorgangSType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Hauptinformation ob die Daten authentifiziert wurden (send-Auth) oder nicht (send-NoSig)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="headerbasis:BaseStringSType">
+			<xs:enumeration value="send-Auth">
+				<xs:annotation>
+					<xs:documentation>Senden von authentifizierten Daten (Signatur im THeader)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="send-Auth-Continue">
+				<xs:annotation>
+					<xs:documentation>Wird in Mein ELSTER verwendet und löst Fortsetzungskennung aus, sodass bei mehreren XMLs in der Folge send-NoSig verwendet werden kann.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="send-Auth-Part">
+				<xs:annotation>
+					<xs:documentation>Senden von Daten, die partiell verarbeitet werden, d.h. wenn bei Sammellieferungen ein Fehler enthalten ist, wird nicht die gesamte Datenlieferung abgelehnt, sondern nur der fehlerhafte Teil.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="send-NoSig">
+				<xs:annotation>
+					<xs:documentation>Senden von Daten ohne Authentifizierung</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="send-NoSig-Part">
+				<xs:annotation>
+					<xs:documentation>Senden von Daten. die partielle verarbeitet werden. Wenn bei Sammellieferungen ein Fehler enthalten ist, wird nicht die gesamte Datenlieferung abgelehnt, sondern nur der fehlerhafte Teil.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="send-Scan">
+				<xs:annotation>
+					<xs:documentation>Darf nur von SteuBel verwendet werden. Grund: Damit GeCo die XMLs von SteuBel nicht aussteuert.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="headerVersionSType">
+		<xs:restriction base="headerbasis:BaseStringSType">
+			<xs:enumeration value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

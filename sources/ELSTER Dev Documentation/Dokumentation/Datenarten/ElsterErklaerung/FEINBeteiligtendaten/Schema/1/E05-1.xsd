@@ -1,0 +1,1625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Schema automatisch generiert von ElsterRules 55.0.0 -->
+<!-- Schema entsprechend eXML-Spezifikation Version 2.0 -->
+<!-- E05 - 1 - 3.0 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://finkonsens.de/elster/elstererklaerung/feinbeteiligtendaten/e05/v1" targetNamespace="http://finkonsens.de/elster/elstererklaerung/feinbeteiligtendaten/e05/v1" xmlns:exml="http://finkonsens.de/elster/elstererklaerung/feinbeteiligtendaten/e05/v1">
+    <!-- XML-Typdefinitionen fuer eXML -->
+    <xs:simpleType name="AttributeAlias">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="300"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Definition der datenartspezifischen eXML-Struktur -->
+    <xs:complexType name="DezimalzahlNichtNegOhneFuehrNullBaseCType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:pattern value="[1-9][0-9]*(,[0-9]+)?">
+                    <xs:annotation>
+                        <xs:documentation>Positive Zahlen ab 1</xs:documentation>
+                    </xs:annotation>
+                </xs:pattern>
+                <xs:pattern value="0,[0-9]*[1-9][0-9]*">
+                    <xs:annotation>
+                        <xs:documentation>Zahlen aus dem offenen Intervall (0, 1)</xs:documentation>
+                    </xs:annotation>
+                </xs:pattern>
+                <xs:pattern value="0(,0+)?">
+                    <xs:annotation>
+                        <xs:documentation>Nullwerte</xs:documentation>
+                    </xs:annotation>
+                </xs:pattern>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="DezimalzahlOhneFuehrNullBaseCType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:pattern value="-?[1-9][0-9]*(,[0-9]+)?">
+                    <xs:annotation>
+                        <xs:documentation>Zahlen außerhalb des offenen Intervalls (-1, 1)</xs:documentation>
+                    </xs:annotation>
+                </xs:pattern>
+                <xs:pattern value="-?0,[0-9]*[1-9][0-9]*">
+                    <xs:annotation>
+                        <xs:documentation>Zahlen aus den offenen Intervallen (-1, 0) und (0, 1)</xs:documentation>
+                    </xs:annotation>
+                </xs:pattern>
+                <xs:pattern value="0(,0+)?">
+                    <xs:annotation>
+                        <xs:documentation>Nullwerte</xs:documentation>
+                    </xs:annotation>
+                </xs:pattern>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="EMailBaseCType">
+        <xs:annotation>
+            <xs:documentation>EMail</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:pattern value="([^@]+)(@)([^@]+)"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="GanzzahlNichtNegOhneFuehrNullBaseCType">
+        <xs:simpleContent>
+            <xs:restriction base="NonNegativeIntegerBaseWithAliasCType">
+                <xs:pattern value="[1-9].*|0">
+                    <xs:annotation>
+                        <xs:documentation>Kein Vorzeichen, Einträge der Form '0' oder erste Ziffer ungleich '0'</xs:documentation>
+                    </xs:annotation>
+                </xs:pattern>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="GanzzahlPosBaseCType">
+        <xs:simpleContent>
+            <xs:restriction base="PositiveIntegerBaseWithAliasCType">
+                <xs:pattern value="[0-9].*">
+                    <xs:annotation>
+                        <xs:documentation>Kein Vorzeichen</xs:documentation>
+                    </xs:annotation>
+                </xs:pattern>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="GanzzahlPosOhneFuehrNullBaseCType">
+        <xs:simpleContent>
+            <xs:restriction base="PositiveIntegerBaseWithAliasCType">
+                <xs:pattern value="[1-9].*">
+                    <xs:annotation>
+                        <xs:documentation>Kein Vorzeichen, erste Ziffer ungleich '0'</xs:documentation>
+                    </xs:annotation>
+                </xs:pattern>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="NonNegativeIntegerBaseWithAliasCType">
+        <xs:simpleContent>
+            <xs:extension base="xs:nonNegativeInteger">
+                <xs:attribute name="alias" type="AttributeAlias"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="PositiveIntegerBaseWithAliasCType">
+        <xs:simpleContent>
+            <xs:extension base="xs:positiveInteger">
+                <xs:attribute name="alias" type="AttributeAlias"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="StringBaseCType">
+        <xs:simpleContent>
+            <xs:restriction base="StringZUBaseCType">
+                <xs:pattern value="[^&#xa;&#xd;]+">
+                    <xs:annotation>
+                        <xs:documentation>Zeichensatz Standard_E_V2, Zeilenumbrüche verbieten und Leerangaben unterbinden</xs:documentation>
+                    </xs:annotation>
+                </xs:pattern>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="StringBaseWithAliasCType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="alias" type="AttributeAlias"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="StringZUBaseCType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:pattern value="[&#xa;&#xd;&#x20;-&#x7e;&#xa1;-&#xa3;&#xa5;&#xa7;&#xaa;-&#xac;&#xae;-&#xb3;&#xb5;&#xb9;-&#xbb;&#xbf;-&#xff;&#x152;-&#x153;&#x160;-&#x161;&#x178;&#x17d;-&#x17e;&#x20ac;]+">
+                    <xs:annotation>
+                        <xs:documentation>Zeichensatz Standard_E_V2, Zeilenumbrüche erlauben und Leerangaben unterbinden</xs:documentation>
+                    </xs:annotation>
+                </xs:pattern>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="BundesfinanzamtsnummerBaseCType">
+        <xs:annotation>
+            <xs:documentation>Bundesfinanzamtsnummer</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:pattern value="[0-9]{4}"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="DatumTTpMMpJJJJBekanntBaseCType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:pattern value="(0[1-9]|[1-2][0-9]|3[0-1])\.(10|11|12|01|02|03|04|05|06|07|08|09)\.([0-9][0-9][0-9][1-9]|[0-9][0-9][1-9][0-9]|[0-9][1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])">
+                    <xs:annotation>
+                        <xs:documentation>Art der Teilbekanntheit: BEKANNT</xs:documentation>
+                    </xs:annotation>
+                </xs:pattern>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="DezimalzahlNichtNegOhneFuehrNull_MaxVK3_MinNK2_MaxNK2_CType">
+        <xs:simpleContent>
+            <xs:restriction base="DezimalzahlNichtNegOhneFuehrNullBaseCType">
+                <xs:pattern value="\d{1,3}(,\d{2,2})"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="DezimalzahlOhneFuehrNull_MaxL15_MaxVK12_MinNK2_MaxNK2_CType">
+        <xs:simpleContent>
+            <xs:restriction base="DezimalzahlOhneFuehrNullBaseCType">
+                <xs:maxLength value="15"/>
+                <xs:pattern value="-?\d{1,12}(,\d{2,2})"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="EMail_MinL1_MaxL290_CType">
+        <xs:simpleContent>
+            <xs:restriction base="EMailBaseCType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="290"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="Enum_ESt1B_Art_Auft_E9011011_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:enumeration value="1">
+                    <xs:annotation>
+                        <xs:documentation>nach gezeichnetem Kapital</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                    <xs:annotation>
+                        <xs:documentation>nach Bruchteilen</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="3">
+                    <xs:annotation>
+                        <xs:documentation>nach eingezahltem Kapital</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="0">
+                    <xs:annotation>
+                        <xs:documentation>andere Aufteilung</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="Enum_ESt1B_Zeitant_Auf_E9030019_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:enumeration value="1">
+                    <xs:annotation>
+                        <xs:documentation>keine zeitanteilige Aufteilung</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                    <xs:annotation>
+                        <xs:documentation>halbjährliche Aufteilung</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="4">
+                    <xs:annotation>
+                        <xs:documentation>vierteljährliche Aufteilung</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="6">
+                    <xs:annotation>
+                        <xs:documentation>zweimonatliche Aufteilung</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="12">
+                    <xs:annotation>
+                        <xs:documentation>monatliche Aufteilung</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="360">
+                    <xs:annotation>
+                        <xs:documentation>tagegenaue Aufteilung (Monate mit 30 Tagen)</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="365">
+                    <xs:annotation>
+                        <xs:documentation>tagegenaue Aufteilung (Monate mit tatsächlichen Tagen)</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="Enum_FB_Allg_Nat_Pers_E9146010_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:enumeration value="Firma">
+                    <xs:annotation>
+                        <xs:documentation>Firma</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="Frau">
+                    <xs:annotation>
+                        <xs:documentation>Frau</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="Herr">
+                    <xs:annotation>
+                        <xs:documentation>Herr</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="Enum_FB_Art_Bet_gung_Aend_Bet_gung_E9845101_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:enumeration value="1">
+                    <xs:annotation>
+                        <xs:documentation>persönlich haftender Gesellschafter einer OHG</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                    <xs:annotation>
+                        <xs:documentation>Komplementär</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="3">
+                    <xs:annotation>
+                        <xs:documentation>Kommanditist</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="4">
+                    <xs:annotation>
+                        <xs:documentation>sonstiger Mitunternehmer ohne Haftungsbeschränkung</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="5">
+                    <xs:annotation>
+                        <xs:documentation>sonstiger Mitunternehmer mit Haftungsbeschränkung i. S. d. § 15a EStG</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="6">
+                    <xs:annotation>
+                        <xs:documentation>Gesellschafter / Gemeinschafter, der nicht Mitunternehmer ist, ohne Haftungsbeschränkung</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="7">
+                    <xs:annotation>
+                        <xs:documentation>Gesellschafter / Gemeinschafter, der nicht Mitunternehmer ist, mit Haftungsbeschränkung i. S. d. § 15a EStG</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="8">
+                    <xs:annotation>
+                        <xs:documentation>Treuhänder</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="10">
+                    <xs:annotation>
+                        <xs:documentation>mittelbar beteiligter Gesellschafter i. S. d. § 15 Abs. 1 Nr. 2 Satz 2 EStG</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="11">
+                    <xs:annotation>
+                        <xs:documentation>in Vorjahren ausgeschiedener Gesellschafter und dessen Rechtsnachfolger</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="Enum_FB_Art_Bet_gung_Bet_gung_Beg_WJ_E9145101_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:enumeration value="1">
+                    <xs:annotation>
+                        <xs:documentation>persönlich haftender Gesellschafter einer OHG</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                    <xs:annotation>
+                        <xs:documentation>Komplementär</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="3">
+                    <xs:annotation>
+                        <xs:documentation>Kommanditist</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="4">
+                    <xs:annotation>
+                        <xs:documentation>sonstiger Mitunternehmer ohne Haftungsbeschränkung</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="5">
+                    <xs:annotation>
+                        <xs:documentation>sonstiger Mitunternehmer mit Haftungsbeschränkung i. S. d. § 15a EStG</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="6">
+                    <xs:annotation>
+                        <xs:documentation>Gesellschafter / Gemeinschafter, der nicht Mitunternehmer ist, ohne Haftungsbeschränkung</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="7">
+                    <xs:annotation>
+                        <xs:documentation>Gesellschafter / Gemeinschafter, der nicht Mitunternehmer ist, mit Haftungsbeschränkung i. S. d. § 15a EStG</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="8">
+                    <xs:annotation>
+                        <xs:documentation>Treuhänder</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="10">
+                    <xs:annotation>
+                        <xs:documentation>mittelbar beteiligter Gesellschafter i. S. d. § 15 Abs. 1 Nr. 2 Satz 2 EStG</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="11">
+                    <xs:annotation>
+                        <xs:documentation>in Vorjahren ausgeschiedener Gesellschafter und dessen Rechtsnachfolger</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="Enum_FB_Art_Bet_ter_Aend_Bet_ter_E9845770_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:enumeration value="0">
+                    <xs:annotation>
+                        <xs:documentation>natürliche Person</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="1">
+                    <xs:annotation>
+                        <xs:documentation>Personengesellschaft mit unmittelbar oder mittelbar beteiligten Körperschaften</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="3">
+                    <xs:annotation>
+                        <xs:documentation>Körperschaft i. S. d. § 1 Abs. 1 oder § 1a KStG</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="5">
+                    <xs:annotation>
+                        <xs:documentation>Personengesellschaft ohne unmittelbar oder mittelbar beteiligte Körperschaften</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="6">
+                    <xs:annotation>
+                        <xs:documentation>Körperschaft i. S. d. § 1 Abs. 1 KStG, die zugleich Organgesellschaft ist</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="Enum_FB_Art_Bet_ter_Bet_ter_Beg_WJ_E9145770_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:enumeration value="0">
+                    <xs:annotation>
+                        <xs:documentation>natürliche Person</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="1">
+                    <xs:annotation>
+                        <xs:documentation>Personengesellschaft mit unmittelbar oder mittelbar beteiligten Körperschaften</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="3">
+                    <xs:annotation>
+                        <xs:documentation>Körperschaft i. S. d. § 1 Abs. 1 oder § 1a KStG</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="5">
+                    <xs:annotation>
+                        <xs:documentation>Personengesellschaft ohne unmittelbar oder mittelbar beteiligte Körperschaften</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="6">
+                    <xs:annotation>
+                        <xs:documentation>Körperschaft i. S. d. § 1 Abs. 1 KStG, die zugleich Organgesellschaft ist</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="Enum_FB_Bet_BV_PV_Bet_Voll_BV_Aend_Bet_ter_E9845764_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:enumeration value="13">
+                    <xs:annotation>
+                        <xs:documentation>Land- und Forstwirtschaft</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="14">
+                    <xs:annotation>
+                        <xs:documentation>Gewerbebetrieb</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="15">
+                    <xs:annotation>
+                        <xs:documentation>selbständiger Arbeit</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="Enum_FB_Bet_BV_PV_Bet_Voll_BV_BV_PV_Beg_WJ_E9152002_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:enumeration value="13">
+                    <xs:annotation>
+                        <xs:documentation>Land- und Forstwirtschaft</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="14">
+                    <xs:annotation>
+                        <xs:documentation>Gewerbebetrieb</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="15">
+                    <xs:annotation>
+                        <xs:documentation>selbständiger Arbeit</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="Enum_FB_Verst_erb_schenk_Erb_schenk_Anteil_E9145720_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:enumeration value="1">
+                    <xs:annotation>
+                        <xs:documentation>vererbt</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                    <xs:annotation>
+                        <xs:documentation>verschenkt</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="Enum_Vorsatz_Vorgang_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:enumeration value="01">
+                    <xs:annotation>
+                        <xs:documentation>Veranlagung</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="GanzzahlNichtNegOhneFuehrNull_MaxVK3_MinW0_MaxW100_CType">
+        <xs:simpleContent>
+            <xs:restriction base="GanzzahlNichtNegOhneFuehrNullBaseCType">
+                <xs:totalDigits value="3"/>
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="100"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="GanzzahlNichtNegOhneFuehrNull_Muster1442570484_CType">
+        <xs:simpleContent>
+            <xs:restriction base="GanzzahlNichtNegOhneFuehrNullBaseCType">
+                <xs:pattern value=".{0,11}"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="GanzzahlPosOhneFuehrNull_Muster1442570484_CType">
+        <xs:simpleContent>
+            <xs:restriction base="GanzzahlPosOhneFuehrNullBaseCType">
+                <xs:pattern value=".{0,11}"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="GanzzahlPos_Muster1432008049_CType">
+        <xs:simpleContent>
+            <xs:restriction base="GanzzahlPosBaseCType">
+                <xs:pattern value=".{0,5}"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="IDNrBaseCType">
+        <xs:annotation>
+            <xs:documentation>IDNr</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:pattern value="[0-9]{11}"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="Ja1BaseCType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:enumeration value="1"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="JaNein12BaseCType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:enumeration value="1">
+                    <xs:annotation>
+                        <xs:documentation>Ja</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="2">
+                    <xs:annotation>
+                        <xs:documentation>Nein</xs:documentation>
+                    </xs:annotation>
+                </xs:enumeration>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="NAEnum_LAND_OF_WORLD_2020_ohne_DE_1_BaseCType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:annotation>
+                    <xs:documentation>Afghanistan,Ägypten,Albanien,Algerien,Andorra,Angola,Antigua und Barbuda,Äquatorialguinea,Argentinien,Armenien,Aserbaidschan,Äthiopien,Australien,Bahamas,Bahrain,Bangladesch,Barbados,Belgien,Belize,Benin,Bhutan,Bolivien,Bosnien und Herzegowina,Botsuana,Brasilien,Brunei Darussalam,Bulgarien,Burkina Faso,Burundi,Chile,China,Cookinseln,Costa Rica,Cote d&apos;Ivoire,Dänemark,Dominica,Dominikanische Republik,Dschibuti,Ecuador,El Salvador,Eritrea,Estland,Eswatini,Fidschi,Finnland,Frankreich,Gabun,Gambia,Georgien,Ghana,Grenada,Griechenland,Guatemala,Guinea,Guinea-Bissau,Guyana,Haiti,Honduras,Indien,Indonesien,Irak,Iran,Irland,Island,Israel,Italien,Jamaika,Japan,Jemen,Jordanien,Kambodscha,Kamerun,Kanada,Kap Verde,Kasachstan,Katar,Kenia,Kirgisistan,Kiribati,Kolumbien,Komoren,Kongo,Kongo, Demokratische Republik,Korea, Demokratische Volksrepublik,Korea, Republik,Kosovo,Kroatien,Kuba,Kuwait,Laos,Lesotho,Lettland,Libanon,Liberia,Libyen,Liechtenstein,Litauen,Luxemburg,Madagaskar,Malawi,Malaysia,Malediven,Mali,Malta,Marokko,Marshallinseln,Mauretanien,Mauritius,Mexiko,Föderierte Staaten von Mikronesien,Moldau,Monaco,Mongolei,Montenegro,Mosambik,Myanmar,Namibia,Nauru,Nepal,Neuseeland,Nicaragua,Niederlande,Niger,Nigeria,Niue,Nordmazedonien,Norwegen,Oman,Österreich,Pakistan,Palau,Panama,Papua-Neuguinea,Paraguay,Peru,Philippinen,Polen,Portugal,Ruanda,Rumänien,Russische Föderation,Salomonen,Sambia,Samoa,San Marino,Sao Tome und Principe,Saudi-Arabien,Schweden,Schweiz,Senegal,Serbien,Seychellen,Sierra Leone,Simbabwe,Singapur,Slowakei,Slowenien,Somalia,Spanien,Sri Lanka,St. Kitts und Nevis,St. Lucia,St. Vincent und die Grenadinen,Südafrika,Sudan,Südsudan,Surinam,Syrien,Tadschikistan,Tansania,Thailand,Timor-Leste,Togo,Tonga,Trinidad und Tobago,Tschad,Tschechische Republik,Tunesien,Türkei,Turkmenistan,Tuvalu,Uganda,Ukraine,Ungarn,Uruguay,USA,Usbekistan,Vanuatu,Vatikanstadt,Venezuela,Vereinigte Arabische Emirate,Vereinigtes Königreich,Vietnam,Weißrussland,Zentralafrikanische Republik,Zypern</xs:documentation>
+                </xs:annotation>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="NAEnum_Titel_Person_2_BaseCType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:annotation>
+                    <xs:documentation>Dr.,Prof.,Prof. Dr.</xs:documentation>
+                </xs:annotation>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="SteuernummerBaseCType">
+        <xs:annotation>
+            <xs:documentation>Steuernummer</xs:documentation>
+        </xs:annotation>
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseWithAliasCType">
+                <xs:pattern value="([0-9]{4})0[0-9]{8}"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL13_MaxL13_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="13"/>
+                <xs:maxLength value="13"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL17_MaxL17_Muster19518124_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="17"/>
+                <xs:maxLength value="17"/>
+                <xs:pattern value="DE[0-9]{9}-(0000[1-9]|000[1-9][0-9]|00[1-9][0-9]{2}|0[1-9][0-9]{3}|[1-9][0-9]{4})"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL1_MaxL100_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="100"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL1_MaxL10_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="10"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL1_MaxL1_Muster83_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="1"/>
+                <xs:pattern value="S"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL1_MaxL20_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="20"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL1_MaxL25_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="25"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL1_MaxL2997_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="2997"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL1_MaxL29_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="29"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL1_MaxL30_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="30"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL1_MaxL45_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="45"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL1_MaxL4_Musterm1643987249_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="4"/>
+                <xs:pattern value="[0-9]+"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL1_MaxL50_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="50"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL1_MaxL6_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="6"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL1_MaxL72_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="72"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL1_MaxL999_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="999"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL2_MaxL2_Muster1541_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="2"/>
+                <xs:maxLength value="2"/>
+                <xs:pattern value="05"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL3_MaxL3_Muster1991846654_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="3"/>
+                <xs:maxLength value="3"/>
+                <xs:pattern value="([A-Z]|[0-9]){3}"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL4_MaxL4_Musterm1643987249_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="4"/>
+                <xs:maxLength value="4"/>
+                <xs:pattern value="[0-9]+"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="String_MinL5_MaxL5_Muster2084297628_CType">
+        <xs:simpleContent>
+            <xs:restriction base="StringBaseCType">
+                <xs:minLength value="5"/>
+                <xs:maxLength value="5"/>
+                <xs:pattern value="([0]{1}[1-9]{1}[0-9]{3})|([1-9]{1}[0-9]{4})"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:element name="E05" type="E05_CType">
+        <xs:unique name="E05_CType1Indexfeld">
+            <xs:selector xpath="exml:FB"/>
+            <xs:field xpath="exml:Beteiligter"/>
+        </xs:unique>
+    </xs:element>
+    <xs:complexType name="E05_CType">
+        <xs:sequence>
+            <xs:element name="ESt1B" type="ESt1B_67881_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="FB" type="FB_67881_CType" minOccurs="0" maxOccurs="99999"/>
+            <xs:element name="Vorsatz" type="Vorsatz_67881_CType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="version" fixed="1" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="ESt1B_67881_CType">
+        <xs:sequence>
+            <xs:element name="Allg" type="Allg_2055637364_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Art_Auft" type="Art_Auft_2055637364_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Zeitant_Auf" type="Zeitant_Auf_2055637364_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Abw_Wj" type="Abw_Wj_2055637364_CType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Allg_2055637364_CType">
+        <xs:sequence>
+            <xs:element name="Gesellsch" type="Gesellsch_m275349608_CType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Gesellsch_m275349608_CType">
+        <xs:sequence>
+            <xs:element name="E9750200" type="String_MinL17_MaxL17_Muster19518124_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Wirtschafts-Identifikationsnummer</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9750005" type="String_MinL1_MaxL999_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Bezeichnung der Gesellschaft oder Gemeinschaft</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Str_Adr" type="Str_Adr_m98517774_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Ausl_Adr" type="Ausl_Adr_m98517774_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Komm_Verb" type="Komm_Verb_m98517774_CType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Str_Adr_m98517774_CType">
+        <xs:sequence>
+            <xs:element name="E9750021" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Straße</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9750022" type="String_MinL1_MaxL4_Musterm1643987249_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Hausnummer</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9750023" type="String_MinL1_MaxL6_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Hausnummerzusatz</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9750024" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Adressergänzung</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9750007" type="String_MinL5_MaxL5_Muster2084297628_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Postleitzahl (Inland)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9750008" type="String_MinL1_MaxL20_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Ort</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Ausl_Adr_m98517774_CType">
+        <xs:sequence>
+            <xs:element name="E9791021" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Straße</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9791022" type="String_MinL1_MaxL4_Musterm1643987249_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Hausnummer</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9791023" type="String_MinL1_MaxL6_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Hausnummerzusatz</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9791024" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Adressergänzung</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9750025" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Postleitzahl und Ort (Ausland)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9750019" type="NAEnum_LAND_OF_WORLD_2020_ohne_DE_1_BaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Staat (nur angeben, wenn im Ausland)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Komm_Verb_m98517774_CType">
+        <xs:sequence>
+            <xs:element name="E9750004" type="String_MinL1_MaxL999_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Telefonische Rückfragen tagsüber unter Nummer</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Art_Auft_2055637364_CType">
+        <xs:sequence>
+            <xs:element name="E9011011" type="Enum_ESt1B_Art_Auft_E9011011_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Art der Aufteilung</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Zeitant_Auf_2055637364_CType">
+        <xs:sequence>
+            <xs:element name="E9030019" type="Enum_ESt1B_Zeitant_Auf_E9030019_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Zeitanteilige Aufteilung</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Abw_Wj_2055637364_CType">
+        <xs:sequence>
+            <xs:element name="E9011075" type="DatumTTpMMpJJJJBekanntBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Beginn des abweichenden Wirtschaftsjahres / des Rumpfwirtschaftsjahres / der Tätigkeit</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FB_67881_CType">
+        <xs:sequence>
+            <xs:element name="Beteiligter" type="GanzzahlPos_Muster1432008049_CType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Nummer des Beteiligten</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Allg" type="Allg_138127_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Art_Bet_gung" type="Art_Bet_gung_138127_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Art_Bet_ter" type="Art_Bet_ter_138127_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Beschr_Stpfl" type="Beschr_Stpfl_138127_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Bet_BV_PV" type="Bet_BV_PV_138127_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Ang_Auft" type="Ang_Auft_138127_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Aend_Aufteil" type="Aend_Aufteil_138127_CType" minOccurs="0" maxOccurs="10"/>
+            <xs:element name="Eintr_Austr" type="Eintr_Austr_138127_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="HR" type="HR_138127_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Verst_erb_schenk" type="Verst_erb_schenk_138127_CType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Allg_138127_CType">
+        <xs:sequence>
+            <xs:element name="E9146078" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Zeichnernummer (soweit vorhanden)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Nat_Pers" type="Nat_Pers_1964118451_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="NNat_Pers" type="NNat_Pers_1964118451_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Ordn_Krit" type="Ordn_Krit_1964118451_CType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Nat_Pers_1964118451_CType">
+        <xs:sequence>
+            <xs:element name="E9146010" type="Enum_FB_Allg_Nat_Pers_E9146010_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Anrede</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9146014" type="NAEnum_Titel_Person_2_BaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Titel</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9146013" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Vorname</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9146012" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Namensbestandteil</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9146011" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Name</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9146072" type="DatumTTpMMpJJJJBekanntBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Geburtsdatum</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846072" type="DatumTTpMMpJJJJBekanntBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>im Sterbefall: Sterbedatum&#10;– Bitte die Zeilen $E9145719.Vordruckzeile$ bis $E9145720.Vordruckzeile$ beachten. –</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Adr" type="Adr_1492825281_CType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Adr_1492825281_CType">
+        <xs:sequence>
+            <xs:element name="Str_Adr" type="Str_Adr_2046924526_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Ausl_Adr" type="Ausl_Adr_2046924526_CType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Str_Adr_2046924526_CType">
+        <xs:sequence>
+            <xs:element name="E9846024" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Straße</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846025" type="String_MinL1_MaxL4_Musterm1643987249_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Hausnummer</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846026" type="String_MinL1_MaxL6_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Hausnummerzusatz</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9146023" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Adressergänzung</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846027" type="String_MinL5_MaxL5_Muster2084297628_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Postleitzahl (Inland)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846028" type="String_MinL1_MaxL20_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Ort</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Ausl_Adr_2046924526_CType">
+        <xs:sequence>
+            <xs:element name="E9890024" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Straße</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9890025" type="String_MinL1_MaxL4_Musterm1643987249_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Hausnummer</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9890026" type="String_MinL1_MaxL6_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Hausnummerzusatz</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9190023" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Adressergänzung</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846029" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Postleitzahl und Ort im Ausland</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9146021" type="NAEnum_LAND_OF_WORLD_2020_ohne_DE_1_BaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Staat (nur angeben, wenn im Ausland)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="NNat_Pers_1964118451_CType">
+        <xs:sequence>
+            <xs:element name="E9846014" type="String_MinL1_MaxL72_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Bezeichnung</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Adr" type="Adr_m1323624525_CType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Adr_m1323624525_CType">
+        <xs:sequence>
+            <xs:element name="Str_Adr" type="Str_Adr_m769525280_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Ausl_Adr" type="Ausl_Adr_m769525280_CType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Str_Adr_m769525280_CType">
+        <xs:sequence>
+            <xs:element name="E9892024" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Straße</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9892025" type="String_MinL1_MaxL4_Musterm1643987249_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Hausnummer</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9892026" type="String_MinL1_MaxL6_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Hausnummerzusatz</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9192023" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Adressergänzung</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9892027" type="String_MinL5_MaxL5_Muster2084297628_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Postleitzahl (Inland)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9892028" type="String_MinL1_MaxL20_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Ort</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Ausl_Adr_m769525280_CType">
+        <xs:sequence>
+            <xs:element name="E9893024" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Straße</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9893025" type="String_MinL1_MaxL4_Musterm1643987249_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Hausnummer</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9893026" type="String_MinL1_MaxL6_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Hausnummerzusatz</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9193023" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Adressergänzung</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9893029" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Postleitzahl und Ort im Ausland</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9193021" type="NAEnum_LAND_OF_WORLD_2020_ohne_DE_1_BaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Staat (nur angeben, wenn im Ausland)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Ordn_Krit_1964118451_CType">
+        <xs:sequence>
+            <xs:element name="E9145701" type="BundesfinanzamtsnummerBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Zuständiges inländisches Finanzamt</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9145702" type="SteuernummerBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Steuernummer</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9146070" type="IDNrBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Identifikationsnummer</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9845703" type="String_MinL17_MaxL17_Muster19518124_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Wirtschafts-Identifikationsnummer</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Art_Bet_gung_138127_CType">
+        <xs:sequence>
+            <xs:element name="Bet_gung_Beg_WJ" type="Bet_gung_Beg_WJ_819435678_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Aend_Bet_gung" type="Aend_Bet_gung_819435678_CType" minOccurs="0" maxOccurs="5"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Bet_gung_Beg_WJ_819435678_CType">
+        <xs:sequence>
+            <xs:element name="E9145101" type="Enum_FB_Art_Bet_gung_Bet_gung_Beg_WJ_E9145101_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Beteiligte(r) ist</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Aend_Bet_gung_819435678_CType">
+        <xs:sequence>
+            <xs:element name="E9845101" type="Enum_FB_Art_Bet_gung_Aend_Bet_gung_E9845101_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Beteiligte(r) ist</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9852101" type="DatumTTpMMpJJJJBekanntBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>ab</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Art_Bet_ter_138127_CType">
+        <xs:sequence>
+            <xs:element name="Bet_ter_Beg_WJ" type="Bet_ter_Beg_WJ_m238969916_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Aend_Bet_ter" type="Aend_Bet_ter_m238969916_CType" minOccurs="0" maxOccurs="5"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Bet_ter_Beg_WJ_m238969916_CType">
+        <xs:sequence>
+            <xs:element name="E9145770" type="Enum_FB_Art_Bet_ter_Bet_ter_Beg_WJ_E9145770_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Beteiligte(r) ist</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Aend_Bet_ter_m238969916_CType">
+        <xs:sequence>
+            <xs:element name="E9845770" type="Enum_FB_Art_Bet_ter_Aend_Bet_ter_E9845770_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Beteiligte(r) ist</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9852770" type="DatumTTpMMpJJJJBekanntBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>ab</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Beschr_Stpfl_138127_CType">
+        <xs:sequence>
+            <xs:element name="Beschr_Stpfl_Beg_WJ" type="Beschr_Stpfl_Beg_WJ_569452032_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Aend_beschr_Stpfl" type="Aend_beschr_Stpfl_569452032_CType" minOccurs="0" maxOccurs="5"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Beschr_Stpfl_Beg_WJ_569452032_CType">
+        <xs:sequence>
+            <xs:element name="E9145772" type="Ja1BaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Beschränkt einkommensteuerpflichtige Person, beschränkt steuerpflichtige Körperschaft oder Personengesellschaft, an der eine beschränkt steuerpflichtige Körperschaft beteiligt ist</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Aend_beschr_Stpfl_569452032_CType">
+        <xs:sequence>
+            <xs:element name="E9852772" type="DatumTTpMMpJJJJBekanntBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Die beschränkte Steuerpflicht des Beteiligten beginnt am</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9853772" type="DatumTTpMMpJJJJBekanntBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Die beschränkte Steuerpflicht des Beteiligten endet am</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Bet_BV_PV_138127_CType">
+        <xs:sequence>
+            <xs:element name="Bet_Voll_BV" type="Bet_Voll_BV_m1157587984_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Bet_Sbv" type="Bet_Sbv_m1157587984_CType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Bet_Voll_BV_m1157587984_CType">
+        <xs:sequence>
+            <xs:element name="BV_PV_Beg_WJ" type="BV_PV_Beg_WJ_m240604890_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Aend_Bet_ter" type="Aend_Bet_ter_m240604890_CType" minOccurs="0" maxOccurs="5"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="BV_PV_Beg_WJ_m240604890_CType">
+        <xs:sequence>
+            <xs:element name="E9152002" type="Enum_FB_Bet_BV_PV_Bet_Voll_BV_BV_PV_Beg_WJ_E9152002_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Die Beteiligung gehört zum Betriebsvermögen bei den Einkünften aus</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Aend_Bet_ter_m240604890_CType">
+        <xs:sequence>
+            <xs:element name="E9845764" type="Enum_FB_Bet_BV_PV_Bet_Voll_BV_Aend_Bet_ter_E9845764_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Die Beteiligung gehört zum Betriebsvermögen bei den Einkünften aus</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9852105" type="DatumTTpMMpJJJJBekanntBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>ab</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Bet_Sbv_m1157587984_CType">
+        <xs:sequence>
+            <xs:element name="E9852200" type="String_MinL1_MaxL999_CType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Name der anderen Gesellschaft</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9852201" type="SteuernummerBaseCType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Steuernummer der anderen Gesellschaft</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9852202" type="DezimalzahlNichtNegOhneFuehrNull_MaxVK3_MinNK2_MaxNK2_CType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Darauf entfallender Anteil der Einkünfte in %</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Ang_Auft_138127_CType">
+        <xs:sequence>
+            <xs:element name="Auft_Kap" type="Auft_Kap_m1633365516_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Auft_Bruch" type="Auft_Bruch_m1633365516_CType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Auft_Kap_m1633365516_CType">
+        <xs:sequence>
+            <xs:element name="E9850012" type="DezimalzahlOhneFuehrNull_MaxL15_MaxVK12_MinNK2_MaxNK2_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Kapital</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Auft_Bruch_m1633365516_CType">
+        <xs:sequence>
+            <xs:element name="E9850013" type="GanzzahlNichtNegOhneFuehrNull_Muster1442570484_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Zähler</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9850014" type="GanzzahlPosOhneFuehrNull_Muster1442570484_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Nenner</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Aend_Aufteil_138127_CType">
+        <xs:sequence>
+            <xs:element name="Aendr_Auft_Kap" type="Aendr_Auft_Kap_m1868024178_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Aend_Auft_Bruch" type="Aend_Auft_Bruch_m1868024178_CType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Aendr_Auft_Kap_m1868024178_CType">
+        <xs:sequence>
+            <xs:element name="E9850011" type="DezimalzahlOhneFuehrNull_MaxL15_MaxVK12_MinNK2_MaxNK2_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Kapital</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9852001" type="DatumTTpMMpJJJJBekanntBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>ab</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Aend_Auft_Bruch_m1868024178_CType">
+        <xs:sequence>
+            <xs:element name="E9145116" type="GanzzahlNichtNegOhneFuehrNull_Muster1442570484_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Zähler</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9145117" type="GanzzahlPosOhneFuehrNull_Muster1442570484_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Nenner</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9845116" type="DatumTTpMMpJJJJBekanntBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>ab</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Eintr_Austr_138127_CType">
+        <xs:sequence>
+            <xs:element name="E9145750" type="DatumTTpMMpJJJJBekanntBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Eintrittsdatum</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9145751" type="DatumTTpMMpJJJJBekanntBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Austrittsdatum</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="HR_138127_CType">
+        <xs:sequence>
+            <xs:element name="Einl_HR_Beg_WJ" type="Einl_HR_Beg_WJ_2390711_CType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Einl_HR_Aend_HR" type="Einl_HR_Aend_HR_2390711_CType" minOccurs="0" maxOccurs="10"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Einl_HR_Beg_WJ_2390711_CType">
+        <xs:sequence>
+            <xs:element name="E9850017" type="DezimalzahlOhneFuehrNull_MaxL15_MaxVK12_MinNK2_MaxNK2_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Einlage laut Handelsregister</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Einl_HR_Aend_HR_2390711_CType">
+        <xs:sequence>
+            <xs:element name="E9850018" type="DezimalzahlOhneFuehrNull_MaxL15_MaxVK12_MinNK2_MaxNK2_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Einlage laut Handelsregister</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9850019" type="DatumTTpMMpJJJJBekanntBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>ab</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Verst_erb_schenk_138127_CType">
+        <xs:sequence>
+            <xs:element name="E9145719" type="Ja1BaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Beteiligte natürliche Person ist verstorben / beteiligte Kapital- oder Personengesellschaft ist gelöscht / aufgelöst / umgewandelt worden</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Rechtsnachf" type="Rechtsnachf_1049143900_CType" minOccurs="0" maxOccurs="10"/>
+            <xs:element name="Erb_schenk_Anteil" type="Erb_schenk_Anteil_1049143900_CType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Rechtsnachf_1049143900_CType">
+        <xs:sequence>
+            <xs:element name="E9846404" type="String_MinL1_MaxL100_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Namenszeile</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846414" type="NAEnum_Titel_Person_2_BaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Titel</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846413" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Vorname</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846412" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Namensbestandteil</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846411" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Name</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846424" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Straße</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846425" type="String_MinL1_MaxL4_Musterm1643987249_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Hausnummer</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846426" type="String_MinL1_MaxL6_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Hausnummerzusatz</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846423" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Adressergänzung</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846427" type="String_MinL5_MaxL5_Muster2084297628_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Postleitzahl (Inland)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846428" type="String_MinL1_MaxL20_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Ort</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846429" type="String_MinL1_MaxL25_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Postleitzahl und Ort im Ausland</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9846421" type="NAEnum_LAND_OF_WORLD_2020_ohne_DE_1_BaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Staat (nur angeben, wenn im Ausland)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Erb_schenk_Anteil_1049143900_CType">
+        <xs:sequence>
+            <xs:element name="E9145720" type="Enum_FB_Verst_erb_schenk_Erb_schenk_Anteil_E9145720_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Beteiligter hat seinen Anteil an andere Beteiligte</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9845720" type="DatumTTpMMpJJJJBekanntBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>am</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="E9852700" type="GanzzahlNichtNegOhneFuehrNull_MaxVK3_MinW0_MaxW100_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Verschenkter Anteil in %</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Vorsatz_67881_CType">
+        <xs:sequence>
+            <xs:element name="Unterfallart" type="String_MinL2_MaxL2_Muster1541_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Unterfallart (bei E05 ist der Wert 05 zu verwenden)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Vorgang" type="Enum_Vorsatz_Vorgang_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Vorgang</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="StNr" type="SteuernummerBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Steuernummer</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Ordnungsbegriff" type="String_MinL13_MaxL13_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Ordnungsbegriff</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ID" type="IDNrBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Identifikationsnummer steuerpflichtige Person / Ehemann / Person A</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="IDEhefrau" type="IDNrBaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Identifikationsnummer Ehefrau / Person B</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Zeitraum" type="String_MinL4_MaxL4_Musterm1643987249_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Jahr der Erklärung (Veranlagungszeitraum)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="AbsName" type="String_MinL1_MaxL45_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Name des Absenders der Erklärung</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="AbsStr" type="String_MinL1_MaxL30_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Straße des Absenders der Erklärung</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="AbsPlz" type="String_MinL5_MaxL5_Muster2084297628_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Postleitzahl des Absenders der Erklärung</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="AbsOrt" type="String_MinL1_MaxL29_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Ort des Absenders der Erklärung</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Copyright" type="String_MinL1_MaxL50_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Copyrightvermerk des Herstellers der Steuersoftware</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="TeleNummer" type="String_MinL3_MaxL3_Muster1991846654_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>TeleNummer (für finanzamtsinterne Zwecke; keine Eingabe durch Anwender)</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="OrdNrArt" type="String_MinL1_MaxL1_Muster83_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Art der Ordnungsnummer (zulässig ist nur der Wert &quot;S&quot; für Steuernummer).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Rueckuebermittlung" type="Rueckuebermittlung_m1635471138_CType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Rueckuebermittlung_m1635471138_CType">
+        <xs:sequence>
+            <xs:element name="Bescheid" type="JaNein12BaseCType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Wird die elektronische Bereitstellung der Bescheiddaten gewünscht?</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ArtRueckuebermittlung" type="String_MinL1_MaxL10_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Art der Benachrichtigung über vorliegende Bescheiddaten zur Abholung</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="SchluesselRueckuebermittlung" type="String_MinL1_MaxL2997_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Schlüssel unter dem die Bescheiddaten verschlüsselt zur Abholung bereitgestellt werden sollen</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="AdresseRueckuebermittlung" type="EMail_MinL1_MaxL290_CType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Benachrichtigungsadresse (in der Regel E-Mail-Adresse) für die Benachrichtigung über die elektronische Bereitstellung der Bescheiddaten.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

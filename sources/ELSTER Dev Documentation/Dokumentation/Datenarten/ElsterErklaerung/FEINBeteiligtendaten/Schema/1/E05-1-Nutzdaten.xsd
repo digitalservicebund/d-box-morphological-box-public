@@ -1,0 +1,8 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:e05="http://finkonsens.de/elster/elstererklaerung/feinbeteiligtendaten/e05/v1" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:import namespace="http://finkonsens.de/elster/elstererklaerung/feinbeteiligtendaten/e05/v1" schemaLocation="E05-1.xsd"/>
+    <xs:complexType name="NutzdatenCType">
+        <xs:sequence>
+            <xs:element ref="e05:E05"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

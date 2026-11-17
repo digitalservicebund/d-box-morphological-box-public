@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Elster xmlns="http://www.elster.de/elsterxml/schema/v11">
+	<TransferHeader version="11">
+		<Verfahren>ElsterBereitstellung</Verfahren>
+		<DatenArt>EPKurzmitteilung</DatenArt>
+		<Vorgang>send-Auth</Vorgang>
+        <Testmerker>700000004</Testmerker>
+        <Empfaenger id="L">
+            <Ziel>CS</Ziel>
+        </Empfaenger>
+        <HerstellerID>74931<!-- Bitte durch die eigene Hersteller-ID ersetzen --></HerstellerID>
+        <DatenLieferant>Lieferant</DatenLieferant> 
+        <Datei> 
+            <Verschluesselung>CMSEncryptedData</Verschluesselung>
+            <Kompression>GZIP</Kompression>
+            <TransportSchluessel/>
+        </Datei> 
+        <VersionClient>ERiC Beispiele</VersionClient>
+	</TransferHeader>
+	<DatenTeil>
+		<Nutzdatenblock>
+			<NutzdatenHeader version="11">
+				<NutzdatenTicket>1</NutzdatenTicket>
+				<Empfaenger id="L">CS</Empfaenger>
+				<Hersteller>
+					<ProduktName>ELSTER-Transfer, BayLfSt</ProduktName>
+					<ProduktVersion>26.03</ProduktVersion>
+				</Hersteller>
+				<DatenLieferant>ETR</DatenLieferant>
+			</NutzdatenHeader>
+			<Nutzdaten>
+				<ElsterBereitstellung xmlns="http://www.elster.de/ElsterBereitstellung/v2">
+					<Bereitstellung>
+						<MetaInformationen>
+							<OrdnungsBegriff typ="accountId">1234567890</OrdnungsBegriff>
+							<OrdnungsBegriff typ="bekanntgabevorgangsid">31dc58568a2f1999b4e441d57c634d9fc4bd68e8a0b0321b9953b8567a4148a3</OrdnungsBegriff>
+							<OrdnungsBegriff typ="bezeichnungnachricht">Beispiel HTML Formatierung</OrdnungsBegriff>
+							<OrdnungsBegriff typ="sendername">Sachgebiet Rasenmäher</OrdnungsBegriff>
+							<MetaInfoMaps>
+								<MetaInfoMap typ="ANSCHREIBEN">
+									<Meta name="sendername">Sachgebiet Rasenmäher</Meta>
+									<Meta name="bezeichnungnachricht">Beispiel HTML Formatierung</Meta>
+									<Meta name="textnachricht">PHA+DQoJR3V0ZW4gVGFnIEVNUEbDhE5HRVIsPGJyPg0KCWluIGRlbiBBbmjDpG5nZW4gZmluZGVuIFNpZSBJaHJlbiBCZXNjaGVpZCBmw7xyIGVpbmUgUmFzZW5tw6RoZ2VuZWhtaWd1bmcuPGJyPg0KPC9wPg0KPHVsPg0KCTxsaT4xLiBHZW5laG1pZ3VuZzwvbGk+DQoJPGxpPjIuIERhcnN0ZWxsdW5nIGRlciBiZXRyb2ZmZW5lbiBSYXNlbmZsw6RjaGU8L2xpPg0KPC91bD4NCjxwPg0KCU1pdCBmcmV1bmRsaWNoZW4gR3LDvMOfZW4sPGJyPg0KCUlociBBQlNFTkRFUjxicj4NCjwvcD4=</Meta>
+								</MetaInfoMap>
+							</MetaInfoMaps>
+						</MetaInformationen>
+						<Verschluesselung/>
+					</Bereitstellung>
+					<Benachrichtigung>
+						<EMailNachricht>
+							<EmpfaengerErmitteln>AUTOMATISCH</EmpfaengerErmitteln>
+							<Betreff>Neue Nachricht in Ihrem Postfach</Betreff>
+							<Text encoding="UTF-8">U2VociBnZWVocnRlL3IgTnV0emVyL2luLA0KDQpmw7xyIFNpZSB3dXJkZSBlaW5lIG5ldWUgTWl0dGVpbHVuZyB6dXIgQWJob2x1bmcgYmVyZWl0Z2VzdGVsbHQuDQoNCg0KRGllIERhdGVuIHN0ZWhlbiBJaG5lbiB6ZWl0bGljaCBiZWdyZW56dCB6dW0gZWxla3Ryb25pc2NoZW4gQWJydWYgaW4gSWhyZW0gUG9zdGZhY2ggYmVyZWl0Lg0KDQoNCkRpZXMgaXN0IGVpbmUgbWFzY2hpbmVsbCBlcnpldWd0ZSBFLU1haWwgLSBiaXR0ZSBhbnR3b3J0ZW4gU2llIG5pY2h0IGFuIGRpZXNlIEUtTWFpbC1BZHJlc3NlLg0KDQoNCk1pdCBmcmV1bmRsaWNoZW4gR3LDvMOfZW4NCk1laW4gVW50ZXJuZWhtZW5za29udG8gLyBNZWluIEVMU1RFUg0KDQpEYXRlbnNjaHV0emhpbndlaXM6DQoNCkluZm9ybWF0aW9uIMO8YmVyIGRpZSBWZXJhcmJlaXR1bmcgcGVyc29uZW5iZXpvZ2VuZXIgRGF0ZW4gaW4gZGVyIFN0ZXVlcnZlcndhbHR1bmcgdW5kIMO8YmVyIElocmUgUmVjaHRlIG5hY2ggZGVyIERhdGVuc2NodXR6LUdydW5kdmVyb3JkbnVuZyBzb3dpZSDDvGJlciBJaHJlIEFuc3ByZWNocGFydG5lciBpbiBEYXRlbnNjaHV0emZyYWdlbiBlbnRuZWhtZW4gU2llIGJpdHRlIGRlbSBhbGxnZW1laW5lbiBJbmZvcm1hdGlvbnNzY2hyZWliZW4gZGVyIEZpbmFuenZlcndhbHR1bmcuIERpZXNlcyBJbmZvcm1hdGlvbnNzY2hyZWliZW4gZmluZGVuIFNpZSB1bnRlciB3d3cuZmluYW56YW10LmRlICh1bnRlciBkZXIgUnVicmlrIOKAnkRhdGVuc2NodXR64oCcKSBvZGVyIGVyaGFsdGVuIFNpZSBiZWkgSWhyZW0gRmluYW56YW10Lg0KDQpISU5XRUlTOg0KRGllc2UgenVtIEFicnVmIGJlcmVpdGdlc3RlbGx0ZW4gRGF0ZW4gc2luZCByZWNodGxpY2ggbmljaHQgcmVsZXZhbnQsIHNvbmRlcm4gZGllbmVuIGxlZGlnbGljaCBJaHJlciBJbmZvcm1hdGlvbi4=</Text>
+						</EMailNachricht>
+					</Benachrichtigung>
+				</ElsterBereitstellung>
+			</Nutzdaten>
+		</Nutzdatenblock>
+	</DatenTeil>
+</Elster>

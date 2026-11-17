@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Elster xmlns="http://www.elster.de/elsterxml/schema/v11">
+    <TransferHeader version="11">
+        <Verfahren>ElsterErklaerung</Verfahren>
+        <DatenArt>Schenkungsteuer</DatenArt>
+        <Vorgang>send-Auth</Vorgang>
+        <Testmerker>700000004</Testmerker>
+        <HerstellerID>74931<!-- Bitte durch die eigene Hersteller-ID ersetzen --></HerstellerID>
+        <DatenLieferant>ERiC Entwicklung</DatenLieferant>
+        <Datei>
+            <Verschluesselung>CMSEncryptedData</Verschluesselung>
+            <Kompression>GZIP</Kompression>
+            <TransportSchluessel/>
+        </Datei>
+    </TransferHeader>
+    <DatenTeil>
+        <Nutzdatenblock>
+            <NutzdatenHeader version="11">
+                <NutzdatenTicket>adfjasldkfuweor456asvs</NutzdatenTicket>
+                <Empfaenger id="F">1197</Empfaenger>
+                <Hersteller>
+                    <ProduktName>ERICTest</ProduktName>
+                    <ProduktVersion>2009.1/0</ProduktVersion>
+                </Hersteller>
+                <DatenLieferant>Softwaretester ERiC</DatenLieferant>
+            </NutzdatenHeader>
+            <Nutzdaten>
+                <Schenkungsteuer xmlns="http://finkonsens.de/elster/elstererklaerung/schenkungsteuer/v5" version="5">
+                    <Schenkungsteuererklaerung>
+                        <Finanzamt>1197</Finanzamt>
+                        <ZeitpunktSchenkung>
+                            <Zeitpunkt>01.01.2022</Zeitpunkt>
+                        </ZeitpunktSchenkung>
+                        <Zuwender>
+                            <Name>Mustermann</Name>
+                            <Vorname>Erika</Vorname>
+                            <Geburtsdatum>01.06.1999</Geburtsdatum>
+                            <Adrkette>
+                                <StrAdr>
+                                    <Str>Teststraße</Str>
+                                    <HausNr>1</HausNr>
+                                    <Plz>10243</Plz>
+                                    <Ort>Berlin</Ort>
+                                </StrAdr>
+                            </Adrkette>
+                        </Zuwender>
+                        <Erwerber>
+                            <Name>Mustermann</Name>
+                            <Vorname>Max</Vorname>
+                            <Geburtsdatum>31.12.1980</Geburtsdatum>
+                            <Adrkette>
+                                <StrAdr>
+                                    <Str>Teststraße</Str>
+                                    <HausNr>2</HausNr>
+                                    <Plz>10243</Plz>
+                                    <Ort>Berlin</Ort>
+                                </StrAdr>
+                            </Adrkette>
+                            <Verwandtschaft>
+                                <Verwandtschaftsverhaeltnis>51</Verwandtschaftsverhaeltnis>
+                            </Verwandtschaft>
+                        </Erwerber>
+                        <Sonstiges>
+                            <Bankverbindung>
+                                <IBAN>GB33BUKB20201555555555</IBAN>
+                                <Geldinstitut>Bank</Geldinstitut>
+                            </Bankverbindung>
+                        </Sonstiges>
+                        <Gegenstaende>
+                            <Uebriges>
+                                <GuthabenGeldinstitut>
+                                    <MitGuthaben>1</MitGuthaben>
+                                    <Einzelangaben>
+                                        <Wert>1</Wert>
+                                    </Einzelangaben>
+                                    <Sum>
+                                        <Summe>1</Summe>
+                                    </Sum>
+                                </GuthabenGeldinstitut>
+
+                            </Uebriges>
+                        </Gegenstaende>
+                    </Schenkungsteuererklaerung>
+                </Schenkungsteuer>
+                <Anhaenge xmlns="http://finkonsens.de/elster/anhaenge/simple/v3" version="3">
+                    <Rueckmeldung>
+                        <RueckmeldungGewuenscht>true</RueckmeldungGewuenscht>
+                    </Rueckmeldung>
+                    <Anhang>
+                        <Dateibezeichnung>Beispiel Anhang</Dateibezeichnung>
+                        <Dateityp>application/pdf</Dateityp>
+                        <Dateiinhalt>T1RfCUaYOBIxqkQHpbENaHYZVecWGONJXjr9skQ4JoNiY78h/QnoWkLDDMSbZWR6x2QR5aFG5tLA
+nKNPxRftdrycP0L/cT2Ti0nO6lTn4bSdEtD+e1P266Tv9GiFD563MexXszcbUA0gVbvitCXdcA7C
+ufanKEz1LmVd1xJUUaw7VspbZCYXAliB4HGUC1a3F5E3CUGPxwAJIzICLmHH1Xro5/qc8NYGTpHQ
+hEGK1SAZlcY29X08VeCuIppRLC8eLjpTv8TJZHM=</Dateiinhalt>
+                    </Anhang>
+                </Anhaenge>
+            </Nutzdaten>
+        </Nutzdatenblock>
+    </DatenTeil>
+</Elster>

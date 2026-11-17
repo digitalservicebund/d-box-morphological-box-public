@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Elster xmlns="http://www.elster.de/elsterxml/schema/v11">
+  <TransferHeader version="11">
+    <Verfahren>ElsterNachricht</Verfahren>
+    <DatenArt>Strafanzeige</DatenArt>
+    <Vorgang>send-Auth</Vorgang>
+    <Testmerker>700000004</Testmerker>
+    <HerstellerID>74931<!-- Bitte durch die eigene Hersteller ID ersetzen --></HerstellerID>
+    <DatenLieferant>ERiC Beispiele</DatenLieferant>
+    <Datei>
+      <Verschluesselung>CMSEncryptedData</Verschluesselung>
+      <Kompression>GZIP</Kompression>
+    </Datei>
+  </TransferHeader>
+  <DatenTeil>
+    <Nutzdatenblock>
+      <NutzdatenHeader version="11">
+        <NutzdatenTicket>1</NutzdatenTicket>
+        <Empfaenger id="L">RP</Empfaenger>
+      </NutzdatenHeader>
+      <Nutzdaten>
+        <Strafanzeige xmlns="http://finkonsens.de/elster/elsternachricht/strafanzeige/v1" version="1">
+          <Strafanzeige>
+            <AnFinanzamt>
+              <Finanzamt>2795</Finanzamt>
+            </AnFinanzamt>
+            <Beschuldigte>
+              <Angezeigter>
+                <AnredeId>3</AnredeId>
+                <Titel>Prof.</Titel>
+                <Vorname>Manfred</Vorname>
+                <Name>Musterfrau</Name>
+                <Inlandsadresse>
+                  <Str>Mustergasse</Str>
+                  <HausNr>896</HausNr>
+                  <HausNrZu>h</HausNrZu>
+                  <AdressErg>Apt. 512</AdressErg>
+                  <Plz>78787</Plz>
+                  <Ort>Musterburg</Ort>
+                </Inlandsadresse>
+                <Kommunikation>
+                  <Tel>
+                    <IntVorw>+56</IntVorw>
+                    <NatVorw>901</NatVorw>
+                    <RufNr>90123</RufNr>
+                  </Tel>
+                  <Tel>
+                    <IntVorw>+9</IntVorw>
+                    <NatVorw>890</NatVorw>
+                    <RufNr>45678</RufNr>
+                  </Tel>
+                  <Email>
+                    <Adresse>Manfred.Musterfrau@example.com</Adresse>
+                  </Email>
+                  <Fax>
+                    <FaxNummer>034 567</FaxNummer>
+                  </Fax>
+                </Kommunikation>
+                <AngabeHomepage>
+                  <Homepage>the.example.com/de/</Homepage>
+                </AngabeHomepage>
+              </Angezeigter>
+            </Beschuldigte>
+            <Beschuldigte>
+              <Angezeigter>
+                <AnredeId>1</AnredeId>
+                <Titel>Dr.</Titel>
+                <Vorname>Susanne</Vorname>
+                <Name>Mustermann</Name>
+                <Inlandsadresse>
+                  <Str>Musterweg</Str>
+                  <HausNr>77</HausNr>
+                  <HausNrZu>a</HausNrZu>
+                  <AdressErg>Zimmer 200</AdressErg>
+                  <Plz>78787</Plz>
+                  <Ort>Musterlingen</Ort>
+                </Inlandsadresse>
+                <Kommunikation>
+                  <Tel>
+                    <IntVorw>+49</IntVorw>
+                    <NatVorw>12</NatVorw>
+                    <RufNr>890123</RufNr>
+                  </Tel>
+                  <Tel>
+                    <IntVorw>+4</IntVorw>
+                    <NatVorw>901</NatVorw>
+                    <RufNr>456789</RufNr>
+                  </Tel>
+                  <Email>
+                    <Adresse>Susanne.Mustermann@example.net</Adresse>
+                  </Email>
+                  <Fax>
+                    <FaxNummer>045 67890123</FaxNummer>
+                  </Fax>
+                </Kommunikation>
+                <AngabeHomepage>
+                  <Homepage>www.example.org</Homepage>
+                </AngabeHomepage>
+              </Angezeigter>
+            </Beschuldigte>
+            <Grund>
+              <Sachverhalt>Wieshaltsois</Sachverhalt>
+            </Grund>
+          </Strafanzeige>
+        </Strafanzeige>
+      </Nutzdaten>
+    </Nutzdatenblock>
+  </DatenTeil>
+</Elster>

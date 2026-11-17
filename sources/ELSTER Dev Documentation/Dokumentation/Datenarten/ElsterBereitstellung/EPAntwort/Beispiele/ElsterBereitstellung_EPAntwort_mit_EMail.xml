@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Elster xmlns="http://www.elster.de/elsterxml/schema/v11">
+    <TransferHeader version="11">
+        <Verfahren>ElsterBereitstellung</Verfahren>
+        <DatenArt>EPAntwort</DatenArt>
+        <Vorgang>send-Auth</Vorgang>
+        <Testmerker>700000004</Testmerker>
+        <Empfaenger id="L">
+            <Ziel>CS</Ziel>
+        </Empfaenger>
+        <HerstellerID>74931<!-- Bitte durch die eigene Hersteller-ID ersetzen --></HerstellerID>
+        <DatenLieferant>Lieferant</DatenLieferant>
+        <Datei>
+            <Verschluesselung>CMSEncryptedData</Verschluesselung>
+            <Kompression>GZIP</Kompression>
+            <TransportSchluessel/>
+        </Datei>
+        <VersionClient>ERiC Beispiele</VersionClient>
+    </TransferHeader>
+    <DatenTeil>
+        <Nutzdatenblock>
+            <NutzdatenHeader version="11">
+                <NutzdatenTicket>1</NutzdatenTicket>
+                <Empfaenger id="L">CS</Empfaenger>
+                <Hersteller>
+                    <ProduktName>TestProdukt</ProduktName>
+                    <ProduktVersion>1.0</ProduktVersion>
+                </Hersteller>
+                <DatenLieferant>Lieferanteninfo</DatenLieferant>
+            </NutzdatenHeader>
+			<Nutzdaten>
+				<ElsterBereitstellung xmlns="http://www.elster.de/ElsterBereitstellung/v2">
+					<Bereitstellung>
+						<MetaInformationen>
+							<OrdnungsBegriff typ="zuordnungskriterium">eigene-uuid</OrdnungsBegriff>
+							<OrdnungsBegriff typ="referenzbestid">be1066tpv0wqtz7fnjceg4m819s0z3ur</OrdnungsBegriff>
+						</MetaInformationen>
+						<Verschluesselung/>
+					</Bereitstellung>
+					<Benachrichtigung>
+						<EMailNachricht>
+							<EmpfaengerErmitteln>AUTOMATISCH</EmpfaengerErmitteln>
+							<Betreff>Szenario 1, Testfall 1</Betreff>
+							<Text>SGFsbG8=</Text>
+						</EMailNachricht>
+					</Benachrichtigung>
+				</ElsterBereitstellung>
+				<Anhaenge xmlns="http://finkonsens.de/elster/anhaenge/simple/v4" version="4">
+					<Anhang>
+						<Dateibezeichnung>Einspruch</Dateibezeichnung>
+						<Dateityp>application/pdf</Dateityp>
+						<Dateiinhalt>MTAwMDAwMzEwMDAwMDcwNEVTVCAgICAgICAgICAgIEJZICAoOTEwMSkgQmF5ZXJpc2NoZXMgTGFu
+                                ZGVzYW10IGZ1ciBTdGV1ZXJuICAgICAgICAgICAgVm9pZ3RsYW5kZXJzdHJhc2UgNy85LzExICAg
+                                ICAgOTA0ODlOdXJuYmVyZyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICBlYzE0MTB5NXFvNGpmdzZ5d3BjbXAybmM4ZGM2NTl4MURBVCAgICAgMDAyMDA7aWNoYmluZGll
+                                ZGF0ZXZAZGF0ZXYuZGEgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAwMDAwMDAwMDAwMDAwMDAwOTkyNEVTQiAgMDMw
+                                MDFDTEEwMjAxMzAxMjkwMDAwMDAyMDE0MDUyMTA4MDkwN05OSkpKSkpKTjIwMTQwNTIxMDgwOTA3
+                                ICAgICAgICAgICAgICAgICAgICAxMDAxMDAzMTAwMDAwMTI4RUwwMTAwMDAwMDAwMDAwMDAwMDIw
+                                OTAwMDIwMTAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDEwMDIwMDMwMDAwMDAxMjhQRTAyMDAw
+                                MDAwMDAwMDAwICAgICAgICAgICAgIDAwMDAwMDAwICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTAwMzAwMzAw
+                                MDAwMDEyOFBFMDIwMDAwMDAwMDAwMDAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAxMDA0MDAzMDAwMDAwMTI4R1owMTAwMDAwMDAwMDAwMCAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgIDEwMDUwMDMwMDAwMDAxMjhFTFNURVIgICAgICAgICAwMzAwMDAw
+                                MDAwMDAwMDAwMDAwMDAwMDAwMDAwOTAwMCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMTAwNjAwMzEwMDAwMDY0MEVMU1RFUiAg
+                                ICAgICAgIDAzQUIwMDAwMSAgICAgICAgICAgICAgICAgMDAwMDEwMDAwMFNRICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+                                ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAwMS8wMSAgICAgICAg
+                                ICA5OTk5MTIzMTIzNTk1OUVTVFAgICAgICAgICAgICAgICAgICAgICAgICAgIA==</Dateiinhalt>
+						<Virengeprueft>true</Virengeprueft>
+						<Normalisiert>true</Normalisiert>
+					</Anhang>
+				</Anhaenge>
+			</Nutzdaten>
+		</Nutzdatenblock>
+	</DatenTeil>
+</Elster>
