@@ -91,7 +91,7 @@ Abgleich der Belege mit `BundID-ZBP/ZBP-Zusammenfassung.md` und `morph_box.csv`,
 - **I1, Abschnitt 6:** Der Organisationserlass „belässt“ nicht ausdrücklich das Identitätsmanagement beim BMI, er nimmt es nur von der Übertragung an das BMDS aus. Das BMI steht nur im Wortlaut von § 3 OZG.
 - **I5:** Die SSP-Anbindung steht in SID auf Folien 35–40, nicht 23–40.
 - **R4:** Kooperationsvereinbarungen sind nur für 2022 und 2023 belegt (BMI22, D9824), nicht für heute.
-- **Ü4:** Den Eintrag „Abruf an Behörde (BundID)“ in `morph_box.csv` stützt nur die Lesebestätigung von 2022 (WP22). MV nennt die „Bestätigung der Einlagerung“, nicht „Speicherbestätigung“.
+- **Ü4:** Den Eintrag „Abruf an Behörde (BundID)“ in `morph_box.csv` stützt nur die Lesebestätigung von 2022 (WP22). Deshalb nach Ausprägung 3 „Lesen an Behörde“ verschoben; das Aktivitätsprotokoll der Person steht in der neuen Ausprägung 7. MV nennt die „Bestätigung der Einlagerung“, nicht „Speicherbestätigung“.
 - **Ü3 A5 („BundID hoch“, § 3a VwVfG):** Für eine Verbindung von BundID und § 3a VwVfG wurde kein Primärbeleg gefunden. Näher liegt § 9a Abs. 5 OZG.
 - **P4:** „keine Vertretung“ beruht nur auf einer Fehlanzeige. § 9 Abs. 1 OZG nennt Bevollmächtigte beim Abruf, eine Vertretungsfunktion im ZBP ist aber nicht dokumentiert.
 - **Nicht neu geprüft:** D8093, D10417, MPK und NEO; die Aussagen stammen aus der Zusammenfassung.
