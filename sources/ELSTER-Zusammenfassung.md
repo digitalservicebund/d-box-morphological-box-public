@@ -73,6 +73,9 @@ Clearingstelle / Annahmeserver ──► Verteilung an die Fachverfahren der Lä
   - Nur „speziell berechtigte Verwaltungen“ mit Organisationszertifikat (EHB 9.15.4).
   - Der Absender wird über `AuthAccountID` im TransferHeader erkannt (SSb-B 8.1, 9.1).
   - Den Registrierungsprozess als „zentrale Stelle“ beschreibt eine Handreichung **[Web]**.
+  - Bayerische „Verwaltungsvorschrift über die Betriebsbedingungen des einheitlichen Organisationskontos“ vom 30.03.2022 (BayMBl. 2022 Nr. 237), Nr. 4.1.2: „Bei dem Postfach 2.0 handelt es sich um ein Postfach nach § 2 Abs. 7 OZG.“ Übermittlung nach § 9 OZG; „Voraussetzung hierfür ist die Anbindung der nutzungsberechtigten Stelle an die NEZO-Schnittstelle.“ Die VV ist ein Angebot ohne Anbindungspflicht oder Stichtag; Dienstleister sind erlaubt (Nr. 3.3) **[Web]**.
+  - Bremer Senatsvorlage vom 02.12.2022 zur „Verwaltungsvereinbarung über die Anbindung des Organisationskontos bei Bund und Ländern“ (Bund und 16 Länder, ab 01.01.2023 nach IT-PLR-Beschluss 2022/37): DIHK, BDI, BDA und ZDH „fordern eine bundesweite Anbindungsverpflichtung“. Das ist eine Forderung der Verbände, keine Pflicht; die Vereinbarung selbst verpflichtet einzelne Behörden nicht **[Web]**.
+  - Anreize für Behörden sind in keinem der Dokumente genannt.
 - **Personen und Organisationen:** Registrierung mit IdNr. oder Organisations-Steuernummer, über Mein ELSTER oder den Registrierungsassistenten ohne Portal-Login (EHB 5.2, S. 113).
 
 ## 3. Identität und Zertifikate
@@ -126,7 +129,11 @@ Die Ziffern verweisen auf die Ausprägungen der jeweiligen Zeile in `morph_box.c
   - ERiC als SDK.
   - Lieferung auch über GeCo der Landeskopfstellen und die OZG-Plattform (SSb-B 4.1; EHB 9.15, S. 417).
   - Gewerbesteuerbescheide der Kommunen kommen nicht über ERiC herein, lassen sich aber abholen (EHB 9.15.1).
-- **B2 Zugang ohne Fachverfahren:** nichts dokumentiert.
+- **B2 Zugang ohne Fachverfahren:** In der Entwickler-Doku nichts dokumentiert. Laut Web:
+  - ELSTER-Transfer (ETR) gibt es als Mein ELSTER und als Java-Anwendung „mit Web-Interface und Command-line-Interface“. Die Anwendung läuft „üblicherweise ständig auf einem Server oder Rechner“, mit Ein- und Ausgangsordnern, JSON-Adressdateien und REST-API (ETR-Hilfe) **[Web]**.
+  - Für Bescheide in das Postfach „ist die ELSTER-Transfer-Anwendung zwingend erforderlich“; webbasiertes ETR in Mein ELSTER ist „nicht für den Rückkanal geeignet“ (Leitfaden Gewerbesteuerbescheid, 24.08.2023) **[Web]**.
+  - Abschnitt 4.3.2 „Upload über ELSTER-Transfer (direkt)“ deutet einen manuellen Upload ohne HKR-System an; der Inhalt liegt nur als Bild vor **[unverifiziert]**.
+  - Ein zentraler Versanddienst oder Druckdienst ist nicht beschrieben.
 - **B3 Adressierung: 1.** Ordnungsbegriffe (SSb-B 5.2, 7.5–7.7, 8.5, 8.16):
   - `accountId`: 10 Ziffern, oder pseudonym als **`ek-` + 40 Hex-Zeichen**, aufgelöst über WIESEL.
   - `vnid`: Bevollmächtigte.
@@ -171,7 +178,7 @@ Die Ziffern verweisen auf die Ausprägungen der jeweiligen Zeile in `morph_box.c
   - Strukturierte Datenarten: `Einspruch`, `SonstigeNachrichten`, `Belegnachreichung`, `Fristverlaengerung`, `AenderungAdresse` … (EHB 9.11).
   - `SonstigeNachrichten` nur mit `send-Auth` und einem Organisationszertifikat oder einem mit IdNr. registrierten Zertifikat (EHB 9.11.6, S. 361).
   - `EPAntwort` als PDF-Anhang (EHB 9.15.5).
-  - Zeichen- und Anhangslimits je Datenart: `Datenarten/ElsterNachricht/<Datenart>/Jahresdokumentation/`. Webquellen nennen 20 PDF-Anhänge mit je bis zu 100 Seiten **[Web]**.
+  - Zeichen- und Anhangslimits je Datenart: `Datenarten/ElsterNachricht/<Datenart>/Jahresdokumentation/`. Belegnachreichung: höchstens 20 Anhänge, nur `application/pdf`, PDF-Scan mit höchstens 100 Seiten, je höchstens 10.485.760 Bytes (`Datenarten/ElsterNachricht/Belegnachreichung/Schema/24/Belegnachreichung-24-Nutzdaten.xsd`). Forenbeiträge nennen in Mein ELSTER zusätzlich ein Gesamtlimit von etwa 14 MB **[Web, Forum]**.
 - **P9 Postfach und Nutzerkonto: 1.** Siehe Abschnitt 4.
 
 ### Übermittlung
@@ -195,35 +202,44 @@ Die Ziffern verweisen auf die Ausprägungen der jeweiligen Zeile in `morph_box.c
   - Eingang: Scan auf dem Server, aktive Inhalte werden entfernt, schadhafte Anhänge gelöscht, Rückmeldung über `AnhangRueckmeldung` (EHB 5.4.11, S. 148; Hinweistext Pflicht in der Software).
   - Ausgang: Bei `EPBescheid` und `EPMitteilung` muss die Absenderin `Virengeprueft=true` setzen (EHB Tabelle 5-12).
   - Bei DIVA sind Scan und Bereinigung **verboten** (SSb-B 7.26).
+  - Formate: Anhänge an das Finanzamt nur als PDF (siehe P8). Für Anhänge der Behörden (`OZGPPNachricht`: bis 100 Anhänge, je 2 GiB, insgesamt 5 GiB, EHB 9.15.6) ist keine Formatliste dokumentiert. Eine PDF/A-Pflicht ist nicht gefunden.
 
 ### Infrastruktur und Betrieb
 
 - **I1 Betrieb und Governance: 1.** Siehe Abschnitt 2.
 - **I2 Datenhaltung und Versand: 1.** Zentral in BEST-DB und OTTER. Wo die Rechenzentren genau stehen, ist offen. Das BayLfSt betreibt eigene Rechenzentren **[Web]**.
 - **I3 Betriebsmodell für Organisationen: 1.**
-- **I4 Funktionspostfächer und interne Bearbeitung: 5.**
+- **I4 Funktionspostfächer und interne Bearbeitung: 5.** Wie die Finanzämter eingehende Nachrichten intern verteilen, ist öffentlich nicht dokumentiert; vermutlich in den KONSENS-Fachverfahren **[unverifiziert]**. Organisationen teilen sich ein Organisationszertifikat oder CEZ (siehe P3).
 - **I5 Aufnahme in den Verbund: 1.** Für Drittsoftware faktisch **3**: Lizenzvertrag und Hersteller-ID, Sanktion ist die Sperre.
 
 ### Recht
 
+- **R1 Schriftformersatz:**
+  - Behörde an Person: Ein elektronischer Verwaltungsakt erfüllt die Schriftform, wenn er in einem sicheren Verfahren nach § 87a Abs. 7 oder 8 AO übermittelt oder zum Abruf bereitgestellt wird (§ 87a Abs. 4 AO); § 122a Abs. 1 AO verweist auf § 87a Abs. 8 AO **[Web]**.
+  - Person an Finanzamt: § 87a Abs. 3 AO lässt die unmittelbare Abgabe in einem elektronischen Formular der Behörde zu, § 87a Abs. 6 AO verlangt für Datensätze eine authentifizierte Übermittlung. Satz 5 verlangt bei öffentlich zugänglichen Netzen einen elektronischen Identitätsnachweis oder ein sicheres Verfahren der Finanzverwaltung. AEAO zu § 87a Nr. 3.1: Die Schriftform kann durch Übermittlung in einem Verfahren nach § 87a Abs. 3 Sätze 4 bis 8 AO ersetzt werden; Nr. 3.2.1: Bei amtlichem Datensatz wird das Unterschrifterfordernis durch die Authentifizierung verdrängt. ELSTER wird dort nicht namentlich genannt; die Einordnung von Mein ELSTER als solches Formular ist abgeleitet **[Web]**. Der Einspruch ist nach § 357 Abs. 1 Satz 1 AO „schriftlich oder elektronisch einzureichen“ **[Web]**.
 - **R2 Teilnahmepflicht: 1 → 3.**
   - Elektronische Bekanntgabe nur mit Einwilligung **je Steuernummer**. Für Ehepaare und Organisationen zusätzlich ein Einwilligungscode per Brief (EWC); nach fünf Fehleingaben wird er gesperrt; neuere Einwilligungen überschreiben ältere (EHB 9.16.2, 9.16.3, S. 430–437).
   - Ab 2027 ist die elektronische Bekanntgabe Regelfall; Papier gibt es auf Antrag **[Web]**. Technisch dafür: `DauerPostBeStAntrag` und `-Widerruf` (EHB 9.10.1, S. 341).
 - **R3 Bekanntgabe und förmliche Zustellung: 1.**
   - DIVA nach § 122a AO (EHB 7.5, S. 187; 9.16.1.1).
   - Das `bescheiddatum` hält den Datensatz in Status 05; an diesem Tag folgen E-Mail und Bereitstellung (SSb-B 4.1).
-  - Ab 2027 gilt der Bescheid am **vierten Tag nach Bereitstellung** als bekannt gegeben **[Web]**.
-- **R4 Teilnahme der Behörden:** Für Finanzämter **3** (AO), für andere Behörden **1** (freiwillig über Postfach 2.0).
+  - Der Bescheid gilt am **vierten Tag nach Bereitstellung** als bekannt gegeben (§ 122a Abs. 4 Satz 1 AO). „Dritter“ wurde durch Art. 20 des Postrechtsmodernisierungsgesetzes vom 15.07.2024 durch „vierter“ ersetzt, in Kraft seit 01.01.2025 **[Web]**. Übergangsregel Art. 97 § 1 Abs. 15 EGAO: gilt für alle Verwaltungsakte, die „nach dem 31. Dezember 2024 … elektronisch zum Abruf bereit gestellt werden“. Maßgeblich ist die Bereitstellung, nicht der Erlass.
+  - Neufassung von § 122a AO durch das Vierte Bürokratieentlastungsgesetz vom 23.10.2024, ab 01.01.2026: Bekanntgabe „soll“ durch Bereitstellung erfolgen, Papier nur auf Antrag (§ 122a Abs. 2 AO). Nach Art. 97 § 28 Abs. 2 EGAO gilt der Regelfall (Abs. 1 Satz 2) erst für Verwaltungsakte, die nach dem 31.12.2026 erlassen werden; die Verschiebung kam mit dem Gesetz zur Anpassung des Mindeststeuergesetzes vom 22.12.2025 **[Web]**.
+  - Eine förmliche Zustellung über ELSTER (§ 122 Abs. 5 AO mit VwZG) ist nicht gefunden.
+- **R4 Teilnahme der Behörden:** Finanzämter von Bund und Ländern nehmen gemeinsam teil; eine Rechtsgrundlage für ihre Teilnahme ist nicht gefunden (Betrieb nach § 20 Abs. 3 FVG, siehe Abschnitt 2). Für andere Behörden **1**: freiwillig, nur mit Berechtigung und Anbindung über Postfach 2.0; keine Pflicht und keine Anreize, Wirtschaftsverbände fordern eine Anbindungsverpflichtung (siehe Abschnitt 2).
 
 ## 6. Widersprüche und offene Punkte
 
-- **Bekanntgabe-Tag:** EHB 7.5 (Fußnoten 47, 48) nennt den dritten Tag nach Absenden der Benachrichtigung. Das ist veraltet gegenüber dem Web und dem aktuellen § 122a Abs. 4 AO.
+- **Bekanntgabe-Tag:** EHB 7.5 (Fußnoten 47, 48) nennt den dritten Tag nach Absenden der Benachrichtigung. Das ist seit 01.01.2025 veraltet (Postrechtsmodernisierungsgesetz, aktueller § 122a Abs. 4 AO: vierter Tag nach Bereitstellung).
 - **Rechtsgrundlage `EPBescheid`:** EHB 9.15.4 nennt § 9 OZG, EHB Tabelle 9-9 nennt § 122a AO.
 - **Noch nicht belegt:**
   - Siegel oder Signatur auf Bescheiden (Ü3).
   - Gremienstruktur von KONSENS.
   - Standort der Rechenzentren.
   - Mein-ELSTER-Oberfläche und ElsterSecure im Detail: Die Doku richtet sich an Entwickler.
+  - Interne Verteilung der Eingänge in den Finanzämtern (I4).
+  - Rechtsgrundlage der Teilnahme der Finanzämter (R4).
+  - Inhalt von Abschnitt 4.3.2 im Leitfaden Gewerbesteuerbescheid (B2, nur als Bild).
 - **Datenart `Vertretung` (SSb-D 6.1):** bisher nur im Testbetrieb.
 - **Einwand der Steuerberaterkammer:** Laut `bewertungskriterien.md` bestreitet sie, dass das Nutzerkonto für Steuerbescheide ausreicht. Das ist noch rechtlich zu prüfen.
 
@@ -232,11 +248,14 @@ Die Ziffern verweisen auf die Ausprägungen der jeweiligen Zeile in `morph_box.c
 - Betrieb: [ELSTER, eine Erfolgsstory](https://www.elster.de/eportal/infoseite/elster_eine_erfolgsstory), [BayLfSt Rechenzentren 2026](https://www.lfst.bayern.de/fileadmin/RESSOURCEN/LfSt/Digital%40BayLfSt/Informationen_zu_den_Rechenzentren_03_2026.pdf)
 - Entwickler-Registrierung: [ELSTER Entwickler](https://www.elster.de/eportal/infoseite/entwickler)
 - Login: [ElsterSecure](https://www.elster.de/bportal/infoseite/elstersecure), [Registrierungsflyer](https://download.elster.de/download/dokumente/Elster_Flyer_Registrierung_neutral_BF_28-10-20.pdf)
-- Postfach 2.0 und ELSTER-Transfer: [Was ist ELSTER-Transfer?](https://www.elster.de/elsterweb/infoseite/elstertransfer_hilfe_einfuehrung), [Integrationsleitfaden Postfach](https://service.mein-unternehmenskonto.de/api/downloads/integrationsleitfaden_postfach), [Handreichung Registrierung zentrale Stelle](https://itvsh.de/fileadmin/user_upload/Dokumente/DiPlan_SH/Handreichung_zum_Registrierungsprozess_von_ELSTER_zentrale_Stelle_1.2.pdf)
+- Postfach 2.0 und ELSTER-Transfer: [Was ist ELSTER-Transfer?](https://www.elster.de/elsterweb/infoseite/elstertransfer_hilfe_einfuehrung), [Leitfaden digitaler Gewerbesteuerbescheid über den ELSTER-Rückkanal](https://download.elster.de/download/elstertransfer/dokumente/20230824_Leitfaden_DigGewStBescheid_ELSTER-Rueckkanal.pdf), [Postfach 2.0 Bedienung und Featureübersicht](https://info.mein-unternehmenskonto.de/wp-content/uploads/2023/11/Postfach-2.0-Bedienung-und-Featureuebersicht-Postfach-2.0-1.0_komprimiert.pdf), [Integrationsleitfaden Postfach](https://service.mein-unternehmenskonto.de/api/downloads/integrationsleitfaden_postfach), [Handreichung Registrierung zentrale Stelle](https://itvsh.de/fileadmin/user_upload/Dokumente/DiPlan_SH/Handreichung_zum_Registrierungsprozess_von_ELSTER_zentrale_Stelle_1.2.pdf)
 - Bekanntgabe ab 2027: [PwC](https://blogs.pwc.de/de/steuern-und-recht/article/257477/elektronische-bekanntgabe-von-steuerbescheiden-ab-2027/), [Ebner Stolz](https://www.ebnerstolz.de/de/unser-angebot/leistungen/steuerberatung/allgemeine-steuerberatung/elektronische-bekanntgabe-steuerbescheide-ab-01.01.2027-111408.html)
 - Vollmachten: [ELSTER Vollmachtsdatenbank](https://www.elster.de/elsterweb/infoseite/vollmachtsdatenbank), [BStBK Vollmachtsdatenbank](https://www.bstbk.de/de/themen/vollmachtsdatenbank)
 - Anhänge an Finanzämter: [Sachsen-Anhalt, digitale Belegübersendung](https://sachsen-anhalt.de/fileadmin/tsa_rssinclude/ministerium-der-finanzen_28_11_2020_pressemitteilung_jetzt-neu-digitale-beleguebersendung-an-finanzaemter.pdf)
-- Gesetz: [§ 122a AO](https://www.gesetze-im-internet.de/ao_1977/__122a.html)
+- Organisationskonto und Teilnahme: [BayVV Betriebsbedingungen Organisationskonto vom 30.03.2022](https://www.gesetze-bayern.de/Content/Document/BayVV_206_D_12940/true), [Bremen, Senatsvorlage zur Verwaltungsvereinbarung Organisationskonto, 02.12.2022](https://www.rathaus.bremen.de/sixcms/media.php/13/top%202_20221220_Verwaltungsvereinbarung_Organisationskonto_Bremen.pdf), [Modulares Unternehmenskonto auf Basis von ELSTER](https://download.elster.de/download/dokumente/Modulares_Unternehmenskonto_auf_der_Basis_von_ELSTER.pdf)
+- KONSENS und Verwaltung: [ELSTER für die Verwaltung](https://www.elster.de/elsterweb/infoseite/verwaltung?locale=de_DE), [Bremische Bürgerschaft Drs. 20/774](https://www.bremische-buergerschaft.de/drs_abo/2021-01-12_Drs-20-774_70e38.pdf)
+- Anhangslimits in Mein ELSTER (Forum): [Maximale Dateigrößen bei Belegnachreichungen](https://forum.elster.de/anwenderforum/forum/elster-webanwendungen/mein-elster/412772-maximale-dateigr%C3%B6%C3%9Fen-bei-belegnachreichungen-viel-zu-klein)
+- Gesetz: [§ 87a AO](https://www.gesetze-im-internet.de/ao_1977/__87a.html), [§ 122a AO](https://www.gesetze-im-internet.de/ao_1977/__122a.html), [§ 357 AO](https://www.gesetze-im-internet.de/ao_1977/__357.html), [Art. 97 § 1 EGAO](https://www.gesetze-im-internet.de/aoeg_1977/art_97__1.html), [Art. 97 § 28 EGAO](https://www.gesetze-im-internet.de/aoeg_1977/art_97__28.html), [AEAO zu § 87a (Abschrift steuerschroeder.de, AO-Handbuch 2026)](https://www.steuerschroeder.de/steuergesetze/aeao/87a), [Änderungshistorie § 122a AO (buzer.de)](https://www.buzer.de/122a_AO.htm)
 
 ## 8. Verwandte lokale Quellen
 

@@ -117,7 +117,8 @@ All paths below are relative to `ELSTER Dev Documentation/Dokumentation/`. Most 
 ### Caveats
 
 - Developer view only: no statements on governance, costs, operating sites, Mein ELSTER UI or ElsterSecure.
-- Partly outdated legal text: the handbook still states that a Bescheid is deemed bekannt gegeben on the third day after the notification (7.5, footnotes 47 and 48), whereas current § 122a Abs. 4 AO uses the fourth day after Bereitstellung.
+- Partly outdated legal text: the handbook still states that a Bescheid is deemed bekannt gegeben on the third day after the notification (7.5, footnotes 47 and 48), whereas § 122a Abs. 4 AO uses the fourth day after Bereitstellung since 1 January 2025 (Postrechtsmodernisierungsgesetz). Legal sources and other web findings are listed in `ELSTER-Zusammenfassung.md`, section 7.
+- Attachment rules per Datenart are in the XSDs, e.g. `Datenarten/ElsterNachricht/Belegnachreichung/Schema/24/Belegnachreichung-24-Nutzdaten.xsd` (PDF only, 20 attachments, 100 pages).
 - The Datenabholung Vertretung feature is marked as test operation only (SSb v32, 6.1).
 
 ## Which source for which morph_box topic
