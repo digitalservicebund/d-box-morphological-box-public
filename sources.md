@@ -17,6 +17,7 @@ Context: `morph_box.csv` is the morphological box for the d-box (central, bi-dir
 | `Referenzen-Mein-Postkorb-Oesterreich.md` | Source list for the Austrian E-Zustellung ("Mein Postkorb"): ZustG, E-GovG, BKA white paper and ZUSE specification, oesterreich.gv.at, USP, with evidence per dimension. Links only, no local copies. | German | Markdown | Reference for the `Österreich` column in `existing_solutions.csv` and the Österreich entries in `morph_box.csv`. |
 | `Referenzen-GOV-UK-Notify.md` | Source list for GOV.UK Notify (UK, GDS): service pages on features, security, pricing, data retention, files, received text messages, plus REST API documentation, with evidence per dimension. Links only, no local copies. | German | Markdown | Reference for the `UK (kein zentrales Postfach)` column in `existing_solutions.csv` and the GOV.UK Notify entries in `morph_box.csv`. |
 | `Referenzen-Digital-Post-Daenemark.md` | Source list for the Danish Digital Post: Lov om Digital Post fra offentlige afsendere (LBK nr. 686/2021), Digitaliseringsstyrelsen pages on platforms, sender and recipient systems, Kontaktstruktur, Rettighedsportal, visningsklienter, plus borger.dk help, with evidence per dimension. Links only, no local copies. | German | Markdown | Reference for the `Dänemark` column in `existing_solutions.csv` and the Dänemark entries in `morph_box.csv`. |
+| `Referenzen-Digital-Postkasse-Norwegen.md` | Source list for the Norwegian Digital postkasse til innbyggere (DPI): eForvaltningsforskriften and forvaltningsloven (Lovdata), Digdir documentation on DPI, KRR, eFormidling and ID-porten, Altinn Melding and Autorisasjon, plus Digipost and e-Boks, with evidence per dimension. Links only, no local copies. | German | Markdown | Reference for the `Norwegen` column in `existing_solutions.csv` and the Norwegen entries in `morph_box.csv`. |
 
 ## 1. zapuk-main/
 
@@ -175,6 +176,7 @@ Each subfolder of `BundID-ZBP/quellen/` has an `_index.md` with URL, publisher, 
 | Österreich / Mein Postkorb as existing solution | `Referenzen-Mein-Postkorb-Oesterreich.md` |
 | UK / GOV.UK Notify as existing solution | `Referenzen-GOV-UK-Notify.md` |
 | Dänemark / Digital Post as existing solution | `Referenzen-Digital-Post-Daenemark.md` |
+| Norwegen / Digital postkasse til innbyggere as existing solution | `Referenzen-Digital-Postkasse-Norwegen.md` |
 
 ## Gaps and caveats
 
