@@ -85,7 +85,7 @@ Snapshot of the public FITKO repo "Matrix G2C/G2X Communication Solution Archite
 
 Unpacked `ERiC-<version>-Dokumentation.zip` from the ELSTER developer area (requires a Hersteller registration). It documents ERiC (ELSTER Rich Client), the C library through which tax software, payroll and accounting software, and other authorities talk to the ELSTER servers. It is not product or governance documentation: Mein ELSTER (web portal), ElsterSecure, registration and operation are only mentioned in passing.
 
-**Start with `ELSTER-Zusammenfassung.md`** (German): a condensed analysis of ELSTER along all `morph_box.csv` dimensions, with chapter and page pointers into this package and the relevant web sources.
+**Start with `ELSTER Dev Documentation/ELSTER-Zusammenfassung.md`** (German): a condensed analysis of ELSTER along all `morph_box.csv` dimensions, with chapter and page pointers into this package and the relevant web sources.
 
 All paths below are relative to `ELSTER Dev Documentation/Dokumentation/`. Most of the volume is per-tax schemas (`Datenarten/ElsterErklaerung`, `ElsterAnmeldung`, `ElsterBilanz`, `ElsterLohn*`) and `Deltadokumentation/`, which are irrelevant for the d-box.
 
@@ -120,7 +120,7 @@ All paths below are relative to `ELSTER Dev Documentation/Dokumentation/`. Most 
 ### Caveats
 
 - Developer view only: no statements on governance, costs, operating sites, Mein ELSTER UI or ElsterSecure.
-- Partly outdated legal text: the handbook still states that a Bescheid is deemed bekannt gegeben on the third day after the notification (7.5, footnotes 47 and 48), whereas § 122a Abs. 4 AO uses the fourth day after Bereitstellung since 1 January 2025 (Postrechtsmodernisierungsgesetz). Legal sources and other web findings are listed in `ELSTER-Zusammenfassung.md`, section 7.
+- Partly outdated legal text: the handbook still states that a Bescheid is deemed bekannt gegeben on the third day after the notification (7.5, footnotes 47 and 48), whereas § 122a Abs. 4 AO uses the fourth day after Bereitstellung since 1 January 2025 (Postrechtsmodernisierungsgesetz). Legal sources and other web findings are listed in `ELSTER Dev Documentation/ELSTER-Zusammenfassung.md`, section 7.
 - Attachment rules per Datenart are in the XSDs, e.g. `Datenarten/ElsterNachricht/Belegnachreichung/Schema/24/Belegnachreichung-24-Nutzdaten.xsd` (PDF only, 20 attachments, 100 pages).
 - The Datenabholung Vertretung feature is marked as test operation only (SSb v32, 6.1).
 
@@ -162,7 +162,7 @@ Each subfolder of `BundID-ZBP/quellen/` has an `_index.md` with URL, publisher, 
 | Clients / Frontends | neo `03_context_and_scope.md` |
 | Governance, Länder, Finanzierung | zapuk README Beschlüsse, Zusammenfassung 3.3 and 4.x |
 | Requirements as decision criteria | zapuk `Konsolidierte-Anforderungen/README.md` |
-| ELSTER as existing solution (Postfach, Postfach 2.0, Bekanntgabe, Vollmacht, Anbindung) | `ELSTER-Zusammenfassung.md` first, then ELSTER Dev Documentation: Entwicklerhandbuch 5.2, 7.5, 9.2, 9.3, 9.15 to 9.17; `ElsterBereitstellung-SSB`; `ElsterDatenabholung-v32` |
+| ELSTER as existing solution (Postfach, Postfach 2.0, Bekanntgabe, Vollmacht, Anbindung) | `ELSTER Dev Documentation/ELSTER-Zusammenfassung.md` first, then ELSTER Dev Documentation: Entwicklerhandbuch 5.2, 7.5, 9.2, 9.3, 9.15 to 9.17; `ElsterBereitstellung-SSB`; `ElsterDatenabholung-v32` |
 | BundID / ZBP as existing solution (Anbindung, Postkorb-Handle, Bekanntgabe nach § 9 OZG, Betrieb) | `BundID-ZBP/ZBP-Zusammenfassung.md` first, then the `_index.md` of the relevant `BundID-ZBP/quellen/` subfolder |
 | Rechtsrahmen Bürgerkonto und Postfach (OZG, DIdG, IT-PLR Beschlüsse) | `BundID-ZBP/quellen/recht-governance/_index.md`; zapuk Rahmenbedingungen |
 | Österreich / Mein Postkorb as existing solution | `Mein-Postkorb-Oesterreich.md` |

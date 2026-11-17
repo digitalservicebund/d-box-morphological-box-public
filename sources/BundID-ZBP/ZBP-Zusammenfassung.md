@@ -148,4 +148,4 @@ Pfade relativ zu `quellen/`.
 
 - `../zapuk-main/`: ZBP als Bestandssystem, Ablösung, ADR-0011 (ZBP-Anbindung über FIT-Connect), ADR-1110 (Entkopplung Nutzerkonto und Postfach).
 - `../neo-solution-architecture-develop/`: Matrix-Nachfolger, der in die BundID integriert werden und das ZBP ersetzen soll.
-- `../ELSTER-Zusammenfassung.md`: ELSTER-Postfach als Vergleich (ELSTER-Zertifikat ist auch BundID-Login-Mittel).
+- `../ELSTER Dev Documentation/ELSTER-Zusammenfassung.md`: ELSTER-Postfach als Vergleich (ELSTER-Zertifikat ist auch BundID-Login-Mittel).

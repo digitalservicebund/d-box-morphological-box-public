@@ -2,7 +2,7 @@
 
 Wie ELSTER mit Personen, Organisationen und Behörden kommuniziert, eingeordnet nach den Zeilen von `morph_box.csv`. Die Zusammenfassung verweist auf die Quellen, statt sie zu wiederholen. Für Details den Pointer öffnen.
 
-Stand: 2026-11-17. Grundlage ist die ERiC-Dokumentation 44.1.6.0 (Mai 2026) in `ELSTER Dev Documentation/`, ergänzt um Webquellen und die ZaPuK- und Neo-Quellen.
+Stand: 2026-11-17. Grundlage ist die ERiC-Dokumentation 44.1.6.0 (Mai 2026) in `Dokumentation/`, ergänzt um Webquellen und die ZaPuK- und Neo-Quellen.
 
 ## Kennzeichnung
 
@@ -23,7 +23,7 @@ Pfade relativ zu `sources/ELSTER Dev Documentation/Dokumentation/`.
 | LIZ | `lizenz.pdf` | ERiC-Lizenzvertrag |
 | TUT | `Tutorial/ERiC-Tutorial.pdf`, `Tutorial/Beispiele/PostfachAnfrage.xml`, `PostfachBestaetigung.xml` | Durchgerechnete Beispiele |
 
-ZaPuK-ADRs liegen unter `zapuk-main/Zielarchitektur/Architekturentscheidungen/`.
+ZaPuK-ADRs liegen unter `../zapuk-main/Zielarchitektur/Architekturentscheidungen/`.
 
 ## 1. Systembild
 
@@ -273,5 +273,5 @@ Die Ziffern verweisen auf die Ausprägungen der jeweiligen Zeile in `morph_box.c
 ## 8. Verwandte lokale Quellen
 
 - ZaPuK ADR-0002 (ELSTER-Verfahren nach § 87a AO, Betriebsverantwortung), ADR-0014 und ADR-1105 (ELSTER-Zertifikat als Authentisierungsmittel der BundID), ADR-1110 (Mein ELSTER ist kein OZG-Nutzerkonto, § 122a AO), ADR-1111 (Postfachadresse im ELSTER-Organisationszertifikat).
-- `zapuk-main/Zielarchitektur/Architekturkonzept/README.md`: Bestandslösungen, darunter ELSTER Postfach 2.0.
-- `neo-solution-architecture-develop/concepts/303-delivery-retrieval-and-read-receipts.md`: § 122a Abs. 4 AO als Ausnahme von § 9 OZG.
+- `../zapuk-main/Zielarchitektur/Architekturkonzept/README.md`: Bestandslösungen, darunter ELSTER Postfach 2.0.
+- `../neo-solution-architecture-develop/concepts/303-delivery-retrieval-and-read-receipts.md`: § 122a Abs. 4 AO als Ausnahme von § 9 OZG.
