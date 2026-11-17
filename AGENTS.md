@@ -57,6 +57,10 @@ The file has its own CSV schema, not the `Auswahl` and `Ausprägung` columns of 
 
 Document the evidence for each researched solution in `sources/Referenzen-<Name>.md`, modelled on `sources/Referenzen-Mein-Postkorb-Oesterreich.md`: a `Hauptquellen` table with a short code (`Kürzel`) and link per source, then a `Nachweise je Dimension` table mapping each `Zeile` to its statement and source codes. Mark statements without explicit evidence as `[unverifiziert]` in both the source file and the CSV cell. Register the file in `sources.md`, both in the overview table and in the topic table.
 
+## Abbreviations
+
+`abkuerzungen.csv` explains abbreviations used in both CSV files, with the header `"Abkürzung","Bedeutung"`, one row per abbreviation, sorted alphabetically regardless of case. When you introduce a new abbreviation in a CSV, add it there. Mark unconfirmed meanings with `[unverifiziert]` and unknown ones with `?`; do not leave `Bedeutung` empty. Product names (e.g. BundID, MitID, FIT-Connect) and ADR numbers do not need entries. The checker validates this file under its own schema.
+
 ## Editing policy
 
 When changing values:

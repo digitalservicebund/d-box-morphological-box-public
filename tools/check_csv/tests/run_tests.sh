@@ -41,6 +41,7 @@ expect_error() {
 printf 'Echte Datei\n'
 expect_ok morph_box "$tests_dir/../../../morph_box.csv"
 expect_ok existing_solutions "$tests_dir/../../../existing_solutions.csv"
+expect_ok abkuerzungen "$tests_dir/../../../abkuerzungen.csv"
 expect_error datei_fehlt "$fixtures/gibt_es_nicht.csv" "Datei nicht gefunden"
 if out=$("$checker" 2>&1); then ok standard_morph_box
 else nok standard_morph_box "erwartet OK, bekam:"$'\n'"$out"; fi
@@ -108,6 +109,20 @@ for file in "$fixtures"/clustered/bad/*/morph_box.csv; do
     continue
   fi
   expect_error "morph_$name" "$file" "$(<"$expected")"
+done
+
+printf '\nDaten für abkuerzungen.csv\n'
+for file in "$fixtures"/glossary/good/*/abkuerzungen.csv; do
+  expect_ok "glossary_$(basename "$(dirname "$file")")" "$file"
+done
+for file in "$fixtures"/glossary/bad/*/abkuerzungen.csv; do
+  name="$(basename "$(dirname "$file")")"
+  expected="$(dirname "$file")/expected"
+  if [[ ! -f "$expected" ]]; then
+    nok "glossary_$name" "fehlende Datei $expected"
+    continue
+  fi
+  expect_error "glossary_$name" "$file" "$(<"$expected")"
 done
 
 printf '\n%d bestanden, %d fehlgeschlagen\n' "$pass" "$fail"

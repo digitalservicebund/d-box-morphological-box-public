@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Prüft morph_box.csv und existing_solutions.csv (bzw. übergebene CSV-Dateien).
+# Prüft morph_box.csv, existing_solutions.csv und abkuerzungen.csv (bzw. übergebene CSV-Dateien).
 #
 # Geprüft wird:
 #   - Kodierung: gültiges UTF-8, kein BOM
@@ -7,6 +7,7 @@
 #   - CSV-Syntax: Komma als Trennzeichen, korrekt balancierte Anführungszeichen,
 #     Zeilenumbrüche nur in quotierten Zellen
 #   - Header: je nach Datei exakte Spaltennamen oder eindeutige Lösungsnamen
+#   - abkuerzungen.csv: Header "Abkürzung","Bedeutung", Abkürzungen eindeutig
 #   - Spaltenanzahl: jede Zeile hat genau so viele Spalten wie der Header
 #   - Spalte "Zeile": nicht leer
 #   - morph_box.csv: gültige "Auswahl" und keine Lücken in Ausprägungen
@@ -25,6 +26,7 @@ if [[ $# -eq 0 ]]; then
 fi
 
 expected_header='Cluster|Zeile|Auswahl|Wer entscheidet|Was wird hier entschieden|Ausprägung 1|Ausprägung 2|Ausprägung 3|Ausprägung 4|Ausprägung 5|Ausprägung 6|Ausprägung 7|Ausprägung 8'
+glossary_header='Abkürzung|Bedeutung'
 
 status=0
 
@@ -32,8 +34,13 @@ check_file() {
   local file="$1" schema=morph
   local errors=0
 
+  local header="$expected_header"
+
   if [[ "$(basename "$file")" == "existing_solutions.csv" ]]; then
     schema=solutions
+  elif [[ "$(basename "$file")" == "abkuerzungen.csv" ]]; then
+    schema=glossary
+    header="$glossary_header"
   fi
 
   if [[ ! -f "$file" ]]; then
@@ -61,11 +68,11 @@ check_file() {
   fi
 
   # CSV-Struktur und Inhalte
-  if ! awk -v file="$file" -v expected="$expected_header" -v schema="$schema" '
+  if ! awk -v file="$file" -v expected="$header" -v schema="$schema" '
     BEGIN {
       ncols = split(expected, hdr, "|")
       zeile = 2; auswahl = 3; first_option = 6
-      if (schema == "solutions") zeile = 1
+      if (schema == "solutions" || schema == "glossary") zeile = 1
       errs = 0; rec = 0; nf = 0; buf = ""
       in_q = 0; was_q = 0; after_q = 0; bad = 0
     }
@@ -110,7 +117,11 @@ check_file() {
             err(start, "Header Spalte " i ": erwartet \"" hdr[i] "\", gefunden \"" f[i] "\"")
         return
       }
-      if (f[zeile] == "") err(start, "Spalte \"Zeile\" ist leer")
+      if (f[zeile] == "") err(start, "Spalte \"" hdr[zeile] "\" ist leer")
+      if (schema == "glossary") {
+        if (f[2] == "") err(start, "Spalte \"Bedeutung\" ist leer (unbekannt: \"?\")")
+        if (f[1] != "" && known[f[1]]++) err(start, "doppelte Abkürzung: \"" f[1] "\"")
+      }
       if (schema == "morph") {
         if (f[auswahl] != "exklusiv" && f[auswahl] != "Bündel" && f[auswahl] != "gesetzt")
           err(start, "Spalte \"Auswahl\" muss \"exklusiv\", \"Bündel\" oder \"gesetzt\" sein, gefunden \"" f[auswahl] "\"")
