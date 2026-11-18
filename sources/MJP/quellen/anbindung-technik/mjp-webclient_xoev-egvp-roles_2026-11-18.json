@@ -1,0 +1,50 @@
+[
+  {
+    "label": "Behörden",
+    "value": "EGVP:egvp_bebpo"
+  },
+  {
+    "label": "Behörden",
+    "value": "egvp_bebpo"
+  },
+  {
+    "label": "Berufsstand Notare",
+    "value": "EGVP:egvp_ben"
+  },
+  {
+    "label": "Berufsstand Notare",
+    "value": "egvp_ben"
+  },
+  {
+    "label": "Berufsstand Rechtsanwälte",
+    "value": "EGVP:egvp_bea"
+  },
+  {
+    "label": "Berufsstand Rechtsanwälte",
+    "value": "egvp_bea"
+  },
+  {
+    "label": "Berufsstand Steuerberater",
+    "value": "EGVP:egvp_best"
+  },
+  {
+    "label": "Berufsstand Steuerberater",
+    "value": "egvp_best"
+  },
+  {
+    "label": "Gerichtsvollzieher",
+    "value": "EGVP:buerger_rueck"
+  },
+  {
+    "label": "Gerichtsvollzieher",
+    "value": "buerger_rueck"
+  },
+  {
+    "label": "Justiz",
+    "value": "EGVP:egvp_justiz"
+  },
+  {
+    "label": "Justiz",
+    "value": "egvp_justiz"
+  }
+]

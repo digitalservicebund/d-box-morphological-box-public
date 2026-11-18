@@ -1,0 +1,2383 @@
+{
+  "de": {
+    "plural-forms": "nplurals=2; plural=(n > 1);",
+    "messages": {
+      "Abbrechen": [
+        "Abbrechen"
+      ],
+      "app.title": [
+        "Mein Justizpostfach"
+      ],
+      "app.description": [
+        "Webclient für Mein Justizpostfach"
+      ],
+      "app.error.no.securecontext": [
+        "Die Applikation wurde in einem unsicheren Kontext geladen. Abbbruch."
+      ],
+      "app.error.loading.config": [
+        "Beim Laden der Konfiguration ist ein Fehler aufgetreten. Die Seite kann nicht geladen werden."
+      ],
+      "error.default.title": [
+        "Unbekannter Fehler aufgetreten."
+      ],
+      "error.default.message": [
+        "Fehlermeldung: {error}. Bitte kontaktieren Sie den Administrator."
+      ],
+      "error.nav_404.title": [
+        "Seite nicht gefunden."
+      ],
+      "error.nav_404.message": [
+        "Die von Ihnen aufgerufene Seite existiert nicht oder Ihnen fehlen die Berechtigungen zur Anzeige der Seite."
+      ],
+      "error.auth.title": [
+        "Keine Berechtigung."
+      ],
+      "error.auth.message": [
+        "Sie sind nicht angemeldet oder Ihre Sitzung ist abgelaufen. Bitte melden Sie sich an um diese Inhalte anzuzeigen."
+      ],
+      "error.forbidden.title": [
+        "Zugriff verweigert."
+      ],
+      "error.forbidden.text": [
+        "Bitte versuchen Sie es erneut."
+      ],
+      "error.session.expired.title": [
+        "Ihre Sitzung ist abgelaufen."
+      ],
+      "error.session.expired.text": [
+        "Bitte melden Sie sich erneut an."
+      ],
+      "error.session.expired.message": [
+        "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an."
+      ],
+      "session_timer.timeout_warning.countdown.sronly": [
+        "{minutes} Minuten {seconds} Sekunden"
+      ],
+      "session_timer.timeout_warning.countdown": [
+        "{remainingTime} Minuten"
+      ],
+      "session_timer.timeout_warning.inactivity": [
+        "Achtung: Ihre Sitzung läuft aufgrund von Inaktivität in Kürze ab. Sie werden in {time} automatisch abgemeldet."
+      ],
+      "session_timer.timeout_warning.absolute": [
+        "Achtung: Die maximale Sitzungsdauer wird in Kürze erreicht. Sie werden in {time} automatisch abgemeldet. Wenn Sie Ihre Nachrichten weiterhin bearbeiten wollen, melden Sie sich bitte erneut an."
+      ],
+      "session_timer.timeout_warning.closeBtn.label": [
+        "Dialog schließen"
+      ],
+      "session_timer.timeout_warning.label": [
+        "Ablauf der Sitzung"
+      ],
+      "session_timer.timeout_warning.inactivity.confirm.button.label": [
+        "Sitzung fortsetzen"
+      ],
+      "session_timer.timeout_warning.absolute.confirm.button.label": [
+        "Ok"
+      ],
+      "error.downtime.title": [
+        "Temporär nicht erreichbar."
+      ],
+      "error.downtime.text": [
+        "Der angeforderte Service ist aktuell nicht erreichbar, bitte versuchen Sie es zu einem späteren Zeitpunkt erneut. Wir arbeiten an einer schnellen Behebung des Problems. Vielen Dank für Ihre Geduld!"
+      ],
+      "error.api.title": [
+        "Fehler im Api-Service."
+      ],
+      "error.crypto.title": [
+        "Fehler im Kryptographieservice."
+      ],
+      "error.filesystem.title": [
+        "Fehler während Dateioperation."
+      ],
+      "error.popupWindow.title": [
+        "Fehler beim Öffnen des neuen Fensters"
+      ],
+      "error.popupWindow.open_window_failed.text": [
+        "Das neue Browserfenster konnte aufgrund fehlender Berechtigungen nicht geöffnet werden."
+      ],
+      "alert.success.default_title": [
+        "Erfolg"
+      ],
+      "alert.warning.default_title": [
+        "Warnung"
+      ],
+      "alert.danger.default_title": [
+        "Fehler"
+      ],
+      "alert.success.svg_title": [
+        "Erfolg"
+      ],
+      "alert.warning.svg_title": [
+        "Warnung"
+      ],
+      "alert.danger.svg_title": [
+        "Fehler"
+      ],
+      "header.main_title.h1": [
+        "Mein Justizpostfach"
+      ],
+      "header.logo.alt": [
+        "Logo Mein Justizpostfach, zur Startseite"
+      ],
+      "footer.context_nav.privacy_policy.label": [
+        "Datenschutz"
+      ],
+      "footer.context_nav.impressum.label": [
+        "Impressum"
+      ],
+      "footer.context_nav.a11y.label": [
+        "Barrierefreiheit"
+      ],
+      "footer.context_nav.faq.label": [
+        "Hilfe, FAQ"
+      ],
+      "footer.context_nav.contact.label": [
+        "Kontakt"
+      ],
+      "footer.context_nav.external_link.title": [
+        "Link öffnet in neuem Fenster"
+      ],
+      "footer.app.version": [
+        "Version"
+      ],
+      "navbar.nav.aria_label": [
+        "Hauptnavigation"
+      ],
+      "footer.nav.aria_label": [
+        "Footer-Navigation (weiterführende Info- und Hilfeseiten)"
+      ],
+      "navbar.nav.close_button.label": [
+        "Navigation schließen"
+      ],
+      "hamburger.icon.title": [
+        "Navigation öffnen"
+      ],
+      "breadcrumb.nav.aria_label": [
+        "Pfadangabe"
+      ],
+      "pagination.nav.aria_label": [
+        "Seitenauswahl"
+      ],
+      "pagination.pages.first": [
+        "Erste Seite"
+      ],
+      "pagination.pages.previous": [
+        "Vorherige Seite"
+      ],
+      "pagination.pages.next": [
+        "Nächste Seite"
+      ],
+      "pagination.pages.last": [
+        "Letzte Seite"
+      ],
+      "pagination.pages.page": [
+        "Seite {page}"
+      ],
+      "date.format.default": [
+        "{date} Uhr"
+      ],
+      "popupWindow.open_window.wait_info.text": [
+        "Bitte warten Sie. Der Seiteninhalt wird erstellt..."
+      ],
+      "popupWindow.test_report.done": [
+        "Die Generierung des Prüfvermerks ist abgeschlossen und die Inhalte stehen nun zur Verfügung."
+      ],
+      "popupWindow.confirmation_of_receipt.done": [
+        "Die Generierung der Eingangsbestätigung ist abgeschlossen und die Inhalte stehen nun zur Verfügung."
+      ],
+      "form.info.required": [
+        "Dieses Feld ist ein Pflichtfeld"
+      ],
+      "form.info.required.suffix": [
+        "(erforderlich)"
+      ],
+      "form.legend.headline": [
+        "Legende"
+      ],
+      "form.info.fields.all_required": [
+        "Alle Felder sind Pflichtfelder, sofern nicht anders angegeben."
+      ],
+      "form.validation.error.required": [
+        "Dieses Feld muss ausgefüllt werden."
+      ],
+      "form.validation.error.notEqual": [
+        "Ihre Eingaben stimmen nicht überein"
+      ],
+      "form.validation.error.message": [
+        "Die folgenden Eingabefelder wurden nicht korrekt ausgefüllt:"
+      ],
+      "form.validation.error.string.too_long": [
+        "Ihre Eingabe ist zu lang. Es sind maximal {count} Zeichen erlaubt."
+      ],
+      "form.validation.error.string.invalid": [
+        "Ihre Eingabe enthält nicht zulässige Zeichen."
+      ],
+      "form.validation.error.passwdPolicyMismatch": [
+        "min. 8 Zeichen  | max. 64 Zeichen | Groß- und Kleinschreibung  |  min. eine Zahl  |  keine Leerzeichen"
+      ],
+      "form.validation.error.usernamePolicyMismatch": [
+        "min. 5 Zeichen  | max. 120 Zeichen | Groß- und Kleinschreibung  |  Buchstaben A-Z  |  Zahlen und folgende Sonderzeichen: _ & , ( ) ' : /"
+      ],
+      "form.validation.error.file_type.not.accepted": [
+        "Der Dateityp ist nicht erlaubt."
+      ],
+      "form.validation.ozg_multiple_filepicker.multiple_upload_prohibited": [
+        "Es können nicht mehrere Dokumente ausgewählt werden."
+      ],
+      "form.validation.ozg_multiple_filepicker.unknown": [
+        "Es ist ein unbekannter Fehler aufgetreten."
+      ],
+      "form.validation.eboMessage.pdfRequired": [
+        "Es muss mindestens ein PDF-Dokument ausgewählt werden."
+      ],
+      "form.validation.eboMessage.tooManyAttachments": [
+        "Es dürfen insgesamt maximal {max} Dokumente ausgewählt werden."
+      ],
+      "form.validation.eboMessage.totalFileSizeExceeded": [
+        "Die Gesamtgröße aller Dokumente darf {size} nicht überschreiten."
+      ],
+      "form.validation.eboMessage.fileSizeExceeded": [
+        "Die Dateigröße des Dokuments darf {size} nicht überschreiten."
+      ],
+      "form.validation.eboMessage.EmptyFile": [
+        "Die Datei darf nicht leer sein."
+      ],
+      "form.validation.eboMessage.invalidFileNameBlank": [
+        "Ungültiger Dateiname: Darf nicht nur aus Leerzeichen bestehen."
+      ],
+      "form.validation.eboMessage.invalidFileNameLength": [
+        "Ungültiger Dateiname: Der Dateiname darf maximal {max} Zeichen lang sein."
+      ],
+      "form.validation.eboMessage.invalidFileNameCharacters": [
+        "Ungültiger Dateiname. \nFolgende Zeichen sind erlaubt: alle Buchstaben des deutschen Alphabetes einschließlich der Umlaute Ä, ä, Ö, ö, Ü, ü und ß, alle Ziffern und die Zeichen „Unterstrich“ und „Minus“. Punkte sind nur als Trenner zwischen dem Dateinamen und der Dateinamenserweiterung zulässig. Nur bei konkatenierten Dateinamensendungen, z.B. bei abgesetzten Signaturdateien, sind Punkte auch im Dateinamen zulässig. Ungültig sind damit auch Leerzeichen."
+      ],
+      "form.validation.eboMessage.dupliate.xjustiz": [
+        "Es darf nur eine Datei mit diesem Namen hinzugefügt werden."
+      ],
+      "form.validation.eboMessage.duplicate.attachment": [
+        "Eine Datei mit diesem Namen (unabhängig von Groß-/Kleinschreibung) ist bereits in der Liste vorhanden."
+      ],
+      "form.validation.eboMessage.unknown": [
+        "Es ist ein unbekannter Fehler aufgetreten. Bitte versuchen Sie es erneut."
+      ],
+      "form.validation.eboMessage.xJustizNotAllowed": [
+        "Ungültiger Dateiname: Der Dateiname \"xjustiz_nachricht.xml\" ist nicht erlaubt."
+      ],
+      "form.validation.eboMessage.vhnXmlNotAllowed": [
+        "Ungültiger Dateiname: Der Dateiname \"vhn.xml\" ist nicht erlaubt."
+      ],
+      "form.validation.eboMessage.vhnSignatureNotAllowed": [
+        "Ungültiger Dateiname: Der Dateiname \"vhn.xml.p7s\" ist nicht erlaubt."
+      ],
+      "form.validation.eboMessage.projectCocoNotAllowed": [
+        "Ungültiger Dateiname: Der Dateiname \"project_coco\" ist nicht erlaubt."
+      ],
+      "form.validation.eboMessage.projectCocoXmlNotAllowed": [
+        "Ungültiger Dateiname: Der Dateiname \"project_coco.xml\" ist nicht erlaubt."
+      ],
+      "form.validation.eboMessage.vhnCocoNotAllowed": [
+        "Ungültiger Dateiname: Der Dateiname \"vhn_coco\" ist nicht erlaubt."
+      ],
+      "form.validation.eboMessage.vhnCocoXmlNotAllowed": [
+        "Ungültiger Dateiname: Der Dateiname \"vhn_coco.xml\" ist nicht erlaubt."
+      ],
+      "fileexporter.error.export.default": [
+        "Die Datei konnte nicht gespeichert werden: {error}"
+      ],
+      "fileimporter.error.import.default": [
+        "Die Datei konnte nicht importiert werden: {error}"
+      ],
+      "filechooser.dropzone.text": [
+        "Hier her ziehen und ablegen oder"
+      ],
+      "filechooser.button.label": [
+        "auswählen"
+      ],
+      "filechooser.button.remove.label": [
+        "Datei entfernen"
+      ],
+      "filechooser.fileList.label.number": [
+        "Nummer"
+      ],
+      "filechooser.fileList.txt.number": [
+        "Dokument {index}"
+      ],
+      "filechooser.fileList.label.size": [
+        "Dateigrösse"
+      ],
+      "filechooser.fileList.label.name": [
+        "Dateiname"
+      ],
+      "filechooser.fileList.label.status": [
+        "Status"
+      ],
+      "filechooser.success.sr_only": [
+        "Datei erfolgreich hochgeladen"
+      ],
+      "filechooser.error.sr_only": [
+        "Datei konnte nicht hochgeladen werden"
+      ],
+      "filechooser.error": [
+        "Es konnten nicht alle ausgewählten Dokumente hinzugefügt werden:"
+      ],
+      "filechooser.error.upload": [
+        "Fehler beim Upload des Dokuments. Bitte versuchen Sie es erneut."
+      ],
+      "filechooser.error.unauthorized": [
+        "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an."
+      ],
+      "progressbar.over_one_hour_remaining": [
+        "> 1h"
+      ],
+      "ozgselect.options.choose.label": [
+        "Bitte auswählen"
+      ],
+      "renew.certificate": [
+        "Verschlüsselungszertifikat erneuern"
+      ],
+      "renewal.step1.certificate.btn.cancel.label": [
+        "Abbrechen"
+      ],
+      "renewal.general.next": [
+        "Weiter"
+      ],
+      "renewal.general.back": [
+        "Züruck"
+      ],
+      "renewal.progress.step1.sr_only": [
+        "Aktuelle Schlüsseldatei"
+      ],
+      "renewal.progress.step2.sr_only": [
+        "Passwort ändern/beibehalten"
+      ],
+      "renewal.progress.step3.sr_only": [
+        "Persönliche Schlüsseldatei wird erzeugt"
+      ],
+      "renewal.progress.step4.sr_only": [
+        "Persönliche Schlüsseldatei prüfen"
+      ],
+      "renewal.progress.step5.sr_only": [
+        "Einwilligung in die Verarbeitung Ihrer personenbezogenen Daten"
+      ],
+      "renewal.progress.step6.sr_only": [
+        "Zertifikatserneuerung erfolgreich abgeschlossen"
+      ],
+      "renewal.step1.certificate.title": [
+        "Aktuelle Schlüsseldatei"
+      ],
+      "renewal.step1.certificate.label": [
+        "Bitte wählen Sie hier Ihre aktuelle Schlüsseldatei (.p12) aus. In den folgenden Schritten wird ein neuer persönlicher Schlüssel erzeugt, den Sie lokal speichern müssen. Im Anschluss wird das neue Zertifikat erstellt und zum Abschluss an den SAFE-Verzeichnisdienst übertragen."
+      ],
+      "renewal.step1.certificate.label2": [
+        "Wichtig: Die persönliche Schlüsseldatei wird nicht an den Server übermittelt."
+      ],
+      "renewal.step1.current.certificate.title": [
+        "Aktuelle Schlüsseldatei"
+      ],
+      "renewal.step1.current.key.form.input.password.label": [
+        "Passwort eingeben"
+      ],
+      "renewal.step1.verify.current.key.form.alert.error.required": [
+        "Bitte wählen Sie eine Schlüsseldatei aus und geben Sie Ihr Passwort ein."
+      ],
+      "renewal.step1.verify.current.key.form.alert.error.decrypt.store": [
+        "Bitte überprüfen Sie Ihr Passwort."
+      ],
+      "renewal.step1.verify.current.key.form.alert.error.invalid": [
+        "Die Datei ist ungültig oder stimmt nicht mit Ihrem aktuellen Zertifikat überein."
+      ],
+      "renewal.step1.verify.current.key.form.alert.error.unknown": [
+        "Es ist ein unbekannter Fehler aufgetreten, bitte versuchen Sie es erneut."
+      ],
+      "renewal.step2.password.title": [
+        "Passwort ändern/beibehalten"
+      ],
+      "renewal.step2.password.label": [
+        "Hier können Sie ein neues Passwort für Ihre Schlüsseldatei festlegen."
+      ],
+      "renewal.step2.password.label2": [
+        "Wenn Sie Ihr bisheriges Passwort beibehalten möchten, sind keine Änderungen erforderlich. Gehen Sie hierfür einfach auf „Weiter“."
+      ],
+      "renewal.step2.password.label3": [
+        "Ihre neue Schlüsseldatei erhalten Sie im nächsten Schritt."
+      ],
+      "renewal.step2.password.form.legend": [
+        "Passwort ändern oder beibehalten"
+      ],
+      "renewal.step3.certificate.btn.save.key.label": [
+        "Schlüsseldatei speichern"
+      ],
+      "renewal.step3.certificate.save.warn.text": [
+        "Speichern Sie Ihre persönliche Schlüsseldatei an einem Ort, an dem Sie sie später leicht wiederfinden. Die Datei wird benötigt, um auf Ihr Postfach und Ihre Nachrichten zugreifen zu können."
+      ],
+      "renewal.step3.certificate.key.friendly.name.current": [
+        "Mein Justizpostfach: Aktueller persönlicher Schlüssel von {name}"
+      ],
+      "renewal.step3.certificate.key.friendly.name.previous": [
+        "Mein Justizpostfach: Vorheriger persönlicher Schlüssel von {name}"
+      ],
+      "renew.certificate.step3.key.friendly_name.default": [
+        "Fehler beim Erneuern des Schlüsselpaars: {cause}"
+      ],
+      "renewal.step3.certificate.generate.key.pw.error": [
+        "Für die Erneuerung der Schlüsseldatei ist kein Passwort verfügbar. Bitte überprüfen Sie Ihre Eingaben."
+      ],
+      "renewal.step3.certificate.generate.key.error": [
+        "Beim Generieren der Schlüsseldatei ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+      ],
+      "renewal.step3.certificate.save.key.error": [
+        "Beim Speichern der Schlüsseldatei ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+      ],
+      "renewal.step3.certificate.unknown.error": [
+        "Es ist ein unbekannter Fehler aufgetreten. Bitte versuchen Sie es erneut."
+      ],
+      "renewal.step4.verify.error.required": [
+        "Bitte wählen Sie eine Schlüsseldatei aus."
+      ],
+      "renewal.step4.verify.new.key.form.alert.error.decrypt.store": [
+        "Fehler beim Importieren der Schlüsseldatei"
+      ],
+      "renewal.step4.verify.new.key.form.alert.error.invalid": [
+        "Die Datei ist ungültig oder stimmt nicht mit Ihrem aktuellen Zertifikat überein."
+      ],
+      "renewal.step4.verify.new.key.form.alert.error.unknown": [
+        "Es ist ein unbekannter Fehler aufgetreten, bitte versuchen Sie es erneut."
+      ],
+      "renewal.step5.consent.title": [
+        "Einwilligung in die Verarbeitung Ihrer personenbezogenen Daten"
+      ],
+      "renewal.step5.consent.text": [
+        "Für die Einrichtung und Nutzung Ihres Postfachs in „Mein Justizpostfach\" werden bestimmte personenbezogene Daten verarbeitet. Weitere Informationen finden Sie in der "
+      ],
+      "renewal.step5.consent.text2": [
+        ".Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie Ihr Postfach löschen. Wählen Sie dazu auf der Startseite Ihres Postfachs „Postfach verwalten\"."
+      ],
+      "renewal.step6.title": [
+        "Zertifikatserneuerung erfolgreich abgeschlossen"
+      ],
+      "renewal.step6.pending.text": [
+        "Ihr Zertifikat wird übertragen..."
+      ],
+      "renewal.step6.success.title": [
+        "Zertifikatserneuerung erfolgreich abgeschlossen"
+      ],
+      "renewal.step6.success.text": [
+        "Ihr Zertifikat wurde erfolgreich erneuert."
+      ],
+      "renewal.step6.success.button": [
+        "Zurück zum Postfach"
+      ],
+      "renewal.step6.error.text": [
+        "Bei der Übertragung Ihres Zertifikats ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+      ],
+      "renewal.step5.consent.error.required": [
+        "Sie müssen die Datenschutzerklärung akzeptieren um fortzufahren."
+      ],
+      "service.crypto.error.renew_pkcs12_keystore.default": [
+        "Fehler beim Erneuern des Schlüsselpaars: {cause}"
+      ],
+      "registration.progress.step1.sr_only": [
+        "Passwort festlegen"
+      ],
+      "registration.progress.step2.sr_only": [
+        "Persönliche Schlüsseldatei wird erzeugt"
+      ],
+      "registration.progress.step3.sr_only": [
+        "Persönliche Schlüsseldatei prüfen"
+      ],
+      "registration.progress.step4.sr_only": [
+        "Einwilligung in die Verarbeitung Ihrer personenbezogenen Daten"
+      ],
+      "registration.progress.step5.sr_only": [
+        "Abschluss: Einrichtung abgeschlossen"
+      ],
+      "registration.steps.btn.next.label": [
+        "Weiter"
+      ],
+      "registration.steps.btn.prev.label": [
+        "Zurück"
+      ],
+      "registration.step1.title": [
+        "Passwort festlegen"
+      ],
+      "registration.step1.text": [
+        "Zum Austausch verschlüsselter Nachrichten benötigen Sie eine Schlüsseldatei und ein Passwort. Bitte legen Sie hier Ihr Passwort fest. Ihre Schlüsseldatei erhalten Sie im nächsten Schritt"
+      ],
+      "savepassword.form.legend": [
+        "Speichern Sie Ihre persönliche Schlüsseldatei."
+      ],
+      "registration.step2.title": [
+        "Persönliche Schlüsseldatei wird erzeugt"
+      ],
+      "registration.step2.key.friendly_name": [
+        "Mein Justizpostfach: Persoenlicher Schluessel von {name}"
+      ],
+      "registration.step2.key.description": [
+        "PKCS#12-Zertifikatspaket"
+      ],
+      "registration.step2.warn.title": [
+        "Achtung"
+      ],
+      "registration.step2.warn.text": [
+        "Speichern Sie Ihre Schlüsseldatei so, dass Sie diese jederzeit zur Hand haben, damit Sie auf Ihre Nachrichten zugreifen können! "
+      ],
+      "registration.step2.loading_extended_info.error": [
+        "Die für die Einrichtung Ihres Postfachs benötigten Daten konnten aufgrund eines unerwarteten Fehlers nicht bereitgestellt werden. Bitte versuchen Sie es erneut."
+      ],
+      "registration.step2.unknown.error": [
+        "Ihre Schlüsseldatei konnte aufgrund eines unerwarteten Fehlers nicht erstellt werden. Bitte wiederholen Sie diesen Schritt."
+      ],
+      "registration.step2.generate_key.error": [
+        "Ihre Schlüsseldatei konnte nicht erstellt werden. Bitte wiederholen Sie diesen Schritt."
+      ],
+      "registration.step2.generate_key_pw.error": [
+        "Ihre Schlüsseldatei konnte nicht erstellt werden: Ihr Passwort ist ungültig. Bitte wiederholen Sie die Passworteingabe in Schritt 1."
+      ],
+      "registration.step2.save_key.error": [
+        "Ihre Schlüsseldatei konnte nicht gespeichert werden. Bitte wiederholen Sie diesen Schritt."
+      ],
+      "registration.step2.btn.save_key.label": [
+        "Schlüsseldatei speichern"
+      ],
+      "registration.step2.btn.save_key.sr_only": [
+        "Nach einem Klick auf diese Schaltfläche wird die Schlüsseldatei bei Ihnen gespeichert und Sie werden zum nächsten Schritt der Einrichtung weitergeleitet. Je nach Browser-Einstellungen müssen Sie zunächst einen Speicherort auswählen."
+      ],
+      "registration.step3.verify_key.title": [
+        "Persönliche Schlüsseldatei prüfen"
+      ],
+      "verifykey.form.terms_of_cond.text1": [
+        "Ich habe die"
+      ],
+      "verifykey.form.terms_of_cond.link.label": [
+        "Datenschutzerklärung"
+      ],
+      "verifykey.form.terms_of_cond.text2": [
+        "gelesen und akzeptiert"
+      ],
+      "verifykey.form.upload.text": [
+        "Um sicherzustellen, dass Ihre persönliche Schlüsseldatei korrekt gespeichert wurde, importieren Sie Ihre persönliche Schlüsseldatei. Die persönliche Schlüsseldatei wird bei der Prüfung NICHT an den Server übermittelt."
+      ],
+      "verifykey.form.terms_of_cond.closeBtn.label": [
+        "Schließen"
+      ],
+      "verifykey.form.terms_of_cond.modal.headline": [
+        "Datenschutzerklärung"
+      ],
+      "verifykey.form.verifyP12.label": [
+        "Persönliche Schlüsseldatei"
+      ],
+      "verifykey.form.picker.btn.label": [
+        "Auswählen"
+      ],
+      "verifykey.form.validation.error.title": [
+        "Fehler beim Einlesen Ihrer persönlichen Schlüsseldatei."
+      ],
+      "verifykey.form.validation.error.base": [
+        "Fehler beim Einlesen Ihrer persönlichen Schlüsseldatei: {error}"
+      ],
+      "verifykey.form.validation.error.decrypt_store": [
+        "Bitte überprüfen Sie Ihr Passwort."
+      ],
+      "verifykey.form.validation.error.wrong_file": [
+        "Die Datei ist ungültig oder es wurde die falsche Datei ausgewählt. Falls dieser Fehler erneut auftritt, können Sie versuchen den vorherigen Schritt zu wiederholen."
+      ],
+      "verifykey.form.validation.error.unknown": [
+        "Es ist ein unbekannter Fehler aufgetreten, bitte versuchen Sie es erneut. Falls dieser Fehler weitehrin auftritt, können Sie versuchen die vorherigen Schritte zu wiederholen."
+      ],
+      "verifykey.form.info.verification_in_progress.title": [
+        "Bitte haben Sie einen Moment Geduld..."
+      ],
+      "verifykey.form.info.verification_in_progress.text": [
+        "Ihre persönliche Schlüsseldatei wird überprüft..."
+      ],
+      "registration.step3.btn.upload_key.label": [
+        "Weiter"
+      ],
+      "registration.step3.api_post_certificate.error.title": [
+        "Fehler beim Übertragen des Zertifikats."
+      ],
+      "registration.step3.api_post_certificate.error.text": [
+        "Ihr Postfach konnte nicht initialisiert werden, bitte versuchen Sie es erneut. Tritt dieser Fehler weiterhin auf, können Sie versuchen die Einrichtung mit Schritt 1 beginnend erneut durchzuführen. Bitte löschen Sie in diesem Fall die eben gespeicherte Schlüsseldatei."
+      ],
+      "registration.step3.api_post_certificate.error.button": [
+        "Zurück zu Schritt 1"
+      ],
+      "registration.step4.title": [
+        "Einwilligung in die Verarbeitung Ihrer personenbezogenen Daten"
+      ],
+      "registration.step4.text_1": [
+        "Bei Anlage und Nutzung eines Postfachs von „Mein Justizpostfach“ werden bestimmte personenbezogene Daten verarbeitet, sofern Sie in diese Verarbeitung einwilligen. Die Einzelheiten zur Verarbeitung von personenbezogenen Daten im System „Mein Justizpostfach“ finden Sie in der "
+      ],
+      "registration.step4.text_2": [
+        ". Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie das Postfach löschen. Dazu klicken Sie auf der Eingangsseite des Postfachs auf die Schaltfläche \"Postfach verwalten\"."
+      ],
+      "registration.step4.privacyPolicy.link.label": [
+        "Datenschutzerklärung"
+      ],
+      "registration.step4.hideAccountSearch.label": [
+        "Auskunftsperre"
+      ],
+      "user.account.hidesearch.legend.text": [
+        "Meine Adressdaten unterliegen einer Auskunftssperre oder sind aus sonstigen Gründen besonders schutzbedürftig. Daher möchte ich die Auffindbarkeit meines Postfachs und damit auch meiner Adressdaten über eine Suche im SAFE-Verzeichnis umfassend ausschließen. <br/><br/> Hinweis: Im elektronischen Rechtsverkehr können  standardmäßig nur Gerichte, Rechtsanwälte, Notare, Steuerberater und Behörden nach MJP-Postfachinhabern suchen und deren SAFE-ID, also die „Adresse des MJP“, ermitteln. Andere Personen (und insbesondere andere MJP-Postfachinhaber) haben keine Suchmöglichkeit. Mit dieser Erklärung wird die Suche ergänzend auch für Gerichte, Rechtsanwälte, Notare, Steuerberater und Behörden ausgeschlossen. Ich werde künftig nur für Kommunikationspartner erreichbar sein, denen ich meine SAFE-ID zuvor mitgeteilt habe. Ich kann die SAFE-ID bekannt machen, indem ich eine MJP-Nachricht versende oder die SAFE-ID auf anderen Wegen mitteile. Diese Einstellung kann in der Postfachverwaltung jederzeit wieder geändert werden."
+      ],
+      "user.account.hidesearch.model.text": [
+        "Sie sind künftig nur für Postfachinhaber elektronisch erreichbar, die Ihre SAFE-ID kennen. Sie können Ihre SAFE-ID bekannt machen, indem Sie eine MJP-Nachricht versenden oder die SAFE-ID auf anderen Wegen mitteilen."
+      ],
+      "user.account.hidesearch.model.button.text": [
+        "Ja, verstanden"
+      ],
+      "accept_privacy_policy.form.privacyPolicy.label": [
+        "Datenschutzerklärung"
+      ],
+      "accept_privacy_policy.form.legend": [
+        "Zustimmung zur Datenschutzerklärung"
+      ],
+      "accept_privacy_policy.form.error.required": [
+        "Sie müssen die Datenschutzerklärung akzeptieren um fortzufahren."
+      ],
+      "accept_privacy_policy.form.submit.sr_only": [
+        "Nach einem Klick auf diese Schaltfläche wird Ihr öffentliches Zertifikat an den Postfachserver übermittelt."
+      ],
+      "registration.step5.title": [
+        "Einrichtung erfolgreich abgeschlossen"
+      ],
+      "registration.step5.text": [
+        "Sie können nun Mein Justizpostfach öffnen, um mit der Justiz und anderen Beteiligten im elektronischen Rechtsverkehr (ERV) sicher und rechtsverbindlich zu kommunizieren."
+      ],
+      "registration.step5.btn.proceed.label": [
+        "Zum Postfach"
+      ],
+      "registration.step5.btn.proceed.sr_only": [
+        "Nach dem Klick werden Sie auf die Seite mit Ihrem Posteingang weitergeleitet."
+      ],
+      "createmessage.form.legend.recipient": [
+        "Empfänger"
+      ],
+      "createmessage.form.legend.metadata": [
+        "Angaben zu Ihrer Nachricht"
+      ],
+      "createmessage.btn.submit.label": [
+        "Verschlüsseln & senden"
+      ],
+      "createmessage.success.title": [
+        "Nachricht gesendet"
+      ],
+      "createmessage.success.text": [
+        "Ihre Nachricht befindet sich im Versand (Status \"wird gesendet\"). Bitte prüfen Sie in Kürze den Eingang der Nachricht (Status \"gesendet\"). Sollte der Sendestatus \"Versand fehlgeschlagen\" angezeigt werden, senden Sie Ihre Nachricht bitte erneut."
+      ],
+      "createmessage.error.title": [
+        "Senden der Nachricht fehlgeschlagen."
+      ],
+      "createmessage.error.text": [
+        "Ihre Nachricht konnte nicht versendet werden. Bitte versuchen Sie es erneut."
+      ],
+      "createmessage.warn.import_xjustiz.text": [
+        "Bei hochgeladener \"xjustiz_nachricht.xml\" aus einer Fachanwendung werden Aktenzeichen in diesem Formular nicht benötigt."
+      ],
+      "createmessage.warn.pending_upload.title": [
+        "Dokumente werden verarbeitet..."
+      ],
+      "createmessage.warn.pending_upload.text": [
+        "Bitte warten Sie, bis alle ausgewählten Dokumente verarbeitet wurden."
+      ],
+      "createmessage.error.generate_symmetric_key.title": [
+        "Technischer Fehler."
+      ],
+      "createmessage.error.generate_symmetric_key.text": [
+        "Der für die Verschlüsselung Ihrer Nachricht benötigte Schlüssel konnte nicht generiert werden. Bitte versuchen Sie es erneut, indem Sie diese Seite erneut aufrufen."
+      ],
+      "createmessage.form.recipient.label": [
+        "Empfänger"
+      ],
+      "createmessage.form.selected_recipient.label": [
+        "Ausgewählter Empfänger"
+      ],
+      "createmessage.form.selected_recipient.empty.label": [
+        "Kein Empfänger ausgewählt"
+      ],
+      "createmessage.form.recipient.chooseBtn.label": [
+        "Empfänger auswählen"
+      ],
+      "createmessage.form.recipient.closeBtn.label": [
+        "Dialog schliessen"
+      ],
+      "createmessage.form.recipient.search.form.label": [
+        "Empfänger auswählen"
+      ],
+      "createmessage.form.recipient.search.info.fields.one_required": [
+        "Alle Eingabefelder sind optional. Es muss mindestens ein Feld ausgefüllt werden."
+      ],
+      "createmessage.form.recipient.search.form.error.allEmpty": [
+        "Bitte füllen Sie mindestens ein Suchfeld aus."
+      ],
+      "search_recipient.form.surname.label": [
+        "Name / Firma"
+      ],
+      "search_recipient.form.egvpRoles.label": [
+        "Rolle"
+      ],
+      "search_recipient.form.egvpRoles.multiple.label": [
+        "Rollen"
+      ],
+      "search_recipient.form.federalState.label": [
+        "Bundesland"
+      ],
+      "search_recipient.form.city.label": [
+        "Ort"
+      ],
+      "search_recipient.form.extSearch.accordeon_opened.label": [
+        "Weitere Suchfelder ausblenden"
+      ],
+      "search_recipient.form.extSearch.accordeon_closed.label": [
+        "Weitere Suchfelder einblenden"
+      ],
+      "createmessage.form.recipient.search.form.extsearch.label": [
+        "Weitere Suchfelder"
+      ],
+      "search_recipient.form.organization.label": [
+        "Organisation"
+      ],
+      "search_recipient.form.alternativeOrganization.label": [
+        "Organisationszusatz / Ansprechpartner"
+      ],
+      "search_recipient.form.firstName.label": [
+        "Vorname"
+      ],
+      "search_recipient.form.streetName.label": [
+        "Straße"
+      ],
+      "search_recipient.form.houseNumber.label": [
+        "Hausnummer"
+      ],
+      "search_recipient.form.postalCode.label": [
+        "PLZ"
+      ],
+      "search_recipient.form.country.label": [
+        "Land"
+      ],
+      "search_recipient.form.safeId.label": [
+        "NutzerID"
+      ],
+      "search_recipient.btn.submit.label": [
+        "Empfänger suchen"
+      ],
+      "createmessage.form.recipient.search.result.label": [
+        "Trefferliste"
+      ],
+      "createmessage.form.recipient.search.result.pagination.label": [
+        "Seitenauswahl Trefferliste"
+      ],
+      "createmessage.form.recipient.search.result.choice.label": [
+        "Ausgewählter Empfänger:"
+      ],
+      "choose_recipient.btn.label": [
+        "Empfänger hinzufügen"
+      ],
+      "createmessage.form.recipient.search.result.table.success.sr_only": [
+        "Die Trefferliste wurde neu geladen. Ihre Suche hat {numberOfResults} Treffer ergeben."
+      ],
+      "createmessage.form.recipient.search.result.table.empty": [
+        "Zu Ihrer Suchanfrage wurden keine Treffer gefunden."
+      ],
+      "createmessage.form.recipient.search.result.table.error.title": [
+        "Technischer Fehler"
+      ],
+      "createmessage.form.recipient.search.result.table.error.text": [
+        "Es ist ein unerwarteter technischer Fehler aufgetreten. Führen Sie bitte Ihre Suche erneut aus."
+      ],
+      "createmessage.form.recipient.search.result.table.warn.INCOMPLETE.title": [
+        "Trefferliste unvollständig"
+      ],
+      "createmessage.form.recipient.search.result.table.warn.INCOMPLETE.text": [
+        "Aufgrund von vorübergehenden technischen Problemen ist die Trefferliste möglicherweise unvollständig."
+      ],
+      "createmessage.form.recipient.search.result.table.warn.MORE_RESULTS_AVAILABLE.title": [
+        "Zu viele Treffer"
+      ],
+      "createmessage.form.recipient.search.result.table.warn.MORE_RESULTS_AVAILABLE.text": [
+        "Ihre Suche hat mehr als 100 Treffer ergeben. Es werden maximal 100 Treffer angezeigt. Grenzen Sie bitte Ihre Suche weiter ein, damit alle für Sie relevanten Treffer dargestellt werden."
+      ],
+      "createmessage.form.recipient.search.result.table.column.selectRecipient": [
+        "Wählen Sie einen Empfänger aus"
+      ],
+      "createmessage.form.recipient.search.result.table.column.surname": [
+        "Name / Firma"
+      ],
+      "createmessage.form.recipient.search.result.table.column.firstName": [
+        "Vorname"
+      ],
+      "createmessage.form.recipient.search.result.table.column.organization": [
+        "Organisation"
+      ],
+      "createmessage.form.recipient.search.result.table.column.egvpRoles": [
+        "Teilnehmer"
+      ],
+      "createmessage.form.recipient.search.result.table.column.city": [
+        "Ort"
+      ],
+      "createmessage.form.recipient.search.result.table.column.selectRecipientMobile": [
+        "Wählen Sie einen Empfänger aus"
+      ],
+      "createmessage.form.recipient.search.result.table.column.federalState": [
+        "Bundesland"
+      ],
+      "createmessage.form.recipient.search.result.table.column.alternativeOrganization": [
+        "Organisationszusatz / Ansprechpartner"
+      ],
+      "createmessage.form.recipient.search.result.table.column.streetName": [
+        "Straße"
+      ],
+      "createmessage.form.recipient.search.result.table.column.houseNumber": [
+        "Hausnummer"
+      ],
+      "createmessage.form.recipient.search.result.table.column.postalCode": [
+        "PLZ"
+      ],
+      "createmessage.form.recipient.search.result.table.column.country": [
+        "Land"
+      ],
+      "createmessage.form.recipient.search.result.table.column.safeId": [
+        "NutzerID"
+      ],
+      "createmessage.form.recipient.search.result.table.input_safeId.label": [
+        "Empfänger auswählen"
+      ],
+      "createmessage.form.recipient.search.result.table.choose_recipient.label": [
+        "Empfänger auswählen"
+      ],
+      "createmessage.form.recipient.search.result.table.recipient_chosen.label": [
+        "Empfänger ausgewählt"
+      ],
+      "createmessage.form.recipient.search.result.validation_error.label": [
+        "Empfängerauswahl"
+      ],
+      "createmessage.form.recipient.search.result.validation_error.text": [
+        "Bitte wählen Sie einen Empfänger aus."
+      ],
+      "createmessage.form.behoerde.label": [
+        "Behörde"
+      ],
+      "createmessage.form.behoerde.check_code.label": [
+        "Gericht"
+      ],
+      "createmessage.form.behoerde.select_code.label": [
+        "Auswahl eines Gerichts"
+      ],
+      "createmessage.form.behoerde.check_sonstige.label": [
+        "Sonstige"
+      ],
+      "createmessage.form.behoerde.input_sonstige.label": [
+        "Freitexteingabe Sonstige"
+      ],
+      "createmessage.form.sachgebiet.label": [
+        "Sachgebiet"
+      ],
+      "createmessage.form.aktenzeichen-vf.label": [
+        "Aktenzeichen des Empfängers"
+      ],
+      "createmessage.form.aktenzeichen-vf.check_text.label": [
+        "Eingabe des Aktenzeichens"
+      ],
+      "createmessage.form.aktenzeichen-vf.input_text.label": [
+        "Aktenzeichen"
+      ],
+      "createmessage.form.aktenzeichen-vf.check_neu.label": [
+        "neu"
+      ],
+      "createmessage.form.aktenzeichen-vf.check_unbekannt.label": [
+        "unbekannt"
+      ],
+      "createmessage.form.aktenzeichen-abs.label": [
+        "Aktenzeichen des Absenders (optional)"
+      ],
+      "createmessage.form.aktenzeichen-abs.placeholder": [
+        "Bitte AZ eingeben"
+      ],
+      "createmessage.form.eilig.label": [
+        "Eilig"
+      ],
+      "createmessage.form.vertraulich.label": [
+        "Vertraulich"
+      ],
+      "createmessage.form.vertraulich.begruendung.label": [
+        "Begründung"
+      ],
+      "createmessage.form.legend.attachments": [
+        "Dokumente"
+      ],
+      "createmessage.form.attachments.label": [
+        "Dokumente"
+      ],
+      "createmessage.form.attachments.progessbar.aria-label": [
+        "Hochladestatus der Datei {fileName}"
+      ],
+      "createmessage.form.attachments.tooltip.title": [
+        "Hilfe zur Auswahl der Anhänge"
+      ],
+      "createmessage.form.attachments.tooltip.text": [
+        "Die Dateigröße aller Anhänge zusammen darf nicht größer als {attachmentMaxSize} sein."
+      ],
+      "createmessage.form.recipient.tooltip.title": [
+        "Hilfe zur Auswahl des Empfängers"
+      ],
+      "createmessage.form.recipient.tooltip.text": [
+        "Zur Auswahl des Empfängers für Ihre Nachricht suchen Sie hier im Verzeichnisdienst für den elektronischen Rechtsverkehr / der Justiz (SAFE-System). Neben Gerichten und Staatsanwaltschaften sind Behörden, Anwälte, Notare und Steuerberater für Sie adressierbar. Füllen Sie die Suche möglichst präzise aus. Wenn die eingeblendeten Suchfelder nicht ausreichen, klicken Sie auf „Weitere Suchfelder hinzufügen“."
+      ],
+      "createmessage.form.behoerde.tooltip.title": [
+        "Hilfe zur Angabe der Behörde"
+      ],
+      "createmessage.form.behoerde.tooltip.text": [
+        "Bezieht sich Ihre Nachricht auf ein Gerichtsverfahren, aktivieren Sie „Gericht“ und wählen Sie aus der Liste das Gericht aus, bei dem das Verfahren geführt wird. Ist ein Gericht der Empfänger Ihrer Nachricht, wählen Sie dieses Gericht aus der Liste. Aktivieren Sie „Sonstige“, wenn die Zuordnung über die Liste der Gerichte nicht möglich ist. Sie können als Freitext den Namen der Verwaltung, Organisation oder sonstigen Beteiligten eingeben, der oder die führend in Bezug auf Ihre Nachricht ist."
+      ],
+      "createmessage.form.sachgebiet.tooltip.title": [
+        "Hilfe zur Auswahl eines Sachgebiets"
+      ],
+      "createmessage.form.sachgebiet.tooltip.text": [
+        "Wählen Sie aus der Liste den juristischen Verfahrensbereich, auf den sich Ihre Nachricht bezieht. Ist dies für Ihre Nachricht nicht zutreffend, oder kennen Sie das Sachgebiet nicht, wählen Sie „unbekannt“."
+      ],
+      "createmessage.form.aktenzeichen-vf.tooltip.title": [
+        "Hilfe für das Aktenzeichen des Verfahrens"
+      ],
+      "createmessage.form.aktenzeichen-vf.tooltip.text": [
+        "Haben Sie von einem Gericht, einer Behörde oder Sonstigen Organisation ein Aktenzeichen erhalten, geben Sie dieses hier ein. Handelt es sich um ein neues Verfahren und gibt es noch kein Aktenzeichen, wählen Sie „neu“. Kennen Sie das Aktenzeichen nicht, wählen Sie „unbekannt“."
+      ],
+      "createmessage.form.aktenzeichen-abs.tooltip.title": [
+        "Hilfe für das Aktenzeichen des Absenders"
+      ],
+      "createmessage.form.aktenzeichen-abs.tooltip.text": [
+        "Führen Sie selbst ein Aktenzeichen zu dem Vorgang auf den sich Ihre Nachricht bezieht, geben Sie dieses hier ein."
+      ],
+      "table.info.no_data.text": [
+        "Es wurden keine Daten gefunden."
+      ],
+      "table.danger.invalid_data.title": [
+        "Fehler beim Laden der Tabellendaten."
+      ],
+      "table.danger.invalid_data.text": [
+        "Die Daten sind fehlerhaft."
+      ],
+      "table.sort.direction.asc": [
+        "aufsteigend"
+      ],
+      "table.sort.direction.desc": [
+        "absteigend"
+      ],
+      "table.sort.button.title": [
+        "Tabelle nach {columnName} {direction} sortieren"
+      ],
+      "sent_status.sending": [
+        "wird gesendet"
+      ],
+      "sent_status.sent": [
+        "gesendet"
+      ],
+      "sent_status.failed": [
+        "Versand fehlgeschlagen"
+      ],
+      "message_list.import_key.modal.openBtn.label": [
+        "Nachrichten entschlüsseln"
+      ],
+      "message_list.import_key.modal.closeBtn.label": [
+        "Modaldialog schließen"
+      ],
+      "message_list.message.open": [
+        "Nachricht öffnen"
+      ],
+      "message_list.message.decrypt": [
+        "Nachricht entschlüsseln"
+      ],
+      "message_list.message_status.read": [
+        "Nachricht gelesen"
+      ],
+      "message_list.message_status.unread": [
+        "Nachricht ungelesen"
+      ],
+      "message_list.column.status.title": [
+        "Status"
+      ],
+      "message_list.column.sent_status.title": [
+        "Sendestatus"
+      ],
+      "message_list.column.action.title": [
+        "Aktion"
+      ],
+      "message_list.column.sender.title": [
+        "Absender"
+      ],
+      "message_list.column.recipient.title": [
+        "Empfänger"
+      ],
+      "message_list.column.date.title": [
+        "Datum"
+      ],
+      "message_list.column.date_sent.title": [
+        "Sendedatum"
+      ],
+      "message_list.column.date.format": [
+        "dd.MM.yyyy | HH:mm"
+      ],
+      "message_list.message.encrypted_message": [
+        "Verschlüsselte Nachricht"
+      ],
+      "message_list.message.btn.confirmation_of_receipt.label": [
+        "Eingangsbestätigung"
+      ],
+      "message_list.message.btn.confirmation_of_receipt.svg.label": [
+        "Eingangsbestätigung (wird in einem separaten Browser-Tab geöffnet)"
+      ],
+      "message_list.table.pagination.label": [
+        "Seitenauswahl Nachrichtenliste"
+      ],
+      "message_list.error.loading.data.text": [
+        "Ihre Daten konnten nicht geladen werden."
+      ],
+      "message_list.error.decrypting_messages.title": [
+        "Fehler während der Entschlüsselung."
+      ],
+      "message_list.error.decrypting_messages.text": [
+        "Es konnten nicht alle Nachrichten entschlüsselt werden."
+      ],
+      "message_list.success.decrypting_messages.text": [
+        "Ihre Nachrichten wurden erfolgreich entschlüsselt."
+      ],
+      "message_list.empty": [
+        "Keine Nachrichten im Posteingang"
+      ],
+      "message_list.empty.gesendete": [
+        "Keine gesendeten Nachrichten"
+      ],
+      "message_list.inbox.senderUnknown": [
+        "Absender nicht darstellbar"
+      ],
+      "message_list.sentbox.recipientUnknown": [
+        "Empfänger nicht darstellbar"
+      ],
+      "message_detail.error.private_key_missing.title": [
+        "Fehlende Schlüsseldatei"
+      ],
+      "message_detail.error.private_key_missing.text": [
+        "Um die Detailansicht von Nachrichten anzeigen zu können, müssen Sie zuerst Ihre persönliche Schlüsseldatei importieren."
+      ],
+      "message_detail.error.fetch.404.title": [
+        "Fehler bei der Anzeige der Nachricht."
+      ],
+      "message_detail.error.fetch.404.text": [
+        "Die ausgewählte Nachricht existiert nicht oder Sie haben keine Berechtigung um die Nachricht anzuzeigen."
+      ],
+      "message_detail.error.fetch.unknown.title": [
+        "Fehler bei der Anzeige der Nachricht."
+      ],
+      "message_detail.error.fetch.unknown.text": [
+        "Die Nachricht konnte aufgrund eines unerwarteten technischen Fehlers nicht abgerufen werden."
+      ],
+      "message_detail.error.fetch_attachment.404.title": [
+        "Fehler bei der Anzeige des Dokuments."
+      ],
+      "message_detail.error.fetch_attachment.404.text": [
+        "Das ausgewählte Dokument existiert nicht oder Sie haben keine Berechtigung um das Dokument anzuzeigen."
+      ],
+      "message_detail.error.decrypt_attachment.title": [
+        "Fehler bei der Anzeige des Dokuments."
+      ],
+      "message_detail.error.decrypt_attachment.text": [
+        "Das ausgewählte Dokument konnte nicht entschlüsselt werden."
+      ],
+      "message_detail.error.fetch_attachment.unknown.title": [
+        "Fehler bei der Anzeige des Dokuments."
+      ],
+      "message_detail.error.fetch_attachment.unknown.text": [
+        "Das Dokument konnte aufgrund eines unerwarteten technischen Fehlers nicht abgerufen werden."
+      ],
+      "message_detail.error.decrypt_attachment.unknown.title": [
+        "Fehler bei der Anzeige des Dokuments."
+      ],
+      "message_detail.error.decrypt_attachment.unknown.text": [
+        "Es ist ein unerwarteter technischer Fehler aufgetreten."
+      ],
+      "message_detail.error.encrypted_data.algorithm_not_supported.title": [
+        "Fehler bei der Anzeige der Nachricht."
+      ],
+      "message_detail.error.encrypted_data.algorithm_not_supported.text": [
+        "Der in der Nachricht verwendete Verschlüsselungsalgorithmus wird nicht unterstützt ({algorithm})."
+      ],
+      "message_detail.error.encrypted_data.unknown.title": [
+        "Fehler bei der Anzeige der Nachricht."
+      ],
+      "message_detail.error.encrypted_data.unknown.text": [
+        "Die in der Nachricht enthaltenen Verschlüsselungsinformationen konnten nicht extrahiert werden."
+      ],
+      "message_detail.warn.message_attachments.incomplete.text.incoming.singular": [
+        "Ein Dokument dieser Nachricht konnte nicht korrekt zugeordnet werden. Dieses fehlt in der Liste der angehängten Dokumente und wird im Prüfvermerk als \"der Nachricht nicht beigefügt\" markiert."
+      ],
+      "message_detail.warn.message_attachments.incomplete.text.outgoing.singular": [
+        "Ein Dokument dieser Nachricht konnte nicht korrekt zugeordnet werden. Dieses fehlt in der Liste der angehängten Dokumente."
+      ],
+      "message_detail.warn.message_attachments.incomplete.text.incoming.plural": [
+        "Es konnten insgesamt {n} Dokumente dieser Nachricht nicht korrekt zugeordnet werden. Diese fehlen in der Liste der angehängten Dokumente und werden im Prüfvermerk als \"der Nachricht nicht beigefügt\" markiert."
+      ],
+      "message_detail.warn.message_attachments.incomplete.text.outgoing.plural": [
+        "Es konnten insgesamt {n} Dokumente dieser Nachricht nicht korrekt zugeordnet werden. Diese fehlen in der Liste der angehängten Dokumente."
+      ],
+      "message_detail.warn.message_attachments.list.incomplete.text.singular": [
+        "In der Liste der angehängten Dokumente fehlt ein Dokument, da dieses nicht korrekt zugeordnet werden konnte."
+      ],
+      "message_detail.warn.message_attachments.list.incomplete.text.plural": [
+        "In der Liste der angehängten Dokumente fehlen insgesamt {n} Dokumente, da diese nicht korrekt zugeordnet werden konnten."
+      ],
+      "message_detail.warn.message_attachments.list.incomplete.title": [
+        "Achtung"
+      ],
+      "message_delete.pop_up.title": [
+        "Nachricht löschen"
+      ],
+      "message_delete.pop_up.text": [
+        "Sind Sie sicher, dass Sie die gewählte Nachricht endgültig löschen wollen? \nDamit wird die Nachricht mit allen Anhängen unwiederbringlich gelöscht. Stellen Sie daher bitte sicher, dass Sie alle relevanten Informationen lokal gespeichert haben."
+      ],
+      "message_delete.pop_up.cancel": [
+        "Abbrechen"
+      ],
+      "message_delete.pop_up.decrypt": [
+        "Verschlüsselt"
+      ],
+      "message_delete.pop_up.accept": [
+        "Ja, Nachricht löschen"
+      ],
+      "message_delete.success.text": [
+        "Die Nachricht wurde erfolgreich gelöscht!"
+      ],
+      "message_delete.failure.text": [
+        "Die Nachricht konnte aufgrund eines Fehlers nicht gelöscht werden!"
+      ],
+      "message_delete.disabled.tooltip": [
+        "Das Löschen der Nachricht ist nicht möglich, da die Nachricht noch nicht gelesen wurde."
+      ],
+      "message_delete.tooltip": [
+        "Nachricht löschen"
+      ],
+      "message_save_all.info.title": [
+        ""
+      ],
+      "message_save_all.info.text": [
+        "Wir bereiten Ihre Dateien für den Download vor. Bitte haben Sie einen Augenblick Geduld"
+      ],
+      "message_save_all.success.title": [
+        ""
+      ],
+      "message_save_all.success.text": [
+        "Ihre Dateien sind erfolgreich heruntergeladen worden."
+      ],
+      "message_save_all.failed.title": [
+        ""
+      ],
+      "message_save_all.failed.text": [
+        "Beim Download der Dateien ist es zu einem Fehler gekommen. Bitte versuchen Sie es erneut."
+      ],
+      "ebo.testReport.print_view.title": [
+        "Prüfvermerk"
+      ],
+      "message_detail.incoming_message.btn.testReport.label": [
+        "Prüfvermerk"
+      ],
+      "message_detail.incoming_message.btn.testReport.svg.label": [
+        "Prüfvermerk (wird in einem separaten Browser-Tab geöffnet)"
+      ],
+      "message_detail.incoming_message.technical_document.btn.dialog.label": [
+        "Technische Dokumente"
+      ],
+      "message_detail.incoming_message.technical_document.btn.dialog.svg.label": [
+        "Technische Dokumente"
+      ],
+      "message_detail.incoming_message.closeBtn.label": [
+        "Dialog schliessen"
+      ],
+      "message_detail.outgoing_message.technical_document.btn.dialog.label": [
+        "Technische Dokumente"
+      ],
+      "message_detail.outgoing_message.technical_document.btn.dialog.svg.label": [
+        "Technische Dokumente"
+      ],
+      "message_detail.outgoing_message.closeBtn.label": [
+        "Dialog schliessen"
+      ],
+      "message_detail.info.fetch_attachment.aborted.title": [
+        "Download beendet."
+      ],
+      "message_detail.info.fetch_attachment.aborted.text": [
+        "Der Download des Dokumentes wurde abgebrochen."
+      ],
+      "message_detail.attachments.empty": [
+        "Der Nachricht sind keine Dokumente angehängt."
+      ],
+      "message_detail.attachments.label.number": [
+        "Nummer"
+      ],
+      "message_detail.attachments.txt.number": [
+        "Dokument {fileNumber}"
+      ],
+      "message_detail.attachments.label.size": [
+        "Dateigrösse"
+      ],
+      "message_detail.attachments.label.download_btn_cancel": [
+        "Abbrechen"
+      ],
+      "message_detail.attachments.title.download_btn_cancel": [
+        "Herunterladen abbrechen"
+      ],
+      "message_detail.attachments.label.download": [
+        "herunterladen"
+      ],
+      "message_detail.attachments.progessbar.aria-label": [
+        "Downloadstatus der Datei {fileName}"
+      ],
+      "message_detail.error.attachment.file_name.undeterminable": [
+        "Dokument {fileNumber} (Dateiname unbekannt)"
+      ],
+      "message_detail.error.business_card.undeterminable": [
+        "Wert nicht ermittelbar"
+      ],
+      "message_detail.error.content.undeterminable": [
+        "Wert nicht ermittelbar"
+      ],
+      "message_detail.content.unavailable": [
+        "−"
+      ],
+      "message_detail.incoming_message.transmission_details": [
+        "Sendedetails"
+      ],
+      "message_detail.incoming_message.received_date": [
+        "Empfangsdatum"
+      ],
+      "message_detail.incoming_message.author": [
+        "Absender"
+      ],
+      "message_detail.incoming_message.author.surname": [
+        "Name/Firma"
+      ],
+      "message_detail.incoming_message.author.organisation": [
+        "Organisation"
+      ],
+      "message_detail.incoming_message.author.city": [
+        "Ort"
+      ],
+      "message_detail.incoming_message.author.first_name": [
+        "Vorname"
+      ],
+      "message_detail.incoming_message.attachments": [
+        "Dokumente"
+      ],
+      "message_detail.incoming_message.attachments.save": [
+        "Alle Speichern"
+      ],
+      "message_detail.incoming_message.technical_attachments": [
+        "Technische Dokumente"
+      ],
+      "message_detail.incoming_message.btn.testReport.creation.info.title": [
+        "Ihr Prüfvermerk wird erstellt."
+      ],
+      "message_detail.incoming_message.btn.testReport.creation.info.text": [
+        "Bitte warten Sie. Die Generierung des Prüfvermerks kann einige Zeit dauern."
+      ],
+      "message_detail.incoming_message.btn.testReport.download_btn_cancel.title": [
+        "Generierung des Prüfvermerks abbrechen."
+      ],
+      "message_detail.incoming_message.btn.testReport.download_btn_cancel.label": [
+        "Abbrechen"
+      ],
+      "message_detail.incoming_message.btn.popupwindow.open_window.info.title": [
+        "Fehler beim Öffnen der Druckansicht."
+      ],
+      "message_detail.incoming_message.btn.popupwindow.open_window.info.text": [
+        "Es ist ein unbekannter Fehler aufgetreten. Bitte vergewissern Sie sich, dass das Öffnen von Popup-Fenstern in ihrem Browser erlaubt ist, und versuchen Sie es dann erneut."
+      ],
+      "message_detail.incoming_message.btn.testReport.creation.error.title": [
+        "Fehler beim Erstellen des Prüfvermerks"
+      ],
+      "message_detail.incoming_message.btn.testReport.creation.error.api.text": [
+        "Beim Ermitteln der benötigten Daten ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut."
+      ],
+      "message_detail.incoming_message.btn.testReport.creation.error.crypto.text": [
+        "Die benötigten Daten konnten nicht entschlüsselt werden."
+      ],
+      "message_detail.incoming_message.btn.testReport.creation.error.unknown.text": [
+        "Es ist ein unbekannter Fehler aufgetreten."
+      ],
+      "message_detail.outgoing.not_implemented.text": [
+        "Die Detailansicht der gesendeten Nachricht befindet sich aktuell noch in Entwicklung. Wir bitten noch um etwas Geduld und danken für Ihr Verständnis."
+      ],
+      "ebo.test_report.print_view.h1": [
+        "Prüfvermerk"
+      ],
+      "ebo.test_report.print_view.infotext": [
+        "Die unten aufgeführten Dokumente sind elektronisch eingegangen. Die technische Prüfung der elektronischen Dokumente am {date} MESZ hat folgendes Ergebnis gebracht:"
+      ],
+      "ebo.test_report.print_view.message_info.h2": [
+        "Angaben zur Nachricht:"
+      ],
+      "ebo.test_report.print_view.transport_info.BEA_BEN_BEBPO_BEST_EBO_OZG.VALID.INSECURE": [
+        "Diese Nachricht wurde per EGVP versandt."
+      ],
+      "ebo.test_report.print_view.transport_info.BEA_BEN_BEBPO_BEST_EBO_OZG.UNKNOWN.INSECURE": [
+        "Diese Nachricht wurde per EGVP versandt. Die Prüfung des Herkunftsnachweises war zum Prüfungszeitpunkt nicht möglich."
+      ],
+      "ebo.test_report.print_view.transport_info.BEA_BEN_BEBPO_BEST_EBO_OZG.INVALID.INSECURE": [
+        "Diese Nachricht wurde per EGVP versandt. Die Prüfung des Herkunftsnachweises führte zu dem Ergebnis „ungültig“."
+      ],
+      "ebo.test_report.print_view.transport_info.BEA.VALID.SECURE": [
+        "Sicherer Übermittlungsweg aus einem besonderen Anwaltspostfach."
+      ],
+      "ebo.test_report.print_view.transport_info.BEA.UNKNOWN.SECURE": [
+        "Prüfung des sicheren Übermittlungswegs zum Prüfungszeitpunkt nicht möglich."
+      ],
+      "ebo.test_report.print_view.transport_info.BEA.INVALID.SECURE": [
+        "Keine Übermittlung über einen sicheren Übermittlungsweg, weil die Prüfung des Herkunftsnachweises des besonderen Anwaltspostfachs zu dem Ergebnis „ungültig“ führte."
+      ],
+      "ebo.test_report.print_view.transport_info.BEBPO.VALID.SECURE": [
+        "Sicherer Übermittlungsweg aus einem besonderen Behördenpostfach."
+      ],
+      "ebo.test_report.print_view.transport_info.BEBPO.UNKNOWN.SECURE": [
+        "Prüfung des sicheren Übermittlungswegs zum Prüfungszeitpunkt nicht möglich."
+      ],
+      "ebo.test_report.print_view.transport_info.BEBPO.INVALID.SECURE": [
+        "Keine Übermittlung über einen sicheren Übermittlungsweg, weil die Prüfung des Herkunftsnachweises des besonderen Behördenpostfachs zu dem Ergebnis „ungültig“ führte."
+      ],
+      "ebo.test_report.print_view.transport_info.BEN.VALID.SECURE": [
+        "Sicherer Übermittlungsweg aus einem besonderen Notarpostfach."
+      ],
+      "ebo.test_report.print_view.transport_info.BEN.UNKNOWN.SECURE": [
+        "Prüfung des sicheren Übermittlungswegs zum Prüfungszeitpunkt nicht möglich."
+      ],
+      "ebo.test_report.print_view.transport_info.BEN.INVALID.SECURE": [
+        "Keine Übermittlung über einen sicheren Übermittlungsweg, weil die Prüfung des Herkunftsnachweises des besonderen Notarpostfachs zu dem Ergebnis „ungültig“ führte."
+      ],
+      "ebo.test_report.print_view.transport_info.BEST.VALID.SECURE": [
+        "Sicherer Übermittlungsweg aus einem besonderen Steuerberaterpostfach."
+      ],
+      "ebo.test_report.print_view.transport_info.BEST.UNKNOWN.SECURE": [
+        "Prüfung des sicheren Übermittlungswegs zum Prüfungszeitpunkt nicht möglich."
+      ],
+      "ebo.test_report.print_view.transport_info.BEST.INVALID.SECURE": [
+        "Keine Übermittlung über einen sicheren Übermittlungsweg, weil die Prüfung des Herkunftsnachweises des besonderen Steuerberaterpostfachs zu dem Ergebnis „ungültig“ führte."
+      ],
+      "ebo.test_report.print_view.transport_info.EBO.VALID.SECURE": [
+        "Sicherer Übermittlungsweg aus einem besonderen Bürger- und Organisationenpostfach."
+      ],
+      "ebo.test_report.print_view.transport_info.EBO.UNKNOWN.SECURE": [
+        "Prüfung des sicheren Übermittlungswegs zum Prüfungszeitpunkt nicht möglich."
+      ],
+      "ebo.test_report.print_view.transport_info.EBO.INVALID.SECURE": [
+        "Keine Übermittlung über einen sicheren Übermittlungsweg, weil die Prüfung des Herkunftsnachweises des besonderen Bürger- und Organisationenpostfachs zu dem Ergebnis „ungültig“ führte."
+      ],
+      "ebo.test_report.print_view.transport_info.JUSTIZ.VALID.INSECURE": [
+        "Diese Nachricht wurde von der Justiz versandt."
+      ],
+      "ebo.test_report.print_view.transport_info.JUSTIZ.UNKNOWN.INSECURE": [
+        "Der Versand der Nachricht durch die Justiz kann nicht bestätigt werden, da die Prüfung des Herkunftsnachweises zum Prüfungszeitpunkt nicht möglich war."
+      ],
+      "ebo.test_report.print_view.transport_info.JUSTIZ.INVALID.INSECURE": [
+        "Der Versand der Nachricht durch die Justiz kann nicht bestätigt werden, da die Prüfung des Herkunftsnachweises zu dem Ergebnis „ungültig“ führte."
+      ],
+      "ebo.test_report.print_view.transport_info.EGVP.VALID.INSECURE": [
+        "Diese Nachricht wurde per EGVP versandt."
+      ],
+      "ebo.test_report.print_view.transport_info.EGVP.UNKNOWN.INSECURE": [
+        "Der Versand der Nachricht durch einen identifizierten EGVP-Teilnehmer kann nicht bestätigt werden, da die Prüfung des Herkunftsnachweises zum Prüfungszeitpunkt nicht möglich war."
+      ],
+      "ebo.test_report.print_view.transport_info.EGVP.INVALID.INSECURE": [
+        "Der Versand der Nachricht durch einen identifizierten EGVP-Teilnehmer kann nicht bestätigt werden, da die Prüfung des Herkunftsnachweises zu dem Ergebnis „ungültig“ führte."
+      ],
+      "ebo.test_report.print_view.transport_info.OZG.VALID.SECURE": [
+        "Sicherer Übermittlungsweg aus dem Postfach- und Versanddienst eines OZG-Nutzerkontos."
+      ],
+      "ebo.test_report.print_view.transport_info.OZG.UNKNOWN.SECURE": [
+        "Prüfung des sicheren Übermittlungswegs zum Prüfungszeitpunkt nicht möglich."
+      ],
+      "ebo.test_report.print_view.transport_info.OZG.INVALID.SECURE": [
+        "Keine Übermittlung über einen sicheren Übermittlungsweg, weil die Prüfung des Herkunftsnachweises aus dem Postfach- und Versanddienst eines OZG-Nutzerkontos zu dem Ergebnis „ungültig“ führte."
+      ],
+      "ebo.test_report.print_view.transport_info.JUSTIZ_EGVP.ALL.SECURE": [
+        "Diese Nachricht wurde per EGVP versandt. Achtung! Angaben zum sicheren Übermittlungsweg im VHN nicht korrekt."
+      ],
+      "ebo.test_report.print_view.transport_info.TEST.VALID.SECURE": [
+        "Dies ist eine Testnachricht. Ein Test-VHN war beigefügt."
+      ],
+      "ebo.test_report.print_view.transport_info.TEST.UNKNOWN.SECURE": [
+        "Dies ist eine Testnachricht. Die Prüfung des Herkunftsnachweises (Test-VHN) war zum Prüfungszeitpunkt nicht möglich."
+      ],
+      "ebo.test_report.print_view.transport_info.TEST.INVALID.SECURE": [
+        "Dies ist eine Testnachricht. Die Prüfung des Herkunftsnachweises (Test-VHN) führte zu dem Ergebnis „ungültig“."
+      ],
+      "ebo.test_report.print_view.transport_info.TEST.ALL.INSECURE": [
+        "Dies ist eine Testnachricht. Es lag keine sichere Anmeldung vor."
+      ],
+      "ebo.test_report.print_view.transport_info.UNKNOWN_CA.ALL.ALL": [
+        "ACHTUNG! Der Absender der Nachricht ist kein identifizierter EGVP-Teilnehmer."
+      ],
+      "ebo.test_report.print_view.transport_info.DE_MAIL_CONFIRMED.VALID.INSECURE": [
+        "Sicherer Übermittlungsweg per absenderbestätigter De-Mail."
+      ],
+      "ebo.test_report.print_view.transport_info.DE_MAIL_CONFIRMED.UNKNOWN_CA.INSECURE": [
+        "Der Versand über einen sicheren Übermittlungsweg per absenderbestätigter De-Mail kann nicht bestätigt werden, da die Prüfung des Herkunftsnachweises zum Prüfungszeitpunkt nicht möglich war."
+      ],
+      "ebo.test_report.print_view.transport_info.DE_MAIL_CONFIRMED.INVALID.INSECURE": [
+        "Der Versand über einen sicheren Übermittlungsweg per absenderbestätigter De-Mail kann nicht bestätigt werden, da die Prüfung des Herkunftsnachweises zu dem Ergebnis „ungültig“ führte."
+      ],
+      "ebo.test_report.print_view.transport_info.DE_MAIL_UNCONFIRMED.VALID.INSECURE": [
+        "Diese Nachricht wurde per De-Mail ohne Absenderbestätigung versandt."
+      ],
+      "ebo.test_report.print_view.transport_info.DE_MAIL_UNCONFIRMED.UNKNOWN_CA.INSECURE": [
+        " Der Versand per De-Mail ohne Absenderbestätigung kann nicht bestätigt werden, da die Prüfung des Herkunftsnachweises zum Prüfungszeitpunkt nicht möglich war."
+      ],
+      "ebo.test_report.print_view.transport_info.DE_MAIL_UNCONFIRMED.INVALID.INSECURE": [
+        "Der Versand per De-Mail ohne Absenderbestätigung kann nicht bestätigt werden, da die Prüfung des Herkunftsnachweises zu dem Ergebnis „ungültig“ führte."
+      ],
+      "ebo.test_report.print_view.data.dt.osciCreationTime": [
+        "Eingangszeitpunkt:"
+      ],
+      "ebo.test_report.print_view.data.dt.sender": [
+        "Absender:"
+      ],
+      "ebo.test_report.print_view.data.dt.senderId": [
+        "Nutzer-ID des Absenders:"
+      ],
+      "ebo.test_report.print_view.data.dt.senderFileNumber": [
+        "Aktenzeichen des Absenders:"
+      ],
+      "ebo.test_report.print_view.data.dt.recipient": [
+        "Empfänger:"
+      ],
+      "ebo.test_report.print_view.data.dt.recipientFileNumber": [
+        "Aktenzeichen des Empfängers:"
+      ],
+      "ebo.test_report.print_view.data.dt.message_id": [
+        "Nachrichtenkennzeichen:"
+      ],
+      "ebo.test_report.print_view.message_attachments.h2": [
+        "Angaben zu den Dokumenten:"
+      ],
+      "ebo.test_report.print_view.message_hashlessAttachments.h3": [
+        "Die Dokumente mit folgenden Dateinamen sind nicht im Herkunftsnachweis enthalten:"
+      ],
+      "ebo.test_report.print_view.unknownHashes.h3": [
+        "Die im Herkunftsnachweis mit folgenden Hashwerten aufgeführten Dokumente sind der\nNachricht nicht beigefügt:"
+      ],
+      "ebo.test_report.print_view.message_attachments.th.filename": [
+        "Dateiname"
+      ],
+      "ebo.test_report.print_view.message_attachments.th.format": [
+        "Format"
+      ],
+      "ebo.test_report.print_view.message_attachments.th.signature_info": [
+        "Informationen zu(r) qualifizierten elektronischen Signatur(en)"
+      ],
+      "ebo.test_report.print_view.message_attachments.th.signature_info.ok": [
+        "ja"
+      ],
+      "ebo.test_report.print_view.message_attachments.th.signature_info.fail": [
+        "nein"
+      ],
+      "ebo.test_report.print_view.message_attachments.th.sign_is_qualified": [
+        "Qualifiziert signiert nach ERVB"
+      ],
+      "ebo.test_report.print_view.message_attachments.th.sign_by": [
+        "durch"
+      ],
+      "ebo.test_report.print_view.message_attachments.th.sign_attribute": [
+        "Berufsbezogenes Attribut"
+      ],
+      "ebo.test_report.print_view.message_attachments.th.sign_date": [
+        "am"
+      ],
+      "ebo.test_report.print_view.message_attachments.th.sign_result": [
+        "Prüfergebnis"
+      ],
+      "ebo.test_report.print_view.message_attachments.th.sign_result.validity": [
+        "Gültigkeit"
+      ],
+      "ebo.test_report.print_view.message_attachments.th.sign_result.integrity": [
+        "Integrität"
+      ],
+      "ebo.test_report.print_view.message_attachments.th.sign_result.passed": [
+        "Prüfung erfolgreich"
+      ],
+      "ebo.test_report.print_view.message_attachments.th.sign_result.failed": [
+        "Prüfung nicht erfolgreich"
+      ],
+      "ebo.test_report.print_view.print.label": [
+        "Prüfvermerk drucken"
+      ],
+      "message_detail.outgoing_message.transmission_details": [
+        "Sendedetails"
+      ],
+      "message_detail.outgoing_message.created_date": [
+        "Absendedatum"
+      ],
+      "message_detail.outgoing_message.osciCreationTime": [
+        "Eingangsdatum"
+      ],
+      "message_detail.outgoing_message.sentStatus": [
+        "Sendestatus"
+      ],
+      "message_detail.outgoing_message.recipient": [
+        "Empfänger"
+      ],
+      "message_detail.outgoing_message.recipient.surname": [
+        "Name/Firma"
+      ],
+      "message_detail.outgoing_message.recipient.organisation": [
+        "Organisation"
+      ],
+      "message_detail.outgoing_message.recipient.city": [
+        "Ort"
+      ],
+      "message_detail.outgoing_message.recipient.first_name": [
+        "Vorname"
+      ],
+      "message_detail.outgoing_message.attachments": [
+        "Dokumente"
+      ],
+      "message_detail.outgoing_message.technical_attachments": [
+        "Technische Dokumente"
+      ],
+      "message_detail.back_button": [
+        "Zurück"
+      ],
+      "ebo.confirmationOfReceipt.print_view.title": [
+        "Eingangsbestätigung"
+      ],
+      "message_detail.outgoing_message.btn.confirmationOfReceipt.label": [
+        "Eingangsbestätigung"
+      ],
+      "message_detail.outgoing_message.btn.confirmationOfReceipt.svg.label": [
+        "Eingangsbestätigung (wird in einem separaten Browser-Tab geöffnet)"
+      ],
+      "import_keystore.form.legend.headline": [
+        "Nachrichten entschlüsseln"
+      ],
+      "import_keystore.form.filechooser.label": [
+        "Persönliche Schlüsseldatei"
+      ],
+      "import_keystore.form.filechooser.tooltip": [
+        "Bitte wählen Sie Ihre persönliche Schlüsseldatei aus, die Sie bei der Einrichtung Ihres Postfachs heruntergeladen und gespeichert haben."
+      ],
+      "import_keystore.form.filechooser.tooltip.sronly": [
+        "Hilfe für die Auswahl der persönlichen Schlüsseldatei"
+      ],
+      "import_keystore.form.filechooser.dropzone.text": [
+        "Schlüsseldatei hier ablegen oder"
+      ],
+      "import_keystore.form.filechooser.button.label": [
+        "Schlüsseldatei hier auswählen"
+      ],
+      "import_keystore.form.input_password.label": [
+        "Passwort"
+      ],
+      "import_keystore.form.input_password.tooltip": [
+        "Bitte geben Sie Ihr Passwort ein, das Sie bei der Einrichtung Ihres Postfachs festgelegt haben."
+      ],
+      "import_keystore.form.input_password.tooltip.sronly": [
+        "Hilfe für die Eingabe des Passworts"
+      ],
+      "import_keystore.form.btn.cancel.label": [
+        "Abbrechen"
+      ],
+      "import_keystore.form.btn.submit.label": [
+        "Nachrichten entschlüsseln"
+      ],
+      "import_keystore.form.alert.submit_in_progress.title": [
+        "Bitte haben Sie einen Moment Geduld..."
+      ],
+      "import_keystore.form.alert.submit_in_progress.text": [
+        "Ihre persönliche Schlüsseldatei wird importiert..."
+      ],
+      "import_keystore.form.alert.error.title": [
+        "Fehler beim Einlesen Ihrer persönlichen Schlüsseldatei"
+      ],
+      "import_keystore.form.alert.error.decrypt_store": [
+        "Bitte überprüfen Sie Ihr Passwort und stellen Sie sicher, dass Sie die richtige Schlüsseldatei ausgewählt haben."
+      ],
+      "import_keystore.form.alert.error.invalid": [
+        "Die ausgewählte Schlüsseldatei ist ungültig oder veraltet."
+      ],
+      "import_keystore.form.alert.error.unknown": [
+        "Es ist ein unbekannter Fehler aufgetreten, bitte versuchen Sie es erneut."
+      ],
+      "ebo.confirmation_of_receipt.print_view.title": [
+        "Eingangsbestätigung"
+      ],
+      "ebo.confirmation_of_receipt.print_view.h1": [
+        "Eingangsbestätigung vom {date}"
+      ],
+      "ebo.confirmation_of_receipt.print_view.data.h2": [
+        "Angaben zur Nachricht:"
+      ],
+      "ebo.confirmation_of_receipt.print_view.data.claim": [
+        "Sicherer Übermittlungsweg aus dem Postfach- und Versanddienst eines OZG-Nutzerkontos."
+      ],
+      "ebo.confirmation_of_receipt.print_view.data.dt.osciCreationTime": [
+        "Eingang auf dem Server:"
+      ],
+      "ebo.confirmation_of_receipt.print_view.data.dt.recipient": [
+        "Empfänger:"
+      ],
+      "ebo.confirmation_of_receipt.print_view.data.dt.recipient_id": [
+        "Nutzer-ID des Empfängers:"
+      ],
+      "ebo.confirmation_of_receipt.print_view.data.dt.message_id": [
+        "Nachrichtenkennzeichen:"
+      ],
+      "ebo.confirmation_of_receipt.print_view.documents.h2": [
+        "Angaben zu den Dokumenten:"
+      ],
+      "ebo.confirmation_of_receipt.print_view.print.label": [
+        "Eingangsbestätigung drucken"
+      ],
+      "ebo.confirmation_of_receipt.print_view.message_attachments.h2": [
+        "Angaben zu den Dokumenten:"
+      ],
+      "ebo.confirmation_of_receipt.print_view.message_attachments.th.filename": [
+        "Dateiname"
+      ],
+      "ebo.confirmation_of_receipt.print_view.message_attachments.th.format": [
+        "Format"
+      ],
+      "login.message.success.register.title": [
+        "Identifizierung über BundID erfolgreich."
+      ],
+      "login.message.success.register.text": [
+        "Ihre Identifizierung über BundID war erfolgreich. Bitte führen Sie folgende Schritte durch, um Mein Justizpostfach einzurichten."
+      ],
+      "login.message.error.title": [
+        "Fehler bei der Anmeldung."
+      ],
+      "login.message.error.text": [
+        "Der Anmeldevorgang konnte nicht durchgeführt werden, bitte versuchen Sie es erneut."
+      ],
+      "authentication.error.UNSPECIFIED.title": [
+        "Fehler bei der Anmeldung."
+      ],
+      "authentication.error.UNSPECIFIED.text": [
+        "Der Anmeldevorgang konnte nicht durchgeführt werden, bitte versuchen Sie es erneut."
+      ],
+      "authentication.error.SESSION_AUTHENTICATION.title": [
+        "Fehler bei der Anmeldung."
+      ],
+      "authentication.error.SESSION_AUTHENTICATION.text": [
+        "Der Anmeldevorgang konnte aufgrund einer weiteren aktiven Sitzung nicht durchgeführt werden. Bitte beachten Sie, dass Sie nicht mit mehreren Geräten oder Browsern gleichzeitig angemeldet sein können."
+      ],
+      "authentication.error.SESSION_EXPIRED.title": [
+        "Sitzung abgelaufen."
+      ],
+      "authentication.error.SESSION_EXPIRED.text": [
+        "Ihre aktuelle Sitzung ist abgelaufen. Bitte beachten Sie, dass Sie nicht mit mehreren Geräten oder Browsern gleichzeitig angemeldet sein können."
+      ],
+      "authentication.error.FORBIDDEN.title": [
+        "Zugriff verweigert."
+      ],
+      "authentication.error.FORBIDDEN.text": [
+        "Bitte versuchen Sie es erneut."
+      ],
+      "authentication.error.MODIFY_SAFE_ACCOUNT_FAILED.title": [
+        "Fehler bei der Anmeldung."
+      ],
+      "authentication.error.MODIFY_SAFE_ACCOUNT_FAILED.text": [
+        "Ihre im SAFE hinterlegten Daten konnten nicht aktualisiert werden. Bitte versuchen Sie es erneut oder wenden Sie sich an den Support."
+      ],
+      "authentication.error.SET_ZBP_MAILBOX_HANDLE_FAILED.title": [
+        "Fehler bei der Anmeldung."
+      ],
+      "authentication.error.SET_ZBP_MAILBOX_HANDLE_FAILED.text": [
+        "Die Benachrichtigungsfunktion für Ihr Konto konnte nicht aktiviert werden. Bitte versuchen Sie es erneut oder wenden Sie sich an den Support."
+      ],
+      "authentication.error.SAFE_SELF_LOCKUP_FAILED.title": [
+        "Fehler bei der Anmeldung."
+      ],
+      "authentication.error.SAFE_SELF_LOCKUP_FAILED.text": [
+        "Ihre im SAFE hinterlegten Daten konnten nicht gefunden werden. Bitte versuchen Sie es erneut oder wenden Sie sich an den Support."
+      ],
+      "authentication.error.INSUFFICIENT_TRUST_LEVEL_SUBSTANTIAL.title": [
+        "Fehler bei der Anmeldung."
+      ],
+      "authentication.error.INSUFFICIENT_TRUST_LEVEL_SUBSTANTIAL.text": [
+        "Für die erfolgreiche Anmeldung an Mein Justizpostfach ist ein Authentifzierungsmittel mit dem Vertrauensniveau <b><i>hoch</i></b> erforderlich. Sie melden sich mit einem Authentifizierungsmittel mit dem Vertrauensniveau <b><i>substanziell</i></b> an"
+      ],
+      "authentication.error.INSUFFICIENT_TRUST_LEVEL_LOW.title": [
+        "Fehler bei der Anmeldung."
+      ],
+      "authentication.error.INSUFFICIENT_TRUST_LEVEL_LOW.text": [
+        "Für die erfolgreiche Anmeldung an Mein Justizpostfach ist ein Authentifzierungsmittel mit dem Vertrauensniveau <b><i>hoch</i></b> erforderlich. Sie melden sich mit einem Authentifizierungsmittel mit dem Vertrauensniveau <b><i>niedrig</i></b> an"
+      ],
+      "authentication.error.NO_NAME_AVAILABLE.title": [
+        "Fehler bei der Anmeldung."
+      ],
+      "authentication.error.NO_NAME_AVAILABLE.text": [
+        "Sie können sich ohne Vor- und Nachname nicht am Mein Justizpostfach anmelden."
+      ],
+      "login.button.label": [
+        "Anmelden/Einrichten"
+      ],
+      "login.button.label.sr-only": [
+        "Anmelden mit Ihrer BundID"
+      ],
+      "logout.label.your_name": [
+        "Sie sind angemeldet als"
+      ],
+      "logout.button.label": [
+        "Abmelden"
+      ],
+      "logout.form.sr_only": [
+        "Abmeldung von Ihrem Justizpostfach."
+      ],
+      "logout.message.DEFAULT.title": [
+        "Auf Wiedersehen!"
+      ],
+      "logout.message.DEFAULT.text": [
+        "Sie haben sich erfolgreich abgemeldet."
+      ],
+      "logout.message.TIMEOUT.title": [
+        "Sitzung abgelaufen."
+      ],
+      "logout.message.TIMEOUT.text": [
+        "Ihre Sitzung ist abgelaufen. Sie wurden automatisch abgemeldet."
+      ],
+      "logout.message.OLD_SESSION.title": [
+        "Automatische Abmeldung"
+      ],
+      "logout.message.OLD_SESSION.text": [
+        "Achtung: Sie wurden automatisch abgemeldet. Bitte beachten Sie, dass Sie aus Sicherheitsgründen abgemeldet werden, wenn Sie die Anwendung während einer bestehenden Sitzung neu starten (dies betrifft beispielsweise auch das Öffnen der Anwendung in einem neuen Tab oder das Neuladen der Seite). Bitte denken Sie auch daran, sich abzumelden, bevor Sie Ihr Postfach verlassen."
+      ],
+      "user.default.display_name": [
+        "Gast"
+      ],
+      "service.crypto.error.generate_keyPair.default": [
+        "Fehlerursache: {cause}"
+      ],
+      "service.crypto.error.unsupported.algorithm": [
+        "Der Algorithmus \"{algorithm}\" wird nicht unterstützt."
+      ],
+      "service.crypto.error.public_exponent_mismatch": [
+        "Der öffentliche Exponent des Algorithmus weicht ab."
+      ],
+      "service.crypto.error.import_x509cert.default": [
+        "Fehler beim Import des X509v3-Zertifikats: {cause}"
+      ],
+      "service.crypto.error.import_pkcs12_keystore.default": [
+        "Fehler beim Import des PKCS#12 key stores: {cause}"
+      ],
+      "service.crypto.error.import_pkcs12_keystore.keypair.mismatch": [
+        "Die privaten und öffentlichen Schlüssel gehören nicht zusammen."
+      ],
+      "service.crypto.error.validate.x509.validity.undefined": [
+        "Die Gültigkeit Ihres Zertifikats konnte nicht überprüft werden."
+      ],
+      "service.crypto.error.validate.x509.validity.notBefore.not_valid": [
+        "Ihr Zertifikat ist noch nicht gültig."
+      ],
+      "service.crypto.error.validate.x509.validity.notAfter.not_valid": [
+        "Ihr Zertifikat ist abgelaufen."
+      ],
+      "service.crypto.error.validate.x509.signature.verification_failed": [
+        "Die Signaturprüfung Ihres Zertifikats ist fehlgeschlagen."
+      ],
+      "service.crypto.error.asymmetricEncrypt.public_key": [
+        "Der öffentliche Schlüssel des Empfängers konnte nicht gelesen werden."
+      ],
+      "service.crypto.error.asymmetricEncrypt.unknown": [
+        "Ursache: {cause}"
+      ],
+      "service.crypto.error.asymmetricDecrypt.unknown": [
+        "Ist Ihr privater Schlüssel korrekt?"
+      ],
+      "service.crypto.error.asymmetricDecrypt.private_key": [
+        "Ihr privater Schlüssel konnte nicht gelesen werden."
+      ],
+      "service.crypto.error.asymmetricDecrypt.no_private_key": [
+        "Kein privater Schlüssel vorhanden."
+      ],
+      "service.crypto.error.asymmetricDecrypt.no_data": [
+        "Keine Daten zum entschlüsseln übergeben."
+      ],
+      "service.crypto.error.symmetricEncrypt.unknown": [
+        "Fehler. Ihre Daten konnten nicht verschlüsselt werden. {cause}"
+      ],
+      "service.crypto.error.symmetricDecrypt.unknown": [
+        "Fehler. Ihre Daten konnten nicht entschlüsselt werden. {cause}"
+      ],
+      "pages.homepage.long": [
+        "Startseite"
+      ],
+      "pages.homepage.short": [
+        "Mein Justizpostfach"
+      ],
+      "pages.createmessage.long": [
+        "Nachricht verfassen"
+      ],
+      "pages.createmessage.short": [
+        "Nachricht verfassen"
+      ],
+      "pages.inbox.long": [
+        "Empfangene Nachrichten"
+      ],
+      "pages.inbox.short": [
+        "Empfangene Nachrichten"
+      ],
+      "pages.sentbox.long": [
+        "Gesendete Nachrichten"
+      ],
+      "pages.sentbox.short": [
+        "Gesendete Nachrichten"
+      ],
+      "pages.inbox.incoming_message_detail.long": [
+        "Detailansicht empfangene Nachricht"
+      ],
+      "pages.inbox.incoming_message_detail.short": [
+        "Detailansicht"
+      ],
+      "pages.sentbox.outgoing_message_detail.long": [
+        "Detailansicht gesendete Nachricht"
+      ],
+      "pages.sentbox.outgoing_message_detail.short": [
+        "Detailansicht"
+      ],
+      "pages.registration.short": [
+        "Einrichtung"
+      ],
+      "pages.registration.long": [
+        "Einrichtung Ihres Postfachs"
+      ],
+      "pages.renew_certificate.short": [
+        "Zertifikat erneuern"
+      ],
+      "pages.renew_certificate.long": [
+        "Verschlüsselungszertifikat erneuern"
+      ],
+      "pages.privacy_policy.short": [
+        "Datenschutz"
+      ],
+      "pages.privacy_policy.long": [
+        "Datenschutz"
+      ],
+      "pages.impressum.short": [
+        "Impressum"
+      ],
+      "pages.impressum.long": [
+        "Impressum"
+      ],
+      "pages.a11y.short": [
+        "Barrierefreiheit"
+      ],
+      "pages.a11y.long": [
+        "Barrierefreiheit"
+      ],
+      "pages.not_found.short": [
+        "Seite nicht gefunden"
+      ],
+      "pages.not_found.long": [
+        "Seite nicht gefunden"
+      ],
+      "pages.redirect.short": [
+        "Weiterleitung..."
+      ],
+      "pages.redirect.long": [
+        "Weiterleitung..."
+      ],
+      "pages.error.short": [
+        "Fehler"
+      ],
+      "pages.error.long": [
+        "Fehler"
+      ],
+      "errorpage.main.h1": [
+        "Fehler"
+      ],
+      "homepage.banner.slogan": [
+        "Ihr Postfach für die sichere elektronische Kommunikation mit der Justiz"
+      ],
+      "homepage.banner.slogan.features.sr-only": [
+        "Vorteile Ihres Justizpostfachs:"
+      ],
+      "homepage.banner.slogan.feature.safe": [
+        "sicher"
+      ],
+      "homepage.banner.slogan.feature.easy": [
+        "einfach"
+      ],
+      "homepage.banner.slogan.feature.free": [
+        "kostenlos"
+      ],
+      "homepage.banner.register_btn_text": [
+        "Postfach einrichten mit Ihrer"
+      ],
+      "homepage.banner.register_btn_sr-only": [
+        "Postfach einrichten mit Ihrer BundID"
+      ],
+      "homepage.main.h1": [
+        "Willkommen bei Mein Justizpostfach"
+      ],
+      "homepage.main.article.introduction": [
+        "Mein Justizpostfach ermöglicht die verschlüsselte Kommunikation zwischen Ihnen und der Justiz sowie Behörden, Anwälten, Notaren und Steuerberatern auf höchstem Sicherheitsniveau."
+      ],
+      "homepage.main.article.register_bund_id": [
+        "Um sich Mein Justizpostfach einrichten zu können, benötigen Sie ein Nutzerkonto bei der BundID. Falls Sie noch kein Nutzerkonto besitzen, können Sie sich über folgenden Link eines einrichten:"
+      ],
+      "homepage.main.article.registration": [
+        "Sobald Sie ein Nutzerkonto bei der BundID besitzen, können Sie Mein Justizpostfach folgendermaßen"
+      ],
+      "homepage.main.article.registration_link": [
+        "einrichten"
+      ],
+      "homepage.main.article.registration_3": [
+        ":"
+      ],
+      "homepage.main.encrypted_communication.h2": [
+        "Was bedeutet verschlüsselte Kommunikation?"
+      ],
+      "homepage.main.encrypted_communication.text": [
+        "Mit der Verschlüsselung der Kommunikation zwischen Ihnen und der Justiz schützen Sie Ihre vertraulichen Nachrichten vor unberechtigtem Zugriff durch Dritte. Hierzu benötigen Sie lediglich Ihr Passwort und Ihre persönliche Schlüsseldatei, die Sie sicher aufbewahren."
+      ],
+      "homepage.main.registration.step1.title": [
+        "Passwort festlegen"
+      ],
+      "homepage.main.registration.step1.alt": [
+        "Erster Schritt: Passwort festlegen"
+      ],
+      "homepage.main.registration.step1.text": [
+        "Mit dem Passwort sichern Sie Ihre persönliche Schlüsseldatei ab."
+      ],
+      "homepage.main.registration.step2.title": [
+        "Schlüsseldatei speichern"
+      ],
+      "homepage.main.registration.step2.alt": [
+        "Zweiter Schritt: Schlüsseldatei speichern"
+      ],
+      "homepage.main.registration.step2.text": [
+        "Ihre persönliche Schlüsseldatei benötigen Sie in Zukunft, um auf Ihre verschlüsselten Nachrichten zuzugreifen."
+      ],
+      "homepage.main.registration.step3.title": [
+        "Hinterlegung des Zertifikates"
+      ],
+      "homepage.main.registration.step3.alt": [
+        "Dritter Schritt: Hinterlegung des Zertifikates"
+      ],
+      "homepage.main.registration.step3.text": [
+        "Das öffentliche Zertifikat wird bei der Justiz hinterlegt. Dies ermöglicht eine verschlüsselte Kommunikation."
+      ],
+      "homepage.main.registration.step4.title": [
+        "Einrichtung abgeschlossen"
+      ],
+      "homepage.main.registration.step4.alt": [
+        "Abschluss: Einrichtung abgeschlossen"
+      ],
+      "homepage.main.registration.step4.text": [
+        "Nach der abgeschlossenen Einrichtung können Sie mit der Justiz sicher elektronisch kommunizieren."
+      ],
+      "registration.sperrvermerk.warning.text1": [
+        "Für Personen, für die im Melderegister eine Auskunftssperre eingetragen ist, ist die Nutzung des MJP gegenwärtig nur bedingt geeignet, siehe den Hinweis in den "
+      ],
+      "registration.sperrvermerk.warning.text2": [
+        "."
+      ],
+      "registration.sperrvermerk.warning.url.faq.title": [
+        "FAQ"
+      ],
+      "registration.sperrvermerk.warning.url.faq.text": [
+        "FAQ"
+      ],
+      "registration.sperrvermerk.warning.title": [
+        "Hinweis"
+      ],
+      "general.certificate.expiration.alert.title": [
+        "Ihr Verschlüsselungszertifikat läuft ab"
+      ],
+      "general.certificate.expiration.alert.title2": [
+        "Ihr Verschlüsselungszertifikat läuft in 30 Tagen ab"
+      ],
+      "general.certificate.expiration.alert.text": [
+        "Am {formatedDate} läuft Ihr Verschlüsselungszertifikat ab.<br>Nach Ablauf Ihres Zertifikats können Sie Ihr Postfach nicht mehr für den Austausch von Nachrichten verwenden. Sie haben weiterhin Zugriff auf bereits empfangene und gesendete Nachrichten.<br>Bitte erneuern Sie Ihr Zertifikat rechtzeitig über den Menüpunkt <strong>„Postfach verwalten“.</strong>"
+      ],
+      "general.certificate.after.expired.alert.title": [
+        "Ihr Verschlüsselungszertifikat ist abgelaufen"
+      ],
+      "general.certificate.after.expired.alert.text": [
+        "Sie können Ihr Postfach nicht mehr für den Austausch von Nachrichten verwenden.<br>Über den Menüpunkt <strong>„Postfach verwalten“</strong> können Sie ein neues Zertifikat hinterlegen."
+      ],
+      "general.certificate.after.expired.alert.sub": [
+        "Sie können Ihr Postfach nicht mehr für den Austausch von Nachrichten verwenden.<br>Über den Menüpunkt <strong>„Postfach verwalten“</strong> können Sie ein neues Zertifikat hinterlegen."
+      ],
+      "certificate.renew.modal.title": [
+        "Verschlüsselungszertifikat erneuern"
+      ],
+      "certificate.renew.modal.expired.title": [
+        "Ihr Verschlüsselungszertifikat ist abgelaufen"
+      ],
+      "certificate.renew.modal.text": [
+        "Sie können Ihr Mein Justizpostfach nur noch eingeschränkt nutzen und z. B. keine Nachrichten mehr senden oder empfangen. Bitte erneuern Sie Ihr Verschlüsselungszertifikat, damit Sie wieder Nachrichten senden und empfangen sowie Ihr Mein Justizpostfach uneingeschränkt nutzen können."
+      ],
+      "certificate.renew.modal.button": [
+        "Zertifikat erneuern"
+      ],
+      "general.cancel": [
+        "Abbrechen"
+      ],
+      "pages.test_bereich.short": [
+        "Tests"
+      ],
+      "pages.test_bereich.long": [
+        "Testbereich"
+      ],
+      "pages.crypto_keys.short": [
+        "Cryptokeys"
+      ],
+      "pages.crypto_keys.long": [
+        "Keymanagement"
+      ],
+      "pages.test_asymmetric_crypto.short": [
+        "Cryptotest (asymmetrisch)"
+      ],
+      "pages.test_asymmetric_crypto.long": [
+        "Test: Verschlüsselung/Entschlüsselung (asymmetrisch)"
+      ],
+      "pages.test_symmetric_crypto.short": [
+        "Cryptotest (symmetrisch)"
+      ],
+      "pages.test_symmetric_crypto.long": [
+        "Test: Verschlüsselung/Entschlüsselung (symmetrisch)"
+      ],
+      "pages.test-sign-verify.short": [
+        "Test Signieren/Validieren"
+      ],
+      "pages.test-sign-verify.long": [
+        "Test: Signieren von Daten / Validieren der Signatur"
+      ],
+      "pages.test-digest.short": [
+        "Hashtest"
+      ],
+      "pages.test-digest.long": [
+        "Test: Sha-256 Hash erstellen"
+      ],
+      "pages.test_formular.short": [
+        "Testform"
+      ],
+      "pages.test_formular.long": [
+        "Testformular"
+      ],
+      "label.generate_keypair": [
+        "Schlüsselpaar generieren"
+      ],
+      "label.import.priv_key": [
+        "privaten Schlüssel importieren"
+      ],
+      "label.export.priv_key": [
+        "privaten Schlüssel exportieren"
+      ],
+      "label.import.pub_key": [
+        "öffentlichen Schlüssel importieren"
+      ],
+      "label.export.pub_key": [
+        "öffentlichen Schlüssel exportieren"
+      ],
+      "label.import_image": [
+        "Bilddatei laden"
+      ],
+      "label.export_image": [
+        "Bilddatei speichern"
+      ],
+      "setpassword.form.legend": [
+        "Passwort eingeben und bestätigen."
+      ],
+      "setpassword.form.input_set.label": [
+        "Passwort eingeben"
+      ],
+      "setpassword.form.input_set.error": [
+        "min. 8 Zeichen  | max. 64 Zeichen | Groß- und Kleinschreibung  |  min. eine Zahl  |  keine Leerzeichen"
+      ],
+      "setpassword.form.input_check.label": [
+        "Passwort bestätigen"
+      ],
+      "setpassword.form.input_check.error": [
+        "Die Passwörter stimmen nicht überein"
+      ],
+      "setpassword.form.input.visibility_switch.show.title": [
+        "Passwort anzeigen"
+      ],
+      "setpassword.form.input.visibility_switch.hide.title": [
+        "Passwort verstecken"
+      ],
+      "setpassword.tooltip.policy.sronly": [
+        "Hilfe für die Eingabe eines Passwortes"
+      ],
+      "setpassword.tooltip.policy.title": [
+        "Passwortanforderungen"
+      ],
+      "setpassword.tooltip.policy.requirement1": [
+        "Mindestens 8 Zeichen"
+      ],
+      "setpassword.tooltip.policy.requirement2": [
+        "Maximal 64 Zeichen"
+      ],
+      "setpassword.tooltip.policy.requirement3": [
+        "Groß- und Kleinschreibung"
+      ],
+      "setpassword.tooltip.policy.requirement4": [
+        "Mindestens eine Zahl"
+      ],
+      "setpassword.tooltip.policy.requirement5": [
+        "Keine Leerzeichen"
+      ],
+      "setusername.form.input_set.label": [
+        "Benutzernamen eingeben"
+      ],
+      "setusername.form.input_set.error": [
+        "min. 5 Zeichen  | max. 120 Zeichen | Groß- und Kleinschreibung  |  Buchstaben A-Z  |  Zahlen und folgende Sonderzeichen: _ & , ( ) ' : /"
+      ],
+      "setusername.tooltip.policy.sronly": [
+        "Hilfe für die Eingabe eines Benutzernamens"
+      ],
+      "setusername.tooltip.policy.title": [
+        "Benutzernamenanforderungen"
+      ],
+      "setusername.tooltip.policy.requirement1": [
+        "Mindestens 5 Zeichen"
+      ],
+      "setusername.tooltip.policy.requirement2": [
+        "Maximal 120 Zeichen"
+      ],
+      "setusername.tooltip.policy.requirement3": [
+        "Groß- und Kleinschreibung"
+      ],
+      "setusername.tooltip.policy.requirement4": [
+        "Buchstaben A-Z"
+      ],
+      "setusername.tooltip.policy.requirement5": [
+        "Zahlen und folgende Sonderzeichen: _ & , ( ) * ' : /"
+      ],
+      "keymanager.alert.generate_key.success": [
+        "Das Schlüsselpaar wurde erfolgreich erstellt. Bitte exportieren Sie ihren privaten Schlüssel"
+      ],
+      "keymanager.alert.generate_key.error": [
+        "Fehler aufgetreten bei der Erstellung des Schlüsselpaars: {error}"
+      ],
+      "keymanager.alert.import_privkey.success": [
+        "Ihr privater Schlüssel wurde erfolgreich importiert."
+      ],
+      "keymanager.alert.import_privkey.error": [
+        " Fehler aufgetreten beim Import Ihres privaten Schlüssels: {error}"
+      ],
+      "messagedetail.alert.encrypt.error": [
+        "Fehler aufgetreten beim Verschlüsseln ihrer Daten: {error}"
+      ],
+      "messagedetail.alert.decrypt.error": [
+        "Fehler aufgetreten beim Entschlüsseln ihrer Daten: {error}"
+      ],
+      "messagedetail.alert.sign.error": [
+        "Fehler aufgetreten beim Signieren ihrer Daten: {error}"
+      ],
+      "messagedetail.alert.verify.error": [
+        "Fehler aufgetreten bei der Signaturprüfung: {error}"
+      ],
+      "messagedetail.alert.digest.error": [
+        "Fehler aufgetreten beim Erstellen des Hashs: {error}"
+      ],
+      "pages.account.account_management.short": [
+        "Postfach verwalten"
+      ],
+      "pages.account.account_management.long": [
+        "Postfach verwalten"
+      ],
+      "account_management.certificate.title": [
+        "Verschlüsselungszertifikat"
+      ],
+      "account_management.certificate.serial_number": [
+        "Seriennummer"
+      ],
+      "account_management.certificate.expiry_date": [
+        "Ablaufdatum"
+      ],
+      "account_management.certificate.status": [
+        "Status"
+      ],
+      "account_management.certificate.status.valid": [
+        "gültig"
+      ],
+      "account_management.certificate.status.expired": [
+        "abgelaufen"
+      ],
+      "account_management.certificate.renew_button": [
+        "Verschlüsselungszertifikat erneuern"
+      ],
+      "account_management.user_info1": [
+        "In der nachfolgenden Auflistung finden Sie Ihre persönlichen Benutzerinformationen. Bitte geben Sie diese bei"
+      ],
+      "account_management.user_info_link": [
+        "Support-Anfragen über das Support-Portal"
+      ],
+      "account_management.user_info2": [
+        "immer mit an."
+      ],
+      "account_management.name": [
+        "Name"
+      ],
+      "account_management.safe_id": [
+        "SAFE-ID"
+      ],
+      "account_management.mailbox_id": [
+        "Postfach-ID"
+      ],
+      "account_management.delete_title": [
+        "Mein Justizpostfach löschen"
+      ],
+      "account_management.characteristic": [
+        "Merkmal"
+      ],
+      "account_management.value": [
+        "Wert"
+      ],
+      "account_management.delete_info": [
+        "Hier können Sie Ihr Konto von Mein Justizpostfach löschen."
+      ],
+      "account_management.delete_info_warning": [
+        "Beachten Sie, dass das Löschen unwiderruflich ist und alle Ihre Nachrichten, Ihr Konto und der Eintrag im SAFE-Verzeichnis gelöscht werden und nicht wiederhergestellt werden können. Laufende juristische Verfahren können durch die Löschung Ihres Justizpostfaches nicht beendet werden und werden dadurch auch nicht beeinflusst."
+      ],
+      "account_management.modal.delete.label": [
+        "Mein Justizpostfach löschen"
+      ],
+      "account_management.modal.delete.information": [
+        "Bitte beachten Sie folgende Punkte zum Löschen von Ihrem Mein Justizpostfach."
+      ],
+      "account_management.modal.delete.information2": [
+        "Laufende juristische Verfahren werden unabhängig vom Löschen fortgeführt!"
+      ],
+      "account_management.modal.delete.information3": [
+        "Vor dem Löschen müssen alle empfangenen Nachrichten gelesen sein."
+      ],
+      "account_management.modal.delete.information4": [
+        "Solange ausgehende Nachrichten noch auf 'wird gesendet' stehen, kann das Löschen nicht durchgeführt werden."
+      ],
+      "account_management.modal.delete.information5": [
+        "Kurz nach dem Löschen können noch Benachrichtigungen an ihr BundID-Postfach erfolgen, da die Benachrichtigungen asynchron erfolgen."
+      ],
+      "account_management.modal.delete.information6": [
+        "Sichern Sie gerne alle Nachrichten, damit Sie später noch Zugriff auf die Inhalte haben."
+      ],
+      "account_management.modal.delete.information7": [
+        "Nach Abschluß des Löschens von Mein Justizpostfach sind alle Nachrichten unwiderruflich gelöscht."
+      ],
+      "account_management.modal.delete.information8": [
+        "Ihre persönliche Schlüsseldatei können Sie löschen, diese wird nicht mehr benötigt."
+      ],
+      "account_management.modal.delete.information9": [
+        "Benötigen Sie zukünftig wieder ein Mein Justizpostfach, können Sie sich jederzeit ein Neues anlegen."
+      ],
+      "account_management.modal.delete.successInfo.message": [
+        "Alle Nachrichten wurden unwiderruflich entfernt und Ihr Konto und alle dazugehörigen Daten in Mein Justizpostfach wurden endgültig gelöscht. Vielen Dank für Ihre Nutzung unseres Dienstes."
+      ],
+      "account_management.modal.delete.successInfo.title": [
+        "Löschen erfolgreich abgeschlossen"
+      ],
+      "account_management.modal.delete.confirmation_string": [
+        "Löschen bestätigen"
+      ],
+      "account_management.modal.delete.ok": [
+        "Schließen"
+      ],
+      "account_management.modal.delete.confirmation": [
+        "Bestätigungstext"
+      ],
+      "account_management.modal.delete.confirmation_text": [
+        "Bitte geben Sie \""
+      ],
+      "account_management.modal.delete.confirmation_text2": [
+        "\" in das Textfeld ein, um ihr Mein Justizpostfach zu löschen."
+      ],
+      "account_management.modal.delete.tooltip.title": [
+        "Hilfe zur Löschbestätigung"
+      ],
+      "account_management.modal.delete.tooltip.text": [
+        "Damit Mein Justizpostfach nicht versehentlich gelöscht wird, bitten wir Sie den Bestätigungstext \""
+      ],
+      "account_management.modal.delete.tooltip.text2": [
+        "\" in das Bestätigungs-Textfeld einzugeben. Erst danach kann Mein Justizpostfach gelöscht werden."
+      ],
+      "account_management.modal.delete.errorInfo.serverError.message": [
+        "Es gab ein Problem beim Löschen vom Ihrem Mein Justizpostfach. Bitte versuchen Sie es später erneut."
+      ],
+      "account_management.modal.delete.errorInfo.hasUnreadMessage.message": [
+        "Es befinden sich noch ungelesene Nachrichten in '"
+      ],
+      "account_management.modal.delete.errorInfo.hasUnreadMessage.message2": [
+        "'. Bitte lesen Sie alle Nachrichten, bevor Sie mit dem Vorgang fortfahren oder wenden Sie sich an den Support."
+      ],
+      "account_management.modal.delete.errorInfo.hasSendingMessage.message": [
+        "Es befinden sich noch Nachrichten in '"
+      ],
+      "account_management.modal.delete.errorInfo.hasSendingMessage.message2": [
+        "' welche noch nicht versendet wurden. Bitte warten Sie, bis alle Nachrichten versendet wurden, bevor Sie mit dem Vorgang fortfahren."
+      ],
+      "account_management.modal.delete.errorInfo.mailboxDeletionError.message": [
+        "Es gab ein Problem mit dem Löschen bei Mein Justizpostfach. Bitte wenden Sie sich mit Ihrer Postfach-ID und SAFE-ID an den Support."
+      ],
+      "account_management.modal.delete.errorInfo.mailboxDeletionError.mailboxId": [
+        "Postfach-ID: {mailboxId}"
+      ],
+      "account_management.modal.delete.errorInfo.mailboxDeletionError.safeId": [
+        "SAFE-ID: {safeId}"
+      ],
+      "account_management.modal.delete.errorInfo.safeDeletionError.message": [
+        "Es gab ein Problem mit dem Löschen bei Mein Justizpostfach. Bitte wenden Sie sich mit Ihrer Postfach-ID und SAFE-ID an den Support."
+      ],
+      "account_management.modal.delete.errorInfo.safeDeletionError.mailboxId": [
+        "Postfach-ID: {mailboxId}"
+      ],
+      "account_management.modal.delete.errorInfo.safeDeletionError.safeId": [
+        "SAFE-ID: {safeId}"
+      ],
+      "account_management.modal.delete.general_error.title": [
+        "Löschung fehlgeschlagen."
+      ],
+      "account_management.modal.delete.general_error.message": [
+        "Das Löschen war leider nicht möglich, bitte versuchen Sie es später erneut."
+      ],
+      "general.uncommited_ozg_role_account_alert.title": [
+        "Einige Funktionen nicht verfügbar!"
+      ],
+      "general.mailbox_not_activated_alert.message": [
+        "Ihr MJP wurde angelegt. Für die Freischaltung des Postfaches benötigen wir jedoch noch Informationen sowie einen Nachweis zu Ihrer Anschrift. Bitte wenden Sie sich dazu über das MJP-Serviceportal an unseren MJP-Support. (Kopieren Sie hierfür folgenden Link https://mjpserviceportal.de/#formular und fügen diesen im Browser ein. Alternativ nutzen Sie den „Kontakt“-Link in der Menüleiste unten und wählen dann den Button „Serviceanfrage“) Wählen Sie im Serviceformular die Option „Freischaltung Mein Justizpostfach für Nutzer mit EU Identität“."
+      ],
+      "akteneinsicht.heading": [
+        "Zugang Akteneinsichtsportal"
+      ],
+      "akteneinsicht.infoText": [
+        "Wenn Sie Einsicht in eine Akte der Justiz beantragt haben, wird Ihnen der Zugriff über das Akteneinsichtsportal ermöglicht. Sie benötigen einen Benutzernamen und ein Kennwort, um sich am Akteneinsichtsportal anmelden zu können. Diese Zugangsdaten können hier angegeben und geändert werden. Hier geht es zum Akteneinsichtsportal:  "
+      ],
+      "akteneinsicht.infoLink": [
+        "https://www.akteneinsichtsportal.de/"
+      ],
+      "akteneinsicht.btn.continue.label": [
+        "Zugangsdaten speichern"
+      ],
+      "akteineinsicht.btn.delete.label": [
+        "Zugangsdaten löschen"
+      ],
+      "akteineinsicht.create.success.text": [
+        "Die Zugangsdaten wurden erfolgreich gespeichert"
+      ],
+      "akteineinsicht.create.fail.usernameUsed.text": [
+        "Benutzername existiert bereits. Das Speichern der Zugangsdaten ist fehlgeschlagen."
+      ],
+      "akteineinsicht.create.fail.invalid.text": [
+        "Passwort oder Benutzername fehlerhaft. Das Speichern der Zugangsdaten ist fehlgeschlagen."
+      ],
+      "akteineinsicht.create.fail.identical.text": [
+        "Passwort darf nicht identisch zum letzten sein. Das Speichern der Zugangsdaten ist fehlgeschlagen."
+      ],
+      "akteineinsicht.create.fail.technical.text": [
+        "Technischer Fehler. Das Speichern der Zugangsdaten ist fehlgeschlagen."
+      ],
+      "akteineinsicht.delete.success.text": [
+        "Die Zugangsdaten wurden erfolgreich gelöscht"
+      ],
+      "akteineinsicht.delete.fail.text": [
+        "Das Löschen der Zugangsdaten ist fehlgeschlagen"
+      ]
+    }
+  }
+}

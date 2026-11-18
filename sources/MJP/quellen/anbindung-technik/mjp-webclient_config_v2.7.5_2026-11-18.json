@@ -1,0 +1,47 @@
+{
+  "services": {
+    "api": {
+      "url": "https://api.mjp.justiz.de",
+      "basepath": "/api/v1/public"
+    },
+    "auth": {
+      "loginUrl": "https://mjp.justiz.de/auth/login",
+      "logoutUrl": "https://mjp.justiz.de/auth/logout"
+    }
+  },
+  "session": {
+    "timeoutWarning": 300,
+    "pollingIntervalTime": 60
+  },
+  "links": {
+    "bundId": "https://id.bund.de/",
+    "contactPage": "https://mjpserviceportal.de/#formular",
+    "faqPage": "https://mjpserviceportal.de/haeufige-fragen/"
+  },
+  "passwd-policy":  {
+    "matches": [
+      "^.{8,64}$","[a-zäöüß]","[A-ZÄÖÜ]","[0-9]","^[^\\s]*$"
+    ]
+  },
+  "username-policy": {
+    "matches": [
+      "^.{5,120}","^[\\w &'()+,:/\\u0080-\\u00FF\\u0100-\\u017F\\u1E00-\\u1EFF]*$"
+    ]
+  },
+  "eboMessage": {
+    "list": {
+      "pageSize": 10
+    },
+    "maxUplSize": {
+      "byte": 2.097152e+08,
+      "text": "200 MB"
+    },
+    "file": {
+      "options": {
+        "multiple": true,
+        "max": 1000,
+        "types": []
+      }
+    }
+  }
+}

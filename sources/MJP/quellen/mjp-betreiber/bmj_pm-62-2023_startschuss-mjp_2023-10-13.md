@@ -1,0 +1,37 @@
+# BMJ Pressemitteilung Nr. 62/2023: Startschuss für „Mein Justizpostfach“
+
+Quelle: https://www.bmjv.de/SharedDocs/Pressemitteilungen/DE/2023/1013_Mein_Justizpostfach.html (aufgerufen über bmj.de, Weiterleitung)
+Abgerufen: 2026-11-18
+
+# Startschuss für „Mein Justizpostfach“ – die Justiz wird für Bürgerinnen und Bürger leichter digital erreichbar
+
+Schwerpunktthema Pressemitteilung
+
+![Wir sehen einer Frau über die Schulter auf ein Laptop. Auf dem Bildschirm ist "Mein Justizpostfach" zu lesen.](https://www.bmjv.de/SharedDocs/Bilder/DE/Meldungen/2023/1013_Mein_Justizpostfach.png?__blob=normal&v=1 "Wir sehen einer Frau über die Schulter auf ein Laptop. Auf dem Bildschirm ist "Mein Justizpostfach" zu lesen.")
+
+**Pressemitteilung Nr. 62/2023**  
+13. Oktober 2023
+
+Seit dem 13. Oktober 2023 können Bürgerinnen und Bürger „Mein Justizpostfach“ nutzen. Der Dienst ermöglicht ihnen eine digitale, rechtssichere und kostenlose Kommunikation mit der Justiz. Bürgerinnen und Bürger können damit zum Beispiel rechtswirksam Klagen bei Gericht einreichen oder Dokumente wie Mietverträge oder Bußgeldbescheide sicher elektronisch an ihre Rechtsanwältin oder ihren Rechtsanwalt übermitteln.
+
+Ab heute können Bürgerinnen und Bürger „Mein Justizpostfach“ (MJP) nutzen. Der Dienst ermöglicht ihnen eine digitale, rechtssichere und kostenfreie Kommunikation mit der Justiz. Bürgerinnen und Bürger können damit zum Beispiel Klagen bei Gericht rechtswirksam einreichen oder Dokumente wie Mietverträge oder Bußgeldbescheide auf sichere Weise elektronisch an ihre Anwältin oder ihren Anwalt übermitteln.
+
+**Bundesminister der Justiz Dr. Marco Buschmann erklärt hierzu:**
+
+„Wir haben bei der Digitalisierung der Justiz schon viele Fortschritte erreicht. Doch die Bürgerinnen und Bürger spüren bisher davon zu wenig – die Hürden für die Teilnahme am elektronischen Rechtsverkehr sind für sie immer noch zu hoch. Heute machen wir ihnen den Einstieg in die digitale Kommunikation mit der Justiz erheblich leichter. Mit dem Dienst ‚Mein Justizpostfach‘ stellen wir ihnen erstmals einen kostenfreien und einfachen Weg zur Teilnahme am elektronischen Rechtsverkehr zur Verfügung. Damit die digitale Justiz auch tatsächlich bei den Bürgerinnen und Bürgern ankommt.“
+
+**Bundesinnenministerin Nancy Faeser:**
+
+„Wir machen unseren Staat Schritt für Schritt digitaler. Justiz und Verwaltung bieten nun erstmals gemeinsam einen für Bürgerinnen und Bürger hilfreichen digitalen Service an. Für die notwendige Sicherheit und Vertraulichkeit sorgen wir mit dem digitalen Bürgerkonto BundID, dessen Bedeutung mit dem neuen Angebot weiter steigt. Über 3,4 Millionen Bürgerinnen und Bürger haben ihre BundID für sich schon eingerichtet. Seit heute gibt es einen weiteren guten Grund, sich für die BundID zu entscheiden."
+
+Mit ihrer kostenlosen BundID können sich Bürgerinnen und Bürger online identifizieren und digitale Verwaltungsleistungen sicher, einfach und flexibel von zu Hause erledigen. Das Nutzerkonto des Bundes wird auf der Internetseite [https://id.bund.de/de](https://id.bund.de/de "Externer Link id.bund.de") eingerichtet.
+
+Auch für den Dienst „Mein Justizpostfach“ benötigen Bürgerinnen und Bürger ihre BundID. Mit dieser können sie auf der Internetseite von „Mein Justizpostfach“ ihr persönliches Postfach für die Kommunikation mit der Justiz einrichten und nutzen.
+
+Die BundID wird vom Bundesministerium des Innern und für Heimat seit 2019 bereitgestellt und kontinuierlich weiterentwickelt. Behörden des Bundes, der Länder und der Kommunen können die BundID kostenfrei für ihre digitalen Verwaltungsleistungen verwenden. Aktuell sind mehr als 100 Onlinedienste auf allen föderalen Ebenen angebunden. Dazu zählen Unterstützungsleistungen für Familien sowie Menschen in Aus- und Weiterbildung, zum Beispiel ElterngeldDigital, BAföGdigital und AFBG Digital. Weitere Behörden bereiten ihre Anbindung an die BundID vor.
+
+Der neue Dienst „Mein Justizpostfach“ wird zunächst im Pilotbetrieb gestartet. Im Rahmen dieser Testphase wird der Dienst weiterentwickelt und um zusätzliche Funktionen ergänzt.
+
+„Mein Justizpostfach“ ist über diese Internetseite erreichbar:  
+[https://mein-justizpostfach.bund.de/](https://mjp.justiz.de/#/ "Externer Link Mein Justizpostfach")
+
