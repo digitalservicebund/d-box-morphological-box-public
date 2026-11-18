@@ -16,6 +16,8 @@ Context: `morph_box.csv` is the morphological box for the d-box (central, bi-dir
 | `Referenzen-BundID-ZBP.md` | Source list for the Zentrales Bürgerpostfach (BundID): short codes, local paths in `BundID-ZBP/quellen/` and URLs, evidence per dimension, deviations found during the check. Checked 2026-11-17. | German | Markdown | Reference for the `BundID heute (Deutschland)` column in `existing_solutions.csv` and the BundID entries in `morph_box.csv`. |
 | `MUK/` | Mein Unternehmenskonto (MUK), the einheitliches Organisationskonto under § 2 Abs. 5 and § 3 Abs. 2 OZG with Postfach 2.0 (ELSTER, Bayern) and OZG-PLUS-Postfach (Governikus, Bremen): condensed analysis plus local copies of primary sources from StMD/BayLfSt, ELSTER, Governikus, Dataport, IT-PLR, Bundestag and Bundesrat. 123 files, retrieved 2026-11-18. | German | Markdown, PDF, OpenAPI | How the existing organisation account and its mailboxes work: ELSTER-Transfer delivery, pseudonymous Postfachhandle, Funktionspostfächer with E2EE, Berechtigungssteuerung, governance by Bayern and Bremen, mandatory use for authorities under § 3 Abs. 3 OZG. Reference for the `Unternehmenskonto heute (Deutschland)` column in `existing_solutions.csv`. |
 | `Referenzen-MUK.md` | Source list for Mein Unternehmenskonto: short codes, local paths in `MUK/quellen/` and URLs, evidence per dimension, deviations found during the check. Checked 2026-11-18. | German | Markdown | Reference for the `Unternehmenskonto heute (Deutschland)` column in `existing_solutions.csv` and the MUK entries in `morph_box.csv`. |
+| `MJP/` | Mein Justizpostfach (MJP), the free browser mailbox for natural persons in the elektronischer Rechtsverkehr with courts (sicherer Übermittlungsweg under § 130a Abs. 4 S. 1 Nr. 4 ZPO with § 13 ERVV): condensed analysis plus local copies of primary sources from the BLK-AG IT-Standards, MJP-Support, EGVP, BMJV, Westernacher, Bundestag and Bundesgesetzblatt. 102 files, retrieved 2026-11-18. | German | Markdown, PDF, JSON | How the existing justice mailbox for citizens works: EGVP/OSCI transport, SAFE directory, BundID login at Vertrauensniveau hoch, E2EE with a key file kept only by the user, förmliche Zustellung under § 173 ZPO, governance by the BLK. Reference for the `Mein Justizpostfach (Deutschland)` column in `existing_solutions.csv`. |
+| `Referenzen-MJP.md` | Source list for Mein Justizpostfach: short codes, local paths in `MJP/quellen/` and URLs, evidence per dimension, deviations found during the check. Checked 2026-11-18. | German | Markdown | Reference for the `Mein Justizpostfach (Deutschland)` column in `existing_solutions.csv` and the MJP entries in `morph_box.csv`. |
 | `Referenzen-Mein-Postkorb-Oesterreich.md` | Source list for the Austrian E-Zustellung ("Mein Postkorb"): ZustG, E-GovG, BKA white paper and ZUSE specification, oesterreich.gv.at, USP, with evidence per dimension. Links only, no local copies. | German | Markdown | Reference for the `Österreich` column in `existing_solutions.csv` and the Österreich entries in `morph_box.csv`. |
 | `Referenzen-GOV-UK-Notify.md` | Source list for GOV.UK Notify (UK, GDS): service pages on features, security, pricing, data retention, files, received text messages, plus REST API documentation, with evidence per dimension. Links only, no local copies. | German | Markdown | Reference for the `UK (kein zentrales Postfach)` column in `existing_solutions.csv` and the GOV.UK Notify entries in `morph_box.csv`. |
 | `Referenzen-Digital-Post-Daenemark.md` | Source list for the Danish Digital Post: Lov om Digital Post fra offentlige afsendere (LBK nr. 686/2021), Digitaliseringsstyrelsen pages on platforms, sender and recipient systems, Kontaktstruktur, Rettighedsportal, visningsklienter, plus borger.dk help, with evidence per dimension. Links only, no local copies. | German | Markdown | Reference for the `Dänemark` column in `existing_solutions.csv` and the Dänemark entries in `morph_box.csv`. |
@@ -179,6 +181,29 @@ Each subfolder of `MUK/quellen/` has an `_index.md` with URL, publisher, date an
 - The Integrationsleitfaden still states the third day for the Bekanntgabefiktion; § 9 Abs. 1 OZG and § 122a AO use the fourth day.
 - Some PDFs exist in two subfolders (Postfach 2.0 feature sheet and infosheet, Zertifikatsleitfaden, IT-PLR report 2025).
 
+## 6. MJP/
+
+Web research on Mein Justizpostfach (MJP), the free mailbox for natural persons to communicate with courts, Staatsanwaltschaften, Gerichtsvollzieher:innen and beBPo, beA, beN, beSt holders (pilot since October 2023). MJP is a participant in the EGVP infrastructure (OSCI 1.2, SAFE directory, XJustiz). Login only via BundID at Vertrauensniveau hoch; the key pair is created in the browser and kept as a local file, so messages are end-to-end encrypted. Provider: BLK-AG IT-Standards on behalf of Bund and Länder, represented by JuM BW; development by Governikus, operation by Westernacher since 30.07.2026.
+
+**Start with `MJP/MJP-Zusammenfassung.md`** (German): a condensed analysis of MJP along all `morph_box.csv` dimensions (section 5), with short codes for sources (TB, WEB, FAQ, HR, ANF, LF …), evidence markers (**[Folgerung]**, **[unverifiziert]**, **[veraltet?]**), contradictions (section 6) and gaps (section 7).
+
+**`Referenzen-MJP.md`** (German, next to the folder): source list in the style of `Referenzen-MUK.md`, with short codes, local paths and URLs, evidence per dimension, checked on 2026-11-18, plus the deviations found during the check, including corrections to the MJP entries in `morph_box.csv` (Ü2, P5, P7, P8).
+
+Each subfolder of `MJP/quellen/` has an `_index.md` with URL, publisher, date and a content note per file, and a `_befunde.md` with findings per dimension. Read the index before opening a file.
+
+### Subfolders
+
+- `MJP/quellen/mjp-betreiber/`: operator and product view. Web client 2.7.5 UI texts, config and `app.js` excerpts; privacy notice and Impressum; mjpserviceportal.de FAQ and support guides (deletion after 90 days, key file renewal, eEB, saving messages); BMI two-pager 2023, BMJ press release, JM NRW Erlass; FragDenStaat requests; netzpolitik.org articles.
+- `MJP/quellen/anbindung-technik/`: EGVP/OSCI infrastructure. BLK requirements for third-party applications (A1–A25), ERV-Leitfaden 2025, ERVB 2025, SAFE-ID and SAFE search standards, VHN, Drittprodukt registration of MJP, beBPo pages, EGVP notices, BLK Länderberichte; own analysis of the web client cryptography; Westernacher operation takeover.
+- `MJP/quellen/recht-governance/`: law, governance, finance. ZPO and ERVV; BT-Drs. 17/12634, 19/28399, 20/10943, 21/1509; BGBl. 2021 I S. 4607, 2025 I Nr. 349, 2026 I Nr. 152; BLK and E-Justice-Rat pages, BLK Umlaufbeschluss on ERV cost sharing; justiz.de pages for citizens and authorities.
+
+### Caveats
+
+- `egvp.justiz.de` was not reachable; its pages come from Internet Archive snapshots.
+- `app.js` is proprietary and not stored; the cryptography findings rest on quoted excerpts with byte offsets.
+- No usage figures, data centre or Malware-Prüfung found; the handover of responsibility from BMI to the justice side is not documented.
+- Some PDFs exist in two or three subfolders (BLK-AG Handreichung, JM NRW Erlass, BMI two-pager).
+
 ## Which source for which morph_box topic
 
 | Topic | Start with |
@@ -200,6 +225,7 @@ Each subfolder of `MUK/quellen/` has an `_index.md` with URL, publisher, date an
 | BundID / ZBP as existing solution (Anbindung, Postkorb-Handle, Bekanntgabe nach § 9 OZG, Betrieb) | `Referenzen-BundID-ZBP.md` for evidence per dimension, `BundID-ZBP/ZBP-Zusammenfassung.md` for context, then the `_index.md` of the relevant `BundID-ZBP/quellen/` subfolder |
 | Rechtsrahmen Bürgerkonto und Postfach (OZG, DIdG, IT-PLR Beschlüsse) | `BundID-ZBP/quellen/recht-governance/_index.md`; zapuk Rahmenbedingungen |
 | Mein Unternehmenskonto / Postfach 2.0 / OZG-PLUS-Postfach as existing solution (Anbindung über ELSTER-Transfer, Postfachhandle, Funktionspostfächer, Organisationszugang, Pflicht für Behörden) | `Referenzen-MUK.md` for evidence per dimension, `MUK/MUK-Zusammenfassung.md` for context, then the `_index.md` of the relevant `MUK/quellen/` subfolder |
+| Mein Justizpostfach as existing solution (EGVP/OSCI, SAFE, E2EE with local key file, sicherer Übermittlungsweg, Zustellung nach § 173 ZPO, BLK governance) | `Referenzen-MJP.md` for evidence per dimension, `MJP/MJP-Zusammenfassung.md` for context, then the `_index.md` of the relevant `MJP/quellen/` subfolder |
 | Österreich / Mein Postkorb as existing solution | `Referenzen-Mein-Postkorb-Oesterreich.md` |
 | UK / GOV.UK Notify as existing solution | `Referenzen-GOV-UK-Notify.md` |
 | Dänemark / Digital Post as existing solution | `Referenzen-Digital-Post-Daenemark.md` |

@@ -207,4 +207,4 @@ Pfade relativ zu `quellen/`: `MB/` = `mjp-betreiber/`, `AT/` = `anbindung-techni
 
 - Einige Quellen liegen doppelt in mehreren Unterordnern, mit identischer Prüfsumme: HR, ERL und TP (siehe Kürzeltabelle). Sie können bei Bedarf auf eine Kopie reduziert werden.
 - `app.js` ist nicht abgelegt, weil es proprietärer Code ist. Stattdessen gibt es wörtliche Auszüge mit Byte-Offset und SHA-256 (WEB, JS).
-- Eine Belegliste nach dem Muster `../Referenzen-MUK.md` (`../Referenzen-MJP.md`) und der Eintrag in `../../sources.md` fehlen noch. Beides entsteht beim Ausfüllen von `existing_solutions.csv`.
+- Belege je Zeile stehen in `../Referenzen-MJP.md`; der Ordner ist in `../../sources.md` eingetragen.
