@@ -1,0 +1,22 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: OZGPP Fachverfahren Service API
+servers:
+  - url: http://localhost:8080
+tags:
+  - name: ErrorCodes
+    description: "Error codes"
+paths:
+  { }
+
+components:
+  schemas:
+    ErrorResponse:
+      description: "Response describing failed request."
+      type: object
+      properties:
+        message:
+          type: string
+          example: Parameter xyz is missing.
+          description: "Short message describing the error."

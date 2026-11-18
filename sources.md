@@ -14,6 +14,8 @@ Context: `morph_box.csv` is the morphological box for the d-box (central, bi-dir
 | `BundID-ZBP/` | Zentrales Bürgerpostfach (ZBP, "BundID-Postfach"): condensed analysis plus local copies of primary sources from the BundID operator, FITKO / FIT-Connect, IT-PLR, Bundestag and Bundesrat. 94 files, retrieved 2026-11-17. | German | Markdown, PDF, JSON Schema, OpenAPI, Java | How the existing federal citizen mailbox works: operation and governance, Anbindung (direct REST or FIT-Connect ZBP-Adapter), Postkorb-Handle addressing, Bekanntgabe nach § 9 OZG, legal history. Reference for the `BundID heute (Deutschland)` column in `existing_solutions.csv`. |
 | `Referenzen-ELSTER.md` | Source list for the ELSTER-Postfach and Postfach 2.0: short codes, local paths in `ELSTER/Dev Dokumentation/` and URLs, evidence per dimension. Checked 2026-11-17. | German | Markdown | Reference for the `ELSTER-Postfach (Deutschland)` column in `existing_solutions.csv` and the ELSTER entries in `morph_box.csv`. |
 | `Referenzen-BundID-ZBP.md` | Source list for the Zentrales Bürgerpostfach (BundID): short codes, local paths in `BundID-ZBP/quellen/` and URLs, evidence per dimension, deviations found during the check. Checked 2026-11-17. | German | Markdown | Reference for the `BundID heute (Deutschland)` column in `existing_solutions.csv` and the BundID entries in `morph_box.csv`. |
+| `MUK/` | Mein Unternehmenskonto (MUK), the einheitliches Organisationskonto under § 2 Abs. 5 and § 3 Abs. 2 OZG with Postfach 2.0 (ELSTER, Bayern) and OZG-PLUS-Postfach (Governikus, Bremen): condensed analysis plus local copies of primary sources from StMD/BayLfSt, ELSTER, Governikus, Dataport, IT-PLR, Bundestag and Bundesrat. 123 files, retrieved 2026-11-18. | German | Markdown, PDF, OpenAPI | How the existing organisation account and its mailboxes work: ELSTER-Transfer delivery, pseudonymous Postfachhandle, Funktionspostfächer with E2EE, Berechtigungssteuerung, governance by Bayern and Bremen, mandatory use for authorities under § 3 Abs. 3 OZG. Reference for the `Unternehmenskonto heute (Deutschland)` column in `existing_solutions.csv`. |
+| `Referenzen-MUK.md` | Source list for Mein Unternehmenskonto: short codes, local paths in `MUK/quellen/` and URLs, evidence per dimension, deviations found during the check. Checked 2026-11-18. | German | Markdown | Reference for the `Unternehmenskonto heute (Deutschland)` column in `existing_solutions.csv` and the MUK entries in `morph_box.csv`. |
 | `Referenzen-Mein-Postkorb-Oesterreich.md` | Source list for the Austrian E-Zustellung ("Mein Postkorb"): ZustG, E-GovG, BKA white paper and ZUSE specification, oesterreich.gv.at, USP, with evidence per dimension. Links only, no local copies. | German | Markdown | Reference for the `Österreich` column in `existing_solutions.csv` and the Österreich entries in `morph_box.csv`. |
 | `Referenzen-GOV-UK-Notify.md` | Source list for GOV.UK Notify (UK, GDS): service pages on features, security, pricing, data retention, files, received text messages, plus REST API documentation, with evidence per dimension. Links only, no local copies. | German | Markdown | Reference for the `UK (kein zentrales Postfach)` column in `existing_solutions.csv` and the GOV.UK Notify entries in `morph_box.csv`. |
 | `Referenzen-Digital-Post-Daenemark.md` | Source list for the Danish Digital Post: Lov om Digital Post fra offentlige afsendere (LBK nr. 686/2021), Digitaliseringsstyrelsen pages on platforms, sender and recipient systems, Kontaktstruktur, Rettighedsportal, visningsklienter, plus borger.dk help, with evidence per dimension. Links only, no local copies. | German | Markdown | Reference for the `Dänemark` column in `existing_solutions.csv` and the Dänemark entries in `morph_box.csv`. |
@@ -153,6 +155,29 @@ Each subfolder of `BundID-ZBP/quellen/` has an `_index.md` with URL, publisher, 
 - Bidirektionalität: the Bundesregierung announced it for July 2026 (BT-Drs. 21/5367); the FIT-Connect roadmap still marks it as open.
 - A few PDFs exist in two subfolders (SID Kundenforum 2025, FITKO "stellt vor: Neo" 2026-01-23).
 
+## 5. MUK/
+
+Web research on Mein Unternehmenskonto (MUK), the einheitliches Organisationskonto for companies and other organisations (since 2021, Bausteine 1–4 operated by Bayern: StMD, BayLfSt; Bausteine 5–6 by Bremen: Governikus, Dataport). Two mailboxes: Postfach 2.0 (ELSTER infrastructure, central virus scan, no E2EE) and OZG-PLUS-Postfach (Funktionspostfächer, E2EE via proxy re-encryption). Authorities send via ELSTER-Transfer or ERiC; replies only when the authority enables them. ZaPuK ADR-1110 plans to remove the mailbox from MUK.
+
+**Start with `MUK/MUK-Zusammenfassung.md`** (German): a condensed analysis of MUK along all `morph_box.csv` dimensions (section 5), with short codes for sources (FAQ, IL, BPZ, NEZO, VV …), evidence markers (**[Folgerung]**, **[unverifiziert]**, **[veraltet?]**), contradictions (section 6) and gaps (section 7).
+
+**`Referenzen-MUK.md`** (German, next to the folder): source list in the style of `Referenzen-BundID-ZBP.md`, with short codes, local paths and URLs, evidence per dimension, checked on 2026-11-18, plus the deviations found during the check.
+
+Each subfolder of `MUK/quellen/` has an `_index.md` with URL, publisher, date and a content note per file. Read the index before opening a file.
+
+### Subfolders
+
+- `MUK/quellen/muk-betreiber/`: operator and product view. info.mein-unternehmenskonto.de pages (FAQ, Postfachfunktionen, Berechtigungssteuerung, Zertifikate, rechtliche Hintergrundinformationen, Glossar, Impressum), MUK portal privacy notice and Impressum; registration and certificate guides, Berechtigungssteuerung quick start, Postfach 2.0 feature sheets (2023 and 2026); OZG-PLUS-Postfach UI texts, config, privacy notice and press releases; IT-PLR report with usage figures (April 2025); BA and IHK practice pages.
+- `MUK/quellen/anbindung-technik/`: sender-side Anbindung. Integrationsleitfaden Postfach 2.0 (v9, 04/2026), Beipackzettel for joint delivery to both mailboxes, NEZO-Integrationsleitfaden, SSP guides, infosheets for authorities; ELSTER-Transfer pages; Governikus OZG-PLUS-Postfach Integrationsleitfaden, release notes and OpenAPI files; ITVSH registration guide; Sachsen-Anhalt OZG-Sprechstunde 2022.
+- `MUK/quellen/recht-governance/`: law, governance, finance, history. Organisationskonto-Verordnung, § 87a and § 122a AO, § 3a VwVfG, § 3 UBRegG; BR-Drs. 396/21, BT-Drs. 19/21987, 19/23774, 20/6555, 20/9256, 21/5285, 21/8283 (JStG 2026); IT-PLR Beschlüsse 2019/02 to B-2026/08-IT with annexes (Basiskonzept 2020, Verwaltungsvereinbarung 2022/37, Postfachvereinheitlichung 2024); Bavarian Betriebsbedingungen (BayMBl. 2022 Nr. 237) and Bremen Senatsvorlage 2022. Legal sources already in `BundID-ZBP/quellen/recht-governance/` are only referenced.
+
+### Caveats
+
+- ELSTER-Transfer manuals and the original ETR OpenAPI are behind a licence click on elster.de and are not stored. Parts are in `ELSTER/` (ElsterBereitstellung-SSB).
+- Sources from 2023 and 2026 differ on attachment limits, retention periods and the number of certificates per Steuernummer; the summary lists them in section 6.
+- The Integrationsleitfaden still states the third day for the Bekanntgabefiktion; § 9 Abs. 1 OZG and § 122a AO use the fourth day.
+- Some PDFs exist in two subfolders (Postfach 2.0 feature sheet and infosheet, Zertifikatsleitfaden, IT-PLR report 2025).
+
 ## Which source for which morph_box topic
 
 | Topic | Start with |
@@ -173,6 +198,7 @@ Each subfolder of `BundID-ZBP/quellen/` has an `_index.md` with URL, publisher, 
 | ELSTER as existing solution (Postfach, Postfach 2.0, Bekanntgabe, Vollmacht, Anbindung) | `Referenzen-ELSTER.md` for evidence per dimension, `ELSTER/ELSTER-Zusammenfassung.md` first, then `ELSTER/`: Entwicklerhandbuch 5.2, 7.5, 9.2, 9.3, 9.15 to 9.17; `ElsterBereitstellung-SSB`; `ElsterDatenabholung-v32` |
 | BundID / ZBP as existing solution (Anbindung, Postkorb-Handle, Bekanntgabe nach § 9 OZG, Betrieb) | `Referenzen-BundID-ZBP.md` for evidence per dimension, `BundID-ZBP/ZBP-Zusammenfassung.md` for context, then the `_index.md` of the relevant `BundID-ZBP/quellen/` subfolder |
 | Rechtsrahmen Bürgerkonto und Postfach (OZG, DIdG, IT-PLR Beschlüsse) | `BundID-ZBP/quellen/recht-governance/_index.md`; zapuk Rahmenbedingungen |
+| Mein Unternehmenskonto / Postfach 2.0 / OZG-PLUS-Postfach as existing solution (Anbindung über ELSTER-Transfer, Postfachhandle, Funktionspostfächer, Organisationszugang, Pflicht für Behörden) | `Referenzen-MUK.md` for evidence per dimension, `MUK/MUK-Zusammenfassung.md` for context, then the `_index.md` of the relevant `MUK/quellen/` subfolder |
 | Österreich / Mein Postkorb as existing solution | `Referenzen-Mein-Postkorb-Oesterreich.md` |
 | UK / GOV.UK Notify as existing solution | `Referenzen-GOV-UK-Notify.md` |
 | Dänemark / Digital Post as existing solution | `Referenzen-Digital-Post-Daenemark.md` |

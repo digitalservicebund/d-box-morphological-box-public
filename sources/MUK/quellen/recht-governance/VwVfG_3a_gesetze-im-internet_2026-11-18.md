@@ -1,0 +1,80 @@
+# Verwaltungsverfahrensgesetz (VwVfG) § 3a Elektronische Kommunikation
+
+Quelle: https://www.gesetze-im-internet.de/vwvfg/__3a.html
+Abgerufen: 2026-11-18
+
+---
+
+\(1\) Die Übermittlung elektronischer Dokumente ist zulässig, soweit der
+Empfänger hierfür einen Zugang eröffnet.
+
+\(2\) Eine durch Rechtsvorschrift angeordnete Schriftform kann, soweit
+nicht durch Rechtsvorschrift etwas anderes bestimmt ist, durch die
+elektronische Form ersetzt werden. Der elektronischen Form genügt ein
+elektronisches Dokument, das mit einer qualifizierten elektronischen
+Signatur versehen ist. Die Signierung mit einem Pseudonym, das die
+Identifizierung der Person des Signaturschlüsselinhabers nicht
+unmittelbar durch die Behörde ermöglicht, ist nicht zulässig.
+
+\(3\) Die Schriftform kann auch ersetzt werden
+
+1\.  
+durch unmittelbare Abgabe der Erklärung in einem elektronischen
+Formular, das von der Behörde in einem Eingabegerät oder über öffentlich
+zugängliche Netze zur Verfügung gestellt wird; bei einer Eingabe über
+öffentlich zugängliche Netze muss ein elektronischer Identitätsnachweis
+nach § 18 des Personalausweisgesetzes, nach § 12 des eID-Karte-Gesetzes
+oder nach § 78 Absatz 5 des Aufenthaltsgesetzes erfolgen;
+
+2\.  
+durch Übermittlung einer von dem Erklärenden elektronisch signierten
+Erklärung an die Behörde
+a\)  
+aus einem besonderen elektronischen Anwaltspostfach nach den §§ 31a und
+31b der Bundesrechtsanwaltsordnung oder aus einem entsprechenden, auf
+gesetzlicher Grundlage errichteten elektronischen Postfach;
+
+b\)  
+aus einem elektronischen Postfach einer Behörde oder einer juristischen
+Person des öffentlichen Rechts, das nach Durchführung eines
+Identifizierungsverfahrens nach den Regelungen der auf Grund des § 130a
+Absatz 2 Satz 2 der Zivilprozessordnung erlassenen Rechtsverordnung
+eingerichtet wurde;
+
+c\)  
+aus einem elektronischen Postfach einer natürlichen oder juristischen
+Person oder einer sonstigen Vereinigung, das nach Durchführung eines
+Identifizierungsverfahrens nach den Regelungen der auf Grund des § 130a
+Absatz 2 Satz 2 der Zivilprozessordnung erlassenen Rechtsverordnung
+eingerichtet wurde;
+
+d\)  
+(weggefallen)
+
+3\.  
+bei elektronischen Verwaltungsakten oder sonstigen elektronischen
+Dokumenten der Behörde, indem diese mit dem qualifizierten
+elektronischen Siegel der Behörde versehen werden.
+
+\(4\) Ist ein der Behörde übermitteltes elektronisches Dokument für sie
+zur Bearbeitung nicht geeignet, teilt sie dies dem Absender unter Angabe
+der für sie geltenden technischen Rahmenbedingungen unverzüglich mit.
+Macht ein Empfänger geltend, er könne das von der Behörde übermittelte
+elektronische Dokument nicht bearbeiten, hat sie es ihm erneut in einem
+geeigneten elektronischen Format oder als Schriftstück zu übermitteln.
+
+\(5\) Ermöglicht die Behörde die unmittelbare Abgabe einer Erklärung in
+einem elektronischen Formular, das von der Behörde in einem Eingabegerät
+oder über öffentlich zugängliche Netze zur Verfügung gestellt wird, so
+hat sie dem Erklärenden vor Abgabe der Erklärung Gelegenheit zu geben,
+die gesamte Erklärung auf Vollständigkeit und Richtigkeit zu prüfen.
+Nach der Abgabe ist dem Erklärenden eine Kopie der Erklärung zur
+Verfügung zu stellen.
+
+#### Fußnote
+
+(+++ Hinweis: Die Änderung d. Art. 6 Abs. 1 G v. 21.6.2019 I 846 durch
+Art. 154a Nr. 3 Buchst. a G v. 20.11.2019 I 1626 (Verschiebung d.
+Inkrafttretens zum 1.11.2020) ist nicht ausführbar, da Art. 5 d. G v.
+21.6.2019 I 846 zum Zeitpunkt d. Inkrafttretens d. G v. 20.11.2019 I
+1626 bereits mWv 1.11.2019 in Kraft getreten war +++)

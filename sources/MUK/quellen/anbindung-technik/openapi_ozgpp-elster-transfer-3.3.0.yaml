@@ -1,0 +1,386 @@
+openapi: 3.0.1
+info:
+  title: Transfer REST-Schnittstelle für OZGPP auf reduzierter Basis von ELSTER-Transfer
+  description: Die Schnittstelle basiert auf einer Reduktion der ELSTER-Transfer Schnittstelle in Version 3.3.0
+  version: 3.3.0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+tags:
+  - name: bereitstellungsauftrag
+    description: Bereitstellung von Dokumenten
+paths:
+  /rest/bereitstellungsauftrag/file-upload:
+    post:
+      tags:
+        - bereitstellungsauftrag
+      description: "Überträgt die XHE-Nachrichtenbestandteile wie: LetterBody, ConfidentialMetaData, Attachments oder StructuredData verschlüsselt\
+         \ im XML-Format zum OZGPP. Diese werden bei späteren Aufrufen dem Bereitstellen von Dokumenten über eine eindeutige\
+         \ ID als Anhang referenziert.\
+         \ Im HTTP-Header muss der Content-Type als text/xml gesetzt sein. Die Daten werden direkt übertragen.\
+         \ Dateigrößen bis 52428800 Bytes sind erlaubt. Das Übertragen leerer Dateien ist nicht erlaubt."
+
+      operationId: uploadFile
+      requestBody:
+        content:
+          text/xml:
+            schema:
+              type: string
+              format: xml
+        required: true
+      responses:
+        "200":
+          description: "Wenn der übertragene XHE-Nachrichtenbestandteil vom OZGPP erfolgreich empfangen und zwischengespeichert\
+            \ wurde. Zur weiteren Verwendung wird im JSON eine 'uploadId' zurückgegeben,\
+            \ welche den Upload eindeutig identifiziert."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadInfo'
+        "400":
+          description: Fehlerhafte Anfrage (wenn der Request z.B. keinen Inhalt aufweist)
+          content:
+            application/json:
+              schema:
+                $ref: 'fv-base-response.yaml#/components/schemas/ErrorResponse'
+        "401":
+          description: Unautorisierter zugriff am OZGPP, es wird ein valider API-Key benötigt.
+          content:
+            application/json:
+              schema:
+                $ref: 'fv-base-response.yaml#/components/schemas/ErrorResponse'
+        "413":
+          description: Inhalt des Requests (der einzelnen XHE-Nachrichtenbestandteile) überschreitet die geltende
+            Größenlimitierung der Schnittstelle von 52428800 Bytes
+  /rest/bereitstellungsauftrag/v3:
+    post:
+      tags:
+        - bereitstellungsauftrag
+      description: Erzeugung eines Auftrags zur Bereitstellung am OZGPP.
+      operationId: createBereitstellungAuftrag_V3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BereitstellungAuftragNeu_V3'
+        required: true
+      responses:
+        "200":
+          description: Wenn der Auftrag im OZGPP angelegt wurde, werden die Nachrichtenbestandteile dort zusammengeführt.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuftragAngelegt'
+        "400":
+          description: Fehlerhafte Anfrage
+          content:
+            application/json:
+              schema:
+                $ref: 'fv-base-response.yaml#/components/schemas/ErrorResponse'
+        "401":
+          description: Unautorisierter zugriff am OZGPP, es wird ein valider API-Key benötigt.
+          content:
+            application/json:
+              schema:
+                $ref: 'fv-base-response.yaml#/components/schemas/ErrorResponse'
+  /rest/bereitstellungsauftrag/v3/{id}:
+    get:
+      tags:
+        - bereitstellungsauftrag
+      description: Abfrage von Statusinformationen zu einer Bereitstellung
+      operationId: getBereitstellungAuftragById_V3
+      parameters:
+        - name: id
+          in: path
+          description: "Id des Bereitstellungsauftrags. Die Id erhält man als Antwort auf eine erfolgreiche\ 
+                       \ Annahme eines Bereitstellungsauftrags am OZGPP."
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: Die Bereitstellungsinformationen.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BereitstellungInfo'
+        "400":
+          description: Fehlerhafte Anfrage
+          content:
+            application/json:
+              schema:
+                $ref: 'fv-base-response.yaml#/components/schemas/ErrorResponse'
+        "401":
+          description: Unautorisierter zugriff am OZGPP, es wird ein valider API-Key benötigt.
+          content:
+            application/json:
+              schema:
+                $ref: 'fv-base-response.yaml#/components/schemas/ErrorResponse'
+        "404":
+          description: Bereitstellung nicht vorhanden
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      description: Die Verbindungen zum OZGPP, werden zusätzlich zu HTTPS, über einen API-Key im 
+                   HTTP Header abgesichert. Jedes Fachverfahren erhält seinen individuellen API-Key.
+      in: header
+      name: X-API-KEY
+  schemas:
+    AnhangInfo:
+      type: object
+      description: Informationen zu einem angehängten Dokument bzw. XHE-Nachrichtenbestandteil des Bereitstellungsauftrags
+      properties:
+        dateiBezeichnung:
+          type: string
+          description: Bezeichnung des übermittelten Dokuments bzw. XHE-Nachrichtenbestandteil
+        mimeType:
+          $ref: '#/components/schemas/AnhangMimeType'
+      required:
+        - dateiBezeichnung
+        - mimeType
+    AnhangMimeType:
+      type: string
+      description: "MIME-Type, der den Inhaltstyp des XHE-Nachrichtenbestandteils explizit angibt. Sollte\
+        \ bei Aufruf über REST-API immer angegeben werden (Nur MIME-Type = text/xml wird aktuell unterstützt)."
+      enum:
+        - application/pdf
+        - text/xml
+        - text/csv
+        - image/jpeg
+        - image/png
+      example: text/xml
+    AuftragAngelegt:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 12345
+      required:
+        - id
+    BereitstellungAnhangWithUploadId:
+      type: object
+      description: "Referenzierung eines Dokuments, dessen Binärdaten vorher über die Schnittstelle '/rest/bereitstellungsauftrag/file-upload' hochgeladen wurden."
+      properties:
+        dateiBezeichnung:
+          type: string
+          description: Bezeichnung der zu übermittelnden XHE-Nachrichtenbestandteils (Wird aktuell nicht ausgewertet).
+          example: z.B. LetterBody
+          maxLength: 255
+          minLength: 0
+        mimeType:
+          $ref: '#/components/schemas/AnhangMimeType'
+        uploadId:
+          type: string
+          format: uuid
+          description: "Eindeutige Id, die bereits zuvor separat hochgeladenen XHE-Nachrichtenbestandteile\
+            \ referenziert. Wird beim Hochladen generiert und zurückgegeben."
+      required:
+        - dateiBezeichnung
+        - mimeType
+        - uploadId
+    BereitstellungAntwortlink:
+      type: object
+      description: "Web-Link und zugehörige Informationen, die eine Möglichkeit beschreiben,\
+        \ wie der Kunde, an den ein Dokument bereitgestellt wurde, eine Rückantwort\
+        \ durchführen kann (Wird nicht unterstützt)."
+      properties:
+        beschreibung:
+          type: string
+          example: Mouse - Hover-Over Text
+          maxLength: 32768
+          minLength: 0
+        titel:
+          type: string
+          example: Einspruch xxx
+          maxLength: 56
+          minLength: 0
+        url:
+          type: string
+          format: uri
+          example: http://www.Elster.de/Antwortlink
+          maxLength: 32768
+          minLength: 0
+      required:
+        - titel
+        - url
+    BereitstellungAuftragNeu_V3:
+      type: object
+      description: "Nachdem alle Nachrichtenbestandteile übermittelt wurden, werden sie im Server\
+        \ zusammengeführt. Dies geschieht per Bereitstellungsauftrag am OZGPP."
+      properties:
+        absender:
+          type: string
+          description: Anzeigetext des Absenders
+          example: Stadt Mühldorf
+          maxLength: 128
+          minLength: 0
+        accountId:
+          type: string
+          description: Die Empfänger Mailbox-ID des Funktionspostfach im OZGPP als UUID.
+          example: "0dbef04c-3047-4181-ba80-527bfbe98009"
+        anhaenge:
+          type: array
+          description: Verweist auf die Anhänge bzw XHE-Nachrichtenbestandteile zum Bereitstellungsauftrag.
+          items:
+            $ref: '#/components/schemas/BereitstellungAnhangWithUploadId'
+        datenart:
+          type: string
+          description: Beliebiger und notwendiger Text, wird aber aktuell nicht ausgewertet
+          example: EPBescheid
+      required:
+        - absender
+        - accountId
+        - anhaenge
+        - datenart
+    BereitstellungAuftragStatus:
+      type: string
+      description: |-
+        Aktueller Status für Bereitstellungsaufträge mit folgenden Werten:
+        
+        HINWEIS: In der OpenAPI Spezifikation des elster-transfer sind alle Status definiert. Aktuell werden im OZGPP nur die Status 'EINGESTELLT', 'BEREIT_ZUR_ABHOLUNG', 'VOM_EMPFAENGER_ABGEHOLT' oder 'GELOESCHT' zurückgegeben.
+
+        - IN_BEARBEITUNG: Initialer Status bei neu angelegten Aufträgen.
+        - VERSENDET: Die Nachricht wurde erfolgreich an ELSTER übermittelt. Ein Status wurde noch nicht erzeugt.
+        - EINGESTELLT: Die Nachricht wurde eingestellt, die Benachrichtigung an den Empfänger wurde jedoch noch nicht zugestellt.
+        - BEREIT_ZUR_ABHOLUNG: Die Nachricht wurde an den Empfänger bereitgestellt. Die Benachrichtigung an den Empfänger ist erfolgt. In der Bereitstellungsinformation wird der Zeitpunkt des Versands der E-Mail-Benachrichtigung im "emailVersandZeitpunkt" gesetzt.  
+        - VOM_EMPFAENGER_ABGEHOLT: Die Nachricht wurde vom Empfänger abgeholt.
+        - EINGANG_BESTAETIGT: Die Anwendung des Empfängers hat die Abholung bestätigt.
+        - GELOESCHT: Die Nachricht wurde aus dem Postfach gelöscht.
+        - UEBERTRAGUNGSFEHLER: Es ist ein technischer Fehler aufgetreten.
+        - DATEN_FEHLERHAFT: Die Daten konnten aufgrund eines Fehlers nicht an den Empfänger bereitgestellt werden. Mögliche Gründe: Datei invalide, Dateiformat passt nicht zur Dateinamenerweiterung, Virenfund.
+        - INTERNAL_ERROR: Es kam zu einem internen Fehler.
+        - UNBEKANNT: Wird nicht verwendet, dafür wird HTTP Status 404 zurückgegeben.
+
+      enum:
+        - IN_BEARBEITUNG
+        - UEBERTRAGUNGSFEHLER
+        - VERSENDET
+        - EINGESTELLT
+        - DATEN_FEHLERHAFT
+        - BEREIT_ZUR_ABHOLUNG
+        - VOM_EMPFAENGER_ABGEHOLT
+        - EINGANG_BESTAETIGT
+        - GELOESCHT
+        - INTERNAL_ERROR
+        - UNBEKANNT
+    BereitstellungInfo:
+      type: object
+      properties:
+        abrufZeitpunkt:
+          type: string
+          format: date-time
+          description: Zeitpunkt (Datum und Uhrzeit) des Dokumentenabrufs durch den Empfänger.
+        absender:
+          type: string
+          description: Anzeigetext des Absenders
+          example: Stadt Mühldorf
+        accountId:
+          type: string
+          description: Die Empfänger Mailbox-ID des Funktionspostfach im OZGPP als UUID.
+          example: "0dbef04c-3047-4181-ba80-527bfbe98009"
+        anhaenge:
+          type: array
+          description: Listet die XHE-Nachrichtenbestandteile zu dem Bereitstellungsauftrag auf.
+          items:
+            $ref: '#/components/schemas/AnhangInfo'
+        antwortlinks:
+          type: array
+          description: "Informationen u.a. ein Web-Link, die dem Kunden, an den das\
+            \ Dokument bereitgestellt wurde, eine Rückantwort ermöglicht (Wird nicht unterstützt)."
+          items:
+            $ref: '#/components/schemas/BereitstellungAntwortlink'
+        bekanntgabeVorgangsId:
+          type: string
+          description: Die Bekanntgabe-Vorgangs-ID wird von ETR beim Erzeugen des
+            Auftrags generiert (Wird nicht unterstützt).
+          example: 1bf1c5329c80649f71579db73d549fdb7c12e76624014915eafc4b673decb532
+        bescheidDatum:
+          type: string
+          format: date
+          description: "Bei rechtsverbindlichen Bescheiden gesetzt, sonst leer (Wird nicht unterstützt)"
+          example: 2020-12-31
+        betreff:
+          type: string
+          description: "Bei rechtsverbindlichen Bescheiden angegeben, sonst von Datenart\
+            \ übernommen (Wird nicht unterstützt)"
+          example: Steuerbescheid
+        datenart:
+          type: string
+          description: Datenart des Bereitstellungsauftrags (Wird nicht unterstützt)
+          example: EPBescheid
+        emailAdresse:
+          type: string
+          format: email
+          description: "E-Mail-Adresse des Empfängers, die bei Bereitstellung eines\
+            \ Bescheids über dessen Eingang benachrichtigt wird (Wird nicht unterstützt)."
+          example: test@elster.de
+        emailVersandZeitpunkt:
+          type: string
+          format: date-time
+          description: "Zeitpunkt (Datum und Uhrzeit) des Versands von der E-Mail-Benachrichtigung,\
+            \ sofern vorhanden und ETR bekannt. Zeitpunkt kann zur Zeitumstellung\
+            \ um eine Stunde abweichen, da der Wert nicht wohldefiniert vorliegt."
+        emailZusatzText:
+          type: string
+          description: "Ergänzender Freitext für die Benachrichtigungsemails, der\
+            \ zusätzlich zum Vorlagentext verwendet wird. Nur für bestimmte Datenarten\
+            \ (z.B. \"EPMitteilung\") und Nutzergruppen (in Abhängigkeit der Anwendungskonfiguration) (Wird nicht unterstützt)."
+        erstellZeitpunkt:
+          type: string
+          format: date-time
+          description: "Zeitpunkt (Datum und Uhrzeit), an dem die Bereitstellung im OZGPP erstellt\
+            \ worden ist."
+        fehlerNummer:
+          type: string
+          description: "Aus dem Bereitstellungsvorgang zurückgemeldete Fehlernummer,\
+            \ sofern bekannt. Relevant nur bei fehlerhaften Datensätzen (Wird nicht unterstützt)."
+          example: "900300008"
+        fehlerText:
+          type: string
+          description: Ausformulierter Text zur 'fehlerNummer'. Relevant nur bei fehlerhaften
+            Datensätzen (Wird nicht unterstützt).
+          example: Der Account ist nicht aktiv
+        geschaeftszeichen:
+          type: string
+          description: "Bei rechtsverbindlichen Bescheiden ist dieses Feld Pflicht,\
+            \ sonst optional (Wird nicht unterstützt)"
+        id:
+          type: integer
+          format: int64
+          description: Die Interne ID des Bereitstellungsauftrags
+        status:
+          $ref: '#/components/schemas/BereitstellungAuftragStatus'
+        statusAbfrageZeitpunkt:
+          type: string
+          format: date-time
+          description: "Zeitpunkt (Datum und Uhrzeit), der letzten Statusabfrage (Wird nicht unterstützt)"
+        transferTicket:
+          type: string
+          example: ep0104fdrdmr702ki4a1m508vih9v7am
+      required:
+        - absender
+        - accountId
+        - anhaenge
+        - antwortlinks
+        - betreff
+        - datenart
+        - erstellZeitpunkt
+        - id
+        - status
+    UploadInfo:
+      type: object
+      description: "Informationen zu einem zuvor hochgeladenen XHE-Nachrichtenbestandteil."
+      properties:
+        uploadId:
+          type: string
+          format: uuid
+          description: "Eindeutige Id der hochgeladenen XHE-Nachrichtenbestandteile.\
+          \ Wird beim Hochladen der Nachricht generiert und zurückgegeben "
+      required:
+        - uploadId
+
+security:
+  - ApiKeyAuth: []

@@ -1,0 +1,136 @@
+openapi: 3.0.1
+info:
+  title: OZGPP Lookup REST-Schnittstelle
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+tags:
+  - name: mailboxList
+    description: "Liste aller Funktionspostfächer eines Unternehmens, die mindestens ein Mitglied aufweisen.
+                  Über das Bausteinpeusdonym kann ein Unternehmen eindeutig identifiziert werden."
+  - name: encryption-key
+    description: Abfrage des PRE Public Key eines Funktionspostfaches.
+paths:
+  /rest/mailboxes:
+    post:
+      tags:
+        - mailboxList
+      description: Abfrage aller Funktionspostfächer eines Unternehmens anhand des Bausteinpeusdonyms.
+      operationId: getMailboxListByBausteinPseudonym
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bausteinPseudonym'
+        required: true
+      responses:
+        "200":
+          description: Liste aller Funktionspostfächer zu einer Organisation des Bausteinpeusdonym
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/mailboxList'
+        "400":
+          description: Fehlerhafte Anfrage
+          content:
+            application/json:
+              schema:
+                $ref: 'fv-base-response.yaml#/components/schemas/ErrorResponse'
+        "401":
+          description: Unautorisierter Zugriff am OZG-PLUS-Postfach, es wird ein valider API-Key benötigt.
+          content:
+            application/json:
+              schema:
+                $ref: 'fv-base-response.yaml#/components/schemas/ErrorResponse'
+        "404":
+          description: Keine Funktionspostfächer, die mindestens ein Mitglied aufweisen, zu dem Bausteinpeusdonym vorhanden.
+  /rest/mailboxes/{id}/encryption-key:
+    get:
+      tags:
+        - encryption-key
+      description: Abfrage des PRE Public Key eines Funktionspostfaches.
+      operationId: getMailboxEncryptionKey
+      parameters:
+        - name: id
+          in: path
+          description: Id des Funktionspostfaches
+          required: true
+          schema:
+            $ref: '#/components/schemas/mailboxId'
+      responses:
+        "200":
+          description: "Der PRE Public Key des Funktionspostfaches.\n\n
+                        Hinweis: Ein PRE Public Key ist kein X509 Zertifikat,
+                        sondern ein öffentlicher kryptografischer Schlüssel
+                        nach https://eprint.iacr.org/2018/1136.pdf"
+          content:
+            'application/octet-stream':
+              schema:
+                type: string
+                format: binary
+        "400":
+          description: Fehlerhafte Anfrage
+          content:
+            application/json:
+              schema:
+                $ref: 'fv-base-response.yaml#/components/schemas/ErrorResponse'
+        "401":
+          description: Unautorisierter zugriff am OZGPP, es wird ein valider API-Key benötigt.
+          content:
+            application/json:
+              schema:
+                $ref: 'fv-base-response.yaml#/components/schemas/ErrorResponse'
+        "404":
+          description: Kein Funktionspostfach, das mindestens ein Mitglied aufweist, zu der id vorhanden.
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      description: Die Verbindungen zum OZGPP, werden zusätzlich zu HTTPS, über einen API-Key im
+                   HTTP Header abgesichert. Jedes Fachverfahren erhält seinen individuellen API-Key.
+      in: header
+      name: X-API-KEY
+  schemas:
+    bausteinPseudonym:
+      type: object
+      properties:
+        pseudonym:
+          type: string
+          example: TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQ=.Y29uc2V0ZXR1ciBzYWRpcHNjaW5nIGVsaXRy.c2VkIGRpYW0gbm9udW15IGVpcm1vZCB0ZW1wb3I
+          format: JWT
+          description: Das Bausteinpeusdonym zum OZG-PLUS-Postfach
+      required:
+        - pseudonym
+    mailboxList:
+      type: array
+      items:
+        $ref: '#/components/schemas/mailbox'
+      example:
+        - id: 08150815-0815-0815-0815-081508150815
+          displayName: Personalwesen
+        - id: 1100943d-a30e-450d-8090-c54b32ce98bb
+          displayName: Buchhaltung und Finanzen
+    mailboxId:
+      type: string
+      format: uuid
+      example: 1100943d-a30e-450d-8090-c54b32ce98bb
+    mailbox:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 08150815-0815-0815-0815-081508150815
+          format: uuid
+          description: Id des Funktionspostfaches
+        displayName:
+          type: string
+          example: Personalwesen
+          description: Name des Funktionspostfaches
+      required:
+        - id
+        - displayName
+
+security:
+  - ApiKeyAuth: []
