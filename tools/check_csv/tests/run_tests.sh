@@ -125,5 +125,19 @@ for file in "$fixtures"/glossary/bad/*/abkuerzungen.csv; do
   expect_error "glossary_$name" "$file" "$(<"$expected")"
 done
 
+printf '\nDaten für zentrale_dienste.csv\n'
+for file in "$fixtures"/services/good/*/zentrale_dienste.csv; do
+  expect_ok "services_$(basename "$(dirname "$file")")" "$file"
+done
+for file in "$fixtures"/services/bad/*/zentrale_dienste.csv; do
+  name="$(basename "$(dirname "$file")")"
+  expected="$(dirname "$file")/expected"
+  if [[ ! -f "$expected" ]]; then
+    nok "services_$name" "fehlende Datei $expected"
+    continue
+  fi
+  expect_error "services_$name" "$file" "$(<"$expected")"
+done
+
 printf '\n%d bestanden, %d fehlgeschlagen\n' "$pass" "$fail"
 [[ $fail -eq 0 ]]

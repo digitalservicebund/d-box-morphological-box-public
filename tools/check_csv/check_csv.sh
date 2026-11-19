@@ -27,6 +27,7 @@ fi
 
 expected_header='Cluster|Zeile|Auswahl|Wer entscheidet|Was wird hier entschieden|Ausprägung 1|Ausprägung 2|Ausprägung 3|Ausprägung 4|Ausprägung 5|Ausprägung 6|Ausprägung 7|Ausprägung 8'
 glossary_header='Abkürzung|Bedeutung'
+services_header='ID|Funktion|Story und Schritt|Kasten-Zeile|Heutige zentrale Dienste|Betreiber heute|Lücken und offene Fragen|Quelle|Im Zielbild'
 
 status=0
 
@@ -41,6 +42,9 @@ check_file() {
   elif [[ "$(basename "$file")" == "abkuerzungen.csv" ]]; then
     schema=glossary
     header="$glossary_header"
+  elif [[ "$(basename "$file")" == "zentrale_dienste.csv" ]]; then
+    schema=services
+    header="$services_header"
   fi
 
   if [[ ! -f "$file" ]]; then
@@ -49,7 +53,7 @@ check_file() {
   fi
 
   # Kodierung
-  if ! iconv -f UTF-8 -t UTF-8 "$file" >/dev/null 2>&1; then
+  if ! iconv -f UTF-8 -t UTF-8 "$file" 2>/dev/null | cat >/dev/null; then
     echo "$file: kein gültiges UTF-8" >&2
     errors=$((errors + 1))
   fi
@@ -72,7 +76,7 @@ check_file() {
     BEGIN {
       ncols = split(expected, hdr, "|")
       zeile = 2; auswahl = 3; first_option = 6
-      if (schema == "solutions" || schema == "glossary") zeile = 1
+      if (schema == "solutions" || schema == "glossary" || schema == "services") zeile = 1
       errs = 0; rec = 0; nf = 0; buf = ""
       in_q = 0; was_q = 0; after_q = 0; bad = 0
     }
@@ -121,6 +125,10 @@ check_file() {
       if (schema == "glossary") {
         if (f[2] == "") err(start, "Spalte \"Bedeutung\" ist leer (unbekannt: \"?\")")
         if (f[1] != "" && known[f[1]]++) err(start, "doppelte Abkürzung: \"" f[1] "\"")
+      }
+      if (schema == "services") {
+        if (f[2] == "") err(start, "Spalte \"Funktion\" ist leer")
+        if (f[1] != "" && known[f[1]]++) err(start, "doppelte ID: \"" f[1] "\"")
       }
       if (schema == "morph") {
         if (f[auswahl] != "exklusiv" && f[auswahl] != "Bündel" && f[auswahl] != "gesetzt")
