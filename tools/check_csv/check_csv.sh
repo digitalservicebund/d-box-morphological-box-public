@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Prüft morph_box.csv, existing_solutions.csv und abkuerzungen.csv (bzw. übergebene CSV-Dateien).
+# Prüft morph_box.csv, existing_solutions.csv, abkuerzungen.csv und
+# zentrale_dienste.csv (bzw. übergebene CSV-Dateien).
 #
 # Geprüft wird:
 #   - Kodierung: gültiges UTF-8, kein BOM
@@ -9,6 +10,8 @@
 #   - Header: je nach Datei exakte Spaltennamen oder eindeutige Lösungsnamen
 #   - abkuerzungen.csv: Header "Abkürzung","Bedeutung", Abkürzungen eindeutig
 #   - Spaltenanzahl: jede Zeile hat genau so viele Spalten wie der Header
+#   - zentrale_dienste.csv: exakter Header, "Dienst" nicht leer und eindeutig,
+#     "Funktionen" nicht leer
 #   - Spalte "Zeile": nicht leer
 #   - morph_box.csv: gültige "Auswahl" und keine Lücken in Ausprägungen
 #   - Zellinhalte: kein Markdown (**fett**, *kursiv*, __, `code`, [Link](url),
@@ -27,7 +30,7 @@ fi
 
 expected_header='Cluster|Zeile|Auswahl|Wer entscheidet|Was wird hier entschieden|Ausprägung 1|Ausprägung 2|Ausprägung 3|Ausprägung 4|Ausprägung 5|Ausprägung 6|Ausprägung 7|Ausprägung 8'
 glossary_header='Abkürzung|Bedeutung'
-services_header='ID|Funktion|Story und Schritt|Kasten-Zeile|Heutige zentrale Dienste|Betreiber heute|Lücken und offene Fragen|Quelle|Im Zielbild'
+services_header='Dienst|Funktionen|Kasten-Zeile|Story und Schritt|Betreiber|Einschränkungen und offene Fragen|Quelle'
 
 status=0
 
@@ -127,8 +130,8 @@ check_file() {
         if (f[1] != "" && known[f[1]]++) err(start, "doppelte Abkürzung: \"" f[1] "\"")
       }
       if (schema == "services") {
-        if (f[2] == "") err(start, "Spalte \"Funktion\" ist leer")
-        if (f[1] != "" && known[f[1]]++) err(start, "doppelte ID: \"" f[1] "\"")
+        if (f[2] == "") err(start, "Spalte \"Funktionen\" ist leer")
+        if (f[1] != "" && known[f[1]]++) err(start, "doppelter Dienst: \"" f[1] "\"")
       }
       if (schema == "morph") {
         if (f[auswahl] != "exklusiv" && f[auswahl] != "Bündel" && f[auswahl] != "gesetzt")
