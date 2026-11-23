@@ -46,7 +46,7 @@ Stand: 2026-11-23. Lokale Kopien aller Hauptquellen und ergänzender Gesetzestex
 
 ## Nachweise je Dimension
 
-| Zeile | Aussage | Quellen | Stufe |
+| Dimension | Aussage | Quellen | Stufe |
 |---|---|---|---|
 | B1 | REST-API mit API-Schlüssel als JSON Web Token; Client-Bibliotheken für Java, .NET, Node.js, PHP, Python, Ruby; Callbacks für Zustellstatus und eingehende SMS | API; REST; SEC | 3 |
 | B2 | Web-Oberfläche mit Vorlagen, Einzel- und Massenversand per Tabellen-Upload; E-Mail, SMS und Brief aus einer Plattform; Notify druckt und versendet Briefe | FEAT; TPL; BULK | 3 |
@@ -78,7 +78,7 @@ Stand: 2026-11-23. Lokale Kopien aller Hauptquellen und ergänzender Gesetzestex
 
 Einordnung der früheren `[unverifiziert]`-Stellen, Stand 2026-11-23. Stufe 1 und 2 werden über den genannten Prüfweg geprüft. In `morph_box.csv` gibt es keine Markierung, die sich auf GOV.UK Notify oder das UK bezieht.
 
-| Datei, Zeile | Aussage | Stufe | Begründung | Prüfweg |
+| Datei, Dimension | Aussage | Stufe | Begründung | Prüfweg |
 |---|---|---|---|---|
 | `existing_solutions.csv`, P6 | keine Schnittstelle für Empfangende | 2 | Rückschluss aus dem Fehlen eines Postfachs (FEAT, WHO); API und REST-Dokumentation beschreiben nur Schnittstellen für sendende Dienste; Fehlanzeige | Anfrage GDS / Notify-Team |
 | `existing_solutions.csv`, R1 | Notify regelt keine Schriftform oder Rechtswirkung | 2 | Fehlanzeige in Nutzungsbedingungen (TOU) und Betreiberseiten; der Teil „Recht des jeweiligen Verfahrens maßgeblich“ ist mit ECA8 und IA7 belegt (Stufe 3) und nicht mehr markiert | Anfrage GDS |

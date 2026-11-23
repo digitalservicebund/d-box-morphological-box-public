@@ -76,7 +76,7 @@ Lokale Pfade relativ zu `sources/MJP/quellen/`, mit `BZ/` relativ zu `sources/Bu
 
 Belege für die Spalte `Mein Justizpostfach (Deutschland)` in `existing_solutions.csv`, Stand 2026-11-18.
 
-| Zeile | Aussage | Quellen | Stufe |
+| Dimension | Aussage | Quellen | Stufe |
 |---|---|---|---|
 | B1 | kein eigener Anbindungsweg: Gerichte und Behörden adressieren MJP-Postfächer wie jeden EGVP-Teilnehmer über OSCI 1.2 und Intermediär; Gerichte senden über justizeigene Sende- und Empfangskomponenten mit Fachverfahrensanbindung (z. B. eKP für forumSTAR, EUREKA) [Indiz], Behörden über das beBPo mit registriertem Drittprodukt oder EGVP-Enterprise; XJustiz-Nachricht Pflicht | HR S. 1; ANF S. 3, 6, 10; LF S. 7 Fn. 6; LB; BEBPO-V Z. 30–40; DRITT | 3, Fachverfahren: 2 |
 | B2 | Client-Anwendungen als Drittprodukte (z. B. Governikus COM Vibilia beBPo Edition); XJustiz-Datensatz über die Browseranwendung auf xjustiz.de | DRITT Z. 26; GOV-ERV; BEBPO-S | 3 |
@@ -129,7 +129,7 @@ Abgleich der Quellen untereinander und mit `morph_box.csv`, 2026-11-18.
 
 Einordnung der früheren `[unverifiziert]`-Stellen sowie der unmarkierten Aussagen, die nur auf Fehlanzeige, Rückschluss, Herstellerangaben oder veralteten Sekundärquellen beruhen, Stand 2026-11-23. Stufe 1 und 2 werden über den genannten Prüfweg geprüft.
 
-| Datei, Zeile | Aussage | Stufe | Begründung | Prüfweg |
+| Datei, Dimension | Aussage | Stufe | Begründung | Prüfweg |
 |---|---|---|---|---|
 | `existing_solutions.csv`, B1 | Fachverfahrensanbindung der Empfangskomponenten (z. B. forumSTAR, EUREKA) | 2 | Sende- und Empfangskomponenten je EGVP-Teilnehmer belegt (LF S. 7 Fn. 6); Fachverfahren und eKP nur aus den Länderberichten 2021–2024 (LB), teils veraltet | aktuelle Länderberichte; Interview Gericht |
 | `existing_solutions.csv`, P1 | gesetzliche Benachrichtigungspflicht nur im Online-Verfahren | 2 | § 1130 ZPO belegt; lokal liegen nur ausgewählte ZPO-Paragrafen, andere Benachrichtigungspflichten (z. B. § 9 Abs. 1 OZG für Postfächer von Nutzerkonten) nicht für MJP geprüft: Fehlanzeige | Abgleich mit ZPO, ERVV, OZG |

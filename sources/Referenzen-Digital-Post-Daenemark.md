@@ -38,7 +38,7 @@ Abgerufen am 2026-11-16 und 2026-11-17, ergänzt am 2026-11-23 (TI, VIRK, FP), n
 
 ## Nachweise je Dimension
 
-| Zeile | Aussage | Quellen | Stufe |
+| Dimension | Aussage | Quellen | Stufe |
 |---|---|---|---|
 | B1 | Behörden brauchen ein Absender- und ein Empfangssystem; Versand und Empfang aus Fachsystemen wie Outlook und E-Akte (ESDH); Nachrichtenformat MeMo | AS; OM; HU | 3 |
 | B2 | Versand über Distributionsdienstleister, Papier für befreite Empfänger aus demselben Versand (Fjernprint) [Indiz]; Digital Post weist nicht obligatorische Post an befreite Empfänger ab (`recipient.is.exempt`), Absendersystem kann den Befreiungsstatus vorher abfragen; bei nicht angeschlossenen Empfängern sorgt der Absender für Papierpost, Fjernprint nur für die Weiterleitung ungeöffneter Post an Unternehmen geregelt | TI Kap. 12.4.2, Fehlercodes; BEK17 § 13; BEK985 §§ 8, 9; FP | 3, Fjernprint: 2 |
@@ -77,7 +77,7 @@ Abgerufen am 2026-11-16 und 2026-11-17, ergänzt am 2026-11-23 (TI, VIRK, FP), n
 
 Einordnung der früheren `[unverifiziert]`-Stellen, Stand 2026-11-23. Stufe 1 und 2 werden über den genannten Prüfweg geprüft.
 
-| Datei, Zeile | Aussage | Stufe | Begründung | Prüfweg |
+| Datei, Dimension | Aussage | Stufe | Begründung | Prüfweg |
 |---|---|---|---|---|
 | `existing_solutions.csv`, B2 | Papier für befreite Empfänger aus demselben Versand (Fjernprint) | 2 | Fjernprint nur in Sekundärquelle (FP) erwähnt; laut TI weist Digital Post nicht obligatorische Post an Befreite ab, nach BEK17 § 13 und BEK985 § 9 sorgt der Absender für Papierpost; Fjernprint primär nur für Weiterleitung ungeöffneter Post (BEK985 § 8) | Anfrage Digitaliseringsstyrelsen; Sagsbehandlingsvejledning prüfen |
 | `existing_solutions.csv`, B4 | Hauptdokument und Anhänge, z. B. PDF | 3 | MainDocument mit bis zu 10 AdditionalDocuments, PDF in der Format-Whitelist (TI) | – |

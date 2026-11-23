@@ -12,7 +12,7 @@
 #   - Spaltenanzahl: jede Zeile hat genau so viele Spalten wie der Header
 #   - zentrale_dienste.csv: exakter Header, "Dienst" nicht leer und eindeutig,
 #     "Funktionen" nicht leer
-#   - Spalte "Zeile": nicht leer
+#   - Spalte "Dimension": nicht leer
 #   - morph_box.csv: gültige "Auswahl" und keine Lücken in Ausprägungen
 #   - Zellinhalte: kein Markdown (**fett**, *kursiv*, __, `code`, [Link](url),
 #     Aufzählungen, Überschriften)
@@ -28,7 +28,7 @@ if [[ $# -eq 0 ]]; then
   set -- "$script_dir/../../morph_box.csv"
 fi
 
-expected_header='Cluster|Zeile|Auswahl|Wer entscheidet|Was wird hier entschieden|Ausprägung 1|Ausprägung 2|Ausprägung 3|Ausprägung 4|Ausprägung 5|Ausprägung 6|Ausprägung 7|Ausprägung 8'
+expected_header='Cluster|Dimension|Auswahl|Wer entscheidet|Was wird hier entschieden|Ausprägung 1|Ausprägung 2|Ausprägung 3|Ausprägung 4|Ausprägung 5|Ausprägung 6|Ausprägung 7|Ausprägung 8'
 glossary_header='Abkürzung|Bedeutung'
 services_header='Dienst|Funktionen|Kasten-Zeile|Story und Schritt|Betreiber|Einschränkungen und offene Fragen|Quelle'
 
@@ -104,7 +104,7 @@ check_file() {
       if (bad) return
       if (schema == "solutions" && rec == 1) {
         ncols = nf
-        if (f[1] != "Zeile") err(start, "Header Spalte 1: erwartet \"Zeile\", gefunden \"" f[1] "\"")
+        if (f[1] != "Dimension") err(start, "Header Spalte 1: erwartet \"Dimension\", gefunden \"" f[1] "\"")
         if (ncols < 2) err(start, "Header benötigt mindestens eine Lösungsspalte")
         for (i = 1; i <= ncols; i++) {
           hdr[i] = f[i]

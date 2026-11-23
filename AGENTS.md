@@ -8,7 +8,7 @@ These files are meant to be shared across a small engineering team and used with
 
 ## Format check
 
-The technical format of both CSV files is enforced by `tools/check_csv/check_csv.sh` (run automatically as a lefthook pre-commit hook). It checks UTF-8 without BOM, consistent line endings, CSV syntax, column count and Markdown. For `morph_box.csv`, it also checks the exact header, `Auswahl` values and gaps between `Ausprägung` cells. For `existing_solutions.csv`, it checks the `Zeile` header and nonempty, unique solution names.
+The technical format of both CSV files is enforced by `tools/check_csv/check_csv.sh` (run automatically as a lefthook pre-commit hook). It checks UTF-8 without BOM, consistent line endings, CSV syntax, column count and Markdown. For `morph_box.csv`, it also checks the exact header, `Auswahl` values and gaps between `Ausprägung` cells. For `existing_solutions.csv`, it checks the `Dimension` header and nonempty, unique solution names.
 
 Run it after every edit:
 
@@ -33,13 +33,13 @@ The file uses a standard CSV layout with a header row and one data row per optio
 Header:
 
 ```csv
-"Cluster","Zeile","Auswahl","Wer entscheidet","Was wird hier entschieden","Ausprägung 1","Ausprägung 2","Ausprägung 3","Ausprägung 4","Ausprägung 5","Ausprägung 6","Ausprägung 7","Ausprägung 8"
+"Cluster","Dimension","Auswahl","Wer entscheidet","Was wird hier entschieden","Ausprägung 1","Ausprägung 2","Ausprägung 3","Ausprägung 4","Ausprägung 5","Ausprägung 6","Ausprägung 7","Ausprägung 8"
 ```
 
 Meaning of columns:
 
 - `Cluster`: group of related decision dimensions
-- `Zeile`: row label / decision dimension, e.g. `B1 Anbindung von Fachverfahren`
+- `Dimension`: row label / decision dimension, e.g. `B1 Anbindung von Fachverfahren`
 - `Auswahl`: decision type. `exklusiv` means only one option can be chosen, `Bündel` means multiple options can be combined, and `gesetzt` indicates a predetermined value.
 - `Wer entscheidet`: decision-maker, if specified
 - `Was wird hier entschieden`: explanatory text describing the decision dimension
@@ -49,13 +49,13 @@ Empty cells are valid and should remain empty.
 
 ## Existing solutions
 
-`existing_solutions.csv` compares existing German and international solutions against the dimensions in `morph_box.csv`. Its first column, `Zeile`, contains the same dimension labels in the same order as the morphological box; each subsequent column represents one solution or country. Each cell describes how that solution addresses the dimension, potentially including qualifications or several aspects. It is not required to reproduce an `Ausprägung` verbatim.
+`existing_solutions.csv` compares existing German and international solutions against the dimensions in `morph_box.csv`. Its first column, `Dimension`, contains the same dimension labels in the same order as the morphological box; each subsequent column represents one solution or country. Each cell describes how that solution addresses the dimension, potentially including qualifications or several aspects. It is not required to reproduce an `Ausprägung` verbatim.
 
 Keep all solution columns and existing information when aligning dimensions, unless explicitly asked otherwise. When dimensions change, move or combine information only where it fits the current dimension. Leave cells for new dimensions empty unless an existing value or the current morphological box makes the assignment unambiguous. An empty cell means no assignment is recorded, not necessarily that the solution lacks the feature; preserve explicit uncertainty such as `?`.
 
 The file has its own CSV schema, not the `Auswahl` and `Ausprägung` columns of `morph_box.csv`. Maintain valid UTF-8 CSV with a consistent column count and verify its dimension labels and order against `morph_box.csv` after changes.
 
-Document the evidence for each researched solution in `sources/Referenzen-<Name>.md`, modelled on `sources/Referenzen-Mein-Postkorb-Oesterreich.md`: a `Hauptquellen` table with a short code (`Kürzel`) and link per source, then a `Nachweise je Dimension` table mapping each `Zeile` to its statement and source codes. Mark the evidence level of each statement in both the source file and the CSV cell: unmarked statements are level 3 (primary source checked in full text), `[Indiz]` is level 2 (secondary source, vendor claim, press release, outdated information, inference from a primary source, or no finding after a targeted search), `[Annahme]` is level 1 (no evidence, to be checked). Do not use `[unverifiziert]` in the CSV cells any more. The source file records the level per source (`Hauptquellen`) and per statement (`Nachweise je Dimension`, column `Stufe`) and lists every marked CSV statement with its reason and how to check it in the section `Evidenzstufen der markierten Stellen`. Statements about a solution without a source file are `[Annahme]`. Register the file in `sources.md`, both in the overview table and in the topic table.
+Document the evidence for each researched solution in `sources/Referenzen-<Name>.md`, modelled on `sources/Referenzen-Mein-Postkorb-Oesterreich.md`: a `Hauptquellen` table with a short code (`Kürzel`) and link per source, then a `Nachweise je Dimension` table mapping each `Dimension` to its statement and source codes. Mark the evidence level of each statement in both the source file and the CSV cell: unmarked statements are level 3 (primary source checked in full text), `[Indiz]` is level 2 (secondary source, vendor claim, press release, outdated information, inference from a primary source, or no finding after a targeted search), `[Annahme]` is level 1 (no evidence, to be checked). Do not use `[unverifiziert]` in the CSV cells any more. The source file records the level per source (`Hauptquellen`) and per statement (`Nachweise je Dimension`, column `Stufe`) and lists every marked CSV statement with its reason and how to check it in the section `Evidenzstufen der markierten Stellen`. Statements about a solution without a source file are `[Annahme]`. Register the file in `sources.md`, both in the overview table and in the topic table.
 
 ## Abbreviations
 

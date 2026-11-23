@@ -69,7 +69,7 @@ Lokale Pfade relativ zu `sources/MUK/quellen/`, mit `BZ/` relativ zu `sources/Bu
 
 Belege für die Spalte `Unternehmenskonto heute (Deutschland)` in `existing_solutions.csv`, Stand 2026-11-18.
 
-| Zeile | Aussage | Quellen | Stufe |
+| Dimension | Aussage | Quellen | Stufe |
 |---|---|---|---|
 | B1 | ELSTER-Transfer (ETR), lokal bei der Behörde oder im IT-DLZ betrieben, per REST-API oder Weboberfläche; alternativ ERiC; Voraussetzungen SSP-Vorhaben, ELSTER-Organisationszertifikat mit Postfachrechten; Internet oder NdB-VN; ein Dienstleister-Zertifikat für mehrere Behörden | IL S. 9–17, 30; HL PDF-S. 3 | 3 |
 | B1 | OZG-PLUS-Postfach: Datenart `OZGPPNachricht` über ETR seit 03/2026 oder direkte REST-API von `ozgpp.de` | BPZ S. 7–9; OZGPP-IL PDF-S. 16 | 3 |
@@ -123,7 +123,7 @@ Abgleich der Quellen untereinander und mit vorhandenen Dateien, 2026-11-18.
 
 Einordnung der früheren `[unverifiziert]`-Stellen, Stand 2026-11-23. Stufe 1 und 2 werden über den genannten Prüfweg geprüft.
 
-| Datei, Zeile | Aussage | Stufe | Begründung | Prüfweg |
+| Datei, Dimension | Aussage | Stufe | Begründung | Prüfweg |
 |---|---|---|---|---|
 | `existing_solutions.csv`, B1 | Zustellung über FIT-Connect | 1 | Fehlanzeige; FIT-Connect transportiert nur die Rückkanal-Adresse | Anfrage FITKO / MUK-Team |
 | `existing_solutions.csv`, B3 | kein öffentliches Verzeichnis im OZG-PLUS-Postfach | 2 | Fehlanzeige; nur Lookup-API für angebundene Fachverfahren dokumentiert | Anfrage Governikus |

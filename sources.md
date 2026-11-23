@@ -2,7 +2,7 @@
 
 Navigation map for the `sources/` folder. Use it to find the right source before reading. Paths are relative to `sources/`. German domain terms are kept as in the sources.
 
-Context: `morph_box.csv` is the morphological box for the d-box (central, bi-directional Verwaltungspostfach, part of the Deutschland-Stack). The sources below feed its dimensions (Zeilen) and options (Ausprägungen).
+Context: `morph_box.csv` is the morphological box for the d-box (central, bi-directional Verwaltungspostfach, part of the Deutschland-Stack). The sources below feed its dimensions (Dimensionen) and options (Ausprägungen).
 
 ## Overview
 

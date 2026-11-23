@@ -55,7 +55,7 @@ Lokale Pfade relativ zu `sources/ZaPuK/quellen/`, mit `ZK/` relativ zu `sources/
 
 Belege für die Spalte `ZaPuK (Zielarchitektur, Deutschland)` in `existing_solutions.csv`, Stand 2026-11-19, Stufen Stand 2026-11-23.
 
-| Zeile | Aussage | Quellen | Stufe |
+| Dimension | Aussage | Quellen | Stufe |
 |---|---|---|---|
 | B1 | Fachverfahren als eigener Matrix-Client und E2EE-Endpunkt über offene API oder optionales SDK, Registrierung im zentralen SSP, keine Zulassung von Zugängen; M2M über OAuth-2.0-Client-Credentials und X.509, ADR-1149 offen (Entwurf v1.1); FIT-Connect stellt SDK, SSP und Backends der Organisationen (Entwurf v1.1), als Kommunikationsschicht verworfen; Neo: Matrix-Modul im FIT-Connect-Java-SDK, Demo-Anbindungen GA-Lotse und Empfangsclient Baden-Württemberg; Übergang über ZBP-Matrix-Bridge, ELSTER-Zustell-Bridge, optionale Postfach-2.0-Bridge (Entwurf v1.1) | ADR-0003 Z. 76–83; ADR-0008 Z. 66; ADR-0009 Z. 64; ADR-1148 Z. 72; AK11 Z. 205–217, Z. 553–555; ADR-0011 Z. 326ff.; FITAB; IL Z. 525–530; VA S. 18; TA Z. 120–122; TE2 Z. 44–48; TC Z. 42 | 3 |
 | B2 | zentraler Postfach-Zugang auch für öffentliche Stellen, Funktionspostfächer über zentralen Raum-Management-Service; Drittclients ohne Zulassung; Neo mit Empfangsclient Baden-Württemberg (Demo); Massenversand, Druck, Papier-Rückfall nicht vorgesehen [Indiz] | ADR-0005 Z. 37–41, Z. 93; ADR-1103 Z. 55–67; ADR-0003 Z. 76–83; SI S. 33; Massenversand, Druck, Papier-Rückfall: Fehlanzeige in ADRs, AK10, AK11, ANF | 3, Massenversand: 2 |
@@ -108,7 +108,7 @@ Abgleich der ZaPuK-Verweise in `morph_box.csv` mit `main` und dem Entwurf v1.1, 
 
 Einordnung der früheren `[unverifiziert]`- und `[Folgerung]`-Stellen sowie der bei der Nachprüfung der unmarkierten Aussagen herabgestuften Stellen, Stand 2026-11-23. Stufe 1 und 2 werden über den genannten Prüfweg geprüft.
 
-| Datei, Zeile | Aussage | Stufe | Begründung | Prüfweg |
+| Datei, Dimension | Aussage | Stufe | Begründung | Prüfweg |
 |---|---|---|---|---|
 | `existing_solutions.csv`, B2 | Massenversand, Druck und Papier-Rückfall nicht vorgesehen | 2 | Fehlanzeige nach gezielter Suche in ADRs, AK10, AK11, ANF und Transitionsplänen; RGA Z. 1233 empfiehlt rechtlich eine Rückfallebene für nicht digital erreichbare Personen, ohne technische Ausgestaltung | Anfrage FITKO / FIT-AB |
 | `existing_solutions.csv`, P1 | Neo: Umsetzung des Push in der App | 2 | Rückschluss aus Primärquellen: IL Z. 77 „UI in Arbeit“, PI #464 (iOS-Push) und Epic #105 offen, Push fehlt in der Ergebnisliste VA S. 52; ausdrückliche Aussage zum Umsetzungsstand fehlt | Anfrage FITKO Neo-Team; TestFlight-App prüfen |

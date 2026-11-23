@@ -39,7 +39,7 @@ Stand: 2026-11-23. Alle Hauptquellen wurden am 2026-11-23 online im Volltext abg
 
 ## Nachweise je Dimension
 
-| Zeile | Aussage | Quellen | Stufe |
+| Dimension | Aussage | Quellen | Stufe |
 |---|---|---|---|
 | B1 | Behörde wählt Zustellsystem: zugelassener Zustelldienst, Kommunikationssystem der Behörde oder ERV | ZustG § 28 Abs. 3; WP 3.1; BKA-T | 3 |
 | B1 | einheitliche Schnittstelle, Middleware MOA-ZS, Liste der Zustelldienste und Kommunikationssysteme | ZUSE (zusemsg, zuseorg); BKA-T | 3 |
@@ -75,7 +75,7 @@ Stand: 2026-11-23. Alle Hauptquellen wurden am 2026-11-23 online im Volltext abg
 
 Einordnung der früheren `[unverifiziert]`-Stellen, Stand 2026-11-23. Stufe 1 und 2 werden über den genannten Prüfweg geprüft.
 
-| Datei, Zeile | Aussage | Stufe | Begründung | Prüfweg |
+| Datei, Dimension | Aussage | Stufe | Begründung | Prüfweg |
 |---|---|---|---|---|
 | `existing_solutions.csv`, P7 | kein anlassloser Erstkontakt über Mein Postkorb | 3 | BKA-P und BKA-U: Versand über das System ausschließlich Verantwortlichen des öffentlichen Bereichs vorbehalten | – |
 | `existing_solutions.csv`, P8 | Inhalt des Antwortformulars | 2 | Antwortformular nur als Vorteil erwähnt (BKA-B); ZUSE kennt nur URL-Action-Links in die Versender-Applikation, Inhalt bestimmt demnach die Behörde | Anfrage BKA; Beispiel eines Antwortformulars |

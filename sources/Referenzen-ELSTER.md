@@ -55,7 +55,7 @@ Lokale Pfade relativ zu `sources/ELSTER/Dev Dokumentation/`.
 
 ## Nachweise je Dimension
 
-| Zeile | Aussage | Quellen | Stufe |
+| Dimension | Aussage | Quellen | Stufe |
 |---|---|---|---|
 | B1 | Finanzämter und speziell berechtigte Behörden liefern über ElsterBereitstellung (`EPBescheid`, `EPMitteilung`, `EPKurzmitteilung`) mit Organisationszertifikat; auch über GeCo der Landeskopfstellen und OZG-Plattform; ERiC als Client-Bibliothek | EHB 9.15, 9.15.4 (S. 417, 424 f.); SSb-B 4.1 (S. 6–7) | 3 |
 | B1 | ELSTER-Transfer als Anbindungsweg in Postfach 2.0; Gewerbesteuerbescheide der Kommunen nicht über ERiC bereitstellbar, aber abholbar | ETR; P20 2.1; EHB 9.15.1 (S. 418) | 3 |
@@ -126,7 +126,7 @@ Abgleich der Belege mit `ELSTER/ELSTER-Zusammenfassung.md` und den CSV-Texten, 2
 
 Einordnung der früheren `[unverifiziert]`-, `[Web]`- und `?`-Stellen sowie der unmarkierten Aussagen, die nur auf Fehlanzeige, Rückschluss oder Sekundärquellen beruhen, Stand 2026-11-23. Stufe 1 und 2 werden über den genannten Prüfweg geprüft. `[Web]`-Stellen, die auf Primärquellen im Web beruhen, sind Stufe 3 und ohne Marker: `existing_solutions.csv` B2 (LF-GEWST, FAQ-GEWST, ETR), P2 (SECURE), I4 Adressierung (FA-CB, NDS-909) und Funktionspostfächer (ZERT-LF), R1 (AO-87a, AO-357), R2 (AO-122a, EGAO-28), R3 (AO-122a, EGAO-1), R4 erster Teil (KONSENS-G, FVG).
 
-| Datei, Zeile | Aussage | Stufe | Begründung | Prüfweg |
+| Datei, Dimension | Aussage | Stufe | Begründung | Prüfweg |
 |---|---|---|---|---|
 | `existing_solutions.csv`, B2 | kein zentraler Versanddienst | 2 | Fehlanzeige in ERiC-Doku und ELSTER-Transfer-Unterlagen | Anfrage BayLfSt |
 | `existing_solutions.csv`, P4 | eigenes Postfach der Bevollmächtigten | 2 | nur eigene Kennung (`vnid`) als Verschlüsselungs- und Abholmerkmal und eigene Einwilligung belegt (SSb-B 7.7, EHB 9.16.1.3); eigenes Postfach ist Rückschluss | Anfrage BayLfSt; Interview Steuerberatung |

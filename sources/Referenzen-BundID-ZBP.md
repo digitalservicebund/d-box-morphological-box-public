@@ -54,7 +54,7 @@ Lokale Pfade relativ zu `sources/BundID-ZBP/quellen/`.
 
 Belege für die Spalte `BundID heute (Deutschland)` in `existing_solutions.csv`, Stand 2026-11-17. Z. = Zeile der lokalen Kopie, S. = Seite, F = Folie.
 
-| Zeile | Aussage | Quellen | Stufe |
+| Dimension | Aussage | Quellen | Stufe |
 |---|---|---|---|
 | B1 | direkt über die REST-API des ZBP (`PUT /v6/mailbox/messages`, `POST /v6/mailbox/applications/states`), nur aus NdB oder Verbindungsnetz; mTLS mit BPKI-Zertifikat, selbst signiertes JWT (RS512, 30 Minuten gültig) | FC-E Z. 13–14; FC-T Z. 26, 309–310; FC-R Z. 16–17, 232–233; SDK `ZBPApiService.java` Z. 22–23, `TokenGenerator.java` Z. 20, 34, 41 | 3 |
 | B1 | außerhalb von NdB / VN über den ZBP-Adapter von FIT-Connect, signierter Umschlag mit `authorCertificate`, `authorToken`, `sha512sum`; SDKs für Java und .NET; Onboarding über das BundID-Self-Service-Portal mit Postfach-Zertifikat, Testphase, Technikerworkshop | FC-E Z. 29–33; FC-T Z. 141–146; PAP Z. 20, 27, 33 | 3 |
@@ -140,7 +140,7 @@ Bei der Einordnung der Evidenzstufen gegen die lokalen Kopien geprüft.
 
 Einordnung der früheren `[unverifiziert]`-Stellen sowie der unmarkierten Aussagen, die nur auf Fehlanzeige, Rückschluss, veralteten oder sekundären Quellen beruhen, Stand 2026-11-23. Stufe 1 und 2 werden über den genannten Prüfweg geprüft.
 
-| Datei, Zeile | Aussage | Stufe | Begründung | Prüfweg |
+| Datei, Dimension | Aussage | Stufe | Begründung | Prüfweg |
 |---|---|---|---|---|
 | `existing_solutions.csv`, B2 | keine Web-Oberfläche und kein Versanddienst für Behörden | 2 | Fehlanzeige; FC-E nennt nur Schnittstelle und Adapter; Webanwendung des Landes M-V (MV F4) nur mit Versand ins MUK gezeigt | Anfrage BMDS-Anbindungsmanagement; Interview Behörden |
 | `existing_solutions.csv`, B3 | kein zentrales Verzeichnis, Adressierung ohne vorherigen Antrag mit BundID-Login nicht vorgesehen | 2 | Fehlanzeige; Postkorb-Handle nur aus der Anmeldung oder der Betroffenenauskunft dokumentiert | Anfrage BMDS; ZBP-Dokumentation im SSP |

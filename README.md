@@ -2,7 +2,7 @@
 
 A morphological box (Morphologischer Kasten) for structured decision-making, stored as `morph_box.csv`.
 
-Each row is a decision dimension (`Zeile`) with its options (`Ausprägung`). The file can be imported into and exported from Miro.
+Each row is a decision dimension (`Dimension`) with its options (`Ausprägung`). The file can be imported into and exported from Miro.
 
 [abkuerzungen.csv](abkuerzungen.csv) explains the abbreviations used in `morph_box.csv` and `existing_solutions.csv` (columns `Abkürzung`, `Bedeutung`).
 

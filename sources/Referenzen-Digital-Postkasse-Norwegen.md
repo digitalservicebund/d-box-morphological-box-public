@@ -47,7 +47,7 @@ Stand: 2026-11-23. Erstmals abgerufen am 2026-11-17, Volltextprüfung der Online
 
 ## Nachweise je Dimension
 
-| Zeile | Aussage | Quellen | Stufe |
+| Dimension | Aussage | Quellen | Stufe |
 |---|---|---|---|
 | B1 | Behörden senden über eFormidling-Integrationspunkt oder Klientbibliotheken per REST an den Zugangspunktanbieter (Peppol); eFormidling ermittelt den Kanal DPI, Altinn oder Papier | NYI; EF; KRR | 3 |
 | B2 | Druckdienst im DPI, Anbieter Skatteetaten; Papier aus demselben Versand | UTS; TJL | 3 |
@@ -95,7 +95,7 @@ Stand: 2026-11-23. Erstmals abgerufen am 2026-11-17, Volltextprüfung der Online
 
 Einordnung der früheren `[unverifiziert]`-Stellen sowie der Stellen, die bei der Volltextprüfung nur als Indiz bestätigt wurden, Stand 2026-11-23. Stufe 1 und 2 werden über den genannten Prüfweg geprüft.
 
-| Datei, Zeile | Aussage | Stufe | Begründung | Prüfweg |
+| Datei, Dimension | Aussage | Stufe | Begründung | Prüfweg |
 |---|---|---|---|---|
 | `existing_solutions.csv`, P7 | kein Rückkanal im DPI-Postfach dokumentiert | 3 | NYI: Beschreibung einer 2-Wege-Antwort folgt erst, wenn die Funktion beschlossen und entwickelt ist; DPK beschreibt nur den Empfang | – |
 | `existing_solutions.csv`, Ü2 | keine Ende-zu-Ende-Verschlüsselung bis zur Person | 2 | Rückschluss (früher „abgeleitet“): DPK „kryptert frem til postkassen“, SIK verschlüsselt an das Zertifikat aus dem KRR; Entschlüsselung beim Postfachanbieter nicht ausdrücklich beschrieben; SA (2015, veraltet) erlaubt Zertifikate je Person, beide Anbieter nutzten aber ihr Unternehmenszertifikat; bisher unmarkiert | Anfrage Digdir; Sicherheitsdokumentation der Postfachanbieter |
