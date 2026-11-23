@@ -1,0 +1,170 @@
+<!-- Kopie aus dem openCode-Repository ZaPuK (FITKO / FIT-AB, IT-Planungsrat) -->
+<!-- Quelle: https://gitlab.opencode.de/it-planungsrat/fit-ab/zapuk/-/blob/cc150e2977575d0a3e0c065521cdb1656eaae074/Abk%C3%BCrzungen.md -->
+<!-- Branch: main, Commit cc150e2977 (2026-11-12); Pfad im Repo: Abkürzungen.md -->
+<!-- Abgerufen: 2026-11-19 ueber die GitLab-API (Blob b9f2fddc12); Inhalt unveraendert ab Zeile 6 (Originalzeile = Zeile hier minus 5) -->
+
+# Abkürzungsverzeichnis
+
+- **ABB:** Architecture Building Block
+- **ACME:** Automatic Certificate Management Environment
+- **ADR:** Architecture Decision Record
+- **AL-Runde:** Abteilungsleiterrunde
+- **AMSI:** Antimalware Scan Interface
+- **AO:** Abgabenordnung
+- **API:** Application Programming Interface
+- **APNs:** Apple Push Notification Service
+- **ARF:** Architecture and Reference Framework (EUDI-Wallet)
+- **AS4:** Applicability Statement 4
+- **B2G:** Business-to-Government
+- **BayLfSt:** Bayerisches Landesamt für Steuern
+- **BDSG:** Bundesdatenschutzgesetz
+- **beA:** besonderes elektronisches Anwaltspostfach
+- **beBPo:** besonderes elektronisches Behördenpostfach
+- **beN:** besonderes elektronisches Notarpostfach
+- **beSt:** besonderes elektronisches Steuerberaterpostfach
+- **BGB:** Bürgerliches Gesetzbuch
+- **BKZ:** Behördenkennzahl
+- **BLK:** Bund-Länder-Kommission
+- **BLK Justiz:** Bund-Länder-Kommission für Informationstechnik in der Justiz
+- **BMDS:** Bundesministerium für Digitales und Staatsmodernisierung
+- **BSI:** Bundesamt für Sicherheit in der Informationstechnik
+- **BSIG:** Gesetz über das Bundesamt für Sicherheit in der Informationstechnik (BSI-Gesetz)
+- **Bu-M:** BundesMessenger
+- **BW-EC:** BW-Empfangsclient
+- **C2G:** Citizen-to-Government
+- **CA:** Certificate Authority
+- **CI/CD:** Continuous Integration / Continuous Delivery
+- **CRL:** Certificate Revocation List
+- **D-Architektur:** Deutschland-Architektur
+- **D-Stack:** Deutschland-Stack
+- **DAU:** Datenaustausch
+- **DCDS:** Digital Center Deutschland-Stack
+- **DMA:** Digital Markets Act
+- **DPI:** Digital Public Infrastructure
+- **DPIA:** Data Protection Impact Assessment (Datenschutz-Folgenabschätzung)
+- **DSAR:** Data Subject Access Request (Auskunftsanfrage nach Art. 15 DSGVO)
+- **DSFA:** Datenschutz-Folgenabschätzung
+- **DSGVO:** Datenschutz-Grundverordnung
+- **DVC:** Deutsche Verwaltungscloud
+- **E2E:** End-to-End bzw. Ende-zu-Ende
+- **E2EE:** End-to-End Encryption bzw. Ende-zu-Ende-Verschlüsselung
+- **EAA:** Electronic Attestation of Attributes
+- **eBO:** elektronisches Bürger- und Organisationspostfach
+- **eEB:** Elektronisches Empfangsbekenntnis
+- **EGVP:** Elektronisches Gerichts- und Verwaltungspostfach
+- **eID:** Elektronische Identität
+- **eIDAS:** electronic IDentification, Authentication and trust Services
+- **eIDAS-VO:** Verordnung (EU) Nr. 910/2014 (eIDAS-Verordnung)
+- **ELSTER:** Elektronische Steuererklärung
+- **ERV:** Elektronischer Rechtsverkehr
+- **ERVV:** Elektronischer-Rechtsverkehr-Verordnung
+- **EUBW:** European Business Wallet
+- **EUDI:** European Digital Identity
+- **EUDI-Wallet:** European Digital Identity Wallet
+- **EUPL:** European Union Public Licence
+- **FCM:** Firebase Cloud Messaging
+- **FHB:** Freie Hansestadt Bremen
+- **FIT-AB:** Föderales IT-Architekturboard
+- **FIT-AG:** Föderale IT-Arbeitsgruppe
+- **FIT-AM:** Föderales IT-Architekturmanagement
+- **FITKO:** Föderale IT-Kooperation
+- **FöPD:** Föderale API-Autorisierungsinfrastruktur
+- **FOSS:** Free and Open Source Software
+- **FP-Bot:** Funktionspostfach-Bot
+- **G2B:** Government-to-Business
+- **G2C:** Government-to-Citizen
+- **G2G:** Government-to-Government
+- **GSM:** Global System for Mobile Communications
+- **HBA:** Heilberufsausweis
+- **IAM:** Identity and Access Management
+- **IdM:** Identitätsmanagement
+- **IdP:** Identity-Provider
+- **IETF:** Internet Engineering Task Force
+- **IMAP:** Internet Message Access Protocol
+- **IT:** Informationstechnologie
+- **IT-PLR:** IT-Planungsrat
+- **ITSiV-PV:** IT-Sicherheitsverordnung Portalverbund
+- **JI-Richtlinie:** Richtlinie (EU) 2016/680 für Justiz und Inneres
+- **JSON:** JavaScript Object Notation
+- **JWT:** JSON Web Token
+- **KAP:** Kontextspezifisches Architekturprinzip
+- **KI:** Künstliche Intelligenz
+- **M2M:** Machine-to-Machine
+- **MADR:** Markdown Architectural Decision Records
+- **MeinUK:** Mein Unternehmenskonto
+- **MIMI:** More Instant Messaging Interoperability
+- **MIS:** Matrix Identity Service, frühere Bezeichnung der Schnittstelle zur Adressregister-Abfrage
+- **MJP:** Mein Justizpostfach
+- **MLS:** Messaging Layer Security
+- **MSC:** Matrix Spec Change
+- **MSK:** Master Signing Key
+- **MUK:** Mein Unternehmenskonto
+- **MXID:** Matrix User ID
+- **NIS-2:** Richtlinie über Maßnahmen für ein hohes gemeinsames Cybersicherheitsniveau in der Union
+- **NK:** Nutzerkonto
+- **NOOTS:** Nationales Once-Only-Technical-System
+- **OAuth:** Open Authorization
+- **OCSP:** Online Certificate Status Protocol
+- **OD:** Onlinedienst
+- **OID4VCI:** OpenID for Verifiable Credential Issuance
+- **OIDC:** OpenID Connect
+- **OSCI:** Online Services Computer Interface
+- **ÖVD:** Öffentlicher Verzeichnisdienst
+- **OZG:** Onlinezugangsgesetz
+- **OZGPP:** OZG-PLUS-Postfach
+- **PCS:** Post-Compromise Security
+- **PFS:** Perfect Forward Secrecy
+- **PID:** Person Identification Data
+- **PIN:** Persönliche Identifikationsnummer
+- **PKI:** Public Key Infrastructure
+- **POI:** Postfach und Interaktion
+- **PSR:** Projektspezifische Architekturprinzipien (Version 1.0)
+- **QEAA:** Qualified Electronic Attestation of Attributes
+- **QERDS:** Qualified Electronic Registered Delivery Service
+- **QES:** Qualifizierte elektronische Signatur
+- **QTSP:** Qualified Trust Service Provider
+- **REST:** Representational State Transfer
+- **RFC:** Request for Comments
+- **RMS:** Raum-Management-Service
+- **S/MIME:** Secure / Multipurpose Internet Mail Extensions
+- **SAFE:** Secure Access to Federated E-Justice/E-Government; Sichere Zugangsplattform der Justiz
+- **SAML:** Security Assertion Markup Language
+- **SBB:** Solution Building Block
+- **SD-JWT:** Selective Disclosure JSON Web Token
+- **SD-JWT VC:** Selective Disclosure JSON Web Token Verifiable Credential
+- **SDG:** Single Digital Gateway
+- **SDK:** Software Development Kit
+- **SES:** Sende- und Empfangssoftware
+- **SGB X:** Zehntes Buch Sozialgesetzbuch
+- **SMC-B:** Security Module Card Typ B
+- **SMS:** Short Message Service
+- **SMTP:** Simple Mail Transfer Protocol
+- **SOAP:** Simple Object Access Protocol
+- **SPT:** Schwerpunktthema
+- **SSP:** Self-Service-Portal
+- **SSSS:** Secure Secret Storage and Sharing
+- **StMD Bayern:** Bayerisches Staatsministerium für Digitales
+- **TADR:** Transition Architecture Decision Record
+- **TDDDG:** Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz
+- **TI:** Telematik-Infrastruktur
+- **TI-M:** TI-Messenger
+- **TKG:** Telekommunikationsgesetz
+- **TLS:** Transport Layer Security
+- **TOGAF®:** The Open Group Architecture Framework®
+- **TOGAF® ADM:** TOGAF® Architecture Development Method
+- **TR:** Technische Richtlinie
+- **TR-ESOR:** BSI TR-03125 Beweiswerterhaltung kryptographisch signierter Dokumente
+- **UML:** Unified Modeling Language
+- **URI:** Uniform Resource Identifier
+- **UX:** User Experience
+- **V-PKI:** Verwaltungs-PKI bzw. Verwaltungs-Public-Key-Infrastruktur
+- **VC:** Verifiable Credential
+- **VwVfG:** Verwaltungsverfahrensgesetz
+- **VwZG:** Verwaltungszustellungsgesetz
+- **VZD:** Verzeichnisdienst (gematik)
+- **WCAG:** Web Content Accessibility Guidelines
+- **XML:** Extensible Markup Language
+- **ZaPuK:** Zielarchitektur Postfach- und Kommunikationslösungen
+- **ZBP:** Zentrales Bürgerpostfach
+- **ZID:** Zentraler Issuer-Dienst
+- **ZPO:** Zivilprozessordnung
