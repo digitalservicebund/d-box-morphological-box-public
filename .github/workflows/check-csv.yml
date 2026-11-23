@@ -1,0 +1,29 @@
+name: Check CSV
+
+# Runs the same checks as the lefthook hooks (see lefthook.yml).
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test-checker:
+    name: Test the CSV checker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run tests on checker scripts (pre-push hook)
+        run: tools/check_csv/tests/run_tests.sh
+
+      - name: Check CSV files (pre-commit hook)
+        run: >-
+          tools/check_csv/check_csv.sh
+          morph_box.csv
+          existing_solutions.csv
+          abkuerzungen.csv
+          zentrale_dienste.csv
