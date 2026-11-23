@@ -31,6 +31,10 @@ Diese Dateien bauen auf dem morphologischen Kasten auf oder ergänzen ihn:
 
 Siehe [DEVELOPING.md](DEVELOPING.md) für die Formatprüfung, Git-Hooks und die Tests des Prüfskripts.
 
+## Sicherheit
+
+Sicherheitslücken meldest du bitte nicht über GitHub-Issues, sondern wie in [SECURITY.md](SECURITY.md) beschrieben.
+
 ---
 
 <a id="english"></a>
@@ -65,3 +69,7 @@ These files build on or support the morphological box:
 ## Setup
 
 See [DEVELOPING.md](DEVELOPING.md) for the format check, Git hooks and checker tests.
+
+## Security
+
+Please do not report security vulnerabilities through GitHub issues; follow [SECURITY.md](SECURITY.md) instead.
