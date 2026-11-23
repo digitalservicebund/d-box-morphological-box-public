@@ -30,7 +30,7 @@ fi
 
 expected_header='Cluster|Dimension|Auswahl|Wer entscheidet|Was wird hier entschieden|Ausprägung 1|Ausprägung 2|Ausprägung 3|Ausprägung 4|Ausprägung 5|Ausprägung 6|Ausprägung 7|Ausprägung 8'
 glossary_header='Abkürzung|Bedeutung'
-services_header='Dienst|Funktionen|Kasten-Zeile|Story und Schritt|Betreiber|Einschränkungen und offene Fragen|Quelle'
+services_header='Dienst|Funktionen|Kasten-Dimension|Story und Schritt|Betreiber|Einschränkungen und offene Fragen|Quelle'
 
 status=0
 
