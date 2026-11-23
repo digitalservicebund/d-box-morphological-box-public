@@ -10,32 +10,32 @@ Evidenzstufen (Spalte `Stufe`):
 
 Bei gemischten Zeilen steht zuerst die Stufe des belegten Teils, danach die Stufe des Teils, der in der Aussage mit `[Indiz]` oder `[Annahme]` markiert ist.
 
-Stand: 2026-11-23. Es gibt keine lokalen Kopien; alle Hauptquellen wurden am 2026-11-23 online im Volltext abgerufen (ZUSE: PDF-Dokumente aus dem ZIP) und die Aussagen dagegen geprüft.
+Stand: 2026-11-23. Alle Hauptquellen wurden am 2026-11-23 online im Volltext abgerufen (ZUSE: PDF-Dokumente aus dem ZIP) und die Aussagen dagegen geprüft. Lokale Kopien liegen in `Mein-Postkorb-Oesterreich/quellen/` (Spalte `Lokal`); Auswertung in `Mein-Postkorb-Oesterreich/Mein-Postkorb-Oesterreich-Zusammenfassung.md`. Die Prüfung der lokalen Kopien hat keine Evidenzstufe verändert.
 
 ## Hauptquellen
 
-| Kürzel | Quelle | Stufe |
-|---|---|---|
-| ZustG | Zustellgesetz, 3. Abschnitt (§§ 28–37b), RIS: <https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10005522> | 3 |
-| E-GovG | E-Government-Gesetz (§§ 1a, 1b, 19, 20), RIS: <https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20003230> | 3 |
-| WP | BKA, White Paper „Elektronische Zustellung für Behörden“: <https://www.bundeskanzleramt.gv.at/dam/jcr:55d6c9d8-8b6d-4a7b-adec-f9416b8f1561/whitepaper_e-zustellung_behoerden.pdf> | 3 |
-| ZUSE | BKA, Spezifikation E-Zustellung v2.4.0 (ZIP mit zuseorg, zusemsg, zuseamod, zusetnvz): <https://www.bundeskanzleramt.gv.at/dam/jcr:1b184f8a-eb43-447f-afee-2c389d31bd0b/eZustellung_ZUSE_Q1_2025_nbf.zip> | 3 |
-| BKA-B | BKA, E-Zustellung für Behörden: <https://www.bundeskanzleramt.gv.at/agenda/digitalisierung/elektronische-zustellung/e-zustellung-behoerden.html> | 3 |
-| BKA-T | BKA, Technische Informationen (Portale, zugelassene Zustelldienste, Kommunikationssysteme, MOA-ZS): <https://www.bundeskanzleramt.gv.at/agenda/digitalisierung/elektronische-zustellung/e-zustellung-technische-informationen.html> | 3 |
-| BKA-P | BKA, FAQ Privatpersonen: <https://www.bundeskanzleramt.gv.at/agenda/digitalisierung/elektronische-zustellung/faq-e-zustellung-privatpersonen.html> | 3 |
-| BKA-U | BKA, FAQ Unternehmen: <https://www.bundeskanzleramt.gv.at/agenda/digitalisierung/elektronische-zustellung/faq-e-zustellung-unternehmen.html> | 3 |
-| OE-1 | oesterreich.gv.at, Die elektronische Zustellung und „Mein Postkorb“: <https://www.oesterreich.gv.at/de/hilfe/Die-elektronische-Zustellung-und-Mein-Postkorb> | 3 |
-| OE-2 | oesterreich.gv.at, Abholen eines behördlichen Schriftstücks: <https://www.oesterreich.gv.at/de/hilfe/Abholen-eines-behördlichen-Schriftstücks-in-„Mein-Postkorb“-> | 3 |
-| OE-3 | oesterreich.gv.at, Push-Benachrichtigungen: <https://www.oesterreich.gv.at/de/hilfe/Push-Benachrichtigungen-aktivieren-für-Mein-Postkorb> | 3 |
-| OE-4 | oesterreich.gv.at, Ablauf der Zustellung: <https://www.oesterreich.gv.at/de/themen/egovernment_moderne_verwaltung/Elektronische-Zustellung/ablauf-der-zustellung-über-meinpostkorb> | 3 |
-| OE-5 | oesterreich.gv.at, E-Mail-Benachrichtigung: <https://www.oesterreich.gv.at/de/themen/egovernment_moderne_verwaltung/Elektronische-Zustellung/e-mail-benachrichtigung> | 3 |
-| OE-6 | oesterreich.gv.at, Teilnehmerverzeichnis: <https://www.oesterreich.gv.at/de/themen/egovernment_moderne_verwaltung/Elektronische-Zustellung/teilnehmerverzeichnis> | 3 |
-| OE-7 | oesterreich.gv.at, Recht auf elektronischen Verkehr: <https://www.oesterreich.gv.at/de/themen/egovernment_moderne_verwaltung/Elektronische-Zustellung/recht-auf-elektronischen-verkehr> | 3 |
-| USP-1 | USP, Elektronische Zustellung: <https://www.usp.gv.at/laufender-betrieb/elektronische-zustellung.html> | 3 |
-| USP-2 | USP, Mein Postkorb: <https://www.usp.gv.at/laufender-betrieb/elektronische-zustellung/meinpostkorb.html> | 3 |
-| USP-3 | USP-Hilfe, Mein Postkorb: <https://www.usp.gv.at/hilfe-und-support/mein-postkorb.html> | 3 |
-| USP-4 | USP-Hilfe, Postbevollmächtigte hinzufügen: <https://www.usp.gv.at/hilfe-und-support/mein-postkorb/postbevollmaechtigten-hinzuf-gen.html> | 3 |
-| USP-5 | USP-Hilfe, Vertretungsmanagement: <https://www.usp.gv.at/hilfe-und-support/vollmachten/vertretungsmanagement.html> | 3 |
+| Kürzel | Quelle | Stufe | Lokal |
+|---|---|---|---|
+| ZustG | Zustellgesetz, 3. Abschnitt (§§ 28–37b), RIS: <https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10005522> | 3 | `Mein-Postkorb-Oesterreich/quellen/recht-governance/ris_zustg_2026-11-23.md` |
+| E-GovG | E-Government-Gesetz (§§ 1a, 1b, 19, 20), RIS: <https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20003230> | 3 | `Mein-Postkorb-Oesterreich/quellen/recht-governance/ris_e-govg_2026-11-23.md` |
+| WP | BKA, White Paper „Elektronische Zustellung für Behörden“: <https://www.bundeskanzleramt.gv.at/dam/jcr:55d6c9d8-8b6d-4a7b-adec-f9416b8f1561/whitepaper_e-zustellung_behoerden.pdf> | 3 | `Mein-Postkorb-Oesterreich/quellen/anbindung-technik/bka_whitepaper_e-zustellung-behoerden.pdf` |
+| ZUSE | BKA, Spezifikation E-Zustellung v2.4.0 (ZIP mit zuseorg, zusemsg, zuseamod, zusetnvz): <https://www.bundeskanzleramt.gv.at/dam/jcr:1b184f8a-eb43-447f-afee-2c389d31bd0b/eZustellung_ZUSE_Q1_2025_nbf.zip> | 3 | `Mein-Postkorb-Oesterreich/quellen/anbindung-technik/bka_zuse_*_2.4.0.pdf` |
+| BKA-B | BKA, E-Zustellung für Behörden: <https://www.bundeskanzleramt.gv.at/agenda/digitalisierung/elektronische-zustellung/e-zustellung-behoerden.html> | 3 | `Mein-Postkorb-Oesterreich/quellen/anbindung-technik/bka_e-zustellung-behoerden.md` |
+| BKA-T | BKA, Technische Informationen (Portale, zugelassene Zustelldienste, Kommunikationssysteme, MOA-ZS): <https://www.bundeskanzleramt.gv.at/agenda/digitalisierung/elektronische-zustellung/e-zustellung-technische-informationen.html> | 3 | `Mein-Postkorb-Oesterreich/quellen/anbindung-technik/bka_e-zustellung-technische-informationen.md` |
+| BKA-P | BKA, FAQ Privatpersonen: <https://www.bundeskanzleramt.gv.at/agenda/digitalisierung/elektronische-zustellung/faq-e-zustellung-privatpersonen.html> | 3 | `Mein-Postkorb-Oesterreich/quellen/betreiber/bka_faq-e-zustellung-privatpersonen.md` |
+| BKA-U | BKA, FAQ Unternehmen: <https://www.bundeskanzleramt.gv.at/agenda/digitalisierung/elektronische-zustellung/faq-e-zustellung-unternehmen.html> | 3 | `Mein-Postkorb-Oesterreich/quellen/betreiber/bka_faq-e-zustellung-unternehmen.md` |
+| OE-1 | oesterreich.gv.at, Die elektronische Zustellung und „Mein Postkorb“: <https://www.oesterreich.gv.at/de/hilfe/Die-elektronische-Zustellung-und-Mein-Postkorb> | 3 | `Mein-Postkorb-Oesterreich/quellen/betreiber/oe_elektronische-zustellung-und-mein-postkorb.md` |
+| OE-2 | oesterreich.gv.at, Abholen eines behördlichen Schriftstücks: <https://www.oesterreich.gv.at/de/hilfe/Abholen-eines-behördlichen-Schriftstücks-in-„Mein-Postkorb“-> | 3 | `Mein-Postkorb-Oesterreich/quellen/betreiber/oe_abholen-schriftstueck-mein-postkorb.md` |
+| OE-3 | oesterreich.gv.at, Push-Benachrichtigungen: <https://www.oesterreich.gv.at/de/hilfe/Push-Benachrichtigungen-aktivieren-für-Mein-Postkorb> | 3 | `Mein-Postkorb-Oesterreich/quellen/betreiber/oe_push-benachrichtigungen-mein-postkorb.md` |
+| OE-4 | oesterreich.gv.at, Ablauf der Zustellung: <https://www.oesterreich.gv.at/de/themen/egovernment_moderne_verwaltung/Elektronische-Zustellung/ablauf-der-zustellung-über-meinpostkorb> | 3 | `Mein-Postkorb-Oesterreich/quellen/betreiber/oe_ablauf-der-zustellung.md` |
+| OE-5 | oesterreich.gv.at, E-Mail-Benachrichtigung: <https://www.oesterreich.gv.at/de/themen/egovernment_moderne_verwaltung/Elektronische-Zustellung/e-mail-benachrichtigung> | 3 | `Mein-Postkorb-Oesterreich/quellen/betreiber/oe_e-mail-benachrichtigung.md` |
+| OE-6 | oesterreich.gv.at, Teilnehmerverzeichnis: <https://www.oesterreich.gv.at/de/themen/egovernment_moderne_verwaltung/Elektronische-Zustellung/teilnehmerverzeichnis> | 3 | `Mein-Postkorb-Oesterreich/quellen/betreiber/oe_teilnehmerverzeichnis.md` |
+| OE-7 | oesterreich.gv.at, Recht auf elektronischen Verkehr: <https://www.oesterreich.gv.at/de/themen/egovernment_moderne_verwaltung/Elektronische-Zustellung/recht-auf-elektronischen-verkehr> | 3 | `Mein-Postkorb-Oesterreich/quellen/recht-governance/oe_recht-auf-elektronischen-verkehr.md` |
+| USP-1 | USP, Elektronische Zustellung: <https://www.usp.gv.at/laufender-betrieb/elektronische-zustellung.html> | 3 | `Mein-Postkorb-Oesterreich/quellen/betreiber/usp_elektronische-zustellung.md` |
+| USP-2 | USP, Mein Postkorb: <https://www.usp.gv.at/laufender-betrieb/elektronische-zustellung/meinpostkorb.html> | 3 | `Mein-Postkorb-Oesterreich/quellen/betreiber/usp_mein-postkorb.md` |
+| USP-3 | USP-Hilfe, Mein Postkorb: <https://www.usp.gv.at/hilfe-und-support/mein-postkorb.html> | 3 | `Mein-Postkorb-Oesterreich/quellen/betreiber/usp_hilfe_mein-postkorb.md` |
+| USP-4 | USP-Hilfe, Postbevollmächtigte hinzufügen: <https://www.usp.gv.at/hilfe-und-support/mein-postkorb/postbevollmaechtigten-hinzuf-gen.html> | 3 | `Mein-Postkorb-Oesterreich/quellen/betreiber/usp_hilfe_postbevollmaechtigte-hinzufuegen.md` |
+| USP-5 | USP-Hilfe, Vertretungsmanagement: <https://www.usp.gv.at/hilfe-und-support/vollmachten/vertretungsmanagement.html> | 3 | `Mein-Postkorb-Oesterreich/quellen/betreiber/usp_hilfe_vertretungsmanagement.md` |
 
 ## Nachweise je Dimension
 

@@ -10,7 +10,7 @@ Evidenzstufen (Spalte `Stufe`):
 
 Bei gemischten Zeilen steht zuerst die Stufe des belegten Teils, danach die Stufe des Teils, der in der Aussage mit `[Indiz]` oder `[Annahme]` markiert ist.
 
-Stand: 2026-11-23. Es gibt keine lokalen Kopien; alle Hauptquellen wurden an diesem Tag online im Volltext geprüft (Betreiberseiten des GDS, README des Quellcodes auf GitHub, GOV.UK).
+Stand: 2026-11-23. Lokale Kopien aller Hauptquellen und ergänzender Gesetzestexte liegen in `GOV-UK-Notify/quellen/` (Unterordner `betreiber/`, `anbindung-technik/`, `recht-governance/`, je mit `_index.md`); Zusammenfassung: `GOV-UK-Notify/GOV-UK-Notify-Zusammenfassung.md`. Alle Hauptquellen wurden an diesem Tag im Volltext geprüft (Betreiberseiten des GDS, README des Quellcodes auf GitHub, GOV.UK, legislation.gov.uk).
 
 ## Hauptquellen
 
@@ -41,6 +41,8 @@ Stand: 2026-11-23. Es gibt keine lokalen Kopien; alle Hauptquellen wurden an die
 | TOU | GOV.UK Notify, Terms of use: <https://www.notifications.service.gov.uk/terms-of-use> | 3 |
 | GH | Quellcode GOV.UK Notify (GDS): <https://github.com/alphagov/notifications-api> | 3 |
 | HMRC | GOV.UK, Personal tax account: <https://www.gov.uk/personal-tax-account> | 3 |
+| ECA8 | Electronic Communications Act 2000, s. 8 (Verordnungsermächtigung für elektronische Kommunikation statt Schriftform): <https://www.legislation.gov.uk/ukpga/2000/7/section/8> | 3 |
+| IA7 | Interpretation Act 1978, s. 7 (Zustellung per Post): <https://www.legislation.gov.uk/ukpga/1978/30/section/7> | 3 |
 
 ## Nachweise je Dimension
 
@@ -67,7 +69,7 @@ Stand: 2026-11-23. Es gibt keine lokalen Kopien; alle Hauptquellen wurden an die
 | I3 | Behörden nutzen nur den zentralen Dienst über Web-Oberfläche oder API | FEAT; API | 3 |
 | I4 | Team-Mitglieder je Dienst mit Berechtigungen; eingehende SMS im Dashboard oder per API; keine Ende-zu-Ende-Verschlüsselung | TEAM; RX-SMS; SEC | 3 |
 | I5 | ein Betreiber; Nutzung nur für öffentliche Stellen nach Annahme des Data Processing and Financial Agreement | WHO; TOU | 3 |
-| R1 | keine eigene Regelung zu Schriftform oder Rechtswirkung; maßgeblich ist das Recht des jeweiligen Verfahrens [Indiz] | TOU; FEAT; Regelung zu Rechtswirkung: Fehlanzeige | 2 |
+| R1 | maßgeblich ist das Recht des jeweiligen Verfahrens: elektronische Kommunikation statt Schriftform oder Post nur per Verordnung je Gesetz, Zustellung per Post nach IA7; keine eigene Regelung zu Schriftform oder Rechtswirkung in Notify [Indiz] | ECA8; IA7; TOU; FEAT; Regelung zu Rechtswirkung in Notify: Fehlanzeige | 3, 2 |
 | R2 | keine Registrierung der Empfangenden; Abmeldung bei Abo-E-Mails verpflichtend | UNSUB; WHO | 3 |
 | R3 | keine förmliche Zustellung; Briefe per Royal Mail ohne Zustellnachweis | DEL; PRICE-L | 3 |
 | R4 | freiwillige Nutzung; E-Mails kostenlos, Freikontingent für SMS, keine Einrichtungs- oder Monatskosten, Briefe kostenpflichtig | PRICE; PRICE-SMS; PRICE-L; WHO | 3 |
@@ -79,4 +81,4 @@ Einordnung der früheren `[unverifiziert]`-Stellen, Stand 2026-11-23. Stufe 1 un
 | Datei, Zeile | Aussage | Stufe | Begründung | Prüfweg |
 |---|---|---|---|---|
 | `existing_solutions.csv`, P6 | keine Schnittstelle für Empfangende | 2 | Rückschluss aus dem Fehlen eines Postfachs (FEAT, WHO); API und REST-Dokumentation beschreiben nur Schnittstellen für sendende Dienste; Fehlanzeige | Anfrage GDS / Notify-Team |
-| `existing_solutions.csv`, R1 | keine Regelung zu Schriftform oder Rechtswirkung, Recht des jeweiligen Verfahrens maßgeblich | 2 | Fehlanzeige in Nutzungsbedingungen (TOU) und Betreiberseiten; Rechtslage im UK nicht geprüft | UK-Recht auf legislation.gov.uk prüfen (z. B. Electronic Communications Act 2000); Anfrage GDS |
+| `existing_solutions.csv`, R1 | Notify regelt keine Schriftform oder Rechtswirkung | 2 | Fehlanzeige in Nutzungsbedingungen (TOU) und Betreiberseiten; der Teil „Recht des jeweiligen Verfahrens maßgeblich“ ist mit ECA8 und IA7 belegt (Stufe 3) und nicht mehr markiert | Anfrage GDS |
