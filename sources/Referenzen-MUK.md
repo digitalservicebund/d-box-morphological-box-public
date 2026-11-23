@@ -1,6 +1,6 @@
 # Mein Unternehmenskonto (Deutschland): Quellen
 
-Nachweise für die MUK-Einträge in `morph_box.csv` und die Spalte `Unternehmenskonto heute (Deutschland)` in `existing_solutions.csv`. Pilot für Evidenzstufen: Statt `[unverifiziert]` stehen hier und in den MUK-Einträgen der CSV-Dateien `[Indiz]` (Stufe 2) und `[Annahme]` (Stufe 1); unmarkierte Aussagen sind Stufe 3. `Fehlanzeige` heißt: in den Quellen gesucht, nicht gefunden.
+Nachweise für die MUK-Einträge in `morph_box.csv` und die Spalte `Unternehmenskonto heute (Deutschland)` in `existing_solutions.csv`. Statt `[unverifiziert]` stehen hier und in den MUK-Einträgen der CSV-Dateien `[Indiz]` (Stufe 2) und `[Annahme]` (Stufe 1); unmarkierte Aussagen sind Stufe 3. `Fehlanzeige` heißt: in den Quellen gesucht, nicht gefunden.
 
 Evidenzstufen (Spalte `Stufe`):
 
