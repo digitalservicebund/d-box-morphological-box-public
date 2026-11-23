@@ -91,5 +91,7 @@ Einordnung der früheren `[unverifiziert]`-Stellen, Stand 2026-11-23. Stufe 1 un
 | `morph_box.csv`, P6 Ausprägung 3 | offene API (Dänemark für Unternehmen) | 3 | Modtagersystem für Unternehmen (VIRK; TI); Anschluss setzt Registrierung voraus | – |
 | `morph_box.csv`, P8 Ausprägung 1 | Freitext (Dänemark) | 3 | wie P8 oben | – |
 | `morph_box.csv`, P8 Ausprägung 2 | Dateien als Anhang (Dänemark) | 3 | wie P8 oben | – |
+| `morph_box.csv`, Ü2 Ausprägung 1 | keine Ende-zu-Ende-Verschlüsselung (Dänemark) | 2 | wie Ü2 oben | wie Ü2 oben |
 | `morph_box.csv`, Ü4 Ausprägung 1 | Bereitstellung oder Zustellstatus an Behörde (Dänemark) | 2 | wie Ü4 oben | wie Ü4 oben |
 | `morph_box.csv`, Ü5 Ausprägung 1 | keine Interoperabilität (Dänemark) | 2 | wie Ü5 oben | wie Ü5 oben |
+| `morph_box.csv`, I4 Ausprägung 5 | keine Ende-zu-Ende-Verschlüsselung (Dänemark) | 2 | wie Ü2 oben | wie Ü2 oben |
