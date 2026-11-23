@@ -1,0 +1,12 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    cooldown:
+      default-days: 3
+    commit-message:
+      prefix: "chore(deps)"
+    # 0 would disable version updates; use a high value as "no limit".
+    open-pull-requests-limit: 100
