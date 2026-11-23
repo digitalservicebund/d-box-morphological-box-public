@@ -1,3 +1,40 @@
+# d-box Morphologischer Kasten
+
+[English version below](#english)
+
+Kern dieses Repositorys ist ein morphologischer Kasten für strukturierte Entscheidungen zur d-box, einem geplanten zentralen, bidirektionalen Verwaltungspostfach für die deutsche öffentliche Verwaltung und Teil des Deutschland-Stacks.
+
+## Hauptartefakt
+
+[morph_box.csv](morph_box.csv) ist der morphologische Kasten. Jede Zeile ist eine Entscheidungsdimension (`Dimension`) mit ihren Ausprägungen (`Ausprägung`). Die Datei kann in Miro importiert und aus Miro exportiert werden.
+
+## Weitere Artefakte
+
+Diese Dateien bauen auf dem morphologischen Kasten auf oder ergänzen ihn:
+
+- [existing_solutions.csv](existing_solutions.csv): vergleicht bestehende deutsche und internationale Lösungen anhand der Dimensionen des morphologischen Kastens, eine Spalte je Lösung.
+- [zentrale_dienste.csv](zentrale_dienste.csv): listet zentrale Dienste (z. B. BundID) mit ihren Funktionen, der zugehörigen Dimension des Kastens, Betreiber, Einschränkungen und Quellen.
+- [abkuerzungen.csv](abkuerzungen.csv): erklärt die in `morph_box.csv` und `existing_solutions.csv` verwendeten Abkürzungen (Spalten `Abkürzung`, `Bedeutung`).
+- [bewertungskriterien.md](bewertungskriterien.md): enthält Fragen zur Bewertung eines gewählten Lösungswegs. Die Kriterien sind keine zusätzlichen Ausprägungen.
+
+## Quellen
+
+[sources/](sources) enthält die Belege für den morphologischen Kasten und den Vergleich bestehender Lösungen:
+
+- Je untersuchter Lösung ein Ordner (z. B. `BundID-ZBP/`, `ELSTER/`, `Digital-Post-Daenemark/`) mit einer verdichteten Analyse und lokalen Kopien von Primärquellen wie Gesetzen, Spezifikationen und offizieller Dokumentation.
+- Je Lösung eine Datei `Referenzen-<Name>.md`, die die Hauptquellen mit Kürzeln auflistet und jeder Dimension ihre Aussage, Quellen und Evidenzstufe zuordnet. Die Evidenzstufen sind auch in den CSV-Zellen markiert: Unmarkierte Aussagen wurden in einer Primärquelle geprüft, `[Indiz]` stützt sich auf schwächere Belege und `[Annahme]` ist noch zu prüfen.
+- Spiegel der ZaPuK-Zielarchitektur (`zapuk-main/`) und von Neo, ihrer Matrix-basierten Referenzimplementierung (`neo-solution-architecture-develop/`).
+
+[sources.md](sources.md) ist die Übersicht über diesen Ordner. Sie beschreibt jeden Ordner und jede Datei und wofür sie sich eignen.
+
+## Einrichtung
+
+Siehe [DEVELOPING.md](DEVELOPING.md) für die Formatprüfung, Git-Hooks und die Tests des Prüfskripts.
+
+---
+
+<a id="english"></a>
+
 # d-box Morphological Box
 
 The main element of this repository is a morphological box for structured decision-making about the d-box, a planned central, bidirectional mailbox (Verwaltungspostfach) for the German public administration and part of the Deutschland-Stack.
