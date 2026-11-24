@@ -8,7 +8,7 @@ These files are meant to be shared across a small engineering team and used with
 
 ## Format check
 
-The technical format of both CSV files is enforced by `tools/check_csv/check_csv.sh` (run automatically as a lefthook pre-commit hook). It checks UTF-8 without BOM, consistent line endings, CSV syntax, column count and Markdown. For `morph_box.csv`, it also checks the exact header, `Auswahl` values and gaps between `Ausprägung` cells. For `existing_solutions.csv`, it checks the `Dimension` header and nonempty, unique solution names.
+The technical format of both CSV files is enforced by `tools/check_csv/check_csv.sh` (run automatically as a lefthook pre-commit hook). It checks UTF-8 without BOM, consistent line endings, CSV syntax, column count and Markdown. For `morph_box.csv`, it also checks the exact header, `Auswahl` values and gaps between `Ausprägung` cells. For `existing_solutions.csv`, it checks the `Dimension` header and nonempty, unique solution names. For `vertraulichkeit_stufen.csv`, it checks the exact header, nonempty `Stufe` and nonempty, unique `Verschlüsselung`.
 
 Run it after every edit:
 

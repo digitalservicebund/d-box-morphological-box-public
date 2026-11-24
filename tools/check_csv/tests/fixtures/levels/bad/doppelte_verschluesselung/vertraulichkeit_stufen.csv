@@ -1,0 +1,3 @@
+"Stufe","Verschlüsselung","Endgerät Absender:in / Empfänger:in","Organisation (Server, Fachverfahren)","Betreiber des Postfach-Backends","Dritte (Netz, Hoster, externe Dienstleister)","Metadaten beim Betreiber","ZaPuK-Status","Beispiele"
+"0","nur Transportverschlüsselung","liest","liest","liest","nein","alle","unvereinbar",""
+"1","nur Transportverschlüsselung","liest","liest","liest","nein","alle","unvereinbar",""

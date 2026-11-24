@@ -42,6 +42,7 @@ printf 'Echte Datei\n'
 expect_ok morph_box "$tests_dir/../../../morph_box.csv"
 expect_ok existing_solutions "$tests_dir/../../../existing_solutions.csv"
 expect_ok abkuerzungen "$tests_dir/../../../abkuerzungen.csv"
+expect_ok vertraulichkeit_stufen "$tests_dir/../../../vertraulichkeit_stufen.csv"
 expect_error datei_fehlt "$fixtures/gibt_es_nicht.csv" "Datei nicht gefunden"
 if out=$("$checker" 2>&1); then ok standard_morph_box
 else nok standard_morph_box "erwartet OK, bekam:"$'\n'"$out"; fi
@@ -137,6 +138,20 @@ for file in "$fixtures"/services/bad/*/zentrale_dienste.csv; do
     continue
   fi
   expect_error "services_$name" "$file" "$(<"$expected")"
+done
+
+printf '\nDaten für vertraulichkeit_stufen.csv\n'
+for file in "$fixtures"/levels/good/*/vertraulichkeit_stufen.csv; do
+  expect_ok "levels_$(basename "$(dirname "$file")")" "$file"
+done
+for file in "$fixtures"/levels/bad/*/vertraulichkeit_stufen.csv; do
+  name="$(basename "$(dirname "$file")")"
+  expected="$(dirname "$file")/expected"
+  if [[ ! -f "$expected" ]]; then
+    nok "levels_$name" "fehlende Datei $expected"
+    continue
+  fi
+  expect_error "levels_$name" "$file" "$(<"$expected")"
 done
 
 printf '\n%d bestanden, %d fehlgeschlagen\n' "$pass" "$fail"

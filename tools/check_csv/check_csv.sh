@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Prüft morph_box.csv, existing_solutions.csv, abkuerzungen.csv und
-# zentrale_dienste.csv (bzw. übergebene CSV-Dateien).
+# Prüft morph_box.csv, existing_solutions.csv, abkuerzungen.csv,
+# zentrale_dienste.csv und vertraulichkeit_stufen.csv (bzw. übergebene
+# CSV-Dateien).
 #
 # Geprüft wird:
 #   - Kodierung: gültiges UTF-8, kein BOM
@@ -12,6 +13,8 @@
 #   - Spaltenanzahl: jede Zeile hat genau so viele Spalten wie der Header
 #   - zentrale_dienste.csv: exakter Header, "Dienst" nicht leer und eindeutig,
 #     "Funktionen" nicht leer
+#   - vertraulichkeit_stufen.csv: exakter Header, "Stufe" nicht leer,
+#     "Verschlüsselung" nicht leer und eindeutig
 #   - Spalte "Dimension": nicht leer
 #   - morph_box.csv: gültige "Auswahl" und keine Lücken in Ausprägungen
 #   - Zellinhalte: kein Markdown (**fett**, *kursiv*, __, `code`, [Link](url),
@@ -31,6 +34,7 @@ fi
 expected_header='Cluster|Dimension|Auswahl|Wer entscheidet|Was wird hier entschieden|Ausprägung 1|Ausprägung 2|Ausprägung 3|Ausprägung 4|Ausprägung 5|Ausprägung 6|Ausprägung 7|Ausprägung 8'
 glossary_header='Abkürzung|Bedeutung'
 services_header='Dienst|Funktionen|Kasten-Dimension|Story und Schritt|Betreiber|Einschränkungen und offene Fragen|Quelle'
+levels_header='Stufe|Verschlüsselung|Endgerät Absender:in / Empfänger:in|Organisation (Server, Fachverfahren)|Betreiber des Postfach-Backends|Dritte (Netz, Hoster, externe Dienstleister)|Metadaten beim Betreiber|ZaPuK-Status|Beispiele'
 
 status=0
 
@@ -48,6 +52,9 @@ check_file() {
   elif [[ "$(basename "$file")" == "zentrale_dienste.csv" ]]; then
     schema=services
     header="$services_header"
+  elif [[ "$(basename "$file")" == "vertraulichkeit_stufen.csv" ]]; then
+    schema=levels
+    header="$levels_header"
   fi
 
   if [[ ! -f "$file" ]]; then
@@ -79,7 +86,7 @@ check_file() {
     BEGIN {
       ncols = split(expected, hdr, "|")
       zeile = 2; auswahl = 3; first_option = 6
-      if (schema == "solutions" || schema == "glossary" || schema == "services") zeile = 1
+      if (schema == "solutions" || schema == "glossary" || schema == "services" || schema == "levels") zeile = 1
       errs = 0; rec = 0; nf = 0; buf = ""
       in_q = 0; was_q = 0; after_q = 0; bad = 0
     }
@@ -132,6 +139,10 @@ check_file() {
       if (schema == "services") {
         if (f[2] == "") err(start, "Spalte \"Funktionen\" ist leer")
         if (f[1] != "" && known[f[1]]++) err(start, "doppelter Dienst: \"" f[1] "\"")
+      }
+      if (schema == "levels") {
+        if (f[2] == "") err(start, "Spalte \"Verschlüsselung\" ist leer")
+        if (f[2] != "" && known[f[2]]++) err(start, "doppelte Verschlüsselung: \"" f[2] "\"")
       }
       if (schema == "morph") {
         if (f[auswahl] != "exklusiv" && f[auswahl] != "Bündel" && f[auswahl] != "gesetzt")

@@ -34,3 +34,4 @@ jobs:
           existing_solutions.csv
           abkuerzungen.csv
           zentrale_dienste.csv
+          vertraulichkeit_stufen.csv
