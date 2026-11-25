@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Prüft morph_box.csv, existing_solutions.csv, abkuerzungen.csv und
-# zentrale_dienste.csv (bzw. übergebene CSV-Dateien).
+# zentrale_dienste.csv und die CSV-Dateien in vergleich_betrieb/
+# (bzw. übergebene CSV-Dateien).
 #
 # Geprüft wird:
 #   - Kodierung: gültiges UTF-8, kein BOM
@@ -31,6 +32,8 @@ fi
 expected_header='Cluster|Dimension|Auswahl|Wer entscheidet|Was wird hier entschieden|Ausprägung 1|Ausprägung 2|Ausprägung 3|Ausprägung 4|Ausprägung 5|Ausprägung 6|Ausprägung 7|Ausprägung 8'
 glossary_header='Abkürzung|Bedeutung'
 services_header='Dienst|Funktionen|Kasten-Dimension|Story und Schritt|Betreiber|Einschränkungen und offene Fragen|Quelle'
+detailed_header='Aspekt|1. Ein zentraler staatlicher Betreiber|2. Staatlich-föderierter Verbund (Hybrid / ZaPuK-Modell)|3. Offener Betreiberverbund (Reguliertes Markt-/Dezentralmodell)'
+compact_header='Kriterium|1. Ein staatlicher Betreiber|2. Staatlich-föderierter Verbund (Hybrid)|3. Offener Betreiberverbund (Markt)'
 
 status=0
 
@@ -48,6 +51,12 @@ check_file() {
   elif [[ "$(basename "$file")" == "zentrale_dienste.csv" ]]; then
     schema=services
     header="$services_header"
+  elif [[ "/$file" == */vergleich_betrieb/detailliert.csv ]]; then
+    schema=comparison
+    header="$detailed_header"
+  elif [[ "/$file" == */vergleich_betrieb/kompakt.csv ]]; then
+    schema=comparison
+    header="$compact_header"
   fi
 
   if [[ ! -f "$file" ]]; then
@@ -79,7 +88,7 @@ check_file() {
     BEGIN {
       ncols = split(expected, hdr, "|")
       zeile = 2; auswahl = 3; first_option = 6
-      if (schema == "solutions" || schema == "glossary" || schema == "services") zeile = 1
+      if (schema == "solutions" || schema == "glossary" || schema == "services" || schema == "comparison") zeile = 1
       errs = 0; rec = 0; nf = 0; buf = ""
       in_q = 0; was_q = 0; after_q = 0; bad = 0
     }
