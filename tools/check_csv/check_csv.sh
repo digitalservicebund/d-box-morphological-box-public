@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-# Prüft morph_box.csv, existing_solutions.csv, abkuerzungen.csv und
-# zentrale_dienste.csv und die CSV-Dateien in vergleich_betrieb/
+# Prüft morph_box.csv, existing_solutions.csv, abkuerzungen.csv,
+# zentrale_dienste.csv, vertraulichkeit_stufen.csv,
+# vertraulichkeit_kurzfassung.csv, vertraulichkeit_querschnittsthemen.csv
+# und die CSV-Dateien in vergleich_betrieb/
 # (bzw. übergebene CSV-Dateien).
 #
 # Geprüft wird:
@@ -13,6 +15,14 @@
 #   - Spaltenanzahl: jede Zeile hat genau so viele Spalten wie der Header
 #   - zentrale_dienste.csv: exakter Header, "Dienst" nicht leer und eindeutig,
 #     "Funktionen" nicht leer
+#   - vertraulichkeit_stufen.csv: exakter Header, "Stufe" nicht leer,
+#     "Verschlüsselung" nicht leer und eindeutig
+#   - vertraulichkeit_kurzfassung.csv: transponiert, eine Spalte je Stufe;
+#     Header "Stufe" plus nicht leere, eindeutige Stufennamen, erste Spalte
+#     mit exakten Zeilenbezeichnungen, Zeile "Verschlüsselung" nicht leer
+#     und eindeutig
+#   - vertraulichkeit_querschnittsthemen.csv: exakter Header, "Thema" nicht
+#     leer und eindeutig
 #   - Spalte "Dimension": nicht leer
 #   - morph_box.csv: gültige "Auswahl" und keine Lücken in Ausprägungen
 #   - Zellinhalte: kein Markdown (**fett**, *kursiv*, __, `code`, [Link](url),
@@ -34,6 +44,9 @@ glossary_header='Abkürzung|Bedeutung'
 services_header='Dienst|Funktionen|Kasten-Dimension|Story und Schritt|Betreiber|Einschränkungen und offene Fragen|Quelle'
 detailed_header='Aspekt|1. Ein zentraler staatlicher Betreiber|2. Staatlich-föderierter Verbund (Hybrid / ZaPuK-Modell)|3. Offener Betreiberverbund (Reguliertes Markt-/Dezentralmodell)'
 compact_header='Kriterium|Ein staatlicher Betreiber|Staatlich-föderierter Verbund (Hybrid)|Markt / Offener Betreiberverbund'
+levels_header='Stufe|Verschlüsselung|Endgerät Absender:in / Empfänger:in|Organisation (Server, Fachverfahren)|Betreiber des Postfach-Backends|Dritte (Netz, Hoster, externe Dienstleister)|Daten, auf die die Organisation im Klartext Zugriff hat|Daten, auf die der Betreiber im Klartext Zugriff hat|Funktionsumfang für Nutzende|Technischer Aufwand|ZaPuK-Status|Beispiele'
+crosscut_header='Thema|Zugriff auf Inhalt: Endgerät Absender:in / Empfänger:in|Zugriff auf Inhalt: Organisation (Server, Fachverfahren)|Zugriff auf Inhalt: Betreiber des Postfach-Backends|Zugriff auf Inhalt: Dritte (Netz, Hoster, externe Dienstleister)|Daten, auf die die Organisation im Klartext Zugriff hat|Daten, auf die der Betreiber im Klartext Zugriff hat|Funktionsumfang für Nutzende|Technischer Aufwand|ZaPuK-Status|Beispiele'
+levels_short_header='Stufe|Verschlüsselung|Zugriff auf Inhalt: Endgerät Absender:in / Empfänger:in|Zugriff auf Inhalt: Organisation (Server, Fachverfahren)|Zugriff auf Inhalt: Betreiber des Postfach-Backends|Zugriff auf Inhalt: Dritte (Netz, Hoster, externe Dienstleister)|Zugriff auf Inhalt: Details im Regelbetrieb|Daten, auf die die Organisation im Klartext Zugriff hat|Daten, auf die der Betreiber im Klartext Zugriff hat|Funktionsumfang für Nutzende|Technischer Aufwand|Beispiele'
 
 status=0
 
@@ -57,6 +70,15 @@ check_file() {
   elif [[ "/$file" == */vergleich_betrieb/kompakt.csv ]]; then
     schema=comparison
     header="$compact_header"
+  elif [[ "$(basename "$file")" == "vertraulichkeit_stufen.csv" ]]; then
+    schema=levels
+    header="$levels_header"
+  elif [[ "$(basename "$file")" == "vertraulichkeit_kurzfassung.csv" ]]; then
+    schema=levels_t
+    header="$levels_short_header"
+  elif [[ "$(basename "$file")" == "vertraulichkeit_querschnittsthemen.csv" ]]; then
+    schema=crosscut
+    header="$crosscut_header"
   fi
 
   if [[ ! -f "$file" ]]; then
@@ -87,8 +109,9 @@ check_file() {
   if ! awk -v file="$file" -v expected="$header" -v schema="$schema" '
     BEGIN {
       ncols = split(expected, hdr, "|")
+      if (schema == "levels_t") nlab = split(expected, lab, "|")
       zeile = 2; auswahl = 3; first_option = 6
-      if (schema == "solutions" || schema == "glossary" || schema == "services" || schema == "comparison") zeile = 1
+      if (schema == "solutions" || schema == "glossary" || schema == "services" || schema == "comparison" || schema == "levels" || schema == "levels_t" || schema == "crosscut") zeile = 1
       errs = 0; rec = 0; nf = 0; buf = ""
       in_q = 0; was_q = 0; after_q = 0; bad = 0
     }
@@ -123,6 +146,18 @@ check_file() {
         }
         return
       }
+      if (schema == "levels_t" && rec == 1) {
+        ncols = nf
+        if (f[1] != lab[1]) err(start, "Header Spalte 1: erwartet \"" lab[1] "\", gefunden \"" f[1] "\"")
+        if (ncols < 2) err(start, "Header benötigt mindestens eine Stufe")
+        for (i = 1; i <= ncols; i++) {
+          hdr[i] = f[i]
+          if (i > 1 && f[i] == "") err(start, "Header Spalte " i " (Stufe) ist leer")
+          if (i > 1 && f[i] != "" && seen[f[i]]++) err(start, "doppelte Stufe: \"" f[i] "\"")
+          if (is_markdown(f[i])) err(start, "Markdown-Formatierung in Header Spalte " i)
+        }
+        return
+      }
       if (nf != ncols) {
         err(start, "erwartet " ncols " Spalten, gefunden " nf " (Trennzeichen muss \",\" sein)")
         return
@@ -141,6 +176,21 @@ check_file() {
       if (schema == "services") {
         if (f[2] == "") err(start, "Spalte \"Funktionen\" ist leer")
         if (f[1] != "" && known[f[1]]++) err(start, "doppelter Dienst: \"" f[1] "\"")
+      }
+      if (schema == "levels") {
+        if (f[2] == "") err(start, "Spalte \"Verschlüsselung\" ist leer")
+        if (f[2] != "" && known[f[2]]++) err(start, "doppelte Verschlüsselung: \"" f[2] "\"")
+      }
+      if (schema == "levels_t") {
+        if (rec <= nlab && f[1] != lab[rec]) err(start, "Zeile " rec ": erwartet \"" lab[rec] "\", gefunden \"" f[1] "\"")
+        if (f[1] == "Verschlüsselung")
+          for (i = 2; i <= ncols; i++) {
+            if (f[i] == "") err(start, "Verschlüsselung für \"" hdr[i] "\" ist leer")
+            else if (known[f[i]]++) err(start, "doppelte Verschlüsselung: \"" f[i] "\"")
+          }
+      }
+      if (schema == "crosscut") {
+        if (f[1] != "" && known[f[1]]++) err(start, "doppeltes Thema: \"" f[1] "\"")
       }
       if (schema == "morph") {
         if (f[auswahl] != "exklusiv" && f[auswahl] != "Bündel" && f[auswahl] != "gesetzt")
@@ -192,6 +242,7 @@ check_file() {
     END {
       if (in_q) err(start, "Anführungszeichen nicht geschlossen (Datensatz beginnt hier)")
       if (NR == 0) err(1, "Datei ist leer")
+      if (schema == "levels_t" && NR > 0 && rec != nlab) err(NR, "erwartet " nlab " Zeilen, gefunden " rec)
       exit errs > 0
     }
   ' "$file"; then
