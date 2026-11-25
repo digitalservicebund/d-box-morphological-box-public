@@ -43,7 +43,7 @@ glossary_header='Abkürzung|Bedeutung'
 services_header='Dienst|Funktionen|Kasten-Dimension|Story und Schritt|Betreiber|Einschränkungen und offene Fragen|Quelle'
 levels_header='Stufe|Verschlüsselung|Endgerät Absender:in / Empfänger:in|Organisation (Server, Fachverfahren)|Betreiber des Postfach-Backends|Dritte (Netz, Hoster, externe Dienstleister)|Metadaten beim Betreiber|ZaPuK-Status|Beispiele'
 crosscut_header='Thema|Zugriff auf Inhalt: Endgerät Absender:in / Empfänger:in|Zugriff auf Inhalt: Organisation (Server, Fachverfahren)|Zugriff auf Inhalt: Betreiber des Postfach-Backends|Zugriff auf Inhalt: Dritte (Netz, Hoster, externe Dienstleister)|Daten, auf die die Organisation Zugriff hat|Daten, auf die der Betreiber Zugriff hat|ZaPuK-Status|Beispiele'
-levels_short_header='Stufe|Verschlüsselung|Zugriff auf Inhalt: Endgerät Absender:in / Empfänger:in|Zugriff auf Inhalt: Organisation (Server, Fachverfahren)|Zugriff auf Inhalt: Betreiber des Postfach-Backends|Zugriff auf Inhalt: Dritte (Netz, Hoster, externe Dienstleister)|Zugriff auf Inhalt: Details im Regelbetrieb|Daten, auf die die Organisation im Klartext Zugriff hat|Daten, auf die der Betreiber im Klartext Zugriff hat|Technischer Aufwand|ZaPuK-Status|Beispiele'
+levels_short_header='Stufe|Verschlüsselung|Zugriff auf Inhalt: Endgerät Absender:in / Empfänger:in|Zugriff auf Inhalt: Organisation (Server, Fachverfahren)|Zugriff auf Inhalt: Betreiber des Postfach-Backends|Zugriff auf Inhalt: Dritte (Netz, Hoster, externe Dienstleister)|Zugriff auf Inhalt: Details im Regelbetrieb|Daten, auf die die Organisation im Klartext Zugriff hat|Daten, auf die der Betreiber im Klartext Zugriff hat|Funktionsumfang für Nutzende|Technischer Aufwand|ZaPuK-Status|Beispiele'
 
 status=0
 
