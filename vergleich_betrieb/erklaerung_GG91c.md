@@ -18,5 +18,3 @@ Im deutschen Föderalismus gilt grundsätzlich das **Trennungsprinzip** (Art. 30
 
 * **Spiegelt die verfassungsrechtliche Arbeitsteilung wider:** Der Bund kann den zentralen Bürgerzugang (z. B. über BMDS/DeutschlandID) auf **Abs. 5** stützen, während die föderierte Anbindung von Organisationen, Ländern und bestehenden Fachdomänen (z. B. über FITKO/FIT-Connect) über Standardisierungsbeschlüsse nach **Abs. 1 und 2** erfolgt.
 * **Wahrung der Eigenständigkeit:** Da Länder und Fachdomänen eigene Backends über einen offenen Standard anbinden können, werden bestehende Kompetenzen und Systeme (wie ELSTER oder EGVP) nicht zwangsweise abgelöst, was die Hürde für eine Mehrheit im Bundesrat drastisch senkt.
-
-Soll ich diesen Punkt als kompakte Sprechernotiz (Speaker Notes) für deine Entscheidungsfolie ausformulieren?
