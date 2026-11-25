@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Prüft morph_box.csv, existing_solutions.csv, abkuerzungen.csv,
-# zentrale_dienste.csv und vertraulichkeit_stufen.csv (bzw. übergebene
-# CSV-Dateien).
+# zentrale_dienste.csv, vertraulichkeit_stufen.csv und
+# vertraulichkeit_kurzfassung.csv (bzw. übergebene CSV-Dateien).
 #
 # Geprüft wird:
 #   - Kodierung: gültiges UTF-8, kein BOM
@@ -15,6 +15,8 @@
 #     "Funktionen" nicht leer
 #   - vertraulichkeit_stufen.csv: exakter Header, "Stufe" nicht leer,
 #     "Verschlüsselung" nicht leer und eindeutig
+#   - vertraulichkeit_kurzfassung.csv: wie vertraulichkeit_stufen.csv,
+#     aber mit eigenem Header
 #   - Spalte "Dimension": nicht leer
 #   - morph_box.csv: gültige "Auswahl" und keine Lücken in Ausprägungen
 #   - Zellinhalte: kein Markdown (**fett**, *kursiv*, __, `code`, [Link](url),
@@ -35,6 +37,7 @@ expected_header='Cluster|Dimension|Auswahl|Wer entscheidet|Was wird hier entschi
 glossary_header='Abkürzung|Bedeutung'
 services_header='Dienst|Funktionen|Kasten-Dimension|Story und Schritt|Betreiber|Einschränkungen und offene Fragen|Quelle'
 levels_header='Stufe|Verschlüsselung|Endgerät Absender:in / Empfänger:in|Organisation (Server, Fachverfahren)|Betreiber des Postfach-Backends|Dritte (Netz, Hoster, externe Dienstleister)|Metadaten beim Betreiber|ZaPuK-Status|Beispiele'
+levels_short_header='Stufe|Verschlüsselung|Zugriff auf Inhalt: Endgerät Absender:in / Empfänger:in|Zugriff auf Inhalt: Organisation (Server, Fachverfahren)|Zugriff auf Inhalt: Betreiber des Postfach-Backends|Zugriff auf Inhalt: Dritte (Netz, Hoster, externe Dienstleister)|Daten, auf die die Organisation Zugriff hat|Daten, auf die der Betreiber Zugriff hat|ZaPuK-Status|Beispiele'
 
 status=0
 
@@ -55,6 +58,9 @@ check_file() {
   elif [[ "$(basename "$file")" == "vertraulichkeit_stufen.csv" ]]; then
     schema=levels
     header="$levels_header"
+  elif [[ "$(basename "$file")" == "vertraulichkeit_kurzfassung.csv" ]]; then
+    schema=levels
+    header="$levels_short_header"
   fi
 
   if [[ ! -f "$file" ]]; then
