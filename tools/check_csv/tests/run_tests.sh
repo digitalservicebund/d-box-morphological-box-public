@@ -47,9 +47,9 @@ expect_ok vergleich_kompakt "$tests_dir/../../../vergleich_betrieb/kompakt.csv"
 expect_error vergleich_spaltenzahl "$fixtures/comparison/bad/column_count/vergleich_betrieb/kompakt.csv" "erwartet 4 Spalten, gefunden 3"
 expect_error vergleich_header "$fixtures/comparison/bad/header/vergleich_betrieb/detailliert.csv" "Header Spalte 1"
 expect_error vergleich_markdown "$fixtures/comparison/bad/markdown/vergleich_betrieb/kompakt.csv" "Markdown-Formatierung"
-expect_ok vertraulichkeit_stufen "$tests_dir/../../../vertraulichkeit_stufen.csv"
-expect_ok vertraulichkeit_kurzfassung "$tests_dir/../../../vertraulichkeit_kurzfassung.csv"
-expect_ok vertraulichkeit_querschnittsthemen "$tests_dir/../../../vertraulichkeit_querschnittsthemen.csv"
+expect_ok vertraulichkeit_stufen "$tests_dir/../../../vertraulichkeit/vertraulichkeit_stufen.csv"
+expect_ok vertraulichkeit_kurzfassung "$tests_dir/../../../vertraulichkeit/vertraulichkeit_kurzfassung.csv"
+expect_ok vertraulichkeit_querschnittsthemen "$tests_dir/../../../vertraulichkeit/vertraulichkeit_querschnittsthemen.csv"
 expect_error datei_fehlt "$fixtures/gibt_es_nicht.csv" "Datei nicht gefunden"
 if out=$("$checker" 2>&1); then ok standard_morph_box
 else nok standard_morph_box "erwartet OK, bekam:"$'\n'"$out"; fi

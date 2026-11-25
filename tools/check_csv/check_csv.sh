@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 # Prüft morph_box.csv, existing_solutions.csv, abkuerzungen.csv,
-# zentrale_dienste.csv, vertraulichkeit_stufen.csv,
-# vertraulichkeit_kurzfassung.csv, vertraulichkeit_querschnittsthemen.csv
-# und die CSV-Dateien in vergleich_betrieb/
-# (bzw. übergebene CSV-Dateien).
+# zentrale_dienste.csv und die CSV-Dateien in vergleich_betrieb/ und
+# vertraulichkeit/ (bzw. übergebene CSV-Dateien).
 #
 # Geprüft wird:
 #   - Kodierung: gültiges UTF-8, kein BOM
