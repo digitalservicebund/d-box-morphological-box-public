@@ -1,3 +1,5 @@
+# Art. 91c GG und die Betreiberfrage (I1 Betrieb und Governance)
+
 Im deutschen Föderalismus gilt grundsätzlich das **Trennungsprinzip** (Art. 30, 83 GG): Bund und Länder nehmen ihre Verwaltungsaufgaben organisatorisch getrennt wahr, weshalb ein gemeinsamer IT-Betrieb („Mischverwaltung“) ohne ausdrückliche Grundgesetz-Ermächtigung unzulässig ist. **Art. 91c GG** schafft genau diese Ausnahme für die IT-Zusammenarbeit – zieht aber gleichzeitig klare verfassungsrechtliche Grenzen, die direkt auf die Betreiberfrage der d-box durchschlagen.
 
 ### Die relevanten Stellschrauben in Art. 91c GG
@@ -6,11 +8,19 @@ Im deutschen Föderalismus gilt grundsätzlich das **Trennungsprinzip** (Art. 30
 * **Abs. 4 (Verbindungsnetz):** Gibt dem Bund zwar eine direkte Betriebskompetenz, aber ausdrücklich nur für das bund-länderübergreifende Verbindungsnetz – nicht für allgemeine Postfach-Infrastrukturen.
 * **Abs. 5 (Übergreifender IT-Zugang):** Ermächtigt den Bund, per Bundesgesetz mit Zustimmung des Bundesrates den „übergreifenden informationstechnischen Zugang zu den Verwaltungsleistungen von Bund und Ländern“ zu regeln. Auf diesem Absatz basieren das OZG und das OZG 2.0 (inkl. BundID/DeutschlandID und Postfach).
 
+### Einordnung durch den Normenkontrollrat (2025)
+
+* **Bündelung ist bereits heute möglich** (NKR-Folgegutachten): Das Grundgesetz verbietet eine Bündelung von IT-Leistungen nicht grundsätzlich; das Haupthindernis ist der fehlende politische Wille, nicht eine verfassungsrechtliche Sperre.
+* **Infrastrukturkompetenz des Bundes als Angebot** (NKR-Folgegutachten): Die angeregte Erweiterung von Art. 91c Abs. 5 GG zu einer Infrastrukturkompetenz des Bundes sieht ein offenes Plattformangebot ohne Nutzungszwang für die Länder vor. Diese Erweiterung ist ein Vorschlag, nicht geltendes Recht.
+* **„Bündelung statt Zentralisierung“** (NKR-Bündelung): Leitbild ist eine föderale IT-Plattforminfrastruktur aus einheitlichen Komponenten. Zugleich warnt der NKR, dass reine Koordination Fragmentierung selten ausgleicht; Standardsetzungs- und Finanzierungsbefugnisse sollten daher in wenigen Händen liegen.
+
+Daraus folgt: Ein **freiwilliges** zentrales Bundesangebot ist rechtlich vergleichsweise einfach umsetzbar. Hochschwellig ist erst ein **verpflichtender** Zentralbetrieb für Länder und Kommunen.
+
 ### Konsequenzen für die Entscheidung in Dimension I1
 
 **Warum Option 1 (Ein zentraler staatlicher Betreiber) an Art. 91c GG reibt:**
 
-* **Enge Grenzen der Bundeskompetenz:** Juristisch ist umstritten, wie weit der „übergreifende Zugang“ in Art. 91c Abs. 5 GG reicht. Ein verpflichtendes, allumfassendes Zentralpostfach des Bundes für *sämtliche* Behörden- und Fachkommunikation (inkl. Länder, Kommunen, Justiz und Steuer) greift tief in die Verwaltungshoheit der Länder und die kommunale Selbstverwaltung ein.
+* **Enge Grenzen der Bundeskompetenz bei Nutzungspflicht:** Juristisch ist umstritten, wie weit der „übergreifende Zugang“ in Art. 91c Abs. 5 GG reicht. Ein freiwilliges Bundesangebot ist unproblematisch; ein verpflichtendes, allumfassendes Zentralpostfach des Bundes für *sämtliche* Behörden- und Fachkommunikation (inkl. Länder, Kommunen, Justiz und Steuer) greift tief in die Verwaltungshoheit der Länder und die kommunale Selbstverwaltung ein.
 * **Politisches Veto im Bundesrat:** Selbst wenn man ein zentrales Modell über Abs. 5 rechtlich konstruiert, ist das Gesetz **zustimmungspflichtig im Bundesrat**. Schon beim OZG 2.0 blockierten die Länder im Bundesrat zunächst, weil sie Kompetenzverluste zugunsten des Bundes fürchteten.
 * **Staatsvertrag als schwerfällige Alternative:** Will man den zentralen Betreiber stattdessen über eine Bund-Länder-Vereinbarung nach Abs. 1/2 absichern, drohen jahrelange Verhandlungen, 17 Parlamentsbeschlüsse und das verfassungsrechtlich garantierte Kündigungsrecht jedes einzelnen Landes.
 
@@ -18,3 +28,6 @@ Im deutschen Föderalismus gilt grundsätzlich das **Trennungsprinzip** (Art. 30
 
 * **Spiegelt die verfassungsrechtliche Arbeitsteilung wider:** Der Bund kann den zentralen Bürgerzugang (z. B. über BMDS/DeutschlandID) auf **Abs. 5** stützen, während die föderierte Anbindung von Organisationen, Ländern und bestehenden Fachdomänen (z. B. über FITKO/FIT-Connect) über Standardisierungsbeschlüsse nach **Abs. 1 und 2** erfolgt.
 * **Wahrung der Eigenständigkeit:** Da Länder und Fachdomänen eigene Backends über einen offenen Standard anbinden können, werden bestehende Kompetenzen und Systeme (wie ELSTER oder EGVP) nicht zwangsweise abgelöst, was die Hürde für eine Mehrheit im Bundesrat drastisch senkt.
+* **Nähe zum NKR-Leitbild:** Option 2 entspricht am ehesten „Bündelung statt Zentralisierung“. Nach der NKR-Warnung muss sie aber Standardsetzung und Finanzierung klar bündeln, damit der Verbund nicht in reine Koordination zerfällt.
+
+Quellen: siehe [Referenzen.md](Referenzen.md).
