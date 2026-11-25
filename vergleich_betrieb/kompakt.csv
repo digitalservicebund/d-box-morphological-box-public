@@ -1,0 +1,8 @@
+"Kriterium","1. Ein staatlicher Betreiber","2. Staatlich-föderierter Verbund (Hybrid)","3. Offener Betreiberverbund (Markt)"
+"Prinzip & Vorbilder","Ein Betreiber für alle (NL, DK, BundID, ELSTER)","Zentrale Basis + eigene Org.-Backends (ZaPuK: BMDS + FITKO)","Private/dezentrale Anbieter (SE, NO, AT, UK)"
+"Behörden & Betrieb","Eine Schnittstelle, kein Eigenbetrieb; wenig Flexibilität","Ein Standard; optional eigene Backends für Fachdomänen","Hoher Integrations-, Vertrags- oder Eigenbetriebsaufwand"
+"Nutzererlebnis","Maximal einheitlich (One-Stop-Shop)","Einheitlich für Bürger; Fachsystem-Anbindung für Org.","Fragmentiert (Anbieterwahl nötig)"
+"Datenschutz & Sicherheit","Klare DSGVO-Rolle; E2EE zwingend (Datenkonzentration); Metadaten fallen zentral an; Single Point of Failure","Höhere Resilienz & Datenhoheit; Metadaten verteilt (außer Routing/Verzeichnis); komplexere E2EE/Governance (Zero-Trust)","Hohe Ausfallsicherheit; Risiko „schwächstes Glied“; strenge Aufsicht gegen kommerzielle Metadaten-Nutzung"
+"Kosten & Tempo","Niedrigste Gesamtkosten, schnellster Start (MVP)","Moderate Mehrkosten, mittlere Vorlaufzeit","Hohe Regulierungs-/Transaktionskosten, längste Vorlaufzeit"
+"Föderale Passung (DE)","Politisch schwer (Art. 91c GG, Zentralisierung)","Höchste Anschlussfähigkeit (Bund/Länder, Migration)","Historisch vorbelastet (De-Mail-Risiko)"
+"Hauptrisiko","Politische Blockade & Dienstleister-Lock-in","Langsamere Weiterentwicklung durch Abstimmung","Marktversagen („Henne-Ei-Problem“)"
