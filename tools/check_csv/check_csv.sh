@@ -33,7 +33,7 @@ expected_header='Cluster|Dimension|Auswahl|Wer entscheidet|Was wird hier entschi
 glossary_header='Abkürzung|Bedeutung'
 services_header='Dienst|Funktionen|Kasten-Dimension|Story und Schritt|Betreiber|Einschränkungen und offene Fragen|Quelle'
 detailed_header='Aspekt|1. Ein zentraler staatlicher Betreiber|2. Staatlich-föderierter Verbund (Hybrid / ZaPuK-Modell)|3. Offener Betreiberverbund (Reguliertes Markt-/Dezentralmodell)'
-compact_header='Kriterium|1. Ein staatlicher Betreiber|2. Staatlich-föderierter Verbund (Hybrid)|3. Offener Betreiberverbund (Markt)'
+compact_header='Kriterium|Ein staatlicher Betreiber|Staatlich-föderierter Verbund (Hybrid)|Markt / Offener Betreiberverbund'
 
 status=0
 
