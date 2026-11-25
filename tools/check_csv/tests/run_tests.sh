@@ -44,6 +44,7 @@ expect_ok existing_solutions "$tests_dir/../../../existing_solutions.csv"
 expect_ok abkuerzungen "$tests_dir/../../../abkuerzungen.csv"
 expect_ok vertraulichkeit_stufen "$tests_dir/../../../vertraulichkeit_stufen.csv"
 expect_ok vertraulichkeit_kurzfassung "$tests_dir/../../../vertraulichkeit_kurzfassung.csv"
+expect_ok vertraulichkeit_querschnittsthemen "$tests_dir/../../../vertraulichkeit_querschnittsthemen.csv"
 expect_error datei_fehlt "$fixtures/gibt_es_nicht.csv" "Datei nicht gefunden"
 if out=$("$checker" 2>&1); then ok standard_morph_box
 else nok standard_morph_box "erwartet OK, bekam:"$'\n'"$out"; fi
@@ -167,6 +168,20 @@ for file in "$fixtures"/levels_short/bad/*/vertraulichkeit_kurzfassung.csv; do
     continue
   fi
   expect_error "levels_short_$name" "$file" "$(<"$expected")"
+done
+
+printf '\nDaten für vertraulichkeit_querschnittsthemen.csv\n'
+for file in "$fixtures"/crosscut/good/*/vertraulichkeit_querschnittsthemen.csv; do
+  expect_ok "crosscut_$(basename "$(dirname "$file")")" "$file"
+done
+for file in "$fixtures"/crosscut/bad/*/vertraulichkeit_querschnittsthemen.csv; do
+  name="$(basename "$(dirname "$file")")"
+  expected="$(dirname "$file")/expected"
+  if [[ ! -f "$expected" ]]; then
+    nok "crosscut_$name" "fehlende Datei $expected"
+    continue
+  fi
+  expect_error "crosscut_$name" "$file" "$(<"$expected")"
 done
 
 printf '\n%d bestanden, %d fehlgeschlagen\n' "$pass" "$fail"
