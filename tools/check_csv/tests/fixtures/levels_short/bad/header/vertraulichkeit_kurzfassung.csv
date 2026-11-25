@@ -4,7 +4,7 @@
 "Zugriff auf Inhalt: Organisation (Server, Fachverfahren)","ja"
 "Zugriff auf Inhalt: Betreiber des Postfach-Backends","ja"
 "Zugriff auf Inhalt: Dritte (Netz, Hoster, externe Dienstleister)","nein"
-"Zugriff auf Inhalt: Details",""
+"Zugriff auf Inhalt: Details im Regelbetrieb",""
 "Metadaten beim Betreiber","alles"
 "Daten, auf die der Betreiber Zugriff hat","alles"
 "ZaPuK-Status","unvereinbar"
