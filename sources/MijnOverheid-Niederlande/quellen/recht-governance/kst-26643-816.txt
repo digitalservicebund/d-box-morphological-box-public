@@ -1,0 +1,263 @@
+# Kamerstukken II 2021/22, 26 643, nr. 816 – Brief Staatssecretaris BZK zum FBS-Advies AcICT (3.2.2022)
+
+Quelle: <https://zoek.officielebekendmakingen.nl/kst-26643-816.pdf>
+Abgerufen: 2026-11-26 (PDF daneben als kst-26643-816.pdf; Text mit pdftotext -layout)
+
+---
+
+Tweede Kamer der Staten-Generaal
+                                                                                           2
+Vergaderjaar 2021–2022
+
+
+
+
+26 643                   Informatie- en communicatietechnologie (ICT)
+
+
+
+
+Nr. 816                  BRIEF VAN DE STAATSSECRETARIS VAN BINNENLANDSE ZAKEN
+                         EN KONINKRIJKSRELATIES
+
+                         Aan de Voorzitter van de Tweede Kamer der Staten-Generaal
+
+                         Den Haag, 3 februari 2022
+
+                         Het Adviescollege ICT-toetsing (AcICT) heeft op verzoek van mijn
+                         voorganger een onderzoek verricht naar het Federatief Berichtenstelsel
+                         (FBS) en heeft op 22 december 2021 het definitieve advies opgeleverd. Ik
+                         beschouw dit advies als kritisch en als een aansporing om de aanbeve-
+                         lingen voortvarend uit te voeren. De adviezen van het AcICT zijn enerzijds
+                         een bevestiging van het belang van FBS en de weg ernaartoe en zijn
+                         anderzijds een waardevolle inbreng voor het verwezenlijken van het
+                         potentieel van FBS voor de digitale samenleving. Ik dank het college
+                         daarom voor het uitvoeren van de toets. Met deze brief bied ik uw Kamer
+                         het ontvangen advies en mijn reactie op dit advies aan1.
+
+                         Belang van FBS
+
+                         FBS maakt berichtenverkeer van de overheid met burgers en onder-
+                         nemers flexibeler en efficiënter. Afnemers, dat zijn organisaties met een
+                         publieke taak, kunnen vanaf 2023 berichten via een afsprakenstelsel
+                         versturen via een centraal berichtenmagazijn of via hun eigen berichten-
+                         magazijn. Burgers en ondernemers kunnen vanaf die tijd zelf kiezen op
+                         welke manier zij hun berichten van de overheid willen inzien. De directe
+                         aanleiding voor de start van FBS is de contractuele vervanging van Globe,
+                         het huidige berichtenmagazijn van MijnOverheid en de Berichtenbox-app.
+                         FBS wordt onder mijn verantwoordelijkheid uitgevoerd door Logius in
+                         samenwerking met de afnemers die hiervan gebruik gaan maken. Hierna
+                         ga ik in op de wijze waarop ik als opdrachtgever zal zorgdragen dat de
+                         aanbevelingen worden opgevolgd en verwerkt. De opvolging van de
+                         aanbevelingen zal worden geborgd via de governance van het
+                         programma.
+
+
+
+
+                         1
+                             Raadpleegbaar via www.tweedekamer.nl.
+
+
+
+
+kst-26643-816
+ISSN 0921 - 7371
+’s-Gravenhage 2022       Tweede Kamer, vergaderjaar 2021–2022, 26 643, nr. 816                    1
+Versterk de sturing van de vervanging van Globe
+
+Het eerste deeladvies is om een aanpak te hanteren waarin resultaten
+gefaseerd worden opgeleverd en de grip op voortgang in tijd en geld
+wordt verstevigd. Verder wordt geadviseerd om naar mogelijkheden te
+zoeken om de scope verder te beperken en de snelheid te verhogen.
+Dit advies ondersteunt de reeds ingezette versterking van het portfolioma-
+nagement van BZK. Met het portfoliomanagement wordt grote
+ICT-projecten zoals FBS ieder kwartaal getoetst en bijgestuurd op basis
+van criteria die mede zijn gebaseerd op het toetsingskader van het AcICT.
+Voor de eerste oplevering van de toekomstige centrale voorziening van
+FBS wordt daarom ook geen nieuwe functionaliteit gerealiseerd bovenop
+de functionaliteit die de huidige voorziening Globe biedt. De architectuur
+van FBS houdt weliswaar rekening met toekomstige uitbreidbaarheid en
+flexibiliteit, maar de functionaliteit die nu wordt gebouwd, is beperkt van
+scope en is primair gericht op de vervanging van Globe en de ontwik-
+keling van Bekendmakingen vanuit de Wet Elektronische Bekendmakingen
+voor KOOP2, de launching customer3 van FBS.
+
+Ik herken de notie dat de sturing op planning, voortgang en financiën van
+belang is. In de aanpak is dit daarom al een belangrijk punt van aandacht.
+Mijn ministerie stuurt hier nadrukkelijk op met het hiervoor genoemde
+portfoliomanagement. Dit doet zij samen met een zogenaamde sponsor-
+groep waarin een afvaardiging van de afnemers (uitvoeringsorganisaties
+en medeoverheden) vertegenwoordigd is. Recent is een herijkte roadmap
+voor het programma FBS opgesteld. Deze roadmap geeft inzicht in de
+externe afhankelijkheden, werkpakketten, migratieplanning en mijlpalen.
+Dit geeft meer inzicht in onderlinge afhankelijkheden. De herijkte roadmap
+is inmiddels vastgesteld in bovenstaande governance van FBS. Deze
+roadmap FBS biedt voorts ondersteuning bij het zoeken naar mogelijk-
+heden door het programma om kritieke-pad-activiteiten te versnellen.
+Periodiek wordt de roadmap FBS geactualiseerd en vastgesteld.
+
+In de periode waarin de toets is uitgevoerd, heeft een verdieping
+plaatsgevonden op de financiën in relatie tot de voortgang. De onder-
+bouwing is inzichtelijk gemaakt en verstevigd. Het programma verwacht
+in het eerste kwartaal van 2022 de begroting te hebben aangepast aan de
+herijkte roadmap.
+
+Zet volgende stappen alleen bij gevalideerde gebruikersbehoeften
+
+In het tweede deeladvies beveelt het college aan bij de doorontwikkeling
+van de berichtenvoorziening een «boter bij de vis» aanpak te adopteren
+en alert te zijn op «over-engineering», zoals de invulling van behoeften die
+onvoldoende hard zijn of de niet-noodzakelijke vervanging van tijdelijke
+oplossingen. Ik neem deze aanbeveling ter harte. Het programma werkt
+aan een minimum viable product4 (MVP) dat de functionaliteit van Globe
+afdekt. De directe aanleiding voor de vervanging van Globe is zoals
+gezegd de contractuele vervanging. De migratiestrategie die Logius voor
+ogen heeft, behelst om eerst de bestaande aangesloten partijen van Globe
+te migreren naar het centrale berichtenmagazijn. Pas daarna worden de
+
+2
+  Via de website www.officielebekendmakingen.nl maken overheidsorganisaties hun publicaties
+  officieel bekend. Per maand worden vele duizenden bekendmakingen gepubliceerd, dit zijn
+  (wijzigingen in) wet- en regelgeving en verdragen van de centrale overheid, maar ook
+  vergunningen, ruimtelijke plannen van decentrale overheden.
+3
+  Een launching customer is de eerste klant die een nieuw product in gebruik neemt en die
+  bereid is om als referent op te treden om potentiële klanten te overtuigen.
+4
+  Een minimum viable product is een product met net genoeg kenmerken om waarde toe te
+  voegen voor vroeg aansluitende afnemers, als een startpunt om terugkoppeling te krijgen voor
+  verdere productontwikkeling.
+
+
+
+
+Tweede Kamer, vergaderjaar 2021–2022, 26 643, nr. 816                                        2
+decentrale berichtenmagazijnen aangesloten, nadat de integrale werking
+van de keten is aangetoond. Tegelijkertijd wordt ook de kans aangegrepen
+om deze applicatie met behulp van nieuwe en veiliger technologie, in de
+vorm van services, flexibeler en kostenefficiënter te ontwikkelen.
+
+Het college adviseert om pas tijd te besteden aan het meer generiek
+bruikbaar maken van de te ontwikkelen services als bekend is waarvoor
+deze nog meer ingezet kunnen worden. De generieke services zijn alle vier
+nodig voor het berichtenstelsel en worden in die context ontwikkeld. De
+sponsorgroep van het programma en mijn ministerie zullen na de
+ingebruikname van het nieuwe berichtenmagazijn, met afnemers
+onderzoeken hoe de generieke services breder ingezet kunnen worden.
+Logius doet dit ook voor haar eigen dienstverlening.
+
+Binnen FBS zullen nieuwe functionaliteiten, zoals een portaal voor
+ondernemers en tweerichtingsverkeer, alleen uitgevoerd worden bij een
+goedgekeurd wijzigingsverzoek volgens de nieuwe Generieke Digitale
+Infrastructuur (GDI-) governance. Daarnaast zal er gestuurd worden om
+het komende jaar commitment te verkrijgen van de partijen die potentieel
+gaan aansluiten, met daarbij inzicht in de af te nemen componenten,
+volumes en gevolgen. Dit draagt ook bij aan het managen van de
+verwachtingen van deze partijen.
+
+Uiteindelijk gaat het erom dat burgers en ondernemers een meerwaarde
+ervaren bij de digitale diensten die worden aangeboden. Logius doet
+verschillende soorten gebruikersonderzoeken om meer inzicht te krijgen
+in de belevingswereld van burgers en ondernemers en hoe ze overheids-
+diensten gebruiken. Gebruikers worden daarbij al vanaf het ontwerp
+betrokken in de ontwikkeling van bijvoorbeeld FBS. Verder onderhoudt
+Logius relaties met belangenorganisaties en organisaties die mensen
+helpen die moeite hebben met de digitalisering. Ook voor FBS kan gebruik
+gemaakt worden van ervaringsdeskundigen van deze organisaties. Op
+deze manier nemen wij de ervaringen en behoeften van diverse
+gebruikers (burgers en ondernemers) mee in de ontwikkeling van FBS.
+
+Neem als BZK een leidende rol bij invullen van de randvoor-
+waarden berichtenstelsel
+
+Het derde deeladvies betreft het voortouw nemen door mijn ministerie bij
+het invullen van de randvoorwaarden. Het toetsteam geeft hiervoor
+concrete aanknopingspunten.
+
+Ik beschouw het advies als een ondersteuning van het ingezette beleid.
+Vanaf 1 januari 2022 is mijn ministerie opdrachtgever van de Generieke
+Digitale Infrastructuur (GDI)5. Dit opdrachtgeverschap geeft mijn
+ministerie vorm in goede samenwerking met de uitvoeringsorganisaties
+en medeoverheden in de Programmeringsraad GDI. In deze governance
+vindt sturing plaats op de uitvoering, meerjarige planning en financiering
+van bestaande en nieuw te bouwen onderdelen van de GDI. De nieuwe
+sturing en samenwerking in de Programmeringsraad GDI geven mij
+vertrouwen dat veel organisaties met een publieke taak gaan deelnemen
+aan FBS.
+
+
+
+5
+    De GDI is de set aan afspraken, standaarden en voorzieningen die overheidsorganisaties en
+    dienstverleners met een publieke taak ondersteunt bij de inrichting van hun digitale dienstver-
+    lening aan burgers en bedrijven en waar nodig ook bij hun onderlinge digitale samenwerking.
+    Het perspectief van burgers en bedrijven is hierin leidend: de publieke digitale dienstverlening
+    is voor burgers en bedrijven beschikbaar, veilig en gemakkelijk in gebruik. Voorbeelden zijn:
+    DIGID, Berichtenbox/FBS, Digikoppeling en Diginetwerk.
+
+
+
+
+Tweede Kamer, vergaderjaar 2021–2022, 26 643, nr. 816                                              3
+Het college adviseert om verschillende scenario’s op te stellen om FBS
+verder te verbeteren en een keuze te maken, waarbij de grootste risico’s in
+kaart worden gebracht voor elk scenario en vooraf de functionele
+haalbaarheid en technische maakbaarheid van het scenario vast te stellen
+en te leren van vergelijkbare stelsels. Het belang van het in kaart brengen
+van risico’s en de functionele haalbaarheid en technische maakbaarheid is
+helder. Ten behoeve van FBS wordt risicomanagement, evenals quality
+assurance, verricht. Ik zal erop toezien dat dit adequaat wordt uitgevoerd.
+Ik streef ernaar om in 2022 een MVP van het afsprakenstelsel van FBS op
+te leveren dat de risico’s zoveel mogelijk beperkt en dat tegelijkertijd de
+grootst mogelijke waarde oplevert.
+
+Het belang van het leren van vergelijkbare ontwikkelingen bij andere
+stelsels onderschrijf ik. In de afgelopen maanden is gewerkt aan het
+gezamenlijk met afnemers opstellen van de stelselafspraken. Daarvoor is
+gebruik gemaakt van het mede door Logius ontwikkelde BOMOS-model
+(Beheer en OntwikkelModel Open Standaarden)6. Logius gebruikt BOMOS
+voor alle standaarden die het in beheer heeft. Hiermee garandeert Logius
+dat de beheerde standaarden open en toegankelijk zijn. Dit model voor
+standaarden is aangepast voor afsprakenstelsels aan de hand van de
+ervaringen van Logius met het beheren van andere afsprakenstelsels. De
+planning is dat eind 2022 een door afnemers gedragen set aan afspraken
+wordt opgeleverd.
+
+Het advies om draagvlak en buy-in bij (potentiële) afnemers te organi-
+seren neem ik ter harte. Ik merk daarbij op dat de afnemers
+mede-initiatiefnemer zijn geweest van FBS. Het programma gaat met
+afnemers inzichtelijk maken welke afnemers wanneer op welke diensten
+gaan aansluiten. Met deze informatie kan een beeld worden gevormd van
+de volumes die daarmee gemoeid zijn. Dit kan tevens dienen als inspiratie
+voor overige (potentiële) aansluitende partijen. Hiervoor wordt een
+aansluitplan gemaakt met concrete afspraken over het aansluiten van
+(nieuwe) afnemers en de wijze waarop dit gebeurt.
+
+Tot slot
+
+Ik dank het AcICT voor het uitgebrachte advies. Het advies draagt bij aan
+de kwaliteit van FBS. Ik vertrouw erop dat de maatregelen naar aanleiding
+van het advies zullen bijdragen aan een succesvolle realisatie van FBS.
+
+De Staatssecretaris van Binnenlandse Zaken en Koninkrijksrelaties,
+A.C. van Huffelen
+
+
+
+
+6
+    BOMOS is een open beheerstandaard die werkt met handreikingen die zijn gecategoriseerd
+    naar soorten beheerprocessen. Hierdoor kan een beheerder eenvoudig tips en best practices
+    vinden voor specifieke beheervragen. Ook is het mogelijk via de BOMOS-meting het beheer-
+    proces van een open standaard te beoordelen en aandachtspunten te ontdekken voor beter
+    beheer. Het Forum Standaardisatie heeft de praktische handreiking (stappenplan) voor BOMOS
+    gepubliceerd op zijn website en deze is te vinden via de link: https://
+    www.forumstandaardisatie.nl/sites/default/files/BFS/4-basisinformatie/publicaties/Publicatie-
+    BOMOS-2i.pdf.
+
+
+
+
+Tweede Kamer, vergaderjaar 2021–2022, 26 643, nr. 816                                          4
+

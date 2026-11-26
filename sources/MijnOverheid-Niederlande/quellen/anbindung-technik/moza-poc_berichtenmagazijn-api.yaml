@@ -1,0 +1,927 @@
+# FBS Berichtenmagazijn API (OpenAPI 0.5.0) – MOZa PoC (MinBZK, GitHub)
+# Quelle: https://github.com/MinBZK/moza-poc-fbs-berichtenbox/blob/8bdea8399eb121a4df258d6d2d666f82a0d6c7a1/services/berichtenmagazijn/src/main/resources/openapi/berichtenmagazijn-api.yaml
+# Abgerufen: 2026-11-26 (Commit 8bdea83 vom 2026-11-23, unverändert)
+
+openapi: 3.0.3
+info:
+  title: FBS Berichtenmagazijn API
+  version: 0.5.0
+  description: |
+    API van het decentrale berichtenmagazijn binnen het Federatief Berichtenstelsel (FBS).
+
+    - **Aanlever** — organisaties leveren nieuwe berichten aan via `POST /aanleveringen`.
+    - **Berichten** — consumers (berichtensessiecache, berichten-uitvraag-service) halen
+      berichtenlijsten, berichten en bijlagen op, werken de status van een bericht bij
+      (gelezen/map) of verwijderen een bericht.
+
+    De ontvanger van een bericht wordt op alle endpoints onder `/berichten` meegestuurd
+    als header `X-Ontvanger` in formaat `<TYPE>:<WAARDE>` (zoals `BSN:123456782`),
+    zodat persoonsgegevens niet in URL of toegangslogs verschijnen.
+
+    ## Foutantwoorden herkennen
+
+    Elk foutantwoord is `application/problem+json` (RFC 9457) en draagt in `type` een kenmerk
+    van de vorm `urn:fbs:fout:<code>`. Daaraan zie je dat het antwoord van dit magazijn komt en
+    om welke situatie het gaat; ontbreekt `type` of staat er `about:blank`, dan komt het
+    antwoord ergens onderweg vandaan. De codes liggen vast — stuur je gedrag op `type`, niet op
+    `title` of `detail`.
+
+    | `type` | Status | Situatie |
+    |---|---|---|
+    | `urn:fbs:fout:bericht-onbekend` | 404 | Het bericht of de bijlage bestaat niet |
+    | `urn:fbs:fout:bericht-verwijderd` | 410 | Het bericht bestond, de ontvanger verwijderde het |
+    | `urn:fbs:fout:geen-toegang` | 401, 403 | Ontbrekende toegang, of `X-Ontvanger` hoort niet bij dit bericht |
+    | `urn:fbs:fout:ongeldig-verzoek` | 400, 406, 415 | Het verzoek zelf klopt niet |
+    | `urn:fbs:fout:conflict` | 409 | De aanlevering botst met bestaande data |
+    | `urn:fbs:fout:niet-gevonden` | 404 | Het opgevraagde pad bestaat niet |
+    | `urn:fbs:fout:tijdelijk-niet-beschikbaar` | 503 | Tijdelijk niet beschikbaar |
+    | `urn:fbs:fout:keten-fout` | 502, 504 | Een schakel vóór dit magazijn hapert — een gateway, of een magazijn dat een storing simuleert |
+    | `urn:fbs:fout:interne-fout` | 500 | Onverwachte fout; `instance` draagt de correlatie-id |
+
+    Dit magazijn onderscheidt "bestaat niet" (404) wél van "bestaat wel, maar hoort bij een andere
+    ontvanger" (403): het zoekt het bericht op vóór het de eigenaar controleert. Een afnemer die
+    dat verschil voor zijn eigen gebruikers dicht wil houden, moet dat zelf doen — de
+    berichten-uitvraag doet dat door uitsluitend uit een per-ontvanger gesleutelde opslag te lezen.
+
+    `410` verschijnt alleen op `PATCH`, ná de eigenaar-check: daar staat vast dat de aanroeper de
+    eigenaar is. Bij het ophalen van een bericht of bijlage filtert de query verwijderde berichten
+    al weg vóór de eigenaar bekend is, dus zou een eigen code daar het bestaan van andermans
+    bericht verraden.
+  contact:
+    name: MijnOverheid Zakelijk
+    email: moza@minbzk.nl
+    url: https://github.com/MinBZK/moza-poc-fbs-berichtenbox
+  license:
+    name: EUPL-1.2
+    url: https://eupl.eu/1.2/nl/
+  x-api-id: nl.rijksoverheid.moz.fbs.berichtenmagazijn-aanlever
+  x-summary: Aanlever-API voor het decentrale FBS berichtenmagazijn
+
+# ADR nlgov:servers-use-https — bewust afgeweken (pas-toe-of-leg-uit): de API wordt
+# achter een TLS-terminerende gateway geserveerd, waardoor de externe https-host per
+# omgeving verschilt. Een absolute `https://host` hier hardcoden zou per omgeving fout
+# zijn; de relatieve base-path is omgeving-onafhankelijk. Een absolute https-server kan
+# bij publicatie per omgeving geïnjecteerd worden.
+servers:
+  - url: /api/v1
+    description: Versioned API base path
+
+# Elke tag bezit zijn eigen pad-subtree, en geen enkele tag zit onder die van een
+# andere. De code-generator laat het class-basispad van een tag vervallen zodra dat
+# pad de routes van een ándere tag zou afvangen; de operaties dragen dan hun volledige
+# pad, en Quarkus REST — dat eerst op class-basispad resolvet — beantwoordt ze met 405.
+# Aanleveren heeft daarom een eigen resource in plaats van `POST /berichten`, en alles
+# onder /berichten valt onder één tag.
+tags:
+  - name: Aanlever
+    description: Aanlevering van berichten aan het magazijn
+  - name: Berichten
+    description: Berichten en bijlagen opvragen, status bijwerken en verwijderen
+  - name: Specificatie
+    description: Dit OpenAPI-document, op de plek waar de API Design Rules het verwachten.
+
+paths:
+  /aanleveringen:
+    post:
+      tags: [Aanlever]
+      summary: Lever een nieuw bericht aan bij het magazijn
+      operationId: leverBerichtAan
+      description: |
+        Slaat een nieuw bericht op in het magazijn. Aangeleverd door organisaties via
+        de eigen back-office naar het magazijn van de ontvanger. Het magazijn kent een
+        `berichtId` (UUID) toe, registreert het tijdstip van ontvangst en valideert de
+        identificatie van afzender en ontvanger.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BerichtAanleverenRequest'
+      responses:
+        '201':
+          description: Bericht succesvol opgeslagen
+          headers:
+            API-Version:
+              $ref: '#/components/headers/API-Version'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BerichtResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+
+  /berichten:
+    get:
+      tags: [Berichten]
+      summary: Berichtenlijst ophalen voor een ontvanger
+      operationId: getBerichten
+      description: |
+        Geeft een gepagineerde lijst van bericht-**samenvattingen** terug voor de
+        ontvanger uit de `X-Ontvanger` header. Verwijderde berichten zijn uitgesloten.
+        Een samenvatting bevat de header-velden (afzender, ontvanger, onderwerp,
+        tijdstipOntvangst, publicatietijdstip, status, aantalBijlagen) plus per bijlage
+        een download-handle (`bijlageId` + `naam`). De tekstuele inhoud zit er **niet**
+        in; haal die op via `GET /berichten/{berichtId}`. Een afnemer die een lijst toont
+        heeft de tekst niet nodig, dus versturen we die pas als de ontvanger het bericht
+        daadwerkelijk opent (data-minimalisatie AVG art. 5(1)(c) en
+        bandbreedte-efficiëntie).
+      parameters:
+        - $ref: '#/components/parameters/OntvangerHeader'
+        - name: afzender
+          in: query
+          required: false
+          description: Optioneel filter op afzender (OIN)
+          schema:
+            type: string
+            pattern: '^[0-9]{20}$'
+            minLength: 20
+            maxLength: 20
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/PageSizeParam'
+      responses:
+        '200':
+          description: Berichtenlijst voor de ontvanger
+          headers:
+            API-Version:
+              $ref: '#/components/headers/API-Version'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BerichtenLijst'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /berichten/{berichtId}:
+    parameters:
+      - $ref: '#/components/parameters/BerichtIdPath'
+    get:
+      tags: [Berichten]
+      summary: Bericht ophalen (inclusief inhoud en bijlagen-metadata)
+      operationId: getBerichtById
+      description: |
+        Haalt één bericht op aan de hand van het `berichtId`, inclusief de tekstuele
+        inhoud, status en metadata van eventuele bijlagen. Levert 404 als het bericht
+        niet bestaat of (soft-)verwijderd is, en 403 als de `X-Ontvanger` header niet
+        matcht met de ontvanger op het bericht.
+      parameters:
+        - $ref: '#/components/parameters/OntvangerHeader'
+      responses:
+        '200':
+          description: Bericht gevonden
+          headers:
+            API-Version:
+              $ref: '#/components/headers/API-Version'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bericht'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    patch:
+      tags: [Berichten]
+      summary: Berichtstatus bijwerken (gelezen, map)
+      operationId: updateBerichtStatus
+      description: |
+        Werkt de leesstatus en/of map van een bericht bij voor de ontvanger uit de
+        `X-Ontvanger` header. Velden die niet in het request voorkomen blijven
+        ongewijzigd. Zie `BerichtStatusPatch` voor de semantiek rond ontbrekende
+        en expliciete `null`-waardes.
+      parameters:
+        - $ref: '#/components/parameters/OntvangerHeader'
+      requestBody:
+        required: true
+        content:
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/BerichtStatusPatch'
+      responses:
+        '200':
+          description: Status bijgewerkt
+          headers:
+            API-Version:
+              $ref: '#/components/headers/API-Version'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bericht'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '410':
+          $ref: '#/components/responses/Gone'
+        '415':
+          $ref: '#/components/responses/UnsupportedMediaType'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags: [Berichten]
+      summary: Bericht verwijderen (soft-delete)
+      operationId: verwijderBericht
+      description: |
+        Markeert het bericht als verwijderd voor de ontvanger. Het bericht is daarna
+        niet meer opvraagbaar via Ophaal-endpoints, maar blijft fysiek aanwezig in het
+        magazijn ten behoeve van audit en herstel.
+      parameters:
+        - $ref: '#/components/parameters/OntvangerHeader'
+      responses:
+        '204':
+          description: Bericht verwijderd
+          headers:
+            API-Version:
+              $ref: '#/components/headers/API-Version'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /berichten/{berichtId}/bijlagen/{bijlageId}:
+    parameters:
+      - $ref: '#/components/parameters/BerichtIdPath'
+      - name: bijlageId
+        in: path
+        required: true
+        description: Uniek ID van de bijlage binnen het bericht
+        schema:
+          type: string
+          format: uuid
+    get:
+      tags: [Berichten]
+      summary: Bijlage ophalen (bytes)
+      operationId: getBijlage
+      description: |
+        Levert de ruwe inhoud (bytes) van een bijlage. De `Content-Type` response-header
+        bevat het MIME-type zoals geregistreerd bij aanlevering (bijvoorbeeld
+        `application/pdf`).
+
+        `Content-Disposition` draagt de bestandsnaam en bepaalt of een browser de bijlage
+        mag tonen. `inline` geldt uitsluitend voor `application/pdf`, `image/png` en
+        `image/jpeg`: typen waarvan de weergave geen code uitvoert die bij de DOM of de
+        cookies van de afnemer kan. Elk ander type krijgt `attachment` — met name `text/html` en
+        `image/svg+xml`, die bij het openen van dit adres onder de origin van de afnemer
+        zouden draaien (stored XSS); CSP `frame-ancestors` dekt die top-level navigatie
+        niet.
+
+        Een geregistreerd MIME-type dat onbruikbaar is als headerwaarde (niet te parsen,
+        of met control-tekens) levert 500 in plaats van bytes onder een type dat niet
+        klopt.
+      parameters:
+        - $ref: '#/components/parameters/OntvangerHeader'
+      responses:
+        '200':
+          description: Bijlage-inhoud (bytes); de werkelijke `Content-Type` reflecteert het bij aanlevering geregistreerde MIME-type.
+          headers:
+            API-Version:
+              $ref: '#/components/headers/API-Version'
+            Content-Disposition:
+              description: |
+                `inline` voor `application/pdf`, `image/png` en `image/jpeg`, `attachment`
+                voor elk ander type. Draagt de bestandsnaam als `filename` (ASCII-vorm voor
+                clients die `filename*` niet kennen) en `filename*` (RFC 5987, UTF-8, voor
+                de naam zoals hij werkelijk is).
+              schema:
+                type: string
+                example: "inline; filename=\"voorlopige-aanslag-2026.pdf\"; filename*=UTF-8''voorlopige-aanslag-2026.pdf"
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '406':
+          $ref: '#/components/responses/NotAcceptable'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+
+  /openapi.json:
+    get:
+      tags: [Specificatie]
+      summary: OpenAPI-document van deze API
+      description: |
+        Dit document, als JSON, op `/openapi.json` onder het basisadres
+        (ADR `/core/publish-openapi`). Vrij op te halen, ook vanuit een browser op een
+        ander domein: de response staat elke origin toe, de rest van de API niet.
+      operationId: getOpenApiDocument
+      # Het document beschrijft de API en bevat geen gegevens; afnemers en tooling lezen het
+      # zonder token, net als op de root.
+      security: []
+      responses:
+        '200':
+          description: Het OpenAPI-document
+          headers:
+            API-Version: { $ref: '#/components/headers/API-Version' }
+            # Kleine letters: de ADR-linter zoekt de header op precies deze sleutel.
+            access-control-allow-origin:
+              description: Altijd `*`, zodat tooling in de browser het document kan lezen.
+              schema: { type: string, enum: ['*'] }
+          content:
+            application/json:
+              schema:
+                type: object
+                description: OpenAPI-document (OpenAPI 3).
+        '500': { $ref: '#/components/responses/InternalServerError' }
+
+components:
+  headers:
+    API-Version:
+      description: Versie van de API
+      schema:
+        type: string
+        example: "0.3.0"
+
+  parameters:
+    OntvangerHeader:
+      name: X-Ontvanger
+      in: header
+      required: true
+      description: |
+        Ontvanger van het bericht in formaat `<TYPE>:<WAARDE>`, bijvoorbeeld
+        `BSN:123456782`, `KVK:12345678`, `RSIN:002564440` of `OIN:00000001003214345000`.
+        Wordt als header doorgegeven om persoonsgegevens uit URL en toegangslogs te houden.
+
+        De regex koppelt de lengte aan het type: BSN/RSIN = 9 cijfers (elfproef),
+        KVK = 8 cijfers, OIN = 20 cijfers. Verdere domein-invarianten (elfproef voor
+        BSN/RSIN, niet-geheel-nullen) worden in de service-laag afgedwongen.
+      schema:
+        type: string
+        pattern: '^(BSN:[0-9]{9}|RSIN:[0-9]{9}|KVK:[0-9]{8}|OIN:[0-9]{20})$'
+        minLength: 12
+        maxLength: 24
+    BerichtIdPath:
+      name: berichtId
+      in: path
+      required: true
+      description: Uniek ID van het bericht
+      schema:
+        type: string
+        format: uuid
+    PageParam:
+      name: page
+      in: query
+      required: false
+      description: Paginanummer (0-based)
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    PageSizeParam:
+      name: pageSize
+      in: query
+      required: false
+      description: Aantal resultaten per pagina
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 20
+
+  schemas:
+    BerichtAanleverenRequest:
+      type: object
+      required: [afzender, ontvanger, onderwerp, inhoud]
+      properties:
+        afzender:
+          type: string
+          pattern: '^[0-9]{20}$'
+          minLength: 20
+          maxLength: 20
+          description: OIN (20 cijfers) van de versturende organisatie
+          example: "00000001003214345000"
+        ontvanger:
+          $ref: '#/components/schemas/Identificatienummer'
+        onderwerp:
+          type: string
+          minLength: 1
+          maxLength: 255
+          description: Onderwerp van het bericht (vrije tekst)
+          example: "Voorlopige aanslag 2026"
+        inhoud:
+          type: string
+          minLength: 1
+          maxLength: 1048576
+          description: |
+            Berichtinhoud (tekst). De server-side grens is **1 MiB UTF-8 bytes**, niet
+            characters; bij multibyte-tekens (bv. emoji's, 4 bytes elk) past dus minder
+            tekst dan `maxLength` doet vermoeden. `maxLength` is in JSON-Schema in
+            characters gedefinieerd en dient hier als grove bovengrens.
+        publicatietijdstip:
+          type: string
+          format: date-time
+          description: |
+            Tijdstip vanaf wanneer het magazijn dit bericht mag publiceren naar
+            downstreams (Aanmeld Service, Notificatie Service). Optioneel; bij
+            ontbreken publiceert het magazijn direct na opslag.
+            ISO 8601 date-time, voorbeeld `2026-05-13T08:00:00Z`. Mag in de
+            toekomst liggen.
+          example: "2026-05-13T08:00:00Z"
+        bijlagen:
+          type: array
+          description: Optionele bijlagen bij het bericht
+          items:
+            $ref: '#/components/schemas/BijlageAanleverenRequest'
+
+    BijlageAanleverenRequest:
+      type: object
+      required: [naam, mimeType, inhoud]
+      properties:
+        naam:
+          type: string
+          minLength: 1
+          maxLength: 255
+          description: Bestandsnaam zoals zichtbaar voor de ontvanger
+          example: "voorlopige-aanslag-2026.pdf"
+        mimeType:
+          type: string
+          minLength: 1
+          maxLength: 127
+          description: MIME-type van de bijlage
+          example: "application/pdf"
+        inhoud:
+          type: string
+          format: byte
+          description: Bijlage-inhoud als Base64-gecodeerde bytes
+          minLength: 1
+
+    Identificatienummer:
+      type: object
+      required: [type, waarde]
+      description: |
+        Getypeerd identificatienummer. `type` is verplicht en wordt niet uit `waarde`
+        afgeleid; onbekende types of waardes die niet aan de type-invarianten voldoen
+        (lengte, cijfers-only, elfproef voor BSN/RSIN) resulteren in een 400-response.
+      properties:
+        type:
+          type: string
+          enum: [BSN, RSIN, KVK, OIN]
+          description: Type identificatienummer
+        waarde:
+          type: string
+          pattern: '^[0-9]{1,20}$'
+          minLength: 8
+          maxLength: 20
+          description: Numerieke waarde, valide conform het opgegeven type
+      example:
+        type: BSN
+        waarde: "123456782"
+
+    BerichtResponse:
+      type: object
+      description: Response op `POST /aanleveringen` (Aanlever).
+      required: [berichtId, afzender, ontvanger, onderwerp, tijdstipOntvangst, publicatietijdstip, _links]
+      properties:
+        berichtId:
+          type: string
+          format: uuid
+          description: Unieke identifier van het opgeslagen bericht
+        afzender:
+          type: string
+          description: OIN van de versturende organisatie (echo van de request)
+        ontvanger:
+          $ref: '#/components/schemas/Identificatienummer'
+        onderwerp:
+          type: string
+          description: Onderwerp van het bericht (echo van de request)
+        tijdstipOntvangst:
+          type: string
+          format: date-time
+          description: Tijdstip waarop het magazijn het bericht heeft ontvangen (server-side gezet, ISO 8601)
+        publicatietijdstip:
+          type: string
+          format: date-time
+          description: |
+            Effectieve publicatie-tijd: de waarde uit de request, of
+            `tijdstipOntvangst` als de aanleveraar geen `publicatietijdstip`
+            meestuurde. ISO 8601 date-time.
+        _links:
+          $ref: '#/components/schemas/BerichtLinks'
+
+    Bericht:
+      type: object
+      description: |
+        Volledig bericht inclusief tekstuele inhoud en metadata van eventuele bijlagen.
+        Bijlage-bytes worden separaat opgehaald via
+        `GET /berichten/{berichtId}/bijlagen/{bijlageId}`. Dit schema wordt gebruikt
+        door `GET /berichten/{berichtId}` en `PATCH /berichten/{berichtId}` zodat consumers
+        één representatie van een volledig bericht kennen. De lijst levert
+        `BerichtSamenvatting`.
+      required: [berichtId, afzender, ontvanger, onderwerp, inhoud, tijdstipOntvangst, publicatietijdstip, bijlagen, _links]
+      properties:
+        berichtId:
+          type: string
+          format: uuid
+        afzender:
+          type: string
+          description: OIN van de afzender
+        ontvanger:
+          $ref: '#/components/schemas/Identificatienummer'
+        onderwerp:
+          type: string
+        inhoud:
+          type: string
+        tijdstipOntvangst:
+          type: string
+          format: date-time
+          description: Audit-tijd waarop het magazijn het bericht ontving (server-side gezet).
+        publicatietijdstip:
+          type: string
+          format: date-time
+          description: "Effectieve publicatie-tijd: aanleveraar-input of fallback tijdstipOntvangst"
+        bijlagen:
+          type: array
+          items:
+            $ref: '#/components/schemas/BijlageMetadata'
+        status:
+          $ref: '#/components/schemas/BerichtStatusInfo'
+        _links:
+          $ref: '#/components/schemas/BerichtLinks'
+
+    BijlageMetadata:
+      type: object
+      description: Metadata van een bijlage, zonder inhoud.
+      required: [bijlageId, naam, mimeType, _links]
+      properties:
+        bijlageId:
+          type: string
+          format: uuid
+        naam:
+          type: string
+          minLength: 1
+          maxLength: 255
+          example: "voorlopige-aanslag-2026.pdf"
+        mimeType:
+          type: string
+          minLength: 1
+          maxLength: 127
+          example: "application/pdf"
+        _links:
+          $ref: '#/components/schemas/BijlageLinks'
+
+    BijlageSamenvatting:
+      type: object
+      description: |
+        Lichte vorm van bijlage-metadata voor lijst-responses: alleen
+        identifier en naam. Bytes en mimeType blijven beschikbaar via
+        `GET /berichten/{berichtId}/bijlagen/{bijlageId}`.
+      required: [bijlageId, naam]
+      properties:
+        bijlageId:
+          type: string
+          format: uuid
+        naam:
+          type: string
+          minLength: 1
+          maxLength: 255
+
+    BerichtStatusInfo:
+      type: object
+      description: |
+        Berichtstatus per ontvanger. Veld wordt weggelaten als de ontvanger nog geen
+        status heeft gezet (impliciet ongelezen, geen map).
+      required: [gelezen, gewijzigdOp]
+      properties:
+        gelezen:
+          type: boolean
+          default: false
+        map:
+          type: string
+          minLength: 1
+          maxLength: 128
+          description: Optioneel map-label gekozen door de ontvanger
+          example: archief
+        gewijzigdOp:
+          type: string
+          format: date-time
+          readOnly: true
+
+    BerichtStatusPatch:
+      type: object
+      description: |
+        Patch-body voor `PATCH /berichten/{berichtId}`. Stuur alleen de velden die
+        je wilt wijzigen.
+
+        Een ontbrekend veld én een veld dat expliciet op `null` staat worden beide
+        behandeld als "niet wijzigen". Een map wissen gaat daarom met de lege string:
+        `"map": ""` haalt het bericht uit zijn map, terug naar Postvak IN. Een map
+        bestaat alleen als eigenschap van een bericht; zonder dit pad raakt een map
+        nooit meer leeg.
+      properties:
+        gelezen:
+          type: boolean
+          description: Markeer het bericht als gelezen (`true`) of ongelezen (`false`)
+        map:
+          type: string
+          minLength: 0
+          maxLength: 128
+          description: |
+            Verplaats naar deze map. `""` haalt het bericht uit zijn map (terug naar
+            Postvak IN); een naam van alleen witruimte is ongeldig.
+          example: archief
+
+    BerichtSamenvatting:
+      type: object
+      description: |
+        Lichte representatie van een bericht voor lijstweergaves: kopgegevens plus
+        bijlage-identifiers (`bijlagen[]` met `bijlageId` + `naam`), zodat een
+        afnemer een lijst kan tonen zonder vervolg-call per bericht. De tekstuele
+        `inhoud` zit er bewust niet in — die komt uit
+        `GET /berichten/{berichtId}` op het moment dat de ontvanger het bericht
+        opent. Bijlage-bytes worden separaat opgehaald via
+        `GET /berichten/{berichtId}/bijlagen/{bijlageId}`.
+      required: [berichtId, afzender, ontvanger, onderwerp, tijdstipOntvangst, publicatietijdstip, aantalBijlagen, bijlagen, _links]
+      properties:
+        berichtId:
+          type: string
+          format: uuid
+        afzender:
+          type: string
+          description: OIN van de afzender
+        ontvanger:
+          $ref: '#/components/schemas/Identificatienummer'
+        onderwerp:
+          type: string
+        tijdstipOntvangst:
+          type: string
+          format: date-time
+          description: Audit-tijd waarop het magazijn het bericht ontving (server-side gezet).
+        publicatietijdstip:
+          type: string
+          format: date-time
+          description: |
+            Effectieve publicatie-tijd: aanleveraar-input of fallback `tijdstipOntvangst`.
+            Vereist op samenvatting zodat consumers (sessiecache) berichten kunnen sorteren
+            of filteren op publicatiemoment zonder vervolg-detail-call.
+        aantalBijlagen:
+          type: integer
+          minimum: 0
+          description: Aantal bijlagen bij het bericht. Vraag de details op via de detail-endpoint.
+        bijlagen:
+          type: array
+          minItems: 0
+          description: |
+            Lichte bijlage-metadata (identifier + naam) zodat consumers de
+            cache kunnen vullen zonder vervolg-call. Bijlage-bytes en
+            `mimeType` worden separaat opgehaald.
+          items:
+            $ref: '#/components/schemas/BijlageSamenvatting'
+        status:
+          $ref: '#/components/schemas/BerichtStatusInfo'
+        _links:
+          $ref: '#/components/schemas/BerichtLinks'
+
+    BerichtenLijst:
+      type: object
+      required: [berichten, page, pageSize, totalElements, totalPages, _links]
+      properties:
+        berichten:
+          type: array
+          items:
+            $ref: '#/components/schemas/BerichtSamenvatting'
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        totalElements:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+        _links:
+          $ref: '#/components/schemas/PaginationLinks'
+
+    BerichtLinks:
+      type: object
+      required: [self]
+      properties:
+        self:
+          $ref: '#/components/schemas/Link'
+
+    BijlageLinks:
+      type: object
+      required: [self]
+      properties:
+        self:
+          $ref: '#/components/schemas/Link'
+
+    PaginationLinks:
+      type: object
+      required: [self]
+      properties:
+        self:
+          $ref: '#/components/schemas/Link'
+        first:
+          $ref: '#/components/schemas/Link'
+        last:
+          $ref: '#/components/schemas/Link'
+        prev:
+          $ref: '#/components/schemas/Link'
+        next:
+          $ref: '#/components/schemas/Link'
+
+    Link:
+      type: object
+      required: [href]
+      properties:
+        href:
+          type: string
+          format: uri-reference
+
+    Problem:
+      type: object
+      description: |
+        RFC 9457 Problem Details. `type`, `title` en `status` zijn de stabiele velden
+        waar clients op kunnen koppelen; `detail` en `instance` zijn diagnostisch en
+        mogen niet voor besluitvorming worden gebruikt. `additionalProperties: true`
+        laat extension members toe (RFC 9457 §3.2) zodat domein-specifieke velden
+        kunnen meegestuurd worden zonder schema-breekverandering.
+      required: [type, title, status]
+      additionalProperties: true
+      properties:
+        type:
+          type: string
+          format: uri
+          default: "about:blank"
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+          format: uri-reference
+
+  responses:
+    BadRequest:
+      description: Request is syntactisch onjuist, mist verplichte velden of schendt een domein-invariant
+      headers:
+        API-Version:
+          $ref: '#/components/headers/API-Version'
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Forbidden:
+      description: |
+        Toegang geweigerd. De `X-Ontvanger` header matcht niet met de ontvanger van
+        het bericht. Response bevat `instance` met correlation-id voor support.
+      headers:
+        API-Version:
+          $ref: '#/components/headers/API-Version'
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    NotFound:
+      description: |
+        Bericht of bijlage niet gevonden voor de opgegeven IDs (`urn:fbs:fout:bericht-onbekend`).
+        Een bericht dat wél bestaat maar bij een andere ontvanger hoort, geeft 403 — niet dit
+        antwoord.
+      headers:
+        API-Version:
+          $ref: '#/components/headers/API-Version'
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Gone:
+      description: |
+        Het bericht bestond, maar de ontvanger verwijderde het
+        (`urn:fbs:fout:bericht-verwijderd`). Alleen op paden waar de eigenaar-check al geslaagd
+        is; elders blijft het een 404.
+      headers:
+        API-Version:
+          $ref: '#/components/headers/API-Version'
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Conflict:
+      description: Aanlevering conflicteert met bestaande data
+      headers:
+        API-Version:
+          $ref: '#/components/headers/API-Version'
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    InternalServerError:
+      description: Interne fout in het magazijn. Response bevat `instance` met correlation-id voor support.
+      headers:
+        API-Version:
+          $ref: '#/components/headers/API-Version'
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    ServiceUnavailable:
+      description: Magazijn tijdelijk niet beschikbaar
+      headers:
+        API-Version:
+          $ref: '#/components/headers/API-Version'
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Unauthorized:
+      description: |
+        Geen of ongeldige authenticatie. In productie wordt de API afgeschermd via
+        OAuth 2.0 (`client_credentials` met `private_key_jwt`, NL GOV-profiel) en/of
+        mTLS met PKIoverheid (Digikoppeling REST-API). Deze respons wordt door de
+        gateway/service-mesh teruggegeven; de service zelf is in deze PoC nog niet
+        auth-bewust (zie AuthZEN PEP-issue).
+      headers:
+        API-Version:
+          $ref: '#/components/headers/API-Version'
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    NotAcceptable:
+      description: |
+        De server kan geen response leveren die voldoet aan de `Accept`-header van
+        de client. De magazijn-API serveert JSON (`application/json`,
+        `application/problem+json` voor fouten) en bij bijlage-download het
+        opgeslagen MIME-type van de bijlage.
+      headers:
+        API-Version:
+          $ref: '#/components/headers/API-Version'
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    UnsupportedMediaType:
+      description: |
+        De `Content-Type` van het request is niet ondersteund. Aanlever en
+        PATCH-endpoints accepteren respectievelijk `application/json` en
+        `application/merge-patch+json`.
+      headers:
+        API-Version:
+          $ref: '#/components/headers/API-Version'
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        OAuth 2.0 Bearer token (JWT) volgens het NL GOV OAuth-profiel
+        (`client_credentials` grant met `private_key_jwt` client-auth).
+        Voor service-to-service-verkeer binnen FBS; afdwinging via API-gateway.
+
+        Naast bearer-tokens past de productie-omgeving mTLS met PKIoverheid-
+        certificaten toe (Digikoppeling REST-API v3) op de transport-laag — dat
+        is geen OpenAPI-3.0-securityScheme maar wordt op infra-niveau afgedwongen.
+
+security:
+  - bearerAuth: []

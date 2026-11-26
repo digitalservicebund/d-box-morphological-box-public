@@ -1,0 +1,98 @@
+# Kamerstukken II 2022/23, 26 643, nr. 928 – Brief Staatssecretaris BZK zu Logius-Infrastruktur, Digipoort und FBS (18.10.2022)
+
+Quelle: <https://zoek.officielebekendmakingen.nl/kst-26643-928.pdf>
+Abgerufen: 2026-11-26 (PDF daneben als kst-26643-928.pdf; Text mit pdftotext -layout)
+
+---
+
+Tweede Kamer der Staten-Generaal
+                                                                                            2
+Vergaderjaar 2022–2023
+
+
+
+
+26 643                   Informatie- en communicatietechnologie (ICT)
+
+
+
+
+Nr. 928                  BRIEF VAN DE STAATSSECRETARIS VAN BINNENLANDSE ZAKEN
+                         EN KONINKRIJKSRELATIES
+
+                         Aan de Voorzitter van de Tweede Kamer der Staten-Generaal
+
+                         Den Haag, 18 oktober 2022
+
+                         In mijn brief van 27 juni 2022 (Kamerstuk 26 643, nr. 866) informeerde ik
+                         uw Kamer over de vertraging in de opbouw en overgang naar een nieuwe
+                         ICT-infrastructuur bij Logius. Met deze brief informeer ik u over de stand
+                         van zaken, de door mij genomen maatregelen en hoe ik ervoor zorg dat
+                         het traject succesvol wordt afgerond. Daarbij heeft de continuïteit van de
+                         digitale dienstverlening richting burgers en bedrijven mijn volle aandacht.
+                         Zoals in mijn eerdere brief gemeld, blijft de dienstverlening voor vitale
+                         diensten aan burgers, als DigiD, geborgd. Dit omdat de oude
+                         ICT-infrastructuur in gebruik blijft totdat de migraties naar de nieuwe
+                         infrastructuur succesvol hebben plaatsgevonden.
+
+                         Onder mijn toezicht is een analyse gedaan van de stand van zaken.
+
+                         Logius vordert met de opbouw van de nieuwe ICT-infrastructuur. De
+                         oplevering van de oplossingen van de eerder geconstateerde technische
+                         knelpunten door de leverancier is bijna afgerond. Een aantal kleinere
+                         digitale diensten en/of dienstonderdelen zijn al overgestapt naar de
+                         nieuwe infrastructuur die voor deze kleinere diensten al voldoet. De
+                         ervaringen hiermee neemt Logius mee bij de migraties van de grotere
+                         diensten. Hierdoor is de verwachting dat in het vierde kwartaal van 2022
+                         de nieuwe infrastructuur gecontroleerd en beheerst in gebruik wordt
+                         genomen waarna andere digitale diensten kunnen migreren. De
+                         verwachting is dat alle digitale diensten in 2024 zijn gemigreerd. Ik heb
+                         een externe expert en het Adviescollege ICT-toetsing gevraagd om
+                         onderzoek te doen en advies uit te brengen naar de gekozen oplossings-
+                         richting. Zij zullen hun adviezen in de aankomende maanden uitbrengen.
+                         Deze adviezen worden betrokken bij de verdere opbouw en de migraties.
+
+                         Door de vertraging in opbouw en overgang naar de nieuwe infrastructuur
+                         nemen de kosten en de onrechtmatigheid toe. Ook is er helaas vertraging
+                         ontstaan in de planning van de migraties en ten aanzien van een enkele
+                         nieuw te ontwikkelen dienst. Naast wat ik eerder met uw Kamer heb
+
+
+
+
+kst-26643-928
+ISSN 0921 - 7371
+’s-Gravenhage 2022       Tweede Kamer, vergaderjaar 2022–2023, 26 643, nr. 928                       1
+gedeeld (Kamerstuk 26 643, nr. 866) heeft de vertraging van de opbouw
+van de ICT-infrastructuur ook impact op de programma’s Herbouw
+Digipoort en Federatief Berichtenstelsel (hierna: FBS). Digipoort is de
+ICT-centrale waar veel berichtenverkeer voor de overheid afgehandeld
+wordt. FBS ondersteunt de aangescherpte eisen uit het wetsvoorstel
+modernisering elektronisch bestuurlijk verkeer (hierna: WMEBV), dat
+momenteel voorligt in de Eerste Kamer. De huidige dienstverlening zal op
+de bestaande infrastructuur worden gecontinueerd tot het moment dat de
+nieuwe dienstverlening gereed is. Hiermee wordt de impact van de
+vertraging voor burgers en bedrijven beperkt.
+
+Op andere wettelijke toezeggingen voorzie ik nu geen impact. De
+bestaande dienstverlening aan burgers en bedrijven wordt niet geraakt
+door de vertraging van de opbouw van de nieuwe ICT-infrastructuur.
+
+Met uitvoeringsorganisaties en medeoverheden die gebruik maken van de
+dienstverlening van Logius worden nieuwe planningen opgesteld
+wanneer zij na de migratie de dienstverlening in gebruik kunnen nemen.
+
+Continuïteit van de digitale dienstverlening aan burgers en bedrijven heeft
+voor mij de hoogste prioriteit. Daarom blijf ik actief betrokken bij de
+invoering van de nieuwe ICT-infrastructuur totdat alle digitale voorzie-
+ningen de overstap hebben gemaakt. Ik zal uw Kamer informeren over de
+voortgang.
+
+De Staatssecretaris van Binnenlandse Zaken en Koninkrijksrelaties,
+A.C. van Huffelen
+
+
+
+
+Tweede Kamer, vergaderjaar 2022–2023, 26 643, nr. 928                    2
+

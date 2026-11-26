@@ -1,0 +1,1894 @@
+# Handreiking implementatie Wet modernisering elektronisch bestuurlijk verkeer (Awb) 2023, v3 – BZK / digitaleoverheid.nl
+
+Quelle: <https://www.digitaleoverheid.nl/wp-content/uploads/sites/8/2024/12/handreiking-implementatie-wet-modernisering-elektronisch-bestuurlijk-verkeer-awb-2023-v3.pdf>
+Abgerufen: 2026-11-26 (PDF daneben als wmebv-hr-v3.pdf; Text mit pdftotext -layout)
+
+---
+
+Handreiking implementatie
+Wet modernisering elektronisch
+bestuurlijk verkeer (Awb) 2023
+Wat betekenen de veranderingen voor u als
+bestuursorgaan?
+
+
+
+
+                         1
+Inhoudsopgave
+Inleiding                                                                                        3
+Digitaal verkeer met de overheid                                                                 3
+Uitgangspunten wetswijziging; digitale kanalen en zorgplicht                                     7
+Zorgplicht tot passende ondersteuning bij bestuurlijk verkeer                                    8
+Aanleiding                                                                                       9
+Totstandkoming handreiking                                                                       9
+Toolkits na pilots decentrale overheden                                                         10
+Leeswijzer                                                                                      10
+
+Hoofdstuk 1: Wat verandert er?                                                                  11
+Inleiding                                                                                       11
+1. Verzending aan bestuursorgaan; de ontvangst van berichten                                    12
+   Verplichting 1.1: Aanwijzen van elektronische weg voor berichten                             12
+   Verplichting 1.2: Geen onnodige belemmeringen voor verzending formeel elektronisch bericht   12
+2. Verzending aan bestuursorgaan; na ontvangst van berichten                                    13
+   Verplichting 2.1: Ontvangstbevestiging aan afzender                                          13
+   Verplichting 2.2: Beschikbaar stellen gegevens ingevuld in webformulier                      14
+   Verplichting 2.3: Mededeling bij weigering verkeerd ingezonden formeel bericht               14
+3. Nieuwe mogelijkheden                                                                         16
+   3.1: Verlenging indieningstermijn bij storing bij bestuursorgaan                             16
+4. Verzending door bestuursorgaan; gebruik berichtenbox                                         16
+
+Hoofdstuk 2: Hoe staat uw organisatie er nu voor?                                               19
+Inleiding                                                                                       19
+Staat verschillende kanalen elektronische berichtenstroom richting bestuursorganen              19
+Gevolgen van invoering wet modernisering elektronisch bestuurlijk verkeer                       20
+Checklists om de staat van uw organisatie te bepalen                                            20
+Checklists                                                                                      21
+
+Hoofdstuk 3: Wat verandert er voor uw organisatie?                                              25
+Inleiding                                                                                       25
+Over welke soorten berichten gaat het?                                                          25
+Welke digitale kanalen kan ik open stellen om aan de wet te voldoen?                            26
+Welke betrouwbaarheidsniveaus zijn er voor digitale kanalen?                                    27
+Met welke kosten moet ik rekening houden?                                                       30
+Wie zijn er in uw organisatie bij de aanpassingen betrokken?                                    31
+Hoe zit het met berichtenverkeer in de keten en interbestuurlijke samenwerking?                 31
+
+Hoofdstuk 4: Veel voorkomende vragen                                                            32
+Inleiding                                                                                       32
+Veel voorkomende vragen en de antwoorden daarop                                                 32
+
+Bijlagen                                                                                        33
+Bijlage 1: Soorten berichten                                                                    33
+Bijlage 2: De wetsveranderingen ten opzichte van de huidige Awb                                 35
+
+
+
+
+                                                    2
+Inleiding
+Voor u ligt de handreiking implementatie Wet modernisering elektronisch bestuurlijk verkeer (Wmebv).
+Deze handreiking is samengesteld in opdracht van de directie Digitale Overheid van het ministerie van
+Binnenlandse Zaken en Koninkrijksrelaties (BZK).
+
+Het wetsvoorstel is op 9 mei 2023 door de Eerste Kamer aangenomen (Stb. 2023, 183).
+De handreiking is gebaseerd op deze versie van het wetsvoorstel; hierin zijn de in de Tweede Kamer
+aangenomen amendementen verwerkt.
+
+De Wet modernisering elektronisch bestuurlijk verkeer zal naar verwachting per 1 juli 2024 in werking
+kunnen treden. Alle bestuursorganen zullen moeten nagaan of maatregelen in de sfeer van organisatie,
+ICT en voorlichting nodig zijn om aan de verplichtingen van de wet te voldoen. Vervolgens zullen zij
+moeten starten met het voorbereiden en implementeren van deze maatregelen. Om bestuursorganen te
+ondersteunen en mogelijke vragen rond de werkingssfeer van het wetsvoorstel reeds te beantwoorden,
+is deze handreiking geschreven.
+
+Digitaal verkeer met de overheid
+De regering wil in het kader van de digitaal werkende overheid komen tot de implementatie van
+het wetsvoorstel modernisering elektronisch bestuurlijk verkeer Met name de huidige regel dat een
+bestuursorgaan verkeer via de elektronische weg moet toestaan en dus ook kan uitsluiten, wordt
+als verouderd ervaren. Kabinetsbeleid is daarom dat de overheid voor bedrijven en burgers digitaal
+bereikbaar moet zijn voor officiële berichten, zoals bijvoorbeeld het aanvragen van een vergunning
+. Elektronisch bestuurlijk verkeer kan bijdragen aan de vermindering van administratieve lasten van
+burgers en bestuurlijke lasten van bestuursorganen. De wet neemt belemmeringen weg en stelt enkele
+randvoorwaarden aan de modernisering en digitalisering van de werkprocessen binnen de publieke
+sector. Het wetsvoorstel wil daarom de rechten en waarborgen voor burgers en bedrijven versterken.
+Daartoe regelt de wet het volgende:
+
+• Met betrekking tot berichten aan de overheid:
+  - Het recht op het elektronisch inzenden van een bericht in het kader van een formele
+    (wettelijk geregelde) procedure. Hieronder wordt verstaan: de aanvraag voor een beschikking,
+    andere berichten in het kader van die beschikking. Bijvoorbeeld aanvullende informatie, een
+    bezwaarschrift of een zienwijze, een klacht of een ander wettelijk voorgeschreven bericht, zoals de
+    melding van inkomsten die van invloed kunnen zijn op een uitkering of de melding van een niet-
+    vergunningsplichtig bouwwerk,
+  - Een verplichte ontvangstbevestiging van een dergelijk elektronisch bericht aan de overheid.
+    Hierdoor is een burger er zeker van dat de verzending is gelukt en heeft hij hiervan bewijs.
+  - Het recht op afschrift van ingevoerde gegevens in een webformulier. Nu kunnen burgers
+    vaak niet meer nagaan wat ze hebben ingevuld, wat hun positie verzwakt als hierover discussie
+    ontstaat.
+  - Een verbod op het afdwingen in een webformulier van niet verplichte gegevens. Nu is het
+    voltooien van een elektronische aanvraag vaak alleen mogelijk indien ook antwoord wordt gegeven
+    op vragen die het bestuursorgaan interessant vindt, maar die niet noodzakelijk zijn in het kader van
+    de aanvraag.
+  - Een verlengde indieningstermijn bij storing. Hierdoor wordt voorkomen dat een burger buiten
+    zijn schuld een termijn overschrijdt.
+
+
+
+
+                                                   3
+• Met betrekking tot berichten van de overheid in een berichtenbox:
+  - Een verplichte notificatie bij plaatsing van een bericht in een berichtenbox. Nu is het sturen
+    van een notificatie niet verplicht en wordt van burgers verwacht dat ze uit zichzelf periodiek hun
+    berichtenbox raadplegen.
+  - Het opnemen van essentiële informatie in een notificatie. Veel berichten zijn routinematig
+    (bijvoorbeeld maandelijks over de studiefinanciering). Sommige berichten vereisen dat binnen een
+    bepaalde termijn wordt gereageerd omdat anders sancties volgen. Aan de notificatie is dat nu niet
+    te zien, waardoor berichten vaak ten onrechte ongelezen blijven. Voorgeschreven wordt dat een
+    notificatie informatie over de aard en de rechtsgevolgen van het bericht moet vermelden en de
+    reactietermijn.
+  - De verplichting voor de overheid om langs een andere weg contact op te nemen als een
+    notificatie (of een ander elektronisch bericht) niet kan worden bezorgd. Als een e-mailadres
+    wijzigt (bijvoorbeeld bij overname van een provider) en iemand vergeet dit bij de berichtenbox
+    te registreren, dan ontvangt hij geen notificaties meer. Als hierdoor berichten worden gemist
+    kan dit ernstige gevolgen hebben. Bij het niet aankomen van een elektronisch bericht moet dat
+    bericht voortaan opnieuw worden verzonden of er moet contact worden opgenomen met de
+    geadresseerde (schriftelijk, telefonisch) om een nieuw adres te verkrijgen.
+  - De bewijslast inzake de ontvangst en de verzending met een berichtenbox komt bij het
+    bestuurorgaan te berusten; de burger krijgt recht op afschrift van de loggegevens. Dit versterkt de
+    positie van de burger bij een conflict over de vraag of een bericht wel of niet verstuurd is.
+
+• Bij alle communicatie met de overheid (ook voor niet-elektronisch verkeer)
+  - De wet introduceert een nieuwe verplichting in artikel 2:1 eerste lid: “Een bestuursorgaan draagt
+      zorg voor passende ondersteuning bij het verkeer met dat bestuursorgaan.”.
+
+In beginsel moet een bestuursorgaan bij een verkeerde inzending van en bericht altijd een
+herstelmogelijkheid bieden of dient het bestuursorgaan het bericht door te zenden naar het juiste
+(interne of externe) adres. Voor digitaal verkeer wordt hier een uitzondering op gemaakt als iemand een
+bericht stuurt via een niet-aangewezen kanaal. Het bericht kan dan een vorm hebben die zodanig op
+een bepaald automatiseringsproces is toegesneden dat (interne of externe) doorgeleiding ten behoeve
+van behandeling in een ander proces niet doenlijk is. Daartoe regelt de wet dat in een dergelijk geval
+behandeling, het bieden van een hersteltermijn of doorof terugzending niet nodig is. Een bestuursorgaan
+kan ermee volstaan om de afzender te wijzen op de juiste wijze van verzending. En wanneer het
+gebruikte kanaal voor geen enkel formeel bericht is aangewezen, (waardoor het bericht mogelijk in het
+geheel niet is opgemerkt) is ook dit laatste niet verplicht.
+
+Pas op: De uitzondering geldt niet als het bestuursorgaan het bericht zonder nadere bewerking kan
+behandelen (bv als het bericht in de verkeerde postbus is binnengekomen, kan het makkelijk naar de
+goede postbus worden doorgezonden. De uitzondering geldt ook niet als het bericht een bezwaarschrift
+of een administratief beroepschrift is. Die moeten altijd worden behandeld. En als een bestuursorgaan
+geen kanaal heeft aangewezen, is ieder kanaal toegestaan.
+
+
+
+
+                                                   4
+Overzicht van rechten en waarborgen voor de burger met verwijzing naar het betreffende artikel in de
+Awb (een groene tekst geeft aan dat er geen verandering is).
+
+Berichten aan het bestuur
+Art.   Rechten en waarborgen voor de burger            Opmerkingen, beperkingen, voorbeelden
+2:13 Een formeel bericht mag altijd elektronisch     2:7 tenzij een vormvoorschrift zich hiertegen
+     aan het bestuur worden gezonden (aanvraag,      verzet (persoonlijke aanwezigheid, toesturen
+     klacht, bezwaar, beroep, melding)               originele documenten).
+                                                     2:13 Een tijdelijke uitzondering is bij
+                                                     ministeriele regeling mogelijk voor bepaalde
+                                                     bestuursorganen en berichten.
+                                                     2:13 Het bestuur wijst bij besluit elektronische
+                                                     kanalen aan (e-mail, webformulier, upload­
+                                                     mogelijkheid) en kan nadere eisen stellen mits
+                                                     die geen onevenredige belemmering vormen.
+                                                     2:15 Het bestuur mag berichten weigeren
+                                                     wegens belasting (groot bestand) of
+                                                     onveiligheid (virus).
+                                                     2:7 Elektronische verkeer mag niet worden
+                                                     verplicht (alleen bij een andere wet)
+                                                     2:14 Niet officiële berichten mogen alleen
+                                                     met instemming van het bestuur elektronisch
+                                                     worden verzonden. Tenzij in een andere wet
+                                                     iets anders is geregeld.
+2:3    Een bestuursorgaan zendt formele berichten    Tenzij zonder bewerking niet kan worden
+       door of terug als het zelf niet bevoegd is.   afgeleid aan wie het moet worden gezonden.
+2:16   Als een verkeerd kanaal is gebruikt wijst het Het bericht moet echter worden behandeld
+       bestuursorgaan de afzender op de juiste wijze indien dit zonder bewerking (omzetten
+       van verzending.                               in andere vorm) mogelijk is, het een
+                                                     bezwaarschrift of een administratief
+                                                     beroepschrift betreft of als voor het type bericht
+                                                     geen wijze van verzending is aangewezen.
+                                                     Als een kanaal is gebruikt dat voor geen
+                                                     enkel formeel bericht is aangewezen hoeft het
+                                                     bestuursorgaan niet op het bericht te reageren,
+2:17   Het bestuursorgaan bevestigt de ontvangst     Behoudens bij gebruik berichtenbox of als
+       van een formeel bericht, eventueel nadat is   elektronisch adres afzender ontbreekt.
+       medegedeeld dat het is intern is doorgezonden Deze verplichting bestond al bij een
+       (zie ook art 2:24).                           elektronische aanvraag.
+2:17   Verzender heeft recht op een afschrift van    Bijv. door downloaden ingevuld formulier,
+       de gegevens die in een webformulier zijn      toezending daarvan of door toegang ertoe in
+       ingevoerd.                                    een MijnOmgeving.
+2:21   Bij storing kan een indieningstermijn worden
+       verlengd. Anders is een termijnoverschrijding
+       verschoonbaar.
+
+
+
+
+                                                   5
+Art.   Rechten en waarborgen voor de burger            Opmerkingen, beperkingen, voorbeelden
+2:24 Van interne doorgeleiding wordt mededeling
+     gedaan. Deze mededeling vormt het statpunt
+     voor de beslistermijn. Zonder de mededeling
+     geldt als startpunt van de beslistermijn het
+     tijdstip van onjuiste indiening.
+4:4 Een webformulier mag zonder wettelijke
+     grondslag niet verplichten tot het invullen van
+     gegevens die niet noodzakelijk zijn voor de
+     behandeling van het formulier.
+
+Berichten van het bestuur (algemeen)
+Art. Rechten en waarborgen voor de burger              Opmerkingen, beperkingen, voorbeelden
+2:7  Het bestuur mag alleen met instemming van         Een andere wet kan in afwijking van de Awb
+     de geadresseerde berichten elektronisch           bepalen dat elektronisch verkeer toch verplicht
+     toezenden.                                        is.
+2:9 Het bestuur moet berichten op veilige wijze
+     verzenden
+2:11 Een bericht moet bij bouncing nogmaals of op      Een toegezonden besluit geldt bij bouncing als
+     andere wijze worden verzonden.                    niet bekendgemaakt.
+
+Berichten van het bestuur via een berichtenbox
+Art. Rechten en waarborgen voor de burger              Opmerkingen, beperkingen, voorbeelden
+2:10 Van plaatsing van een bericht in een berichten­   Notificaties worden ook nu al verzonden.
+     box moet binnen 48 uur een notificatie worden
+     gezonden.
+     Een notificatie moet aard, rechtgevolgen en
+     termijn uit bericht bevatten (of het bericht
+     ontsluiten, zoals bij een app).
+2:22 Als de notificatie niet is verzonden of
+     buiten schuld niet is ontvangen is een
+     termijnoverschrijding verschoonbaar.
+2:11 Een notificatie moet bij bouncing nogmaals        Logius richt voor de Berichtenbox van
+     worden verzonden of het bestuur moet de           MijnOverheid een centrale voorziening in
+     geadresseerde langs andere weg infomeren          om opnieuw te verzenden of contact met de
+     over het mislukken van de notificatie.            geadresseerde op te nemen.
+2:12 Een bericht mag alleen worden gewijzigd
+     door verzending van een nieuw bericht. Het
+     bestuursorgaan mag dus geen verzonden
+     berichten verwijderen of vervangen.
+2:25 Het bestuur heeft de bewijslast voor              Het bestuur bepaalt welke gegevens worden
+     verzending en ontvangst in een berichtenbox       gelogd en draagt dus het risico als te weinig
+     en moet desgevraagd een afschrift van de          wordt gelogd. Logius richt voor MijnOverheid
+     loggegevens verstrekken.                          een centrale voorziening in voor logging en
+                                                       verstrekking van loggegevns.
+
+
+
+                                                   6
+Passende ondersteuning
+Art.   Rechten en waarborgen voor de burger                Opmerkingen, beperkingen, voorbeelden
+2:1    Het bestuur zorgt voor passende                     Het bestuur bepaalt zelf hoe die ondersteuning
+       ondersteuning bij (digitaal en niet digitaal)       wordt gegeven en houdt daarbij rekening met
+       berichtenverkeer met de overheid.                   algemene en bijzondere kenmerken van de
+                                                           doelgroep.
+
+Uitgangspunten wetswijziging; digitale kanalen en zorgplicht
+De Algemene wet bestuursrecht (Awb) bevat regels voor de verhouding tussen de overheid en
+individuele burgers en bedrijven. De Wet modernisering elektronisch bestuurlijk verkeer wijzigt het
+onderdeel van de Awb dat betrekking heeft op het elektronisch bestuurlijk verkeer: afdeling 2.3. In
+deze vernieuwde afdeling krijgen burgers en bedrijven het recht op elektronisch berichtenverkeer met
+bestuursorganen. De papieren weg blijft in stand; burgers en bedrijven hebben dus op grond van de
+Awb de keuze tussen het volgen van de papieren of de digitale weg. Dit is alleen anders indien een
+domeinspecifieke wet tot het volgen van de digitale of papieren weg verplicht.
+
+Dit heeft voor bestuursorganen twee concrete gevolgen:
+1. Het verplicht openstellen van digitale kanalen voor ieder elektronisch formeel bericht gericht aan het
+   bestuursorgaan.
+   Onder een ‘officieel’ bericht wordt verstaan: elk bericht dat deel uit maakt van een procedure over
+   een besluit of een klacht of een ander krachtens wettelijk voorschrift voorgeschreven bericht, zoals
+   een melding. Afhankelijk van de vraag, of de digitale kanalen al aanwezig zijn of nog moeten worden
+   ingericht, kunnen kosten verbonden zijn aan de aanwijzing van die kanalen. Al aanwezige digitale
+   kanalen zullen verder moeten worden uitgerold, zo dat formele berichten elektronisch kunnen worden
+   ontvangen. Als deze digitale kanalen nog niet aanwezig zijn, moeten nieuwe digitale kanalen worden
+   geopend of bestaande kanalen geschikt worden gemaakt voor meerdere typen berichten. Dat kan
+   een algemeen contactformulier (met mogelijk verschillende afzenderauthenticatie niveaus) of e-mail
+   kanaal zijn (als er geen afzenderauthenticatie voor het bericht nodig is) maar in veel gevallen zal
+   het om een specifiek e-formulier gaan. Authenticatie mag niet onnodig als drempel worden ingesteld
+   (bijvoorbeeld bij een Woo-verzoek).
+2. Het aanpassen van digitale kanalen zodat aan wettelijke eisen/waarborgen (alleen noodzakelijke
+   gegevens vragen, ontvangstbevestiging sturen, e-formulier beschikbaar stellen, bewijslast bij
+   bestuursorgaan, mededeling bij weigering verkeerd ingezonden bericht) wordt voldaan.
+   Afhankelijk van de vraag, hoeveel formele berichten al elektronisch kunnen worden gestuurd aan
+   een bestuursorgaan, kunnen er kosten verbonden zijn aan het aanpassen van digitale kanalen. Per
+   digitaal kanaal zal moeten worden onderzocht of er een ontvangstbevestiging wordt gestuurd en of
+   de in een e-formulier ingevoerde gegevens beschikbaar worden gesteld. Per elektronisch formeel
+   bericht zal moeten worden onderzocht of alle gevraagde gegevens noodzakelijk zijn en moet van de
+   niet-noodzakelijke gegevens worden aangegeven dat invullen niet verplicht is. Daarnaast mag het
+   bestuursorgaan geen technische eisen stellen die het elektronische verkeer onnodig belemmeren en
+   moet er gewaarborgd worden dat het bestuursorgaan aan zijn bewijslast kan voldoen. Ten slotte moet
+   worden gezorgd dat er een mededeling van weigering of van doorgeleiding wordt verstuurd indien
+   een bericht verkeerd wordt ingezonden.
+
+De verplichtingen die voortvloeien uit de nieuwe afdeling 2.3 Awb worden in hoofdstuk 1 uitgebreid
+beschreven.
+
+
+
+
+                                                       7
+Zorgplicht tot passende ondersteuning bij bestuurlijk verkeer
+Bij de modernisering wordt ook artikel 2:1 Awb gewijzigd. Los van de wijze van communicatie – dus:
+ongeacht of er digitaal of op papier wordt gecommuniceerd – krijgen bestuursorganen een zorgplicht:
+aan burgers en bedrijven moet passende ondersteuning worden geboden bij bestuurlijk verkeer. Dit
+betekent voor bestuursorganen het volgende:
+
+• Het verschaffen van vindbare, duidelijke en bruikbare informatie over de geboden diensten en over de
+  wijze waarop communicatie met burgers en bedrijven plaatsvindt.
+  Burgers en bedrijven moeten kunnen begrijpen wat er van hen gevraagd wordt. Daartoe bepaalt het
+  bestuursorgaan, aan de hand van de aard van zijn dienstverlening en de betrokken doelgroep(en),
+  welke vorm van ondersteuning in de rede ligt. Het kan daarbij gaan om generieke voorzieningen
+  zoals het verschaffen van informatie en voorlichting via een website, app of huis-aan-huis-blad,
+  openbare internetmogelijkheid zoals die door veel bibliotheken wordt aangeboden of het faciliteren
+  van machtiging, maar ook om ondersteuning door maatwerk, bijvoorbeeld via digitale chat of hulp
+  aan de telefoon of aan de balie. In dit verband zijn de Informatiepunten Digitale Overheid van belang;
+  hier kunnen mensen terecht met vragen rond overheidsdiensten als huurtoeslag, AOW, uitkering,
+  belastingen, rijbewijs, zorg en toeslagen.1
+• De ondersteuning moet zodanig zijn, dat de doelgroep waarop een dienst zich richt, normaal
+  gesproken deze dienst kan afnemen, mede gelet op de beschikbare maatschappelijke voorzieningen
+  en de eigen verantwoordelijkheid om aan bepaalde kwalificaties te voldoen. De ondersteuning is dus
+  passend wanneer de doelgroep hiermee zaken met de overheid met succes kan regelen. Concreet:
+  - Het gaat om het geven van voorlichting en het beantwoorden van vragen op een manier die
+     aansluit bij de doelgroep. In bepaalde situaties gaat het ook om praktische hulp bij het invullen,
+     berekenen, lezen of vertalen.
+  - In de praktijk zal de ondersteuning vaak op verschillende niveaus moeten wordt geboden. De
+     algemene voorlichting zal daarbij worden afgestemd op het niveau waarmee de meeste mensen
+     kunnen worden bereikt. Aanvullende voorzieningen, bijvoorbeeld in de vorm van een helpdesk,
+     zullen de vertaalslag moeten kunnen maken naar mensen die hiermee niet uit de voeten kunnen.
+  - Van een burger mag een eigen inspanning worden verwacht. Het bestuursorgaan hoeft niet te
+     helpen bij zaken die de burger met enige inspanning ook zelf kan doen.
+  - Burgers hebben een eigen verantwoordelijkheid om ervoor te zorgen dat zij over
+     basisvaardigheden beschikken. Wie bijvoorbeeld alleen de Chinese taal machtig is kan niet
+     verlangen dat de ondersteuning in het Chinees wordt geboden.
+  - Als een dienst gericht is op een specifieke doelgroep dan kan de ondersteuning zijn afgestemd op
+     de kwalificaties waaraan die doelgroep geacht wordt te voldoen. Van leden van een beroepsgroep
+     mag bijvoorbeeld worden verwacht dat zij over de vereiste vakkennis beschikken, van studenten
+     mag worden verwacht dat ze over digitale vaardigheden beschikken.
+  - Passende ondersteuning is niet het optreden als adviseur, belangenbehartiger, hulpof zorgverlener.
+     Daarvoor moet een beroep worden gedaan op andere maatschappelijke voorzieningen zoals een
+     bewindvoerder of een gemachtigde.
+
+Kortom: er zijn geen algemene regels te geven voor de inrichting van passende ondersteuning.
+Passende ondersteuning is niet voor iedereen hetzelfde. Het gaat om maatwerk dat aan het
+bestuursorgaan moet worden overgelaten. Daar kan het beste worden bepaald welke ondersteuning in
+de rede ligt gelet op de aard van de dienstverlening en de doelgroep.
+
+
+
+
+1   https://www.digitaleoverheid.nl/nieuws/aanpak-digitale-inclusie-door-bibliotheken-en-publieke-dienstverleners/
+
+
+                                                                      8
+Aanleiding
+In een tijd waar Nederlanders continu online zijn en steeds vaker op hun smartphone alles regelen,
+kunnen zij ook bij bestuursorganen voor elk vraagstuk op elk moment en dus 24/7 digitaal contact
+opnemen. Dit maakt de overheidsdienstverlening voor burgers en bedrijven makkelijker en
+toegankelijker. Op dit moment komt het voor veel onderwerpen nog voor dat er digitaal geen toegang
+voor is. Dat verandert door deze wet.
+
+Op het moment dat we in een webwinkel een bestelling plaatsen, worden we continu digitaal op de
+hoogte gehouden in welke fase de bestelling zit. Ditzelfde geldt voor boodschappen en eten thuis
+laten bezorgen door boodschappenservices of restaurants. Het is tot op de seconde te volgen waar
+de bestelling blijft en wanneer de klant de deur open moet doen. Door het bestuurlijke verkeer te
+moderniseren wordt het mogelijk om ook deze eerste stappen te gaan zetten richting burgers en
+bedrijven. Burgers en bedrijven worden beter bediend wanneer wordt voldaan aan deze wet. Het is een
+verbetering van de contactmomenten tijdens de klantreis. Op dit moment komt het nog voor dat burgers
+en ondernemers geen idee hebben of hun vraag, verzoek, klacht, bezwaar of melding is aangekomen,
+wanneer deze wordt opgepakt en wanneer er antwoord / uitsluitsel volgt. Dit verandert door deze wet.
+Burgers en ondernemers zijn beter geïnformeerd tijdens hun klantreis na implementatie van deze wet.
+Dit kan ook veel onnodige klantcontacten besparen want we weten uit ervaring dat veel burgers en
+bedrijven bellen voor statusupdates.
+
+Op dit moment worden er nog ontzettend veel poststukken verstuurd door overheidsorganisaties. Denk
+aan ontvangstbevestigingen, belastingaanslagen, notificaties dat paspoorten en rijbewijzen gaan verlopen,
+beschikkingen enzovoorts. Veel burgers en bedrijven communiceren graag digitaal met de overheid. Door
+burgers en bedrijven actief te vragen of zij volledig digitaal willen gaan communiceren met de overheid,
+kan er de komende jaren bezuinigd worden op een enorme stroom van poststukken. Het is dan niet meer
+nodig om via de post formele berichten te versturen. Iets wat overheden al sinds jaar en dag doen. Deze
+wet maakt overheden dan ook bewust van deze kansen en geeft kaders hoe zij dit kunnen vormgeven
+voor de toekomst. Niet alleen bespaart het overstappen van papier naar digitaal in de regel kosten voor de
+overheid, het zorgt er ook voor dat burgers en ondernemers worden bediend op de manier die zij willen.
+Wanneer dit via een digitale wijze plaatsvindt, dan is dit vaak ook sneller dan via de post.
+
+Totstandkoming handreiking
+Deze handreiking is tot stand gekomen in opdracht van de toenmalige directie Digitale Overheid
+Overheid van het ministerie van BZK, is opgesteld door Deloitte en geactualiseerd door de directie
+Constitutionele Zaken en Wetgeving van het ministerie van BZK. Voor de handreiking zijn verschillende
+bronnen gebruikt. Vanzelfsprekend zijn dit het wetsvoorstel en de memorie van toelichting, daarnaast
+bronnen als de handreiking “Betrouwbaarheidsniveaus voor digitale dienstverlening”. Er zijn interviews
+gehouden met experts en ervaringsdeskundigen bij bestuursorganen zodat de handreiking in de praktijk
+gevalideerd is. Voorts heeft overleg plaatsgevonden met een begeleidingscommissie bestaande uit
+vertegenwoordigers van VNG, IPO, UvW, Min BZK en Min J&V. De geactualiseerde versie is gedeeld
+met een brede groep vertegenwoordigers van departementen en uitvoeringsinstanties en is in 2021,
+vooruitlopend op inwerkingtreding van de wet, in de praktijk getest door een aantal gemeenten,
+waterschappen en een provincie in samenwerking met de VNG, de UvW en het IPO. Op basis van de
+bevindingen in deze pilots is de handreiking op verschillende plaatsen aangepast. Daarnaast zijn er in de
+pilots aanvullende hulpmiddelen ontwikkeld die specifiek zijn toegeschreven op gemeenten, provincies
+of waterschappen.
+
+Deze versie van de handreiking is voor het laatst gewijzigd op 29 augustus 2023. Vragen over of
+suggesties voor verbetering van de handreiking? Stuur dan een e-mail naar Wmebv@minbzk.nl.
+
+
+                                                    9
+Toolkits na pilots decentrale overheden
+De resultaten van de bij decentrale overheden uitgevoerde pilots zijn in een brief aan de Tweede Kamer
+gerapporteerd.
+
+Gemeenten
+De resultaten van de gemeentelijke pilots zijn door de VNG op haar website gepubliceerd.
+Op de VNG website is daarnaast een aparte pagina te vinden over de checklist waarmee van
+gemeentelijke producten kan worden geïnventariseerd of ze aan de eisen van de Wmebv voldoen.
+Ook heeft de VNG voor gemeenten een stappenplan opgesteld.
+
+Provincies
+Op basis van de provinciale pilot is door het IPO een handreiking opgesteld die te vinden is op de IPO-
+website. De handreiking bevat onder meer een overzicht van provinciale werkprocessen en een checklist
+om te inventariseren of provinciale producten aan de eisen van de Wmebv voldoen.
+
+Waterschappen
+De Unie van Waterschappen heeft op basis van de pilots bij de waterschappen een Toolkit
+Implementatie Wmebv samengesteld. Deze toolkit is te vinden op de SharePointsite van het
+Waterschapshuis (alleen toegankelijk voor werknemers bij de waterschappen).
+
+Leeswijzer
+De veranderingen die in de nieuwe afdeling 2.3 Awb worden doorgevoerd, en de verplichtingen
+die hieruit voortvloeien, worden in hoofdstuk 1 beschreven. In hoofdstuk 2 kunt u inventariseren in
+welke mate uw organisatie voldoet aan die verplichtingen. Hoofdstuk 3 beschrijft hierna de mogelijke
+consequenties voor uw organisatie. Vervolgens gaat hoofdstuk 4 in op uitzonderingssituaties en worden
+veelvoorkomende vragen beantwoord.
+
+
+
+
+                                                  10
+Hoofdstuk 1: Wat verandert er?
+Inleiding
+Bij inwerkingtreding van de Wet modernisering elektronisch bestuurlijk verkeer zal een aantal
+veranderingen voor bestuursorganen in Nederland plaatsvinden op het gebied van elektronisch verkeer.
+Zo wordt het onder meer verplicht voor elk formeel bericht een elektronisch kanaal aan te wijzen
+waarop burgers en bedrijven u kunnen bereiken. In dit hoofdstuk worden de verplichtingen en (nieuwe)
+mogelijkheden voor u uiteengezet die de nieuwe afdeling 2.3 Awb met zich meebrengt.
+De veranderingen ten opzichte van de huidige Awb zijn weergegeven in bijlage 2. De verplichtingen zijn
+op te delen in verplichtingen met betrekking tot de ontvangst van elektronische formele berichten en
+verplichtingen na de ontvangst van elektronische formele berichten.
+
+Onderstaande grafiek geeft de implicaties in een oogopslag weer. Hierbij is het verschil te zien tussen de
+toekomstige situatie (groen) en de huidige situatie (oranje).
+
+
+
+
+                                                    11
+1. Verzending aan bestuursorgaan; de ontvangst van berichten
+
+Verplichting 1.1: Aanwijzen van elektronische weg voor berichten
+Een bestuursorgaan wordt verplicht voor ieder type aan het bestuursorgaan gericht formeel bericht
+een elektronische wijze van verzenden aan te wijzen.2 Het recht op elektronisch verzenden van
+formele berichten geldt alleen als dat bericht wordt verzonden op de wijze die het bestuursorgaan heeft
+aangewezen.3 Voor verschillende type formele berichten kunnen verschillende wijzen van verzenden
+aangewezen worden, ook kunnen voor een bepaald type bericht meerdere wijzen van verzenden worden
+aangewezen. De aanwijzing van een kanaal is een besluit van algemene strekking, dat als zodanig moet
+worden bekend gemaakt. Het ligt voor de hand ook op de eigen website een overzicht te plaatsen van
+de aangewezen wijzen waarop formele berichten kunnen worden gezonden via de elektronische weg.
+
+Het bestuursorgaan kan in beginsel zelf kiezen welke vormen van elektronische berichten hij
+accepteert, bijvoorbeeld een algemeen contactformulier (kan met afzenderauthenticatie), e-mailkanaal
+(geen afzenderauthenticatie voor het bericht mogelijk) of specifiek e-formulier (met mogelijk
+hogere afzenderauthenticatie niveaus). Sociale media moeten voor formele berichten onvoldoende
+betrouwbaar worden geacht. In hoofdstuk 3 zijn verschillende soorten digitale kanalen met bijbehorende
+overwegingen weergegeven.
+
+Bij wettelijk voorschrift kan voor bepaalde typen berichten een specifiek kanaal worden aangewezen.
+Zo bepaalt de Omgevingswet dat vergunningaanvragen etc. via het DSO (Omgevingsloket) moeten
+geschieden en bepaalt de Dienstenwet dat bedrijven de Berichtenbox voor bedrijven moeten gebruiken
+voor hun berichtenverkeer met de overheid.
+
+Voor niet-formele berichten van burgers/bedrijven kan het bestuursorgaan de elektronische weg
+openstellen; het is daartoe niet verplicht. Veel bestuursorganen stellen echter, uit een oogpunt van
+hoogwaardige dienstverlening, ook voor niet-formele berichten de elektronische weg beschikbaar; zo
+voorzien veel gemeenten in een website met een contactformulier of sociale media waar meldingen over
+gebreken in de openbare ruimte kunnen worden gedaan.
+
+Verplichting 1.2: Geen onnodige belemmeringen voor verzending formeel elektronisch bericht
+Het bestuursorgaan kan nadere technische eisen stellen aan de verzending, wanneer dit nodig is voor
+verwerking. Te denken valt aan bepaalde typen bestanden zoals “.pdf” of “.xml”. De eisen kunnen ook
+gebaseerd zijn op het te bereiken niveau van betrouwbaarheid. Hier wordt de voorwaarde aan gesteld
+dat dergelijke eisen het elektronisch bestuurlijk verkeer niet onnodig belemmeren.4 Het bestuursorgaan
+dient bij het stellen van eisen voor ogen te houden of het voor de gemiddelde verzender van het type
+formeel bericht waaraan de desbetreffende eis wordt gesteld, mogelijk is om aan de gestelde eis te
+voldoen. Dat kan betekenen dat eisen die terecht aan het ene type formeel bericht gesteld worden, voor
+een ander type formeel bericht als onnodig belemmerend moeten worden aangemerkt.
+
+Uit de huidige Awb (zoals dat luidt sinds 10 maart 2017)5 volgt dat de te stellen eisen ook betrekking
+hebben op een elektronische handtekening, als de veiligheid en de betrouwbaarheid van het
+elektronische bericht en het doel waarvoor het wordt gebruikt dit noodzakelijk maken. Aan de
+handtekening mogen aanvullende eisen worden gesteld, maar deze eisen mogen geen betrekking
+hebben op een gekwalificeerde of geavanceerde elektronische handtekening als bedoeld in Verordening
+(EU) nr. 910/2014 van het Europees Parlement en de Raad van 23 juli 2014 (PbEU 2014, L257)
+2   Artikel 2:13, tweede lid
+3   Artikel 2:13, eerste lid
+4   Artikel 2:13, derde lid
+5   Artikel 2:16 (na inwerkingtreding wetsvoorstel vernummerd tot artikel 2:18)
+
+
+                                                                       12
+betreffende elektronische identificatie en vertrouwensdiensten voor elektronische transacties, omdat de
+daaraan te stellen eisen volgen uit die Verordening.
+
+In de nieuwe afdeling 2.3 Awb is tevens bepaald dat bij een formulier geen gegevens mogen worden
+gevraagd die voor de behandeling van het bericht niet noodzakelijk zijn, tenzij duidelijk wordt
+aangegeven dat de beantwoording van die vragen niet verplicht is.6 Hierbij past de kanttekening dat
+ook nu niet is toegestaan in (papieren) formulieren gegevens te vragen die voor de beoordeling van de
+aanvraag niet relevant zijn. De regel wordt in de Awb opgenomen, omdat het in de praktijk voorkomt
+dat de indiening van een elektronische aanvraag wordt geblokkeerd bij een niet-ingevulde vraag. Als dit
+een niet-noodzakelijke vraag was, dan is blokkering van de aanvraag door het bestuursorgaan dus niet
+toegestaan. Eventuele niet-noodzakelijke gegevens zullen uit bestaande e-formulieren moeten worden
+verwijderd, tenzij expliciet wordt aangegeven dat beantwoording niet verplicht is.
+
+2. Verzending aan bestuursorgaan; na ontvangst van berichten
+
+Verplichting 2.1: Ontvangstbevestiging aan afzender
+Wanneer een bestuursorgaan een formeel bericht ontvangt via elektronische weg verstuurt het een
+ontvangstbevestiging.7 Dat geldt nu alleen nog voor een elektronische aanvraag. Het belang van een
+ontvangstbevestiging is dat de verzender van het bericht weet dat zijn bericht bij het bestuursorgaan is
+aangekomen. Bij uitblijven van het bericht weet hij dan dat er iets is misgegaan en hij wellicht het bericht
+nogmaals moet verzenden of een andere wijze van verzending moet kiezen, bijvoorbeeld omdat blijkt dat
+een verkeerde wijze van verzending is gekozen, zoals een typefout in het e-mailadres of een methode
+die door het bestuursorgaan niet is aangewezen. Het uitblijven van de ontvangstbevestiging is dan voor
+de verzender een aanwijzing dat het bestuursorgaan het bericht niet heeft ontvangen. De verzender kan
+dan onderzoeken of er een storing is, of dat de gekozen wijze van verzending voor geen enkel formeel
+bericht is aangewezen en het bestuursorgaan om die reden niet hoefde te reageren.8
+
+Er zijn twee uitzonderingen op de ontvangstbevestiging. Ten eerste hoeft geen ontvangstbevestiging
+gestuurd te worden indien de verzender en het bestuursorgaan gebruikmaken van hetzelfde systeem
+van gegevensverwerking (zoals de berichtenbox van MijnOverheid) en de verzender kan zien dat het
+bericht voor het bestuursorgaan beschikbaar is. Daarnaast hoeft geen ontvangstbevestiging te worden
+verzonden als de afzender geen elektronisch adres heeft opgegeven waarop hij te bereiken is. Het
+bestuursorgaan moet daar wel naar vragen in het formulier.
+
+Als het bericht waarvan de ontvangst moet worden bevestigd, per e-mail wordt gezonden, kan het
+bestuursorgaan de ontvangstbevestiging sturen naar het e-mailadres van de afzender. In andere
+gevallen moet het bestuursorgaan zich inspannen om het e-mailadres voor de ontvangstbevestiging
+te verkrijgen, bijvoorbeeld door op een webformulier de gelegenheid te bieden om het e-mailadres op
+te geven. In de praktijk wordt zowel bij de overheid als door bedrijven die op internet actief zijn al ruim
+gebruik gemaakt van (geautomatiseerde) ontvangstbevestigingen.
+
+Een andere mogelijkheid tot ontvangstbevestiging is het direct na verzending van een bericht op het
+beeldscherm tonen van een mededeling dat het bericht is ontvangen. Om de bewijsfunctie van de
+ontvangbevestiging te waarborgen, zou in dat geval een te downloaden versie hiervan ter beschikking
+kunnen worden gesteld.
+
+
+6   Artikel 4:4, tweede lid
+7   Artikel 2:17, eerste lid
+8   Conform artikel 2:16, tweede lid
+
+
+                                                      13
+Het bestuursorgaan kan er ook voor kiezen om de ontvangstbevestiging in een berichtenbox te
+plaatsten, als de geadresseerde van de ontvangstbevestiging zich voor het gebruik daarvan heeft
+aangemeld of als het gebruik ervan wettelijk is voorgeschreven. Als het bestuursorgaan t.b.v.
+het verzenden van een ontvangstbevestiging om een e-mailadres heeft gevraagd en dit door de
+verzender niet is opgegeven, dan is het bestuursorgaan echter niet verplicht om na te gaan of de
+ontvangstbevestiging mogelijk is langs andere elektronische kanalen, zoals de berichtenbox,
+
+Het ligt niet voor de hand om de ontvangstbevestiging per post te versturen vanwege de daaraan
+verbonden kosten en omdat de verzender een onmiddellijke bevestiging verwacht dat zijn bericht is
+aangekomen.
+
+Verplichting 2.2: Beschikbaar stellen gegevens ingevuld in webformulier
+Uit de nieuwe afdeling 2.3 Awb volgt dat als een bestuursorgaan ervoor heeft gekozen om als kanaal
+voor de indiening van enig type formeel bericht een webformulier aan te wijzen, de via dat formulier
+ingevoerde gegevens voor de indiener toegankelijk moeten zijn.9 Voor de indiener is het zelf printen van
+een webformulier vaak lastig of onmogelijk. In de meeste gevallen kan het bestuursorgaan kiezen voor
+een terugkoppeling van de gegevens in de ontvangstbevestiging. Op dit punt geldt wel een beperking:
+de terugmelding dient op een voldoende betrouwbare en vertrouwelijke manier te geschieden. Als het
+bestuursorgaan om veiligheidsredenen een webformulier heeft aangewezen, dan kan het niet zo zijn dat
+de via dat formulier ingevoerde gegevens alsnog onbeveiligd, bijvoorbeeld in een ontvangstbevestiging
+per e-mail, worden retour gezonden. In dat geval zullen de ingevoerde gegevens op een andere manier
+toegankelijk moeten worden gemaakt, bijvoorbeeld via een link naar een beveiligde omgeving waar
+de gegevens (bijvoorbeeld als pdf) beschikbaar worden gesteld, via een bestand dat na het invoeren
+van de gegevens maar voor het beëindigen van de sessie, kan worden gedownload, of met een
+bericht in een beveiligde berichtenbox. Documenten die worden geüpload (bijvoorbeeld als bijlage bij
+een webformulier) behoeven niet te worden teruggezonden, omdat de verzender ook zelf over deze
+documenten blijft beschikken.
+
+Verplichting 2.3: Mededeling bij weigering verkeerd ingezonden formeel bericht
+Anders dan de huidige Awb is het niet langer altijd vereist dat de aanvrager de gelegenheid wordt
+geboden om een verkeerd ingezonden bericht alsnog op de voorgeschreven wijze in te dienen.10
+Wanneer een formeel bericht verkeerd ingezonden wordt, krijgt het bestuursorgaan de mogelijkheid om
+te volstaan met de mededeling dat het bericht onjuist is ingediend en te wijzen op de juiste manier van
+indienen.11 Van de aanvrager mag verwacht worden dat hij moeite doet om het juiste kanaal te hanteren.
+
+In drie gevallen geldt de bevoegdheid om met de mededeling te volstaan niet: als het bericht zonder
+nadere bewerking kan worden behandeld (bijvoorbeeld een verkeerd contactformulier dat naar een
+verkeerde postbus is gestuurd), als het bericht een bezwaarschrift of een administratief beroepschrift is
+of als voor het bericht in kwestie geen wijze van verzending was aangewezen (dan kan de burger niet
+worden verweten dat hij een fout heeft gemaakt). In deze gevallen kan het zijn dat het bericht intern naar
+een andere afdeling moet worden doorgeleid.
+
+Het spreekt voor zich dat de indiening van een bericht op een andere dan de aangewezen weg, als
+dat bericht niet kan worden geweigerd, wel tot vertraging kan leiden bij de afhandeling. Ter voorkoming
+van problemen is bepaald dat bij wettelijk voorschrift bepaalde beslistermijnen pas gaan lopen na
+de interne doorgeleiding (en mededeling daarvan richting de aanvrager) van het langs een onjuiste
+
+9 Artikel 2:17, tweede lid
+10 Artikel 4:5
+11 Artikel 2:16, eerste lid
+
+
+                                                   14
+elektronische weg verzonden bericht.12 In het geval dat de behandeling gedaan wordt door een
+gemandateerde externe partij (en dus namens het bestuursorgaan) wordt doorgeleiding aan de externe
+gezien als interne doorgeleiding. Interne doorgeleiding en de berichtgeving hiervan en dient zo snel
+mogelijk te geschieden. Ook ingeval de doorgeleiding vrijwillig geschiedt, vangt een termijn pas aan na
+doorgeleiding. Als een verplichte doorgeleiding of de mededeling ervan achterwege blijft, is geen sprake
+van opschorting van de aanvang van de beslistermijn. In dat geval begint de termijn te lopen op het
+tijdstip van ontvangst van het onjuist ingezonden bericht. Na doorgeleiding kan een bestuursorgaan aan
+de verzender vragen andere onvolkomenheden te herstellen.13
+
+De verplichting tot reageren of door te geleiden bestaat niet als het bericht is verzonden op een wijze
+die door het bestuursorgaan voor geen enkel formeel bericht is aangewezen. Dan staat onvoldoende
+vast dat het bestuursorgaan het bericht onder ogen is gekomen. Het bestuursorgaan is wel bevoegd op
+zo’n bericht te reageren als het bericht wordt opgemerkt. De verplichting om te reageren geldt uiteraard
+evenmin als het bericht door de wijze van verzenden nooit door het bestuursorgaan is ontvangen.
+
+Hieronder zijn de verplichtingen omtrent ingezonden formele berichten in tabelvorm weergegeven.
+
+ Verzending                               Verplichtingen
+ Formeel bericht is                       • Behandelplicht
+ op aangewezen wijze                      • Wettelijke behandeltermijn vangt aan met ontvangst bericht
+ verzonden                                • Verplichte ontvangstbevestiging
+                                          • Behandelende afdeling kan onder opschorting van beslistermijn
+                                             ontbrekende gegevens verlangen14
+ Wijze van verzending is                  • Geen behandelplicht of doorgeleidingsplicht, tenzij:
+ niet voor dit type formeel                  - het bericht in de ontvangen vorm zonder nadere bewerking
+ bericht aangewezen                             behandeld kan worden, of
+                                             - het bericht een bezwaarschrift of een administratief beroepschrift
+                                                is, of
+                                             - voor het type bericht geen wijze van verzending is aangewezen.
+                                          • Het niet behandelen van een verkeerd gezonden bericht wordt aan
+                                             afzender medegedeeld, onder mededeling van de juiste wijze van
+                                             indienen.
+                                          • Geen reactie verplicht als het bestuursorgaan van het bericht
+                                             geen kennis heeft genomen of het bericht is verzonden op een
+                                             wijze die door het bestuursorgaan voor geen enkel type “officieel
+                                             bericht” is aangewezen. Indien bericht toch wordt opgemerkt en uit
+                                             behoorlijkheid toch wordt doorgeleid, ontstaat alsnog behandelplicht.
+                                          • Bij doorgeleiding geldt:
+                                             - Aanvang wettelijke behandeltermijn verschuift naar tijdstip bericht
+                                                van doorgeleiding aan afzender (mits onverwijld verzonden).
+                                          Behandelende afdeling kan onder opschorting van beslistermijn juiste
+                                          wijze van indienen en ontbrekende gegevens verlangen.15
+Tabel 1: regels over het behandelen van elektronische formele berichten door een bestuursorgaan
+
+
+
+12 Artikel 2:24
+13 Bij aanvragen en bezwaarschriften door toepassing van de artikelen 4:5 of 6:6 Awb
+14 Artikel 4:5
+15 Artikel 4:5 of 6:6
+
+
+                                                                    15
+3. Nieuwe mogelijkheden
+Met de nieuwe wetgeving komen er ook nieuwe mogelijkheden voor een bestuursorgaan.
+
+3.1: Verlenging indieningstermijn bij storing bij bestuursorgaan
+Het bestuursorgaan krijgt de bevoegdheid om de termijn te verlengen waarbinnen het formele bericht
+moet zijn verzonden indien er sprake is van een storing (“verminderde elektronische bereikbaarheid”).16
+Afhankelijk van de storing kan het bestuursorgaan op zijn website bekendmaken dat de indieningstermijn
+wordt verlengd. Aanvullend op de huidige Awb wordt geregeld dat een termijnoverschrijding
+de verzender niet kwalijk wordt genomen wanneer er sprake was van een storing, indien het
+bestuursorgaan de bekendmaking van de nieuw geldende indieningstermijn niet of niet voldoende
+duidelijk gecommuniceerd heeft.17 Specifiek is bepaald dat een termijnoverschrijding niet wordt
+tegengeworpen als redelijkerwijs niet kan worden geoordeeld dat de indiener van een bezwaarschrift
+in verzuim is geweest. Hetzelfde geldt voor een termijnoverschrijding als gevolg van een storing in de
+bereikbaarheid van het bestuursorgaan kort voor het einde van de termijn van indiening. In dat geval
+wordt van de verzender verwacht dat het formele bericht zo spoedig mogelijk (binnen enkele dagen)
+wordt ingediend, nadat het bestuursorgaan weer via de elektronische weg bereikbaar is geworden.18
+De termijn wordt daartoe in ieder geval verlengd met de tijd dat sprake was van een storing. Dat is
+aanvaardbaar omdat de verzender, gelet op de termijn van indiening, op de laatste dag van die termijn
+de voorbereiding van de indiening moet hebben afgerond. Bij langer niets doen is het verzuim wel aan
+de indiener toe te rekenen en is sprake van een niet-verschoonbare termijnoverschrijding.
+
+4. Verzending door bestuursorgaan; gebruik berichtenbox
+Bestuursorganen maken bij de verzending van hun berichten aan burgers of bedrijven vaak gebruik
+van berichtenboxen, zoals een MijnDomein, MijnOverheid of de Berichtenbox voor bedrijven. De
+geadresseerde moet voordien wel kenbaar hebben gemaakt dat hij langs deze weg voldoende
+bereikbaar is.19
+
+De verplichtingen omtrent het gebruik van berichtboxen worden aangescherpt. Deze verplichtingen
+zullen door aanbieders van berichtenboxen moeten worden doorgevoerd. Dit zijn slechts in enkele
+gevallen bestuursorganen zelf. Veel bestuursorganen bieden weliswaar een MijnOmgeving aan waarin
+de door een bestuursorgaan verzonden correspondentie kan worden ingezien, maar dit is in de regel
+geen berichtenbox, omdat de gebruiker niet gevraagd wordt of hij op deze wijze voldoende bereikbaar is
+en daarmee afziet van post op papier.
+
+
+
+
+16 Artikel 2:21, eerste lid
+17 Artikel 6:11 Awb
+18 Artikel 2:21, derde lid
+19 Artikel 2:8 Awb
+
+
+                                                  16
+Hieronder zijn de verplichtingen weergegeven.
+
+Regels omtrent het gebruik van een berichtenbox
+Verplichte notificatie (artikel 2:10, eerste lid Awb)
+Een veel voorkomende vorm om beveiligde berichten van een bestuursorgaan te verzenden is via
+een berichtenbox. Voor burgers kan dit bijvoorbeeld via MijnOverheid (voorzover het betreffende
+bestuursorgaan zich heeft aangesloten) en voor bedrijven via de Berichtenbox voor bedrijven. In een
+dergelijk systeem wordt door middel van notificaties, vaak een e-mail, aan de ontvanger gemeld dat het
+bestuursorgaan voor hem een bericht klaar heeft gezet. Het bestuursorgaan is verplicht een dergelijke
+notificatie te verzenden, tenzij de burger of het bedrijf heeft aangegeven deze niet te willen ontvangen.
+De ontvanger dient een e-mailadres te hebben opgegeven om dergelijke notificaties te kunnen
+ontvangen. Wijzigingen dient de burger zelf door te geven.
+
+Herhaling bericht of notificatie (artikel 2:11, eerste en tweede lid Awb)
+Als het bestuursorgaan een melding krijgt dat bericht niet met succes is bezorgd, wordt, afhankelijk
+van de oorzaak van de bounce, het bericht nogmaals of op een andere wijze verzonden. Als een
+notificatie niet met succes is bezorgd, wordt, afhankelijk van de oorzaak van de bounce, de kennisgeving
+nogmaals verzonden of spant het bestuursorgaan zich in om geadresseerde langs andere weg te
+informeren over het niet kunnen bezorgen van de kennisgeving en van de maatregelen die hij kan
+nemen om deze ontvangen.
+
+Minimale inhoud notificatie (artikel 2:10, tweede lid Awb)
+Een notificatie moet een indicatie geven van de aard van het bericht. De notificatie dient de volgende
+gegevens te bevatten:
+• Een aanduiding van het bestuursorgaan dat het bericht in de berichtenbox heeft geplaatst;
+• De aard van het bericht (bijvoorbeeld ontvangstbevestiging, beschikking, betalingsverplichting,
+  uitnodiging voor het geven van een zienswijze of uitnodiging voor een hoorzitting); en
+• De termijn waarbinnen de geadresseerde kan of moet reageren (de termijn waarbinnen bezwaar kan
+  worden gemaakt, een betaling dient te zijn verricht of stukken kunnen worden ingezonden).
+
+Verschoonbare termijnoverschrijding (artikel 2:22 Awb)
+De overschrijding van een termijn wegens het niet ontvangen van een notificatie is verschoonbaar.
+Indien een burger heeft vermeld dat hij geen notificaties wil ontvangen, geen e-mailadres heeft
+opgegeven, of een wijziging van zijn e-mailadres niet heeft doorgegeven, komt een termijnoverschrijding
+logischerwijs voor zijn rekening. Dit is strenger dan de wetstekst: bij iedere bounce (dus ook bij een niet
+doorgegeven wijziging) is termijnoverschrijding verschoonbaar
+
+Wijziging en intrekking van verzonden bericht (artikel 2:12 Awb)
+Het is van belang te waarborgen dat een bericht niet ongemerkt wordt aangepast als het bestuursorgaan
+ontdekt dat het in het verzonden bericht een fout heeft gemaakt. De ontvanger dient ervan op aan te
+kunnen dat een door een bestuursorgaan verzonden bericht het bericht niet heeft vervangen door een
+gecorrigeerde versie. Na verzending kan het bericht alleen worden gewijzigd door een nieuw bericht te
+verzenden waarin het oude bericht wordt ingetrokken of gewijzigd. De correctie dient dus in een nieuw
+bericht opgenomen te worden. Als het bericht een besluit is gaat er een nieuwe bezwaartermijn lopen.
+
+Het tijdstip van ontvangst (artikel 2:19 Awb)
+De plaatsing in een berichtenbox is het tijdstip waarop de verzending geschiedt en waarmee een besluit
+bekendgemaakt is. Een mededeling ter notificatie dat een bericht voor de geadresseerde toegankelijk
+is geworden maakt geen onderdeel uit van de verzending van dat bericht en dus ook niet van de
+
+
+                                                    17
+bekendmaking ingeval dat bericht een besluit is. De bekendmaking wordt niet aangetast als geen
+mededeling wordt verzonden, of als deze niet wordt ontvangen. Ook een tweede verzending van de
+notificatie heeft hierop geen invloed. Wel kan een termijnovershcrijding verschoonbaar zijn.
+
+Manieren om een bericht toegankelijk te maken zijn bijv. door verzending via MijnOverheid en door
+het op de eigen website voor de belanghebbende toegankelijk te maken. Beide manieren gelden als
+‘bekendmaking’ van het bericht, zodat de bezwaartermijn begint ten tijde van plaatsing van het bericht.
+Wanneer een bericht toegankelijk wordt gemaakt via zowel MijnOverheid als de eigen website geldt
+het toegankelijk maken via MijnOverheid als tijdstip van de bekendmaking. Voor de aanvang van de
+bezwaartermijn is de dagtekening van het document niet relevant.
+
+Bewijslast bij bestuursorgaan (artikel 2:25 Awb)
+Indien bestuursorganen gebruik maken van een berichtenbox rust op hen de bewijslast om gegevens
+met betrekking tot de verzending en ontvangst van elektronische berichten door bestuursorganen
+aannemelijk te maken. Het kan hierbij gaan om de volgende gegevens:
+• Tijdstip van verzending of ontvangst;
+• De verzending met de samenhangende ontvangstbevestiging of notificatie;
+• De tijdstippen waarop een geadresseerde heeft ingelogd om kennis te nemen van een aan hem
+   gezonden formeel bericht; of
+• Ontvangen meldingen van formele berichten die niet konden worden bezorgd.
+
+Dit is geen verplichting om alles te loggen. Het bestuursorgaan kan zelf bepalen met welke gegevens
+in de meeste gevallen aan een bewijsplicht kan worden voldaan en kan het loggen beperken tot die
+gegevens. Inzake de (betwiste) stelling dat een bericht door het bestuursorgaan niet is ontvangen,
+kan aan de bewijslast worden voldaan door de weergave van de resultaten van zoekopdrachten in de
+systemen van het bestuursorgaan.
+
+Nieuw is dat geadresseerde of de ontvanger het recht heeft om bewijzen in te zien, als deze daarom
+vraagt. Dit is geen aanspraak op bijvoorbeeld alle loggegevens van de afgelopen vijf jaar, maar enkel
+de verplichting voor het bestuursorgaan om, voor zover aanwezig, de bewijzen van bepaalde, in het
+verzoek aangeduide, handelingen of gebeurtenissen te verstrekken. Aanwezige loggegevens kunnen
+niet aan geadresseerde worden geweigerd.
+
+
+
+
+                                                   18
+Hoofdstuk 2: Hoe staat uw organisatie er nu
+voor?
+Inleiding
+Met behulp van dit hoofdstuk kunt u bepalen hoe uw organisatie er nu voor staat. Met de wijziging
+van de Awb wordt het voor u verplicht formele berichten van burgers en bedrijven altijd elektronisch
+te kunnen ontvangen. Dit is belangrijk: burgers en bedrijven krijgen hiermee het recht op ‘elektronisch
+zakendoen’. U zult zelf moeten bepalen of u reeds voldoende elektronisch bereikbaar bent voor
+bestuurlijk verkeer. Ter illustratie van de gevolgen van de nieuwe afdeling 2.3 Awb volgt hieronder een
+voorbeeld van de berichtenstroom bij een gemiddeld bestuursorgaan. Daarna volgen twee concrete
+gevolgen van de wet, gevolgd door een checklist die u kunt gebruiken om te inventariseren of uw
+organisatie voldoet aan de wet. De checklists bevatten alle verplichtingen die in hoofdstuk 1 zijn
+omschreven.
+
+Staat verschillende kanalen elektronische berichtenstroom richting bestuursorganen
+Voor de ontvangst van papieren brieven en formulieren beschikt de organisatie over een postadres.
+De poststukken die daar binnenkomen worden geopend, geregistreerd en aan de hand van de inhoud
+gedistribueerd binnen de organisatie. In vrijwel alle gevallen gebeurt dat tegenwoordig door de post te
+digitaliseren (scannen) en op te nemen in een elektronisch systeem. In grote organisaties met wellicht
+meerdere vestigingen zou sprake kunnen zijn van meerdere postadressen en postkamers/afdelingen
+DIV.
+
+Voor de ontvangst van elektronische formele berichten zijn vaak al verschillende kanalen ingericht op de
+website van de organisatie. Daarbij kan in de eerste plaats worden gedacht aan veelal enkele tientallen
+e-formulieren waarmee specifieke aanvragen of meldingen kunnen worden gedaan. Ook kan er sprake
+zijn van e-mailadressen waarmee informatie kan worden gestuurd naar specifieke afdelingen of met
+betrekking tot specifieke diensten.
+
+Daarnaast is er veelal een algemeen e-mailadres (‘info@gemeente.nl’) of een algemeen
+contactformulier. Dit laatste is een e-formulier dat naast een aantal algemene velden (onderwerp, n.a.w.-
+gegevens) een veld bevat waarin vrije tekst kan worden ingevoerd. In beginsel kan met zo’n generiek
+elektronisch kanaal (e-mailadres of contactformulier) aan de eis om voor alle formele berichtenstromen
+elektronisch toegankelijk te zijn worden voldaan. Toch zal dat nu vaak nog niet het geval zijn.
+
+In de eerste plaats kan dat komen omdat het generieke e-mailadres of contactformulier nu nog niet
+is aangewezen als algemeen elektronisch adres voor al het formele berichtenverkeer waarvoor geen
+specifiek e-formulier of e-mailadres is aangewezen. Het contactformulier kan bijvoorbeeld alleen zijn
+aangewezen voor het stellen van algemene vragen aan de afdeling voorlichting.
+
+In de tweede plaats kan dit algemene kanaal technisch nog niet geschikt zijn voor alle soorten formeel
+berichtenverkeer. Bijvoorbeeld omdat het kanaal gezien de aard van bepaalde formele berichten niet
+voldoet aan de daaraan te stellen eisen van beveiliging en authenticatie. Ook kan een contactformulier
+beperkingen bevatten waardoor het niet algemeen bruikbaar is: er is bijvoorbeeld sprake van een
+klein tekstveld waarin alleen een korte vraag kan worden gesteld of er ontbreekt een mogelijkheid om
+documenten (brieven, formulieren, bewijsstukken) te uploaden.
+
+
+
+
+                                                   19
+Ten slotte beschikken alle gemeenten, provincies, waterschappen en samenwerkingsverbanden (en
+gemeenschappelijke regelingen die diensten uitvoeren die onder de Dienstenwet vallen) over een
+aansluiting op de berichtenbox voor bedrijven/ondernemers en het Omgevingsloket Online (in de
+toekomst het loket van het Digitaal Stelsel Omgevingswet, DSO). Zij zijn hiertoe wettelijk verplicht.
+Bedrijven hebben het recht om de berichtenbox te gebruiken voor alle berichten aan de overheid in het
+kader van diensten onder de Dienstenwet (voor zover de betreffende overheidsorganisatie daarvoor
+geen specifiek e-formulier of ander elektronisch kanaal heeft aangewezen). Overheden kunnen de
+berichtenbox voor bedrijven daarnaast ook aanwijzen als het elektronisch kanaal voor alle andere
+berichten van ondernemers. Omdat het gaat om een beveiligd elektronisch kanaal waarbij ingelogd
+moet worden met e-Herkenning als authenticatiemiddel (zie hoofdstuk 3) is dit kanaal in beginsel voor al
+het berichtenverkeer geschikt. In de praktijk wordt de berichtenbox voor bedrijven door overheden nog
+zelden aangewezen als algemeen kanaal voor het berichtenverkeer van ondernemers.
+
+NB. De berichtenbox van MijnOverheid is (nog) niet geschikt voor het sturen van berichten aan de
+overheid. Deze is vooralsnog een door bestuursorganen gebruikte voorziening richting burgers.
+
+Gevolgen van invoering wet modernisering elektronisch bestuurlijk verkeer
+De wijziging van de Awb heeft twee belangrijke gevolgen voor het bestuursorgaan:
+
+• Gevolg 1 – aanwijzen en zo nodig inrichten of aanpassen van een generieke voorziening
+  voor elektronische formele berichten: een organisatie heeft nog niet voor al het formele
+  berichtenverkeer een elektronisch kanaal aangewezen. Hiervoor geldt dat de organisatie dit als nog
+  moet doen en dit ook kenbaar moet maken (sprake is nl van een besluit van algemene strekking).
+  Het kan zijn dat hiervoor meerdere kanalen moeten worden ingericht of aangepast omdat het nodig
+  kan zijn afhankelijk van de aard van de berichten en de afzender (burger of bedrijf) met verschillende
+  authenticatiemiddelen en betrouwbaarheidsniveaus te werken. De formele berichten die via de
+  generieke voorziening binnenkomen kunnen door de postkamer/afdeling DIV gedistribueerd worden.
+• Gevolg 2 – aanpassen bestaande specifieke digitale kanalen: een bestuursorgaan dient
+  reeds aangewezen digitale kanalen zodanig aan te passen dat aan verplichtingen van de nieuwe
+  afdeling 2.3 Awb wordt voldaan. Per digitaal kanaal zal moeten worden onderzocht of er een
+  ontvangstbevestiging wordt gestuurd, of de in een e-formulier ingevoerde gegevens beschikbaar
+  worden gesteld, of de juiste gegevens beschikbaar zijn om aan de bewijslast te kunnen voldoen
+  en of een mededeling wordt gedaan indien een verkeerd ingezonden bericht wordt geweigerd. Per
+  e-formulier zal moeten worden onderzocht of de verplichte velden alleen betrekking hebben op
+  noodzakelijke gegevens. In de meeste gevallen zal het generieke kanaal voor deze specifieke formele
+  berichten moeten worden uitgezonderd, omdat anders een via het algemene kanaal ontvangen
+  bericht moet worden behandeld.
+
+Checklists om de staat van uw organisatie te bepalen
+Er zijn checklists opgesteld die u helpen gestructureerd te bepalen wat de staat van uw bestuursorgaan
+is. Deze checklists treft u aan op de volgende pagina’s. Hiermee kunt u bepalen of u voldoet aan de
+wijzigingen van afdeling 2.3 Awb inzake de ontvangst van berichten van burgers/bedrijven. Ze zijn niet
+ontworpen om ook te bepalen of het door u gekozen kanaal voldoet aan andere wettelijke vereisten
+(bijvoorbeeld voor betrouwbaarheid waarmee moet worden ingelogd) van de specifieke diensten van uw
+bestuursorgaan. Hiervoor worden regels gesteld op basis van de Wet Digitale Overheid (Kamerstuk 34
+972).
+
+NB: Voor berichten die u als bestuursorgaan aan burgers/bedrijven stuurt is geen afzonderlijke checklist
+opgesteld. Zie voor de regels omtrent het gebruik van een berichtenbox hoofdstuk 1, par 4.
+
+
+                                                   20
+Leeswijzer behorende bij de checklists
+• U loopt de checklist van boven naar beneden door;
+• U inventariseert uw procedures of diensten die formele berichten van burgers/bedrijven aan uw
+  organisatie opleveren en benoemt per type bericht het door hen te gebruiken digitale kanaal.
+  Mogelijke digitale kanalen worden in hoofdstuk 3 beschreven.
+• De typen berichten verschillen per bestuursorgaan. Mogelijk kunnen koepels een faciliterende rol
+  spelen, door een overzicht te geven van organisatiespecifieke berichten en terzake aanbevolen
+  digitale kanalen.
+• U kunt voor niet-formele berichten een digitaal kanaal aanwijzen.
+
+Checklists
+1. Aanwijzen en zo nodig inrichten of aanpassen digitale kanalen
+
+Checklist 1:
+ Verplichting     Checkvragen                                      Uitgevoerd Ja/Nee      Toelichting
+ Wat is de        Hierbij kunt u denken aan het in kaart brengen
+ huidige situatie van:
+ aangaande        • Inventarisatie van papieren poststromen:
+ berichten­           postadressen/postkamers/afdeling DIV
+ verkeer in mijn  • Inventarisatie van specifieke en generieke
+ organisatie?         e-mail adressen en e-formulieren en digitale
+                      postkamerfuncties
+                  • Inventarisatie voor welke formele bericht­
+                      stromen de berichtenbox voor bedrijven is
+                      aangewezen (alleen Dienstenwet zaken of
+                      ook daarbuiten)
+                  • Bepalen voor welke postadressen nog geen
+                      generiek digitaal equivalent bestaat
+Op basis van de Vaak zal een generiek e-formulier wenselijk
+huidige situatie, zijn waarmee documenten kunnen worden
+waar wil ik met verstuurd via een beveiligde verbinding.
+mijn organisatie Daarnaast kan worden overwogen:
+heen?             • Een generiek e-mail adres voor vragen en
+                      meldingen waarvoor authenticatie niet nodig
+                      is (en die eventueel ook anoniem gedaan
+                      zouden kunnen worden)
+                  • Een generiek e-formulier met DigiD-
+                      authenticatie (of equivalente toegelaten
+                      private methode) voor situaties waarbij
+                      authenticatie nodig is.
+                  • Het aanwijzen van de berichtenbox
+                      voor bedrijven voor correspondentie
+                      van bedrijven buiten het domein van de
+                      Diensten­wet.
+                  • Het inrichten van één of meer specifieke
+                      e-formulieren als dit uit dienstverlenings­
+                      oogpunt of vanwege het volume van de
+                      berichtstroom doelmatig is.
+
+
+                                                  21
+2. Aanpassen bestaande digitale kanalen
+
+Checklist 2:
+ Verplichting   Checkvragen                                                                         Procedures/    Voldoet   Voldoet   Toelichting
+                                                                                                    diensten                 niet
+                                                                                                    bestuursorgaan
+Technische      • Zijn de technische eisen die worden gesteld aan de verzending van                 1. Xxxxxx
+eisen nodig?      elektronische berichten, ivm bijvoorbeeld de verwerking of het bereiken van een   2. Xxxxxx
+                  bepaald betrouwbaarheidsniveau, niet onnodig belemmerend? Voorbeeld: bij          3. Xxxxxx
+                  een elektronisch verzoek om een brochure is geen afzenderauthenticatie nodig.     4. Xxxxxx
+                  Per e-formulier moet worden gecheckt of aan deze verplichting wordt voldaan       5. Xxxxxx
+                • Hebben de gestelde eisen betrekking op een gekwalificeerde of geavanceerde        6. Etc.
+                  elektronische handtekening zoals omschreven in Hoofdstuk 1 verplichting 1.2?
+Ontvangst-      • Wordt er een ontvangstbevestiging verstuurd wanneer een formeel bericht via       1. Xxxxxx
+bevestiging       elektronische weg wordt ontvangen?                                                2. Xxxxxx
+                  - Per digitaal kanaal dat in gebruik is moeten de procesinstellingen worden       3. Xxxxxx
+                     gecheckt.                                                                      4. Xxxxxx
+                  - Als het bericht waarvan de ontvangst moet worden bevestigd, per e-mail          5. Xxxxxx
+                     wordt gezonden, kan het bestuursorgaan de ontvangstbevestiging                 6. Etc.
+                     sturen naar het e-mailadres van de afzender. In andere gevallen
+                     moet het bestuursorgaan zich inspannen om het e-mailadres voor de
+                     ontvangstbevestiging te verkrijgen, bijvoorbeeld door op een webformulier
+                     de gelegenheid te bieden om het e-mailadres op te geven.
+                • Ontvangstbevestiging sturen is niet nodig indien: de verzender en het
+                  bestuursorgaan gebruikmaken van hetzelfde systeem van gegevensverwerking
+                  en de verzender in dat systeem kan zien dat het bericht voor het
+                  bestuursorgaan beschikbaar is, de afzender daartoe geen elektronisch adres
+                  ter beschikking heeft gesteld of elektronische berichten van het bestuursorgaan
+                  geen actie vergen, zoals handelsreclame en andere spam.
+
+
+
+                                                                         22
+Verplichting   Checkvragen                                                                        Procedures/    Voldoet   Voldoet   Toelichting
+                                                                                                  diensten                 niet
+                                                                                                  bestuursorgaan
+Beschikbaar  • Als uw bestuursorgaan de indiening van een formeel bericht met een                 1. Xxxxxx
+stellen        webformulier voorschrijft, zijn de via dat formulier ingevoerde gegevens voor de   2. Xxxxxx
+gegevens       indiener toegankelijk?                                                             3. Xxxxxx
+e-formulier    - Per digitaal kanaal dat in gebruik is moeten de procesinstellingen worden        4. Xxxxxx
+                   gecheckt.                                                                      5. Xxxxxx
+             • Zorg dat de terugmelding op een voldoende betrouwbare en vertrouwelijke            6. Etc.
+               (digitale) manier geschiedt.
+               Toelichting: als het bestuursorgaan om veiligheidsredenen een webformulier
+               heeft aangewezen, kunnen de via dat formulier ingevoerde gegevens niet
+               alsnog onbeveiligd in een e-mail worden retour gezonden. In dat geval zullen
+               de ingevoerde gegevens op een andere manier toegankelijk moeten worden
+               gemaakt, bijvoorbeeld via een link naar een beveiligde omgeving waar de
+               gegevens beschikbaar worden gesteld of met een bericht in een beveiligde
+               berichtenbox.
+Bewijslast   • Indien gebruikt wordt gemaakt van een berichtenbox, worden de volgende             1. Xxxxxx
+bij gebruik    gegevens bewaard, opdat het bestuursorgaan aan haar bewijslast kan voldoen:        2. Xxxxxx
+systeem voor   tijdstip van verzending of ontvangst, de verzending met de samenhangende           3. Xxxxxx
+gegevens-      ontvangstbevestiging of notificatie, de tijdstippen waarop een geadresseerde       4. Xxxxxx
+verwerking     heeft ingelogd, ontvangen meldingen van berichten die niet konden worden           5. Xxxxxx
+               bezorgd?                                                                           6. Etc.
+               - De procesinstellingen van de systemen voor gegevensverwerking moeten
+                   worden gecheckt. Kunnen de gegevens die gebruikt zijn voor een beslissing
+                   (bewijzen) aan betrokkene beschikbaar worden gesteld wanneer deze
+                   daarom vraagt?
+
+
+
+
+                                                                        23
+Verplichting    Checkvragen                                                                    Procedures/    Voldoet   Voldoet   Toelichting
+                                                                                               diensten                 niet
+                                                                                               bestuursorgaan
+Verkeerd• Wordt er een mededeling verzonden aan de afzender indien een formeel                 1. Xxxxxx
+ingezondenbericht verkeerd is verzonden?                                                       2. Xxxxxx
+berichten - Per digitaal kanaal dat in gebruik is moeten de procesinstellingen worden          3. Xxxxxx
+              gecheckt.                                                                        4. Xxxxxx
+          - Zie tabel 1 voor meer informatie over regels over het behandelen van               5. Xxxxxx
+              formele berichten door een bestuursorgaan                                        6. Etc.
+        • Wordt rekening gehouden met de uitzonderingen op de mogelijkheid tot
+          weigering zoals beschreven in verplichting 2.3?
+        • Indien een verkeerd ingezonden bericht onder de uitzonderingen valt, wordt
+          geborgd dat dit intern wordt doorgeleid en dat hiervan mededeling wordt
+          gedaan aan de indiener?
+          - Per digitaal kanaal dient te worden gecheckt of een verkeerd ingezonden
+              bericht onder een uitzondering valt en, indien dat het geval is, of er correct
+              mee wordt omgegaan
+Storing • Is ingeregeld dat bij verminderde elektronische bereikbaarheid van uw
+          organisatie:
+          - u de wettelijke termijn voor indiening kunt verlengen en u daarvan dan tijdig
+              mededeling doet?
+          - u rekening houdt met verschoonbare termijnoverschrijding indien de storing
+              direct voorafgaand aan het einde van een termijn plaats heeft?
+			
+
+
+
+
+                                                                       24
+Hoofdstuk 3: Wat verandert er voor uw
+organisatie?
+Inleiding
+De veranderingen in de nieuwe afdeling 2.3 Awb, en de verplichtingen die hieruit voortvloeien, zijn in
+hoofdstuk 1 beschreven. Met behulp van hoofdstuk 2 heeft u kunnen inventariseren in welke mate uw
+bestuursorgaan op dit moment voldoet aan de (gevolgen van de) verplichtingen voortvloeiend uit het
+wetsvoorstel.
+
+Dit hoofdstuk gaat in op de consequenties voor uw bestuursorgaan. Om duidelijk in beeld te krijgen
+welke consequenties de nieuwe afdeling 2.3 Awb voor uw bestuursorgaan heeft is het van belang eerst
+te omschrijven over welke soorten berichten het gaat. Vervolgens omschrijven we de digitale kanalen
+die kunnen worden gebruikt om elektronische berichten te ontvangen. Er zijn verschillende soorten
+van betrouwbaarheidsniveaus om in te loggen op digitale kanalen, die zullen ook worden beschreven.
+Vervolgens worden de consequenties voor uw bestuursorgaan in algemene zin besproken. Hier komen
+bijvoorbeeld de kostencategorieën en organisatie ter sprake. Tot slot zal ook het berichtenverkeer in de
+keten worden besproken.
+
+Over welke soorten berichten gaat het?
+De verplichtingen zoals beschreven in hoofdstuk 1 die voortvloeien uit de nieuwe afdeling 2.3 Awb zijn
+alleen van toepassing op ‘formele’ of ’officiële’ berichten. Daaronder wordt verstaan: berichten in het
+kader van (ambtshalve en op aanvraag te nemen) besluiten, klachten en berichten zoals meldingen. De
+wet betreft in de eerste plaats berichten omtrent een aanvraag, maar ook een bezwaarof administratief
+beroepschrift, een aanvulling 20, een ingebrekestelling21 en zienswijzen en bedenkingen22. Met een
+klacht wordt bedoeld een klacht in de zin van hoofdstuk 9 Awb, waaronder ook verzoekschriften
+aan de ombudsman vallen. Een melding kan bijvoorbeeld betrekking hebben op de melding die
+een belanghebbende bij het UWV of de gemeentelijke sociale dienst moet doen van het aantal
+sollicitaties of in een bepaald tijdvak genoten neveninkomsten, of bijvoorbeeld een bouwwerk dat niet
+vergunningplichtig is, maar waarvan de voorgenomen aanleg wel moet worden gemeld. Een melding
+ter invulling van een in een vergunning opgelegde meldingsplicht valt eveneens binnen de categorie
+‘formele berichten.’ De melding dat behoefte bestaat aan zorg23 is een bericht dat onderdeel uitmaakt
+van een procedure betreffende een besluit, het is immers de eerste voorgeschreven stap om te komen
+tot een aanvraag in het kader van de Wmo 2015.
+
+Als een gevolg van de beperking tot formele berichten, behoren zaken als een verzoek voor informatie of
+een vraag van een burger/bedrijf derhalve pas tot de Wet modernisering elektronisch bestuurlijk verkeer
+als ze onderdeel zijn van een procedure. Het doel hiervan is om informeel berichtenverkeer (al dan niet
+lopend via sociale media) niet te belasten met de verplichtingen voor elektronische formele berichten
+die voortvloeien uit nieuwe afdeling 2.3 Awb. Voorbeelden van zulk informeel berichtenverkeer zijn de
+melding van losse stoeptegels of een niet-brandende lantaarn.
+
+
+
+
+20 als bedoeld in artikel 4:5, Awb
+21 als bedoeld in artikel 4:17, derde lid, Awb
+22 als bedoeld in de artikelen 3:15, 4:7 en 4:8 Awb
+23 als bedoeld in artikel 2.3.2 van de Wet maatschappelijke ondersteuning 2015
+
+
+                                                                   25
+Welke digitale kanalen kan ik open stellen om aan de wet te voldoen?
+In de onderstaande tabel worden verschillende soorten digitale kanalen beschreven. Hierin worden
+overwegingen per digitaal kanaal genoemd.
+
+Let op: de wijze waarop het betrouwbaarheidsniveau van de elektronische diensten/producten
+kan worden bepaald, de aanduiding daarvan (eIDAS zie ook tabel 3), alsmede de bijbehorende
+inlogmiddelen, worden geregeld in de Wet Digitale Overheid.
+
+ Soorten digitaal kanaal Overwegingen
+ E-mail                  • Makkelijk te openen digitaal kanaal
+                         • Lage betrouwbaarheidsniveaus (voor zaken met een lage privacy
+                           gevoeligheid / waar weinig persoonsgegevens worden gebruikt)
+                         • Lage kosten
+                         • Manuren nodig voor het doorgeleiden van de e-mails
+                         • Authenticatie is niet mogelijk
+ E-mail met              • Makkelijk te openen digitaal kanaal
+ ondertekende bijlage    • Lage betrouwbaarheidsniveaus
+                         • Lage kosten
+                         • Manuren nodig voor het doorgeleiden van de e-mails
+                         • Authenticatie is niet mogelijk
+ Generiek e-formulier    • Ingewikkelder te openen kanaal, tenzij software al aanwezig is
+ (met beveiligde         • Gemiddeld betrouwbaarheidsniveau
+ internet verbinding)    • Hogere kosten, tenzij software al aanwezig is
+                         • Manuren nodig voor het beheer van de formulieren
+                         • Houdt rekening met automatische koppelingen met andere partijen
+                         • Makkelijk in gebruik en direct de juiste informatie
+                         • Authenticatie is niet mogelijk
+ Generiek e-formulier    • Ingewikkelder te openen kanaal, vooral als de software nog niet aanwezig is
+ (met DigiD              • Hoger betrouwbaarheidsniveau
+ /e-Herkenning of        • Hogere kosten, vooral als software niet aanwezig is
+ ander toegestaan        • Houdt rekening met digitale koppelingen met andere partijen
+ inlogmiddel)            • Manuren nodig voor het beheer van de formulieren
+                         • Makkelijk in gebruik en direct de juiste informatie
+                         • Authenticatie is mogelijk
+ Specifiek e-formulier   • Ingewikkelder te openen kanaal, vooral als de software nog niet aanwezig is
+ (met DigiD              • Hoger betrouwbaarheidsniveau
+ /e-Herkenning of        • Hogere kosten, vooral als software niet aanwezig is
+ ander toegestaan        • Houdt rekening met digitale koppelingen met andere partijen
+ inlogmiddel)            • Manuren nodig voor het beheer van de formulieren
+                         • Makkelijk in gebruik en direct de juiste informatie
+                         • Authenticatie is mogelijk
+ Berichtenbox            • Hoger betrouwbaarheidsniveau
+ (bijvoorbeeld           • Burgers kunnen alleen berichten ontvangen, niet versturen aan
+ MijnOverheid)             bestuursorganen
+                         • Makkelijk in gebruik
+                         • 1 omgeving voor berichten
+                         • Authenticatie is mogelijk
+Tabel 2: soorten digitale kanalen
+
+
+                                                  26
+Sommige bestuursorganen hebben ook andere kanalen open gezet om met burgers te communiceren,
+bijvoorbeeld via SMS, Whatsapp of Facebook. Echter, gezien de beperkte betrouwbaarheid en
+vertrouwelijkheid van deze diensten wordt geadviseerd om deze kanalen niet aan te wijzen voor formele
+berichten. Informeel berichtenverkeer kan wel via deze kanalen verlopen.
+
+Uit de interviews bij verschillende bestuursorganen is gebleken dat de in tabel 2 genoemde digitale
+kanalen al veelvuldig worden gebruikt om elektronische berichten te kunnen ontvangen. Ook zijn er al
+veel digitaliseringsprojecten uitgevoerd, zodat een groot aantal producten/diensten reeds digitaal worden
+aangeboden (denk bijvoorbeeld aan het Omgevingsloket online). De uitdaging ligt voor bestuursorganen
+dan ook niet zozeer in het openen van digitale kanalen om elektronische berichten te kunnen ontvangen,
+als wel in het borgen dat aan de andere verplichtingen uit de wet (ontvangstbevestiging, doorgeleiding,
+tijdige afhandeling etc.) worden voldaan.
+
+Hoewel het op minimale wijze voldoen aan de wet voor de meeste bestuursorganen niet voor grote
+problemen zorgt, geven bestuursorganen aan dat er meer overwegingen meespelen dan alleen het
+openen van een digitaal kanaal om elektronische formele berichten te ontvangen. De uitdagingen liggen
+voor bestuursorganen meer in hoe deze berichten verder elektronisch worden afgehandeld in de interne
+organisatie of keten. Het implementeren van dit soort end-to-end elektronische afhandelingsprocessen
+is een stuk complexer, en werd door de geïnterviewde bestuursorganen als uitdaging gezien. Het gaat
+dan vaak om complexe producten, waar veel privacygevoelige gegevens worden uitgewisseld. Voor dit
+soort complexe producten moet goed worden vastgesteld wat over de betrouwbaarheidsniveaus van
+producten/diensten zijn en de daarvoor benodigde inlogmiddelen, (zie volgende paragraaf), (interne)
+leesrechten, communicatieprotocollen (Digikoppeling) enzovoorts. Het implementeren van dit soort
+processen zal voor bestuursorganen het nodige vergen qua investeringen, tijd, personeel, training,
+voorlichting en interne organisatie. Deze volledige elektronische afhandeling van formele berichten
+zorgt voor een sterke verbetering van de dienstverlening aan de burger, hetgeen de ambitie is. Deze
+handreiking blijft echter beperkt tot datgene wat minimaal uit de wet voortvloeit. De volledige interne
+verwerking van elektronische formele berichten is in deze handreiking verder buiten beschouwing
+gebleven.
+
+Welke betrouwbaarheidsniveaus zijn er voor digitale kanalen?
+De Awb vereist dat elektronisch verkeer tussen burger en bestuursorgaan ‘voldoende betrouwbaar en
+vertrouwelijk’ geschiedt. Wat daaronder verstaan moet worden, bepaalt het bestuursorgaan primair zelf.
+
+Op het moment dat burgers of bedrijven bij bestuursorganen moeten inloggen om toegang te krijgen tot
+de dienstverlening, bepaalt de Wdo digitale overheid dat de betrouwbaarheid van deze dienstverlening
+moet worden vastgesteld.
+
+Deze handreiking is niet bedoeld om te definiëren welk betrouwbaarheidsniveau in de zin van de Wet
+digitale overheid moet worden ingeregeld. En in het verlengde daarvan, welk inlogmiddel voor bepaalde
+dienstverlening worden ingeregeld.
+
+De zwaarte van het in te zetten middel hang af van de aard van de transactie en de gevolgen ervan
+(zoals financiële en juridische gevolgen). Op basis van de Wet digitale overheid worden regels
+gesteld, aan de hand waarvan bestuursorganen het betrouwbaarheidsniveau van dienstverlening
+kunnen bepalen. Om bestuursorganen daarbij te helpen is de regelhulp ontwikkeld, die overheden
+aan de ondersteunt bij het maken van een keuze voor het gewenste betrouwbaarheidsniveau van
+een bepaalde elektronische dienst. De Wdo onderkent een drietal betrouwbaarheidsniveaus van
+overheidsdienstverlening: de betrouwbaarheidsniveaus “laag”, “substantieel” en “hoog”. Deze worden
+
+
+                                                   27
+bepaald aan de hand van een aantal criteria (rechtsgevolg, formeelrechtelijke vereisten, opgeven van
+persoonsgegevens door de betrokkene, communiceren van persoonsgegevens, risico op fraude of
+misbruik, verwerking van het BSN, juistheid van opgegeven gegevens, economisch belang en publiek
+belang) worden ingeschaald. In de regeling betrouwbaarheidsniveaus en de toelichting daarop, en
+in de Regelhulp worden voorbeelden gegeven van betrouwbaarheidsniveaus per dienst van een
+bestuursorgaan. De Regelhulp betrouwbaarheidsniveaus24, die gebaseerd is op het wetsvoorstel
+digitale overheid en de Regeling betrouwbaarheidsniveaus, is speciaal ontwikkeld om dienstverleners
+te helpen om het passende betrouwbaarheidsniveau te bepalen voor de toegang tot digitale diensten.
+Bestuursorganen kunnen om betrouwbaarheidsredenen overigens zelf bepalen of zij een hoger
+betrouwbaarheidsniveau van een bepaald te openen digitaal kanaal noodzakelijk achten. De regeling en
+de hieronder opgenomen tabel is in feite een verkorte risicoanalyse. Waar het om gaat, is dat ter zake
+een beredeneerde afweging wordt gemaakt.
+
+ Aspecten                 Criteria betrouwbaarheidsniveaus
+ van de dienst            Niveau laag             Niveau substantieel       Niveau hoog
+ Persoons­                • Geen bijzondere• Bijzondere categorieën         • Persoonsgegevens
+ gegevens                   categorieën van   van persoonsgegevens            die:
+ (behoudens                 persoonsgegevens
+                                           • Persoons­gegevens van            - stigmatiserend
+ het BSN): aard           • Geen persoons­    strafrechtelijke aard,             kunnen werken
+ gegevens                   gegevens van      gegevens uit ante­              - reputatieschade
+ en aard en                 strafrechtelijke aard,
+                                              cedenten­­onderzoek en             kunnen opleveren
+ omvang van de              geen gegevens     politiegegevens                 - tot uitsluiting
+ verwerking                 uit antecedenten­
+                                           • Gevoelige persoons­                 kunnen leiden
+                            onderzoek en geen gegevens niet zijnde            - schade kunnen
+                            politiegegevens   bijzondere categorieën             opleveren aan de
+                          • Kleinschalige     van persoonsgegevens,              gezondheid, of
+                            verwerking        persoonsgegevens                - chanteerbaarheid
+                                              van strafrechtelijke               kunnen opleveren
+                                              aard, gegevens uit            • Gegevens die onder
+                                              antecedenten­onderzoek          het medisch beroeps­
+                                              of politiegegevens              geheim vallen
+                                           • Grootschalige verwerking
+ Risico’s indien Geen of nauwelijks risico Reëel risico op identiteits­     Groot risico op identiteits­
+ de gegevens     op identiteits­fraude     fraude en/of misbruik van de     fraude en/of misbruik van
+ in verkeerde    en/of misbruik van de     betreffende dienst               de betreffende dienst
+ handen vallen   betreffende dienst
+ Aard van de     Algemeen bekende          Gevoelige gegevens               Geen criteria
+ gegevens van    gegevens van onder­       van ondernemingen en
+ ondernemingen nemingen en rechts­         rechtspersonen
+ en rechts­      personen
+ personen
+
+
+
+
+24 https://regelhulpenvoorbedrijven.nl/betrouwbaarheidsniveaus/
+
+
+                                                                  28
+ Aspecten              Criteria betrouwbaarheidsniveaus
+ van de dienst         Niveau laag             Niveau substantieel                        Niveau hoog
+ Aard van de           • BSN van degene aan           • BSN van degene aan wie • BSN in combinatie
+ verwerking van          wie de dienst wordt            de dienst wordt verleend,   met andere
+ het BSN                 verleend, van zijn             van zijn gemachtigde        persoonsgegevens
+                         gemachtigde, of van            of van een derde wordt
+                         een derde wordt door           door de dienstverlener
+                         dienstverlener niet            tijdens het proces van
+                         verstrekt                      dienstverlening verstrekt
+                                                      • NB: wanneer dienst­
+                                                        verlener reeds opge­
+                                                        geven BSN terug­koppelt:
+                                                        minimaal niveau laag
+                                                        met 2-factor authenticatie
+                                                        nodig
+ Gevolgen voor         • Geen criteria                • Controle op de verwerking • Geen controle op
+ de gegevens                                            van gegevens                de verwerking van
+ in de basis­                                                                       gegevens
+ registraties
+ Economisch            • Niet of nauwelijks      • Ingrijpend voor econo­    • Zodanig ingrijpend
+ belang                  ingrijpend voor           mische positie burgers/     voor economische
+                         econo­mische positie      ondernemingen en rechts­    positie burgers/
+                         burgers/onder­            personen in de doelgroep,   ondernemingen
+                         nemingen en rechts­       waarbij als richtsnoer      en rechtspersonen
+                         personen in de            geldt:                      dat ongewijzigd
+                         doel­groep, waarbij als   - De directe schade voor    welstandsniveau
+                         richt­snoer geldt:           burgers is hoger dan     of voortbestaan
+                         - De directe schade          €1000,-                  onmogelijk is
+                            voor burgers is        - De directe schade
+                            lager dan €1000,-         voor bedrijven tot 250
+                         - De directe schade          werknemers is hoger
+                            voor bedrijven tot        dan €125.000,-
+                            250 werknemers         - De directe schade voor
+                            is lager dan              grotere bedrijven is
+                            €125.000,-                hoger dan €500.000,-
+                         - De directe schade
+                            voor grotere
+                            bedrijven is lager
+                            dan €500.000,-
+
+Tabel 3: voorbeeld diensten met de daarbij volgens de bovenstaande criteria behorende betrouwbaarheidsniveaus
+
+
+
+
+                                                           29
+De door de bestuursorganen vastgestelde betrouwbaarheidsniveaus laag, substantieel of hoog,
+corresponderen met de door eIDAS gehanteerde benamingen voor de classificatie van inlogmiddelen.
+Op het moment overheidsdienstverlening op substantieel dan wel hoog wordt vastgesteld moet er, als
+voor de dienstverlening moet worden ingelogd, een op basis van de Wdo toegelaten inlogmiddel van het
+corresponderende niveau worden gebruikt.
+
+De Wet digitale overheid treedt op 1 juli 2023. De toelating van inlogmiddelen en de bredere uitrol van
+inlogmiddelen op de hogere betrouwbaarheidsniveau’s wordt vanaf eind 2023 voorzien. Dat betekent
+dat er op dit moment, zeker op het niveau hoog, nog niet altijd sprake is van breder beschikbaarheid
+van deze inlogmiddelen. De Wdo kent daarom een overgangsregelening. Deze houdt in dat er, indien er
+voor het meest gewenste betrouwbaarheidsniveau (nog) geen authenticatiemiddelen zijn die algemeen
+beschikbaar zijn, er dan dient gekozen te worden voor het eerstvolgend lagere betrouwbaarheidsniveau
+waarvoor wel middelen in voldoende mate beschikbaar zijn. De Wdo bepaalt wel dat de “ondergrens”
+aan de betrouwbaarheid om 2-factor authenticatie wordt gesteld. Dit betekent dat voor dienstverlening
+die is vastgesteld op substantieel (en hoog) niet meer mag worden aangeboden met alleen
+gebruikersnaam en wachtwoord.
+
+Met welke kosten moet ik rekening houden?
+Uit de interviews is gebleken dat de kosten die moeten worden gemaakt om minimaal te voldoen aan de
+verplichtingen voortvloeiend uit de nieuwe afdeling 2.3 Awb beperkt zullen zijn.
+
+Voor het verplicht openstellen van digitale kanalen voor elektronische formele berichten gericht aan
+het bestuursorgaan zullen er beperkte investeringskosten zijn, omdat er in de meeste gevallen al
+digitale kanalen aanwezig zijn die slechts verder moeten worden opgesteld om alle types formeel
+elektronisch berichtenverkeer te kunnen accepteren. Bovengenoemde overwegingen, zoals
+authenticatiemethoden en betrouwbaarheidsniveaus van dienstverlening, zullen in de praktijk (en
+in ieder geval na inwerkingtreding van de Wdo) wel moeten worden meegenomen bij de keuze van
+het te openen digitale kanalen, wat mogelijk meer investeringskosten met zich meebrengt. Voor het
+ontvangen van elektronische formele berichten voldoet al vaak een generieke e-formulier-generator
+met beveiligde internetverbinding, wat niet kostbaar hoeft te zijn. Er zullen wel personeelskosten
+moeten worden gemaakt om een medewerker de digitale kanalen te laten openen. Ook zal er enige
+vorm van training moeten zijn, zodat bijvoorbeeld ingezonden berichten op een correcte manier intern
+worden doorgezonden, indien dat vereist wordt of vanuit dienstverlenend oogpunt als gewenst wordt
+beschouwd. Ook zal er voorlichting moeten worden gegeven, over bijvoorbeeld de verplichting om een
+ontvangstbewijs aan de burger te sturen.
+
+Voor het aanpassen van huidige systemen, zodat aan verplichtingen (alleen noodzakelijk gegevens
+vragen, ontvangstbevestiging, beschikbaar stellen e-formulier, bewijslast bij gebruik systemen voor
+gegevens verwerking en mededeling bij weigering verkeerd ingezonden berichten) wordt voldaan, zullen
+ook personeelskosten worden gemaakt. Vooral bij digitaal volwassen bestuursorganen met al veel
+digitale kanalen om elektronische formele berichten te ontvangen zal er goed naar deze aanpassingen
+moeten worden gekeken. De investeringskosten in materiaal (nieuwe digitale kanalen) zullen beperkt
+zijn.
+
+
+
+
+                                                  30
+Wie zijn er in uw organisatie bij de aanpassingen betrokken?
+Wie er binnen een organisatie betrokken zijn bij de benodigde aanpassingen, zal sterk verschillen
+per bestuursorgaan. Over het algemeen zullen de onderstaande afdelingen betrokken zijn om op een
+correcte manier aan de verplichtingen te voldoen.
+• Juridische zaken: voor de juridische interpretatie van de (nieuwe) Awb-bepalingen
+• Informatie afdeling/ICT afdeling: voor het in kaart brengen van de huidige stand van zaken (door
+   middel van de checklist in hoofdstuk 2) en de door te voeren aanpassingen in huidige digitale kanalen
+   zodat backoffice-verwerking er mee kan werken
+• Experts op het gebied van communicatie, data en informatiebeveiliging
+• Programmamanagers: voor het begeleiden van het implementeren van complexere digitale
+   producten/processen
+• Frontoffice/publieksdienstverlening/Klant Contact Centrum: voor het ontvangen van de elektronische
+   formele berichten en het op een correcte manier intern doorgeleiden
+• Backoffice-verwerking: voor het sturen van de ontvangstbevestiging, beschikbaar stellen e-formulier
+   en het bewaren van de loggegevens
+• Financiële deskundigen: voor het in kaart brengen van mogelijke kosten
+
+Hoe zit het met berichtenverkeer in de keten en interbestuurlijke samenwerking?
+Een vaak terugkomend onderwerp tijdens de interviews was het berichtenverkeer in de keten,
+bijvoorbeeld bij de decentralisaties in het sociale domein. Wanneer een instantie in een
+mandaatverhouding voor een bestuursorgaan publiekrechtelijke taken uitvoert, vallen de elektronische
+formele berichten van burgers/bedrijven aan deze instanties ook onder de verplichtingen voortvloeiend
+uit de modernisering van de Awb. Bestuursorganen zullen deze verplichtingen met deze instanties
+moeten bespreken, zodat aan de wet wordt voldaan. Het wordt aanbevolen dat er naar contracten met
+partijen wordt gekeken om uit te zoeken waar de verantwoordelijkheden zijn belegd. Er zullen afspraken
+moeten worden gemaakt wie bijvoorbeeld de loggegevens beheert en wie precies wat doet in een het
+samenwerkingsverband, zodat er geen onduidelijkheden voor de burger/bedrijf ontstaan. Overigens is
+dit ook van belang om aan de Algemene verordening gegevensbescherming (AVG en de Uitvoeringswet
+AVG) te kunnen voldoen. Het bestuursorgaan blijft uiteindelijk verantwoordelijk voor de uitvoering van de
+wet, dus het is van belang dat deze verplichtingen goed worden vastgelegd.
+
+Bestuursorganen werken met elkaar samen op veel terreinen die ze gezamenlijk effectiever of
+efficiënter kunnen uitvoeren. Soms wordt krachtens de Wet gemeenschappelijke regelingen (Wgr)
+een gemeenschappelijk orgaan of een openbaar lichaam opgericht. Een gemeenschappelijk orgaan
+en een openbaar lichaam zijn een bestuursorgaan, waarop de Awb onverkort van toepassing is. In de
+meeste gevallen geldt dat aan een gemeenschappelijk orgaan of een openbaar lichaam bevoegdheden
+worden overgedragen. De deelnemende bestuursorganen zijn dan de bevoegdheid kwijt. De
+verantwoordelijkheid voor het voldoen aan afdeling 2.3 Awb berust dan voor de overgedragen taken bij
+het gemeenschappelijk orgaan of het openbaar lichaam.
+
+In andere gevallen wordt de uitvoering van een taak door een gemeente, een provincie of een
+waterschap gemandateerd aan een ander bestuursorgaan (bijvoorbeeld een centrumgemeente of
+een openbaar lichaam in de zin van de Wgr). Bij mandaat blijven de verantwoordelijkheden van
+het mandaterende bestuursorgaan ongewijzigd. Het mandaterende bestuursorgaan blijft dus ook
+verantwoordelijk voor de toepassing van de Awb en zal bijvoorbeeld een kanaal voor elektronisch
+verkeer moeten aanwijzen waarmee een formeel bericht bij de gemandateerde instantie terecht komt.
+Bestuursorganen zullen deze verplichtingen dus met deze instanties moeten bespreken, zodat aan de
+wet wordt voldaan.
+
+
+
+                                                   31
+Hoofdstuk 4: Veel voorkomende vragen
+Inleiding
+Hieronder vindt u antwoord op veelvoorkomende vragen. Zoals in de vorige hoofdstukken is
+aangegeven, is het voor u vooral van belang om inzicht te krijgen in de verschillende digitale kanalen, bij
+u voorkomende procedures/diensten en hierbij behorende typen berichten, alsmede de mate waarin u al
+aan afdeling 2.3 Awb voldoet.
+
+Veel voorkomende vragen en de antwoorden daarop
+
+Vraag                                      Antwoord
+1. Voldoet het gebruik van sociale         Sociale media zijn een aanvulling op formeel
+media aan de Awb of is dit slechts         berichtenverkeer en een handige manier om kleine
+mogelijk voor informele berichten?         vragen of informele berichten te beantwoorden. In
+                                           de regel zal berichtenverkeer via social media niet
+                                           aan afdeling 2.3 Awb hoeven te voldoen, behalve als
+                                           een social media kanaal is aangewezen als kanaal
+                                           om formele berichten in te dienen. Dit wordt echter
+                                           afgeraden; bij de huidige stand van de techniek
+                                           zijn social media niet voldoende betrouwbaar en
+                                           vertrouwelijk.
+2. Zijn de verplichtingen                  Ja.
+voorvloeiend uit afdeling 2.3 Awb in       Er is bij de Dienstenwet rekening gehouden met
+overeenstemming met andere wetten,         eventuele e-formulieren.
+bijvoorbeeld de Dienstenwet of de
+Archiefwet?                                De Archiefwet regelt het bewaren en het vernietigen van
+                                           overheidsinformatie. Krachtens de Archiefwet worden
+                                           selectielijsten opgesteld waarin wordt bepaald hoe lang
+                                           gegevens bewaard dienen te worden. Voor de gegevens
+                                           die nodig zijn om aan de bewijslast te kunnen voldoen
+                                           dient dus aangegeven te worden dat ze lang genoeg
+                                           worden bewaard.
+3. Welke soorten berichten vallen          De waarborgen van afdeling 2.3 Awb gelden alleen voor
+onder afdeling 2.3 Awb?                    berichten die deel uitmaken van een procedure over
+                                           een besluit, een klacht of een melding. Te denken valt
+                                           aan een aanvraag, een bezwaarschrift, een zienswijze,
+                                           een antwoord op door het bestuursorgaan gestelde
+                                           aanvullende vragen. Zie Hoofdstuk 3 en bijlage 1.
+
+
+
+
+                                                    32
+Bijlagen
+Bijlage 1: Soorten berichten
+
+Formele berichten
+Onderstaande lijst geeft een indicatie van de aard van de berichten die onder afdeling 2.3 Awb vallen.
+• Aanvraag van een burger/bedrijf voor een product/dienst van een bestuursorgaan
+• Verzoek om informatie van een burger/bedrijf bij een bestuursorgaan omtrent een lopende procedure
+  inzake een besluit, een klacht of een melding
+• Vraag van een burger/bedrijf aan een bestuursorgaan met betrekking tot een procedure inzake een
+  besluit, een klacht of een melding
+• Melding van een burger/bedrijf aan een bestuursorgaan
+• Klacht van een burger/bedrijf aan een bestuursorgaan
+• Bezwaarschrift van een burger/bedrijf aan een bestuursorgaan
+
+Informele berichten
+Onderstaande lijst geeft een indicatie van de aard van de berichten die NIET onder afdeling 2.3 Awb
+vallen.
+
+Contact gemeente Inzage
+• Bouwplaninzage
+• Archief inzage
+• Onroerendezaak gebruiksbeperking (inzage)
+• BRP-inzagerecht
+• Bestemmingsplan inzage
+
+Meldingen
+• Overlast en zorg melden
+• Melding openbare ruimte (algemeen)
+• Parkeren
+• Honden
+• Huisvuil en afval
+• Verkeer en vervoer
+• Gevaarlijke hond
+• Melding openbare ruimte (straatmeubilair)
+• Melding openbare ruimte (straatverlichting)
+• Onkruidbestrijding
+• Bladkorf
+• Gladheidbestrijding
+• Ongediertebestrijding
+• Overheidseigendom schademelding
+• Rioolonderhoud
+• Gevonden of verloren voorwerp
+• Afvalcontainer
+• Bedrijfsafvalinzameling
+• Compostvat
+
+
+
+
+                                                  33
+Verzoeken
+Afspraak maken (behalve voor de behandeling van een aanvraag of een bezwaarschift of een klacht)
+• Verzoek om inlichtingen (verzoeken om informatie vallen onder de Woo en zijn wel formele berichten)
+• Verzoek informatie parkeren behandelen
+• Verstrekking overheidsinformatie
+• Rectificatie (behalve bij rectificatie beschikking)
+• Burgerinitiatief
+• Gemeentelijke onderscheiding voordracht
+• Uitlening gemeentelijke materialen
+• Speelvoorziening kinderen
+• Woonomgeving inrichting
+• Antireclamesticker
+• Gemeente gids
+• Begeleiding schoolverlater
+• Leerplichtverzuimmelding
+• Onregelmatigheid en zorg melden
+
+
+
+
+                                                 34
+Bijlage 2: De wetsveranderingen ten opzichte van de huidige Awb
+Onderstaande tabel is gebaseerd op de versie van het wetsvoorstel die op 9 mei 2023 door de Eerste Kamer is aangenomen. In onderstaande tabel zijn de
+veranderingen opgenomen voor ieder gewijzigd artikel van de Awb. Verder is in de opmerkingen opgenomen wanneer:
+• Het een nieuw lid betreft
+• Een artikel / lid vervalt
+• Alleen de nummering verandert
+
+AWB                                                                 Modernisering AWB                                                     Opmerkingen
+Artikel 2:1                                                           Artikel 2:1
+                                                                      1. Een bestuursorgaan draagt zorg voor passende ondersteuning       Nieuw lid
+                                                                         bij het verkeer met bestuursorganen.                             toegevoegd
+Artikel 2:3                                                           Artikel 2:3
+                                                                      3. Voor een elektronisch ontvangen bericht gelden het eerste en     Nieuw lid
+                                                                         tweede lid slechts indien het bestuursorgaan uit het bericht,    toegevoegd
+                                                                         gelet op de wijze waarop het is verzonden, zonder nadere
+                                                                         bewerking kan afleiden aan wie het bericht moet worden doorof
+                                                                         teruggezonden.
+Artikel 2:13                                                          Artikel 2:7
+1. In het verkeer tussen burgers en bestuursorganen kan een           1. In het verkeer met een bestuursorgaan kan een bericht langs
+   bericht elektronisch worden verzonden, mits de bepalingen van         elektronische weg worden verzonden, tenzij een vormvoorschrift
+   deze afdeling in acht worden genomen.                                 zich daartegen verzet.
+2. Het eerste lid geldt niet, indien:                                 2. In het verkeer met een bestuursorgaan wordt het gebruik van de
+   a. dit bij of krachtens wettelijk voorschrift is bepaald, of          elektronische weg niet voorgeschreven voor een bericht dat tot
+   b. een vormvoorschrift zich tegen elektronische verzending verzet.    een of meer geadresseerden is gericht.
+
+
+
+
+                                                                          35
+AWB                                                                Modernisering AWB                                                   Opmerkingen
+Artikel 2:14                                                       Artikel 2:8
+1. Een bestuursorgaan kan een bericht dat tot een of meer          1. Een bestuursorgaan kan een bericht dat tot een of meer
+   geadres­seerden is gericht, elektronisch verzenden voor zover      geadresseerden is gericht, elektronisch verzenden voor zover
+   de geadres­seerde kenbaar heeft gemaakt dat hij langs deze         de geadresseerde kenbaar heeft gemaakt dat hij langs deze
+   weg voldoende bereikbaar is.                                       weg voldoende bereikbaar is.
+2. Tenzij bij wettelijk voorschrift anders is bepaald, geschiedt   Wet elektronische publicaties (Stb. 2020, 262)                      Afzonderlijke
+   de verzending van berichten die niet tot een of meer                                                                                wet
+   geadresseerden zijn gericht, niet uitsluitend elektronisch.
+                                                                   Artikel 2:9
+3. Indien een bestuursorgaan een bericht elektronisch verzendt,    Indien een bestuursorgaan een bericht elektronisch verzendt
+   geschiedt dit op een voldoende betrouwbare en vertrouwelijke    geschiedt dit op een voldoende betrouwbare en vertrouwelijke
+   manier, gelet op de aard en de inhoud van het bericht en het    manier, gelet op de aard en de inhoud van het bericht en het doel
+   doel waarvoor het wordt gebruikt.                               waarvoor het wordt gebruikt.
+
+
+
+
+                                                                         36
+AWB   Modernisering AWB                                                   Opmerkingen
+      Artikel 2:10
+      1. Indien een bestuursorgaan een bericht elektronisch verzendt door Nieuw artikel
+         het bericht te plaatsen in een systeem voor gegevens­verwerking
+         waarin de geadresseerde toegang heeft tot het bericht, wordt
+         aan de geadresseerde binnen 48 uur elektronisch meegedeeld
+         dat voor hem een bericht van het bestuursorgaan toegankelijk
+         is geworden, tenzij de geadresseerde heeft laten weten een
+         dergelijke kennisgeving niet te willen ontvangen.
+      2. De kennisgeving ontsluit het bericht of bevat informatie over de
+         aard en de rechtsgevolgen van het bericht en vermeldt, voor
+         zover van toepassing, de termijn voor het verrichten van een
+         handeling door de geadresseerde.
+      3. Indien het bestuursorgaan gebruik­maakt van zowel een voor­
+         ziening voor elektronisch berichtenverkeer en informatie­
+         verschaffing als bedoeld in artikel X van de Wet elektronisch
+         berichten­­­verkeer Belastingdienst als een andere voorziening,
+         kan worden volstaan met kennisgeving van het toegankelijk
+         worden van het bericht in de eerste voorziening.
+
+
+
+
+            37
+AWB   Modernisering AWB                                                  Opmerkingen
+      Artikel 2:11
+      1. Indien een bestuursorgaan een elek­­­tro­nisch bericht niet met Nieuw artikel
+         succes kan bezorgen bij de geadresseerde, wordt het bericht
+         nogmaals of op een andere wijze verzonden.
+      2. Indien een bestuursorgaan een in artikel 2:10 bedoelde kennis­
+         geving niet met succes kan bezorgen bij de geadresseerde,
+         wordt de kennis­geving nogmaals verzonden of spant het
+         bestuursorgaan zich in om geadresseerde langs andere weg te
+         informeren over het niet kunnen bezorgen van de kennisgeving
+         en van de maatregelen die hij kan nemen om kennisgevingen te
+         ontvangen.
+      3. De tweede verzending van een bericht als bedoeld in het eerste
+         lid geldt als tijdstip waarop het bericht is verzonden.
+      Artikel 2:12
+      Een door een bestuursorgaan verzonden elektronisch bericht wordt Nieuw artikel
+      gewijzigd of ingetrokken door de verzending van een nieuw bericht
+      waarin de wijziging of intrekking wordt vermeld.
+
+
+
+
+            38
+AWB                                                                 Modernisering AWB                                                    Opmerkingen
+Artikel 2:15                                                        Artikel 2:13
+1. Een bericht kan elektronisch naar een bestuursorgaan worden      1. Een ieder kan een bericht dat deel uitmaakt van een procedure     Nieuwe
+   verzonden voor zover het bestuursorgaan kenbaar heeft               over een besluit of een klacht of een ander krachtens wettelijk   artikelen
+   gemaakt dat deze weg is geopend. Het bestuursorgaan kan             voorschrift voor­geschre­ven bericht elektronisch aan een
+   nadere eisen stellen aan het gebruik van de elektronische weg.      bestuursorgaan zenden.
+                                                                    2. Bij wettelijk voorschrift of bij besluit van het bestuursorgaan
+                                                                       wordt voor ieder type bericht als bedoeld in het eerste lid,
+                                                                       gelet op de aard en de inhoud van het type bericht en het doel
+                                                                       waarvoor het wordt gebruikt, een voldoende betrouwbare en
+                                                                       vertrouwelijke wijze van verzenden aangewezen.
+                                                                    3. Bij wettelijk voorschrift of bij besluit van het bestuursorgaan
+                                                                       kunnen nadere eisen worden gesteld, mits die eisen de
+                                                                       mogelijkheid van elektronische verzending niet onevenredig
+                                                                       belemmeren.
+                                                                    4. Bij regeling van Onze Minister van Binnenlandse Zaken en
+                                                                       Koninkrijksrelaties kan worden bepaald dat het eerste lid niet
+                                                                       van toepassing is op in die regeling aangewezen berichten aan
+                                                                       in die regeling aangewezen bestuursorganen voor een in die
+                                                                       regeling bepaalde periode.
+                                                                    Artikel 2:14
+                                                                    Een ander bericht dan een bericht als bedoeld in artikel 2:13,
+                                                                    eerste lid, kan elektronisch aan een bestuursorgaan worden
+                                                                    verzonden voor zover het bestuursorgaan kenbaar heeft gemaakt
+                                                                    dat deze weg is geopend. Het bestuursorgaan kan nadere eisen
+                                                                    stellen.
+
+
+
+
+                                                                          39
+AWB                                                                 Modernisering AWB                                                     Opmerkingen
+                                                                    Artikel 2:15
+2. Een bestuursorgaan kan elektronisch verschafte gegevens en        1. Een bestuursorgaan kan elektronisch verschafte gegevens en        Nieuwe
+   bescheiden weigeren voor zover de aanvaarding daarvan tot            bescheiden weigeren voor zover de aanvaarding daarvan tot         nummering
+   een onevenredige belasting voor het bestuursorgaan zou leiden.       een onevenredige belasting voor het bestuursorgaan zou leiden.    /leden
+                                                                     2. Een bestuursorgaan kan een elektronisch verzonden bericht         verplaatst
+                                                                        weigeren voor zover de betrouwbaarheid of vertrouwelijkheid
+                                                                        van het bericht onvoldoende is gewaarborgd, gelet op de aard
+                                                                        en de inhoud van het bericht en het doel waarvoor het wordt
+                                                                        gebruikt.
+                                                                     3. Het bestuursorgaan deelt een weigering op grond van dit artikel
+                                                                        zo spoedig mogelijk aan de afzender mee.
+Artikel 2:16                                                         Artikel 2:18
+Aan het vereiste van ondertekening is voldaan door een               Ongewijzigd                                                          Alleen
+elektronische handtekening, indien de methode die daarbij voor                                                                            nummering
+ondertekening is gebruikt, voldoende betrouwbaar is, gelet op de                                                                          veranderd
+aard en inhoud van het elektronische bericht en het doel waarvoor
+het is gebruikt.
+Indien de veiligheid en de betrouwbaarheid van het elektronische
+bericht en het doel waarvoor het wordt gebruikt dit noodzakelijk
+maken, kan bij wettelijk voorschrift het gebruik worden
+voorgeschreven van een bepaald type elektronische handtekening
+als bedoeld in artikel 3, onderdeel 10, van Verordening (EU) nr.
+910/2014 van het Europees Parlement en de Raad van 23 juli 2014
+(PbEU 2014, L257). Daarbij kunnen aanvullende eisen worden
+gesteld, tenzij het gaat om een geavanceerde elektronische
+handtekening als bedoeld in artikel 3, onderdeel 11 of een
+gekwalificeerde elektronische handtekening als bedoeld in artikel 3,
+onderdeel 12 van die verordening.
+
+
+                                                                          40
+AWB   Modernisering AWB                                                    Opmerkingen
+      Artikel 2:16
+      1. Indien een bericht als bedoeld in artikel 2:13 eerste lid, niet is Nieuw artikel
+         verzonden op de voor dat bericht aangewezen wijze, kan een
+         bestuursorgaan ermee volstaan de afzender te wijzen op de
+         juiste wijze van verzending, tenzij:
+         a. het bestuursorgaan het bericht zonder nadere bewerking kan
+             behandelen als ware het op de juiste wijze ingediend;
+         b. het bericht een bezwaarschrift of een administratief
+             beroepschrift betreft, of
+         c. voor het type bericht geen wijze van verzending is
+             aangewezen.
+      2. Een bestuursorgaan is niet gehouden op een bericht als bedoeld
+         in het eerste lid te reageren, indien het bericht is verzonden op
+         een wijze die niet voor enig bericht als bedoeld in artikel 2:13,
+         eerste lid, is aangewezen.
+
+
+
+
+            41
+AWB   Modernisering AWB                                                         Opmerkingen
+      Artikel 2:17
+      1. Een bestuursorgaan bevestigt de ontvangst van een                      Nieuw artikel
+         elektronisch bericht als bedoeld in artikel 2:13, eerste lid, dat is
+         verzonden overeenkomstig het tweede lid van dat artikel en met
+         inachtneming van de nadere eisen, gesteld krachtens het derde
+         lid van dat artikel, tenzij:
+         a. het bestuursorgaan en de verzender gebruikmaken
+             van hetzelfde systeem voor gegevensverwerking en de
+             verzender in dat systeem kan zien dat het bericht voor het
+             bestuursorgaan beschikbaar is, of
+         b. van de verzender geen elektronisch adres beschikbaar is.
+      2. Indien een bericht als bedoeld in artikel 2:13, eerste lid, aan een
+         bestuursorgaan wordt verzonden door de rechtstreekse invoer
+         van gegevens in een systeem voor gegevensverwerking van
+         het bestuursorgaan, stelt het bestuursorgaan de ingevoerde
+         gegevens aan de verzender ter beschikking op een voldoende
+         betrouwbare en vertrouwelijke manier.
+
+
+
+
+            42
+AWB   Modernisering AWB                                                      Opmerkingen
+      Artikel 2:21
+      1. Het bestuursorgaan kan een wettelijke termijn voor de               Nieuw artikel
+         indiening van een bericht verlengen wegens een verminderde
+         elektronische bereikbaarheid van het bestuursorgaan.
+      2. Het bestuursorgaan doet van de in het eerste lid bedoelde
+         verlenging zo spoedig mogelijk mededeling op een zodanige
+         wijze dat degenen die gebruikmaken van de desbetreffende
+         wijze van elektronische verzending hiervan tijdig kennis kunnen
+         nemen.
+      3. Indien voor de indiening van een bericht bij een bestuursorgaan
+         een termijn is gesteld, en het bestuursorgaan in een periode
+         voorafgaand aan het einde van die termijn enige tijd niet
+         bereikbaar is via de met toepassing van artikel 2:13, tweede
+         lid, voor dat bericht aangewezen wijze van elektronische
+         verzending, wordt de verzender de overschrijding van die
+         termijn niet tegengeworpen indien redelijkerwijs niet kan
+         worden geoordeeld dat de verzender in verzuim is geweest. De
+         verzender wordt in ieder geval niet geoordeeld in verzuim te zijn
+         geweest voor de duur van de in de vorige zin bedoelde periode.
+      4. Bij of krachtens algemene maatregel van bestuur kunnen
+         nadere regels worden gesteld over de verschoonbaarheid van
+         termijnoverschrijdingen wegens verminderde elektronische
+         bereikbaarheid van het bestuursorgaan.
+
+
+
+
+            43
+AWB                                                                   Modernisering AWB                                                     Opmerkingen
+                                                                      Artikel 2:22
+                                                                      1. Indien een kennisgeving als bedoeld in artikel 2:10 niet is         Nieuw artikel
+                                                                         verzonden, wordt de overschrijding van een termijn die is
+                                                                         aangevangen met de verzending van het bericht waarop deze
+                                                                         kennisgeving betrekking heeft, niet aan de geadresseerde
+                                                                         tegengeworpen, tenzij de geadresseerde heeft laten weten deze
+                                                                         kennisgeving niet te willen ontvangen.
+                                                                      2. De overschrijding van een termijn wordt de geadresseerde
+                                                                         evenmin tegengeworpen indien hij de kennisgeving, bedoeld
+                                                                         in artikel 2:10, niet heeft ontvangen en redelijkerwijs niet kan
+                                                                         worden geoordeeld dat hij in verzuim is geweest.
+Artikel 2:17                                                          Artikel 2:19
+1. Als tijdstip waarop een bericht door een bestuursorgaan            Als tijdstip waarop een bericht door een bestuursorgaan
+   elektronisch is verzonden, geldt het tijdstip waarop het bericht   elektronisch is verzonden, geldt:
+   een systeem voor gegevensverwerking bereikt waarvoor het           a. het tijdstip waarop het bericht een systeem voor
+   bestuursorgaan geen verantwoordelijkheid draagt of, indien            gegevensverwerking bereikt waarvoor het bestuursorgaan of
+   het bestuursorgaan en de geadresseerde gebruik maken van              een ander bestuursorgaan geen verantwoordelijkheid draagt;
+   hetzelfde systeem voor gegevensverwerking, het tijdstip waarop     b. indien het bestuursorgaan gebruikmaakt van een systeem voor
+   het bericht toegankelijk wordt voor de geadresseerde.                 gegevensverwerking waarin de geadresseerde toegang heeft
+                                                                         tot het bericht: het tijdstip waarop het bericht toegankelijk wordt
+2. Als tijdstip waarop een bericht door een bestuursorgaan               voor de geadresseerde;
+   elektronisch is ontvangen, geldt het tijdstip waarop het bericht   c. indien het bestuursorgaan gebruikmaakt van zowel
+   zijn systeem voor gegevensverwerking heeft bereikt.                   een voorziening voor elektronisch berichtenverkeer en
+                                                                         informatieverschaffing als bedoeld in artikel X van de Wet
+                                                                         elektronisch berichtenverkeer Belastingdienst als een andere
+                                                                         voorziening: het tijdstip waarop het bericht toegankelijk is
+                                                                         geworden via de eerstgenoemde voorziening.
+
+
+
+                                                                            44
+AWB   Modernisering AWB                                                        Opmerkingen
+      Artikel 2:20
+      Als tijdstip waarop een bericht door een bestuursorgaan                  Nieuw lid/
+      elektronisch is ontvangen, geldt het tijdstip waarop het bericht         artikel
+      zijn systeem voor gegevensverwerking of een ander daartoe
+      aangewezen systeem heeft bereikt of het tijdstip waarop het
+      bericht op andere wijze elektronisch toegankelijk wordt voor het
+      bestuursorgaan.
+      Artikel 2:23
+      Indien de indiening van een bericht als bedoeld in artikel               Nieuw artikel
+      2:13, eerste lid, aan een termijn is gebonden en de verzender
+      redelijkerwijs kon menen dat hij het bericht kon indienen zoals hij
+      heeft gedaan, wordt deze termijn verlengd met het tijdsverloop
+      tussen de ontvangst van het bericht en de in artikel 2:16, eerste lid,
+      bedoelde reactie, doch met tenminste een werkdag.
+      Artikel 2:24
+      Indien een bericht met toepassing van artikel 2:16, eerste lid, onder    Nieuw artikel
+      a, wordt behandeld, vangt een bij wettelijk voorschrift bepaalde
+      behandeltermijn aan op het tijdstip van interne doorgeleiding, mits
+      het bestuursorgaan de afzender onverwijld mededeling doet van de
+      doorgeleiding en het tijdstip waarop de termijn aanvangt.
+
+
+
+
+            45
+AWB                                                              Modernisering AWB                                                   Opmerkingen
+                                                                 Artikel 2:25
+                                                                 Indien het bestuursorgaan gebruikmaakt van een systeem              Nieuw artikel
+                                                                 voor gegevensverwerking waarin de geadresseerde toegang
+                                                                 heeft tot het bericht, rust op het bestuursorgaan de bewijslast
+                                                                 inzake de ontvangst van aan het bestuursorgaan gezonden
+                                                                 berichten en de verzending van aan de geadresseerde gezonden
+                                                                 berichten, alsmede inzake gegevens over de kennisneming
+                                                                 van deze berichten door de geadresseerde. De afzender of de
+                                                                 geadresseerde wordt desgevraagd afschrift van deze gegevens
+                                                                 verstrekt.
+Artikel 4:3a
+Het bestuursorgaan bevestigt de ontvangst van een elektronisch   Ontvangstbevestiging thans in: artikel 2:17, eerste lid.            Artikel vervalt
+ingediende aanvraag.
+Artikel 4:4
+Het bestuursorgaan dat bevoegd is op de aanvraag te beslissen,   1. Het bestuursorgaan dat bevoegd is op de aanvraag te beslissen,   Alleen
+kan voor het indienen van aanvragen en het verstrekken van          kan voor het indienen van aanvragen en het verstrekken van       nummering
+gegevens een formulier vaststellen, voor zover daarin niet is       gegevens een formulier vaststellen, voor zover daarin niet is    veranderd
+voorzien bij wettelijk voorschrift.                                 voorzien bij wettelijk voorschrift.
+                                                                 2. In het formulier worden geen gegevens gevraagd die voor          Nieuw lid
+                                                                    de te nemen beschikking niet noodzakelijk zijn, tenzij wordt
+                                                                    aangegeven dat de verstrekking van die gegevens niet verplicht
+                                                                    is.
+Artikel 4:5                                                      Artikel 4:5
+                                                                 5. Het bestuursorgaan kan afzien van het bieden van de              Nieuw lid
+                                                                    gelegenheid het verzuim te herstellen, indien het toepassing     toegevoegd
+                                                                    geeft aan artikel 2:16, eerste lid, aanhef.
+
+
+
+                                                                       46
+AWB                                                                       Modernisering AWB                                                    Opmerkingen
+Artikel 4:17                                                              Artikel 4:17
+4. Indien de aanvraag elektronisch kon worden gedaan, is artikel                                                                               Lid vervalt
+   4:3a van overeenkomstige toepassing op de ingebrekestelling
+5. Beroep tegen het niet tijdig geven van de beschikking schort de        4. Beroep tegen het niet tijdig geven van de beschikking schort de   Alleen
+   dwangsom niet op.                                                         dwangsom niet op.                                                 nummering
+                                                                                                                                               veranderd
+6. Geen dwangsom is verschuldigd indien:                                  5. Geen dwangsom is verschuldigd indien:                             Alleen
+   a. het bestuursorgaan onredelijk laat in gebreke is gesteld,              a. het bestuursorgaan onredelijk laat in gebreke is gesteld,      nummering
+   b. de aanvrager geen belanghebbende is, of                                b. de aanvrager geen belanghebbende is, of                        veranderd
+   c. de aanvraag kennelijk niet-ontvankelijk of kennelijk                   c. de aanvraag kennelijk niet-ontvankelijk of kennelijk
+      ongegrond is.                                                             ongegrond is.
+7. Indien er meer dan één aanvrager is, is de dwangsom aan ieder          6. Indien er meer dan één aanvrager is, is de dwangsom aan ieder     Alleen
+   van de aanvragers voor een gelijk deel verschuldigd.                      van de aanvragers voor een gelijk deel verschuldigd.              nummering
+                                                                                                                                               veranderd
+Artikel 4:20d                                                             Artikel 4:20d
+3. De artikelen 4:17, vierde lid, en zesde lid, onder a en b, en 4:18     3. De artikelen 4:17, vijfde lid, onder a en b, en 4:18 tot en met
+   tot en met 4:20 zijn van overeenkomstige toepassing.                       4:20 zijn van overeenkomstige toepassing.
+Artikel 7:14                                                              Artikel 7:14
+Artikel 3:6, tweede lid, afdeling 3.4, de artikelen 3:41 tot en met       De artikelen 2:24 en 3:6, tweede lid, afdeling 3.4, de artikelen 3:41 Verwijzing naar
+3:45, afdeling 3.7, met uitzondering van artikel 3:49 en titel 4.1, met   tot en met 3:45, afdeling 3.7, met uitzondering van artikel 3:49 en     artikel 2:24
+uitzondering van de artikelen 4:14, eerste lid, en 4:15, eerste lid,      titel 4.1, met uitzondering van de artikelen 4:14, eerste lid, en 4:15, ingevoegd.
+onderdeel b, tweede lid, onderdelen b en c, derde lid en vierde lid       eerste lid, onderdeel b, tweede lid, onderdelen b en c, derde lid en
+en paragraaf 4.1.3.2, zijn niet van toepassing op besluiten op grond      vierde lid en paragraaf 4.1.3.2, zijn niet van toepassing op besluiten
+van deze afdeling                                                         op grond van deze afdeling
+
+
+
+
+                                                                                47
+AWB                                                                       Modernisering AWB                                                     Opmerkingen
+Artikel 7:27                                                              Artikel 7:27
+Artikel 3:6, tweede lid, afdeling 3.4, de artikelen 3:41 tot en met       De artikelen 2:24 en 3:6, tweede lid, afdeling 3.4, de artikelen 3:41 Verwijzing naar
+3:45, afdeling 3.7, met uitzondering van artikel 3:49 en titel 4.1, met   tot en met 3:45, afdeling 3.7, met uitzondering van artikel 3:49 en     artikel 2:24
+uitzondering van de artikelen 4:14, eerste lid, en 4:15, eerste lid,      titel 4.1, met uitzondering van de artikelen 4:14, eerste lid, en 4:15, ingevoegd.
+onderdeel b, tweede lid, onderdelen b en c, derde lid en vierde lid       eerste lid, onderdeel b, tweede lid, onderdelen b en c, derde lid en
+en paragraaf 4.1.3.2, zijn niet van toepassing op besluiten op grond      vierde lid en paragraaf 4.1.3.2, zijn niet van toepassing op besluiten
+van deze afdeling.                                                        op grond van deze afdeling.
+                                                                          Artikel 8:38ea
+                                                                          Voor zover de verplichting tot digitaal procederen als bedoeld in        Nieuw artikel
+                                                                          artikel 8:36a niet geldt, kan de bestuursrechter kenbaar maken dat
+                                                                          de elektronische weg open staat voor het instellen van beroep, het
+                                                                          aanwenden van andere rechtsmiddelen of het indienen van een
+                                                                          ander stuk in het kader van een procedure.
+
+
+
+
+                                                                                48
+
