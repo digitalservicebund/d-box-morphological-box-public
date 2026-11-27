@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+[package]
+name = "osci-transport-crypto"
+description = "Default RustCrypto-backed signing, verification and decryption for osci-transport"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+osci-transport.workspace = true
+base64.workspace = true
+rsa.workspace = true
+aes.workspace = true
+cbc.workspace = true
+aes-gcm.workspace = true
+sha1.workspace = true
+sha2.workspace = true
+x509-cert.workspace = true
+bergshamra.workspace = true
+zeroize.workspace = true
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+getrandom = { workspace = true, features = ["sys_rng"] }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+getrandom = { workspace = true, features = ["wasm_js"] }
+
+[dev-dependencies]
+pkcs8.workspace = true
+osci-transport-server.workspace = true

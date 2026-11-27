@@ -1,0 +1,109 @@
+# SPDX-FileCopyrightText: 2025-2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+secretStore: "services/fitko-apps/secret"
+
+mas:
+  ess1:
+    url: "https://example.com/"
+    redirect: "/upstream/callback/<id>"
+  ess2:
+    url: "https://example.com/"
+    redirect: "/upstream/callback/<id>"
+
+keycloakx:
+    image:
+        repository: registry.opencode.de/fitko/matrix-g2x/infrastructure/keycloak
+        tag: da2e8427
+    replicas: 1
+    resources:
+        requests:
+            cpu: 100m
+            memory: 512M
+        limits:
+            cpu: 500m
+            memory: 1024M
+    command:
+        - /opt/keycloak/bin/kc.sh
+        - --verbose
+        - start
+        - --optimized
+        - --import-realm
+        - --http-enabled=true
+        - --http-port=8080
+        - --hostname-strict=false
+    cache:
+        stack: custom
+    # language=yaml
+    extraVolumeMounts: |
+      - name: import
+        mountPath: /opt/keycloak/data/import
+    # language=yaml
+    extraVolumes: |
+      - name: import
+        secret:
+          secretName: neo-keycloak-import
+    # language=yaml
+    extraEnv: |
+      - name: KC_SPI_SAML_AUTHENTICATION_PREPROCESSOR_BUNDID_PROTOCOL_ORGANIZATION_DISPLAY_NAME
+        value: "adesso SE"
+      - name: BUNDID_SAML_KEY
+        valueFrom:
+          secretKeyRef:
+            name: neo-keycloak-saml
+            key: saml.key.b64
+      - name: BUNDID_SAML_CERT
+        valueFrom:
+          secretKeyRef:
+            name: neo-keycloak-saml
+            key: saml.crt.b64
+      - name: KC_BOOTSTRAP_ADMIN_USERNAME
+        valueFrom:
+          secretKeyRef:
+            name: neo-keycloak-users
+            key: admin-username
+      - name: KC_BOOTSTRAP_ADMIN_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: neo-keycloak-users
+            key: admin-password
+      - name: JAVA_OPTS_APPEND
+        value: >-
+          -XX:-UseBASE64Intrinsics
+    # language=yaml
+    extraEnvFrom: |
+      - configMapRef:
+          name: neo-keycloak-clients
+      - secretRef:
+          name: neo-keycloak-clients
+    ingress:
+        enabled: true
+        ingressClassName: nginx-public
+        servicePort: http
+        annotations:
+            nginx.ingress.kubernetes.io/ssl-redirect: "true"
+            cert-manager.io/cluster-issuer: le-prod-public-route53
+            nginx.ingress.kubernetes.io/proxy-buffer-size: 128k
+            nginx.ingress.kubernetes.io/server-snippet: |
+                location ~* /auth/realms/[^/]+/metrics {
+                    return 403;
+                }
+    imagePullSecrets:
+      - name: neo-keycloak-pullsecret
+    # Enables configuration of KUBE_PING based HA deployment
+    # https://github.com/codecentric/helm-charts/tree/master/charts/keycloakx/examples/postgresql-kubeping
+    serviceAccount:
+        create: true
+    metrics:
+        enabled: true
+    serviceMonitor:
+        enabled: false
+    http:
+        internalScheme: HTTP
+    proxy:
+        enabled: true
+        mode: xforwarded
+    # One of these MUST match the value of -Dkubeping_label for HA / multiple replicas to work
+    podLabels:
+        keycloak-cluster: default

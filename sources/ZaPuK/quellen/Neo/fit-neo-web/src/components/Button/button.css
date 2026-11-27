@@ -1,0 +1,170 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+/* Components top-level layer */
+@layer components {
+  .button {
+    /* Styles common to all buttons */
+    @layer elements {
+      --button-background-color: var(--action-default);
+      --button-text-color: var(--action-on-default);
+      --button-border-color: unset;
+      --button-border-width: 0;
+      --button-opacity: 1;
+      --icon-fill: var(--action-on-default);
+
+      display: flex;
+      flex-direction: row;
+      width: fit-content;
+      height: fit-content;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--button-background-color);
+      color: var(--button-text-color);
+      min-height: var(--metric-dimension-x-large);
+      border-radius: var(--metric-border-radius-default);
+      padding: var(--metric-space-none) var(--metric-space-default)
+        var(--metric-space-none) var(--metric-space-default);
+      gap: var(--metric-space-none);
+      border-color: var(--button-border-color);
+      border-width: var(--button-border-width);
+      border-style: solid;
+      font-family: var(--typography-font-family-default);
+      font-weight: var(--typography-font-weight-medium);
+      font-size: var(--typography-font-size-static-medium);
+      line-height: var(--typography-line-height-one-and-half);
+      letter-spacing: var(--metric-space-none);
+      cursor: pointer;
+
+      &:disabled,
+      &[aria-disabled='true'] {
+        cursor: not-allowed;
+      }
+
+      svg {
+        path {
+          fill: var(--icon-fill);
+        }
+      }
+
+      span {
+        padding: var(--metric-space-small);
+      }
+    }
+
+    /* Component modifiers layer */
+    @layer modifiers {
+      &.primary {
+        --button-background-color: var(--action-default);
+        --button-text-color: var(--action-on-default);
+      }
+
+      &.secondary {
+        --button-background-color: var(--layout-background-default);
+        --button-border-color: var(--action-default);
+        --button-text-color: var(--action-default);
+        --button-border-width: 1px;
+        --icon-fill: var(--action-default);
+      }
+
+      &.text {
+        --button-background-color: var(--layout-background-hued);
+        --button-text-color: var(--action-default);
+        --button-border-width: 0;
+        --icon-fill: var(--action-default);
+      }
+
+      &.danger {
+        --button-background-color: var(--layout-background-default);
+        --button-border-color: var(--feedback-danger);
+        --button-text-color: var(--feedback-danger);
+        --button-border-width: 1px;
+        --icon-fill: var(--feedback-danger);
+      }
+    }
+
+    /* Styles for specific button states */
+    @layer states {
+      /* button disabled state styles */
+      &:where([aria-disabled='true']) {
+        opacity: var(--action-state-opacity-disabled-percent);
+      }
+
+      /* button focus state styles */
+      &:where(:focus-visible) {
+        box-shadow:
+          0 0 0 2px var(--action-on-default),
+          0 0 0 4px var(--action-focus-border-inside),
+          0 0 0 6px var(--action-focus-border-outside);
+      }
+
+      /* button hover state styles */
+      /* stylelint-disable-next-line no-descending-specificity */
+      &:where(:hover) {
+        /* Technically diverging from the styleguide here to have better color rendering with the same effect */
+
+        &.primary {
+          --state-background-color: color-mix(
+            in srgb,
+            var(--action-state-indicator-tint)
+              var(--action-state-opacity-hover-percent),
+            var(--action-default)
+          );
+        }
+
+        &:is(.secondary, .text) {
+          --state-background-color: color-mix(
+            in srgb,
+            var(--action-state-indicator-default)
+              var(--action-state-opacity-hover-percent),
+            var(--layout-background-hued)
+          );
+        }
+
+        &.danger {
+          --state-background-color: color-mix(
+            in srgb,
+            var(--feedback-danger) var(--action-state-opacity-hover-percent),
+            var(--layout-background-default)
+          );
+        }
+
+        background-color: var(--state-background-color);
+      }
+    }
+
+    /* button active state styles */
+    &:where(:active) {
+      &.primary {
+        --state-background-color: color-mix(
+          in srgb,
+          var(--action-state-indicator-tint)
+            var(--action-state-opacity-active-percent),
+          var(--action-default)
+        );
+      }
+
+      &:is(.secondary, .text) {
+        --state-background-color: color-mix(
+          in srgb,
+          var(--action-state-indicator-default)
+            var(--action-state-opacity-active-percent),
+          var(--layout-background-hued)
+        );
+      }
+
+      &.danger {
+        --state-background-color: color-mix(
+          in srgb,
+          var(--feedback-danger) var(--action-state-opacity-active-percent),
+          var(--layout-background-default)
+        );
+      }
+
+      background-color: var(--state-background-color);
+    }
+  }
+}

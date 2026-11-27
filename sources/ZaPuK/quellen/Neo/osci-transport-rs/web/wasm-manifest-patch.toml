@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# bergshamra -> rand_core 0.6 -> getrandom 0.2 needs the js feature on wasm32.
+[dependencies]
+getrandom02 = { package = "getrandom", version = "0.2", features = ["js"] }

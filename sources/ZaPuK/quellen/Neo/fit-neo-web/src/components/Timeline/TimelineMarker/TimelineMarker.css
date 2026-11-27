@@ -1,0 +1,58 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+@layer components {
+  .timeline-nav {
+    @layer elements {
+      .timeline-marker {
+        flex-shrink: 0;
+        width: var(--timeline-marker-size);
+        height: var(--timeline-marker-size);
+        background-color: var(--layout-background-hued);
+        outline: var(--metric-border-width-light) solid
+          var(--timeline-marker-border);
+        outline-offset: calc(-1 * var(--metric-border-width-light));
+        border-radius: var(--metric-border-radius-default);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--metric-space-x-small);
+        position: relative;
+        z-index: 1;
+        color: var(--feedback-loader);
+
+        &.timeline-marker-warning {
+          background-color: var(--feedback-warning-background);
+          outline-color: var(--feedback-warning);
+          color: var(--feedback-warning);
+        }
+
+        &.timeline-marker-success {
+          background-color: var(--feedback-success-background);
+          outline-color: var(--feedback-success);
+          color: var(--feedback-success);
+        }
+
+        &.timeline-marker-new::after {
+          content: '';
+          position: absolute;
+          right: -2px;
+          top: -2px;
+          width: 8px;
+          height: 8px;
+          background: var(--timeline-new-color);
+          border-radius: 9999px;
+          z-index: 2;
+        }
+
+        &.timeline-marker-selected {
+          outline-width: var(--metric-border-width-default);
+          outline-offset: calc(-1 * var(--metric-border-width-default));
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "type": "dev.fitko.neo.poll.response.v1",
+  "content": {
+    "dev.fitko.neo.selections.v1": [
+      "foo"
+    ],
+    "im.nheko.relations.v1.relations": [
+      {
+        "event_id": "$previous_event",
+        "rel_type": "dev.fitko.neo.relationships.chain.v1"
+      },
+      {
+        "event_id": "$thread_root",
+        "rel_type": "m.thread"
+      },
+      {
+        "event_id": "$inquiry_event",
+        "rel_type": "m.reference"
+      }
+    ],
+    "m.relates_to": {
+      "rel_type": "m.reference",
+      "event_id": "$inquiry_event",
+      "m.in_reply_to": {
+        "event_id": "$previous_event"
+      }
+    }
+  }
+}

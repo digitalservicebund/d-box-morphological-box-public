@@ -1,0 +1,75 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+.composer {
+  position: relative;
+  z-index: 20;
+  outline: none;
+  scroll-margin-top: 24px;
+}
+.card {
+  display: block;
+  --md-sys-color-outline-variant: var(--app-composer-outline);
+  --md-comp-card-elevation: var(--app-composer-shadow);
+}
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.heading > svg {
+  color: var(--md-sys-color-primary);
+  flex-shrink: 0;
+}
+.heading h2 {
+  font-size: 17px;
+  margin: 0;
+}
+.heading p {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 12px;
+  margin: 4px 0 0;
+}
+.draft {
+  margin-left: auto;
+  align-self: start;
+  color: var(--md-sys-color-primary);
+  background: var(--md-sys-color-primary-container);
+  border-radius: 5px;
+  font-size: 9px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 4px 7px;
+}
+.blocks {
+  display: grid;
+  gap: 16px;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.draftActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-right: auto;
+}
+.error {
+  white-space: pre-wrap;
+  color: var(--md-sys-color-error);
+  font-size: 13px;
+  margin: 0;
+}
+.empty {
+  text-align: center;
+  color: var(--md-sys-color-on-surface-variant);
+  padding: 18px;
+}

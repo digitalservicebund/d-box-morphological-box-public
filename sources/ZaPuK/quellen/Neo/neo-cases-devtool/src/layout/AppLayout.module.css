@@ -1,0 +1,135 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+.app {
+  --md-sys-color-primary: #445c9d;
+  --md-sys-color-on-primary: #fff;
+  --md-sys-color-primary-container: #e5ebfc;
+  --md-sys-color-on-primary-container: #233e7c;
+  --md-sys-color-secondary-container: #e9edf6;
+  --md-sys-color-on-secondary-container: #374760;
+  --md-sys-color-surface: #fff;
+  --md-sys-color-surface-container: #f0f3f8;
+  --md-sys-color-surface-container-low: #f5f7fb;
+  --md-sys-color-surface-container-high: #e9edf5;
+  --md-sys-color-surface-container-highest: #e4e9f1;
+  --md-sys-color-on-surface: #253044;
+  --md-sys-color-on-surface-variant: #667187;
+  --md-sys-color-outline: #b3bdce;
+  --md-sys-color-outline-variant: #e1e6ef;
+  --md-sys-color-error: #b3261e;
+  --md-sys-color-on-error: #fff;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-on-error-container: #8c1d18;
+  --md-sys-color-inverse-surface: #29344a;
+  --md-sys-color-inverse-on-surface: #fff;
+  --app-encrypted: #237447;
+  --app-on-encrypted-container: #1b6039;
+  --app-encrypted-container: #e3f1e8;
+  --app-unencrypted: #a63d35;
+  --app-on-unencrypted-container: #8b302b;
+  --app-unencrypted-container: #fae9e7;
+  --app-infobox-surface: #edf2fc;
+  --app-composer-outline: #718bc9;
+  --app-composer-shadow: 0 8px 32px rgb(42 60 100 / 12%);
+  --app-placeholder: #9ba8c1;
+  --app-scrim: rgb(34 47 72 / 7%);
+  --app-status-idle: #8d96a5;
+  --app-status-connecting: #bf7c21;
+  --app-status-connected: #397d59;
+  --md-sys-typescale-body-large-font: system-ui, sans-serif;
+  --md-sys-typescale-label-large-font: system-ui, sans-serif;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  font:
+    14px/1.5 system-ui,
+    sans-serif;
+  color: var(--md-sys-color-on-surface);
+  background: var(--md-sys-color-surface-container-low);
+  color-scheme: light;
+}
+.columns {
+  display: grid;
+  grid-template-columns: 290px minmax(0, 1fr);
+  flex: 1;
+  min-height: 0;
+}
+.main {
+  overflow-y: auto;
+  min-width: 0;
+}
+.empty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--md-sys-color-on-surface-variant);
+  gap: 12px;
+  text-align: center;
+  padding: 24px;
+  box-sizing: border-box;
+}
+.empty svg {
+  color: var(--app-placeholder);
+}
+.scrim {
+  position: fixed;
+  inset: 0;
+  background: var(--app-scrim);
+  z-index: 10;
+}
+@media (prefers-color-scheme: dark) {
+  .app {
+    color-scheme: dark;
+    --md-sys-color-primary: #b6c7ff;
+    --md-sys-color-on-primary: #152b5c;
+    --md-sys-color-primary-container: #2b3d64;
+    --md-sys-color-on-primary-container: #dce5ff;
+    --md-sys-color-secondary-container: #2b3445;
+    --md-sys-color-on-secondary-container: #dde6f7;
+    --md-sys-color-surface: #191f2a;
+    --md-sys-color-surface-container: #202938;
+    --md-sys-color-surface-container-low: #141a24;
+    --md-sys-color-surface-container-high: #283141;
+    --md-sys-color-surface-container-highest: #323d50;
+    --md-sys-color-on-surface: #e5eaf3;
+    --md-sys-color-on-surface-variant: #b3bed1;
+    --md-sys-color-outline: #78869b;
+    --md-sys-color-outline-variant: #384459;
+    --md-sys-color-error: #ffb4ab;
+    --md-sys-color-on-error: #5b1714;
+    --md-sys-color-error-container: #73302a;
+    --md-sys-color-on-error-container: #ffdad6;
+    --md-sys-color-inverse-surface: #e5eaf3;
+    --md-sys-color-inverse-on-surface: #253044;
+    --app-encrypted: #8ed9a8;
+    --app-on-encrypted-container: #b5f1c7;
+    --app-encrypted-container: #1e3b2d;
+    --app-unencrypted: #f3a79f;
+    --app-on-unencrypted-container: #ffdad6;
+    --app-unencrypted-container: #482a2e;
+    --app-infobox-surface: #24334d;
+    --app-composer-outline: #8aa6ef;
+    --app-composer-shadow: 0 8px 32px rgb(0 0 0 / 28%);
+    --app-placeholder: #9baac4;
+    --app-scrim: rgb(0 0 0 / 18%);
+    --app-status-idle: #94a2b8;
+    --app-status-connecting: #e8b76a;
+    --app-status-connected: #8ed9a8;
+  }
+}
+@media (max-width: 760px) {
+  .columns {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+}
+@media (max-width: 540px) {
+  .columns {
+    grid-template-columns: 155px minmax(0, 1fr);
+  }
+}

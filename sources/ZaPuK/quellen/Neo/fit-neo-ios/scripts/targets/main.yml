@@ -1,0 +1,230 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+name: FITNeo
+
+schemes:
+  FITNeo-Dev:
+    analyze:
+      config: Debug
+    archive:
+      config: Release
+    build:
+      targets:
+        FITNeo-Dev:
+          - running
+          - testing
+          - profiling
+          - analyzing
+          - archiving
+    profile:
+      config: Release
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets:
+        - FITNeo-Dev
+      testPlans:
+        - path: ../../UnitTests/Resources/UnitTestsPlan.xctestplan
+          defaultPlan: true
+
+  FITNeo-Demo:
+    archive:
+      config: Release
+    build:
+      targets:
+        FITNeo-Demo:
+          - running
+          - archiving
+    profile:
+      config: Release
+    run:
+      config: Release
+
+targetTemplates:
+  FITNeo:
+    type: application
+    platform: iOS
+
+    info:
+      path: ../../FITNeo/Resources/Info.plist
+      properties:
+        BGTaskSchedulerPermittedIdentifiers: [
+          $(BASE_BUNDLE_IDENTIFIER).background.refresh
+        ]
+        CFBundleDisplayName: $(APP_DISPLAY_NAME)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleURLTypes:
+          - CFBundleTypeRole: Viewer
+            CFBundleURLName: dev.fitko.neo
+            CFBundleURLSchemes:
+              - fit-neo
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        FEDERAL_PORTAL_URL: https://verwaltung.bund.de/portal/DE
+        ITSAppUsesNonExemptEncryption: false
+        NFCReaderUsageDescription: The application needs NFC to access the ID card.
+        TARGET_HOMESERVER: $(TARGET_HOMESERVER)
+        com.apple.developer.nfc.readersession.iso7816.select-identifiers:
+          [E80704007F00070302]
+        ## Required for temporary iPad support
+        # UIRequiredDeviceCapabilities:
+        #  [
+        #    telephony,
+        #    nfc,
+        #  ]
+        UISupportedInterfaceOrientations:
+          [
+            UIInterfaceOrientationPortrait,
+          ]
+        UISupportedInterfaceOrientations~ipad:
+          [
+            UIInterfaceOrientationLandscapeLeft,
+            UIInterfaceOrientationLandscapeRight,
+            UIInterfaceOrientationPortrait,
+            UIInterfaceOrientationPortraitUpsideDown,
+          ]
+        UILaunchStoryboardName: LaunchScreen
+        UIBackgroundModes: [fetch, processing]
+        UIAppFonts:
+          [
+            "FiraSans-Bold.ttf",
+            "FiraSans-Medium.ttf",
+            "FiraSans-Regular.ttf",
+            "FiraSans-SemiBold.ttf"
+          ]
+
+    entitlements:
+      path: ../../FITNeo/Resources/FITNeo.entitlements
+      properties:
+        aps-environment: development
+        com.apple.security.application-groups:
+          - $(APP_GROUP_IDENTIFIER)
+        com.apple.security.network.client: true
+        keychain-access-groups:
+          - $(KEYCHAIN_ACCESS_GROUP_IDENTIFIER)
+        com.apple.developer.nfc.readersession.formats:
+          - TAG
+
+    settings:
+      base:
+        PRODUCT_NAME: $(APP_NAME)
+        PRODUCT_MODULE_NAME: FITNeo
+        PRODUCT_BUNDLE_IDENTIFIER: $(BASE_BUNDLE_IDENTIFIER)
+        MARKETING_VERSION: $(MARKETING_VERSION)
+        CURRENT_PROJECT_VERSION: $(CURRENT_PROJECT_VERSION)
+        DEVELOPMENT_TEAM: $(DEVELOPMENT_TEAM)
+        TARGETED_DEVICE_FAMILY: '1,2'
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+        MISSING_LOCALIZABILITY: YES
+
+    preBuildScripts:
+      - name: SwiftGen
+        runOnlyWhenInstalling: false
+        basedOnDependencyAnalysis: false
+        shell: /bin/sh
+        script: |
+          export PATH="$PATH:/opt/homebrew/bin"
+          if which swiftgen >/dev/null; then
+              swiftgen config run
+          else
+              echo "warning: SwiftGen not installed"
+          fi
+
+    postBuildScripts:
+      - name: SwiftLint
+        runOnlyWhenInstalling: false
+        basedOnDependencyAnalysis: false
+        shell: /bin/sh
+        script: |
+          export PATH="$PATH:/opt/homebrew/bin"
+          if which swiftlint >/dev/null; then
+              swiftlint "$PROJECT_DIR"
+          else
+              echo "warning: SwiftLint is not installed"
+          fi
+      - name: SwiftFormat
+        runOnlyWhenInstalling: false
+        basedOnDependencyAnalysis: false
+        shell: /bin/sh
+        script: |
+          export PATH="$PATH:/opt/homebrew/bin"
+          if which swiftformat >/dev/null; then
+              swiftformat --lint --lenient "$PROJECT_DIR"
+          else
+              echo "warning: SwiftFormat not installed"
+          fi
+
+    dependencies:
+      - package: AusweisApp2SDKWrapper
+      - package: MatrixRustSDK
+        embed: true
+      - package: DeviceKit
+      - package: ComposableArchitecture
+      - package: SFSafeSymbols
+      - package: SwiftNavigation
+      - package: SwiftPerception
+        product: Perception
+      - package: SwiftCasePaths
+        product: CasePaths
+
+    sources:
+      - path: ../../FITNeo
+        excludes:
+          - ../../app.yml
+          - ../../target.yml
+
+targets:
+  FITNeo-Dev:
+    templates:
+      - FITNeo
+    settings:
+      base:
+        CODE_SIGN_STYLE: Manual
+        PRODUCT_NAME: $(APP_NAME)-Dev
+        PRODUCT_BUNDLE_IDENTIFIER: $(BASE_BUNDLE_IDENTIFIER).dev
+        TARGET_HOMESERVER: https://ess1.dev.neo.fitko.dev
+      configs:
+        debug:
+          CODE_SIGN_IDENTITY: "Apple Development"
+          OTHER_SWIFT_FLAGS: ["-DDEBUG"]
+          PROVISIONING_PROFILE_SPECIFIER: "match Development dev.fitko.neo.dev"
+        release:
+          CODE_SIGN_IDENTITY: "Apple Distribution"
+          OTHER_SWIFT_FLAGS: ["-DRELEASE"]
+          PROVISIONING_PROFILE_SPECIFIER: "match AppStore dev.fitko.neo.dev"
+
+  FITNeo-Demo:
+    templates:
+      - FITNeo
+    settings:
+      base:
+        CODE_SIGN_STYLE: Manual
+        PRODUCT_NAME: $(APP_NAME)-Demo
+        PRODUCT_BUNDLE_IDENTIFIER: $(BASE_BUNDLE_IDENTIFIER).demo
+        TARGET_HOMESERVER: https://ess1.demo.neo.fitko.dev
+      configs:
+        debug:
+          CODE_SIGN_IDENTITY: "Apple Development"
+          OTHER_SWIFT_FLAGS: ["-DDEBUG"]
+          PROVISIONING_PROFILE_SPECIFIER: "match Development dev.fitko.neo.demo"
+        release:
+          CODE_SIGN_IDENTITY: "Apple Distribution"
+          OTHER_SWIFT_FLAGS: ["-DRELEASE"]
+          PROVISIONING_PROFILE_SPECIFIER: "match AppStore dev.fitko.neo.demo"
+
+  FITNeo-UITests:
+    templates:
+      - FITNeo
+    settings:
+      base:
+        CODE_SIGN_STYLE: Automatic
+        PRODUCT_BUNDLE_IDENTIFIER: $(BASE_BUNDLE_IDENTIFIER).app.ui.tests
+        TARGET_HOMESERVER: https://ess1.dev.neo.fitko.dev
+      configs:
+        debug:
+          OTHER_SWIFT_FLAGS: ["-DDEBUG"]
+        release:
+          OTHER_SWIFT_FLAGS: ["-DRELEASE"]

@@ -1,0 +1,20 @@
+{{- /*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */}}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "neo-web.fullname" . }}-test-connection"
+  labels:
+    {{- include "neo-web.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "neo-web.fullname" . }}:8080']
+  restartPolicy: Never

@@ -1,0 +1,202 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+@layer components {
+  .case-detail-poll {
+    @layer elements {
+      border: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--metric-space-default);
+      margin: 0;
+
+      legend {
+        font-family: var(--typography-font-family-default);
+        font-weight: var(--typography-font-weight-semi-bold);
+        font-size: var(--typography-font-size-static-medium);
+        line-height: var(--typography-line-height-one-and-half);
+        color: var(--layout-text-default);
+        margin-bottom: var(--metric-space-small);
+      }
+    }
+
+    &:first-child {
+      margin-block-start: var(--metric-space-default);
+    }
+  }
+
+  .case-detail-poll-item {
+    @layer elements {
+      display: flex;
+      flex-direction: column;
+      gap: var(--metric-space-x-large);
+    }
+  }
+
+  .case-detail-comment-label {
+    @layer elements {
+      font-family: var(--typography-font-family-default);
+      font-weight: var(--typography-font-weight-semi-bold);
+      font-size: var(--typography-font-size-static-medium);
+      line-height: var(--typography-line-height-one-and-half);
+      color: var(--layout-text-default);
+      margin-block-end: var(--metric-space-small);
+    }
+  }
+
+  .case-detail-poll-option {
+    @layer elements {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: var(--metric-space-default);
+      cursor: pointer;
+      height: 2rem;
+    }
+
+    @layer modifiers {
+      .case-detail-poll-readonly & {
+        cursor: default;
+      }
+    }
+  }
+
+  .case-detail-poll-input {
+    @layer elements {
+      position: absolute;
+      opacity: 0;
+      width: 2rem;
+      height: 2rem;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    @layer modifiers {
+      .case-detail-poll-readonly & {
+        cursor: default;
+      }
+    }
+  }
+
+  .case-detail-poll-visual {
+    @layer elements {
+      flex-shrink: 0;
+      width: var(--metric-dimension-large);
+      height: var(--metric-dimension-large);
+      background: var(--layout-background-hued);
+      border: var(--metric-border-width-default) solid var(--form-input-border);
+      border-radius: var(--metric-border-radius-circle);
+      box-sizing: border-box;
+      padding: 0 var(--metric-space-small);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @layer modifiers {
+      .case-detail-poll-readonly & {
+        cursor: default;
+      }
+
+      :is(
+          .case-detail-poll-option[data-type='checkbox'],
+          .case-detail-poll-option[data-type='file-declaration']
+        )
+        & {
+        border-radius: var(--metric-border-radius-small);
+      }
+
+      :is(
+          .case-detail-poll-option[data-type='radio'],
+          .case-detail-poll-option[data-type='checkbox'],
+          .case-detail-poll-option[data-type='file-declaration']
+        )
+        & {
+        border-color: #171a2b;
+      }
+
+      .case-detail-poll-readonly
+        :is(
+          .case-detail-poll-option[data-type='radio'],
+          .case-detail-poll-option[data-type='checkbox'],
+          .case-detail-poll-option[data-type='file-declaration']
+        )
+        & {
+        border-color: var(--form-input-border);
+      }
+    }
+
+    @layer states {
+      .case-detail-poll-option[data-type='radio']
+        .case-detail-poll-input:checked
+        + &::after {
+        content: '';
+        display: block;
+        width: 12px;
+        height: 12px;
+        background: var(--layout-text-default);
+        border-radius: var(--metric-border-radius-circle);
+        flex-shrink: 0;
+      }
+
+      :is(
+          .case-detail-poll-option[data-type='checkbox'],
+          .case-detail-poll-option[data-type='file-declaration']
+        )
+        .case-detail-poll-input:checked
+        + & {
+        background-image: url('./assets/check-default.svg?no-inline');
+        background-size: 24px 24px;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .case-detail-poll-readonly
+        .case-detail-poll-option[data-type='radio']
+        .case-detail-poll-input:checked
+        + & {
+        background: var(--feedback-success);
+        border: none;
+      }
+
+      .case-detail-poll-readonly
+        .case-detail-poll-option[data-type='radio']
+        .case-detail-poll-input:checked
+        + &::after {
+        background: var(--layout-text-inverse);
+      }
+
+      .case-detail-poll-readonly
+        :is(
+          .case-detail-poll-option[data-type='checkbox'],
+          .case-detail-poll-option[data-type='file-declaration']
+        )
+        .case-detail-poll-input:checked
+        + & {
+        background-color: var(--feedback-success);
+        background-image: url('./assets/check-inverse.svg?no-inline');
+        background-size: 24px 24px;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+      }
+    }
+  }
+
+  .case-detail-poll-label {
+    @layer elements {
+      flex: 1;
+      padding-top: 6px;
+      padding-bottom: 2px;
+      font-family: var(--typography-font-family-default);
+      font-weight: var(--typography-font-weight-regular);
+      font-size: var(--typography-font-size-static-medium);
+      line-height: var(--typography-line-height-one-and-half);
+      color: var(--layout-text-default);
+    }
+  }
+}

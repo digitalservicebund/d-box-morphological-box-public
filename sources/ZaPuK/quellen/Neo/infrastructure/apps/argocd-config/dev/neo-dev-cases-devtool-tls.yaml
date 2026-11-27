@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: neo-dev-cases-devtool-tls
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  project: fitko-apps-dev
+  source:
+    repoURL: https://gitlab.opencode.de/fitko/matrix-g2x/infrastructure.git
+    targetRevision: develop
+    path: charts/neo-cases-devtool-tls
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: neo-dev-cases-devtool
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

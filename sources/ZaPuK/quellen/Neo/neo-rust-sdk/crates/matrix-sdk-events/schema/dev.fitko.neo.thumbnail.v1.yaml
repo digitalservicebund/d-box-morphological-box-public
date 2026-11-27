@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+---
+$schema: https://json-schema.org/draft/2020-12/schema
+
+items:
+  type: object
+  properties:
+    dev.fitko.neo.file.v1:
+      $ref: dev.fitko.neo.file-cb.v1.yaml
+    dev.fitko.neo.image.details.v1:
+      $ref: dev.fitko.neo.image.details.v1.yaml
+  required:
+    - dev.fitko.neo.file.v1
+    - dev.fitko.neo.image.details.v1
+title: Media thumbnail content block
+type: array

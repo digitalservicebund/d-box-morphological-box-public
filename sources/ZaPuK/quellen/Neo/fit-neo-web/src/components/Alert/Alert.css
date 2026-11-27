@@ -1,0 +1,128 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+/* Components top-level layer */
+@layer components {
+  .alert {
+    /* Styles common to all alerts */
+    @layer elements {
+      width: min(552px, 90vw);
+      border-radius: var(--metric-border-radius-large);
+      outline: var(--metric-border-width-light) solid var(--layout-border);
+      outline-offset: -1px;
+      border: none;
+      padding: 0;
+      background: var(--layout-background-default);
+      box-shadow: 0 4px 32px 0 rgb(0 0 0 / 8%);
+      overflow: hidden;
+
+      div.dialog-header {
+        min-height: 64px;
+        padding-top: var(--metric-space-small);
+        padding-left: 32px;
+        padding-right: var(--metric-space-small);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: var(--metric-space-default);
+
+        .close-button {
+          flex-shrink: 0;
+          width: 48px;
+          min-height: 48px;
+          padding: var(--metric-space-default);
+          background: none;
+          border: none;
+          cursor: pointer;
+          border-radius: var(--metric-border-radius-default);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--action-default);
+        }
+
+        h2 {
+          flex: 1;
+          padding-top: var(--metric-baseline-title-large-padding-top);
+          padding-bottom: var(--metric-baseline-title-large-padding-bottom);
+          padding-right: var(--metric-space-default);
+          font-family: var(--typography-font-family-default);
+          font-weight: var(--typography-font-weight-semi-bold);
+          font-size: var(--typography-font-size-adaptive-medium);
+          line-height: var(--typography-line-height-single);
+          color: var(--layout-text-default);
+          margin: 0;
+          align-self: center;
+        }
+      }
+
+      div.dialog-body {
+        padding: var(--metric-space-small) var(--metric-space-x-large)
+          var(--metric-space-large);
+        display: flex;
+        flex-direction: column;
+        gap: var(--metric-space-small);
+
+        p {
+          font-family: var(--typography-font-family-default);
+          font-style: normal;
+          font-weight: var(--typography-font-weight-regular);
+          font-size: var(--typography-font-size-static-large);
+          line-height: var(--typography-line-height-one-and-half);
+          letter-spacing: var(--metric-space-none);
+          color: var(--layout-text-default);
+          padding-top: var(--metric-baseline-body-large-padding-top);
+          padding-bottom: var(--metric-baseline-body-large-padding-bottom);
+          margin: 0;
+        }
+
+        ul,
+        ol {
+          padding-left: var(--metric-space-default);
+          margin: 0 0 var(--metric-space-default);
+
+          li + li {
+            margin-top: 8px;
+          }
+        }
+      }
+
+      div.dialog-footer {
+        display: flex;
+        flex-direction: row;
+        gap: var(--metric-space-default);
+        justify-content: flex-end;
+        align-items: center;
+        padding: var(--metric-space-large) var(--metric-space-x-large)
+          var(--metric-space-x-large);
+        border-top: 1px solid var(--color-layout-border);
+
+        .button {
+          flex: 1 1 0;
+        }
+      }
+    }
+
+    @layer states {
+      .close-button:hover {
+        background-color: color-mix(
+          in srgb,
+          var(--action-state-indicator-default)
+            var(--action-state-opacity-hover-percent),
+          transparent
+        );
+      }
+    }
+
+    &::backdrop {
+      background: color-mix(
+        in srgb,
+        var(--layout-text-default) var(--action-state-opacity-overlay-percent),
+        transparent
+      );
+    }
+  }
+}

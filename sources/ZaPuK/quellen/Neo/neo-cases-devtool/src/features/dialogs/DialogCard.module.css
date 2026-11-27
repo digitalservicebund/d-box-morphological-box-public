@@ -1,0 +1,71 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+.card {
+  display: block;
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.header strong {
+  font-size: 13px;
+}
+.name {
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.sender {
+  display: block;
+  font-size: 10px;
+  color: var(--md-sys-color-on-surface-variant);
+  overflow-wrap: anywhere;
+}
+.header time {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--md-sys-color-on-surface-variant);
+  text-align: right;
+}
+.blocks {
+  display: grid;
+  gap: 22px;
+}
+.responses {
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+  margin-top: 24px;
+  padding-top: 20px;
+  display: grid;
+  gap: 24px;
+}
+.response {
+  display: grid;
+  gap: 14px;
+}
+.status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 11px;
+}
+.status span {
+  font-size: 10px;
+}
+.cardActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.eventLink {
+  --md-comp-button-label-text-size: 10px;
+  --md-comp-button-label-text-weight: 400;
+  --md-comp-button-container-height: 20px;
+  --md-comp-button-spacing: 0px;
+  --md-sys-color-primary: var(--md-sys-color-on-surface-variant);
+}

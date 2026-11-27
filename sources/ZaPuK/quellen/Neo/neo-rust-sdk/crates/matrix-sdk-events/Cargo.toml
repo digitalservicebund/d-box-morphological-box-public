@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+[package]
+name = "matrix-sdk-events"
+version = "0.1.0"
+edition = "2024"
+authors = [ "FITKO (Föderale IT-Kooperation)" ]
+license = "EUPL-1.2"
+repository = "https://gitlab.opencode.de/fitko/matrix-g2x/neo-rust-sdk"
+
+[dependencies]
+matrix-sdk.workspace = true
+matrix-sdk-base.workspace = true
+matrix-sdk-common.workspace = true
+serde = "1.0.228"
+
+[dev-dependencies]
+jsonschema = { version = "0.56.0", features = ["macros"] }
+serde_json = "1.0.149"
+serde-saphyr = "1.2"
+lazy_static = "1.5"
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(ruma_unstable_exhaustive_types)'] }

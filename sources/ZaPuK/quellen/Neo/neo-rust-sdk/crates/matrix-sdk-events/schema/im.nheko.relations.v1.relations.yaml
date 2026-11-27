@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+---
+$schema: https://json-schema.org/draft/2020-12/schema
+
+items:
+  event_id:
+    type: string
+  rel_type:
+    enum:
+      - dev.fitko.neo.relationships.chain.v1
+      - m.thread
+      - dev.fitko.neo.relationships.poll.v1
+      - dev.fitko.neo.relationships.poll.custom.v1
+      - dev.fitko.neo.relationships.inquiry_auth.v1
+    type: string
+  type: object
+  required:
+    - event_id
+    - rel_type
+title: MSC3051 Scalable Relationship
+type: array

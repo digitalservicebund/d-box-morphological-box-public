@@ -1,0 +1,55 @@
+{
+  "type": "dev.fitko.neo.inquiry.poll.v1",
+  "content": {
+    "dev.fitko.neo.poll.v1": {
+      "kind": "m.undisclosed",
+      "max_selections": 1,
+      "question": {
+        "m.text": [
+          {
+            "body": "Please indicate the size of your dragon."
+          }
+        ]
+      },
+      "answers": [
+        {
+          "m.id": "foo",
+          "m.text": [
+            {
+              "body": "Smaller than 1 metre"
+            }
+          ]
+        },
+        {
+          "m.id": "bar",
+          "m.text": [
+            {
+              "body": "Between 1 and 2 metres"
+            }
+          ]
+        },
+        {
+          "m.id": "baz",
+          "m.text": [
+            {
+              "body": "Bigger than 2 metres"
+            }
+          ]
+        },
+        {
+          "m.id": "dev.fitko.neo.poll.custom.v1",
+          "m.text": [
+            {
+              "body": "None of the above"
+            }
+          ]
+        }
+      ]
+    },
+    "m.text": [
+      {
+        "body": "Please indicate the size of your dragon.\n1. Smaller than 1 metre\n2. Between 1 and 2 metres\n3. Bigger than 2 metres\n4. None of the above"
+      }
+    ]
+  }
+}

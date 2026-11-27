@@ -1,0 +1,5 @@
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -21 +21,2 @@
+ [workspace.dependencies]
++matrix-sdk-events = { path = "crates/matrix-sdk-events", version = "0.1.0" }

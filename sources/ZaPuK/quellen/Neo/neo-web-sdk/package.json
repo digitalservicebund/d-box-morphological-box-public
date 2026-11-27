@@ -1,0 +1,62 @@
+{
+  "name": "@matrix-g2x/neo-web-sdk",
+  "version": "0.0.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.opencode.de/fitko/matrix-g2x/neo-web-sdk"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./web": {
+      "types": "./dist/index.web.d.ts",
+      "import": "./dist/index.web.js"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://gitlab.opencode.de/api/v4/projects/11767/packages/npm/",
+    "access": "restricted"
+  },
+  "scripts": {
+    "ubrn:web:build:release": "ubrn build web --config ubrn.config.yaml --release",
+    "ubrn:web:build": "ubrn build web --config ubrn.config.yaml",
+    "ubrn:clean": "rm -Rf cpp/ src/generated/ src/index.web.ts*",
+    "build:ts": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "prettier:write": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@ubjs/core": "^0.31.0-3"
+  },
+  "peerDependencies": {
+    "react": ">=19"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "binaryen": "^130.0.0",
+    "oxlint": "^1.73.0",
+    "prettier": "^3.8.4",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "react": "^19.2.7",
+    "typescript": "~6.0.3",
+    "uniffi-bindgen-react-native": "^0.31.0-3",
+    "vitest": "^4.1.9"
+  },
+  "packageManager": "yarn@4.18.1+sha512.b2e1e7524f654f2749d32b4ebcb4622473cb5bcbc485df2007e12a154e50162a4d795526768bc5f5b8f81717bfd79deb2472813d86fb5ae2eb551fa9c872b08f"
+}

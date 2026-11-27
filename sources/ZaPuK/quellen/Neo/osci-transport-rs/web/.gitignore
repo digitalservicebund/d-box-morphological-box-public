@@ -1,0 +1,6 @@
+node_modules/
+dist/
+src/generated/
+src/index.web.ts
+rust_modules/
+.yarn/

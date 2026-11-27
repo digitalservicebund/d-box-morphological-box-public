@@ -1,0 +1,66 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+/* Components top-level layer */
+@layer components {
+  .link {
+    /* Styles common to all links */
+    @layer elements {
+      --link-text-color: var(--action-default);
+      --link-opacity: 1;
+      --icon-fill: var(--action-default);
+      --text-decoration: none;
+
+      display: flex;
+      flex-direction: row;
+      width: fit-content;
+      height: fit-content;
+      align-items: center;
+      justify-content: center;
+      color: var(--link-text-color);
+      gap: var(--metric-space-x-small);
+      font-weight: var(--typography-font-weight-regular);
+      font-size: var(--typography-font-size-static-medium);
+      line-height: var(--typography-line-height-one-and-half);
+      letter-spacing: var(--metric-space-none);
+      /* stylelint-disable plugin/no-unsupported-browser-features -- text-decoration-thickness/skip-ink degrade gracefully to default underline styling where unsupported, no breakage */
+      text-decoration: var(--text-decoration);
+      text-decoration-thickness: 3px;
+      text-decoration-skip-ink: auto;
+      /* stylelint-enable plugin/no-unsupported-browser-features */
+      text-underline-offset: 2px;
+
+      svg {
+        path {
+          fill: var(--icon-fill);
+        }
+      }
+    }
+
+    /* Styles for specific link states */
+    @layer states {
+      /* link focus state styles */
+      &:where(:focus-visible) {
+        box-shadow:
+          0 0 0 2px var(--action-on-default),
+          0 0 0 4px var(--action-focus-border-inside),
+          0 0 0 6px var(--action-focus-border-outside);
+        border-radius: var(--metric-border-radius-default);
+      }
+
+      /* link hover state styles */
+      /* stylelint-disable-next-line no-descending-specificity */
+      &:where(:hover) {
+        --text-decoration: underline;
+      }
+    }
+
+    /* link active state styles */
+    &:where(:active) {
+      --text-decoration: underline;
+    }
+  }
+}

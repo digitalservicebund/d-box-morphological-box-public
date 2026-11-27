@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ .Values.certificate.name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  secretName: {{ .Values.certificate.secretName }}
+  issuerRef:
+    {{- toYaml .Values.certificate.issuerRef | nindent 4 }}
+  dnsNames:
+    {{- toYaml .Values.certificate.dnsNames | nindent 4 }}

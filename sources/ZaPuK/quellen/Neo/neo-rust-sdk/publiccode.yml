@@ -1,0 +1,74 @@
+# SPDX-FileCopyrightText: 2025-2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+#
+# This repository adheres to the publiccode.yml standard by including this
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+---
+publiccodeYmlVersion: "0.5"
+name: Neo Project Template
+applicationSuite: Neo
+url: https://gitlab.opencode.de/fitko/matrix-g2x/matrix-g2c-pilot-project-template.git
+logo: images/logo.svg
+platforms:
+  - web
+  - mobile
+categories:
+  - communications
+  - digital-citizenship
+organisation:
+  uri: https://www.fitko.de/
+  name: FITKO (Föderale IT-Kooperation)
+developmentStatus: concept
+softwareType: configurationFiles
+maintenance:
+  type: contract
+  contractors:
+    - name: Nordeck IT + Consulting GmbH
+      until: 2027-06-03
+    - name: adesso SE
+      until: 2027-06-03
+    - name: Element Software GmbH
+      until: 2027-06-03
+legal:
+  license: EUPL-1.2
+  mainCopyrightOwner: FITKO (Föderale IT-Kooperation)
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - en
+description:
+  en:
+    shortDescription: Project Template for Neo,
+      the pilot project for Matrix-based G2X communication
+    longDescription: >
+      A template for software artifacts repositories that are part of the
+      Matrix-based G2X communication infrastructure pilot "Neo".
+
+      It includes platform agnostic tooling, CI/CD workflows and documentation
+      for managing software assets and deliverable artifacts.
+    features:
+      - Project Template
+      - Markdown Linting
+      - Markdown Spellchecking
+      - REUSE license linting
+      - Conventional Commits
+      - Semantic Release
+  de:
+    shortDescription: Projektvorlage für Neo,
+      das Pilotproject für Matrix-basierte G2X-Kommunikation
+    longDescription: >
+      Eine Vorlage für Software-Artefakt-Repositories, die Teil des
+      Matrix-basierten G2X-Kommunikationsinfrastrukturpiloten "Neo" sind.
+
+      Sie beinhaltet plattformunabhängige Werkzeuge, CI/CD-Workflows und
+      Dokumentation zur Verwaltung von Software-Assets und Lieferartefakten.
+    features:
+      - Projektvorlage
+      - Markdown Linting
+      - Markdown-Rechtschreibprüfung
+      - REUSE-Lizenzprüfung
+      - Conventional Commits
+      - Semantic Release

@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# Matrix Rust SDK location on CI runners: a fixed, persistent checkout so the
+# expensive Rust framework build is reused across pipelines. Only merged when
+# the CI environment variable is "true" (set by GitLab CI), see the `include`
+# list in project.yml.
+packages:
+  MatrixRustSDK:
+    path: /Users/admin/neo-rust-sdk/matrix-rust-sdk

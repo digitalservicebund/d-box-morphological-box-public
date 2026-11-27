@@ -1,0 +1,141 @@
+Exclude experimental-search (tantivy) from WASM builds
+
+tantivy uses mmap-based disk indexing via fs4 -> rustix 1.x -> errno,
+which does not compile for wasm32-unknown-unknown. The errno crate
+explicitly rejects this target at compile time.
+
+Backport the upstream removal of experimental-search from matrix-sdk-ffi
+(present in upstream commit b07069170):
+- Move the experimental-search matrix-sdk feature to the non-WASM target
+  dependency section so native builds retain search capability
+- Remove the search source module and all search API usages from
+  matrix-sdk-ffi source (disk-based search is meaningless in a browser)
+
+diff -u -r a/bindings/matrix-sdk-ffi/Cargo.toml b/bindings/matrix-sdk-ffi/Cargo.toml
+--- a/bindings/matrix-sdk-ffi/Cargo.toml
++++ b/bindings/matrix-sdk-ffi/Cargo.toml
+@@ -57,8 +57,7 @@
+     "markdown",
+     "socks",
+     "uniffi",
+-    "federation-api",
+-    "experimental-search"
++    "federation-api"
+ ] }
+ matrix-sdk-base.workspace = true
+ matrix-sdk-common.workspace = true
+@@ -119,6 +118,7 @@
+ 
+ [target.'cfg(not(target_family = "wasm"))'.dependencies]
+ async-compat.workspace = true
++matrix-sdk = { workspace = true, features = ["experimental-search"] }
+ tokio = { workspace = true, features = ["rt-multi-thread", "macros"] }
+ uniffi = { workspace = true, features = ["tokio"] }
+ 
+diff -u -r a/bindings/matrix-sdk-ffi/src/client_builder.rs b/bindings/matrix-sdk-ffi/src/client_builder.rs
+--- a/bindings/matrix-sdk-ffi/src/client_builder.rs
++++ b/bindings/matrix-sdk-ffi/src/client_builder.rs
+@@ -15,7 +15,7 @@
+ // Allow UniFFI to use methods marked as `#[deprecated]`.
+ #![allow(deprecated)]
+ 
+-use std::{fs, num::NonZeroUsize, path::PathBuf, sync::Arc, time::Duration};
++use std::{num::NonZeroUsize, sync::Arc, time::Duration};
+ 
+ #[cfg(not(any(target_family = "wasm", target_os = "android")))]
+ use matrix_sdk::reqwest::Certificate;
+@@ -26,7 +26,6 @@
+     encryption::{BackupDownloadStrategy, EncryptionSettings},
+     event_cache::EventCacheError,
+     ruma::{ServerName, UserId},
+-    search_index::SearchIndexStoreKind,
+     sliding_sync::{
+         Error as MatrixSlidingSyncError, VersionBuilder as MatrixSlidingSyncVersionBuilder,
+         VersionBuilderError,
+@@ -138,8 +137,6 @@
+     decryption_settings: DecryptionSettings,
+     enable_share_history_on_invite: bool,
+     request_config: Option<RequestConfig>,
+-    search_index_store: Option<SearchIndexStoreKind>,
+-
+     #[cfg(not(target_family = "wasm"))]
+     user_agent: Option<String>,
+     #[cfg(not(target_family = "wasm"))]
+@@ -195,7 +192,6 @@
+             enable_share_history_on_invite: false,
+             request_config: Default::default(),
+             threading_support: ThreadingSupport::Disabled,
+-            search_index_store: None,
+         })
+     }
+ 
+@@ -360,37 +356,6 @@
+         Arc::new(builder)
+     }
+ 
+-    /// Set up the search index store for this client, which is used to store
+-    /// the message search index locally.
+-    ///
+-    /// As soon as this is enabled, messages will start to be indexed, and can
+-    /// be later queried for search.
+-    ///
+-    /// `path` is the directory where the search index will be stored. It must
+-    /// be unique per session.
+-    ///
+-    /// `password` is an optional password to encrypt the search index at rest.
+-    /// If `None`, the search index will be stored unencrypted.
+-    pub fn with_search_index_store(
+-        self: Arc<Self>,
+-        path: String,
+-        password: Option<String>,
+-    ) -> Arc<Self> {
+-        let mut builder = unwrap_or_clone_arc(self);
+-
+-        // Note: creation of the path is deferred to later.
+-        let path = PathBuf::from(path);
+-
+-        let kind = if let Some(password) = password {
+-            SearchIndexStoreKind::EncryptedDirectory(path, password)
+-        } else {
+-            SearchIndexStoreKind::UnencryptedDirectory(path)
+-        };
+-
+-        builder.search_index_store = Some(kind);
+-        Arc::new(builder)
+-    }
+-
+     pub async fn build(self: Arc<Self>) -> Result<Arc<Client>, ClientBuildError> {
+         let builder = unwrap_or_clone_arc(self);
+         let mut inner_builder = MatrixClient::builder()
+@@ -419,20 +384,6 @@
+             None
+         };
+ 
+-        if let Some(search_index_store) = builder.search_index_store {
+-            // Create the search index directory.
+-            match search_index_store {
+-                SearchIndexStoreKind::UnencryptedDirectory(ref path)
+-                | SearchIndexStoreKind::EncryptedDirectory(ref path, _) => {
+-                    fs::create_dir_all(path)?;
+-                }
+-                _ => {}
+-            }
+-
+-            // Configure the inner builder to use the search index store.
+-            inner_builder = inner_builder.search_index_store(search_index_store);
+-        }
+-
+         // Determine server either from URL, server name or user ID.
+         inner_builder = match builder.homeserver_cfg {
+             Some(HomeserverConfig::Url(url)) => inner_builder.homeserver_url(url),
+diff -u -r a/bindings/matrix-sdk-ffi/src/lib.rs b/bindings/matrix-sdk-ffi/src/lib.rs
+--- a/bindings/matrix-sdk-ffi/src/lib.rs
++++ b/bindings/matrix-sdk-ffi/src/lib.rs
+@@ -24,7 +24,6 @@
+ mod room_preview;
+ mod ruma;
+ mod runtime;
+-mod search;
+ mod session_verification;
+ mod spaces;
+ mod store;

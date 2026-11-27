@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+[toolchain]
+channel = "1.99.1"
+components = ["rustfmt", "clippy"]

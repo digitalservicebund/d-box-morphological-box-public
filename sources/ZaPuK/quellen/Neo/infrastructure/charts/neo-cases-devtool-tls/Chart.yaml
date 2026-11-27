@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+apiVersion: v2
+name: neo-cases-devtool-tls
+description: Shared wildcard TLS certificate for Neo cases devtool deployments
+type: application
+version: 0.1.0

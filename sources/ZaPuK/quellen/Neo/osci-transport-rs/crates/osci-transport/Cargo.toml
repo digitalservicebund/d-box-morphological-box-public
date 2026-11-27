@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+[package]
+name = "osci-transport"
+description = "OSCI-Transport 1.2 message model, codec and handler framework"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+base64.workspace = true
+mail-parser.workspace = true
+quick-xml.workspace = true
+thiserror.workspace = true
+zeroize.workspace = true
+
+[dev-dependencies]
+pollster.workspace = true

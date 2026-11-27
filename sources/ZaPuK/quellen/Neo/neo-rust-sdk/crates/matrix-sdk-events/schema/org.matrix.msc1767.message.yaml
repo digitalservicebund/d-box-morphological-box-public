@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+---
+$schema: https://json-schema.org/draft/2020-12/schema
+
+allOf:
+  - $ref: multi_event.yaml
+properties:
+  type:
+    enum:
+      - org.matrix.msc1767.message
+    type: string
+title: Message
+type: object
+
+$defs:
+  base:
+    properties:
+      content:
+        allOf:
+          - $ref: required-m.text-sub.yaml

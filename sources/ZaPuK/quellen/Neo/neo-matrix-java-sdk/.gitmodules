@@ -1,0 +1,3 @@
+[submodule "bindings/src/main/rust"]
+	path = bindings/src/main/rust
+	url = https://gitlab.opencode.de/fitko/matrix-g2x/neo-rust-sdk.git

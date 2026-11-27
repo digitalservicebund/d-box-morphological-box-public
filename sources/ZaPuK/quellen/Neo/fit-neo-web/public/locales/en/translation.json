@@ -1,0 +1,213 @@
+{
+  "accessibility": "Accessibility Statement",
+  "appTitle": "My Digital Government",
+  "bundIdHeader": {
+    "closeMenu": "Close menu",
+    "help": "Help",
+    "menu": "Menu",
+    "search": "Search",
+    "userMenu": {
+      "currentAccess": "CURRENT ACCESS: Username & Password",
+      "logout": "Log out",
+      "myAccount": "My Account",
+      "trustLevel": "BASIC REGISTRATION"
+    },
+    "userProfile": "User profile"
+  },
+  "card": {
+    "open": "Open"
+  },
+  "currentDesignMode": "Current Design Mode: {{mode}}",
+  "darkMode": "Dark Mode",
+  "dataProtection": "Data Protection",
+  "eventTile": {
+    "banned": "{{name}} was banned from the room",
+    "error": "Error processing membership change for {{name}}",
+    "invitationAccepted": "{{name}} accepted the invite to the room",
+    "invitationRejected": "{{name}} rejected the invite to the room",
+    "invitationRevoked": "{{name}} revoked the invite to the room",
+    "invited": "{{name}} was invited to the room",
+    "joined": "{{name}} joined the room",
+    "kicked": "{{name}} was removed from the room",
+    "kickedAndBanned": "{{name}} was removed and banned from the room",
+    "knockAccepted": "{{name}} accepted the knock",
+    "knockDenied": "{{name}} rejected the knock to the room",
+    "knocked": "{{name}} knocked on the room",
+    "knockRetracted": "{{name}} revoked the knock to the room",
+    "left": "{{name}} left the room",
+    "loading": "Loading...",
+    "profileChange": "Profile updated",
+    "readMarker": "Read",
+    "redacted": "Message has been redacted",
+    "timelineStart": "Start of the timeline",
+    "unableToDecrypt": "Unable to decrypt message",
+    "unbanned": "{{name}} has been unbanned",
+    "unknownEventContentType": "Unknown event content type",
+    "unknownMembershipChange": "{{name}} has an unknown membership change",
+    "unknownMessageType": "Unknown message type",
+    "unknownTimelineItemType": "Unknown timeline item type",
+    "unknownVirtual": "Unknown virtual item",
+    "unsupportedType": "Unsupported message type"
+  },
+  "caseDetail": {
+    "addMoreAnswer": "Add to reply",
+    "amendmentTitle": "Your additional information",
+    "answer": "Reply:",
+    "answeredOnTime": "Answered on time",
+    "attachments": "Attachments",
+    "cancelAmendment": "Cancel",
+    "checkDetails": "Review details",
+    "comment": "Comment:",
+    "confirmAnswer": "Send reply?",
+    "confirmAnswerBody": "Your information is binding. Please check it again before sending your reply.",
+    "confirmFileBody": "The content of your attachment is binding. Please verify once more that you want to send this attachment.",
+    "confirmNoFile": "Attachment not available?",
+    "confirmNoFileBody": "This declaration is binding and irrevocable. Submitting the attachment at a later date is not possible. Please verify once more that you want to make this declaration.",
+    "confirmRemoveFile": "Remove document?",
+    "confirmRemoveFileBody": "Are you sure you want to remove the document?",
+    "confirmSendFile": "Send attachment?",
+    "cancel": "Cancel",
+    "done": "Done",
+    "download": "Download",
+    "fileCommentLabel": "Comment (optional)",
+    "fileErrorSize": "The file is too large. Maximum size is 10 MB.",
+    "fileErrorType": "Invalid file type. Only PNG, JPG and PDF are allowed.",
+    "fileHelp": "Help with selecting a file",
+    "fileThumbnailAlt": "Thumbnail of the file {{name}}",
+    "fileHint": "PNG, JPG, PDF under 10 MB",
+    "formula": "Kind regards",
+    "imagePreview": "Preview",
+    "imagePreviewAlt": "Full-size view of the file {{name}}",
+    "inquiryFile": "Attachment",
+    "inquiryTitle": "Question about your case",
+    "insertFormula": "Insert salutation",
+    "learnMore": "Learn more",
+    "noAmendmentBody": "Contact your authority by email or phone to discuss your case.",
+    "noAmendmentTitle": "Case closed",
+    "noFileDeclaration": "I do not have the required attachment available in time.",
+    "noSelection": "No selection",
+    "openingHoursPlaceholder": "Opening hours: 08:00 - 17:00 (today)",
+    "pollCustomOption": "None of the above",
+    "pollMultiCustomOption": "Add another answer",
+    "previewImage": "Open full-size image",
+    "removeFile": "Remove file",
+    "remove": "Remove",
+    "selectFile": "Select file",
+    "sending": "Sending...",
+    "sendAmendment": "Send additional information",
+    "sentSuccess": "Your reply has been sent successfully.",
+    "submit": "Send reply",
+    "submitted": "Completed",
+    "thankYou": "Thank you!",
+    "textareaPlaceholder": "Enter your reply...",
+    "toWebsite": "To website",
+    "yourAnswer": "Your reply",
+    "yourMessage": "Your message"
+  },
+  "case": {
+    "backLink": "Cases",
+    "details": {
+      "caseNumber": "Case number",
+      "caption": "Case details",
+      "name": "Name",
+      "showAll": "Show all details",
+      "submittedAt": "Application date",
+      "title": "Details"
+    },
+    "joinFailed": "Could not join the case. Please try again later.",
+    "loading": "Loading case...",
+    "noMessages": {
+      "description": "As soon as you receive a message about your application, you can view it here.",
+      "title": "No Messages Available"
+    },
+    "notFound": "Application not found.",
+    "status": {
+      "received": {
+        "badge": "Application received",
+        "description": "The concerned agency will contact you shortly."
+      },
+      "title": "Status"
+    },
+    "timeline": {
+      "label": "Case timeline"
+    }
+  },
+  "failedToLoadRooms": "Error while loading rooms. Please reload the page.",
+  "help": {
+    "alternative": "Alternatively, you can also use our help section to search for an answer to your specific question.",
+    "description": "The team at the 115 government number answers all questions about your cases from Monday to Friday between 08:00 and 18:00.",
+    "illustrationAlt": "Two people discuss a document beside a question mark.",
+    "openButton": "Open Help",
+    "title": "Do You Need Help?"
+  },
+  "imprint": "Imprint",
+  "inbox": "Inbox",
+  "cases": "Cases",
+  "documents": "Documents",
+  "profile": "Profile",
+  "settings": "Settings",
+  "skipToContent": "Skip to content",
+  "lightMode": "Light Mode",
+  "loadingRoom": "Loading roomdata ...",
+  "loadingRooms": "Loading replies...",
+  "loggingOut": "Logging out...",
+  "login": {
+    "completingSignIn": "Completing sign in ...",
+    "description": "Click \"Sign in with BundID\" to sign in with your BundID account. You will be redirected to the secure BundID login page in a popup window and will automatically return here afterwards.",
+    "errors": {
+      "loginFailed": "Login failed. Please check your credentials and try again.",
+      "oidcFailed": "Login failed. Please try again.",
+      "passwordRequired": "Password is required",
+      "usernameRequired": "Username is required"
+    },
+    "forgotPassword": "Forgot your password?",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "retryHint": "The login could not be completed. Please try again.",
+    "signInButton": "Sign in with BundID",
+    "signingIn": "Signing in ...",
+    "subtitle": "Simple and secure communication with the administration",
+    "title": "Sign In",
+    "username": "Username",
+    "usernamePlaceholder": "Enter your username"
+  },
+  "logout": "Logout",
+  "mainNavigation": "Main Navigation",
+  "noRequests": {
+    "description": "As soon as you have an active case with a specialist authority, you can use the benefits listed below. Get started with your first case. You can find access to administrative services from the federal government, states, and municipalities online.",
+    "info1": "Simple, fast, and secure communication about all your active administrative cases",
+    "info2": "Easy submission of additional documents with an overview of all your documents.",
+    "info3": "Many helpful pieces of information and support around your cases.",
+    "title": "No Cases Available"
+  },
+  "noUnreadReplies": "No unread replies available.",
+  "notifications": "Notifications",
+  "roomNotFound": "This room could not be loaded or does not exist.",
+  "send": "Send",
+  "ServiceRequest": {
+    "errorLoadingEvent": "Something went wrong while loading this event."
+  },
+  "tabs": {
+    "cases": "Cases",
+    "documents": "Documents",
+    "profile": "Access and Data",
+    "settings": "Account Activities"
+  },
+  "timeline": {
+    "attachments": "{{count}} Attachment",
+    "button": "Link",
+    "infobox": "Infobox",
+    "inquiry": "Inquiry",
+    "inquiryFile": "File request",
+    "inquiryPoll": "Survey",
+    "loadingMore": "Loading more messages…",
+    "message": "Message",
+    "pollResponse": "Survey response",
+    "title": "Message History"
+  },
+  "toggleDesignMode": "Toggle Design Mode. Current Mode: {{mode}}",
+  "unreadReplies": "Unread Replies",
+  "vorgaenge": {
+    "title": "Cases"
+  }
+}

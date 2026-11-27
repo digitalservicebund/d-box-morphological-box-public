@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+---
+$schema: https://json-schema.org/draft/2020-12/schema
+
+properties:
+  type:
+    type: string
+    const: "dev.fitko.neo.state.meta.case.v1"
+    description: The type of the event.
+  state_key:
+    type: string
+    const: ""
+    description: "state key is empty"
+  content:
+    type: object
+    required:
+      - dev.fitko.neo.state.meta.case.v1
+    properties:
+      dev.fitko.neo.state.meta.case.v1:
+        type: object
+        required:
+          - latest
+        properties:
+          latest:
+            type: string
+            description: "Event ID of the e2ee encrypted _.meta.case.v1 event with the full current state"

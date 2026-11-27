@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+rust_modules/
+src/index.web.ts
+src/generated/
+Dockerfile
+

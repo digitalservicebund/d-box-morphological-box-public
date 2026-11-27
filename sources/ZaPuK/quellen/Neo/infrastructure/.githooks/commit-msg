@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+if ! command -v cspell > /dev/null 2>&1; then
+  echo "pre-commit: WARNING: 'cspell' command not found. Local commit message spell checking was skipped."
+else
+  if ! cspell --no-summary --no-progress --language-id commit-msg $1 > /dev/null 2>&1; then
+    echo "pre-commit: Aborted due to commit message spell checking issues. Please fix them before continuing."
+    cspell --no-summary --no-progress --language-id commit-msg $1
+    exit 1
+  fi
+fi
+
+if ! command -v npx commitlint > /dev/null 2>&1; then
+  echo "pre-commit: WARNING: 'commitlint' not found. Local commit linting skipped."
+else
+  if ! npx commitlint -e
+  then
+    echo "commit-msg: Aborted due to commit message linting issues. Please ensure the commit message adheres to the conventional commit format defined for this project."
+    exit 1
+  fi
+fi

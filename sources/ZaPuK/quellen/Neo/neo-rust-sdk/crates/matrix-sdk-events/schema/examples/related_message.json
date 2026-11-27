@@ -1,0 +1,35 @@
+{
+  "type": "org.matrix.msc1767.message",
+  "content": {
+    "m.text": [
+      {
+        "body": "<i>Hello world</i>",
+        "mimetype": "text/html"
+      },
+      {
+        "body": "Hello world"
+      }
+    ],
+    "m.relates_to": {
+      "rel_type": "m.thread",
+      "event_id": "$root",
+      "m.in_reply_to": {
+        "event_id": "$target"
+      }
+    },
+    "im.nheko.relations.v1.relations": [
+      {
+        "event_id": "$previous_event",
+        "rel_type": "dev.fitko.neo.relationships.chain.v1"
+      },
+      {
+        "event_id": "$thread_root",
+        "rel_type": "m.thread"
+      },
+      {
+        "event_id": "$inquiry_event",
+        "rel_type": "dev.fitko.neo.relationships.inquiry_auth.v1"
+      }
+    ]
+  }
+}

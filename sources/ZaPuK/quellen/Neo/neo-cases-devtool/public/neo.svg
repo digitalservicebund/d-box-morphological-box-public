@@ -1,0 +1,10 @@
+<!--
+SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20.0259 0C31.0765 0 40 8.97535 40 20.0259V40H0V20.0259C0 8.97535 8.92348 0 20.0259 0Z" fill="black"/>
+<path d="M60 20.0259V40C48.9637 40 40 31.0765 40 20.0259C40 8.97535 48.9637 0 60 0C71.0363 0 80 8.97535 80 20.0259H60Z" fill="#DC0000"/>
+<path d="M120 20.0259C120 31.0765 111.036 40 100 40C88.9637 40 80 31.0765 80 20.0259C80 8.97535 88.9637 0 100 0C111.036 0 120 8.97535 120 20.0259Z" fill="#F0B405"/>
+</svg>

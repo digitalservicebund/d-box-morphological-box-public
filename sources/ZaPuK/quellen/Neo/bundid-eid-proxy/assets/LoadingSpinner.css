@@ -1,0 +1,51 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+@layer components {
+    .loading-spinner {
+        @layer elements {
+            --spinner-color: var(--feedback-loader);
+            --spinner-track-color: var(--feedback-loader-background);
+            --spinner-size: var(--metric-dimension-x-large);
+            --spinner-thickness: var(--metric-border-width-bold);
+            justify-content: center;
+            align-items: center;
+            gap: var(--metric-space-small);
+            flex-direction: column;
+            display: flex;
+
+            & .loading-spinner__indicator {
+                width: var(--spinner-size);
+                height: var(--spinner-size);
+                border-radius: var(--metric-border-radius-circle);
+                border: var(--spinner-thickness) solid var(--spinner-track-color);
+                border-top-color: var(--spinner-color);
+                animation: .8s linear infinite loading-spinner-spin;
+                display: block
+            }
+
+            & .loading-spinner__text {
+                font-family: var(--typography-font-family-default);
+                font-size: var(--typography-font-size-static-small);
+                font-weight: var(--typography-font-weight-regular);
+                color: var(--layout-text-muted)
+            }
+        }
+
+        @layer modifiers {
+            &.loading-spinner--inline {
+                --spinner-size: var(--metric-dimension-default);
+                flex-direction: row
+            }
+        }
+    }
+
+    @keyframes loading-spinner-spin {
+        to {
+            transform: rotate(360deg)
+        }
+    }
+}

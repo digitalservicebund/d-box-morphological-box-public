@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: 2025-2026 Element Creations Ltd
+# SPDX-FileCopyrightText: 2025-2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/manifest-generate-paths: .
+    k8s.element.io/source: https://gitlab.opencode.de/fitko/matrix-g2x/infrastructure/-/blob/develop/apps/argocd-config/dev/ess2.yaml
+  labels:
+    k8s.element.io/deployment: neo-dev-ess2
+    k8s.element.io/environment: dev
+    k8s.element.io/managed-by: infrastructure-configuration-management
+    k8s.element.io/service: ess
+    name: neo-dev-ess2
+  name: neo-dev-ess2
+  namespace: argocd
+spec:
+  destination:
+    namespace: neo-dev-ess2
+    server: https://kubernetes.default.svc
+  project: fitko-apps-dev
+  revisionHistoryLimit: 10
+  source:
+    path: apps/neo-dev-ess
+    plugin:
+      env:
+        - name: HELMFILE_USE_CONTEXT_NAMESPACE
+          value: "true"
+        - name: ESS_INSTANCE
+          value: "ess2"
+    repoURL: https://gitlab.opencode.de/fitko/matrix-g2x/infrastructure.git
+    targetRevision: develop
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true

@@ -1,0 +1,86 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+@layer components {
+  .infobox {
+    @layer elements {
+      display: flex;
+      flex-direction: column;
+      gap: var(--metric-space-none);
+      padding: var(--metric-space-none);
+      border: var(--metric-border-width-default) solid var(--feedback-info);
+      border-radius: var(--metric-border-radius-default);
+      overflow: hidden;
+
+      &:not(:last-child) {
+        margin-block-end: var(--metric-space-default);
+      }
+
+      .infobox-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--metric-space-none);
+        padding: var(--metric-space-default);
+        background: var(--feedback-info-background);
+
+        svg {
+          width: 24px;
+          height: 24px;
+          padding: var(--metric-space-none);
+          flex-shrink: 0;
+          color: var(--feedback-info);
+        }
+
+        strong {
+          padding: var(--metric-space-small);
+          font-family: var(--typography-font-family-default);
+          font-weight: var(--typography-font-weight-semi-bold);
+          font-size: var(--typography-font-size-static-medium);
+          line-height: var(--typography-line-height-one-and-half);
+        }
+      }
+
+      .infobox-body-section {
+        display: flex;
+        flex-direction: column;
+        gap: var(--metric-space-small);
+        padding: var(--metric-space-default) var(--metric-space-large)
+          var(--metric-space-default);
+      }
+
+      .infobox-body {
+        font-family: var(--typography-font-family-default);
+        font-style: normal;
+        font-weight: var(--typography-font-weight-regular);
+        font-size: var(--typography-font-size-static-medium);
+        line-height: var(--typography-line-height-one-and-half);
+        margin: 0;
+        padding: 0;
+      }
+
+      .infobox-footer {
+        padding: 0;
+
+        .link {
+          padding: var(--metric-baseline-body-default-padding-top)
+            var(--metric-space-none)
+            var(--metric-baseline-body-default-padding-bottom)
+            var(--metric-space-none);
+          font-style: normal;
+          font-weight: var(--typography-font-weight-regular);
+          margin-bottom: var(--metric-space-default);
+
+          svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+          }
+        }
+      }
+    }
+  }
+}

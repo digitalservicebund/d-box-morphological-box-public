@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "neo-cases-devtool.name" . }}
+  labels:
+    {{- include "neo-cases-devtool.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: {{ .Values.service.port }}
+      targetPort: http
+  selector:
+    {{- include "neo-cases-devtool.selectorLabels" . | nindent 4 }}

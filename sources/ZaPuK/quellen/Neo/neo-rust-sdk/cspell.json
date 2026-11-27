@@ -1,0 +1,22 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "FITKO",
+    "Föderale",
+    "Kooperation",
+    "sicherheit",
+    "fitko",
+    "releaserc",
+    "autosquash",
+    "publiccode",
+    "holz",
+    "tchncs"
+  ],
+  "ignorePaths": [
+    "CHANGELOG.md"
+  ],
+  "ignoreRegExpList": [
+    "Signed-off-by:.*"
+  ]
+}

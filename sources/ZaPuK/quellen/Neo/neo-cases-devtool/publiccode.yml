@@ -1,0 +1,61 @@
+# SPDX-FileCopyrightText: 2025-2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+#
+# This repository adheres to the publiccode.yml standard by including this
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+---
+publiccodeYmlVersion: '0.5'
+name: Neo Cases Devtool
+applicationSuite: Neo
+url: https://gitlab.opencode.de/fitko/matrix-g2x/neo-cases-devtool.git
+logo: public/neo.svg
+platforms:
+  - web
+categories:
+  - communications
+  - digital-citizenship
+organisation:
+  uri: https://www.fitko.de/
+  name: FITKO (Föderale IT-Kooperation)
+developmentStatus: development
+softwareType: standalone/web
+maintenance:
+  type: contract
+  contractors:
+    - name: Nordeck IT + Consulting GmbH
+      until: 2027-06-03
+    - name: adesso SE
+      until: 2027-06-03
+    - name: Element Software GmbH
+      until: 2027-06-03
+legal:
+  license: EUPL-1.2
+  mainCopyrightOwner: FITKO (Föderale IT-Kooperation)
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - en
+    - de
+description:
+  en:
+    shortDescription: Dev tool for creating cases to test the Neo apps
+    longDescription: >
+      This is a developer tool for creating and managing cases with their
+      inquiries and messages in order to test the Neo web app and iOS app.
+      It represents the government side of the communication, whereas the
+      Neo web app and iOS app represent the citizen side.
+    features:
+      - Create cases and inquiries
+  de:
+    shortDescription: Entwickler-Tool für Vorgänge um die Neo-Apps zu testen
+    longDescription: >
+      Ein Entwicklertool zum Erstellen und Verwalten von Vorgängen
+      mit den dazugehörigen Anfragen und Nachrichten, um die Neo-Web-App
+      und die iOS-App zu testen.
+      Es repräsentiert die behördliche Seite der Kommunikation, während die
+      Neo-Web-App und die iOS-App die Bürgerseite repräsentieren.
+    features:
+      - Vorgänge und Anfragen erstellen

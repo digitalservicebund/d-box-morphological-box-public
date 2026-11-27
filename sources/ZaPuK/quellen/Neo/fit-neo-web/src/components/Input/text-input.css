@@ -1,0 +1,127 @@
+/*
+ * SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+/* Components top-level layer */
+@layer components {
+  .text-input {
+    @layer elements {
+      --text-input-border-color: var(--form-input-border);
+      --text-input-border-width: var(--metric-border-width-default);
+      --text-input-border-radius: var(--metric-border-radius-default);
+      --text-input-background-color: var(--form-input-background);
+      --text-input-label-color: var(--layout-text-default);
+      --text-input-text-color: var(--layout-text-default);
+      --text-input-error-color: var(--feedback-danger);
+      --text-input-error-bar-width: var(--metric-border-width-bold);
+      --text-input-gap: var(--metric-space-x-small);
+
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+      /* Full-height left bar — hidden by default, sits 14px outside the content */
+      &::before {
+        content: '';
+        display: none;
+        flex-shrink: 0;
+        width: var(--text-input-error-bar-width);
+        margin-right: 0.875rem;
+        margin-left: calc(-1 * (var(--text-input-error-bar-width) + 0.875rem));
+        background-color: var(--text-input-error-color);
+      }
+
+      .text-input-inner {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: var(--text-input-gap);
+      }
+
+      .text-input-label {
+        color: var(--text-input-label-color);
+        font-weight: var(--typography-font-weight-medium);
+        font-size: var(--typography-font-size-static-medium);
+        line-height: var(--typography-line-height-one-and-half);
+      }
+
+      .text-input-control {
+        width: 100%;
+        min-height: var(--metric-dimension-x-large);
+        padding-inline: var(--metric-space-small);
+        padding-block: var(--metric-space-x-small);
+        background-color: var(--text-input-background-color);
+        color: var(--text-input-text-color);
+        border-color: var(--text-input-border-color);
+        border-width: var(--text-input-border-width);
+        border-style: solid;
+        border-radius: var(--text-input-border-radius);
+        font-family: var(--typography-font-family-default);
+        font-size: var(--typography-font-size-static-medium);
+        line-height: var(--typography-line-height-one-and-half);
+        letter-spacing: var(--metric-space-none);
+        box-sizing: border-box;
+      }
+
+      .text-input-error {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--metric-space-x-small);
+        color: var(--layout-text-default);
+        font-size: var(--typography-font-size-static-small);
+        line-height: var(--typography-line-height-one-and-half);
+        margin: 0;
+      }
+
+      .text-input-error-icon {
+        flex-shrink: 0;
+        color: var(--text-input-error-color);
+      }
+    }
+
+    @layer states {
+      /* Error state */
+      &.text-input-invalid {
+        &::before {
+          display: block;
+        }
+
+        .text-input-control {
+          border-style: none;
+          border-bottom-style: solid;
+          border-bottom-color: var(--text-input-error-color);
+          background-color: var(--feedback-danger-background);
+        }
+      }
+
+      /* Disabled state */
+      &.text-input-disabled {
+        opacity: var(--action-state-opacity-disabled-percent);
+
+        .text-input-control {
+          /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- cursor: not-allowed degrades to the default cursor where unsupported, no breakage */
+          cursor: not-allowed;
+        }
+      }
+
+      /* Focus state */
+      &:has(.text-input-control:focus-visible) {
+        .text-input-control {
+          outline: none;
+          border-width: var(--metric-border-width-bold);
+          border-color: var(--text-input-border-color);
+        }
+      }
+
+      /* Hover state */
+      &:has(.text-input-control:hover):not(.text-input-disabled) {
+        .text-input-control {
+          border-bottom-width: var(--metric-border-width-bold);
+        }
+      }
+    }
+  }
+}

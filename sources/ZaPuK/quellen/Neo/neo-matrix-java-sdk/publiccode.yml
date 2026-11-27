@@ -1,0 +1,55 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+#
+# This repository adheres to the publiccode.yml standard by including this
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.5'
+name: FITKO Neo Matrix SDK (JVM bindings)
+url: https://gitlab.opencode.de/fitko/matrix-g2x/neo-matrix-java-sdk.git
+platforms:
+  - web
+  - mobile
+categories:
+  - communications
+  - digital-citizenship
+developmentStatus: concept
+softwareType: library
+maintenance:
+  type: internal
+  contacts:
+    - name: FITKO (Föderale IT-Kooperation)
+      email: architekturmanagement@fitko.de
+legal:
+  license: EUPL-1.2
+  mainCopyrightOwner: 2025 FITKO (Föderale IT-Kooperation)
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - en
+description:
+  en:
+    shortDescription: SDK for matrix-based NEO applications
+    longDescription: >
+      Toolkit to easily integrate the case-based communication of NEO into
+      Fachverfahren.
+
+      Allows sending and retrieving encrypted messages and files.
+    features:
+      - End-to-End Encryption
+      - Case-based communication
+      - Structured Messages
+  de:
+    shortDescription: SDK für Matrix-basierte NEO Anwendungen
+    longDescription: >
+      Ein Toolkit um Fachverfahren einfach und reibungslos an die
+      vorgangsbasierte Kommunikation von NEO anzubinden.
+
+      Ermöglicht das Senden und Abrufen von verschlüsselten Nachrichten
+      und Dateien.
+    features:
+      - Ende-zu-Ende Verschlüsselung
+      - Vorgangsbasierte Kommunikation
+      - Strukturierte Nachrichten

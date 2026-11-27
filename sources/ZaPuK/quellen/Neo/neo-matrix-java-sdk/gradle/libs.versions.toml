@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+[versions]
+kotlin = "2.2.0"
+jna = "5.13.0"
+coroutines = "1.10.2"
+kotlinx-serialization = "1.8.0"
+tomlj = "1.1.1"
+checkerframework = "3.49.0"
+
+[libraries]
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+kotlinx-serialization-properties = { module = "org.jetbrains.kotlinx:kotlinx-serialization-properties", version.ref = "kotlinx-serialization" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+
+jna = { module = "net.java.dev.jna:jna", version.ref = "jna" }
+
+tomlj = { module = "org.tomlj:tomlj", version.ref = "tomlj" }
+checkerframework-annotations = { module = "org.checkerframework:checker-qual", version.ref = "checkerframework" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

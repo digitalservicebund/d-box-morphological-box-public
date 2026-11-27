@@ -1,0 +1,58 @@
+# SPDX-FileCopyrightText: 2025-2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+#
+# This repository adheres to the publiccode.yml standard by including this
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+---
+publiccodeYmlVersion: "0.5"
+name: FITKO Matrix G2C Pilot Web Client
+applicationSuite: FITKO Matrix G2C Pilot
+url: https://gitlab.opencode.de/fitko/matrix-g2x/fit-neo-web
+logo: https://gitlab.opencode.de/uploads/-/system/group/avatar/506/Logo_FITKO.png
+platforms:
+  - web
+categories:
+  - communications
+  - digital-citizenship
+organisation:
+  uri: https://www.fitko.de/
+  name: FITKO (Föderale IT-Kooperation)
+developmentStatus: development
+softwareType: standalone/web
+intendedAudience:
+  countries:
+    - de
+  scope:
+    - government
+    - local-authorities
+    - infrastructures
+    - security
+maintenance:
+  type: contract
+  contractors:
+    - name: Nordeck IT + Consulting GmbH
+      until: 2027-06-03
+    - name: adesso SE
+      until: 2027-06-03
+    - name: Element Software GmbH
+      until: 2027-06-03
+legal:
+  license: EUPL-1.2
+  mainCopyrightOwner: FITKO (Föderale IT-Kooperation)
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - en
+    - de
+description:
+  en:
+    shortDescription: FITKO Matrix G2C Pilot Web Client
+    longDescription: A Web Client for the Communication between Citizen and
+      Government relying on the backend design of the FITKO Matrix G2C Pilot
+      Project which itself is building upon the Matrix Protocol
+    features:
+      - Web-Client
+      - Communication

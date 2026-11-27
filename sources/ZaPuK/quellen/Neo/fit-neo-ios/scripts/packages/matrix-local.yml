@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# Default Matrix Rust SDK location for local development: the neo-rust-sdk
+# checkout is a sibling of this repository. Paths are relative to the root
+# spec (project.yml) via `relativePaths: false`.
+# Overridden on CI by matrix-ci.yml (see the `include` list in project.yml).
+packages:
+  MatrixRustSDK:
+    path: ../neo-rust-sdk/matrix-rust-sdk

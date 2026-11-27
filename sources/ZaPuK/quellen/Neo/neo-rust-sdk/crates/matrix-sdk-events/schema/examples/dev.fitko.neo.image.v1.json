@@ -1,0 +1,49 @@
+{
+  "type": "dev.fitko.neo.image.v1",
+  "content": {
+    "dev.fitko.neo.title.v1": {
+      "m.text": [
+        {
+          "body": "ID Photo"
+        }
+      ]
+    },
+    "dev.fitko.neo.file.v1": {
+      "uri": "mxc://fitko.dev/abcd1234",
+      "name": "profile.png",
+      "mimetype": "image/png",
+      "size": 1234567
+    },
+    "dev.fitko.neo.image.details.v1": {
+      "width": 640,
+      "height": 480,
+      "is_animated": false
+    },
+    "dev.fitko.neo.thumbnail.v1": [
+      {
+        "dev.fitko.neo.file.v1": {
+          "uri": "mxc://fitko.dev/dcba4321",
+          "name": "thumbnail.png",
+          "mimetype": "image/jpeg",
+          "size": 123
+        },
+        "dev.fitko.neo.image.details.v1": {
+          "width": 160,
+          "height": 120
+        }
+      }
+    ],
+    "m.alt_text": {
+      "m.text": [
+        {
+          "body": "A photo of a green forest dragon, ca. 65cm in length."
+        }
+      ]
+    },
+    "m.text": [
+      {
+        "body": "A photo of a green forest dragon, ca. 65cm in length. profile.png (1.2 MB)"
+      }
+    ]
+  }
+}

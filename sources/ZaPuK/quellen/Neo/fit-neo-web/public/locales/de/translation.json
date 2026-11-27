@@ -1,0 +1,213 @@
+{
+  "accessibility": "Erklärung zur Barrierefreiheit",
+  "appTitle": "Meine Verwaltung Digital",
+  "bundIdHeader": {
+    "closeMenu": "Menü schließen",
+    "help": "Hilfe",
+    "menu": "Menü",
+    "search": "Suche",
+    "userMenu": {
+      "currentAccess": "AKTUELLER ZUGANG: Benutzername & Passwort",
+      "logout": "Abmelden",
+      "myAccount": "Mein Konto",
+      "trustLevel": "BASISREGISTRIERUNG"
+    },
+    "userProfile": "Nutzerprofil"
+  },
+  "card": {
+    "open": "Öffnen"
+  },
+  "currentDesignMode": "Aktuelles Design: {{mode}}",
+  "darkMode": "Dunkles Design",
+  "dataProtection": "Datenschutz",
+  "eventTile": {
+    "banned": "{{name}} wurde aus dem Raum verbannt",
+    "error": "Fehler bei der Mitgliedschaftsänderung für {{name}}",
+    "invitationAccepted": "{{name}} hat die Einladung in den Raum angenommen",
+    "invitationRejected": "{{name}} hat die Einladung in den Raum abgelehnt",
+    "invitationRevoked": "{{name}} hat die Einladung in den Raum zurückgezogen",
+    "invited": "{{name}} wurde in den Raum eingeladen",
+    "joined": "{{name}} ist dem Raum beigetreten",
+    "kicked": "{{name}} wurde aus dem Raum entfernt",
+    "kickedAndBanned": "{{name}} wurde aus dem Raum entfernt und verbannt",
+    "knockAccepted": "{{name}} hat das Klopfen am Raum akzeptiert",
+    "knockDenied": "{{name}} hat das Klopfen am Raum abgelehnt",
+    "knocked": "{{name}} hat am Raum geklopft",
+    "knockRetracted": "{{name}} hat das Klopfen am Raum zurückgezogen",
+    "left": "{{name}} hat den Raum verlassen",
+    "loading": "Laden...",
+    "profileChange": "Profiländerung (noch nicht implementiert)",
+    "readMarker": "Gelesen",
+    "redacted": "Nachricht wurde gelöscht",
+    "timelineStart": "Anfang des Verlaufs",
+    "unableToDecrypt": "Nachricht konnte nicht entschlüsselt werden",
+    "unbanned": "{{name}} wurde aus dem Bann entlassen",
+    "unknownEventContentType": "Unbekannter Ereignis-Inhaltstyp",
+    "unknownMembershipChange": "{{name}} hat eine unbekannte Mitgliedschaftsänderung",
+    "unknownMessageType": "Unbekannter Nachrichtentyp",
+    "unknownTimelineItemType": "Unbekannter Zeitstrahl-Eintragstyp",
+    "unknownVirtual": "Unbekanntes virtuelles Element",
+    "unsupportedType": "Nicht unterstützter Nachrichtentyp"
+  },
+  "caseDetail": {
+    "addMoreAnswer": "Antwort ergänzen",
+    "amendmentTitle": "Ihre Ergänzung",
+    "answer": "Antwort:",
+    "answeredOnTime": "Fristgerecht geantwortet",
+    "attachments": "Anhänge",
+    "cancelAmendment": "Abbrechen",
+    "checkDetails": "Angaben prüfen",
+    "comment": "Kommentar:",
+    "confirmAnswer": "Antwort senden?",
+    "confirmAnswerBody": "Ihre Angaben sind verbindlich. Bitte kontrollieren Sie noch einmal, ob Sie die Antwort senden möchten.",
+    "confirmFileBody": "Der Inhalt Ihrer Anlage ist verbindlich. Bitte kontrollieren Sie noch einmal, ob Sie die Anlage senden möchten.",
+    "confirmNoFile": "Anlage nicht vorliegend?",
+    "confirmNoFileBody": "Die Aussage ist verbindlich und unwiderruflich. Ein nachträgliches Übermitteln der Anlage ist nicht möglich. Bitte kontrollieren Sie noch einmal, ob Sie die Aussage so treffen möchten.",
+    "confirmRemoveFile": "Dokument entfernen?",
+    "confirmRemoveFileBody": "Möchten Sie das Dokument wirklich entfernen?",
+    "confirmSendFile": "Anlage senden?",
+    "cancel": "Abbrechen",
+    "done": "Fertig",
+    "download": "Herunterladen",
+    "fileCommentLabel": "Kommentar (optional)",
+    "fileErrorSize": "Die Datei ist zu groß. Maximal 10 MB erlaubt.",
+    "fileErrorType": "Ungültiger Dateityp. Nur PNG, JPG und PDF sind erlaubt.",
+    "fileHelp": "Hilfe zur Dateiauswahl",
+    "fileThumbnailAlt": "Vorschaubild der Datei {{name}}",
+    "fileHint": "PNG, JPG, PDF unter 10 MB",
+    "formula": "Mit freundlichen Grüßen",
+    "imagePreview": "Vorschau",
+    "imagePreviewAlt": "Vollansicht der Datei {{name}}",
+    "inquiryFile": "Anhang",
+    "inquiryTitle": "Rückfrage zu Ihrem Vorgang",
+    "insertFormula": "Grußformel einfügen",
+    "learnMore": "Mehr erfahren",
+    "noAmendmentBody": "Melden Sie sich per E-Mail oder Telefon bei Ihrer Behörde, um Ihren Vorgang zu besprechen.",
+    "noAmendmentTitle": "Vorgang abgeschlossen",
+    "noFileDeclaration": "Ich habe die geforderte Anlage nicht fristgerecht vorliegend.",
+    "noSelection": "Keine Auswahl",
+    "openingHoursPlaceholder": "Öffnungszeiten: 08:00 - 17:00 (heute)",
+    "pollCustomOption": "Keine der genannten Antworten",
+    "pollMultiCustomOption": "Weitere Antwort ergänzen",
+    "previewImage": "Bild in Vollansicht anzeigen",
+    "removeFile": "Datei entfernen",
+    "remove": "Entfernen",
+    "selectFile": "Datei auswählen",
+    "sending": "Wird gesendet...",
+    "sendAmendment": "Ergänzung senden",
+    "sentSuccess": "Ihre Antwort wurde erfolgreich versendet.",
+    "submit": "Antwort senden",
+    "submitted": "Abgeschlossen",
+    "thankYou": "Danke!",
+    "textareaPlaceholder": "Geben Sie Ihre Antwort ein...",
+    "toWebsite": "Zur Website",
+    "yourAnswer": "Ihre Antwort",
+    "yourMessage": "Ihre Nachricht"
+  },
+  "case": {
+    "backLink": "Vorgänge",
+    "details": {
+      "caseNumber": "Aktenzeichen",
+      "caption": "Details zum Vorgang",
+      "name": "Bezeichnung",
+      "showAll": "Alle Details anzeigen",
+      "submittedAt": "Antragstellung",
+      "title": "Details"
+    },
+    "joinFailed": "Dem Antrag konnte nicht beigetreten werden. Bitte versuchen Sie es später erneut.",
+    "loading": "Vorgang wird geladen...",
+    "noMessages": {
+      "description": "Sobald Sie eine Nachricht zu ihrem Antrag erhalten haben, können Sie diese hier einsehen.",
+      "title": "Keine Nachrichten Vorliegend"
+    },
+    "notFound": "Antrag wurde nicht gefunden.",
+    "status": {
+      "received": {
+        "badge": "Vorgang eingegangen",
+        "description": "Die zuständige Behörde wird sich in Kürze bei ihnen melden."
+      },
+      "title": "Status"
+    },
+    "timeline": {
+      "label": "Vorgangsverlauf"
+    }
+  },
+  "failedToLoadRooms": "Fehler beim Laden der Räume. Bitte Seite neu laden.",
+  "help": {
+    "alternative": "Alternativ können Sie auch unseren Bereich für Hilfe nutzen, um nach einer Antwort auf Ihre spezifische Frage zu suchen.",
+    "description": "Unter der 115 beantwortet das Team der Behördennummer von Montag bis Freitag zwischen 08:00 und 18:00 Uhr alle Rückfragen zu Ihren Vorgängen.",
+    "illustrationAlt": "Zwei Personen besprechen ein Dokument neben einem Fragezeichen.",
+    "openButton": "Hilfe öffnen",
+    "title": "Benötigen Sie Hilfe?"
+  },
+  "imprint": "Impressum",
+  "inbox": "Posteingang",
+  "cases": "Anträge",
+  "documents": "Dokumente",
+  "profile": "Profil",
+  "settings": "Einstellungen",
+  "skipToContent": "Zum Inhalt springen",
+  "lightMode": "Helles Design",
+  "loadingRoom": "Lade Raumdaten ...",
+  "loadingRooms": "Lade Antworten...",
+  "loggingOut": "Melde ab...",
+  "login": {
+    "completingSignIn": "Anmeldung wird abgeschlossen ...",
+    "description": "Klicken Sie auf \"Mit BundID anmelden\", um sich mit Ihrem BundID-Konto anzumelden. Sie werden in einem Popup-Fenster zur sicheren BundID-Anmeldeseite weitergeleitet und kehren danach automatisch hierher zurück.",
+    "errors": {
+      "loginFailed": "Anmeldung fehlgeschlagen. Bitte überprüfen Sie Ihre Anmeldedaten und versuchen Sie es erneut.",
+      "oidcFailed": "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+      "passwordRequired": "Passwort ist erforderlich",
+      "usernameRequired": "Benutzername ist erforderlich"
+    },
+    "forgotPassword": "Passwort vergessen?",
+    "password": "Passwort",
+    "passwordPlaceholder": "Geben Sie Ihr Passwort ein",
+    "retryHint": "Die Anmeldung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.",
+    "signInButton": "Mit BundID anmelden",
+    "signingIn": "Anmeldung läuft ...",
+    "subtitle": "Einfach und sicher mit der Verwaltung kommunizieren",
+    "title": "Anmelden",
+    "username": "Benutzername",
+    "usernamePlaceholder": "Geben Sie Ihren Benutzernamen ein"
+  },
+  "logout": "Abmelden",
+  "mainNavigation": "Hauptnavigation",
+  "noRequests": {
+    "description": "Sobald Sie einen aktiven Vorgang bei einer Fachbehörde haben, können Sie unten stehende Vorteile nutzen. Mit dem ersten Vorgang kann es losgehen. Zugang zu den Verwaltungsleistungen von Bund, Ländern und Kommunen finden Sie online.",
+    "info1": "Einfach, schnelle und sichere Kommunikation über alle ihre aktiven Behördenvorgänge",
+    "info2": "Unkomplizierte Nachreichung von Dokumenten mit Übersicht über alle ihre Dokumente.",
+    "info3": "Viele hilfreiche Informationen und Unterstützungen rund um ihre Vorgänge.",
+    "title": "Keine Vorgänge vorliegend"
+  },
+  "noUnreadReplies": "Keine ungelesenen Antworten vorhanden.",
+  "notifications": "Meldungen",
+  "roomNotFound": "Dieser Raum konnte nicht geladen werden oder existiert nicht.",
+  "send": "Senden",
+  "ServiceRequest": {
+    "errorLoadingEvent": "Beim Laden dieses Ereignisses ist ein Fehler aufgetreten."
+  },
+  "tabs": {
+    "cases": "Vorgänge",
+    "documents": "Dokumente",
+    "profile": "Zugänge und Daten",
+    "settings": "Kontoaktivitäten"
+  },
+  "timeline": {
+    "attachments": "{{count}} Anhang",
+    "button": "Link",
+    "infobox": "Infobox",
+    "inquiry": "Anfrage",
+    "inquiryFile": "Dateinanfrage",
+    "inquiryPoll": "Umfrage",
+    "loadingMore": "Weitere Nachrichten laden…",
+    "message": "Nachricht",
+    "pollResponse": "Umfrageantwort",
+    "title": "Nachrichtenverlauf"
+  },
+  "toggleDesignMode": "Design-Modus wechseln. Aktuell: {{mode}}",
+  "unreadReplies": "Ungelesene Antworten",
+  "vorgaenge": {
+    "title": "Vorgänge"
+  }
+}

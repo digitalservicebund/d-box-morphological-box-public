@@ -1,0 +1,144 @@
+# SPDX-FileCopyrightText: 2025-2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+stages:
+  - renovate
+  - pre-build
+  - build
+  - test
+  - beta
+  - release
+
+variables:
+  GIT_DEPTH: 0
+  RENOVATE_PLATFORM: gitlab
+  RENOVATE_ENDPOINT: $CI_SERVER_URL/api/v4/
+  RENOVATE_BASE_DIR: $CI_PROJECT_DIR/renovate
+  RENOVATE_CONFIG_FILE: $CI_PROJECT_DIR/renovate.json5
+  RENOVATE_REPOSITORIES: $CI_PROJECT_PATH
+  TART_EXECUTOR_HOST_DIR: true
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: $CI_COMMIT_BRANCH
+
+run-renovate:
+  stage: renovate
+  variables:
+    DOCKER_AUTH_CONFIG: $GHCR_AUTH
+  image: ghcr.io/renovatebot/renovate:44.186.7
+  script:
+    - renovate --token $RENOVATE_TOKEN
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+
+reuse-lint:
+  stage: pre-build
+  image:
+    name: fsfe/reuse:6.2.0
+    entrypoint: [""]
+  script:
+    - reuse lint
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+commit-lint:
+  stage: pre-build
+  image: node:24
+  script:
+    - npm install --no-save @commitlint/{cli,config-conventional}
+    - npx commitlint --from=$CI_MERGE_REQUEST_DIFF_BASE_SHA --to=$CI_COMMIT_SHA --verbose
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+markdown-lint:
+  stage: pre-build
+  image:
+    name: davidanson/markdownlint-cli2:v0.23.3@sha256:d5f3f3f04b2e285dcbcdcd13b4454d119e273e3c393a9dabd163dba4abad526d
+    entrypoint: [""]
+  script:
+    - markdownlint-cli2 "**/*.md"
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+markdown-spellcheck:
+  stage: pre-build
+  variables:
+    DOCKER_AUTH_CONFIG: $GHCR_AUTH
+  image:
+    name: ghcr.io/streetsidesoftware/cspell:10.0.1
+    entrypoint: [""]
+  script:
+    - cspell-cli --no-progress --no-summary "**/*.md"
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+build:
+  stage: build
+  image: macos-tahoe-xcode-26
+  tags:
+    - tart, xcode-26
+  script:
+    - bundle install
+    - bundle exec fastlane build
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_REF_PROTECTED == "true"
+
+run-tests:
+  stage: test
+  image: macos-tahoe-xcode-26
+  tags:
+    - tart, xcode-26
+  script:
+    - bundle install
+    - bundle exec fastlane test
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_REF_PROTECTED == "true"
+
+run-hw-tests:
+  stage: test
+  tags:
+    - host, xcode-18
+  script:
+    - bundle install
+    - set -o pipefail && bundle exec fastlane hw_test 2>&1 | sed '/IDELaunchParametersSnapshot/d'
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_REF_PROTECTED == "true"
+
+beta:
+  stage: beta
+  image: macos-tahoe-xcode-26
+  tags:
+    - tart, xcode-26
+  script:
+    - bundle install
+    - bundle exec fastlane beta
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "develop"
+
+# Semantic Release
+release:
+  stage: release
+  image: node:24
+  before_script:
+    - apt-get update && apt-get install -y git
+    - npm install -g semantic-release
+      @semantic-release/changelog
+      @semantic-release/commit-analyzer
+      @semantic-release/git
+      @semantic-release/gitlab
+      @semantic-release/release-notes-generator
+      conventional-changelog-conventionalcommits@9
+  script:
+    - semantic-release
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"

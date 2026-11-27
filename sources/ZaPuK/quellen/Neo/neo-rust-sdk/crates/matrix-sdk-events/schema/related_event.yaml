@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+---
+$schema: https://json-schema.org/draft/2020-12/schema
+
+title: RelatedEvent
+description: Related Events have the following fields.
+allOf:
+  - type: object
+    properties:
+      m.relates_to:
+        $ref: m.relates_to.yaml
+    required:
+      - m.relates_to
+  - type: object
+    properties:
+      im.nheko.relations.v1.relations:
+        $ref: im.nheko.relations.v1.relations.yaml
+    required:
+      - im.nheko.relations.v1.relations

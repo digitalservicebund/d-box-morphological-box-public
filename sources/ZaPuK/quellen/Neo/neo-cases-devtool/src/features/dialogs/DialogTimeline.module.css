@@ -1,0 +1,101 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+.timeline {
+  max-width: 900px;
+  margin-inline: auto;
+  padding: 32px 40px 64px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  color: var(--md-sys-color-primary);
+}
+.header h1 {
+  margin: 6px 0;
+  font-size: 25px;
+  font-weight: 650;
+  letter-spacing: -0.7px;
+  overflow-wrap: anywhere;
+}
+.header p {
+  margin: 0 0 8px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+.header small {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+.unencrypted,
+.encrypted {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.encrypted {
+  color: var(--app-encrypted);
+  font-weight: 650;
+}
+.unencrypted {
+  color: var(--app-unencrypted);
+  font-weight: 650;
+}
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.toolbar > span {
+  margin-left: auto;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 11px;
+}
+.cards {
+  display: grid;
+  gap: 22px;
+  margin-top: 22px;
+}
+.hint {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 12px;
+}
+.empty {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--md-sys-color-on-surface-variant);
+}
+.empty h2 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.empty p {
+  font-size: 13px;
+}
+.problem {
+  color: var(--md-sys-color-error);
+  font-size: 13px;
+}
+@media (max-width: 900px) {
+  .timeline {
+    padding: 24px 20px;
+  }
+  .toolbar > span {
+    display: none;
+  }
+}

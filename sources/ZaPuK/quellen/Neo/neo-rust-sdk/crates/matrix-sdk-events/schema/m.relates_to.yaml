@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+---
+$schema: https://json-schema.org/draft/2020-12/schema
+
+properties:
+  rel_type:
+    enum:
+      - m.thread
+      - m.reference
+    type: string
+  event_id:
+    type: string
+  m.in_reply_to:
+    type: object
+    properties:
+      event_id:
+        type: string
+    required:
+      - event_id
+title: Legacy Event Relationship
+type: object

@@ -1,0 +1,159 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+/* The theme is based on the "BundID (light optimized)" style in the Styleguide */
+:root {
+  /* Text colors */
+  --layout-text-default: rgb(0 5 10 / 100%);
+  --layout-text-muted: rgb(110 110 110 / 100%);
+  --layout-text-inverse: rgb(242 243 244 / 100%);
+
+  /* layout background colors */
+  --layout-background-default: rgb(255 255 255 / 100%);
+  --layout-background-hued: rgb(242 243 244 / 100%);
+
+  /* input background colors */
+  --form-input-background: rgb(247 247 249 / 100%);
+  --form-input-background-inverted: rgb(255 255 255 / 100%);
+
+  /* input border colors */
+  --form-input-border: rgb(0 5 10 / 100%);
+
+  /* actions colors */
+  --action-default: rgb(0 79 128 / 100%);
+  --action-on-default: rgb(255 255 255 / 100%);
+  --action-visited: rgb(64 69 101 / 100%);
+  --action-state-indicator-default: rgb(0 79 128 / 100%);
+  --action-state-indicator-tint: rgb(255 255 255 / 100%);
+  --action-state-indicator-shade: rgb(0 5 10 / 100%);
+
+  /* feedback colors */
+  --feedback-success: rgb(0 107 81 / 100%);
+  --feedback-success-background: rgb(222 246 237 / 100%);
+  --feedback-info: rgb(0 79 128 / 100%);
+  --feedback-info-background: rgb(228 245 255 / 100%);
+  --feedback-warning: rgb(138 79 0 / 100%);
+  --feedback-warning-background: rgb(255 239 208 / 100%);
+  --feedback-danger: rgb(189 15 9 / 100%);
+  --feedback-danger-background: rgb(254 236 232 / 100%);
+  --feedback-loader: rgb(64 69 101 / 100%);
+  --feedback-loader-background: rgb(223 225 234 / 100%);
+  --color-layout-border: rgb(165 170 195 / 100%);
+
+  /* Opacity */
+
+  /* 8% */
+  --action-state-opacity-hover: 0.08;
+
+  /* 16% */
+  --action-state-opacity-active: 0.16;
+
+  /* 32% */
+  --action-state-opacity-pressed: 0.32;
+
+  /* 12% */
+  --action-state-opacity-selected: 0.12;
+
+  /* 40% */
+  --action-state-opacity-disabled: 0.4;
+
+  /* 72% */
+  --action-state-opacity-overlay: 0.72;
+
+  /* 8% */
+  --action-state-opacity-hover-percent: 8%;
+
+  /* 16% */
+  --action-state-opacity-active-percent: 16%;
+
+  /* 32% */
+  --action-state-opacity-pressed-percent: 32%;
+
+  /* 12% */
+  --action-state-opacity-selected-percent: 12%;
+
+  /* 40% */
+  --action-state-opacity-disabled-percent: 40%;
+
+  /* 72% */
+  --action-state-opacity-overlay-percent: 72%;
+
+  /* -------------- */
+
+  /* metrics */
+  --metric-space-none: 0;
+  --metric-space-2x-small: 0.125rem;
+  --metric-space-x-small: 0.25rem;
+  --metric-space-small: 0.5rem;
+  --metric-space-default: 1rem;
+  --metric-space-large: 1.5rem;
+  --metric-space-x-large: 2rem;
+  --metric-baseline-body-default-padding-top: 6px;
+  --metric-baseline-body-default-padding-bottom: 2px;
+
+  /* dimensions */
+  --metric-dimension-2x-small: 0.5rem;
+  --metric-dimension-x-small: 1rem;
+  --metric-dimension-small: 1.25rem;
+  --metric-dimension-default: 1.5rem;
+  --metric-dimension-large: 2rem;
+  --metric-dimension-x-large: 3rem;
+  --metric-dimension-2x-large: 3.5rem;
+  --metric-dimension-3x-large: 4rem;
+  --metric-dimension-4x-large: 5rem;
+  --metric-dimension-5x-large: 6rem;
+
+  /* borders widths */
+  --metric-border-width-none: 0;
+  --metric-border-width-light: 0.0625rem;
+  --metric-border-width-default: 0.125rem;
+  --metric-border-width-bold: 0.25rem;
+  --metric-border-width-heavy: 0.5rem;
+
+  /* border radius */
+  --metric-border-radius-none: 0;
+  --metric-border-radius-small: 0.125rem;
+  --metric-border-radius-default: 0.25rem;
+  --metric-border-radius-large: 0.5rem;
+  --metric-border-radius-circle: 50%;
+
+  /* component: badge */
+  --component-badge-space-left: 14px;
+
+  /* focus border */
+  --action-focus-background: rgb(64 69 101 / 100%);
+  --action-focus-border-inside: rgb(111 117 152 / 100%);
+  --action-focus-border-outside: rgb(193 197 214 / 100%);
+  --metric-baseline-title-large-padding-top: 7px;
+  --metric-baseline-title-large-padding-bottom: 9px;
+  --metric-baseline-title-default-padding-top: 8px;
+  --metric-baseline-title-default-padding-bottom: 8px;
+  --metric-baseline-body-large-padding-top: 1px;
+  --metric-baseline-body-large-padding-bottom: 7px;
+
+  /* -------------- */
+
+  /* font-family */
+  --typography-font-family-default: 'Fira Sans', sans-serif;
+
+  /* font-size */
+  --typography-font-size-adaptive-2x-large: 4.5rem;
+  --typography-font-size-adaptive-x-large: 3rem;
+  --typography-font-size-adaptive-large: 2rem;
+  --typography-font-size-adaptive-medium: 1.5rem;
+  --typography-font-size-static-large: 1.3125rem;
+  --typography-font-size-static-medium: 1.125rem;
+  --typography-font-size-static-small: 1rem;
+
+  /* line-height, scales with font size */
+  --typography-line-height-single: 1;
+  --typography-line-height-one-and-half: 1.5;
+
+  /* font-weight */
+  --typography-font-weight-regular: 400;
+  --typography-font-weight-medium: 500;
+  --typography-font-weight-semi-bold: 600;
+}

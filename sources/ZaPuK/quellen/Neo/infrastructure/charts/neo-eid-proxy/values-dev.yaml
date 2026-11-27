@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2025-2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+ingress:
+    endpoint: bundid-eid-proxy.dev.neo.fitko.dev
+    tls:
+        - secretName: eid-proxy-tls-dev
+          hosts:
+            - bundid-eid-proxy.dev.neo.fitko.dev

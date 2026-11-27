@@ -1,0 +1,51 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "FITKO",
+    "Föderale",
+    "Kooperation",
+    "sicherheit",
+    "fitko",
+    "releaserc",
+    "autosquash",
+    "publiccode",
+    "holz",
+    "tchncs",
+    "OSCI",
+    "XJustiz",
+    "xjustiz",
+    "Laufzettel",
+    "Intermediär",
+    "canonicalization",
+    "quick-xml",
+    "RustCrypto",
+    "uniffi",
+    "wasm",
+    "Governikus",
+    "bibliothek",
+    "PKCS",
+    "PSS",
+    "RUSTSEC",
+    "rustup",
+    "env",
+    "rustls",
+    "nocapture",
+    "bergshamra",
+    "bindgen",
+    "ubrn",
+    "Intermediary",
+    "Korrigenda",
+    "getrandom",
+    "reqwest",
+    "ffi"
+  ],
+  "ignorePaths": [
+    "CHANGELOG.md",
+    "**/node_modules/**",
+    "web/rust_modules/**"
+  ],
+  "ignoreRegExpList": [
+    "Signed-off-by:.*"
+  ]
+}

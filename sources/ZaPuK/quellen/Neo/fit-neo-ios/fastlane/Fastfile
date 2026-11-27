@@ -1,0 +1,107 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+require 'yaml'
+
+# Opt out of sending usage data to Fastlane
+opt_out_usage
+
+# Don't auto-generate a README.md file
+skip_docs
+
+default_platform(:ios)
+
+# Before / After scripts
+before_all do
+  xcodegen(spec: "project.yml")
+end
+
+platform :ios do
+  desc "Run testing targets"
+  lane :test do
+    scan(
+      scheme: 'UnitTests',
+      clean: true,
+      code_coverage: true,
+      devices: ['iPhone 17 Pro'],
+      output_directory: "./fastlane/unit_test_output",
+      output_types: "html,junit"
+    )
+  end
+
+  desc "Run tests on hardware device"
+  lane :hw_test do
+    # This is required for codesign to access the keychain on the CI machine
+    #
+    # It also assumes that valid certificates and provisioning profiles are
+    # available in the CI host's login keychain
+    keychain_password = ENV["MATCH_KEYCHAIN_PASSWORD"] || ENV["FASTLANE_KEYCHAIN_PASSWORD"] || ""
+    sh("security unlock-keychain -p '#{keychain_password}' ~/Library/Keychains/login-db")
+
+    scan(
+      scheme: 'UITests',
+      configuration: 'Debug',
+      clean: true,
+      ensure_devices_found: true,
+      # The ID of the physical iPhone that runs the UI testing target
+      destination: "platform=iOS,id=00008101-001565213E0A001E",
+      output_directory: "./fastlane/ui_test_output",
+      output_types: "html,junit",
+      number_of_retries: 2,
+      xcargs: "-collect-test-diagnostics never"
+    )
+  end
+
+  desc "Build the app"
+  lane :build do
+    gym(
+      scheme: "FITNeo-Dev",
+      destination: "generic/platform=iOS Simulator",
+      skip_package_ipa: true,
+      skip_archive: true,
+      xcargs: "EXCLUDED_ARCHS=x86_64"
+    )
+    gym(
+      scheme: "FITNeo-Demo",
+      destination: "generic/platform=iOS Simulator",
+      skip_package_ipa: true,
+      skip_archive: true,
+      xcargs: "EXCLUDED_ARCHS=x86_64"
+    )
+  end
+
+  desc "Build and upload to TestFlight"
+  lane :beta do
+    # This is required for bootstrapping the signing certificates and
+    # provisioning profiles on the disposable TartVM CI machines
+    setup_ci
+    app_store_connect_api_key
+
+    match(
+      type: "appstore",
+      readonly: is_ci
+    )
+
+    build_number = Time.new.strftime("%Y%m%d%H%M")
+    increment_build_number(
+      build_number: build_number,
+      xcodeproj: "FITNeo.xcodeproj"
+    )
+
+    # Beta builds are on the development environment
+    build_app(
+      scheme: "FITNeo-Dev",
+      clean: true,
+      export_method: "app-store"
+    )
+
+    upload_to_testflight
+  end
+
+  desc "Build and release to App Store"
+  lane :release do
+    # setup_ci
+    # app_store_connect_api_key
+  end
+end

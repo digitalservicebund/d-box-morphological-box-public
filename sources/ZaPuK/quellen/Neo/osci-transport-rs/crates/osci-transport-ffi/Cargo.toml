@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+[package]
+name = "osci-transport-ffi"
+description = "UniFFI bindings for OSCI-Transport content and transport decryption (iOS, Android, ...)"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[lib]
+crate-type = ["lib", "staticlib", "cdylib"]
+
+[dependencies]
+osci-transport.workspace = true
+osci-transport-crypto.workspace = true
+rsa.workspace = true
+thiserror.workspace = true
+uniffi.workspace = true
+zeroize.workspace = true

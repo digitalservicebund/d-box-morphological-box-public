@@ -1,0 +1,31 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+.field {
+  display: grid;
+  gap: 8px;
+  overflow-wrap: anywhere;
+}
+.label {
+  font-size: 13px;
+  font-weight: 600;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.field small {
+  color: var(--md-sys-color-on-surface-variant);
+}
+.error {
+  margin: 0;
+  font-size: 12px;
+  white-space: pre-wrap;
+  max-height: 120px;
+  overflow: auto;
+  color: var(--md-sys-color-error);
+}

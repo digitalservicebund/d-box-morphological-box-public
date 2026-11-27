@@ -1,0 +1,35 @@
+{
+  "name": "@matrix-g2x/osci-transport-web",
+  "version": "0.0.0",
+  "description": "OSCI-Transport client crypto for the browser (WebAssembly)",
+  "license": "EUPL-1.2",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.opencode.de/fitko/matrix-g2x/osci-transport-rs"
+  },
+  "exports": {
+    "./web": {
+      "types": "./dist/index.web.d.ts",
+      "import": "./dist/index.web.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "scripts": {
+    "build": "./build.sh"
+  },
+  "dependencies": {
+    "@ubjs/core": "0.31.0-7"
+  },
+  "devDependencies": {
+    "binaryen": "^132.0.0",
+    "typescript": "~7.0.2",
+    "uniffi-bindgen-react-native": "0.31.0-7"
+  },
+  "packageManager": "yarn@4.18.1"
+}

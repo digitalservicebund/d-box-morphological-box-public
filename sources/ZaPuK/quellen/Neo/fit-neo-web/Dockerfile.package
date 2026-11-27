@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+# Simple packaging Dockerfile - just copies pre-built static files into nginx.
+# Used for multi-arch builds where the app is built once (on amd64) and then
+# packaged into both amd64 and arm64 nginx images.
+
+FROM ghcr.io/nginx/nginx-unprivileged:1.31.2-alpine
+
+# Copy pre-built static files to nginx html directory
+COPY dist /usr/share/nginx/html
+
+# Configure nginx for path-based client-side routing
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 8080
+USER 101
+CMD ["nginx", "-g", "daemon off;"]

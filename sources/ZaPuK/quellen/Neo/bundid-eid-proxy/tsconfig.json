@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "lib": [
+            "esnext",
+        ],
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        "noEmit": true,
+        "allowImportingTsExtensions": true,
+        "strictNullChecks": true,
+        "noImplicitOverride": true,
+    },
+}

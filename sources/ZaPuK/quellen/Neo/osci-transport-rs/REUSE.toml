@@ -1,0 +1,76 @@
+version = 1
+
+# For files or folders that can not be annotated via comment headers, add them here
+
+[[annotations]]
+path = "CHANGELOG.md"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "cspell.json"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".releaserc.json"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "*.jinja"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".gitlab/merge_request_templates/*.md"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".copier-answers.yml"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "NONE"
+
+[[annotations]]
+path = "Cargo.lock"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "NONE"
+
+# Interop fixtures copied from the Governikus osci-bibliothek test resources.
+# That library is published under EUPL-1.2 OR MIT; taken here under MIT.
+[[annotations]]
+path = ["tests/interop/corpus/**", "tests/interop/certs/**", "tests/interop/keys/**"]
+SPDX-License-Identifier = "MIT"
+SPDX-FileCopyrightText = "Governikus GmbH & Co. KG"
+
+# Alice's test key pair and the public test Intermediär's cipher cert, from
+# osci-bibliothek's own sample test resources (same provenance/license as the
+# corpus above), used by the manual "against the real Intermediär" test.
+[[annotations]]
+path = "tests/interop/test-intermediary-keys/**"
+SPDX-License-Identifier = "MIT"
+SPDX-FileCopyrightText = "Governikus GmbH & Co. KG"
+
+# OSCI XSD schemas from osci-bibliothek (same provenance/license as the corpus
+# above), for xmllint schema validation of osci-transport's own wire output.
+[[annotations]]
+path = "third_party/osci-schema/**"
+SPDX-License-Identifier = "MIT"
+SPDX-FileCopyrightText = "Governikus GmbH & Co. KG"
+
+# Gradle wrapper, vendored by `gradle wrapper` for the Java interop harness.
+[[annotations]]
+path = [
+  "tests/interop/java/gradlew",
+  "tests/interop/java/gradlew.bat",
+  "tests/interop/java/gradle/wrapper/gradle-wrapper.jar",
+  "tests/interop/java/gradle/wrapper/gradle-wrapper.properties",
+]
+SPDX-License-Identifier = "Apache-2.0"
+SPDX-FileCopyrightText = "Gradle Inc."
+
+[[annotations]]
+path = ["web/package.json", "web/tsconfig.json", "web/yarn.lock", "web/.yarnrc.yml", "web/.gitignore"]
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"

@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: 2025-2026 Element Creations Ltd
+# SPDX-FileCopyrightText: 2025-2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+---
+certManager:
+  clusterIssuer: le-prod-public-route53
+
+ingress:
+  className: nginx-public
+  controllerType: ingress-nginx
+
+elementAdmin:
+  ingress:
+    host: admin-{{ $.Values.serverName }}
+
+elementWeb:
+  ingress:
+    host: element-{{ $.Values.serverName }}
+
+matrixAuthenticationService:
+  additional:
+    relaxed-client-uris.yaml:
+      config: |
+        policy:
+          data:
+            client_registration:
+              allow_insecure_uris: true
+    oidc.yaml:
+      configSecret: openbao
+      configSecretKey: oidc.yaml
+  ingress:
+    host: mas-{{ $.Values.serverName }}
+
+matrixRTC:
+  enabled: false
+
+synapse:
+  additional:
+    closed-federation.yaml:
+      config: |
+        federation_domain_whitelist:
+        - ess1.dev.neo.fitko.dev
+        - ess2.dev.neo.fitko.dev
+  ingress:
+    host: synapse-{{ $.Values.serverName }}
+  media:
+    storage:
+      size: 500Gi

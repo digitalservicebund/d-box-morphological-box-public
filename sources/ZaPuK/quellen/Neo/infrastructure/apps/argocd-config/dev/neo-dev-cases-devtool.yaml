@@ -1,0 +1,90 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: neo-dev-cases-devtool
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions:
+    - missingkey=error
+  syncPolicy:
+    applicationsSync: sync
+    preserveResourcesOnDeletion: false
+  generators:
+    # branch deployment for develop/main
+    - scmProvider:
+        requeueAfterSeconds: 180
+        gitlab:
+          group: fitko/matrix-g2x
+          api: https://gitlab.opencode.de
+          allBranches: true
+        filters:
+          - repositoryMatch: ^neo-cases-devtool$
+            branchMatch: ^(develop|main)$
+        values:
+          revision: "{{ .sha }}"
+    # merge request deployments otherwise
+    - matrix:
+        generators:
+          - pullRequest:
+              requeueAfterSeconds: 180
+              gitlab:
+                project: fitko/matrix-g2x/neo-cases-devtool
+                api: https://gitlab.opencode.de
+                pullRequestState: opened
+              values:
+                revision: "{{ .head_sha }}"
+          # ignore renovate MRs for deployment
+          - list:
+              elements:
+                - previewEnabled: '{{ not (hasPrefix "renovate/" .branch) }}'
+      selector:
+        matchLabels:
+          previewEnabled: "true"
+        matchExpressions:
+          - key: branch
+            operator: NotIn
+            values: [develop, main]
+  template:
+    metadata:
+      name: 'neo-dev-cases-devtool-{{ normalize .branch | trunc 31 | trimSuffix "-" }}'
+      namespace: argocd
+      finalizers:
+        - resources-finalizer.argocd.argoproj.io
+      labels:
+        k8s.fitko.de/environment: dev
+        k8s.fitko.de/service: neo-cases-devtool
+        k8s.fitko.de/branch: "{{ normalize .branch }}"
+    spec:
+      project: fitko-apps-dev
+      sources:
+        - repoURL: https://gitlab.opencode.de/fitko/matrix-g2x/neo-cases-devtool.git
+          targetRevision: "{{ .values.revision }}"
+          path: charts/neo-cases-devtool
+          helm:
+            valueFiles:
+              - $values/charts/neo-cases-devtool/values-dev.yaml
+            parameters:
+              - name: image.tag
+                value: "{{ .values.revision }}"
+                forceString: true
+              - name: ingress.hosts[0].host
+                value: '{{ if ne .branch "develop" }}{{ normalize .branch }}.{{ end }}devtool.dev.neo.fitko.dev'
+              - name: ingress.tls[0].hosts[0]
+                value: '{{ if ne .branch "develop" }}{{ normalize .branch }}.{{ end }}devtool.dev.neo.fitko.dev'
+        - repoURL: https://gitlab.opencode.de/fitko/matrix-g2x/infrastructure.git
+          targetRevision: develop
+          ref: values
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: neo-dev-cases-devtool
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

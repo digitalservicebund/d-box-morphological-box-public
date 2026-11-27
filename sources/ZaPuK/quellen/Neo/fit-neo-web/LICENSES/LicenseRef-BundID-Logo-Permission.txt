@@ -1,0 +1,9 @@
+SPDX-License-Identifier: LicenseRef-BundID-Logo-Permission
+
+Das Copyright für Texte und Bilder liegt bei eigenen Inhalten beim
+Bundesministerium für Digitales und Staatsmodernisierung (BMDS).
+
+Zur Verfügung gestellte Texte, Textteile, Grafiken, Tabellen oder
+Bildmaterialien dürfen, soweit diese urheberrechtlich geschützt sind,
+ohne vorherige Zustimmung des BMDS nicht vervielfältigt, nicht
+verbreitet und nicht ausgestellt werden.

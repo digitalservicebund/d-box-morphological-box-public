@@ -1,0 +1,7 @@
+{
+  "$schema": "./node_modules/fallow/schema.json",
+  "entry": ["src/main.tsx", "src/matrix/matrix.worker.ts", "src/**/*.test.ts", "vite.config.ts", "scripts/*.mjs"],
+  "ignorePatterns": ["src/matrix/generated/**", "rust/**", ".tools/**", "dist/**"],
+  "health": { "maxCrap": 0 },
+  "typeAware": { "enabled": true }
+}

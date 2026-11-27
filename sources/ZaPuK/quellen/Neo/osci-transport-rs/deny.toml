@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+[licenses]
+allow = [
+    "MIT",
+    "Apache-2.0",
+    "ISC",
+    "BSD-1-Clause",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "Unicode-3.0",
+    "MPL-2.0",
+    "EUPL-1.2",
+    "CDLA-Permissive-2.0",
+    "CC0-1.0",
+    "MIT-0",
+    "Unlicense",
+]
+
+[advisories]
+ignore = [
+    # RSA PKCS1v1.5 timing side channel (Marvin Attack). No fixed upgrade
+    # exists upstream; the crate is used for the legacy RSA-1.5 key-transport
+    # path OSCI-Transport 1.2 itself mandates for interop. Accepted risk, see
+    # crates/osci-transport-crypto/src/decrypt.rs.
+    "RUSTSEC-2023-0071",
+]

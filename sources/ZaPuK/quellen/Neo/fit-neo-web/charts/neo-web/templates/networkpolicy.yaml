@@ -1,0 +1,61 @@
+{{- /*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */}}
+
+{{- if .Values.networkPolicy.enabled -}}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "neo-web.fullname" . }}
+  labels:
+    {{- include "neo-web.labels" . | nindent 4 }}
+  {{- with .Values.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  podSelector:
+    matchLabels:
+      app: {{ include "neo-web.fullname" . }}
+  policyTypes:
+    {{- if .Values.networkPolicy.ingress }}
+    - Ingress
+    {{- end }}
+    {{- if .Values.networkPolicy.egress }}
+    - Egress
+    {{- end }}
+  {{- with .Values.networkPolicy.ingress }}
+  ingress:
+    {{- if .allowAll }}
+    - from: []
+    {{- else }}
+    - from:
+      {{- range .from }}
+      - ipBlock:
+          cidr: {{ .cidr }}
+          except:
+            {{- range .except }}
+            - {{ . }}
+            {{- end }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+  {{- with .Values.networkPolicy.egress }}
+  egress:
+    {{- if .allowAll }}
+    - to: []
+    {{- else }}
+    - to:
+      {{- range .to }}
+      - ipBlock:
+          cidr: {{ .cidr }}
+          except:
+            {{- range .except }}
+            - {{ . }}
+            {{- end }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}

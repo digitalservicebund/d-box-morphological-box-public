@@ -1,0 +1,46 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+name: UITests
+
+schemes:
+  UITests:
+    analyze:
+      config: Debug
+    archive:
+      config: Release
+    build:
+      targets:
+        UITests: all
+    profile:
+      config: Release
+    run:
+      config: Debug
+      disableMainThreadChecker: false
+    test:
+      config: Debug
+      testPlans:
+        - path: ../../UITests/Resources//UITestsPlan.xctestplan
+          defaultPlan: true
+
+targets:
+  UITests:
+    type: bundle.ui-testing
+    platform: iOS
+
+    dependencies:
+      - target: FITNeo-UITests
+
+    info:
+      path: ../../UITests/Resources/Info.plist
+
+    settings:
+      base:
+        PRODUCT_NAME: UITests
+        PRODUCT_BUNDLE_IDENTIFIER: ${BASE_BUNDLE_IDENTIFIER}.ui.tests
+        TARGETED_DEVICE_FAMILY: '1,2'
+        TEST_TARGET_NAME: 'FITNeo-UITests'
+
+    sources:
+      - path: ../../UITests

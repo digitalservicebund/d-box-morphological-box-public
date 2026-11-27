@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+---
+$schema: https://json-schema.org/draft/2020-12/schema
+
+allOf:
+  - $ref: "dev.fitko.neo.inquiry.message.v1.yaml#/$defs/base"
+properties:
+  content:
+    properties:
+      dev.fitko.neo.poll.v1:
+        $ref: dev.fitko.neo.poll.v1.yaml
+        type: object
+    required:
+      - dev.fitko.neo.poll.v1
+  type:
+    enum:
+      - dev.fitko.neo.inquiry.poll.v1
+    type: string
+title: Inquiry for poll reply (aka poll start)
+type: object

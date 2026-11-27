@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+if ! command -v reuse > /dev/null 2>&1; then
+  echo "pre-commit: WARNING: 'reuse' not found. Local license linting skipped."
+else
+  if ! reuse lint > /dev/null 2>&1; then
+    echo "pre-commit: Commit aborted due to REUSE issues. Please run 'reuse lint' to fix them."
+    reuse lint
+    exit 1
+  fi
+fi
+
+if ! command -v markdownlint-cli2 > /dev/null 2>&1; then
+  echo "pre-commit: WARNING: 'markdownlint-cli2' not found. Local markdown linting was skipped."
+else
+  if ! markdownlint-cli2 "**/*.md" > /dev/null 2>&1; then
+    echo "pre-commit: Commit aborted due to markdown linting issues. Please run 'markdownlint-cli2 \"**/*.md\"' and fix them."
+    markdownlint-cli2 "**/*.md"
+    exit 1
+  fi
+fi
+
+if ! command -v cspell > /dev/null 2>&1; then
+  echo "pre-commit: WARNING: 'cspell' command not found. Local markdown spell checking was skipped."
+else
+  if ! cspell "**/*.md" > /dev/null 2>&1; then
+    echo "pre-commit: Commit aborted due to spell checking issues. Please run 'cspell \"**/*.md\"' and fix them."
+    cspell "**/*.md"
+    exit 1
+  fi
+fi
+
+export PATH="$PATH:/opt/homebrew/bin"
+
+if ! command -v swiftformat > /dev/null 2>&1; then
+  echo "pre-commit: WARNING: 'swiftformat' command not found. Local Swift formatting was skipped."
+else
+  if ! swiftformat --lint . > /dev/null 2>&1; then
+    echo "pre-commit: Commit aborted due to SwiftFormat warnings. Please check the tool output and try again"
+    swiftformat . > /dev/null 2>&1
+    exit 1
+  fi
+fi

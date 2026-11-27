@@ -1,0 +1,27 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "useGitignore": true,
+  "words": [
+    "FITKO",
+    "Föderale",
+    "Kooperation",
+    "sicherheit",
+    "fitko",
+    "releaserc",
+    "autosquash",
+    "publiccode",
+    "holz",
+    "tchncs",
+    "homeserver",
+    "homeservers",
+    "opencode",
+    "rustup"
+  ],
+  "ignorePaths": [
+    "CHANGELOG.md"
+  ],
+  "ignoreRegExpList": [
+    "Signed-off-by:.*"
+  ]
+}

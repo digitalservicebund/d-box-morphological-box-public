@@ -1,0 +1,17 @@
+// SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+//
+// SPDX-License-Identifier: CC0-1.0
+
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: [
+    "config:recommended"
+  ],
+  dependencyDashboard: true,
+  labels: ["renovate"],
+  vulnerabilityAlerts: {
+    labels: ['security'],
+  },
+  osvVulnerabilityAlerts: true,
+  prHourlyLimit: 0
+}

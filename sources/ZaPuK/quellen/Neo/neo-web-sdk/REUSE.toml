@@ -1,0 +1,88 @@
+version = 1
+
+# For files or folders that can not be annotated via comment headers, add them here
+
+[[annotations]]
+path = "CHANGELOG.md"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "cspell.json"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".oxlintrc.json"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".releaserc.json"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "*.jinja"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".gitlab/merge_request_templates/*.md"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".copier-answers.yml"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "NONE"
+
+[[annotations]]
+path = "package.json"
+SPDX-License-Identifier = "EUPL-1.2"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "yarn.lock"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "tsconfig.json"
+SPDX-License-Identifier = "EUPL-1.2"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "tsconfig.build.json"
+SPDX-License-Identifier = "EUPL-1.2"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "patches/0001-Add-bindings-wasm-workspace-member-and-pin-wasm-bind.patch"
+SPDX-License-Identifier = "EUPL-1.2"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "patches/0002-Exclude-experimental-search-from-WASM-builds.patch"
+SPDX-License-Identifier = "EUPL-1.2"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "src/generated/**"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "src/index.web.ts"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".prettierignore"
+SPDX-License-Identifier = "EUPL-1.2"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".prettierrc.yaml"
+SPDX-License-Identifier = "EUPL-1.2"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"

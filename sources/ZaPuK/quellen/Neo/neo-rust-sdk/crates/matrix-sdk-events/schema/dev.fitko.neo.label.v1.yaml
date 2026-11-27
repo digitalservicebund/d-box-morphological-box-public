@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+---
+$schema: https://json-schema.org/draft/2020-12/schema
+
+properties:
+  m.text:
+    allOf:
+      - $ref: m.text.yaml
+      - minContains: 1
+        contains:
+          oneOf:
+            - not:
+                required:
+                  - "mimetype"
+            - properties:
+                mimetype:
+                  enum:
+                    - "text/plain"
+                  type: string
+              required:
+                - "mimetype"
+required:
+  - m.text
+title: Plain text label
+type: object

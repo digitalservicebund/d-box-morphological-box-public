@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "drachen-einfach"
+version = "0.1.0"
+description = "drachen-einfach is a simple demo implementation of an online service"
+authors = ["Your Name <you@example.com>"]
+license = "EUPL-1.2"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">3.8,<4.0"
+flask = "^2.0.2"
+fitconnect = "^0.4.2"
+strictyaml = "^1.6.1"
+uwsgi = "^2.0.31"
+matrix-nio = "^0.25.2"
+
+[tool.poetry.group.dev.dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

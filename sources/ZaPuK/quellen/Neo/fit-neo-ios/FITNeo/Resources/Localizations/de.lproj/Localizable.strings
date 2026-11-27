@@ -1,0 +1,104 @@
+// Global App Strings
+"app.display_name" = "Meine Verwaltung Digital";
+// LoginView Screen
+"screen.login_view.subtitle" = "Einfache Kommunikation mit der Verwaltung";
+"screen.login_view.button" = "Mit BundID einloggen";
+"screen.login_error.authentication_failed" = "Authentifizierung fehlgeschlagen";
+// Navigation Tabs
+"navigation.tab.processes" = "Vorgänge";
+"navigation.tab.documents" = "Dokumente";
+"navigation.tab.account" = "Konto";
+"navigation.tab.help" = "Hilfe";
+// Status Info List View
+"screen.status_info_list_view.navigation_title" = "Statuserklärung";
+// Statuses Detail Info
+"screen.status_info_list_view.info.process_sent" = "Sie haben den Vorgang ausgefüllt und anschließend digital an die Behörde übermittelt.\n\nSollte sich eine zeitliche Prognose für die Rückmeldung Ihrer Behörde erstellen lassen, wird Sie Ihnen in der App angezeigt.";
+"screen.status_info_list_view.info.process_received" = "Ihr Vorgang ist bei der Behörde eingegangen. Er wird noch nicht geprüft, die Prüfung startet bald.\n\nSollte sich eine zeitliche Prognose für die Rückmeldung Ihrer Behörde erstellen lassen, wird Sie Ihnen in der App angezeigt.";
+"screen.status_info_list_view.info.process_under_review" = "Ihr Vorgang wird bei der Behörde geprüft und bearbeitet. Sie erhalten bald eine Rückmeldung zu Ihrem Vorgang.\n\nSollte sich eine zeitliche Prognose für die Rückmeldung Ihrer Behörde erstellen lassen, wird Sie Ihnen in der App angezeigt.";
+"screen.status_info_list_view.info.process_activity_required" = "Wenn dieser Schritt angezeigt wird, wird Ihre Aktivität benötigt. Mehr Informationen finden Sie in den entsprechenden Nachrichten.\n\nSollten Sie innerhalb einer bestimmten Frist antworten müssen, wird Ihnen dies durch die App angezeigt.";
+"screen.status_info_list_view.info.process_completed" = "Der Vorgang wurde erfolgreich abgeschlossen.";
+// ProcessesView Screen
+"screen.processes_view.sub_header" = "Keine Vorgänge vorliegend";
+"screen.processes_view.paragraph_1" = "Sobald Sie einen aktiven Vorgang bei einer Fachbehörde haben, können Sie unten stehende Vorteile nutzen.";
+"screen.processes_view.benefit_1" = "Einfach, schnelle und sichere Kommunikation über alle ihre aktiven Behördenvorgänge.";
+"screen.processes_view.benefit_2" = "Unkomplizierte Nachreichung von Dokumenten mit Übersicht über alle ihre Dokumente.";
+"screen.processes_view.benefit_3" = "Viele hilfreiche Informationen und Unterstützungen rund um ihre Vorgänge.";
+"screen.processes_view.paragraph_2" = "Mit dem ersten Vorgang kann es losgehen. Zugang zu den Verwaltungsleistungen von Bund, Ländern und Kommunen finden Sie online.";
+"screen.processes_view.federal_portal" = "Bundesportal aufrufen";
+"screen.processes_view.completed_processes" = "Ihre abgeschlossene Vorgänge";
+"screen.processes_view.hide_completed" = "Abgeschlossene Vorgänge verbergen";
+"screen.processes_view.show_completed" = "Abgeschlossene Vorgänge anzeigen";
+// Help View
+"screen.help.title" = "Benötigen Sie Hilfe?";
+"screen.help.paragraph1" = "Unter der 115 beantwortet das Team der Behördennummer von Montag bis Freitag zwischen 8:00 und 18:00 Uhr alle Rückfragen zu Ihren Vorgängen. ";
+"screen.help.paragraph2" = "Alternativ können Sie auch unseren Bereich für Hilfe nutzen, um nach einer Antwort auf Ihre spezifische Frage zu suchen.";
+"screen.help.call" = "115 anrufen";
+"screen.help.open_help" = "Hilfe öffnen";
+"screen.help.browser_not_supported" = "Der Webbrowser kann nicht geöffnet werden.";
+"screen.help.calls_not_supported" = "Anrufe werden auf diesem Gerät nicht unterstützt.";
+// Process Details Screen
+"screen.process_details_view.title" = "Vorgangsdetails";
+// Reports View Sheet
+"screen.reports_view.title" = "Meldungen";
+"screen.reports_view.empty.title" = "Keine Meldungen vorliegend";
+"screen.reports_view.empty.detail" = "Aktuell gibt es keine Meldungen aus Ihren Vorgängen.";
+// Messages Overview Screen
+"screen.messages_overview_view.title" = "Vorgangsnachrichten";
+"screen.messages_overview_view.no_messages" = "Keine Nachrichten vorliegend";
+"screen.messages_overview_view.no_messages_detail" = "Sobald Sie eine Nachricht zu Ihrem Antrag erhalten haben, können Sie diese hier einsehen.";
+// Message Details Screen
+"screen.message_details_view.title" = "Nachrichtendetails";
+"screen.message_details_view.expand_header" = "Nachrichtendetails anzeigen";
+"screen.message_details_view.collapse_header" = "Nachrichtendetails verbergen";
+"screen.message_details_view.case_inquiry" = "Rückfrage zu Ihrem Vorgang";
+// Message Reply Screen
+"screen.message.reply.expand" = "Antwort-Editor erweitern";
+"screen.message.reply.collapse" = "Antwort-Editor ausklappen";
+"screen.message.reply.placeholder" = "Geben Sie Ihre Antwort ein...";
+"screen.message.reply.required" = "Antwort erforderlich";
+"screen.message.reply.answered" = "Fristgerecht geantwortet";
+"screen.message.reply.submit.button" = "Antwort senden";
+"screen.message.reply.template" = "Sehr geehrte Damen und Herren,\n\nMit freundlichen Grüßen,\n%@";
+"screen.message.reply.add_template" = "Antwortvorlage hinzufügen";
+"screen.message.reply.clear_reply" = "Klarer Antwortinhalt";
+"screen.message.reply.add_reply" = "Antwort ergänzen";
+"screen.message.reply.no_content" = "Die Nachricht enthält keinen Klartext.";
+"screen.message.reply.unsupported_content_type" = "Der Nachrichteninhalt wird nicht unterstützt.";
+// Message Reply Confirmation Screen
+"screen.message.reply.confirm.title" = "Antwort senden?";
+"screen.message.reply.confirm.details" = "Ihre Angaben sind verbindlich. Bitte kontrollieren Sie noch einmal, ob Sie die Antwort senden möchten.";
+"screen.message.reply.confirm.answer" = "Antwort:";
+"screen.message.reply.confirm.check_details.button" = "Angaben prüfen";
+"screen.message.reply.confirm.sending" = "Antwort wird gesendet...";
+"screen.message.reply.success.title" = "Danke!";
+"screen.message.reply.success.details" = "Ihre Antwort wurde erfolgreich versendet.";
+"screen.message.reply.success.button" = "Fertig";
+// Message Inquiry Polls
+"screen.message.reply.polls.none_of_the_above" = "Keine der genannten Antworten";
+"screen.message.reply.polls.add_comment" = "Kommentar hinzufügen...";
+"screen.message.reply.polls.comment" = "Kommentar:";
+// Generic Shared Strings
+"screen.information" = "Information";
+"screen.attachments" = "Anhänge";
+"screen.not_implemented" = "Dies ist noch nicht implementiert.";
+"screen.loading" = "Laden...";
+"screen.loading_failed" = "Laden fehlgeschlagen!";
+"screen.expand_details" = "Details anzeigen";
+"screen.hide_details" = "Details verbergen";
+"screen.show_more_info" = "Weitere Informationen anzeigen";
+"screen.warning.message_due_date" = "Antwort bis zum %@";
+"screen.warning.process_due_date" = "Sie müssen mindestens eine Nachricht bis zum %@ beantworten.";
+"screen.action.reply_now" = "Jetzt antworten";
+"screen.messages.your_reply" = "Ihre Antwort";
+// Generic Alert Strings
+"alert.error_occurred" = "Es ist ein Fehler aufgetreten";
+"alert.ok" = "OK";
+// Process Statuses
+"status.process_sent" = "Vorgang versendet";
+"status.process_received" = "Vorgang eingegangen";
+"status.process_under_review" = "Vorgang in Prüfung";
+"status.process_activity_required" = "Aktivität erforderlich";
+"status.process_completed" = "Vorgang abgeschlossen";
+"status.new_message" = "Neue Nachricht";
+// Others
+"processes.unknown_authority" = "Unbekannte Behörde";

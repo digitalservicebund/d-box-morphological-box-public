@@ -1,0 +1,42 @@
+{
+  "type": "dev.fitko.neo.infobox.v1",
+  "content": {
+    "dev.fitko.neo.title.v1": {
+      "m.text": [
+        {
+          "body": "Please note"
+        }
+      ]
+    },
+    "dev.fitko.neo.infobox.text.v1": {
+      "m.text": [
+        {
+          "body": "<i>Hello world</i>",
+          "mimetype": "text/html"
+        },
+        {
+          "body": "Hello world"
+        }
+      ]
+    },
+    "dev.fitko.neo.hyperlink.v1": {
+      "dev.fitko.neo.label.v1": {
+        "m.text": [
+          {
+            "body": "Open Website"
+          }
+        ]
+      },
+      "url": "https://drachentermin.de"
+    },
+    "m.text": [
+      {
+        "body": "<h1>Please note</h1><br /><i>Hello world</i><br /><a href=\"https://drachentermin.de\">Open Website</a>",
+        "mimetype": "text/html"
+      },
+      {
+        "body": "Hello world"
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+--- a/bindings/matrix-sdk-ffi/src/lib.rs
++++ b/bindings/matrix-sdk-ffi/src/lib.rs
+@@ -35,3 +35,5 @@ mod utd;
+ mod utils;
+ mod widget;
++
++mod neo;
+

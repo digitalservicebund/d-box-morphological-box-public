@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+---
+$schema: https://json-schema.org/draft/2020-12/schema
+
+allOf:
+  - $ref: multi_event.yaml
+  - $ref: "dev.fitko.neo.file.v1.yaml#/$defs/base"
+properties:
+  content:
+    properties:
+      dev.fitko.neo.audio.details.v1:
+        $ref: dev.fitko.neo.audio.details.v1.yaml
+    type: object
+  type:
+    enum:
+      - dev.fitko.neo.audio.v1
+    type: string
+title: Audio
+type: object

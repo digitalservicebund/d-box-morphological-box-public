@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+helm-lint:
+  stage: pre-build
+  image:
+    name: quay.io/helmpack/chart-testing:latest
+  script:
+    - helm dependency update $CI_PROJECT_DIR/charts/$CHART
+    - helm lint $CI_PROJECT_DIR/charts/$CHART
+    - helm template $CI_PROJECT_DIR/charts/$CHART > $CHART.yaml
+  parallel:
+    matrix:
+      - CHART:
+        - neo-entityid-endpoint
+        - neo-keycloak
+  artifacts:
+    paths:
+      - $CHART.yaml

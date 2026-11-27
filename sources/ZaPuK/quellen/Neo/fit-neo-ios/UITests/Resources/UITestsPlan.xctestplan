@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "905D05F5-ABD7-499C-8779-923CCF9ECBF5",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:FITNeo.xcodeproj",
+        "identifier" : "901748AF7F05A5F102F47DAB",
+        "name" : "UITests"
+      }
+    }
+  ],
+  "version" : 1
+}

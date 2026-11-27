@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+replicaCount: 1
+
+image:
+  repository: registry.opencode.de/fitko/matrix-g2x/neo-cases-devtool
+  tag: main
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+
+service:
+  port: 80
+
+# Public browser configuration only. Never put credentials here.
+settings:
+  homeservers:
+    - https://synapse-ess1.dev.neo.fitko.dev
+
+ingress:
+  enabled: false
+  className: nginx-public
+  annotations: {}
+  hosts:
+    - host: devtool.dev.neo.fitko.dev
+      paths:
+        - path: /
+          pathType: Prefix
+  # Reference an existing Secret; this chart does not issue certificates.
+  tls: []
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}

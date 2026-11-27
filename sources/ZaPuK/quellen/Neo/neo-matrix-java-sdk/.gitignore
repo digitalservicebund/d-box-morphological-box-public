@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# macOS Files
+.DS_Store
+._*
+
+# Kotlin
+.gradle
+.kotlin
+.idea
+
+# Rust
+build
+bin
+*.so
+*.dylib
+*.dll
+
+# Env
+.env

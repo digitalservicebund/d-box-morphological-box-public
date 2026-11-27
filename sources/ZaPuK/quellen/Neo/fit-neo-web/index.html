@@ -1,0 +1,27 @@
+<!--
+SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+
+SPDX-License-Identifier: EUPL-1.2
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- This is testing if the deployment is automatically triggered on change -->
+    <!-- Title will be dynamically set by react-i18next -->
+    <title>My Digital Government</title>
+    <!-- Establish cascade layer order before component styles load. -->
+    <style>
+      @layer reset, components;
+      @layer components.elements, components.modifiers, components.states;
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+version = 1
+
+# For files or folders that can not be annotated via comment headers, add them here
+
+[[annotations]]
+path = "CHANGELOG.md"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "cspell.json"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".releaserc.json"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "*.jinja"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".gitlab/merge_request_templates/*.md"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".copier-answers.yml"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "NONE"
+
+[[annotations]]
+path = "package.json"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "package-lock.json"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "tsconfig.json"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "flake.lock"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "request-control-rules.json"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"

@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+---
+$schema: https://json-schema.org/draft/2020-12/schema
+
+title: FITKOEvent
+description: FITKO Events have the following fields.
+allOf:
+  - $ref: "org.matrix.msc1767.message.yaml#/$defs/base"
+properties:
+  content:
+    anyOf:
+      - $ref: related_event.yaml
+      - {}
+required:
+  - content
+type: object

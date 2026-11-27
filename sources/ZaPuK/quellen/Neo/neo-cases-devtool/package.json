@@ -1,0 +1,54 @@
+{
+  "name": "neo-cases-devtool",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/build-wasm.mjs && vp dev --host 0.0.0.0",
+    "build:wasm": "node scripts/build-wasm.mjs",
+    "build": "node scripts/build-wasm.mjs && vp build",
+    "start": "vp preview --host 0.0.0.0",
+    "format": "vp fmt . --write",
+    "format:check": "vp fmt . --check",
+    "lint": "vp lint --type-aware --type-check --deny-warnings",
+    "fallow": "fallow",
+    "check": "node scripts/build-wasm.mjs && vp check && fallow && cargo fmt --manifest-path rust/matrix-web/Cargo.toml --check",
+    "test": "vp test run"
+  },
+  "dependencies": {
+    "@banegasn/m3-button": "^2.2.5",
+    "@banegasn/m3-card": "^1.2.5",
+    "@banegasn/m3-checkbox": "^1.0.3",
+    "@banegasn/m3-dialog": "^1.0.5",
+    "@banegasn/m3-list": "^1.0.2",
+    "@banegasn/m3-menu": "^0.1.6",
+    "@banegasn/m3-search-bar": "^1.1.5",
+    "@banegasn/m3-snackbar": "^1.0.2",
+    "@banegasn/m3-text-field": "^1.0.5",
+    "@banegasn/m3-top-app-bar": "^1.0.2",
+    "dompurify": "^3.4.17",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-icons": "^5.7.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "fallow": "^3.36.0",
+    "typescript": "~6.0.2",
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.14.0",
+      "onFail": "download"
+    }
+  }
+}

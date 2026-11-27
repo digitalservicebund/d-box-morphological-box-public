@@ -1,0 +1,114 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+.text {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+.rich {
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+.rich > :first-child {
+  margin-top: 0;
+}
+.rich > :last-child {
+  margin-bottom: 0;
+}
+.rich pre {
+  overflow-x: auto;
+  padding: 12px;
+  background: var(--md-sys-color-surface-container);
+  border-radius: 8px;
+}
+.rich a,
+.link {
+  color: var(--md-sys-color-primary);
+}
+.rich table {
+  border-collapse: collapse;
+}
+.rich td,
+.rich th {
+  border: 1px solid var(--md-sys-color-outline-variant);
+  padding: 6px 10px;
+}
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+.infobox {
+  display: block;
+  --md-comp-card-container-color: var(--app-infobox-surface);
+}
+.inquiry {
+  display: grid;
+  gap: 12px;
+  border-left: 3px solid var(--md-sys-color-primary);
+  padding: 4px 0 4px 16px;
+}
+.label {
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1px;
+  color: var(--md-sys-color-primary);
+}
+.inquiry small {
+  color: var(--md-sys-color-on-surface-variant);
+}
+.options {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.options li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.options svg {
+  flex-shrink: 0;
+  color: var(--md-sys-color-primary);
+}
+.media {
+  display: grid;
+  gap: 14px;
+}
+.mediaHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 10px;
+}
+.mediaHeader > div {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.mediaHeader small {
+  display: block;
+  color: var(--md-sys-color-on-surface-variant);
+  margin-top: 4px;
+}
+.media img,
+.media video {
+  max-width: 100%;
+  max-height: 480px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+.media audio {
+  width: 100%;
+}

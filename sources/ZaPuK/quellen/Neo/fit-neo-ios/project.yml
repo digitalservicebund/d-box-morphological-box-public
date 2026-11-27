@@ -1,0 +1,73 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+---
+name: FITNeo
+attributes:
+  ORGANIZATIONNAME: FITKO
+
+options:
+  createIntermediateGroups: true
+  deploymentTarget:
+    iOS: "18"
+  groupSortPosition: bottom
+  preGenCommand: sh scripts/preGenCommand.sh
+  postGenCommand: sh scripts/postGenCommand.sh
+  supportedDestinations: [ios]
+  useBaseInternationalization: false
+
+settings:
+  APP_NAME: FITNeo
+  CURRENT_PROJECT_VERSION: 1
+  ENABLE_BITCODE: false
+  "EXCLUDED_ARCHS[sdk=iphonesimulator*]": x86_64
+  KEYCHAIN_ACCESS_GROUP_IDENTIFIER: "$(DEVELOPMENT_TEAM).$(BASE_BUNDLE_IDENTIFIER)"
+  MARKETING_VERSION: 0.0.1
+  SUPPORTS_MACCATALYST: false
+  SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: false
+  SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD: false
+  SWIFT_VERSION: 5
+  TARGETED_DEVICE_FAMILY: '1,2'
+
+include:
+  - path: app.yml
+  - path: scripts/targets/main.yml
+  - path: scripts/targets/unit-tests.yml
+  - path: scripts/targets/ui-tests.yml
+  - path: scripts/packages/matrix-local.yml
+    relativePaths: false
+  - path: scripts/packages/matrix-ci.yml
+    relativePaths: false
+    enable: ${CI}
+
+packages:
+  # FITNeo dependencies
+  AusweisApp2SDKWrapper:
+    url: https://github.com/Governikus/AusweisApp2Wrapper-iOS-SPM
+    exactVersion: 2.5.4
+
+  # Additional dependencies
+  DeviceKit:
+    url: https://github.com/devicekit/DeviceKit
+    exactVersion: 5.8.0
+
+  ComposableArchitecture:
+    url: https://github.com/pointfreeco/swift-composable-architecture
+    exactVersion: 1.26.1
+
+  SFSafeSymbols:
+    url: https://github.com/SFSafeSymbols/SFSafeSymbols
+    exactVersion: 7.0.0
+
+  SwiftNavigation:
+    url: https://github.com/pointfreeco/swift-navigation
+    exactVersion: 2.10.3
+
+  SwiftPerception:
+    url: https://github.com/pointfreeco/swift-perception
+    exactVersion: 2.0.11
+
+  SwiftCasePaths:
+    url: https://github.com/pointfreeco/swift-case-paths
+    exactVersion: 1.9.1

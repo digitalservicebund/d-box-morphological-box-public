@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# The ApplicationSet pins image.tag and the chart revision to the source SHA.
+image:
+  pullPolicy: IfNotPresent
+
+settings:
+  homeservers:
+    - https://synapse-ess1.dev.neo.fitko.dev
+    - https://synapse-ess2.dev.neo.fitko.dev
+
+ingress:
+  enabled: true
+  className: nginx-public
+  annotations: {}
+  hosts:
+    - host: devtool.dev.neo.fitko.dev
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: devtool-wildcard-tls
+      hosts:
+        - devtool.dev.neo.fitko.dev
+
+resources:
+  requests:
+    cpu: 10m
+    memory: 32Mi
+  limits:
+    memory: 128Mi

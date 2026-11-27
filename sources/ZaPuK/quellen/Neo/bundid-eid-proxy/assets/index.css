@@ -1,0 +1,203 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+.login-hint {
+    width: 100%;
+    padding: var(--metric-space-small) var(--metric-space-default);
+    background-color: var(--feedback-warning-background);
+    border-radius: var(--metric-border-radius-default);
+    color: var(--layout-text-default);
+    font-family: var(--typography-font-family-default);
+    font-size: var(--typography-font-size-static-small);
+    line-height: var(--typography-line-height-static-medium);
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    display: flex
+}
+
+.login-error {
+    align-items: center;
+    gap: var(--metric-space-small);
+    width: 100%;
+    padding: var(--metric-space-small) var(--metric-space-default);
+    background-color: var(--feedback-danger-background);
+    border-radius: var(--metric-border-radius-default);
+    color: var(--layout-text-default);
+    font-family: var(--typography-font-family-default);
+    font-size: var(--typography-font-size-static-small);
+    line-height: var(--typography-line-height-static-medium);
+    flex-direction: row;
+    margin: 0;
+    display: flex;
+
+    & svg {
+        color: var(--feedback-danger);
+        flex-shrink: 0
+    }
+}
+
+*,
+:before,
+:after {
+    box-sizing: border-box
+}
+
+:not(dialog) {
+    margin: 0
+}
+
+@media (prefers-reduced-motion:no-preference) {
+    html {
+        interpolate-size: allow-keywords
+    }
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    display: block
+}
+
+input,
+textarea,
+select {
+    font: inherit
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word
+}
+
+p {
+    text-wrap: pretty
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance
+}
+
+#root {
+    isolation: isolate
+}
+
+html,
+body {
+    background-color: var(--layout-background-default);
+    font-family: var(--typography-font-family-default)
+}
+
+:root {
+    --layout-text-default: #00050a;
+    --layout-text-muted: #6e6e6e;
+    --layout-text-inverse: #f2f3f4;
+    --layout-background-default: #fff;
+    --layout-background-hued: #f2f3f4;
+    --form-input-background: #f7f7f9;
+    --form-input-background-inverted: #fff;
+    --form-input-border: #00050a;
+    --action-default: #004f80;
+    --action-on-default: #fff;
+    --action-visited: #404565;
+    --action-state-indicator-default: #004f80;
+    --action-state-indicator-tint: #fff;
+    --action-state-indicator-shade: #00050a;
+    --feedback-success: #006b51;
+    --feedback-success-background: #def6ed;
+    --feedback-info: #004f80;
+    --feedback-info-background: #e4f5ff;
+    --feedback-warning: #8a4f00;
+    --feedback-warning-background: #ffefd0;
+    --feedback-danger: #bd0f09;
+    --feedback-danger-background: #feece8;
+    --feedback-loader: #404565;
+    --feedback-loader-background: #dfe1ea;
+    --color-layout-border: #a5aac3;
+    --action-state-opacity-hover: .08;
+    --action-state-opacity-active: .16;
+    --action-state-opacity-pressed: .32;
+    --action-state-opacity-selected: .12;
+    --action-state-opacity-disabled: .4;
+    --action-state-opacity-overlay: .72;
+    --action-state-opacity-hover-percent: 8%;
+    --action-state-opacity-active-percent: 16%;
+    --action-state-opacity-pressed-percent: 32%;
+    --action-state-opacity-selected-percent: 12%;
+    --action-state-opacity-disabled-percent: 40%;
+    --action-state-opacity-overlay-percent: 72%;
+    --metric-space-none: 0;
+    --metric-space-2x-small: .125rem;
+    --metric-space-x-small: .25rem;
+    --metric-space-small: .5rem;
+    --metric-space-default: 1rem;
+    --metric-space-large: 1.5rem;
+    --metric-space-x-large: 2rem;
+    --metric-baseline-body-default-padding-top: 6px;
+    --metric-baseline-body-default-padding-bottom: 2px;
+    --metric-dimension-2x-small: .5rem;
+    --metric-dimension-x-small: 1rem;
+    --metric-dimension-small: 1.25rem;
+    --metric-dimension-default: 1.5rem;
+    --metric-dimension-large: 2rem;
+    --metric-dimension-x-large: 3rem;
+    --metric-dimension-2x-large: 3.5rem;
+    --metric-dimension-3x-large: 4rem;
+    --metric-dimension-4x-large: 5rem;
+    --metric-dimension-5x-large: 6rem;
+    --metric-border-width-none: 0;
+    --metric-border-width-light: .0625rem;
+    --metric-border-width-default: .125rem;
+    --metric-border-width-bold: .25rem;
+    --metric-border-width-heavy: .5rem;
+    --metric-border-radius-none: 0;
+    --metric-border-radius-small: .125rem;
+    --metric-border-radius-default: .25rem;
+    --metric-border-radius-large: .5rem;
+    --metric-border-radius-circle: 50%;
+    --action-focus-background: #404565;
+    --action-focus-border-inside: #6e7597;
+    --action-focus-border-outside: #c1c5d6;
+    --metric-baseline-title-large-padding-top: 7px;
+    --metric-baseline-title-large-padding-bottom: 9px;
+    --metric-baseline-body-large-padding-top: 1px;
+    --metric-baseline-body-large-padding-bottom: 7px;
+    --typography-font-family-default: "Fira Sans", sans-serif;
+    --typography-font-size-adaptive-2x-large: 4.5rem;
+    --typography-font-size-adaptive-x-large: 3rem;
+    --typography-font-size-adaptive-large: 2rem;
+    --typography-font-size-adaptive-medium: 1.5rem;
+    --typography-font-size-static-large: 1.3125rem;
+    --typography-font-size-static-medium: 1.125rem;
+    --typography-font-size-static-small: 1rem;
+    --typography-line-height-adaptive-2x-large: 5rem;
+    --typography-line-height-adaptive-x-large: 3.5rem;
+    --typography-line-height-adaptive-large: 2.5rem;
+    --typography-line-height-adaptive-medium: 2rem;
+    --typography-line-height-static-large: 1.5rem;
+    --typography-line-height-static-medium: 1.25rem;
+    --typography-font-weight-regular: 400;
+    --typography-font-weight-medium: 500;
+    --typography-font-weight-semi-bold: 600
+}

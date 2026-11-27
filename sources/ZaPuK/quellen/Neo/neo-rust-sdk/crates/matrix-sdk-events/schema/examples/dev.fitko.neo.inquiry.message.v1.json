@@ -1,0 +1,30 @@
+{
+  "type": "dev.fitko.neo.inquiry.message.v1",
+  "content": {
+    "dev.fitko.neo.inquiry.message.v1": {
+      "dev.fitko.neo.title.v1": {
+        "m.text": [
+          {
+            "body": "Description of the dragon"
+          }
+        ]
+      },
+      "dev.fitko.neo.label.v1": {
+        "m.text": [
+          {
+            "body": "Approx 65 cm large green forest dragon."
+          }
+        ]
+      }
+    },
+    "m.text": [
+      {
+        "body": "<h1>Description of the dragon</h1><br />Example: Approx 65 cm large green forest dragon.",
+        "mimetype": "text/html"
+      },
+      {
+        "body": "Description of the dragon\n\nExample: Approx 65 cm large green forest dragon."
+      }
+    ]
+  }
+}

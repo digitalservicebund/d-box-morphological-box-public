@@ -1,0 +1,88 @@
+version = 1
+
+# For files or folders that can not be annotated via comment headers, add them here
+
+[[annotations]]
+path = "CHANGELOG.md"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "cspell.json"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".releaserc.json"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "*.jinja"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".gitlab/merge_request_templates/*.md"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".copier-answers.yml"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "NONE"
+
+[[annotations]]
+path = "yarn.lock"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "NONE"
+
+[[annotations]]
+path = "public/**"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "tsconfig.*.json"
+SPDX-License-Identifier = "EUPL-1.2"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "tsconfig.json"
+SPDX-License-Identifier = "EUPL-1.2"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".oxlintrc.json"
+SPDX-License-Identifier = "EUPL-1.2"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".oxfmtrc.json"
+SPDX-License-Identifier = "EUPL-1.2"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "package.json"
+SPDX-License-Identifier = "EUPL-1.2"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".env.example"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "NONE"
+
+[[annotations]]
+path = "charts/neo-web/.helmignore"
+SPDX-License-Identifier = "EUPL-1.2"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "public/fonts/**"
+SPDX-License-Identifier = "OFL-1.1"
+SPDX-FileCopyrightText = "The Mozilla Foundation and Telefonica S.A."
+
+[[annotations]]
+path = "src/components/BundIdHeader/assets/**"
+SPDX-License-Identifier = "LicenseRef-BundID-Logo-Permission"
+SPDX-FileCopyrightText = "Bundesministerium für Digitales und Staatsmodernisierung (BMDS)"

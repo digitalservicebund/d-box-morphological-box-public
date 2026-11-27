@@ -1,0 +1,49 @@
+{
+  "type": "dev.fitko.neo.video.v1",
+  "content": {
+    "dev.fitko.neo.title.v1": {
+      "m.text": [
+        {
+          "body": "Evidence"
+        }
+      ]
+    },
+    "dev.fitko.neo.file.v1": {
+      "uri": "mxc://fitko.dev/abcd1234",
+      "name": "insurance_claim.mkv",
+      "mimetype": "video/matroska",
+      "size": 12345678
+    },
+    "dev.fitko.neo.video.details.v1": {
+      "width": 640,
+      "height": 480,
+      "duration": 31416
+    },
+    "dev.fitko.neo.thumbnail.v1": [
+      {
+        "dev.fitko.neo.file.v1": {
+          "uri": "mxc://fitko.dev/dcba4321",
+          "name": "thumbnail.png",
+          "mimetype": "image/jpeg",
+          "size": 123
+        },
+        "dev.fitko.neo.image.details.v1": {
+          "width": 160,
+          "height": 120
+        }
+      }
+    ],
+    "m.caption": {
+      "m.text": [
+        {
+          "body": "Nobody will read this caption!"
+        }
+      ]
+    },
+    "m.text": [
+      {
+        "body": "Smaug circles over Lake-town, torching its buildings. insurance_claim.mkv (12 MB)"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+# SPDX-FileCopyrightText: 2025-2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+replicaCount: 1
+
+imagePullSecrets: []
+
+nameOverride: ""
+fullnameOverride: ""
+
+image:
+  repository: registry.opencode.de/fitko/matrix-g2x/bundid-eid-proxy
+  pullPolicy: IfNotPresent
+  tag: "develop"
+
+base:
+  bundId: "https://int.id.bund.de"
+  eId: "http://localhost:1235"
+
+ingress:
+  enabled: true
+  ingressClassName: nginx-public
+  endpoint: ""
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: le-prod-public-route53
+
+service:
+  type: ClusterIP
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+# fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+# runAsNonRoot: true
+# runAsUser: 1000
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

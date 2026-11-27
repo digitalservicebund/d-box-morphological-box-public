@@ -1,0 +1,232 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+stages:
+  - pre-build
+  - build
+  - release
+  - publish
+  - renovate
+
+variables:
+  GIT_DEPTH: 0
+  RENOVATE_PLATFORM: gitlab
+  RENOVATE_ENDPOINT: $CI_SERVER_URL/api/v4/
+  RENOVATE_BASE_DIR: $CI_PROJECT_DIR/renovate
+  RENOVATE_CONFIG_FILE: $CI_PROJECT_DIR/renovate.json5
+  RENOVATE_REPOSITORIES: $CI_PROJECT_PATH
+
+run_renovate:
+  stage: renovate
+  variables:
+    DOCKER_AUTH_CONFIG: $GHCR_AUTH
+  image: ghcr.io/renovatebot/renovate:44.186.7
+  script:
+    - renovate --token $RENOVATE_TOKEN
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+
+reuse-lint:
+  stage: pre-build
+  image:
+    name: fsfe/reuse:6.2.0
+    entrypoint: [""]
+  script:
+    - reuse lint
+  only:
+    - merge_requests
+
+commit-lint:
+  stage: pre-build
+  image: node:24
+  script:
+    - npm install --no-save @commitlint/{cli,config-conventional}
+    - npx commitlint --from=$CI_MERGE_REQUEST_DIFF_BASE_SHA --to=$CI_COMMIT_SHA --verbose
+  only:
+    - merge_requests
+
+markdown-lint:
+  stage: pre-build
+  image:
+    name: davidanson/markdownlint-cli2:v0.23.3@sha256:d5f3f3f04b2e285dcbcdcd13b4454d119e273e3c393a9dabd163dba4abad526d
+    entrypoint: [""]
+  script:
+    - markdownlint-cli2 "**/*.md"
+  only:
+    - merge_requests
+
+markdown-spellcheck:
+  stage: pre-build
+  variables:
+    DOCKER_AUTH_CONFIG: $GHCR_AUTH
+  image:
+    name: ghcr.io/streetsidesoftware/cspell:10.0.1
+    entrypoint: [""]
+  script:
+    - cspell-cli --no-progress --no-summary "**/*.md"
+  only:
+    - merge_requests
+
+# Build the Rust/wasm bindings and assemble the publishable package layout
+# (dist/) in one job. Unlike the web app's own CI (which fans this out to
+# several downstream jobs sharing a cache), here it's just this one job
+# feeding straight into the smoke test and publish steps below, so there's
+# no need for the elaborate multi-key caching that setup used.
+build_bindings:
+  stage: build
+  image: node:lts
+  variables:
+    CARGO_HOME: "$CI_PROJECT_DIR/.cache/cargo"
+    RUSTUP_HOME: "$CI_PROJECT_DIR/.cache/rustup"
+    CARGO_TARGET_DIR: "$CI_PROJECT_DIR/.cache/target"
+    YARN_CACHE_FOLDER: "$CI_PROJECT_DIR/.cache/yarn"
+    RUNNER_SCRIPT_TIMEOUT: 2h
+  timeout: 2h
+  cache:
+    - key:
+        files:
+          - ubrn.config.yaml
+          - rust-toolchain.toml
+      paths:
+        - .cache/cargo/bin/
+        - .cache/cargo/registry/index/
+        - .cache/cargo/registry/cache/
+        - .cache/cargo/git/db/
+        - .cache/rustup/
+        - .cache/target/
+    - key:
+        files:
+          - ubrn.config.yaml
+          - Makefile
+      paths:
+        - rust_modules/
+    - key: node-modules-$CI_COMMIT_REF_SLUG
+      paths:
+        - node_modules/
+        - .cache/yarn/
+      fallback_keys:
+        - node-modules-main
+        - node-modules-develop
+  before_script:
+    - git config --global user.name "Fitko CI" && git config --global user.email "noreply@example.com"
+    - apt-get update && apt-get install -y make clang
+    - |
+      if [ ! -f "$CARGO_HOME/bin/cargo" ]; then
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
+      fi
+    - export PATH="$CARGO_HOME/bin:$PATH"
+    - rustup install 1.93
+    - rustup target add wasm32-unknown-unknown
+    - rustup default 1.93
+    - |
+      if ! command -v wasm-bindgen >/dev/null 2>&1 || [ "$(wasm-bindgen --version | cut -d' ' -f2)" != "0.2.108" ]; then
+        cargo install -f wasm-bindgen-cli --version 0.2.108
+      fi
+    - npm uninstall -g yarn pnpm && npm install -g corepack && corepack install
+    - yarn install
+  script:
+    - export PATH="$CARGO_HOME/bin:$PATH"
+    - make bindings-ci
+    - make package
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 2 hours
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_TAG
+    - if: $CI_COMMIT_REF_PROTECTED == "true"
+
+# Sanity-check the assembled package before publishing. This can't fully
+# instantiate the wasm module the way a real bundler (Vite) would — ubrn's
+# `target: bundler` output expects to be consumed by a bundler, not run
+# directly under Node — so this only checks that the expected files exist
+# and that the emitted JS is at least syntactically valid. Real runtime
+# verification happens in the consuming app's own build/test suite.
+npm_smoke_test:
+  stage: build
+  image: node:lts
+  needs:
+    - job: build_bindings
+      artifacts: true
+  script:
+    - test -f dist/index.js
+    - test -f dist/index.d.ts
+    - test -f dist/index.web.js
+    - test -f dist/index.web.d.ts
+    - test -f dist/generated/wasm-bindgen/index_bg.wasm
+    - node --check dist/index.js
+    - node --check dist/index.web.js
+    - for f in dist/generated/*.js; do node --check "$f"; done
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_TAG
+    - if: $CI_COMMIT_REF_PROTECTED == "true"
+
+# Semantic Release
+release:
+  stage: release
+  image: node:24
+  before_script:
+    - apt-get update && apt-get install -y git
+    - npm install -g semantic-release
+      @semantic-release/changelog
+      @semantic-release/commit-analyzer
+      @semantic-release/git
+      @semantic-release/gitlab
+      @semantic-release/release-notes-generator
+      conventional-changelog-conventionalcommits@9
+  script:
+    - semantic-release
+  only:
+    # Only run on protected branches
+    - main
+
+# Publish the npm package to this project's own GitLab npm registry, kept as
+# a separate job (not @semantic-release/npm bolted onto the shared `release`
+# job above) so this repo's npm-publish concern doesn't become something
+# every other Copier-templated repo has to configure around. Runs only after
+# `release` has actually cut a new version; `git fetch --tags` picks up the
+# tag `release` just pushed, since this job's own checkout predates it.
+publish_npm:
+  stage: publish
+  image: node:24
+  needs:
+    - job: build_bindings
+      artifacts: true
+    - job: release
+  script:
+    - git fetch --tags "$CI_REPOSITORY_URL"
+    - VERSION="$(git describe --tags --abbrev=0 | sed 's/^v//')"
+    - npm pkg set version="$VERSION"
+    - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
+    - npm publish --tag latest
+  rules:
+    # Only run on protected branches, and only once release has cut a tag.
+    - if: '$CI_COMMIT_BRANCH == "main"'
+
+# Publish an npm prerelease from every `develop` build, tagged "next" rather
+# than "latest" so a plain `yarn add @matrix-g2x/neo-web-sdk` never resolves
+# to it. Deliberately bypasses semantic-release/git tags/GitLab Releases
+# entirely - it only needs a unique, valid semver string, not an ordered
+# release history - so it needs no GITLAB_TOKEN and never pushes to git.
+# Version format: 0.0.0-next-<short sha>, unique per commit and overwritten
+# on the "next" dist-tag each time so old prereleases don't need cleanup.
+publish_npm_next:
+  stage: publish
+  image: node:24
+  needs:
+    - job: build_bindings
+      artifacts: true
+  script:
+    - npm pkg set version="0.0.0-next-${CI_COMMIT_SHORT_SHA}"
+    - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
+    - npm publish --tag next
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "develop"'

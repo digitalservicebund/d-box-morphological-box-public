@@ -1,0 +1,59 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+# Add project-specific files here
+
+# macOS Files
+.DS_Store
+._*
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Javascript
+node_modules
+dist
+dist-ssr
+*.local
+.yarn
+
+# CI cache (Rust toolchain, etc.)
+.cache
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.zed
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# Storybook
+*storybook.log
+storybook-static
+
+# Rust bindings
+/rust_modules
+
+.env
+
+/public/locales/*/translation_old.json
+/src/generated
+/src/index.web.ts

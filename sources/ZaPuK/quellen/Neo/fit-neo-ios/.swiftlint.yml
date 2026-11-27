@@ -1,0 +1,39 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+identifier_name:
+  allowed_symbols: ["_"]
+
+opt_in_rules:
+  - force_unwrapping
+  - private_action
+  - explicit_init
+  - shorthand_optional_binding
+  - trailing_closure
+
+disabled_rules:
+  - force_try
+  - type_name
+
+included:
+  - "FITNeo/*"
+
+excluded:
+  - "FITNeo/Generated/*"
+
+file_length:
+  warning: 1000
+  error: 2000
+
+function_body_length:
+  warning: 100
+  error: 200
+
+function_parameter_count:
+  warning: 10
+  error: 10
+
+nesting:
+  type_level:
+    warning: 3

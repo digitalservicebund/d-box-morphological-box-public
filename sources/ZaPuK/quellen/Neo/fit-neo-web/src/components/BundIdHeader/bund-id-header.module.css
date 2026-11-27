@@ -1,0 +1,220 @@
+/*
+ * SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+@layer components {
+  .header {
+    position: relative;
+    top: 0;
+    z-index: 30;
+    height: 4rem;
+    background-color: #0774b3;
+
+    @media (width >= 1024px) {
+      background-image: var(--bund-id-header-bg-image);
+      background-repeat: no-repeat;
+      background-size: 55em;
+      background-position: -48em -6.5em;
+      height: 7.5rem;
+    }
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+  }
+
+  .logo-link {
+    display: inline-block;
+  }
+
+  .logo {
+    display: block;
+    height: 2em;
+    padding-left: 0;
+
+    @media (width >= 1024px) {
+      height: 3.5em;
+      padding-left: 5.5rem;
+    }
+  }
+
+  .actions {
+    gap: 0.25rem;
+    align-items: center;
+    justify-content: flex-end;
+
+    @media (width >= 640px) {
+      display: flex;
+      gap: 1rem;
+      padding-right: 1em;
+    }
+
+    @media (width >= 1440px) {
+      gap: 2rem;
+    }
+  }
+
+  .button {
+    padding: 0.25rem;
+    margin-top: 0.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: var(--typography-font-family-default);
+    font-weight: var(--typography-font-weight-medium);
+    font-size: var(--typography-font-size-static-medium);
+    text-decoration: none;
+
+    &:active,
+    &:focus {
+      text-decoration: underline;
+    }
+
+    & > svg {
+      width: 1.25em;
+      height: 1.25em;
+    }
+
+    & > svg[class='chevron-down'] {
+      height: 2em;
+      width: 2em;
+    }
+  }
+
+  .globe-icon {
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  .language-area,
+  .user-area {
+    position: relative;
+  }
+
+  .mobile-left {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding-left: 1rem;
+  }
+
+  .mobile-button {
+    width: 2.5rem;
+    height: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+
+    & > svg {
+      width: 1.5em;
+      height: 1.5em;
+    }
+
+    & > svg[class='menu-icon'] {
+      width: 2em;
+      height: 2em;
+    }
+  }
+
+  /* Mobile nav overlay */
+  .nav-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--layout-background-default);
+    border: 1px solid var(--color-layout-border);
+    box-shadow:
+      0 4px 6px -1px rgb(0 0 0 / 10%),
+      0 2px 4px -2px rgb(0 0 0 / 5%);
+    cursor: default;
+
+    @media (width >= 1024px) {
+      display: none;
+    }
+  }
+
+  .nav-overlay-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+    border-bottom: 1px solid var(--color-layout-border);
+  }
+
+  /* Invisible left spacer keeps the close button visually right-aligned */
+  .nav-overlay-spacer {
+    display: block;
+    width: 5rem;
+  }
+
+  .nav-close-button {
+    width: 5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 1.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--layout-text-default);
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 4rem;
+    padding-inline: 1.25rem;
+    border: none;
+    border-top: 1px solid var(--color-layout-border);
+    background: none;
+    cursor: pointer;
+    color: var(--layout-text-default);
+    font-family: var(--typography-font-family-default);
+    font-weight: var(--typography-font-weight-semi-bold);
+    font-size: var(--typography-font-size-static-medium);
+    text-decoration: none;
+
+    &:hover {
+      background-color: var(--layout-background-hued);
+    }
+  }
+
+  .chevron-right {
+    transform: rotate(-90deg);
+    margin-right: -0.25rem;
+    flex-shrink: 0;
+  }
+}
+
+@layer modifiers {
+  .desktop {
+    @media (width < 1024px) {
+      display: none;
+    }
+  }
+
+  .mobile {
+    @media (width >= 1024px) {
+      display: none;
+    }
+  }
+}

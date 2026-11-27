@@ -1,0 +1,122 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+.main-content {
+  flex: 1;
+}
+
+.requests-container {
+  padding: var(--metric-space-x-large) var(--metric-space-default);
+
+  /* Let the container size itself according to children */
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* One virtual row in the requests list (two columns on wider screens) */
+.requests-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  align-items: start;
+  gap: var(--metric-space-x-large);
+
+  /* padding-bottom acts as the row gap so measureElement captures it */
+  padding-bottom: var(--metric-space-x-large);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Collapse to a single column on narrow screens */
+@media (width <= 767px) {
+  .requests-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.no-requests-container {
+  display: flex;
+  flex-direction: column;
+  padding: var(--metric-space-x-large) var(--metric-space-default);
+  gap: var(--metric-space-x-large);
+}
+
+.page-title {
+  display: flex;
+  flex-direction: column;
+  padding: var(--metric-space-x-large) var(--metric-space-default);
+
+  h1 {
+    font-family: var(--typography-font-family-default);
+    font-weight: var(--typography-font-weight-medium);
+    font-size: var(--typography-font-size-adaptive-x-large);
+    line-height: var(--typography-line-height-single);
+    color: var(--layout-text-default);
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    gap: var(--metric-space-small);
+  }
+}
+
+.horizontal-end-aligned {
+  align-self: flex-end;
+}
+
+.title-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--metric-space-small);
+
+  h2 {
+    font-family: var(--typography-font-family-default);
+    font-weight: var(--typography-font-weight-semi-bold);
+    font-size: var(--typography-font-size-adaptive-medium);
+    line-height: var(--typography-line-height-single);
+    color: var(--layout-text-default);
+  }
+
+  p {
+    font-family: var(--typography-font-family-default);
+    font-weight: var(--typography-font-weight-regular);
+    font-size: var(--typography-font-size-static-medium);
+    line-height: var(--typography-line-height-one-and-half);
+    color: var(--layout-text-default);
+  }
+}
+
+.info-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--metric-space-x-large);
+
+  img {
+    border-radius: var(--metric-border-radius-default);
+    width: 6.75rem;
+    max-width: 395px;
+    height: auto;
+    aspect-ratio: 1/1;
+    place-self: center center;
+    margin: var(--metric-space-default) 0;
+  }
+
+  p {
+    font-family: var(--typography-font-family-default);
+    font-weight: var(--typography-font-weight-regular);
+    font-size: var(--typography-font-size-static-medium);
+    line-height: var(--typography-line-height-one-and-half);
+    color: var(--layout-text-default);
+  }
+}
+
+.page-title p:not(.title) {
+  font-family: var(--typography-font-family-default);
+  font-weight: var(--typography-font-weight-regular);
+  font-size: var(--typography-font-size-static-medium);
+  line-height: var(--typography-line-height-one-and-half);
+  color: var(--layout-text-default);
+}

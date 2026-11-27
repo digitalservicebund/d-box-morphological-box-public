@@ -1,0 +1,78 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "react", "unicorn"],
+  "categories": {
+    "correctness": "error"
+  },
+  "options": {
+    "typeAware": true
+  },
+  "env": {
+    "builtin": true
+  },
+  "ignorePatterns": ["dist", ".cache", "storybook-static"],
+  "rules": {
+    "no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "^_",
+        "argsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.{ts,tsx}"],
+      "env": {
+        "es2020": true,
+        "browser": true
+      },
+      "globals": {
+        "AsyncDisposableStack": "readonly",
+        "DisposableStack": "readonly",
+        "SuppressedError": "readonly"
+      },
+      "rules": {
+        "react/exhaustive-deps": "warn",
+        "react/incompatible-library": "warn",
+        "react/unsupported-syntax": "warn",
+        "react/only-export-components": [
+          "error",
+          {
+            "allowConstantExport": true
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "**/*.stories.{ts,tsx,js,jsx,mjs,cjs}",
+        "**/*.story.{ts,tsx,js,jsx,mjs,cjs}"
+      ],
+      "plugins": ["react", "import"],
+      "jsPlugins": ["eslint-plugin-storybook"],
+      "rules": {
+        "storybook/await-interactions": "error",
+        "storybook/context-in-play-function": "error",
+        "storybook/default-exports": "error",
+        "storybook/hierarchy-separator": "warn",
+        "storybook/no-redundant-story-name": "warn",
+        "storybook/no-renderer-packages": "error",
+        "storybook/prefer-pascal-case": "warn",
+        "storybook/story-exports": "error",
+        "storybook/use-storybook-expect": "error",
+        "storybook/use-storybook-testing-library": "error",
+        "import/no-anonymous-default-export": "off",
+        "react/rules-of-hooks": "off"
+      }
+    },
+    {
+      "files": [".storybook/main.@(js|cjs|mjs|ts)"],
+      "jsPlugins": ["eslint-plugin-storybook"],
+      "rules": {
+        "storybook/no-uninstalled-addons": "error"
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BundID | Login</title>
+    <link rel="stylesheet" href="static/bootstrap-4.3.1.min.css" />
+    <link rel="stylesheet" href="static/bulma/css/bulma.min.css" />
+    <link rel="stylesheet" href="static/app.css" />
+    <link rel="stylesheet" href="static/kern.min.css" />
+    <link rel="stylesheet" href="static/fonts/fira-sans.css" />
+    <link rel="shortcut icon" href="static/logo.png" />
+  </head>
+  <body>
+
+    <div class="container">
+      <!--<div class="bigimage"></div>-->
+
+      <img src="static/assets/img/bundid-header.png">
+      <div class="page show mt-6">
+        <h1 class="kern-heading-x-large">Willkommen bei der BundID</h1>
+        <p class="kern-body">
+          Für Online-Anträge müssen Sie Ihre Identität nachweisen. Mit der BundID haben Sie verschiedene Optionen, dies zu tun. Im Video unten werden Ihnen die Funktionen und Vorteile der BundID näher erklärt.
+        </p>
+
+        <a href="/?page=Form">
+          <button class="kern-btn kern-btn--primary bundid-btn mt-6" v-on:click="showPageFormWithDefaults">
+            <span class="kern-label">Login</span>
+          </button>
+        </a>
+
+        <div class="kern-row"> <div class="kern-col-md-6"> </div> </div>
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="static/vue-v2.6.12.js"></script>
+    <script type="text/javascript" src="static/qrcodejs/qrcode.js"></script>
+    <script type="text/javascript" src="static/barcode-generator.js"></script>
+    <script type="text/javascript" src="static/network.js"></script>
+    <script type="text/javascript" src="static/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+.case-status-details {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--metric-space-x-large);
+}
+
+.case-status {
+  display: flex;
+  flex-direction: column;
+  gap: var(--metric-space-default);
+  padding: var(--metric-space-x-large) var(--metric-space-default);
+
+  & .badge {
+    font-size: var(--typography-font-size-static-medium);
+  }
+}
+
+.case-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--metric-space-default);
+  padding-top: var(--metric-space-x-large);
+  padding-right: var(--metric-space-default);
+  padding-bottom: var(--metric-space-x-large);
+  font-size: var(--typography-font-size-static-medium);
+
+  .case-details-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  tr:nth-child(even) {
+    background-color: var(--layout-background-default);
+  }
+
+  tr:nth-child(odd) {
+    background-color: var(--layout-background-hued);
+  }
+
+  th,
+  td {
+    padding: var(--metric-space-default) var(--metric-space-large);
+    text-align: left;
+  }
+}
+
+.case {
+  display: flex;
+  flex-direction: column;
+}
+
+.case > .header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--metric-space-x-large);
+  padding: var(--metric-space-x-large) var(--metric-space-default);
+
+  h1 {
+    font-family: var(--typography-font-family-default);
+    font-weight: var(--typography-font-weight-medium);
+    font-size: var(--typography-font-size-adaptive-x-large);
+    line-height: var(--typography-line-height-single);
+    letter-spacing: var(--metric-space-none);
+  }
+}

@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+apiVersion: v2
+name: neo-cases-devtool
+description: React SPA for creating Neo test cases and messages
+type: application
+version: 0.1.0
+appVersion: main

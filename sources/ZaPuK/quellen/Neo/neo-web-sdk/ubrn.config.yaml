@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+rust:
+  directory: rust_modules/neo-rust-sdk/matrix-rust-sdk
+  manifestPath: bindings/matrix-sdk-ffi/Cargo.toml
+web:
+  workspace: true
+  manifestPath: rust_modules/neo-rust-sdk/matrix-rust-sdk/bindings/wasm/Cargo.toml
+  # ubrn defaults this to package.json's "name", which breaks here since
+  # that's the scoped npm name "@matrix-g2x/neo-web-sdk" - not a valid Cargo
+  # package name (Cargo rejects "@" and "/").
+  wasmCrateName: neo-web-sdk
+  target: bundler
+  features:
+    [
+      'js',
+      'indexeddb',
+      'unstable-msc4274',
+      'experimental-element-recent-emojis',
+    ]
+  defaultFeatures: false

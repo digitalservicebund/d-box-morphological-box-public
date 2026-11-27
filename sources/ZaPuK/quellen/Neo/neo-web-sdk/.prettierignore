@@ -1,0 +1,20 @@
+.githooks/
+dist/
+.yarn/
+node_modules/
+patches/
+rust_modules/
+LICENSES/
+src/generated/
+src/index.web.ts*
+# These are from the template repo so we dont prettify them to avoid conflicts
+.gitlab-ci.yml
+.markdownlint-cli2.jsonc
+.releaserc.json
+commitlint.config.mjs
+cspell.json
+publiccode.yml
+renovate.json5
+.gitlab/merge_request_templates/
+docs/
+REUSE.toml

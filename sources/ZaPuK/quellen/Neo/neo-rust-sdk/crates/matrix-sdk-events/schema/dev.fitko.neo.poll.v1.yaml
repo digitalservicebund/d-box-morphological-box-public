@@ -1,0 +1,40 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+---
+$schema: https://json-schema.org/draft/2020-12/schema
+
+properties:
+  kind:
+    type: string
+    enum:
+      - m.disclosed
+      - m.undisclosed
+  max_selections:
+    type: integer
+  question:
+    $ref: required-m.text-sub.yaml
+  answers:
+    type: array
+    minContains: 1
+    maxContains: 1
+    contains:
+      properties:
+        m.id:
+          enum:
+            - dev.fitko.neo.poll.custom.v1
+    items:
+      allOf:
+        - properties:
+            m.id:
+              type: string
+          required:
+            - m.id
+        - $ref: required-m.text-sub.yaml
+      type: object
+required:
+  - question
+  - answers
+title: Poll
+type: object

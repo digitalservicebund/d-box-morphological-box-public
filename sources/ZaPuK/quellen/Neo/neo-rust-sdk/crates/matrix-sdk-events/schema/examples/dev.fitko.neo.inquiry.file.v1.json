@@ -1,0 +1,39 @@
+{
+  "type": "dev.fitko.neo.inquiry.file.v1",
+  "content": {
+    "dev.fitko.neo.inquiry.file.v1": {
+      "dev.fitko.neo.title.v1": {
+        "m.text": [
+          {
+            "body": "Description of the dragon"
+          }
+        ]
+      }
+    },
+    "dev.fitko.neo.inquiry.message.v1": {
+      "dev.fitko.neo.title.v1": {
+        "m.text": [
+          {
+            "body": "Supplementary"
+          }
+        ]
+      },
+      "dev.fitko.neo.label.v1": {
+        "m.text": [
+          {
+            "body": "Your custom description text..."
+          }
+        ]
+      }
+    },
+    "m.text": [
+      {
+        "body": "Please send an <i>ID Photo</i>.",
+        "mimetype": "text/html"
+      },
+      {
+        "body": "Please send an \"ID Photo\"."
+      }
+    ]
+  }
+}

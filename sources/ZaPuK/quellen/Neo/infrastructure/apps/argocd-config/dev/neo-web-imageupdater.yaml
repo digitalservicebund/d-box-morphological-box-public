@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: neo-dev-web-imageupdater
+  namespace: argocd
+spec:
+  applicationRefs:
+    - namePattern: "neo-dev-web-*"
+      images:
+        - alias: "neo-web"
+          imageName: "registry.opencode.de/fitko/matrix-g2x/fit-neo-web"
+          commonUpdateSettings:
+            updateStrategy: "digest"
+          manifestTargets:
+            helm:
+              # update the Helm parameter `image.tag` in the application's helm values
+              name: "image.tag"

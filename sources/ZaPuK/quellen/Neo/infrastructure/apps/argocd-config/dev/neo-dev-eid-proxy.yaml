@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: neo-dev-eid-proxy
+  namespace: argocd
+spec:
+  project: fitko-apps
+  source:
+    repoURL: https://gitlab.opencode.de/fitko/matrix-g2x/infrastructure.git
+    targetRevision: develop
+    path: charts/neo-eid-proxy
+    helm:
+      valueFiles:
+        - values.yaml
+        - values-dev.yaml
+      parameters:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: neo-dev-eid-proxy
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

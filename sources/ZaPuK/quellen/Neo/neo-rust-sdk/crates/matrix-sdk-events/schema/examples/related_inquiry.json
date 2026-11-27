@@ -1,0 +1,51 @@
+{
+  "type": "dev.fitko.neo.inquiry.message.v1",
+  "content": {
+    "dev.fitko.neo.inquiry.message.v1": {
+      "dev.fitko.neo.title.v1": {
+        "m.text": [
+          {
+            "body": "Description of the dragon"
+          }
+        ]
+      },
+      "dev.fitko.neo.label.v1": {
+        "m.text": [
+          {
+            "body": "Approx 65 cm large green forest dragon."
+          }
+        ]
+      }
+    },
+    "m.text": [
+      {
+        "body": "<h1>Description of the dragon</h1><br />Example: Approx 65 cm large green forest dragon.",
+        "mimetype": "text/html"
+      },
+      {
+        "body": "Description of the dragon\n\nExample: Approx 65 cm large green forest dragon."
+      }
+    ],
+    "m.relates_to": {
+      "rel_type": "m.thread",
+      "event_id": "$root",
+      "m.in_reply_to": {
+        "event_id": "$target"
+      }
+    },
+    "im.nheko.relations.v1.relations": [
+      {
+        "event_id": "$previous_event",
+        "rel_type": "dev.fitko.neo.relationships.chain.v1"
+      },
+      {
+        "event_id": "$thread_root",
+        "rel_type": "m.thread"
+      },
+      {
+        "event_id": "$inquiry_event",
+        "rel_type": "dev.fitko.neo.relationships.inquiry_auth.v1"
+      }
+    ]
+  }
+}

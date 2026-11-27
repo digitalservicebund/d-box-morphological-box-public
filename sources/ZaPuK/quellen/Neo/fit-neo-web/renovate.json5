@@ -1,0 +1,46 @@
+// SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+//
+// SPDX-License-Identifier: CC0-1.0
+
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: [
+    "config:recommended",
+    "docker:pinDigests"
+  ],
+  dependencyDashboard: true,
+  labels: ["renovate"],
+  vulnerabilityAlerts: {
+    labels: ['security'],
+  },
+  osvVulnerabilityAlerts: true,
+  prHourlyLimit: 0,
+  minimumReleaseAge: '14 days',
+  customManagers: [
+    {
+      customType: "regex",
+      managerFilePatterns: ["/.gitlab-ci.yml$/"],
+      matchStrings: [
+        "image: mcr\\.microsoft\\.com/playwright:v(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      depNameTemplate: "playwright",
+      packageNameTemplate: "playwright",
+      datasourceTemplate: "npm",
+      versioningTemplate: "semver"
+    }
+  ],
+  packageRules: [
+    {
+      // Keep the Playwright CI image and npm packages on the same release.
+      matchPackageNames: ["playwright", "@playwright/test"],
+      groupName: "Playwright"
+    },
+    {
+      // While pinned to a "-next.N" prerelease (see README.md's "Depending
+      // on an unstable SDK prerelease"), follow neo-web-sdk's "next" dist-tag
+      // instead of only proposing stable "latest" versions.
+      matchPackageNames: ["@matrix-g2x/neo-web-sdk"],
+      followTag: "next"
+    }
+  ]
+}

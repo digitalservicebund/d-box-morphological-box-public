@@ -1,0 +1,221 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+.caches:
+  native: &cache-native
+    key: native
+    policy: push
+    paths:
+      - bindings/src/main/rust/matrix-rust-sdk/target/
+  native-darwin: &cache-native-darwin
+    key: native-darwin
+    paths:
+      - bindings/src/main/rust/matrix-rust-sdk/target/aarch64-apple-darwin
+  dependencies: &cache-dependencies
+    key: dependencies
+    paths:
+      - $GRADLE_USER_HOME/caches/
+      - $GRADLE_USER_HOME/wrapper/
+      - $GRADLE_USER_HOME/build-cache/
+  java: &cache-java
+    key: java
+    paths:
+      - build
+      - bindings/build
+      - sdk/build
+      - sample/build
+
+before_script:
+  - export GRADLE_USER_HOME="$(pwd)/.gradle"
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  GIT_DEPTH: 0
+  RENOVATE_PLATFORM: gitlab
+  RENOVATE_ENDPOINT: $CI_SERVER_URL/api/v4/
+  RENOVATE_BASE_DIR: $CI_PROJECT_DIR/renovate
+  RENOVATE_CONFIG_FILE: $CI_PROJECT_DIR/renovate.json5
+  RENOVATE_REPOSITORIES: $CI_PROJECT_PATH
+
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
+      variables:
+        SNAPSHOT_SUFFIX: "$CI_COMMIT_SHORT_SHA"
+
+stages:
+  - prepare
+  - pre-build
+  - build
+  - test
+  - publish
+  - release
+  - renovate
+
+prepare:
+  stage: prepare
+  image:
+    name: registry.gitlab.com/gitlab-ci-utils/container-images/kaniko:debug
+    entrypoint: [ "" ]
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/docker/Dockerfile --destination $CI_REGISTRY_IMAGE/build:$CI_COMMIT_REF_SLUG
+  when: manual
+
+build:
+  stage: build
+  image: registry.opencode.de/fitko/matrix-g2x/neo-matrix-java-sdk/build:main
+  script:
+    - make
+    - ./gradlew --build-cache assemble
+  cache:
+    - <<: *cache-native
+      policy: push
+    - <<: *cache-dependencies
+    - <<: *cache-java
+      policy: push
+
+build-darwin:
+  stage: build
+  tags:
+    - darwin-aarch64
+  variables:
+    UNIFFI_TARGETS: "aarch64-apple-darwin"
+  script:
+    - make
+    - ./gradlew --build-cache assemble
+  cache:
+    - <<: *cache-native-darwin
+      policy: push
+    - <<: *cache-dependencies
+      policy: pull
+    - <<: *cache-java
+      policy: pull
+
+test:
+  stage: test
+  image: registry.opencode.de/fitko/matrix-g2x/neo-matrix-java-sdk/build:main
+  script:
+    - make
+    - ./gradlew check
+  cache:
+    - <<: *cache-native
+      policy: pull
+    - <<: *cache-dependencies
+      policy: pull
+    - <<: *cache-java
+      policy: pull
+
+publish:
+  stage: publish
+  image: registry.opencode.de/fitko/matrix-g2x/neo-matrix-java-sdk/build:main
+  script:
+    - make
+    - ./gradlew publish -Pkotlin.incremental=false
+  cache:
+    - <<: *cache-native
+      policy: pull
+    - <<: *cache-dependencies
+      policy: pull
+    - <<: *cache-java
+      policy: pull
+  artifacts:
+    paths:
+      - "*/build/libs/*"
+  rules:
+    - when: on_success
+
+publish-darwin:
+  stage: publish
+  tags:
+    - darwin-aarch64
+  variables:
+    UNIFFI_TARGETS: "aarch64-apple-darwin"
+  script:
+    - make
+    - ./gradlew publish -Pkotlin.incremental=false
+  cache:
+    - <<: *cache-native
+      policy: pull
+    - <<: *cache-native-darwin
+      policy: pull
+    - <<: *cache-dependencies
+      policy: pull
+    - <<: *cache-java
+      policy: pull
+  artifacts:
+    paths:
+      - "*/build/libs/*"
+  rules:
+    - when: on_success
+
+run_renovate:
+  stage: renovate
+  image: renovate/renovate:42.92.5
+  script:
+    - renovate --token $RENOVATE_TOKEN
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+
+reuse-lint:
+  stage: pre-build
+  image:
+    name: fsfe/reuse:6.2.0
+    entrypoint: [ "" ]
+  script:
+    - reuse lint
+  only:
+    - merge_requests
+
+commit-lint:
+  stage: pre-build
+  image: node:24
+  script:
+    - npm install --no-save @commitlint/{cli,config-conventional}
+    - npx commitlint --from=$CI_MERGE_REQUEST_DIFF_BASE_SHA --to=$CI_COMMIT_SHA --verbose
+  only:
+    - merge_requests
+
+markdown-lint:
+  stage: pre-build
+  image:
+    name: davidanson/markdownlint-cli2:v0.20.0
+    entrypoint: [ "" ]
+  script:
+    - markdownlint-cli2 "**/*.md"
+  only:
+    - merge_requests
+
+markdown-spellcheck:
+  stage: pre-build
+  image:
+    name: ghcr.io/streetsidesoftware/cspell:9.4.0
+    entrypoint: [ "" ]
+  script:
+    - npm install @cspell/dict-de-de@3.2.0
+    - cspell-cli link add @cspell/dict-de-de
+    - cspell-cli --no-progress --no-summary "**/*.md"
+  only:
+    - merge_requests
+
+# Semantic Release
+release:
+  stage: release
+  image: node:24
+  before_script:
+    - apt-get update && apt-get install -y git
+    - npm install -g semantic-release
+      @semantic-release/changelog
+      @semantic-release/commit-analyzer
+      @semantic-release/git
+      @semantic-release/gitlab
+      @semantic-release/release-notes-generator
+      conventional-changelog-conventionalcommits
+  script:
+    - semantic-release
+  only:
+    # Only run on protected branches
+    - main

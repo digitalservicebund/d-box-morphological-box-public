@@ -1,0 +1,82 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+@layer components {
+    .link {
+        @layer elements {
+            --link-text-color: var(--action-default);
+            --link-opacity: 1;
+            --icon-fill: var(--action-default);
+            --text-decoration: none;
+            width: fit-content;
+            height: fit-content;
+            color: var(--link-text-color);
+            justify-content: center;
+            align-items: center;
+            gap: var(--metric-space-x-small);
+            font-weight: var(--typography-font-weight-medium);
+            font-size: var(--typography-font-size-static-medium);
+            line-height: var(--typography-line-height-static-medium);
+            letter-spacing: var(--metric-space-none);
+            text-decoration: var(--text-decoration);
+            text-decoration-skip-ink: true;
+            text-underline-offset: 2px;
+            flex-direction: row;
+            text-decoration-thickness: 3px;
+            display: flex;
+            & svg {
+                & path {
+                    fill: var(--icon-fill)
+                }
+            }
+        }
+
+        @layer modifiers;@layer states {
+            &:where(:focus-visible) {
+                box-shadow: 0 0 0 2px var(--action-on-default), 0 0 0 4px var(--action-focus-border-inside), 0 0 0 6px var(--action-focus-border-outside);
+                border-radius: var(--metric-border-radius-default)
+            }
+
+            &:where(:hover) {
+                --text-decoration: underline
+            }
+        }
+
+        &:where(:active) {
+            --text-decoration: underline
+        }
+    }
+}
+
+.app-layout {
+    width: 100%;
+    max-width: 1280px;
+    min-height: 100dvh;
+    padding-inline:var(--metric-space-default);background-color: var(--layout-background-default);
+    flex-direction: column;
+    margin-inline:auto;display: flex;
+    @media (width>=1312px) {
+        padding-inline: 0
+    }
+
+    & main {
+        flex: 1
+    }
+}
+
+footer {
+    justify-content: flex-end;
+    gap: var(--metric-space-x-large);
+    width: 100%;
+    padding: var(--metric-space-default);
+    background-color: var(--feedback-info);
+    flex-flow: wrap;
+    display: flex;
+    & a {
+        --link-text-color: white;
+        --icon-fill: white
+    }
+}

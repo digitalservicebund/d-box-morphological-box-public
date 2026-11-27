@@ -1,0 +1,26 @@
+{
+  "type": "dev.fitko.neo.audio.v1",
+  "content": {
+    "dev.fitko.neo.file.v1": {
+      "uri": "mxc://fitko.dev/abcd1234",
+      "name": "toothless.ogg",
+      "mimetype": "audio/ogg",
+      "size": 12345
+    },
+    "dev.fitko.neo.audio.details.v1": {
+      "duration": 1337
+    },
+    "m.caption": {
+      "m.text": [
+        {
+          "body": "Nobody will read this caption!"
+        }
+      ]
+    },
+    "m.text": [
+      {
+        "body": "Example pronunciation of the name \"Toothless\" (IPA: ˈtuːθləs). toothless.ogg (12 kB)"
+      }
+    ]
+  }
+}

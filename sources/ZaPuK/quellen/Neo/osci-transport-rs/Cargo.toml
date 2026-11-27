@@ -1,0 +1,48 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+[workspace]
+resolver = "3"
+members = ["crates/*"]
+
+[workspace.package]
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.98"
+license = "EUPL-1.2"
+repository = "https://gitlab.opencode.de/fitko/matrix-g2x/osci-transport"
+authors = ["FITKO (Föderale IT-Kooperation)"]
+
+[workspace.dependencies]
+osci-transport = { path = "crates/osci-transport", version = "0.0.0" }
+osci-transport-crypto = { path = "crates/osci-transport-crypto", version = "0.0.0" }
+osci-transport-server = { path = "crates/osci-transport-server", version = "0.0.0" }
+quick-xml = "0.42"
+thiserror = "2"
+base64 = "0.23"
+getrandom = "0.4"
+mail-parser = "1"
+reqwest = { version = "0.13", default-features = false, features = [
+    "rustls",
+    "charset",
+    "http2",
+] }
+tokio = "1"
+# Keep this on the rsa that bergshamra (kryptering) uses, so only one rsa is
+# built. 0.9 needs digest 0.10, which does not work with sha1/sha2 0.11.
+rsa = "0.10"
+aes = "0.9"
+cbc = { version = "0.2", features = ["alloc", "block-padding"] }
+aes-gcm = "0.11"
+sha1 = "0.11"
+sha2 = "0.11"
+x509-cert = "0.3"
+uniffi = "0.31"
+pollster = "1"
+pkcs8 = { version = "0.11", features = ["pem"] }
+bergshamra = { version = "0.12", default-features = false, features = [
+    "rustcrypto",
+    "legacy-algorithms",
+] }
+zeroize = "1"

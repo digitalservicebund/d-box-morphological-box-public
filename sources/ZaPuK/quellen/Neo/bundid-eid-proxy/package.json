@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "http-cookie-agent": "^8.0.0",
+    "node-html-parser": "^7.1.0",
+    "tough-cookie": "^6.0.1",
+    "undici": "^7.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.2"
+  }
+}

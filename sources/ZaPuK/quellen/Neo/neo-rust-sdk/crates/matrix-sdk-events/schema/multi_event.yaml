@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+---
+$schema: https://json-schema.org/draft/2020-12/schema
+
+title: Multi-Event
+description: Multi-Events have the following fields.
+allOf:
+  - $ref: fitko_event.yaml
+  - type: object
+    properties:
+      dev.fitko.neo.multi.length.v1:
+        $ref: dev.fitko.neo.multi.length.v1.yaml

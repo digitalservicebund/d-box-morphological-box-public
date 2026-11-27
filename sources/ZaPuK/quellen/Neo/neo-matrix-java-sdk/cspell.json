@@ -1,0 +1,29 @@
+{
+  "version": "0.2",
+  "language": "de,en",
+  "words": [
+    "FITKO",
+    "fitko",
+    "releaserc",
+    "autosquash",
+    "publiccode",
+    "tchncs",
+    "mxid"
+  ],
+  "ignorePaths": [
+    "CHANGELOG.md",
+    "bindings/src/main/rust/**/*"
+  ],
+  "ignoreRegExpList": [
+    "Signed-off-by:.*"
+  ],
+  "languageSettings": [
+    {
+      "languageId": "markdown",
+      "ignoreRegExpList": [
+        "/^\\s*```[\\s\\S]*?^\\s*```/gm",
+        "/(?<!`)`[^`]+`(?!`)/g"
+      ]
+    }
+  ]
+}

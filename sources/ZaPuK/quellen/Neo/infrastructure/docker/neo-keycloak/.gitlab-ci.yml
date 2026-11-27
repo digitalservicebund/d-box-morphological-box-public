@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+stages:
+  - build
+
+variables:
+  KEYCLOAK_IMAGE: $CI_REGISTRY_IMAGE/keycloak
+
+docker_build_keycloak:
+  stage: build
+  image:
+    name: registry.gitlab.com/gitlab-ci-utils/container-images/kaniko:debug
+    entrypoint: [ "" ]
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $CI_PROJECT_DIR/docker/neo-keycloak --dockerfile $CI_PROJECT_DIR/docker/neo-keycloak/Dockerfile --destination $KEYCLOAK_IMAGE:$CI_COMMIT_SHORT_SHA --destination $KEYCLOAK_IMAGE:$CI_COMMIT_REF_SLUG

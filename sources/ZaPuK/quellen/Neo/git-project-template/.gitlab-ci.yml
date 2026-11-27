@@ -1,0 +1,87 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+stages:
+  - pre-build
+  - release
+  - renovate
+
+variables:
+  GIT_DEPTH: 0
+  RENOVATE_PLATFORM: gitlab
+  RENOVATE_ENDPOINT: $CI_SERVER_URL/api/v4/
+  RENOVATE_BASE_DIR: $CI_PROJECT_DIR/renovate
+  RENOVATE_CONFIG_FILE: $CI_PROJECT_DIR/renovate.json5
+  RENOVATE_REPOSITORIES: $CI_PROJECT_PATH
+
+run_renovate:
+  stage: renovate
+  variables:
+    DOCKER_AUTH_CONFIG: $GHCR_AUTH
+  image: ghcr.io/renovatebot/renovate:44.186.7
+  script:
+    - renovate --token $RENOVATE_TOKEN
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+
+reuse-lint:
+  stage: pre-build
+  image:
+    name: fsfe/reuse:6.2.0@sha256:85462a75c0f8efda09ddd190b92816b70e7662577c8427429e11e1b9f25a992e
+    entrypoint: [""]
+  script:
+    - reuse lint
+  only:
+    - merge_requests
+
+commit-lint:
+  stage: pre-build
+  image: node:24
+  script:
+    - npm install --no-save @commitlint/{cli,config-conventional}
+    - npx commitlint --from=$CI_MERGE_REQUEST_DIFF_BASE_SHA --to=$CI_COMMIT_SHA --verbose
+  only:
+    - merge_requests
+
+markdown-lint:
+  stage: pre-build
+  image:
+    name: davidanson/markdownlint-cli2:v0.24.0@sha256:70ead7c0352d22d04bbe612cd96b54ec591538d8f4626cafe391bb2ecf3639ca
+    entrypoint: [""]
+  script:
+    - markdownlint-cli2 "**/*.md"
+  only:
+    - merge_requests
+
+markdown-spellcheck:
+  stage: pre-build
+  variables:
+    DOCKER_AUTH_CONFIG: $GHCR_AUTH
+  image:
+    name: ghcr.io/streetsidesoftware/cspell:10.0.1
+    entrypoint: [""]
+  script:
+    - cspell-cli --no-progress --no-summary "**/*.md"
+  only:
+    - merge_requests
+
+# Semantic Release
+release:
+  stage: release
+  image: node:24
+  before_script:
+    - apt-get update && apt-get install -y git
+    - npm install -g semantic-release
+      @semantic-release/changelog
+      @semantic-release/commit-analyzer
+      @semantic-release/git
+      @semantic-release/gitlab
+      @semantic-release/release-notes-generator
+      conventional-changelog-conventionalcommits@9
+  script:
+    - semantic-release
+  only:
+    # Only run on protected branches
+    - main

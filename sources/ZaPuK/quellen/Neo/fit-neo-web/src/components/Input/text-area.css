@@ -1,0 +1,167 @@
+/*
+ * SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+/* Components top-level layer */
+@layer components {
+  .text-area {
+    @layer elements {
+      --text-area-border-color: var(--form-input-border);
+      --text-area-border-width: var(--metric-border-width-default);
+      --text-area-border-radius: var(--metric-border-radius-small);
+      --text-area-background-color: var(--form-input-background);
+      --text-area-text-color: var(--layout-text-default);
+      --text-area-error-color: var(--feedback-danger);
+      --text-area-error-bar-width: var(--metric-border-width-bold);
+      --text-area-gap: var(--metric-space-x-small);
+
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+      /* Full-height left bar — hidden by default, sits 14px outside the content */
+      &::before {
+        content: '';
+        display: none;
+        flex-shrink: 0;
+        width: var(--text-area-error-bar-width);
+        margin-right: 0.875rem;
+        margin-left: calc(-1 * (var(--text-area-error-bar-width) + 0.875rem));
+        background-color: var(--text-area-error-color);
+      }
+
+      .text-area-content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: var(--metric-space-default);
+      }
+
+      .text-area-inner {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: var(--text-area-gap);
+      }
+
+      .text-area-actions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: var(--metric-dimension-x-large);
+        flex-shrink: 0;
+      }
+
+      .text-area-actions-icons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--metric-space-default);
+      }
+
+      .text-area-icon-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.5rem;
+        height: 1.5rem;
+        flex-shrink: 0;
+        padding: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        &:where(:disabled) {
+          opacity: var(--action-state-opacity-disabled-percent);
+          /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- cursor: not-allowed degrades to the default cursor where unsupported, no breakage */
+          cursor: not-allowed;
+        }
+      }
+
+      .text-area-control {
+        width: 100%;
+        min-height: var(--metric-dimension-5x-large);
+        padding-inline: var(--metric-space-default);
+        padding-block: var(--metric-space-x-small);
+        background-color: var(--text-area-background-color);
+        color: var(--text-area-text-color);
+        border-width: 0;
+        border-bottom-width: var(--text-area-border-width);
+        border-bottom-color: var(--text-area-border-color);
+        border-style: solid;
+        border-radius: var(--text-area-border-radius);
+        font-family: var(--typography-font-family-default);
+        font-size: var(--typography-font-size-static-medium);
+        line-height: var(--typography-line-height-one-and-half);
+        letter-spacing: var(--metric-space-none);
+        margin-block: var(--metric-space-default);
+        /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- resize is not supported on iOS Safari; textarea just isn't resizable there, no breakage */
+        resize: vertical;
+        box-sizing: border-box;
+      }
+
+      .text-area-error {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--metric-space-x-small);
+        color: var(--layout-text-default);
+        font-size: var(--typography-font-size-static-small);
+        line-height: var(--typography-line-height-one-and-half);
+        margin: 0;
+      }
+
+      .text-area-error-icon {
+        flex-shrink: 0;
+        color: var(--text-area-error-color);
+      }
+    }
+
+    @layer states {
+      /* Error state */
+      &.text-area-invalid {
+        &::before {
+          display: block;
+        }
+
+        .text-area-control {
+          border-style: none;
+          border-bottom-style: solid;
+          border-bottom-color: var(--text-area-error-color);
+          background-color: var(--feedback-danger-background);
+        }
+      }
+
+      /* Disabled state */
+      &.text-area-disabled {
+        opacity: var(--action-state-opacity-disabled-percent);
+
+        .text-area-control {
+          /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- cursor: not-allowed degrades to the default cursor where unsupported, no breakage */
+          cursor: not-allowed;
+          /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- resize is not supported on iOS Safari; textarea just isn't resizable there, no breakage */
+          resize: none;
+        }
+      }
+
+      /* Focus state */
+      &:has(.text-area-control:focus-visible) {
+        .text-area-control {
+          outline: none;
+          border-width: var(--metric-border-width-bold);
+          border-color: var(--text-area-border-color);
+        }
+      }
+
+      /* Hover state */
+      &:has(.text-area-control:hover):not(.text-area-disabled) {
+        .text-area-control {
+          border-bottom-width: var(--metric-border-width-bold);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+---
+$schema: https://json-schema.org/draft/2020-12/schema
+
+properties:
+  m.text:
+    $ref: m.text.yaml
+required:
+  - m.text
+title: Non-text message caption
+type: object

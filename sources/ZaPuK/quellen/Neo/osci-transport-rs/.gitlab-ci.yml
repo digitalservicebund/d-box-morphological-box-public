@@ -1,0 +1,233 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+stages:
+  - pre-build
+  - test
+  - build
+  - release
+  - publish
+  - renovate
+
+variables:
+  GIT_DEPTH: 0
+  RENOVATE_PLATFORM: gitlab
+  RENOVATE_ENDPOINT: $CI_SERVER_URL/api/v4/
+  RENOVATE_BASE_DIR: $CI_PROJECT_DIR/renovate
+  RENOVATE_CONFIG_FILE: $CI_PROJECT_DIR/renovate.json5
+  RENOVATE_REPOSITORIES: $CI_PROJECT_PATH
+
+run_renovate:
+  stage: renovate
+  variables:
+    DOCKER_AUTH_CONFIG: $GHCR_AUTH
+  image: ghcr.io/renovatebot/renovate:44.186.7
+  script:
+    - renovate --token $RENOVATE_TOKEN
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+
+reuse-lint:
+  stage: pre-build
+  image:
+    name: fsfe/reuse:6.2.0
+    entrypoint: [""]
+  script:
+    - reuse lint
+  only:
+    - merge_requests
+
+commit-lint:
+  stage: pre-build
+  image: node:24
+  script:
+    - npm install --no-save @commitlint/{cli,config-conventional}
+    - npx commitlint --from=$CI_MERGE_REQUEST_DIFF_BASE_SHA --to=$CI_COMMIT_SHA --verbose
+  only:
+    - merge_requests
+
+markdown-lint:
+  stage: pre-build
+  image:
+    name: davidanson/markdownlint-cli2:v0.23.3@sha256:d5f3f3f04b2e285dcbcdcd13b4454d119e273e3c393a9dabd163dba4abad526d
+    entrypoint: [""]
+  script:
+    - markdownlint-cli2 "**/*.md"
+  only:
+    - merge_requests
+
+markdown-spellcheck:
+  stage: pre-build
+  variables:
+    DOCKER_AUTH_CONFIG: $GHCR_AUTH
+  image:
+    name: ghcr.io/streetsidesoftware/cspell:10.0.1
+    entrypoint: [""]
+  script:
+    - cspell-cli --no-progress --no-summary "**/*.md"
+  only:
+    - merge_requests
+
+.rust:
+  image: rust:1.99.1
+  stage: test
+  variables:
+    CARGO_HOME: $CI_PROJECT_DIR/.cargo
+  cache:
+    key: cargo-$CI_COMMIT_REF_SLUG
+    paths:
+      - .cargo/
+      - target/
+  only:
+    - merge_requests
+
+rust-fmt:
+  extends: .rust
+  script:
+    - rustup component add rustfmt
+    - cargo fmt --all --check
+
+rust-clippy:
+  extends: .rust
+  script:
+    - rustup component add clippy
+    - cargo clippy --workspace --all-targets -- -D warnings
+
+rust-test:
+  extends: .rust
+  script:
+    - cargo test --workspace --all-features
+
+rust-deny:
+  extends: .rust
+  script:
+    - cargo install --locked cargo-deny
+    - cargo deny check
+  allow_failure: true
+
+java-interop:
+  stage: test
+  image: eclipse-temurin:21-jdk
+  variables:
+    CARGO_HOME: $CI_PROJECT_DIR/.cargo
+  cache:
+    key: cargo-$CI_COMMIT_REF_SLUG
+    paths:
+      - .cargo/
+      - target/
+  before_script:
+    - apt-get update && apt-get install -y --no-install-recommends build-essential cmake
+    - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal
+    - . "$CARGO_HOME/env"
+  script:
+    - cargo run -p osci-transport-crypto --example gen_interop_fixtures
+    - cd tests/interop/java && ./gradlew test --no-daemon
+  only:
+    - merge_requests
+
+# Semantic Release
+release:
+  stage: release
+  image: node:24
+  before_script:
+    - apt-get update && apt-get install -y git
+    - npm install -g semantic-release
+      @semantic-release/changelog
+      @semantic-release/commit-analyzer
+      @semantic-release/git
+      @semantic-release/gitlab
+      @semantic-release/release-notes-generator
+      conventional-changelog-conventionalcommits@9
+  script:
+    - semantic-release
+  only:
+    # Only run on protected branches
+    - main
+
+# The browser package: the FFI crate built to wasm with generated TypeScript
+# bindings. Built on merge requests, tags and protected branches so a broken
+# build shows up before a release.
+build_web:
+  stage: build
+  image: node:lts
+  variables:
+    CARGO_HOME: $CI_PROJECT_DIR/.cache/cargo
+    RUSTUP_HOME: $CI_PROJECT_DIR/.cache/rustup
+    CARGO_TARGET_DIR: $CI_PROJECT_DIR/.cache/target
+    YARN_CACHE_FOLDER: $CI_PROJECT_DIR/.cache/yarn
+  cache:
+    - key:
+        files:
+          - rust-toolchain.toml
+          - Cargo.lock
+      paths:
+        - .cache/
+  before_script:
+    - apt-get update && apt-get install -y clang
+    - |
+      if [ ! -f "$CARGO_HOME/bin/cargo" ]; then
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path --profile minimal
+      fi
+    - export PATH="$CARGO_HOME/bin:$PATH"
+    - rustup target add wasm32-unknown-unknown
+    # the wasm-bindgen CLI must match the version in Cargo.lock
+    - WBG="$(grep -A1 'name = "wasm-bindgen"' Cargo.lock | sed -n 's/version = "\(.*\)"/\1/p')"
+    - |
+      if [ "$(wasm-bindgen --version 2>/dev/null | cut -d' ' -f2)" != "$WBG" ]; then
+        cargo install --locked -f wasm-bindgen-cli --version "$WBG"
+      fi
+    - cd web
+    - npm uninstall -g yarn pnpm && npm install -g corepack && corepack install
+    - yarn install
+  script:
+    - export PATH="$CARGO_HOME/bin:$PATH"
+    - ./build.sh
+    - test -f dist/index.web.js
+    - test -f dist/index.web.d.ts
+    - test -f dist/generated/wasm-bindgen/index_bg.wasm
+    - node --check dist/index.web.js
+  artifacts:
+    paths:
+      - web/dist/
+    expire_in: 2 hours
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_TAG
+    - if: $CI_COMMIT_REF_PROTECTED == "true"
+
+# Publish to this project's GitLab npm registry once release has cut a tag.
+# `git fetch --tags` picks up the tag release just pushed.
+publish_npm:
+  stage: publish
+  image: node:24
+  needs:
+    - job: build_web
+      artifacts: true
+    - job: release
+  script:
+    - git fetch --tags "$CI_REPOSITORY_URL"
+    - VERSION="$(git describe --tags --abbrev=0 | sed 's/^v//')"
+    - cd web
+    - npm pkg set version="$VERSION"
+    - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
+    - npm publish --tag latest --registry "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+
+# A prerelease from every develop build under the "next" tag, so a plain
+# install never resolves to it. The version is unique per commit.
+publish_npm_next:
+  stage: publish
+  image: node:24
+  needs:
+    - job: build_web
+      artifacts: true
+  script:
+    - cd web
+    - npm pkg set version="0.0.0-next-${CI_COMMIT_SHORT_SHA}"
+    - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
+    - npm publish --tag next --registry "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "develop"'

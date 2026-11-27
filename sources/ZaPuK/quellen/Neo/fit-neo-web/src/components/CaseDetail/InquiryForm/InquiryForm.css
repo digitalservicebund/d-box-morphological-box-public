@@ -1,0 +1,76 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+@layer components {
+  .case-detail-textarea-wrapper {
+    @layer elements {
+      label {
+        font-family: var(--typography-font-family-default);
+        font-weight: var(--typography-font-weight-semi-bold);
+        font-size: var(--typography-font-size-static-medium);
+        line-height: var(--typography-line-height-one-and-half);
+        color: var(--layout-text-default);
+      }
+    }
+  }
+
+  .case-detail-textarea {
+    @layer elements {
+      background: var(--layout-background-hued);
+      border: none;
+      border-bottom: var(--metric-border-width-default) solid
+        var(--form-input-border);
+      border-radius: var(--metric-border-radius-small);
+      padding: var(--metric-space-small) var(--metric-space-default)
+        var(--metric-space-none) var(--metric-space-default);
+      gap: var(--metric-space-small);
+      font-family: var(--typography-font-family-default);
+      font-style: normal;
+      font-weight: var(--typography-font-weight-regular);
+      font-size: var(--typography-font-size-static-medium);
+      line-height: var(--typography-line-height-one-and-half);
+      color: var(--layout-text-default);
+      /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- resize is not supported on iOS Safari; textarea just isn't resizable there, no breakage */
+      resize: vertical;
+
+      &:first-child {
+        margin-block-start: var(--metric-space-default);
+      }
+
+      &::placeholder {
+        color: var(--layout-text-muted);
+      }
+
+      p {
+        margin-bottom: var(--metric-space-default);
+      }
+
+      ul,
+      ol {
+        padding-left: var(--metric-space-default);
+        margin-bottom: var(--metric-space-default);
+
+        li + li {
+          margin-top: 8px;
+        }
+      }
+
+      min-height: var(--metric-dimension-5x-large);
+      height: 136px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    @layer states {
+      &:focus-visible {
+        outline: var(--metric-border-width-bold) solid var(--form-input-border);
+        outline-offset: 0;
+        border-radius: var(--metric-border-radius-small);
+        box-shadow: none;
+      }
+    }
+  }
+}

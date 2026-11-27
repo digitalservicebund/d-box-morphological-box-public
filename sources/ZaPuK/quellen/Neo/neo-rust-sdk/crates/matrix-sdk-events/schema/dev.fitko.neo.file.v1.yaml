@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+---
+$schema: https://json-schema.org/draft/2020-12/schema
+
+allOf:
+  - $ref: multi_event.yaml
+  - $ref: "#/$defs/base"
+properties:
+  type:
+    enum:
+      - dev.fitko.neo.file.v1
+    type: string
+title: File
+type: object
+
+$defs:
+  base:
+    properties:
+      content:
+        properties:
+          dev.fitko.neo.title.v1:
+            $ref: dev.fitko.neo.title.v1.yaml
+          dev.fitko.neo.file.v1:
+            $ref: dev.fitko.neo.file-cb.v1.yaml
+          m.caption:
+            $ref: required-m.text-sub.yaml
+        required:
+          - dev.fitko.neo.file.v1
+        type: object

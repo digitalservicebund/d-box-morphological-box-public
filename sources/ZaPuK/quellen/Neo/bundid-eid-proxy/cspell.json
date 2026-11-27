@@ -1,0 +1,28 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "FITKO",
+    "Föderale",
+    "Kooperation",
+    "sicherheit",
+    "fitko",
+    "releaserc",
+    "autosquash",
+    "publiccode",
+    "holz",
+    "tchncs",
+    "Authentifizierung",
+    "Fachverfahren",
+    "nixpkgs",
+    "Ausweis",
+    "ausweisapp",
+    "governikus"
+  ],
+  "ignorePaths": [
+    "CHANGELOG.md"
+  ],
+  "ignoreRegExpList": [
+    "Signed-off-by:.*"
+  ]
+}

@@ -1,0 +1,88 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: neo-dev-web
+  namespace: argocd
+spec:
+  generators:
+    - scmProvider:
+        gitlab:
+          group: fitko/matrix-g2x
+          api: https://gitlab.opencode.de
+          allBranches: true
+        filters:
+          - repositoryMatch: fit-neo-web
+  goTemplate: true
+  goTemplateOptions:
+    - missingkey=error
+  template:
+    metadata:
+      name: "neo-dev-web-{{ cat .branchNormalized | slugify 41 }}"
+      namespace: argocd
+      annotations:
+        argocd.argoproj.io/manifest-generate-paths: .
+      labels:
+        k8s.fitko.de/environment: dev
+        k8s.fitko.de/service: neo-web
+        k8s.fitko.de/branch: "{{ .branchNormalized }}"
+    spec:
+      project: fitko-apps-dev
+      sources:
+        - repoURL: https://gitlab.opencode.de/fitko/matrix-g2x/fit-neo-web.git
+          targetRevision: "{{ .branch }}"
+          path: charts/neo-web
+          helm:
+            valueFiles:
+              - $values/charts/neo-web/values-dev.yaml
+            parameters:
+              - name: image.tag
+                value: "{{ .branchNormalized }}"
+              - name: ingress.hosts[0].host
+                value: "{{ .branchNormalized }}.webapp.dev.neo.fitko.dev"
+              - name: ingress.tls[0].secretName
+                value: "{{ cat .branchNormalized | slugify 53 }}.webapp.dev.neo.fitko.dev-tls"
+              - name: ingress.tls[0].hosts[0]
+                value: "{{ .branchNormalized }}.webapp.dev.neo.fitko.dev"
+        - repoURL: https://gitlab.opencode.de/fitko/matrix-g2x/infrastructure.git
+          targetRevision: develop
+          ref: values
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: neo-dev-web
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+  templatePatch: |
+    {{- if eq .branch "develop" }}
+    metadata:
+      name: neo-dev-web-develop
+      annotations:
+        argocd.argoproj.io/manifest-generate-paths: .
+    spec:
+      sources:
+        - repoURL: https://gitlab.opencode.de/fitko/matrix-g2x/fit-neo-web.git
+          targetRevision: develop
+          path: charts/neo-web
+          helm:
+            valueFiles:
+              - $values/charts/neo-web/values-dev.yaml
+            parameters:
+              - name: image.tag
+                value: develop
+              - name: ingress.hosts[0].host
+                value: webapp.dev.neo.fitko.dev
+              - name: ingress.tls[0].secretName
+                value: webapp.dev.neo.fitko.dev-tls
+              - name: ingress.tls[0].hosts[0]
+                value: webapp.dev.neo.fitko.dev
+        - repoURL: https://gitlab.opencode.de/fitko/matrix-g2x/infrastructure.git
+          targetRevision: develop
+          ref: values
+    {{- end }}

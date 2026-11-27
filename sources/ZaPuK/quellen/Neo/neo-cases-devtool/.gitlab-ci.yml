@@ -1,0 +1,230 @@
+# yaml-language-server: $schema=https://gitlab.com/gitlab-org/gitlab-foss/-/raw/master/app/assets/javascripts/editor/schema/ci.json
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+stages:
+  - pre-build
+  - build
+  - renovate
+
+variables:
+  GIT_DEPTH: '0'
+  RENOVATE_PLATFORM: gitlab
+  RENOVATE_ENDPOINT: $CI_SERVER_URL/api/v4/
+  RENOVATE_BASE_DIR: $CI_PROJECT_DIR/renovate
+  RENOVATE_CONFIG_FILE: $CI_PROJECT_DIR/renovate.json5
+  RENOVATE_REPOSITORIES: $CI_PROJECT_PATH
+
+run_renovate:
+  stage: renovate
+  variables:
+    DOCKER_AUTH_CONFIG: $GHCR_AUTH
+  image: ghcr.io/renovatebot/renovate:44.186.7
+  script:
+    - renovate --token "$RENOVATE_TOKEN"
+  rules:
+    - if: '$RENOVATE_TOKEN && $CI_PIPELINE_SOURCE == "schedule"'
+    - if: '$RENOVATE_TOKEN && $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+
+reuse-lint:
+  stage: pre-build
+  image:
+    name: fsfe/reuse:6.2.0
+    entrypoint: ['']
+  script:
+    - reuse lint
+  rules: &merge_request_rules
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+
+commit-lint:
+  extends: .pnpm_dependencies
+  stage: pre-build
+  cache:
+    policy: pull
+  script:
+    - pnpm exec commitlint --from "$CI_MERGE_REQUEST_DIFF_BASE_SHA" --to "$CI_COMMIT_SHA" --verbose
+  rules: *merge_request_rules
+
+markdown-lint:
+  stage: pre-build
+  image:
+    name: davidanson/markdownlint-cli2:v0.23.3@sha256:d5f3f3f04b2e285dcbcdcd13b4454d119e273e3c393a9dabd163dba4abad526d
+    entrypoint: ['']
+  script:
+    - markdownlint-cli2 "**/*.md"
+  rules: *merge_request_rules
+
+markdown-spellcheck:
+  stage: pre-build
+  variables:
+    DOCKER_AUTH_CONFIG: $GHCR_AUTH
+  image:
+    name: ghcr.io/streetsidesoftware/cspell:10.0.1
+    entrypoint: ['']
+  script:
+    - cspell-cli --no-progress --no-summary "**/*.md"
+  rules: *merge_request_rules
+
+.pnpm_dependencies:
+  image: node:24-bookworm
+  variables:
+    PNPM_HOME: '$CI_PROJECT_DIR/.pnpm'
+  cache:
+    key:
+      files:
+        - pnpm-lock.yaml
+    paths:
+      - .pnpm/store/
+  before_script: &pnpm_setup
+    - corepack enable
+    - corepack prepare pnpm@12.14.0 --activate
+    - pnpm config set store-dir "$CI_PROJECT_DIR/.pnpm/store"
+    - pnpm install --frozen-lockfile
+
+.wasm_dependencies:
+  extends: .pnpm_dependencies
+  variables:
+    CARGO_HOME: '$CI_PROJECT_DIR/.cargo'
+    RUSTUP_HOME: '$CI_PROJECT_DIR/.rustup'
+  cache:
+    paths:
+      - .pnpm/store/
+      - .cargo/registry/
+      - .cargo/git/
+      - rust/matrix-web/target/
+  before_script:
+    - apt-get update && apt-get install -y --no-install-recommends curl build-essential pkg-config libssl-dev
+    - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain stable --component rustfmt --target wasm32-unknown-unknown
+    - export PATH="$CARGO_HOME/bin:$PATH"
+    - *pnpm_setup
+
+test:
+  extends: .wasm_dependencies
+  stage: pre-build
+  script:
+    - pnpm check
+    - pnpm test
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH'
+    - if: '$CI_COMMIT_TAG'
+
+build_app:
+  extends: .wasm_dependencies
+  stage: build
+  script:
+    - pnpm build
+  artifacts:
+    paths:
+      - dist/
+      - Dockerfile.package
+      - docker/default.conf
+    expire_in: 1 hour
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH'
+    - if: '$CI_COMMIT_TAG'
+
+.package_image:
+  stage: build
+  image:
+    name: registry.gitlab.com/gitlab-ci-utils/container-images/kaniko:debug
+    entrypoint: ['']
+  needs:
+    - job: build_app
+      artifacts: true
+  variables:
+    HOME: /root
+  before_script:
+    - export HOME="$CI_PROJECT_DIR"
+    - mkdir -p "$CI_PROJECT_DIR/.docker"
+    - AUTH=$(printf "%s:%s" "$CI_REGISTRY_USER" "$CI_REGISTRY_PASSWORD" | base64 | tr -d '\n')
+    - printf '{"auths":{"%s":{"username":"%s","password":"%s","auth":"%s"}}}' "$CI_REGISTRY" "$CI_REGISTRY_USER" "$CI_REGISTRY_PASSWORD" "$AUTH" > "$CI_PROJECT_DIR/.docker/config.json"
+  script:
+    - |
+      BRANCH_NAME="${CI_COMMIT_BRANCH:-$CI_COMMIT_REF_SLUG}"
+      DESTINATIONS="--destination=$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA-$ARCH"
+      if [ "$BRANCH_NAME" = "main" ]; then
+        DESTINATIONS="$DESTINATIONS --destination=$CI_REGISTRY_IMAGE:main-$ARCH"
+      else
+        DESTINATIONS="$DESTINATIONS --destination=$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG-$ARCH"
+      fi
+      /kaniko/executor \
+        --dockerfile=Dockerfile.package \
+        --context=dir://$CI_PROJECT_DIR \
+        $DESTINATIONS \
+        --custom-platform=linux/$ARCH \
+        --cache=true \
+        --cache-repo=$CI_REGISTRY_IMAGE/cache-$ARCH \
+        --verbosity=info
+  rules: &publish_image_rules # Preview discovery uses the source head, not a synthetic merge commit.
+    - if: '$CI_MERGE_REQUEST_EVENT_TYPE == "merged_result" || $CI_MERGE_REQUEST_EVENT_TYPE == "merge_train"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_PROJECT_ID == $CI_PROJECT_ID'
+    - if: '$CI_COMMIT_BRANCH'
+    - if: '$CI_COMMIT_TAG'
+
+package_image_amd64:
+  extends: .package_image
+  variables:
+    ARCH: amd64
+
+package_image_arm64:
+  extends: .package_image
+  variables:
+    ARCH: arm64
+
+create_manifest:
+  stage: build
+  image:
+    name: mplatform/manifest-tool:alpine
+    entrypoint: ['']
+  needs:
+    - job: package_image_amd64
+    - job: package_image_arm64
+  rules: *publish_image_rules
+  script:
+    - |
+      manifest-tool --username "$CI_REGISTRY_USER" --password "$CI_REGISTRY_PASSWORD" \
+        push from-args \
+        --platforms linux/amd64,linux/arm64 \
+        --template "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA-ARCH" \
+        --target "$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA"
+
+      BRANCH_NAME="${CI_COMMIT_BRANCH:-$CI_COMMIT_REF_SLUG}"
+      BRANCH_TAG="$CI_COMMIT_REF_SLUG"
+      if [ "$BRANCH_NAME" = "main" ]; then
+        BRANCH_TAG=main
+      fi
+      manifest-tool --username "$CI_REGISTRY_USER" --password "$CI_REGISTRY_PASSWORD" \
+        push from-args \
+        --platforms linux/amd64,linux/arm64 \
+        --template "$CI_REGISTRY_IMAGE:$BRANCH_TAG-ARCH" \
+        --target "$CI_REGISTRY_IMAGE:$BRANCH_TAG"
+
+      if [ "$BRANCH_NAME" = "main" ]; then
+        manifest-tool --username "$CI_REGISTRY_USER" --password "$CI_REGISTRY_PASSWORD" \
+          push from-args \
+          --platforms linux/amd64,linux/arm64 \
+          --template "$CI_REGISTRY_IMAGE:main-ARCH" \
+          --target "$CI_REGISTRY_IMAGE:latest"
+      fi
+
+helm-lint:
+  stage: pre-build
+  image:
+    name: quay.io/helmpack/chart-testing:latest
+    entrypoint: ['']
+  script:
+    - helm lint charts/neo-cases-devtool
+    - helm template devtool charts/neo-cases-devtool > neo-cases-devtool.yaml
+    - helm template devtool-preview charts/neo-cases-devtool --set ingress.enabled=true --set ingress.tls[0].secretName=devtool-wildcard-tls --set ingress.tls[0].hosts[0]=preview.devtool.dev.neo.fitko.dev --set ingress.hosts[0].host=preview.devtool.dev.neo.fitko.dev > neo-cases-devtool-preview.yaml
+  artifacts:
+    paths:
+      - neo-cases-devtool.yaml
+      - neo-cases-devtool-preview.yaml
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH'
+    - if: '$CI_COMMIT_TAG'

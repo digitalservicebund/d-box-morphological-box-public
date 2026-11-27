@@ -1,0 +1,24 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+/*
+  * General global styles like variables, layer ordering, fonts and similar
+  */
+
+html,
+body {
+  background-color: var(--layout-background-default);
+  font-family: var(--typography-font-family-default);
+}
+
+/* Visually hide content while keeping it available to assistive tech */
+.visually-hidden {
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

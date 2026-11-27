@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+[package]
+name = "osci-transport-client"
+description = "OSCI-Transport client: build, send and track requests to an Intermediär"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[features]
+default = ["http"]
+http = ["dep:reqwest"]
+
+[dependencies]
+osci-transport.workspace = true
+osci-transport-crypto.workspace = true
+base64.workspace = true
+getrandom.workspace = true
+zeroize.workspace = true
+reqwest = { workspace = true, optional = true }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["macros", "rt-multi-thread", "net", "io-util"] }
+rsa.workspace = true
+pkcs8.workspace = true
+
+[[example]]
+name = "fetch_loop"
+required-features = ["http"]
+
+[[example]]
+name = "store_delivery"
+required-features = ["http"]

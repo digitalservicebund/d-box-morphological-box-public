@@ -1,0 +1,39 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+namespace: entityid
+
+image:
+  repository: nginxinc/nginx-unprivileged
+  tag: "1.29-alpine"
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: true
+  className: nginx-public
+  host: neo.fitko.dev
+  path: /
+  pathType: Prefix
+  tlsSecretName: entityid-dev-neo-fitko-tls
+
+certManager:
+  clusterIssuer: le-prod-public-route53
+
+resources:
+  requests:
+    cpu: "50m"
+    memory: "64Mi"
+  limits:
+    cpu: "200m"
+    memory: "128Mi"
+
+podLabels:
+  app.kubernetes.io/name: neo-entityid
+  app.kubernetes.io/part-of: bundid-tech-spike

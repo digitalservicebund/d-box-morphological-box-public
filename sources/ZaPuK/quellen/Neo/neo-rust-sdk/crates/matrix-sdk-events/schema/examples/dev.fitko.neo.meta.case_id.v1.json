@@ -1,0 +1,17 @@
+{
+  "type": "dev.fitko.neo.meta.case_id.v1",
+  "content": {
+    "dev.fitko.neo.meta.case_id.v1": [
+      {
+        "id": "refId-1",
+        "app": "drachenbeantragungsverfahrenssystem"
+      },
+      {
+        "id": "MSCDas-123q312",
+        "app": "system-2",
+        "visible": true,
+        "relation": "parent"
+      }
+    ]
+  }
+}

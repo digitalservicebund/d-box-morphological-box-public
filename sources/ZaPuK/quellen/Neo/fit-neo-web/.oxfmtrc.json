@@ -1,0 +1,44 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "singleQuote": true,
+  "printWidth": 80,
+  "semi": true,
+  "trailingComma": "all",
+  "sortPackageJson": false,
+  "sortImports": {
+    "newlinesBetween": false,
+    "groups": [
+      "builtin",
+      "external",
+      "internal",
+      "subpath",
+      "parent",
+      "sibling",
+      "index",
+      "style",
+      "unknown"
+    ]
+  },
+  "ignorePatterns": [
+    ".githooks/",
+    "dist/",
+    ".yarn/",
+    "node_modules/",
+    "patches/",
+    "rust_modules/",
+    "LICENSES/",
+    ".gitlab-ci.yml",
+    ".markdownlint-cli2.jsonc",
+    ".realeaserc.jsonc",
+    "commitlint.config.mjs",
+    "cspell.json",
+    "publiccode.yml",
+    "renovate.json5",
+    ".gitlab/merge_request_templates/",
+    "docs/",
+    "REUSE.toml",
+    "charts/",
+    "neo-web.yaml",
+    "src/Digitale Verwaltung Styleguide.mdx"
+  ]
+}

@@ -1,0 +1,26 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+@layer components {
+  .button-row {
+    @layer elements {
+      display: flex;
+      flex-direction: row;
+      gap: var(--metric-space-default);
+      align-items: center;
+    }
+
+    @layer modifiers {
+      &.button-row-spaced {
+        justify-content: space-between;
+      }
+
+      &.button-row-end {
+        justify-content: flex-end;
+      }
+    }
+  }
+}

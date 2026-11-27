@@ -1,0 +1,68 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background: var(--md-sys-color-surface);
+  border-right: 1px solid var(--md-sys-color-outline-variant);
+  min-height: 0;
+  overflow: hidden;
+}
+.controls {
+  display: grid;
+  flex-shrink: 0;
+  gap: 16px;
+  padding: 24px 16px 12px;
+}
+.scrollArea {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 8px 12px;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface-variant);
+  padding: 0 8px;
+}
+.list {
+  display: block;
+}
+.citizen {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.7;
+}
+.encrypted {
+  color: var(--app-encrypted);
+  --md-sys-color-on-surface: var(--app-encrypted);
+  --md-sys-color-on-surface-variant: var(--app-encrypted);
+  --md-sys-color-on-secondary-container: var(--app-on-encrypted-container);
+  --md-sys-color-secondary-container: var(--app-encrypted-container);
+}
+.unencrypted {
+  color: var(--app-unencrypted);
+  --md-sys-color-on-surface: var(--app-unencrypted);
+  --md-sys-color-on-surface-variant: var(--app-unencrypted);
+  --md-sys-color-on-secondary-container: var(--app-on-unencrypted-container);
+  --md-sys-color-secondary-container: var(--app-unencrypted-container);
+}
+.empty {
+  display: grid;
+  justify-items: center;
+  padding: 32px 16px;
+  color: var(--md-sys-color-on-surface-variant);
+  text-align: center;
+  font-size: 13px;
+}

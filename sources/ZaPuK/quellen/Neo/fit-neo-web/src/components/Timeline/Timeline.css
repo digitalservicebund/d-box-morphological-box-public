@@ -1,0 +1,86 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+@layer components {
+  .timeline-nav {
+    @layer elements {
+      --timeline-line-color: var(--action-focus-border-outside);
+      --timeline-marker-border: var(--feedback-loader);
+      --timeline-card-border: rgb(111 117 152 / 100%);
+      --timeline-marker-size: 32px;
+      --timeline-gap: var(--metric-space-x-large);
+      --timeline-new-color: #006490;
+      --timeline-new-card-background: #e0f4fc;
+
+      display: flex;
+      flex-direction: column;
+      padding: var(--metric-space-x-large) 0;
+      gap: var(--metric-space-default);
+
+      .timeline-title {
+        font-family: var(--typography-font-family-default);
+        font-weight: var(--typography-font-weight-semi-bold);
+        font-size: var(--typography-font-size-adaptive-medium);
+        line-height: var(--typography-line-height-single);
+        color: var(--layout-text-default);
+        padding: 0 var(--metric-space-default);
+      }
+
+      .timeline-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        /* Vertical timeline line */
+        &::before {
+          content: '';
+          position: absolute;
+          left: calc(var(--timeline-marker-size) / 2 - 0.5px);
+          top: 0;
+          bottom: 0;
+          width: 1px;
+          background-color: var(--timeline-line-color);
+          pointer-events: none;
+        }
+      }
+
+      .timeline-section-wrapper {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: var(--metric-space-default);
+      }
+
+      .timeline-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: var(--metric-space-default) var(--metric-space-default)
+          var(--metric-space-default)
+          calc(var(--timeline-marker-size) + var(--timeline-gap));
+        height: 56px;
+        position: relative;
+        z-index: 1;
+
+        .timeline-section-label {
+          font-family: var(--typography-font-family-default);
+          font-weight: var(--typography-font-weight-medium);
+          font-size: var(--typography-font-size-static-medium);
+          line-height: var(--typography-line-height-one-and-half);
+          color: var(--layout-text-default);
+        }
+      }
+
+      .timeline-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--timeline-gap);
+        padding: 0 var(--metric-space-default) var(--metric-space-default) 0;
+        position: relative;
+      }
+    }
+  }
+}

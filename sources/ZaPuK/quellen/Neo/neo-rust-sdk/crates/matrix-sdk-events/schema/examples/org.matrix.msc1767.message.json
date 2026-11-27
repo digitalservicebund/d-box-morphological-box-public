@@ -1,0 +1,14 @@
+{
+  "type": "org.matrix.msc1767.message",
+  "content": {
+    "m.text": [
+      {
+        "body": "<i>Hello world</i>",
+        "mimetype": "text/html"
+      },
+      {
+        "body": "Hello world"
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "dev.fitko.neo.state.meta.case.v1",
+  "state_key": "",
+  "event_id": "$otherEvent",
+  "sender": "@otherUser:homeserver.tld",
+  "origin_server_ts": 1243456765432,
+  "room_id": "!roomId",
+  "content": {
+    "dev.fitko.neo.state.meta.case.v1": {
+      "latest": "$refId-1"
+    }
+  }
+}

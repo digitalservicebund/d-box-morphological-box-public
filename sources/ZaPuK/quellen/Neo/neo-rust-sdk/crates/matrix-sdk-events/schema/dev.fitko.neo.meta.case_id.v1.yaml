@@ -1,0 +1,42 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+---
+$schema: https://json-schema.org/draft/2020-12/schema
+
+title: Case ID metadata content
+description: exended event (e2ee) with the content of the current case Id
+required:
+  - type
+  - content
+properties:
+  type:
+    enum:
+      - dev.fitko.neo.meta.case_id.v1
+    type: string
+  content:
+    type: object
+    required:
+      - "dev.fitko.neo.meta.case_id.v1"
+    properties:
+      "dev.fitko.neo.meta.case_id.v1":
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+              description: "The ID in the external system/app"
+            app:
+              type: string
+              description: "A unique ID to identify the system/app this ID belongs to"
+            visible:
+              type: boolean
+              description: "Whether this ID is visible to the user - false if absent"
+            relation:
+              type: string
+              description: "The relationship of this case ID to this case"
+          required:
+            - id
+            - app

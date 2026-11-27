@@ -1,0 +1,6 @@
+--- a/bindings/matrix-sdk-ffi/Cargo.toml
++++ b/bindings/matrix-sdk-ffi/Cargo.toml
+@@ -43 +43,3 @@
+ [dependencies]
++matrix-sdk-events.workspace = true
++itertools.workspace = true

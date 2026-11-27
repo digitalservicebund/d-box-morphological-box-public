@@ -1,0 +1,130 @@
+/*
+ * SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+/* Components top-level layer */
+@layer components {
+  .input {
+    /* Styles common to all inputs */
+    @layer elements {
+      --input-accent-color: var(--action-default);
+      --input-border-color: var(--form-input-border);
+      --input-border-width: var(--metric-border-width-default);
+      --input-border-radius: var(--metric-border-radius-default);
+      --input-label-color: var(--content-default);
+      --input-indicator-size: var(--metric-dimension-large);
+      --input-gap: var(--metric-space-default);
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: fit-content;
+      height: fit-content;
+      gap: var(--input-gap);
+      padding-inline: var(--metric-space-small);
+      cursor: pointer;
+
+      /* Hide the native control but keep it accessible */
+      .input-control {
+        appearance: none;
+        width: var(--input-indicator-size);
+        height: var(--input-indicator-size);
+        flex-shrink: 0;
+        margin: 0;
+        opacity: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+
+      /* Custom visual indicator */
+      .input-indicator {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--input-indicator-size);
+        height: var(--input-indicator-size);
+        flex-shrink: 0;
+        background-color: var(--form-input-background);
+        border-color: var(--input-border-color);
+        border-width: var(--input-border-width);
+        border-style: solid;
+
+        /* Tick mark — hidden by default */
+        &::after {
+          content: '';
+          display: block;
+          opacity: 0;
+          width: 35%;
+          height: 60%;
+          border-right: 2px solid var(--form-input-border);
+          border-bottom: 2px solid var(--form-input-border);
+          transform: rotate(45deg) translate(-15%, -10%);
+        }
+      }
+
+      .input-label {
+        color: var(--input-label-color);
+        font-weight: var(--typography-font-weight-regular);
+        font-size: var(--typography-font-size-static-medium);
+        line-height: var(--typography-line-height-one-and-half);
+      }
+    }
+
+    /* Type-specific modifiers */
+    @layer modifiers {
+      &.input-checkbox {
+        .input-indicator {
+          border-radius: var(--input-border-radius);
+        }
+      }
+
+      &.input-radio {
+        .input-indicator {
+          border-radius: var(--metric-border-radius-circle);
+        }
+      }
+    }
+
+    /* States driven by the hidden native control */
+    @layer states {
+      /* Checked state — show tick, no fill */
+      &:has(.input-control:checked) {
+        .input-indicator::after {
+          opacity: 1;
+        }
+      }
+
+      /* Hover state */
+      &:where(:hover):not(.input-disabled) {
+        .input-indicator {
+          border-color: color-mix(
+            in srgb,
+            var(--action-state-indicator-default)
+              var(--action-state-opacity-hover-percent),
+            var(--input-accent-color)
+          );
+        }
+      }
+
+      /* Focus-visible state */
+      &:has(.input-control:focus-visible) {
+        .input-indicator {
+          box-shadow:
+            0 0 0 2px var(--action-on-default),
+            0 0 0 4px var(--action-focus-border-inside),
+            0 0 0 6px var(--action-focus-border-outside);
+        }
+      }
+
+      /* Disabled state */
+      &.input-disabled {
+        /* stylelint-disable-next-line plugin/no-unsupported-browser-features -- cursor: not-allowed degrades to the default cursor where unsupported, no breakage */
+        cursor: not-allowed;
+        opacity: var(--action-state-opacity-disabled-percent);
+      }
+    }
+  }
+}

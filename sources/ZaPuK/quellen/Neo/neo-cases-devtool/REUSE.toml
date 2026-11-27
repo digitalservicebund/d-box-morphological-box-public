@@ -1,0 +1,39 @@
+version = 1
+
+# For files or folders that can not be annotated via comment headers, add them here
+
+[[annotations]]
+path = "CHANGELOG.md"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "cspell.json"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".releaserc.json"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = "*.jinja"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".gitlab/merge_request_templates/*.md"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+
+[[annotations]]
+path = ".copier-answers.yml"
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "NONE"
+
+# Strict JSON configuration and generated lockfiles.
+[[annotations]]
+path = [".fallowrc.json", "package.json", "public/config.json", "pnpm-lock.yaml", "rust/matrix-web/Cargo.lock"]
+SPDX-License-Identifier = "CC0-1.0"
+SPDX-FileCopyrightText = "2026 FITKO (Föderale IT-Kooperation)"

@@ -1,0 +1,51 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+name: UnitTests
+
+schemes:
+  UnitTests:
+    analyze:
+      config: Debug
+    archive:
+      config: Release
+    build:
+      targets:
+        UnitTests: all
+    profile:
+      config: Release
+    run:
+      config: Debug
+      disableMainThreadChecker: false
+    test:
+      config: Debug
+      disableMainThreadChecker: false
+      gatherCoverageData: true
+      coverageTargets:
+        - FITNeo-Dev
+      testPlans:
+        - path: ../../UnitTests/Resources//UnitTestsPlan.xctestplan
+          defaultPlan: true
+
+targets:
+  UnitTests:
+    type: bundle.unit-test
+    platform: iOS
+
+    dependencies:
+      - target: FITNeo-Dev
+      - package: MatrixRustSDK
+
+    info:
+      path: ../../UnitTests/Resources/Info.plist
+
+    settings:
+      base:
+        PRODUCT_NAME: UnitTests
+        PRODUCT_BUNDLE_IDENTIFIER: ${BASE_BUNDLE_IDENTIFIER}.unit.tests
+        TARGETED_DEVICE_FAMILY: '1,2'
+        TEST_HOST: $(BUILT_PRODUCTS_DIR)/$(APP_NAME)-Dev.app/$(APP_NAME)-Dev
+
+    sources:
+      - path: ../../UnitTests

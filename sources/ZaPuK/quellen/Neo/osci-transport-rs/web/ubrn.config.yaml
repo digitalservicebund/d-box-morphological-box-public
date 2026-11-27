@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+rust:
+  directory: ..
+  manifestPath: crates/osci-transport-ffi/Cargo.toml
+bindings:
+  ts: src/generated
+  cpp: src/generated/cpp
+web:
+  manifestPath: rust_modules/osci-wasm/Cargo.toml
+  manifestPatchFile: wasm-manifest-patch.toml
+  wasmCrateName: osci-transport-wasm
+  entrypoint: src/index.web.ts
+  target: bundler
+  workspace: false

@@ -1,0 +1,35 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "FITKO",
+    "Föderale",
+    "Kooperation",
+    "sicherheit",
+    "fitko",
+    "releaserc",
+    "autosquash",
+    "publiccode",
+    "holz",
+    "xcodegen",
+    "swiftgen",
+    "swiftformat",
+    "swiftlint",
+    "xcodeproj",
+    "homeserver",
+    "tchncs",
+    "xcframework",
+    "tlsv",
+    "gpatch",
+    "realpath",
+    "coreutils",
+    "rustup"
+  ],
+  "ignoreRegExpList": [
+    "Signed-off-by:.*"
+  ],
+  "ignorePaths": [
+    "CHANGELOG.md",
+    ".build/**/*.md"
+  ]
+}

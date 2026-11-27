@@ -1,0 +1,58 @@
+# SPDX-FileCopyrightText: 2025-2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+#
+# This repository adheres to the publiccode.yml standard by including this
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+---
+publiccodeYmlVersion: "0.5"
+name: FITKO Matrix G2C Communication Solution Architecture
+applicationSuite: FITKO Matrix G2C Pilot
+url: https://gitlab.opencode.de/fitko/matrix-g2x/solution-architecture
+logo: https://gitlab.opencode.de/uploads/-/system/group/avatar/506/Logo_FITKO.png
+platforms:
+  - web
+categories:
+  - communications
+  - digital-citizenship
+organisation:
+  uri: https://www.fitko.de/
+  name: FITKO (Föderale IT-Kooperation)
+developmentStatus: concept
+softwareType: standalone/other
+maintenance:
+  type: contract
+  contractors:
+    - name: Nordeck IT + Consulting GmbH
+      until: 2027-06-03
+    - name: adesso SE
+      until: 2027-06-03
+    - name: Element Software GmbH
+      until: 2027-06-03
+legal:
+  license: EUPL-1.2
+  mainCopyrightOwner: FITKO (Föderale IT-Kooperation)
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - en
+description:
+  en:
+    shortDescription: FITKO Matrix G2C Communication Solution Architecture
+    longDescription: >
+      This repository provides comprehensive documentation on the
+      solution architecture of the Matrix-based G2X communication infrastructure
+      pilot (https://gitlab.opencode.de/fitko/g2x-matrix-pilot).
+    features:
+      - arc42
+      - Architecture Decisions
+  de:
+    shortDescription: FITKO Matrix G2C-Kommunikation Lösungsarchitektur
+    longDescription: >
+      Dieses Repository enthält umfassende Dokumentation der Lösungsarchitektur
+      des Matrix-basierten G2X-Kommunikationsinfrastrukturpiloten.
+    features:
+      - arc42
+      - Architekturentscheidungen

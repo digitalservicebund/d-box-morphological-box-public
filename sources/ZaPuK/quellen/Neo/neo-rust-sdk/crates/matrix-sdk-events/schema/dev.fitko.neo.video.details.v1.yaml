@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+---
+$schema: https://json-schema.org/draft/2020-12/schema
+
+properties:
+  width:
+    type: integer
+  height:
+    type: integer
+  duration:
+    type: integer
+title: Video details content block
+type: object

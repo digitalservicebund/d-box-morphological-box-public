@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# image.tag and ingress host/tls are overridden per-branch by the ApplicationSet in
+# apps/argocd-config/dev/neo-dev-web.yaml. The develop branch deploys to
+# https://webapp.dev.neo.fitko.dev/ as requested in
+# https://gitlab.opencode.de/fitko/matrix-g2x/planning/-/issues/252
+image:
+  pullPolicy: Always
+
+# The chart's default values.yaml omits service.port, which the ingress template requires.
+# Remove once fixed upstream.
+service:
+  port: 8080
+
+# Base ingress configuration. Host, TLS secret name and TLS hosts are overridden
+# per-branch via ApplicationSet parameters.
+ingress:
+  enabled: true
+  className: nginx-public
+  annotations:
+    cert-manager.io/cluster-issuer: le-prod-public-route53
+  hosts:
+    - host: webapp.dev.neo.fitko.dev
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - secretName: webapp.dev.neo.fitko.dev-tls
+      hosts:
+        - webapp.dev.neo.fitko.dev
+
+# Set the correct homeserver
+settings:
+  homeserver: "https://synapse-ess1.dev.neo.fitko.dev"

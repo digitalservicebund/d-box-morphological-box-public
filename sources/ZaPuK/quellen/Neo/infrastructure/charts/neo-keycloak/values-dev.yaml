@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2025-2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+secretStore: "services/fitko-apps-dev/secret"
+
+mas:
+  ess1:
+    url: "https://mas-ess1.dev.neo.fitko.dev/"
+    redirect: "https://mas-ess1.dev.neo.fitko.dev/upstream/callback/01KHJT9AD75W3B4E0YE79W5247"
+  ess2:
+    url: "https://mas-ess2.dev.neo.fitko.dev/"
+    redirect: "https://mas-ess2.dev.neo.fitko.dev/upstream/callback/01KHJTXPWMDQVQAZKATTVY3Y7E"
+
+keycloakx:
+    ingress:
+        rules:
+            - host: keycloak.dev.neo.fitko.dev
+              paths:
+                - path: /
+                  pathType: Prefix
+        tls:
+            - secretName: keycloak-tls-dev
+              hosts:
+                - keycloak.dev.neo.fitko.dev

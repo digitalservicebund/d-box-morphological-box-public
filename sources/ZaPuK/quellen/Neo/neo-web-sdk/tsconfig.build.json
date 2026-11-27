@@ -1,0 +1,24 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "allowImportingTsExtensions": false,
+    "noEmitOnError": false
+  },
+  "include": [
+    "src/index.ts",
+    "src/index.web.ts",
+    "src/generated/*.ts",
+    "src/react/**/*.ts",
+    "src/react/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/generated/wasm-bindgen",
+    "src/react/**/*.test.ts"
+  ]
+}

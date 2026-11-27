@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+gitlab_project("fitko/matrix-g2x/fit-neo-ios")
+gitlab_host("https://gitlab.opencode.de")
+
+storage_mode("gitlab_secure_files")
+
+team_id = YAML.load_file("app.yml").dig('settings', 'DEVELOPMENT_TEAM')
+unless team_id.nil?
+  team_id(team_id)
+end
+
+bundle_id = YAML.load_file("app.yml").dig('settings', 'BASE_BUNDLE_IDENTIFIER')
+unless bundle_id.nil?
+    app_identifier([
+      bundle_id + ".dev",
+      bundle_id + ".demo",
+      "*"
+    ])
+end

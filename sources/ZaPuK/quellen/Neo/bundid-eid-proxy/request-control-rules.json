@@ -1,0 +1,17 @@
+[
+  {
+    "uuid": "1e22bc73-dc94-4ca8-adc8-70984163585d",
+    "pattern": {
+      "scheme": "https",
+      "host": [
+        "int.id.bund.de"
+      ],
+      "path": [
+        "*"
+      ]
+    },
+    "action": "redirect",
+    "active": true,
+    "redirectUrl": "http://localhost:1234{pathname}{search}"
+  }
+]

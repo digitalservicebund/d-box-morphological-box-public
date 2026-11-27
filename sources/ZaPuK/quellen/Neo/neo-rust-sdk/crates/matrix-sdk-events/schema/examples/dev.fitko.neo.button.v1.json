@@ -1,0 +1,24 @@
+{
+  "type": "dev.fitko.neo.button.v1",
+  "content": {
+    "dev.fitko.neo.hyperlink.v1": {
+      "dev.fitko.neo.label.v1": {
+        "m.text": [
+          {
+            "body": "Open Website"
+          }
+        ]
+      },
+      "url": "https://drachen-einfach.de"
+    },
+    "m.text": [
+      {
+        "body": "<a href=\"https://drachen-einfach.de\">Open Website</a>",
+        "mimetype": "text/html"
+      },
+      {
+        "body": "[Open Website](https://drachen-einfach.de)"
+      }
+    ]
+  }
+}

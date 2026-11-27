@@ -1,0 +1,36 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: neo-entityid-endpoint
+  namespace: argocd
+spec:
+  project: fitko-apps
+  source:
+    repoURL: https://gitlab.opencode.de/fitko/matrix-g2x/infrastructure.git
+    targetRevision: develop
+    path: charts/neo-entityid-endpoint
+    helm:
+      valueFiles:
+        - values.yaml
+      parameters:
+        - name: namespace
+          value: entityid
+        - name: ingress.className
+          value: nginx-public
+        - name: ingress.host
+          value: neo.fitko.dev
+        - name: certManager.clusterIssuer
+          value: le-prod-public-route53
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: entityid
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

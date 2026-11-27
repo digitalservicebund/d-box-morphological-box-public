@@ -1,0 +1,30 @@
+{
+  "type": "dev.fitko.neo.file.v1",
+  "content": {
+    "dev.fitko.neo.title.v1": {
+      "m.text": [
+        {
+          "body": "Passierschein A-38"
+        }
+      ]
+    },
+    "dev.fitko.neo.file.v1": {
+      "uri": "mxc://fitko.dev/abcd1234",
+      "name": "anlage.pdf",
+      "mimetype": "application/pdf",
+      "size": 12345678
+    },
+    "m.caption": {
+      "m.text": [
+        {
+          "body": "Nobody will read this caption!"
+        }
+      ]
+    },
+    "m.text": [
+      {
+        "body": "anlage.pdf (12 MB)"
+      }
+    ]
+  }
+}

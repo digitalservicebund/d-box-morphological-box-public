@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+
+SPDX-License-Identifier: EUPL-1.2
+-->
+<!DOCTYPE catalog PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN"
+  "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+<!--
+The OSCI XSDs import external W3C schemas by URL. This catalog redirects
+those URLs to the local copies in extern/ so xmllint can validate them
+offline, without editing the vendored schema files.
+-->
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <uri name="http://www.w3.org/2001/xml.xsd" uri="extern/xml.xsd"/>
+  <uri name="http://www.w3.org/TR/2001/CR-xmldsig-core-20010419/xmldsig-core-schema.xsd"
+       uri="extern/xmldsig-core-schema.xsd"/>
+  <uri name="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/xmldsig-core-schema.xsd"
+       uri="extern/xmldsig-core-schema.xsd"/>
+  <uri name="https://www.w3.org/2008/xmlsec/Drafts/xmlenc-core-11/xenc-schema-11.xsd"
+       uri="extern/xenc-schema-11.xsd"/>
+  <uri name="http://www.w3.org/TR/xmlenc-core/xenc-schema.xsd" uri="extern/xenc-schema.xsd"/>
+  <uri name="http://www.w3.org/TR/2002/REC-xmlenc-core-20021210/xenc-schema.xsd"
+       uri="extern/xenc-schema.xsd"/>
+  <uri name="http://schemas.xmlsoap.org/soap/envelope/" uri="extern/soap-envelope.xsd"/>
+</catalog>

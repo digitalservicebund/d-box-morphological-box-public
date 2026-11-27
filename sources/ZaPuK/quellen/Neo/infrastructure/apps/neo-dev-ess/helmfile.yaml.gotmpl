@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2025-2026 Element Creations Ltd
+# SPDX-FileCopyrightText: 2025-2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+---
+releases:
+- name: ess
+  namespace: neo-dev-{{ requiredEnv "ESS_INSTANCE" }}
+  chart: oci://ghcr.io/element-hq/ess-helm/matrix-stack
+  version: 26.11.1
+  values:
+  - values.common.yaml
+  - values.eso-integration.yaml
+  set:
+  - name: serverName
+    value: {{ requiredEnv "ESS_INSTANCE" }}.dev.neo.fitko.dev

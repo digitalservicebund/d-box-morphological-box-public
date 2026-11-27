@@ -1,0 +1,104 @@
+// Global App Strings
+"app.display_name" = "My Digital Administration";
+// LoginView Screen
+"screen.login_view.subtitle" = "Easy communication with the administration";
+"screen.login_view.button" = "Log in with BundID";
+"screen.login_error.authentication_failed" = "Unable to authenticate";
+// Navigation Tabs
+"navigation.tab.processes" = "Cases";
+"navigation.tab.documents" = "Documents";
+"navigation.tab.account" = "Account";
+"navigation.tab.help" = "Help";
+// Status Info List View
+"screen.status_info_list_view.navigation_title" = "Status Explanation";
+// Statuses Detail Info
+"screen.status_info_list_view.info.process_sent" = "You have completed the case and subsequently submitted it digitally to the authority.\n\nIf a time estimate for the authority's response can be provided, it will be displayed in the app.";
+"screen.status_info_list_view.info.process_received" = "Your case has been received by the authority. It has not yet been reviewed, but the review will start soon.\n\nIf a time estimate for the authority's response can be provided, it will be displayed in the app.";
+"screen.status_info_list_view.info.process_under_review" = "Your case is being reviewed and processed by the authority. You will receive feedback on your case soon.\n\nIf a time estimate for the authority's response can be provided, it will be displayed in the app.";
+"screen.status_info_list_view.info.process_activity_required" = "If this step is displayed, your activity is required. More information can be found in the corresponding messages.\n\nIf you need to respond within a certain timeframe, this will be indicated by the app.";
+"screen.status_info_list_view.info.process_completed" = "The case has been successfully completed.";
+// ProcessesView Screen
+"screen.processes_view.sub_header" = "No cases pending.";
+"screen.processes_view.paragraph_1" = "Once you have an active case with a specialist authority, you can take advantage of the benefits listed below.";
+"screen.processes_view.benefit_1" = "Simple, fast and secure communication for all your active official matters.";
+"screen.processes_view.benefit_2" = "Simple upload and overview of all your documents.";
+"screen.processes_view.benefit_3" = "A wide range of helpful information and support for your administrative cases.";
+"screen.processes_view.paragraph_2" = "Starting a new case with the administrative services of the federal government, states, and municipalities can be done online.";
+"screen.processes_view.federal_portal" = "Access the Federal Portal";
+"screen.processes_view.completed_processes" = "Your completed cases";
+"screen.processes_view.hide_completed" = "Hide completed cases";
+"screen.processes_view.show_completed" = "Show completed cases";
+// Help View
+"screen.help.title" = "Do you need help?";
+"screen.help.paragraph1" = "The team at the authorities' number 115 answers all inquiries about your cases from Monday to Friday between 8:00 and 18:00.";
+"screen.help.paragraph2" = "Alternatively, you can also use our help section to search for an answer to your specific question.";
+"screen.help.call" = "Call 115";
+"screen.help.open_help" = "Open Help";
+"screen.help.browser_not_supported" = "Unable to open the web browser.";
+"screen.help.calls_not_supported" = "Phone calls are not possible on this device.";
+// Process Details Screen
+"screen.process_details_view.title" = "Case details";
+// Reports View Sheet
+"screen.reports_view.title" = "Reports";
+"screen.reports_view.empty.title" = "No reports available";
+"screen.reports_view.empty.detail" = "There are currently no updates from your transactions.";
+// Messages Overview Screen
+"screen.messages_overview_view.title" = "Case Messages";
+"screen.messages_overview_view.no_messages" = "No messages received yet.";
+"screen.messages_overview_view.no_messages_detail" = "Once you have received a message regarding your application, you can view it here.";
+// Message Details Screen
+"screen.message_details_view.title" = "Message details";
+"screen.message_details_view.expand_header" = "Expand message header";
+"screen.message_details_view.collapse_header" = "Collapse message header";
+"screen.message_details_view.case_inquiry" = "Inquiry regarding your case";
+// Message Reply Screen
+"screen.message.reply.expand" = "Expand answer editor";
+"screen.message.reply.collapse" = "Collapse answer editor";
+"screen.message.reply.placeholder" = "Enter your answer...";
+"screen.message.reply.required" = "Answer required";
+"screen.message.reply.answered" = "Answered on time";
+"screen.message.reply.submit.button" = "Send answer";
+"screen.message.reply.template" = "Dear Sir or Madam,\n\nSincerely,\n%@";
+"screen.message.reply.add_template" = "Add answer template";
+"screen.message.reply.clear_reply" = "Clear answer content";
+"screen.message.reply.add_reply" = "Add to answer";
+"screen.message.reply.no_content" = "Message has no plain text content";
+"screen.message.reply.unsupported_content_type" = "Message content is not supported";
+// Message Reply Confirmation Screen
+"screen.message.reply.confirm.title" = "Send answer?";
+"screen.message.reply.confirm.details" = "Your information is binding. Please confirm if you want to send the answer.";
+"screen.message.reply.confirm.answer" = "Answer:";
+"screen.message.reply.confirm.check_details.button" = "Check details";
+"screen.message.reply.confirm.sending" = "Sending answer...";
+"screen.message.reply.success.title" = "Thank you!";
+"screen.message.reply.success.details" = "Your answer has been successfully sent.";
+"screen.message.reply.success.button" = "Done";
+// Message Inquiry Polls
+"screen.message.reply.polls.none_of_the_above" = "None of the above answers";
+"screen.message.reply.polls.add_comment" = "Add a comment...";
+"screen.message.reply.polls.comment" = "Comment:";
+// Generic Shared Strings
+"screen.information" = "Information";
+"screen.attachments" = "Attachments";
+"screen.not_implemented" = "This is not implemented yet";
+"screen.loading" = "Loading...";
+"screen.loading_failed" = "Loading failed!";
+"screen.expand_details" = "Expand details";
+"screen.hide_details" = "Hide details";
+"screen.show_more_info" = "Show more information";
+"screen.warning.message_due_date" = "Answer by %@";
+"screen.warning.process_due_date" = "You must answer at least to one message by %@";
+"screen.action.reply_now" = "Answer now";
+"screen.messages.your_reply" = "Your answer";
+// Generic Alert Strings
+"alert.error_occurred" = "An error occurred";
+"alert.ok" = "OK";
+// Process Statuses
+"status.process_sent" = "Case Sent";
+"status.process_received" = "Case Received";
+"status.process_under_review" = "Case Under Review";
+"status.process_activity_required" = "Activity Required";
+"status.process_completed" = "Case Completed";
+"status.new_message" = "New Message";
+// Others
+"processes.unknown_authority" = "Unknown Authority";

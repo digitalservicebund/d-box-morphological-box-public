@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2025 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+input_dir: FITNeo/
+output_dir: FITNeo/Generated/
+
+fonts:
+  inputs:
+    - Resources/Fonts/
+  outputs:
+    - templateName: swift5
+      output: Fonts+Generated.swift
+
+strings:
+  inputs:
+    - Resources/Localizations/en.lproj
+  outputs:
+    - templateName: structured-swift5
+      output: Strings+Generated.swift
+
+xcassets:
+  inputs:
+    - Resources/Assets.xcassets
+    - Resources/Theme.xcassets
+  outputs:
+    - templateName: swift5
+      output: Assets+Generated.swift
+      params:
+        forceProvidesNamespaces: true

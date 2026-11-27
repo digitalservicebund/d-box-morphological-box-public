@@ -1,0 +1,106 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+/* Components top-level layer */
+@layer components {
+  .card {
+    /* Styles common to all cards */
+    @layer elements {
+      background-color: var(--layout-background-default);
+      border-radius: var(--metric-border-radius-default);
+      border-width: var(--metric-border-width-light);
+      border-color: var(--action-focus-border-inside);
+      border-style: solid;
+      padding: var(--metric-space-x-large);
+      display: flex;
+      flex-direction: column;
+      gap: var(--metric-space-x-large);
+
+      div.title-body {
+        display: flex;
+        flex-direction: column;
+        gap: var(--metric-space-small);
+
+        .text {
+          display: flex;
+          flex-direction: column;
+
+          --text-gap: var(--metric-space-small);
+          --text-padding: unset;
+
+          gap: var(--text-gap);
+          padding: var(--text-padding);
+
+          h3 {
+            font-family: var(--typography-font-family-default);
+            font-weight: var(--typography-font-weight-semi-bold);
+            font-size: var(--typography-font-size-adaptive-medium);
+            line-height: var(--typography-line-height-single);
+            color: var(--layout-text-default);
+          }
+
+          p {
+            font-family: var(--typography-font-family-default);
+            font-weight: var(--typography-font-weight-regular);
+            font-size: var(--typography-font-size-static-large);
+            line-height: var(--typography-line-height-one-and-half);
+            color: var(--layout-text-default);
+          }
+        }
+      }
+
+      div.action {
+        align-self: flex-end;
+      }
+    }
+
+    @layer modifiers {
+      &.centered {
+        border-color: var(--action-focus-border-inside);
+        min-height: 400px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        .title-body {
+          gap: var(--metric-space-x-large);
+          max-width: 395px;
+
+          .icon {
+            width: 104px;
+            height: 104px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+
+            svg {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          .text {
+            --text-gap: var(--metric-space-small);
+            --text-padding: 0;
+
+            h3 {
+              letter-spacing: var(--metric-space-none);
+              margin: 0;
+            }
+
+            p {
+              font-size: var(--typography-font-size-static-medium);
+              line-height: var(--typography-line-height-one-and-half);
+              letter-spacing: var(--metric-space-none);
+              margin-bottom: var(--metric-space-default);
+            }
+          }
+        }
+      }
+    }
+  }
+}

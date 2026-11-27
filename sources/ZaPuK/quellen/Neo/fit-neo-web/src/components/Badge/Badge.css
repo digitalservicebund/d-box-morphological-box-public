@@ -1,0 +1,137 @@
+/*
+ * SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+ *
+ * SPDX-License-Identifier: EUPL-1.2
+ */
+
+/* Components top-level layer */
+@layer components {
+  .badge {
+    /* Styles common to all badges */
+    @layer elements {
+      --badge-border-radius: var(--metric-border-radius-default);
+      --badge-border-width: var(--metric-border-width-light);
+      --badge-heading-top-padding: var(--metric-space-2x-small);
+      --badge-heading-bottom-padding: var(--metric-space-2x-small);
+      --badge-heading-left-padding: var(--component-badge-space-left);
+      --badge-heading-right-padding: var(--metric-space-default);
+
+      display: block;
+      height: fit-content;
+      width: fit-content;
+      border-radius: var(--badge-border-radius);
+      border-style: solid;
+      border-width: var(--badge-border-width);
+      border-color: var(--feedback-info);
+      color: var(--layout-text-default);
+      font-family: var(--typography-font-family-default);
+      font-weight: var(--typography-font-weight-medium);
+      font-size: var(--typography-font-size-static-small);
+      line-height: var(--typography-line-height-one-and-half);
+
+      .header {
+        z-index: -1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        min-height: 32px;
+        border-radius: calc(
+          var(--badge-border-radius) - var(--badge-border-width)
+        );
+        padding: var(--badge-heading-top-padding)
+          var(--badge-heading-right-padding) var(--badge-heading-bottom-padding)
+          var(--badge-heading-left-padding);
+        background-color: var(--feedback-info-background);
+
+        .title {
+          padding-left: 6px;
+        }
+      }
+
+      .body {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--layout-background-default);
+        border-bottom-left-radius: var(--badge-border-radius);
+        border-bottom-right-radius: var(--badge-border-radius);
+
+        /* Design spec: 14px top / 18px bottom, off the metric-space scale */
+        padding: 14px var(--metric-space-large) 18px;
+        gap: var(--metric-space-small);
+        font-weight: var(--typography-font-weight-regular);
+
+        .learn-more {
+          display: flex;
+          align-items: center;
+          padding-top: var(--metric-baseline-body-default-padding-top);
+          padding-bottom: var(--metric-baseline-body-default-padding-bottom);
+        }
+      }
+    }
+
+    /* Component modifiers layer */
+    @layer modifiers {
+      &.info {
+        --badge-border-color: var(--feedback-info);
+        --badge-header-background-color: var(--feedback-info-background);
+      }
+
+      &.success {
+        --badge-border-color: var(--feedback-success);
+        --badge-header-background-color: var(--feedback-success-background);
+      }
+
+      &.warning {
+        --badge-border-color: var(--feedback-warning);
+        --badge-header-background-color: var(--feedback-warning-background);
+      }
+
+      &.error {
+        --badge-border-color: var(--feedback-danger);
+        --badge-header-background-color: var(--feedback-danger-background);
+      }
+
+      &.neutral {
+        --badge-border-color: var(--feedback-loader);
+        --badge-header-background-color: var(--layout-background-hued);
+      }
+
+      &.received {
+        --badge-border-color: var(--feedback-loader);
+        --badge-header-background-color: var(--feedback-loader-background);
+      }
+
+      border-color: var(--badge-border-color);
+
+      .header {
+        background-color: var(--badge-header-background-color);
+        border-bottom-left-radius: var(--badge-border-radius-bottom-left);
+        border-bottom-right-radius: var(--badge-border-radius-bottom-right);
+      }
+
+      &.large {
+        --badge-border-radius-bottom-left: 0;
+        --badge-border-radius-bottom-right: 0;
+        --badge-border-width: var(--metric-border-width-default);
+        --badge-heading-top-padding: var(--metric-space-default);
+        --badge-heading-bottom-padding: var(--metric-space-default);
+        --badge-heading-left-padding: var(--metric-space-default);
+        --badge-heading-right-padding: var(--metric-space-default);
+
+        .header {
+          justify-content: start;
+        }
+      }
+
+      &:not(.large) {
+        --badge-border-radius-bottom-left: calc(
+          var(--badge-border-radius) - var(--badge-border-width)
+        );
+        --badge-border-radius-bottom-right: calc(
+          var(--badge-border-radius) - var(--badge-border-width)
+        );
+      }
+    }
+  }
+}

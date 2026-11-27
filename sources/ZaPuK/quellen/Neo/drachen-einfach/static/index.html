@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gewerbliche Drachenhaltung - Erlaubnis beantragen</title>
+    <link rel="stylesheet" href="static/bootstrap-4.3.1.min.css" />
+    <link rel="stylesheet" href="static/bulma/css/bulma.min.css" />
+    <link rel="stylesheet" href="static/app.css" />
+    <link rel="stylesheet" href="static/kern.min.css" />
+    <link rel="stylesheet" href="static/fonts/fira-sans.css" />
+    <link rel="shortcut icon" href="static/logo.png" />
+  </head>
+  <body>
+    <div class="kern-kopfzeile">
+      <div class="kern-container">
+        <div class="kern-kopfzeile__content">
+          <span class="kern-kopfzeile__label">
+            Inoffizielle Webseite – Zentrale Zulassungsstelle für Drachenhaltung
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar" role="navigation">
+      <div class="kern-container">
+        <div class="kern-row">
+          <div class="kern-col-md-3 kern-col-lg-4">
+            <a href="/"><img class="zzd-logo" src="/static/assets/img/zzd-logo.png" alt="Muster Bundesamt"></a>
+          </div>
+          <ul class="kern-col-md-9 kern-col-lg-8 menu">
+            <li><a href="#" class="kern-link"><span class="kern-icon kern-icon--arrow-forward" aria-hidden="true"></span>English</a></li>
+            <li><a href="#" class="kern-link"><span class="kern-icon kern-icon--arrow-forward" aria-hidden="true"></span>Leichte Sprache</a></li>
+            <li><a href="#" class="kern-link"><span class="kern-icon kern-icon--arrow-forward" aria-hidden="true"></span>Gebärdensprache</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="app" class="kern-container">
+      <!--<div class="bigimage"></div>-->
+
+      <div id="pageWelcome" class="page show">
+        <div class="kern-row">
+	      	<div class="kern-col-md-10">
+            <p class="kern-preline kern-preline--large">Zentrales Drachenregister</p>
+            <h1 class="kern-heading-display">Gewerbliche Drachenhaltung online beantragen!</h1>
+            <p class="kern-body">
+              Ein herzliches Willkommen bei der Zentralen Zulassungsstelle für Drachenhaltung (ZZD).
+              Du möchtest gewerblich Drachen halten? Dann bist Du hier genau richtig!
+            </p>
+          </div>
+	      	<!--<div class="kern-col-md-5">
+           <a href="https://commons.wikimedia.org/wiki/File:Komodo_dragon_(Varanus_komodoensis)_2.jpg#/media/File:Komodo_dragon_(Varanus_komodoensis)_2.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Komodo_dragon_%28Varanus_komodoensis%29_2.jpg" alt="File:Komodo dragon (Varanus komodoensis) 2.jpg" height="720" width="978"></a><p class="kern-subline kern-subline--small">By <a href="https://www.wikidata.org/wiki/Q54800218" class="extiw" title="d:Q54800218"><span title="Scottish wildlife photographer">Charles J. Sharp</span></a> - <span class="int-own-work">Self-photographed</span>, from <a rel="nofollow" class="external text" href="https://www.sharpphotography.co.uk/">Sharp Photography, sharpphotography.co.uk</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=106096445">Link</a></p>
+          </div>-->
+      	</div>
+
+        <div class="kern-row">
+          <div class="kern-col-md-6">
+            <article class="kern-card">
+              <div class="kern-card__media">
+                <a href="https://commons.wikimedia.org/wiki/File:2022-10-28_Introduce-the-dragon-to-the-outside-world_by-David-Revoy.jpg#/media/File:2022-10-28_Introduce-the-dragon-to-the-outside-world_by-David-Revoy.jpg"><img src="static/assets/img/2022-10-28_Introduce-the-dragon-to-the-outside-world_by-David-Revoy.jpg" alt="File:2022-10-28 Introduce-the-dragon-to-the-outside-world by-David-Revoy.jpg" height="2231" width="4955"></a>
+              </div>
+              <div class="kern-card__container">
+                <p class="text-right">By <a href="https://en.wikipedia.org/wiki/en:David_Revoy" class="extiw" title="w:en:David Revoy"><span title="French illustrator and creator of the webcomic ''Pepper&amp;Carrot''">David Revoy</span></a> - <a rel="nofollow" class="external free" href="https://www.peppercarrot.com/fr/artworks/misc.html">https://www.peppercarrot.com/fr/artworks/misc.html</a>, <a href="https://creativecommons.org/licenses/by/4.0" title="Creative Commons Attribution 4.0">CC BY 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=152659761">Link</a></p>
+                <header class="kern-card__header">
+                    <hgroup>
+                      <h2 class="kern-title">Drachen neu anmelden</h2>
+                    </hgroup>
+                </header>
+                <section class="kern-card__body">
+                  <p class="kern-body">
+                    Du findest Online-Anträge cool? Wir auch! Deswegen ist dies kein echter Antrag sondern eine Technologiestudie. Also
+                    ein: was wäre wenn - und könnte man das nicht alles einfacher machen?
+                  </p>
+                </section>
+                <footer class="kern-card__footer">
+                  <button class="kern-btn kern-btn--primary" v-on:click="showPageQRCode">
+                    <span class="kern-label">Zur Anmeldung</span>
+                  </button>
+                </footer>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div id="pageQRCode" class="page">
+        <h2 class="kern-heading-x-large">Authentifizieren</h2>
+
+        <section class="pb-5">
+          Um deine Erlaubnis zur gewerblichen Drachenhaltung zu erhalten müssen wir wissen, wer du wirklich bist.
+          Bitte authentifiziere Dich über die <emph>BundID</emph>.
+        </section>
+
+        <section class="section">
+          <form action="/bundid" method="get">
+            <button class="kern-btn kern-btn--primary">
+              <span class="kern-label">Login mit BundID</span>
+            </button>
+          </form>
+        </section>
+
+        <button class="kern-btn kern-btn--secondary" v-on:click="showPageWelcome">
+          <span class="kern-icon kern-icon--arrow-back" aria-hidden="true"></span>
+          <span class="kern-label">Zurück</span>
+        </button>
+
+      </div>
+
+      <div id="pageForm" class="page">
+        <h1 class="title is-1">Erlaubnis zur gewerblichen Drachenhaltung beantragen</h1>
+
+        <section class="pb-5">
+          Die Authentifizierung war erfolgreich!
+          Wir haben bereits Deinen Antrag mit Hilfe Deiner Daten aus dem Personalausweis vorbefüllt.
+          Bitte prüfe den Antrag und sende ihn dann ab.
+        </section>
+
+        <h2 class="title is-4">Daten der antragstellenden Person</h2>
+        <section class="pb-5">
+          Die folgenden Daten wurden automatisiert aus der BundID übernommen und können ohne entsprechende Hackerskills nicht verändert werden.
+        </section>
+
+        <div class="field">
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              placeholder="Vorname"
+              disabled
+              v-model="userData.firstname || ''"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              placeholder="Nachname"
+              disabled
+              v-model="userData.lastname || ''"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              placeholder="Adresse"
+              disabled
+              v-model="userData.address || ''"
+            />
+          </div>
+        </div>
+        <h2 class="title is-4 pt-5">Sachkundenachweis</h2>
+        <section class="pb-5">
+          Bei welcher Drachen sind Wirbeltiere. Die Haltung ist mit hohen Auflagen verbunden. Diese betreffen sowohl die Sachkunde im Umgang mit den Tieren wie auch die besondere bauliche Ausstattung und Lage der Gehege. Bitte nenen Sie die zuständige Stelle, bei welcher Sie ihren Sachkundenachweis beantragt haben.
+        </section>
+
+        <div class="field">
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              placeholder="Ausstellende Stelle des Sachkundenachweises"
+              v-model="comment"
+            />
+          </div>
+        </div>
+
+        <button class="kern-btn kern-btn--secondary" v-on:click="showPageWelcome">
+          <span class="kern-icon kern-icon--arrow-back" aria-hidden="true"></span>
+          <span class="kern-label">Zurück</span>
+        </button>
+
+        <button class="kern-btn kern-btn--primary" v-on:click="showPageSuccess">
+          <span class="kern-label">Antrag absenden</span>
+        </button>
+
+      </div>
+
+      <div id="pageSuccess" class="page">
+        <h1 class="title is-1">Das war's schon 🥳</h1>
+
+        <section class="pb-5">
+          Ihr Antrag ist auf dem Weg zur Zentralen Zulassungsstelle für Drachenhaltung (ZZD)!
+        </section>
+
+        <section class="pb-5">
+          Informiere Dich in Deiner <emph>Meine Verwaltung Digital</emph>-App über den Status Deines Antrags.
+          Wir senden dir dort Informationen zum Fortschritt der Bearbeitung.
+        </section>
+
+        <button class="kern-btn kern-btn--primary" v-on:click="showPageWelcome">
+          <span class="kern-label">Beenden</span>
+        </button>
+      </div>
+
+      <p class="kern-body has-text-grey-lighter pt-5">DestinationId: {{destinationId || '-'}} </p>
+    </div>
+
+    <footer class="zzd-footer" data-kern-theme="dark">
+
+      <div class="kern-container">
+        <div class="kern-row">
+          <ul class="kern-col-md-9">
+            <h2 class="kern-heading-medium">Impressum</h2>
+            <p class="kern-body">
+              Zentrale Zulassungsstelle für Drachenhaltung<br>
+              Am feurigen Ufer<br>
+              12345 Siebenbergen
+            </p>
+          </ul>
+          <ul class="kern-col-md-3">
+            <li><a href="#" class="kern-link"><span class="kern-icon kern-icon--arrow-forward" aria-hidden="true"></span>Kontakt</a></li>
+            <li><a href="#" class="kern-link"><span class="kern-icon kern-icon--arrow-forward" aria-hidden="true"></span>Presse</a></li>
+            <li><a href="#" class="kern-link"><span class="kern-icon kern-icon--arrow-forward" aria-hidden="true"></span>Karriere</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="static/vue-v2.6.12.js"></script>
+    <script type="text/javascript" src="static/qrcodejs/qrcode.js"></script>
+    <script type="text/javascript" src="static/barcode-generator.js"></script>
+    <script type="text/javascript" src="static/network.js"></script>
+    <script type="text/javascript" src="static/app.js"></script>
+  </body>
+</html>

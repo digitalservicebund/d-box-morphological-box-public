@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2026 FITKO (Föderale IT-Kooperation)
+#
+# SPDX-License-Identifier: CC0-1.0
+
+FROM docker.io/library/node:current-alpine
+
+WORKDIR /app
+
+COPY package.json package-lock.json /app/
+RUN npm ci --omit=dev --ignore-scripts
+
+COPY src /app/src
+COPY assets /app/assets
+
+USER node
+
+ENTRYPOINT [ "node", "src/server.mts" ]
