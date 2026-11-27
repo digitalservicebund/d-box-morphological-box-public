@@ -136,7 +136,7 @@ Pfade relativ zu `quellen/`.
 - **Verschlüsselung at rest** und **Abruf-/Lesebestätigung**: nur Stand 2022 belegt.
 - **Kontolaufzeit**: AKDB koppelt sie an das Ausweisdokument, BMDS nur an Inaktivität.
 - **DIdG**: Identifizierung ohne BundID würde Nutzer ohne Postfach erzeugen. Der Bundestag hat daraufhin festgeschrieben, dass das zentrale Bürgerkonto „stets gewährleistet“ ist (`recht-governance/BT-Drs_21-8617_…pdf` S. 16). Gesetzesbeschluss vom 15.10.2026, zweiter Durchgang Bundesrat bis 20.11.2026, noch nicht in Kraft.
-- **Zukunft**: ZaPuK sieht vor, das ZBP-Backend abzulösen und das Postfach aus der BundID herauszulösen (`../zapuk-main/Glossar.md`, Eintrag ZBP; `../zapuk-main/Zielarchitektur/Architekturentscheidungen/ADR-1110*.md`). Das kollidiert mit § 2 Abs. 7 OZG. Neo (Matrix) soll laut `../neo-solution-architecture-develop/` das ZBP ersetzen.
+- **Zukunft**: ZaPuK sieht vor, das ZBP-Backend abzulösen und das Postfach aus der BundID herauszulösen (`../zapuk-v1.0.0-121-g7419d8b/Glossar.md`, Eintrag ZBP; `../zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Architekturentscheidungen/ADR-1110*.md`). Das kollidiert mit § 2 Abs. 7 OZG. Neo (Matrix) soll laut `../neo-solution-architecture-develop/` das ZBP ersetzen.
 
 ## 7. Lücken
 
@@ -146,6 +146,6 @@ Pfade relativ zu `quellen/`.
 
 ## 8. Verwandte lokale Quellen
 
-- `../zapuk-main/`: ZBP als Bestandssystem, Ablösung, ADR-0011 (ZBP-Anbindung über FIT-Connect), ADR-1110 (Entkopplung Nutzerkonto und Postfach).
+- `../zapuk-v1.0.0-121-g7419d8b/`: ZBP als Bestandssystem, Ablösung, ADR-0011 (ZBP-Anbindung über FIT-Connect), ADR-1110 (Entkopplung Nutzerkonto und Postfach).
 - `../neo-solution-architecture-develop/`: Matrix-Nachfolger, der in die BundID integriert werden und das ZBP ersetzen soll.
 - `../ELSTER/ELSTER-Zusammenfassung.md`: ELSTER-Postfach als Vergleich (ELSTER-Zertifikat ist auch BundID-Login-Mittel).

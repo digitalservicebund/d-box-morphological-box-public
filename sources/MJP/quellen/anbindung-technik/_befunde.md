@@ -7,7 +7,7 @@ Kürzel:
 - ANF = blk_anforderungen-drittanwendungen-osci-erv_v1.8_2022-04-20.pdf; LF = justiz_erv-leitfaden_2025-07.pdf; ERVB = bmj_ervb-2025_2025-07-16.pdf
 - BLK-MJP = jmnrw_erlass-anlage-mein-justizpostfach-information_v1.1_2023-10-25.pdf (Text der BLK-AG, gleichlautend blkag_mein-justizpostfach-information_v1.1_2023-10-25.pdf)
 - SAFE-STD = egvp_standard-safe-verzeichnisdienst-suche_v1.5_2026-05-21.pdf; EBO = egvp_sicherer-uebermittlungsweg-buerger-organisationen_v1.4_2022-08-04.pdf; BEBPO-INFO = egvp_informationsmaterial-behoerden-bebpo-eeb_v1.4_2021-07.pdf
-- ZAPUK-AK = ../../../zapuk-main/Zielarchitektur/Architekturkonzept/README.md
+- ZAPUK-AK = ../../../zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Architekturkonzept/README.md
 
 ## Kurzbild der Architektur
 
@@ -104,7 +104,7 @@ Morph_box Ü2, Ausprägung 4: „Ende-zu-Ende mit Schlüsselverwahrung beim Betr
 - Innerhalb des ERV: MJP ↔ Justiz, beBPo, beA, beN, beSt; nicht MJP ↔ MJP, nicht MJP ↔ eBO (LF S. 9 Z. 336–353). Behörden adressieren MJP-Nutzer als „OZG-Konten“ (justizportal_erv-behoerden_bebpo.md Z. 115–116).
 - BundID als Identitätsprovider und Benachrichtigungskanal (siehe P2, P9).
 - e-CODEX: Anbindung auf Justizseite über EGVP → Connector → Gateway, koordiniert von NRW (edvgt_nationale-umsetzung-europaeische-justizdigitalisierung-holthaus_2023-09.pdf S. 7 Z. 132, S. 11 Z. 206–210) [veraltet?]. Für MJP-Nutzer kein direkter Weg belegt **[Folgerung]**.
-- ZaPuK: MJP als Bestandslösung (ZAPUK-AK Z. 391); Messaging Bridges verboten, nur Frontend-Integration über Channel Adapter (ZAPUK-AK Z. 395–403); MJP-Integration mit EGVP kann entfallen, wenn EGVP in die Zielarchitektur integriert wird (ZAPUK-AK Z. 419); Justiz mit eigenem Postfach-Backend, EGVP über Protokollkonverter (../../../zapuk-main/Glossar.md Z. 523); Frontends von ZBP, MJP, OZGPP, Postfach 2.0 zusammenführen (../../../zapuk-main/Zielarchitektur/Zusammenfassung/README.md Z. 222).
+- ZaPuK: MJP als Bestandslösung (ZAPUK-AK Z. 391); Messaging Bridges verboten, nur Frontend-Integration über Channel Adapter (ZAPUK-AK Z. 395–403); MJP-Integration mit EGVP kann entfallen, wenn EGVP in die Zielarchitektur integriert wird (ZAPUK-AK Z. 419); Justiz mit eigenem Postfach-Backend, EGVP über Protokollkonverter (../../../zapuk-v1.0.0-121-g7419d8b/Glossar.md Z. 523); Frontends von ZBP, MJP, OZGPP, Postfach 2.0 zusammenführen (../../../zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Zusammenfassung/README.md Z. 222).
 
 ### Ü6 Malware-Prüfung
 
@@ -120,7 +120,7 @@ Morph_box Ü2, Ausprägung 4: „Ende-zu-Ende mit Schlüsselverwahrung beim Betr
 
 ### I2 Datenhaltung und Versand
 
-- Intermediär speichert OSCI-Nachrichten im asynchronen Szenario (ANF S. 12 Z. 439–440); dauerhafte Speicherung außerhalb der Infrastruktur (../../../zapuk-main/Zielarchitektur/Architekturentscheidungen/ADR-0011-Kommunikationsschicht.md Z. 304–306).
+- Intermediär speichert OSCI-Nachrichten im asynchronen Szenario (ANF S. 12 Z. 439–440); dauerhafte Speicherung außerhalb der Infrastruktur (../../../zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Architekturentscheidungen/ADR-0011-Kommunikationsschicht.md Z. 304–306).
 - MJP-Server hält ein- und ausgehende Nachrichten verschlüsselt vor (API `/messages/ebo/incoming`, `/outgoing`, WEB Z. 31) **[Folgerung]**; Backups und Logs bis 90 Tage verschlüsselt (WEB Abschnitt 6, [559289]). Löschen des Postfachs löscht Nachrichten und SAFE-Eintrag (I18N Z. 2237–2238).
 - Zertifikatslaufzeit 3 Jahre; nach Ablauf kein Senden/Empfangen bis zur Erneuerung (WEB Z. 18; I18N Z. 1994–1995).
 

@@ -2,7 +2,7 @@
 
 Abgerufen: 2026-11-18. PDFs sind Originale; HTML-Seiten als Markdown mit Quell-URL und Abrufdatum im Kopf. Seitenangaben = PDF-Seite (bei BT-Drucksachen identisch mit gedruckter Seite, sofern nicht anders vermerkt).
 
-Abgrenzung: Produkt-/Nutzersicht liegt in `../muk-betreiber/`, Behördenanbindung, Schnittstellen und Leitfäden (NEZO, Postfach 2.0, OZG-PLUS-Postfach, SSP) liegen in `../anbindung-technik/`. ZaPuK-Dokumente in `../../../zapuk-main/`.
+Abgrenzung: Produkt-/Nutzersicht liegt in `../muk-betreiber/`, Behördenanbindung, Schnittstellen und Leitfäden (NEZO, Postfach 2.0, OZG-PLUS-Postfach, SSP) liegen in `../anbindung-technik/`. ZaPuK-Dokumente in `../../../zapuk-v1.0.0-121-g7419d8b/`.
 
 | Datei | URL | Titel / Herausgeber | Datum Dokument | Inhalt (kurz) |
 |---|---|---|---|---|

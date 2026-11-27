@@ -10,11 +10,11 @@ Evidenzstufen (Spalte `Stufe`):
 
 Bei gemischten Zeilen steht zuerst die Stufe des belegten Teils, danach die Stufe des Teils, der in der Aussage mit `[Indiz]` oder `[Annahme]` markiert ist. Ausführliche Einordnung: `MJP/MJP-Zusammenfassung.md`.
 
-Stand: 2026-11-18. Die Belege stammen aus den lokalen Kopien in `MJP/quellen/` (Webrecherche ab <https://mjp.justiz.de/>, <https://mjpserviceportal.de/>, <https://service.justiz.de/mein-Justizpostfach-einrichten> und <https://justiz.de/ervvoe/textordner_fuer_buerger/index.php>), ergänzt um wenige Dateien aus `BundID-ZBP/quellen/` und `zapuk-main/`. Die Fundstellen geben Zeile (Z.) der Markdown- oder JSON-Kopie, gedruckte Seite (S.) oder PDF-Seite (PDF-S.) an. `egvp.justiz.de` war nicht direkt erreichbar; diese Seiten stammen aus dem Internet Archive (Snapshot-URL in der Liste). Den Web-Client 2.7.5 belegen Oberflächentexte, Konfiguration und wörtliche Auszüge aus `app.js`; `app.js` selbst ist nicht abgelegt.
+Stand: 2026-11-18. Die Belege stammen aus den lokalen Kopien in `MJP/quellen/` (Webrecherche ab <https://mjp.justiz.de/>, <https://mjpserviceportal.de/>, <https://service.justiz.de/mein-Justizpostfach-einrichten> und <https://justiz.de/ervvoe/textordner_fuer_buerger/index.php>), ergänzt um wenige Dateien aus `BundID-ZBP/quellen/` und `zapuk-v1.0.0-121-g7419d8b/`. Die Fundstellen geben Zeile (Z.) der Markdown- oder JSON-Kopie, gedruckte Seite (S.) oder PDF-Seite (PDF-S.) an. `egvp.justiz.de` war nicht direkt erreichbar; diese Seiten stammen aus dem Internet Archive (Snapshot-URL in der Liste). Den Web-Client 2.7.5 belegen Oberflächentexte, Konfiguration und wörtliche Auszüge aus `app.js`; `app.js` selbst ist nicht abgelegt.
 
 ## Hauptquellen
 
-Lokale Pfade relativ zu `sources/MJP/quellen/`, mit `BZ/` relativ zu `sources/BundID-ZBP/quellen/` und `ZK/` relativ zu `sources/zapuk-main/`. Liegt eine Quelle in mehreren Unterordnern, ist eine Kopie genannt.
+Lokale Pfade relativ zu `sources/MJP/quellen/`, mit `BZ/` relativ zu `sources/BundID-ZBP/quellen/` und `ZK/` relativ zu `sources/zapuk-v1.0.0-121-g7419d8b/`. Liegt eine Quelle in mehreren Unterordnern, ist eine Kopie genannt.
 
 | Kürzel | Quelle | Stufe |
 |---|---|---|

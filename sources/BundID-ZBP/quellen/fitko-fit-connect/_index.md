@@ -2,7 +2,7 @@
 
 Abgerufen am 2026-11-17. HTML-Seiten von docs.fitko.de wurden mit `lynx -dump` in Text umgewandelt (Navigation entfernt). Am Dateianfang stehen jeweils Quelle und Abrufdatum. PDFs, JSON-Schemas, OpenAPI-Dateien und Quellcode wurden unverändert gespeichert. Die FIT-Connect-Doku steht unter CC BY 4.0, die APIs unter CC BY-SA 4.0 und der Java-SDK-Code unter EUPL-1.2.
 
-Verwandte Quellen in anderen Ordnern (nicht erneut heruntergeladen): `../recht-governance/` (IT-PLR-Beschlüsse 2022-04 und 2023-29 zum ZBP, BT-Drs. 21/5367), `../../../zapuk-main/`, `../../../neo-solution-architecture-develop/`.
+Verwandte Quellen in anderen Ordnern (nicht erneut heruntergeladen): `../recht-governance/` (IT-PLR-Beschlüsse 2022-04 und 2023-29 zum ZBP, BT-Drs. 21/5367), `../../../zapuk-v1.0.0-121-g7419d8b/`, `../../../neo-solution-architecture-develop/`.
 
 ## FIT-Connect-Dokumentation (docs.fitko.de)
 
