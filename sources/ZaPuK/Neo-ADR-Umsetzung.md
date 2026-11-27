@@ -13,7 +13,7 @@ Stand: 2026-11-27. Grundlage ist die vollständige Git-Historie (alle Branches) 
 
 | Datum | ZaPuK-ADR (Datum der ADR) | Repo · Commit | Umsetzung in Neo | Art |
 |---|---|---|---|---|
-| 2023-06-05 | 0011 Kommunikationsschicht (2025-04-15) | gitlab-profile `668ec2c` | Steckbrief: FIT-AB-Entscheidung, auf Matrix zu pilotieren. Liegt vor der ADR. | Entscheidungsdoku |
+| 2023-06-05 | 0011 Kommunikationsschicht (2025-04-15) | gitlab-profile `668ec2c` | FITKO-Steckbrief (26.05.2023) zur FIT-AB-Sitzung vom 05.06.2023: Matrix als technische Basis einer G2C/G2B-Infrastruktur erproben; README: Pilotierung „angestrebt“. Den Beschluss vom 5.6.2023 nennt erst das Logbuch (`f1d1956`, 2025-02-07). Liegt vor der ADR; ADR-0011 verweist nicht auf den Pilot. | Vorhabenssteckbrief |
 | 2025-06-20 | 0011, 0012, 0014, 0009, 0010 | solution-architecture `8dbc894`, `a6d60c2` | Matrix als Vorgabe, E2EE nach OZG, BundID/eID-Login (AusweisApp SDK), Erweiterung des FIT-Connect-SDK für Fachverfahren, Matrix neben dem ZBP | Architekturdoku |
 | 2025-09-04 (Commit 2026-02-20) | 0007, 0002/1114, 1145, 1104 | infrastructure `f4cfbbb` | Zwei ESS-Homeserver `ess1`/`ess2` (Synapse, MAS, Element). Geschlossene Föderation per `federation_domain_whitelist` mit nur diesen beiden Servern. `serverName` `*.dev.neo.fitko.dev` | Infrastruktur |
 | 2025-09-16 | 0011 | fit-neo-ios `ca99b4b` | Erster Matrix-Client-Code (matrix-rust-components-swift) | Code |
