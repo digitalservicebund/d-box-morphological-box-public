@@ -13,6 +13,8 @@ Kern dieses Repositorys ist ein morphologischer Kasten für strukturierte Entsch
 Diese Dateien bauen auf dem morphologischen Kasten auf oder ergänzen ihn:
 
 - [existing_solutions.csv](existing_solutions.csv): vergleicht bestehende deutsche und internationale Lösungen anhand der Dimensionen des morphologischen Kastens, eine Spalte je Lösung.
+- [vergleich_betrieb/](vergleich_betrieb): vergleicht drei Betriebsmodelle (ein staatlicher Betreiber, staatlich-föderierter Verbund, offener Betreiberverbund) in einer kompakten und einer detaillierten Tabelle, ergänzt um eine Einordnung zu Art. 91c GG.
+- [vertraulichkeit/](vertraulichkeit): vergleicht Vertraulichkeitsstufen von Transportverschlüsselung bis Ende-zu-Ende-Verschlüsselung bis zum Endgerät: wer welche Inhalte und Metadaten lesen kann, Funktionsumfang, Aufwand und ZaPuK-Status. Dazu eine Kurzfassung und stufenübergreifende Querschnittsthemen wie Schlüssel-Backup.
 - [zentrale_dienste.csv](zentrale_dienste.csv): listet zentrale Dienste (z. B. BundID) mit ihren Funktionen, der zugehörigen Dimension des Kastens, Betreiber, Einschränkungen und Quellen.
 - [abkuerzungen.csv](abkuerzungen.csv): erklärt die in `morph_box.csv` und `existing_solutions.csv` verwendeten Abkürzungen (Spalten `Abkürzung`, `Bedeutung`).
 - [bewertungskriterien.md](bewertungskriterien.md): enthält Fragen zur Bewertung eines gewählten Lösungswegs. Die Kriterien sind keine zusätzlichen Ausprägungen.
@@ -52,6 +54,8 @@ The main element of this repository is a morphological box for structured decisi
 These files build on or support the morphological box:
 
 - [existing_solutions.csv](existing_solutions.csv): compares existing German and international solutions against the dimensions of the morphological box, one column per solution.
+- [vergleich_betrieb/](vergleich_betrieb): compares three operating models (a single state operator, a state-run federated network, an open network of operators) in a compact and a detailed table, plus an assessment of Article 91c of the Basic Law (GG).
+- [vertraulichkeit/](vertraulichkeit): compares confidentiality levels from transport encryption to end-to-end encryption to the device: who can read which content and metadata, functional scope, effort and ZaPuK status. Also includes a short version and cross-cutting topics such as key backup.
 - [zentrale_dienste.csv](zentrale_dienste.csv): lists central services (e.g. BundID) with their functions, the related dimension of the box, operator, limitations and sources.
 - [abkuerzungen.csv](abkuerzungen.csv): explains the abbreviations used in `morph_box.csv` and `existing_solutions.csv` (columns `Abkürzung`, `Bedeutung`).
 - [bewertungskriterien.md](bewertungskriterien.md): lists questions for assessing a chosen solution path. The criteria are not additional options.
