@@ -23,7 +23,7 @@ Pfade relativ zu `sources/ELSTER/Dev Dokumentation/`.
 | LIZ | `lizenz.pdf` | ERiC-Lizenzvertrag |
 | TUT | `Tutorial/ERiC-Tutorial.pdf`, `Tutorial/Beispiele/PostfachAnfrage.xml`, `PostfachBestaetigung.xml` | Durchgerechnete Beispiele |
 
-ZaPuK-ADRs liegen unter `../ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Architekturentscheidungen/`.
+ZaPuK-ADRs liegen unter `../ZaPuK/quellen/zapuk-v1.1.1/Zielarchitektur/Architekturentscheidungen/`.
 
 ## 1. Systembild
 
@@ -273,5 +273,5 @@ Die Ziffern verweisen auf die Ausprägungen der jeweiligen Zeile in `morph_box.c
 ## 8. Verwandte lokale Quellen
 
 - ZaPuK ADR-0002 (ELSTER-Verfahren nach § 87a AO, Betriebsverantwortung), ADR-0014 und ADR-1105 (ELSTER-Zertifikat als Authentisierungsmittel der BundID), ADR-1110 (Mein ELSTER ist kein OZG-Nutzerkonto, § 122a AO), ADR-1111 (Postfachadresse im ELSTER-Organisationszertifikat).
-- `../ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Architekturkonzept/README.md`: Bestandslösungen, darunter ELSTER Postfach 2.0.
+- `../ZaPuK/quellen/zapuk-v1.1.1/Zielarchitektur/Architekturkonzept/Vorversionen/v1.0/README.md`: Bestandslösungen, darunter ELSTER Postfach 2.0.
 - `../neo-solution-architecture-develop/concepts/303-delivery-retrieval-and-read-receipts.md`: § 122a Abs. 4 AO als Ausnahme von § 9 OZG.

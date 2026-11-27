@@ -2,7 +2,7 @@
 
 Abgerufen: 2026-11-17. PDFs sind Originale; HTML-Seiten als Markdown mit Quell-URL und Abrufdatum im Kopf. Seitenangaben = PDF-Seite (bei BT-Drucksachen identisch mit gedruckter Seite, sofern nicht anders vermerkt).
 
-Ergänzend (nicht hier abgelegt, um Dubletten zu vermeiden): BundID-Impressum, Datenschutzerklärung (Abschn. 2, Auftragsverarbeitung ITZBund, 6.4 BundID-Postfach), FAQ und BMI-Meldung zur ZBP-Migration 2024 liegen in `../bundid-betreiber/`; ZaPuK-Dokumente in `../../../ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/`.
+Ergänzend (nicht hier abgelegt, um Dubletten zu vermeiden): BundID-Impressum, Datenschutzerklärung (Abschn. 2, Auftragsverarbeitung ITZBund, 6.4 BundID-Postfach), FAQ und BMI-Meldung zur ZBP-Migration 2024 liegen in `../bundid-betreiber/`; ZaPuK-Dokumente in `../../../ZaPuK/quellen/zapuk-v1.1.1/`.
 
 | Datei | URL | Titel / Herausgeber | Datum | Notiz |
 |---|---|---|---|---|

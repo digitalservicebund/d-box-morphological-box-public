@@ -8,12 +8,12 @@ Themen der parallelen Ordner (hier nicht gesichert): Betreiber- und Nutzersicht 
 
 | Datei | Inhalt (Bezug zu MJP) |
 |---|---|
-| ../../../ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Architekturkonzept/README.md | Z. 391 Tabelle 10: MJP = zentrale Infrastruktur aus Postfachzugang und Postfach-Backend mit Anbindung an EGVP, IdP BundID, Adressierung SAFE, Protokoll OSCI/XJustiz; Z. 395–403 Messaging Bridges verboten, Channel Adapter nur für Frontends; Z. 419 MJP-Integration mit EGVP kann bei Integration der EGVP-Infrastruktur entfallen |
-| ../../../ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/Glossar.md | Z. 523 Organisationen der Justiz mit eigenem Postfach-Backend, EGVP über Protokollkonverter; Z. 579 Protokollkonverter |
-| ../../../ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/Konsolidierte-Anforderungen/Lesefassung/README.md | Z. 79 EGVP und ERV-SES (beA, beN, beSt, beBPo); Z. 80 eBO/MJP |
-| ../../../ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Architekturentscheidungen/ADR-0011-Kommunikationsschicht.md | Z. 293–310 OSCI/XTA-Bewertung; Z. 304 OSCI in EGVP für Transport und Zwischenspeicherung |
-| ../../../ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Zusammenfassung/README.md | Z. 46, 86 Legenden; Z. 222 Empfehlung: Frontends von ZBP, MJP, OZG-PLUS-Postfach und Postfach 2.0 zusammenführen |
-| ../../../ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/README.md | Z. 56 Interoperabilität über Protokollkonverter unter Erhalt der E2EE |
+| ../../../ZaPuK/quellen/zapuk-v1.1.1/Zielarchitektur/Architekturkonzept/Vorversionen/v1.0/README.md | Z. 391 Tabelle 10: MJP = zentrale Infrastruktur aus Postfachzugang und Postfach-Backend mit Anbindung an EGVP, IdP BundID, Adressierung SAFE, Protokoll OSCI/XJustiz; Z. 395–403 Messaging Bridges verboten, Channel Adapter nur für Frontends; Z. 419 MJP-Integration mit EGVP kann bei Integration der EGVP-Infrastruktur entfallen |
+| ../../../ZaPuK/quellen/zapuk-v1.1.1/Glossar.md | Z. 633 Organisationen der Justiz mit eigenem Postfach-Backend, EGVP über Protokollkonverter; Z. 693 Protokollkonverter |
+| ../../../ZaPuK/quellen/zapuk-v1.1.1/Konsolidierte-Anforderungen/Lesefassung/README.md | Z. 79 EGVP und ERV-SES (beA, beN, beSt, beBPo); Z. 80 eBO/MJP |
+| ../../../ZaPuK/quellen/zapuk-v1.1.1/Zielarchitektur/Architekturentscheidungen/ADR-0011-Kommunikationsschicht.md | Z. 293–310 OSCI/XTA-Bewertung; Z. 304 OSCI in EGVP für Transport und Zwischenspeicherung |
+| ../../../ZaPuK/quellen/zapuk-v1.1.1/Zielarchitektur/Zusammenfassung/Vorversionen/v1.0/README.md | Z. 46, 86 Legenden; Z. 222 Empfehlung: Frontends von ZBP, MJP, OZG-PLUS-Postfach und Postfach 2.0 zusammenführen |
+| ../../../ZaPuK/quellen/zapuk-v1.1.1/Zielarchitektur/README.md | Z. 56 Interoperabilität über Protokollkonverter unter Erhalt der E2EE |
 | ../../../BundID-ZBP/quellen/fitko-fit-connect/itplr_beschluss-2024-28_postfach-kommunikationsloesungen_architekturueberblick.pdf | S. 4 Postfach-Infrastruktur der Justiz / EGVP inkl. Mein Justizpostfach; S. 6 Bebauungsplan |
 | ../../../BundID-ZBP/quellen/fitko-fit-connect/itplr_beschluss-2025-28_zapuk_ueberblick.pdf | S. 21 Zusammenführung der Frontends ZBP, MJP, OZGPP, Postfach 2.0 |
 

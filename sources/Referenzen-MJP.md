@@ -10,11 +10,11 @@ Evidenzstufen (Spalte `Stufe`):
 
 Bei gemischten Zeilen steht zuerst die Stufe des belegten Teils, danach die Stufe des Teils, der in der Aussage mit `[Indiz]` oder `[Annahme]` markiert ist. Ausführliche Einordnung: `MJP/MJP-Zusammenfassung.md`.
 
-Stand: 2026-11-18. Die Belege stammen aus den lokalen Kopien in `MJP/quellen/` (Webrecherche ab <https://mjp.justiz.de/>, <https://mjpserviceportal.de/>, <https://service.justiz.de/mein-Justizpostfach-einrichten> und <https://justiz.de/ervvoe/textordner_fuer_buerger/index.php>), ergänzt um wenige Dateien aus `BundID-ZBP/quellen/` und `ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/`. Die Fundstellen geben Zeile (Z.) der Markdown- oder JSON-Kopie, gedruckte Seite (S.) oder PDF-Seite (PDF-S.) an. `egvp.justiz.de` war nicht direkt erreichbar; diese Seiten stammen aus dem Internet Archive (Snapshot-URL in der Liste). Den Web-Client 2.7.5 belegen Oberflächentexte, Konfiguration und wörtliche Auszüge aus `app.js`; `app.js` selbst ist nicht abgelegt.
+Stand: 2026-11-18. Die Belege stammen aus den lokalen Kopien in `MJP/quellen/` (Webrecherche ab <https://mjp.justiz.de/>, <https://mjpserviceportal.de/>, <https://service.justiz.de/mein-Justizpostfach-einrichten> und <https://justiz.de/ervvoe/textordner_fuer_buerger/index.php>), ergänzt um wenige Dateien aus `BundID-ZBP/quellen/` und `ZaPuK/quellen/zapuk-v1.1.1/`. Die Fundstellen geben Zeile (Z.) der Markdown- oder JSON-Kopie, gedruckte Seite (S.) oder PDF-Seite (PDF-S.) an. `egvp.justiz.de` war nicht direkt erreichbar; diese Seiten stammen aus dem Internet Archive (Snapshot-URL in der Liste). Den Web-Client 2.7.5 belegen Oberflächentexte, Konfiguration und wörtliche Auszüge aus `app.js`; `app.js` selbst ist nicht abgelegt.
 
 ## Hauptquellen
 
-Lokale Pfade relativ zu `sources/MJP/quellen/`, mit `BZ/` relativ zu `sources/BundID-ZBP/quellen/` und `ZK/` relativ zu `sources/ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/`. Liegt eine Quelle in mehreren Unterordnern, ist eine Kopie genannt.
+Lokale Pfade relativ zu `sources/MJP/quellen/`, mit `BZ/` relativ zu `sources/BundID-ZBP/quellen/` und `ZK/` relativ zu `sources/ZaPuK/quellen/zapuk-v1.1.1/`. Liegt eine Quelle in mehreren Unterordnern, ist eine Kopie genannt.
 
 | Kürzel | Quelle | Stufe |
 |---|---|---|
@@ -70,7 +70,7 @@ Lokale Pfade relativ zu `sources/MJP/quellen/`, mit `BZ/` relativ zu `sources/Bu
 | BGBl26 | BGBl. 2026 I Nr. 152, Gesetz zur weiteren Digitalisierung der Zwangsvollstreckung, 20.05.2026: `recht-governance/BGBl_2026-I-152_Gesetz_Digitalisierung-Zwangsvollstreckung.pdf`, <https://www.recht.bund.de/bgbl/1/2026/152/VO.html> | 3 |
 | BID-TB | BundID, Textbundle der Weboberfläche: `BZ/bundid-betreiber/bundid_web-textbundle_de_vollstaendig.md` | 3 |
 | BID-FAQ | BundID, FAQ Hilfreiche Informationen: `BZ/bundid-betreiber/bundid_faq_hilfreiche-informationen.md` | 3 |
-| ZAPUK-AK | ZaPuK, Architekturkonzept v1.0: `ZK/Zielarchitektur/Architekturkonzept/README.md` | 3 |
+| ZAPUK-AK | ZaPuK, Architekturkonzept v1.0: `ZK/Zielarchitektur/Architekturkonzept/Vorversionen/v1.0/README.md` | 3 |
 
 ## Nachweise je Dimension
 

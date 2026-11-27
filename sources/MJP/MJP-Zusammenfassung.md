@@ -2,7 +2,7 @@
 
 Wie Mein Justizpostfach (MJP), das kostenlose Postfach für Bürger:innen im elektronischen Rechtsverkehr (ERV) mit der Justiz, aufgesetzt ist: Betrieb, Technik, Recht. Eingeordnet nach den Zeilen von `morph_box.csv`. Die Zusammenfassung verweist auf die Quellen, statt sie zu wiederholen. Für Details den Pointer öffnen.
 
-Stand: 2026-11-18. Grundlage ist eine Webrecherche, ausgehend von <https://mjp.justiz.de/>, <https://mjpserviceportal.de/>, <https://service.justiz.de/mein-Justizpostfach-einrichten> und <https://justiz.de/ervvoe/textordner_fuer_buerger/index.php>. Alle Primärquellen liegen in `quellen/` in drei Unterordnern. Jeder Unterordner hat eine `_index.md` mit URL, Herausgeber, Datum und Inhaltsnotiz und eine `_befunde.md` mit den Einzelbefunden je Zeile. `egvp.justiz.de` war nicht direkt erreichbar, die Seiten stammen aus dem Internet Archive (Snapshot-URL im Dateikopf).
+Stand: 2026-11-18. Grundlage ist eine Webrecherche, ausgehend von <https://mjp.justiz.de/>, <https://mjpserviceportal.de/>, <https://service.justiz.de/mein-Justizpostfach-einrichten> und <https://justiz.de/ervvoe/textordner_fuer_buerger/index.php>. Alle Primärquellen liegen in `quellen/` in drei Unterordnern. Jeder Unterordner hat eine `_index.md` mit URL, Herausgeber, Datum und Inhaltsnotiz und eine `_befunde.md` mit den Einzelbefunden je Zeile. `egvp.justiz.de` war nicht direkt erreichbar, die Seiten stammen aus dem Internet Archive (Snapshot-URL im Dateikopf). ZaPuK-Abschnitt in 2 am 2026-11-27 um ZaPuK v1.1.1 ergänzt.
 
 ## Kennzeichnung
 
@@ -43,7 +43,9 @@ Pfade relativ zu `quellen/`: `MB/` = `mjp-betreiber/`, `AT/` = `anbindung-techni
 | BLK-UB | `RG/BLK_Umlaufbeschluss_ERV-Betriebsmanagement_2019-07.pdf` | Kostenaufteilung ERV-Betrieb: Bund 1 %, Länder nach Königsteiner Schlüssel |
 | FDS-DA | `MB/fragdenstaat_mjp-deutschland-app_blk-jumbw_2026-09.md` | Antwort JuM BW 09/2026: keine Mobilplanung, Prüfung der FITKO-Zielarchitektur |
 | NP23 / NP25 / HEISE | `MB/netzpolitik_mjp-datenleck_2023-11-14.md`, `MB/netzpolitik_mjp-privatsphaere_2025-06-13.md`, `AT/heise_massive-stoerungen-erv_2024-08.md` | Sekundärquellen: Datenleck SAFE 2023, Kritik an E2EE, Zuständigkeiten 2024 |
-| ZAPUK-AK | `../ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Architekturkonzept/README.md` | MJP als Bestandslösung (Z. 391), Channel Adapter (Z. 395–403), EGVP-Integration (Z. 419) |
+| ZAPUK-AK | `../ZaPuK/quellen/zapuk-v1.1.1/Zielarchitektur/Architekturkonzept/Vorversionen/v1.0/README.md` | Architekturkonzept v1.0 (IT-PLR-Beschluss 2025/28): MJP als Bestandslösung (Z. 391), Channel Adapter (Z. 395–403), EGVP-Integration (Z. 419) |
+| ZAPUK-AK11 | `../ZaPuK/quellen/zapuk-v1.1.1/Zielarchitektur/Architekturkonzept/README.md` | Architekturkonzept v1.1.1, Stand 26.11.2026, nicht beschlossen: Ablösung des MJP-Backends (Z. 412, 445), EGVP bleibt (Z. 425, 436–437), Ablösung des Frontends (Z. 505–506), OSCI-Matrix-Protokollkonverter (Z. 716–718) |
+| ZAPUK-ZF11 | `../ZaPuK/quellen/zapuk-v1.1.1/Zielarchitektur/Zusammenfassung/README.md` | Überblick v1.1.1: Transitionspfad MJP (Z. 168–170) |
 
 ## 1. Systembild
 
@@ -79,8 +81,13 @@ Pfade relativ zu `quellen/`: `MB/` = `mjp-betreiber/`, `AT/` = `anbindung-techni
 - **Zukunft:**
   - Die Integration in die BundID war für 2024 angekündigt (TP S. 1) und ist nicht umgesetzt.
   - Das JuM BW prüft stattdessen die Integration in die föderale Zielarchitektur der FITKO, also ZaPuK (FDS-DA Z. 161).
-  - ZaPuK sieht MJP als Bestandslösung, deren Frontend mit ZBP, OZG-PLUS-Postfach und Postfach 2.0 zusammengeführt werden soll. EGVP soll über einen Protokollkonverter angebunden werden (ZAPUK-AK Z. 391–419; `../ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/Glossar.md` Z. 523).
-  - Pläne zur Ablösung von EGVP und OSCI wurden nicht gefunden.
+  - ZaPuK v1.0 sieht MJP als Bestandslösung, deren Frontend mit ZBP, OZG-PLUS-Postfach und Postfach 2.0 zusammengeführt werden soll. EGVP soll über einen Protokollkonverter angebunden werden (ZAPUK-AK Z. 391–419; `../ZaPuK/quellen/zapuk-v1.1.1/Glossar.md` Z. 633).
+  - ZaPuK v1.1.1 wird konkreter: MJP wird „funktionell abgelöst“, EGVP bleibt (ZAPUK-ZF11 Z. 168–170). Die Fassung v1.1 lag dem IT-PLR-Beschluss B-2026/43-IT als Anlage vor, wurde aber nicht beschlossen (`../ZaPuK/Aktualisierung-v1.1.1.md`).
+    - Backend: Das zentrale Postfach-Backend für Privatpersonen ersetzt zusammen mit dem Backend für Organisationen der Justiz das MJP-Backend. Vorhandene Nachrichten werden in das Backend für Privatpersonen migriert. Eine Weiterentwicklung des MJP ist danach nicht mehr erforderlich (ZAPUK-AK11 Z. 412, 445).
+    - Frontend: Der zentrale Postfach-Zugang ersetzt die Postfach-Frontends von BundID, MJP und MUK. Nach der Abschaltung sollen sie übergangsweise auf den zentralen Postfach-Zugang im Bundesportal verlinken (ZAPUK-AK11 Z. 505–506).
+    - EGVP: Die EGVP-Infrastruktur bleibt bestehen. Ein OSCI-Matrix-Protokollkonverter vermittelt in beide Richtungen, ohne die Ende-zu-Ende-Verschlüsselung aufzubrechen: Verschlüsselte OSCI-Container werden in Matrix-Nachrichten verpackt und zwischen Postfach-Zugang und OSCI-Intermediär ausgetauscht. Der Postfach-Zugang muss dafür die Kryptografie von Matrix und OSCI, die Schlüsselverwaltung und das Inhaltsdatenformat des EGVP-Verbunds umsetzen (ZAPUK-AK11 Z. 425, 716; ZAPUK-ZF11 Z. 170).
+    - Bridges, die Nachrichten bei der Vermittlung entschlüsseln, bleiben ausgeschlossen (ADR-0010). Davon unterschieden werden Bridges, die in der Transition übergangsweise Nachrichten aus nicht Ende-zu-Ende-verschlüsselten Bestandslösungen entgegennehmen (ZAPUK-AK11 Z. 718).
+  - Pläne zur Ablösung von EGVP und OSCI wurden nicht gefunden. ZaPuK v1.1.1 will einer Entscheidung des E-Justice-Rats zur weiteren Verschmelzung von EGVP mit der Infrastruktur des IT-Planungsrats ausdrücklich nicht vorgreifen (ZAPUK-AK11 Z. 436–437).
 
 ## 3. Identität, Konto, Schlüssel
 
