@@ -25,7 +25,7 @@ Lokale Pfade relativ zu `sources/ELSTER/Dev Dokumentation/`.
 | LIZ | ERiC-Lizenzvertrag: `lizenz.pdf` | 3 |
 | XSD-BN | Schema Belegnachreichung: `Datenarten/ElsterNachricht/Belegnachreichung/Schema/24/Belegnachreichung-24-Nutzdaten.xsd` | 3 |
 | FA-ODS | Finanzamtsverzeichnis: `Finanzamtsdaten.ods` | 3 |
-| ZaPuK | ZaPuK-ADRs: `zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Architekturentscheidungen/` | 2 (Zielarchitektur, für ELSTER Sekundärquelle) |
+| ZaPuK | ZaPuK-ADRs: `ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Architekturentscheidungen/` | 2 (Zielarchitektur, für ELSTER Sekundärquelle) |
 | ERFOLG | ELSTER, eine Erfolgsstory: <https://www.elster.de/eportal/infoseite/elster_eine_erfolgsstory> | 3 |
 | RZ | BayLfSt, Informationen zu den Rechenzentren 03/2026: <https://www.lfst.bayern.de/fileadmin/RESSOURCEN/LfSt/Digital%40BayLfSt/Informationen_zu_den_Rechenzentren_03_2026.pdf> | 3 |
 | SECURE | ELSTER, ElsterSecure: <https://www.elster.de/bportal/infoseite/elstersecure> | 3 |

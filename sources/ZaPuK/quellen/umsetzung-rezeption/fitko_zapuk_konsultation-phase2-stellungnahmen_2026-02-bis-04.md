@@ -4,7 +4,7 @@ Quelle: https://gitlab.opencode.de/it-planungsrat/fit-ab/zapuk/-/issues (GitLab-
 Datum Dokument: 2026-02-10 bis 2026-04-13 (je Issue)
 Abgerufen: 2026-11-19
 
-Einreichungen Dritter (Stellungnahmen, Verständnisfragen), Beschreibungstext unverändert übernommen (HTML-Kommentare der Issue-Vorlage entfernt). Die Antworten des ZaPuK-Teams (Kommentare) sind über die API ohne Anmeldung nicht abrufbar und fehlen hier. Die Konsultation lief vom 21.01. bis 25.03.2026 (zapuk-v1.0.0-121-g7419d8b/README.md). Weitere Einreichungen könnten außerhalb des Issue-Trackers eingegangen sein; öffentlich sichtbar sind nur diese sieben Issues.
+Einreichungen Dritter (Stellungnahmen, Verständnisfragen), Beschreibungstext unverändert übernommen (HTML-Kommentare der Issue-Vorlage entfernt). Die Antworten des ZaPuK-Teams (Kommentare) sind über die API ohne Anmeldung nicht abrufbar und fehlen hier. Die Konsultation lief vom 21.01. bis 25.03.2026 (../zapuk-v1.0.0-121-g7419d8b/README.md). Weitere Einreichungen könnten außerhalb des Issue-Trackers eingegangen sein; öffentlich sichtbar sind nur diese sieben Issues.
 
 ## #23 Anschluss an das Peppol-Netzwerk
 

@@ -151,7 +151,7 @@ Pfade relativ zu `quellen/`. Z. = Zeile der Markdown-Kopie, S. = gedruckte Seite
 - **Lesenachweis:** beworben, aber nur „abgeholt“ und „Eingang bestätigt“ als Status dokumentiert.
 - **Kosten:** VV und Infoseite „keine Kosten“; 2022 hieß es, „die Anbindung ist eigenständig zu bezahlen“ (`anbindung-technik/st_ozg-sprechstunde_…pdf` PDF-S. 6), gemeint sind wohl die eigenen Integrationskosten **[Folgerung]**.
 - **IHK Magdeburg** (2026) nennt Zertifikate personengebunden und den ersten Aktivierer automatisch Admin; die offiziellen Quellen widersprechen (FAQ Z. 141; BSQS S. 8).
-- **Zukunft:** ZaPuK ADR-1110 sieht vor, dass BundID und MUK „keine Postfachfunktionalität mehr“ umsetzen (`../zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Architekturentscheidungen/ADR-1110*.md` Z. 86). Das kollidiert mit § 2 Abs. 7 OZG und mit der Pflicht nach § 3 Abs. 3 OZG.
+- **Zukunft:** ZaPuK ADR-1110 sieht vor, dass BundID und MUK „keine Postfachfunktionalität mehr“ umsetzen (`../ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Architekturentscheidungen/ADR-1110*.md` Z. 86). Das kollidiert mit § 2 Abs. 7 OZG und mit der Pflicht nach § 3 Abs. 3 OZG.
 - **Vertrauensniveau:** Die Bundesregierung wollte langfristig „hoch“ (D8093 S. 123); geltendes Recht unbefristet „substantiell“. DIdG würde nach Vertrauensniveau differenzieren, der Bundesrat lehnt das ab (`../BundID-ZBP/quellen/recht-governance/BR-Drs_322-26B_…pdf` S. 6).
 
 ## 7. Lücken
@@ -164,4 +164,4 @@ Pfade relativ zu `quellen/`. Z. = Zeile der Markdown-Kopie, S. = gedruckte Seite
 
 - `../ELSTER/ELSTER-Zusammenfassung.md` und `../Referenzen-ELSTER.md`: ELSTER-Postfach, ElsterBereitstellung (Postfach 2.0, EPBescheid, EPAntwort, OZGPPNachricht), ERiC.
 - `../BundID-ZBP/ZBP-Zusammenfassung.md`: das Gegenstück für natürliche Personen; dort liegen auch OZG, OZGÄndG-, DIdG-Drucksachen und die IT-PLR-Beschlüsse zu ZaPuK.
-- `../zapuk-v1.0.0-121-g7419d8b/`: MUK als Bestandssystem, ADR-0016 (Identität privater Organisationen), ADR-1110 (Entkopplung Nutzerkonto und Postfach), ADR-1111 (organisationsbezogene Adressen).
+- `../ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/`: MUK als Bestandssystem, ADR-0016 (Identität privater Organisationen), ADR-1110 (Entkopplung Nutzerkonto und Postfach), ADR-1111 (organisationsbezogene Adressen).

@@ -2,7 +2,7 @@
 
 Abgerufen: 2026-11-17. PDFs sind Originale; HTML-Seiten als Markdown mit Quell-URL und Abrufdatum im Kopf. Seitenangaben = PDF-Seite (bei BT-Drucksachen identisch mit gedruckter Seite, sofern nicht anders vermerkt).
 
-Ergänzend (nicht hier abgelegt, um Dubletten zu vermeiden): BundID-Impressum, Datenschutzerklärung (Abschn. 2, Auftragsverarbeitung ITZBund, 6.4 BundID-Postfach), FAQ und BMI-Meldung zur ZBP-Migration 2024 liegen in `../bundid-betreiber/`; ZaPuK-Dokumente in `../../../zapuk-v1.0.0-121-g7419d8b/`.
+Ergänzend (nicht hier abgelegt, um Dubletten zu vermeiden): BundID-Impressum, Datenschutzerklärung (Abschn. 2, Auftragsverarbeitung ITZBund, 6.4 BundID-Postfach), FAQ und BMI-Meldung zur ZBP-Migration 2024 liegen in `../bundid-betreiber/`; ZaPuK-Dokumente in `../../../ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/`.
 
 | Datei | URL | Titel / Herausgeber | Datum | Notiz |
 |---|---|---|---|---|
@@ -27,7 +27,7 @@ Ergänzend (nicht hier abgelegt, um Dubletten zu vermeiden): BundID-Impressum, D
 | IT-PLR_Beschluss_2023-29_Zentrales_Buergerpostfach.md | https://www.it-planungsrat.de/beschluss/beschluss-2023-29 | IT-Planungsrat, 41. Sitzung, Beschluss 2023/29 | 04.07.2023 | Hebt Ziff. 2 von 2022/04 auf; Fokus ZBP: Bidirektionalität und Statusmonitor |
 | IT-PLR_Beschluss2023-29_ZBP_Statusbericht.pdf | https://www.it-planungsrat.de/fileadmin/beschluesse/2023/Beschluss2023-29_ZBP_Statusbericht.pdf | ZBP-Statusbericht (Anlage) | 2023 | Länder-GoLive ZBP, Integration ZBP in BundID Q4/2023; BSI-Pentest 04/2023; PKI für Postfachschnittstelle geplant |
 | IT-PLR_Beschluss_2024-28_Postfach-und-Kommunikationsloesungen.md | https://www.it-planungsrat.de/beschluss/beschluss-2024-28 | IT-Planungsrat, 44. Sitzung, Beschluss 2024/28 | 19.06.2024 | Auftrag Zielarchitektur zur Konsolidierung der Postfachlösungen (Start ZaPuK) |
-| IT-PLR_Beschluss_2025-28_ZaPuK.md | https://www.it-planungsrat.de/beschluss/beschluss-2025-28 | IT-Planungsrat, 47. Sitzung, Beschluss 2025/28 | 26.06.2025 | Einheitliche föderale Postfachinfrastruktur; Einbindung BundID/DeutschlandID; FITKO soll Rechtsgrundlage und Finanzierung gemeinsamen Betriebs bis 50. Sitzung klären (Anlagen-PDFs nicht geladen, siehe zapuk-v1.0.0-121-g7419d8b) |
+| IT-PLR_Beschluss_2025-28_ZaPuK.md | https://www.it-planungsrat.de/beschluss/beschluss-2025-28 | IT-Planungsrat, 47. Sitzung, Beschluss 2025/28 | 26.06.2025 | Einheitliche föderale Postfachinfrastruktur; Einbindung BundID/DeutschlandID; FITKO soll Rechtsgrundlage und Finanzierung gemeinsamen Betriebs bis 50. Sitzung klären (Anlagen-PDFs nicht geladen, siehe ../../../ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b) |
 | IT-PLR_B-2026-03-IT_Deutschland-Stack.md | https://www.it-planungsrat.de/beschluss/b-2026-03-it | IT-Planungsrat, 49. Sitzung, B-2026/03-IT | 18.03.2026 | Plattformkern inkl. Basisdienst „Postfach“ |
 | IT-PLR_Beschluss_2026_03_Deutschland-Stack_Portfolio.pdf | https://www.it-planungsrat.de/fileadmin/beschluesse/2026/Beschluss_2026_03_Deutschland-Stack_Portfolio.pdf | Anlage Portfolio D-Stack | 18.03.2026 | Basisdienst Postfach = Funktionsbaustein „Postfach und Interaktion (G2C)“, Projekt ZaPuK; BundID nicht als eigener Baustein genannt |
 | IT-PLR_B-2026-18-IT_D-Stack_Finanzierungsmodell.md | https://www.it-planungsrat.de/beschluss/b-2026-18-it | IT-Planungsrat, 50. Sitzung, B-2026/18-IT | 17.06.2026 | Bund fachlich verantwortlich für 5 Basiskomponenten inkl. Postfach (ZaPuK); Finanzierung Postfach noch offen (Konzept bis 52. Sitzung); Länder-Anbindungspflicht nur für Ziff. 3 (nicht Postfach) |

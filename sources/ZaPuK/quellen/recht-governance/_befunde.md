@@ -12,7 +12,7 @@ Kurzformen:
 - B43 = `IT-PLR_B-2026-43-IT_ZaPuK-Abschluss-Phase-II.md`; EIN = `IT-PLR_Beschluss_2026_43_ZaPuK_Einordnung_Rechtsgutachten.pdf` (FITKO-Kommentierung, S. = PDF-Seite); PR43 = `IT-PLR_Beschluss_2026_43_ZaPuK_Praesentation.pdf` (Foliensatz zur 51. Sitzung)
 - AK = `FITKO_ZaPuK-Architekturkonzept-v1-1_2026-09-25.md` [Entwurf] (Zeilen dieser Kopie; Fortschreibung in v1.1.1 wertet `../architektur-technik/` aus)
 - FITAB = `FITKO_FIT-AB-Beschluesse_2026-11-19.md`
-- Z-README = `../zapuk-v1.1.1/README.md`; Z-ZUS10 = `../zapuk-v1.1.1/Zielarchitektur/Zusammenfassung/Vorversionen/v1.0/README.md` (v1.0, Juni 2025, zeilengleich mit der früheren Kopie in `zapuk-v1.0.0-121-g7419d8b/`); ADR-xxxx = `../zapuk-v1.1.1/Zielarchitektur/Architekturentscheidungen/ADR-xxxx-*.md` (die hier zitierten Zeilen sind gegenüber `zapuk-v1.0.0-121-g7419d8b/` unverändert, außer ADR-1145 Z. 163 → Z. 166); ANF = `../zapuk-v1.1.1/Konsolidierte-Anforderungen/README.md`
+- Z-README = `../zapuk-v1.1.1/README.md`; Z-ZUS10 = `../zapuk-v1.1.1/Zielarchitektur/Zusammenfassung/Vorversionen/v1.0/README.md` (v1.0, Juni 2025, zeilengleich mit der früheren Kopie in `../zapuk-v1.0.0-121-g7419d8b/`); ADR-xxxx = `../zapuk-v1.1.1/Zielarchitektur/Architekturentscheidungen/ADR-xxxx-*.md` (die hier zitierten Zeilen sind gegenüber `../zapuk-v1.0.0-121-g7419d8b/` unverändert, außer ADR-1145 Z. 163 → Z. 166); ANF = `../zapuk-v1.1.1/Konsolidierte-Anforderungen/README.md`
 - B18 = `../../../BundID-ZBP/quellen/recht-governance/IT-PLR_B-2026-18-IT_D-Stack_Finanzierungsmodell.md`; B03 = `…/IT-PLR_B-2026-03-IT_Deutschland-Stack.md`; B2528 = `…/IT-PLR_Beschluss_2025-28_ZaPuK.md`; FöMA = `…/Foederale_Modernisierungsagenda_MPK_2025-12-04.pdf`; D9020 = `…/BT-Drs_21-9020_Antwort_KA_Deutschland-Stack.pdf`
 - PM50 = `IT-PLR_Pressemitteilung_50-Sitzung_2026-06-17.md`; D7319 = `BT-Drs_21-7319_Antwort_KA_EUDI-Wallet.pdf`; DA-Zus = `IT-PLR_Beschluss_2026_04_Deutschland-Architektur_Zusammenfassung.pdf`
 
@@ -38,7 +38,7 @@ Kurzformen:
 - **Anlagen** (B43 Z. 14–21): Präsentation (PR43), Überblick (= ÜH), Zielarchitektur (= Architekturkonzept v1.1), Transitionsstrategie (= TS), Rechtsgutachten (= RG), Einordnung des Rechtsgutachtens durch die FITKO (EIN).
 - **Was beschlossen ist:** nur (a) die Feststellung, dass Phase II abgeschlossen ist, und (b) die Bestätigung der Programmverantwortung des Bundes nach B-2026/18-IT, mit Übergangszusage der bisherigen Beteiligten (FITKO, Hamburg, Sachsen-Anhalt).
 - **Was nicht im Beschlusstext steht** (Abgleich mit den vier erbetenen Punkten in ÜH Z. 48):
-  1. keine Bestätigung oder Verabschiedung der Zielarchitektur v1.1; die Dokumente sind nur Anlagen. Das ZaPuK-Repo bezeichnet v1.0 als „beschlossen“, v1.1 nur als „Abgabefassung für die 51. Sitzung des IT-Planungsrats, Anlagen zu Beschluss 2026/43-IT“ (Z-README Z. 76–77); früher hieß es, in der 51. Sitzung solle v1.1 „verabschiedet“ werden (`zapuk-v1.0.0-121-g7419d8b/README.md` Z. 49), jetzt nur „dem IT-Planungsrat zur 51. Sitzung vorgelegt“ (Z-README Z. 49);
+  1. keine Bestätigung oder Verabschiedung der Zielarchitektur v1.1; die Dokumente sind nur Anlagen. Das ZaPuK-Repo bezeichnet v1.0 als „beschlossen“, v1.1 nur als „Abgabefassung für die 51. Sitzung des IT-Planungsrats, Anlagen zu Beschluss 2026/43-IT“ (Z-README Z. 76–77); früher hieß es, in der 51. Sitzung solle v1.1 „verabschiedet“ werden (`../zapuk-v1.0.0-121-g7419d8b/README.md` Z. 49), jetzt nur „dem IT-Planungsrat zur 51. Sitzung vorgelegt“ (Z-README Z. 49);
   2. keine verbindliche Festlegung zur Konsolidierung der Bestandslösungen, keine Teilnahme- oder Anschlusspflicht;
   3. keine ausdrückliche Initiierung von Phase III und keine Nennung des BMDS; Phase III unter BMDS-Federführung steht nur im Überblick (ÜH Z. 41–42) und im Foliensatz (PR43 S. 20); der Beschluss spricht von „Programmverantwortung“ des Bundes;
   4. kein Auftrag für Rechtsetzung, Staatsvertrag oder Governance;
@@ -260,16 +260,16 @@ Kurzformen:
   - inhaltlich: Stand 06.10. → 19.10.2026 (Z. 5), Statushinweis mit B-2026/43-IT und Verweis auf die FITKO-Einordnung (Z. 7); neuer Abschnitt E (Z. 3485–3573) mit Inhaltsverzeichnis-Einträgen (Z. 550–569) und Fußnoten 410–427 (Z. 4468–4504).
   - redaktionell: Z. 19 (Link-Klammer).
   - Umrechnung: alte Z. 6–554 → neu Z. − 5; alte Z. 555–3469 → neu Z. + 15; alte Z. ab 3470 → neu Z. + 104. Der Text bis Abschnitt D ist unverändert.
-- **Z-README** (`zapuk-v1.0.0-121-g7419d8b/README.md` → `../zapuk-v1.1.1/README.md`):
+- **Z-README** (`../zapuk-v1.0.0-121-g7419d8b/README.md` → `../zapuk-v1.1.1/README.md`):
   - inhaltlich: Z. 49 Status Phase II („sieht der IT-Planungsrat mit Beschluss 2026/43-IT als abgeschlossen an“, v1.1 „vorgelegt“ statt „soll … verabschiedet“ werden); Z. 68 neuer Beschluss-Eintrag; Z. 70–80 neuer Abschnitt „Versionen“; Z. 90–103 neuer Logbuch-Eintrag B-2026/43-IT mit Anlagen; Z. 331 FAQ Projektende („wurden … eingereicht“, Phase II abgeschlossen); Z. 243 Anforderungsliste „aktuell“ v0.7.1 statt v0.5.1; Anlagen zu B-2025/28 jetzt als Links auf it-planungsrat.de statt lokaler PDFs (Z. 169–174); Z. 39, 57 „Basisdienst ‚Postfach und Interaktion‘“ statt „Basiskomponente ‚Postfach/Benachrichtigung‘“.
   - redaktionell: Z. 144, 207, 250, 258, 285, 342, 348.
   - Umrechnung: alte Z. 1–67 gleich; alte Z. 68–76 → + 13; alte Z. ab 77 → + 27.
-- **Z-ZUS10** (`zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Zusammenfassung/README.md` → `../zapuk-v1.1.1/Zielarchitektur/Zusammenfassung/Vorversionen/v1.0/README.md`): zeilengleich, nur Links geändert (Z. 7, 18–20, 166, 324–325, 333). Die PDF-Fassung liegt nicht mehr im Repo, sondern unter <https://www.it-planungsrat.de/fileadmin/beschluesse/2025/Beschluss_2025_28_ZaPuK_%C3%9Cberblick.pdf>.
+- **Z-ZUS10** (`../zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Zusammenfassung/README.md` → `../zapuk-v1.1.1/Zielarchitektur/Zusammenfassung/Vorversionen/v1.0/README.md`): zeilengleich, nur Links geändert (Z. 7, 18–20, 166, 324–325, 333). Die PDF-Fassung liegt nicht mehr im Repo, sondern unter <https://www.it-planungsrat.de/fileadmin/beschluesse/2025/Beschluss_2025_28_ZaPuK_%C3%9Cberblick.pdf>.
 - **Abbildungen:** `FITKO_ZaPuK-v1-1_Abb2-…png` und `…_Abb4-…png` sind bytegleich mit `../zapuk-v1.1.1/Zielarchitektur/Zusammenfassung/images/image2.png` und `image4.png`.
 
 ## Konkordanz: Fundstellen in `../../../Referenzen-ZaPuK.md` und `../../ZaPuK-Zusammenfassung.md` (Recht, Governance, Überblick)
 
-Alte Zeilen beziehen sich auf die Entwurfskopien in diesem Ordner (ÜH, RGA) bzw. auf `zapuk-v1.0.0-121-g7419d8b/` (ZF10, ZK-README). „gleich“ = Zeileninhalt unverändert (zeilenweise per `difflib` und Sichtprüfung). Pfade relativ zu `sources/ZaPuK/quellen/zapuk-v1.1.1/`. Transitionsstrategie und Transitionspläne (TS, TA, TB, TC, TE1, TE2): `../umsetzung-rezeption/_befunde.md`, Abschnitt „Konkordanz“.
+Alte Zeilen beziehen sich auf die Entwurfskopien in diesem Ordner (ÜH, RGA) bzw. auf `../zapuk-v1.0.0-121-g7419d8b/` (ZF10, ZK-README). „gleich“ = Zeileninhalt unverändert (zeilenweise per `difflib` und Sichtprüfung). Pfade relativ zu `sources/ZaPuK/quellen/zapuk-v1.1.1/`. Transitionsstrategie und Transitionspläne (TS, TA, TB, TC, TE1, TE2): `../umsetzung-rezeption/_befunde.md`, Abschnitt „Konkordanz“.
 
 | Fundstelle | Kürzel, alte Z. | Neuer Pfad | Neue Z. | Inhalt |
 |---|---|---|---|---|

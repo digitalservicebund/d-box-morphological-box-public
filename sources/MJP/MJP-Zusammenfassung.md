@@ -43,7 +43,7 @@ Pfade relativ zu `quellen/`: `MB/` = `mjp-betreiber/`, `AT/` = `anbindung-techni
 | BLK-UB | `RG/BLK_Umlaufbeschluss_ERV-Betriebsmanagement_2019-07.pdf` | Kostenaufteilung ERV-Betrieb: Bund 1 %, Länder nach Königsteiner Schlüssel |
 | FDS-DA | `MB/fragdenstaat_mjp-deutschland-app_blk-jumbw_2026-09.md` | Antwort JuM BW 09/2026: keine Mobilplanung, Prüfung der FITKO-Zielarchitektur |
 | NP23 / NP25 / HEISE | `MB/netzpolitik_mjp-datenleck_2023-11-14.md`, `MB/netzpolitik_mjp-privatsphaere_2025-06-13.md`, `AT/heise_massive-stoerungen-erv_2024-08.md` | Sekundärquellen: Datenleck SAFE 2023, Kritik an E2EE, Zuständigkeiten 2024 |
-| ZAPUK-AK | `../zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Architekturkonzept/README.md` | MJP als Bestandslösung (Z. 391), Channel Adapter (Z. 395–403), EGVP-Integration (Z. 419) |
+| ZAPUK-AK | `../ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/Zielarchitektur/Architekturkonzept/README.md` | MJP als Bestandslösung (Z. 391), Channel Adapter (Z. 395–403), EGVP-Integration (Z. 419) |
 
 ## 1. Systembild
 
@@ -79,7 +79,7 @@ Pfade relativ zu `quellen/`: `MB/` = `mjp-betreiber/`, `AT/` = `anbindung-techni
 - **Zukunft:**
   - Die Integration in die BundID war für 2024 angekündigt (TP S. 1) und ist nicht umgesetzt.
   - Das JuM BW prüft stattdessen die Integration in die föderale Zielarchitektur der FITKO, also ZaPuK (FDS-DA Z. 161).
-  - ZaPuK sieht MJP als Bestandslösung, deren Frontend mit ZBP, OZG-PLUS-Postfach und Postfach 2.0 zusammengeführt werden soll. EGVP soll über einen Protokollkonverter angebunden werden (ZAPUK-AK Z. 391–419; `../zapuk-v1.0.0-121-g7419d8b/Glossar.md` Z. 523).
+  - ZaPuK sieht MJP als Bestandslösung, deren Frontend mit ZBP, OZG-PLUS-Postfach und Postfach 2.0 zusammengeführt werden soll. EGVP soll über einen Protokollkonverter angebunden werden (ZAPUK-AK Z. 391–419; `../ZaPuK/quellen/zapuk-v1.0.0-121-g7419d8b/Glossar.md` Z. 523).
   - Pläne zur Ablösung von EGVP und OSCI wurden nicht gefunden.
 
 ## 3. Identität, Konto, Schlüssel

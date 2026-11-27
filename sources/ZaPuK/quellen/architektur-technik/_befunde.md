@@ -12,13 +12,13 @@ Alle Pfade relativ zu `sources/`. `V` = `ZaPuK/quellen/zapuk-v1.1.1/`.
 - ADR-IDX = `V/Zielarchitektur/Architekturentscheidungen/README.md`
 - GLOS = `V/Glossar.md`; ABK = `V/Abkürzungen.md`
 - AK11 = `V/Zielarchitektur/Architekturkonzept/README.md` (Architekturkonzept v1.1.1, Stand 26.11.2026) **[v1.1]**
-- AK10 = `V/Zielarchitektur/Architekturkonzept/Vorversionen/v1.0/README.md` (Architekturkonzept v1.0, Sommer 2025; Zeilen gleich der früheren Fassung in `zapuk-v1.0.0-121-g7419d8b/`)
-- ZF10 = `V/Zielarchitektur/Zusammenfassung/Vorversionen/v1.0/README.md` (Zeilen gleich der früheren Fassung in `zapuk-v1.0.0-121-g7419d8b/`)
+- AK10 = `V/Zielarchitektur/Architekturkonzept/Vorversionen/v1.0/README.md` (Architekturkonzept v1.0, Sommer 2025; Zeilen gleich der früheren Fassung in `../zapuk-v1.0.0-121-g7419d8b/`)
+- ZF10 = `V/Zielarchitektur/Zusammenfassung/Vorversionen/v1.0/README.md` (Zeilen gleich der früheren Fassung in `../zapuk-v1.0.0-121-g7419d8b/`)
 - ANF = `V/Konsolidierte-Anforderungen/README.md` (v0.7.1, 24.02.2026, unverändert); RB = `V/Zielarchitektur/Rahmenbedingungen/README.md`
 - ZF11 = `ZaPuK/quellen/architektur-technik/fitko_zapuk-zusammenfassung-v1.1_v1.1-entwurf_2026-11-13.md`; TR = `ZaPuK/quellen/architektur-technik/fitko_zapuk-transitionen-ueberblick_v1.1-entwurf_2026-11-13.md`; TR-A, TR-B, TR-C = Transitionspläne ZBP, MJP, MUK (`fitko_zapuk-transition-a-…`, `-b-…`, `-c-…`); TADR-E2 = `fitko_zapuk-tadr-mein-elster-002-…` (Entwurfsstand 13.11.2026; Abgleich mit v1.1.1 nicht Teil dieser Auswertung, Transitionspläne und TADRs fehlen in v1.1.1)
 - ISS = `ZaPuK/quellen/architektur-technik/fitko_zapuk-opencode-issues-architektur_2026-11-19.md`
 
-Alte Kürzel und Zeilenangaben (Kopien `*_main_2026-11-12.md`, `*_v1.1-entwurf_2026-11-13.md`, `zapuk-v1.0.0-121-g7419d8b/`) rechnet der Abschnitt [Konkordanz der Fundstellen](#konkordanz-der-fundstellen-alt--v111) um.
+Alte Kürzel und Zeilenangaben (Kopien `*_main_2026-11-12.md`, `*_v1.1-entwurf_2026-11-13.md`, `../zapuk-v1.0.0-121-g7419d8b/`) rechnet der Abschnitt [Konkordanz der Fundstellen](#konkordanz-der-fundstellen-alt--v111) um.
 
 ## Kurzbild der Architektur
 
@@ -32,7 +32,7 @@ Alte Kürzel und Zeilenangaben (Kopien `*_main_2026-11-12.md`, `*_v1.1-entwurf_2
 
 ## Änderungen v1.1.1 gegenüber `main` 2026-11-12 und Entwurf 2026-11-13
 
-Verglichen wurden alle Dateien dieses Ordners (ohne die fünf Kopfzeilen) und `zapuk-v1.0.0-121-g7419d8b/` mit `../zapuk-v1.1.1/`, Umfang: ADR-Index, alle ADRs, Architekturkonzept v1.1 und v1.0, Glossar, Abkürzungen, Konsolidierte Anforderungen (README, Lesefassung), Rahmenbedingungen, `Zielarchitektur/README.md`, Konsultationen. Zusammenfassung, Transitionen, Rechtsgutachten und Programm-README sind hier nicht ausgewertet.
+Verglichen wurden alle Dateien dieses Ordners (ohne die fünf Kopfzeilen) und `../zapuk-v1.0.0-121-g7419d8b/` mit `../zapuk-v1.1.1/`, Umfang: ADR-Index, alle ADRs, Architekturkonzept v1.1 und v1.0, Glossar, Abkürzungen, Konsolidierte Anforderungen (README, Lesefassung), Rahmenbedingungen, `Zielarchitektur/README.md`, Konsultationen. Zusammenfassung, Transitionen, Rechtsgutachten und Programm-README sind hier nicht ausgewertet.
 
 ### Inhaltlich
 
@@ -55,9 +55,9 @@ Verglichen wurden alle Dateien dieses Ordners (ohne die fünf Kopfzeilen) und `z
 
 ### Nur redaktionell oder Linkpfade
 
-- ADR-0000 bis ADR-0016, ADR-0017, ADR-1100, ADR-1102 bis ADR-1104, ADR-1107 bis ADR-1109, ADR-1111 bis ADR-1114, ADR-1120, ADR-1144, ADR-1148: Text gleich `main` 2026-11-12 (gegenüber `zapuk-v1.0.0-121-g7419d8b/` nur Status „Operativ entschieden“ statt „Beschlossen“ und die Änderungen vom 12.11.2026, siehe `_index.md`).
+- ADR-0000 bis ADR-0016, ADR-0017, ADR-1100, ADR-1102 bis ADR-1104, ADR-1107 bis ADR-1109, ADR-1111 bis ADR-1114, ADR-1120, ADR-1144, ADR-1148: Text gleich `main` 2026-11-12 (gegenüber `../zapuk-v1.0.0-121-g7419d8b/` nur Status „Operativ entschieden“ statt „Beschlossen“ und die Änderungen vom 12.11.2026, siehe `_index.md`).
 - ADR-0018, ADR-1101, ADR-1130 gegenüber Entwurf: Zeichensetzung, Formatierung, Anforderungs-ID (ADR-1101 Z. 106 SIC_VER_ÜBE_026).
-- Architekturkonzept v1.0 (`Vorversionen/v1.0/README.md`): nur PDF-Link und absolute Linkpfade, Zeilen 1:1 wie `zapuk-v1.0.0-121-g7419d8b/`. Ebenso Zusammenfassung v1.0 (`Zusammenfassung/Vorversionen/v1.0/README.md`).
+- Architekturkonzept v1.0 (`Vorversionen/v1.0/README.md`): nur PDF-Link und absolute Linkpfade, Zeilen 1:1 wie `../zapuk-v1.0.0-121-g7419d8b/`. Ebenso Zusammenfassung v1.0 (`Zusammenfassung/Vorversionen/v1.0/README.md`).
 - Konsolidierte Anforderungen README und Vorversionen: bytegleich. Lesefassung, Rahmenbedingungen, Konsultationsseiten Phase 1 und 2: nur Linkziele (PDF-Links auf it-planungsrat.de, Architekturkonzept auf `Vorversionen/v1.0/`, Leitfragen auf Issue-Vorlage).
 - Glossar und Abkürzungen haben in v1.1.1 CRLF-Zeilenenden; die Kopien in diesem Ordner LF.
 
@@ -322,7 +322,7 @@ Die Spalte ist seit 2026-11-23 befüllt, Belege in `../../../Referenzen-ZaPuK.md
 - **Bridge-Verbot vs. Transitions-Bridges:** AK10 Z. 401 verbietet Messaging-Bridges, v1.1 sieht sie übergangsweise vor (AK11 Z. 718; TR Z. 63). AK11 Z. 956 sagt weiterhin "Bridges sollen dagegen nicht verwendet werden" (bezogen auf ADR-0010 für Systeme außerhalb).
 - **Eigene IdP:** AK10 Z. 345 "nicht unterstützt" vs. ADR-1108 Org-IdP-Adapter.
 - **Ein vs. vier Backends:** ADR-0006, AK10 Z. 321 und Z. 413 vs. ADR-1114, ADR-1103 Z. 142.
-- **Statusangaben:** `zapuk-v1.0.0-121-g7419d8b/` führte ADR-1105, ADR-1106, ADR-1109, ADR-1147 als "Operativ entschieden", `main` und v1.1.1 als "Richtung entschieden". `sources.md` Abschnitt 1 stützt sich auf den alten Stand (u. a. "No messaging bridges", Liste der offenen ADRs ohne "nicht entschlüsselbare Nachrichten").
+- **Statusangaben:** `../zapuk-v1.0.0-121-g7419d8b/` führte ADR-1105, ADR-1106, ADR-1109, ADR-1147 als "Operativ entschieden", `main` und v1.1.1 als "Richtung entschieden". `sources.md` Abschnitt 1 stützt sich auf den alten Stand (u. a. "No messaging bridges", Liste der offenen ADRs ohne "nicht entschlüsselbare Nachrichten").
 - **Folge-Entscheidung ohne Gegenstück:** ADR-1122 Z. 77 verweist für die Pflicht zur Benachrichtigung auf die Anschlussbedingungen in ADR-1145; ADR-1145 enthält sie in v1.1.1 nicht.
 - **„In Arbeit“ mit gewählter Option:** ADR-1122 nennt eine gewählte Option (Z. 56), ADR-1121 eine Übergangsregel (Z. 62), obwohl beide „In Arbeit“ sind; Status laut Legende: Optionen werden noch erörtert (ADR-IDX Z. 81).
 - **Bereitstellungsbestätigung und Zugang:** ADR-0018 Z. 9 sagt weiterhin „Der Zugang … findet objektiv mit dem Eingang im Postfach-Backend … statt“, das Glossar sagt, der Zugang setze zusätzlich die Entschlüsselbarkeit voraus (GLOS Z. 231).
@@ -340,7 +340,7 @@ Die Spalte ist seit 2026-11-23 befüllt, Belege in `../../../Referenzen-ZaPuK.md
 
 ## Konkordanz der Fundstellen (alt → v1.1.1)
 
-Umrechnung aller Fundstellen aus `../../../Referenzen-ZaPuK.md` (Ref) und `../../ZaPuK-Zusammenfassung.md` (Zus), die auf Dateien im Umfang dieses Ordners zeigen. „Z. alt“ wie dort zitiert: bei Kopien in diesem Ordner Zeile der Kopie (ADR-IDX, GLOS, AK11, ADR-xxxx auf `main` geändert, ADR-xxxx (v1.1-Entwurf)), sonst Zeile in `zapuk-v1.0.0-121-g7419d8b/` (AK10, ZF10, ANF, ADR-0017, 1100, 1101, 1104, 1110, 1112–1114, 1118, 1130, 1145, 1146). „Fundstelle v1.1.1“ mit den neuen Kürzeln oben (Originalzeilen in `../zapuk-v1.1.1/`). „gleich“ = Zeile inhaltlich unverändert.
+Umrechnung aller Fundstellen aus `../../../Referenzen-ZaPuK.md` (Ref) und `../../ZaPuK-Zusammenfassung.md` (Zus), die auf Dateien im Umfang dieses Ordners zeigen. „Z. alt“ wie dort zitiert: bei Kopien in diesem Ordner Zeile der Kopie (ADR-IDX, GLOS, AK11, ADR-xxxx auf `main` geändert, ADR-xxxx (v1.1-Entwurf)), sonst Zeile in `../zapuk-v1.0.0-121-g7419d8b/` (AK10, ZF10, ANF, ADR-0017, 1100, 1101, 1104, 1110, 1112–1114, 1118, 1130, 1145, 1146). „Fundstelle v1.1.1“ mit den neuen Kürzeln oben (Originalzeilen in `../zapuk-v1.1.1/`). „gleich“ = Zeile inhaltlich unverändert.
 
 | Kürzel alt | Z. alt | zitiert in | Fundstelle v1.1.1 | Inhalt |
 |---|---|---|---|---|
@@ -474,8 +474,8 @@ Umrechnungsregeln für andere Fundstellen der Vorfassung dieser Datei (Git-Histo
 |---|---|
 | ADR-xxxx (main), Kopie `*_main_2026-11-12.md` | Z. minus 5; Ausnahmen: ADR-0018 Kopie-Z. 241–245 → Z. 236 (Offene Punkte jetzt Z. 258–260), Kopie-Z. 246–265 minus 9, ab Kopie-Z. 266 minus 5; ADR-1119 ab Kopie-Z. 58 minus 4, ab Kopie-Z. 94 minus 2; ADR-1135 ab Kopie-Z. 140 minus 1; ADR-1147 ab Kopie-Z. 28 minus 3, ab Kopie-Z. 99 plus 1 |
 | ADR-xxxx (v1.1), Kopie `*_v1.1-entwurf_2026-11-13.md` | Z. minus 5; Ausnahmen: ADR-1110 Kopie-Z. 96–99 entfallen, ab Kopie-Z. 100 minus 9; ADR-1118 Kopie-Z. 132–138 minus 4, Kopie-Z. 139–141 → Z. 135, ab Kopie-Z. 142 minus 6; ADR-1130 Kopie-Z. 182 entfällt (Leerzeile), ab Kopie-Z. 183 minus 6; ADR-1145 ab Kopie-Z. 154 minus 3; ADR-1147 ab Kopie-Z. 101 minus 1 |
-| ADR-xxxx (lokal), `zapuk-v1.0.0-121-g7419d8b/` | gleich; Ausnahmen: ADR-1110 ab Z. 87 plus 4; ADR-1118 Z. 127–132 plus 1, ab Z. 133 plus 3; ADR-1130 Z. 159–173 plus 2, Z. 174 entfällt (Leerzeile), ab Z. 175 plus 1; ADR-1145 Z. 137–147 plus 1, ab Z. 148 plus 3 |
+| ADR-xxxx (lokal), `../zapuk-v1.0.0-121-g7419d8b/` | gleich; Ausnahmen: ADR-1110 ab Z. 87 plus 4; ADR-1118 Z. 127–132 plus 1, ab Z. 133 plus 3; ADR-1130 Z. 159–173 plus 2, Z. 174 entfällt (Leerzeile), ab Z. 175 plus 1; ADR-1145 Z. 137–147 plus 1, ab Z. 148 plus 3 |
 | ADR-IDX, Kopie main | bis Kopie-Z. 58 minus 5; Kopie-Z. 59–66 minus 3; Kopie-Z. 67 entfällt (jetzt ADR-1122, Z. 55); ab Kopie-Z. 68 minus 4 |
 | AK11, Kopie Entwurf | bis Kopie-Z. 12 minus 5, Kopie-Z. 13–164 minus 6 (Kopie-Z. 164 Hinweis ersetzt durch Z. 158–160); Kopie-Z. 165–167 minus 4; Kopie-Z. 168–720 plus 82; ab Kopie-Z. 721 plus 84 |
-| AK10, ZF10, ANF, RB, Konsultationen, Lesefassung (`zapuk-v1.0.0-121-g7419d8b/`) | gleich |
+| AK10, ZF10, ANF, RB, Konsultationen, Lesefassung (`../zapuk-v1.0.0-121-g7419d8b/`) | gleich |
 | GLOS, Kopie main | Einzelumrechnung nötig (neue Einträge ab Originalzeile 63); Beispiele: Bereich Kopie-Z. 184 → Z. 201, Bereichs-MXID 190 → 207, Betriebsmodell 212 → 241, Funktionspostfach 394 → 423, Machtbereich 470 → 499, Protokollkonverter 658 → 689 |

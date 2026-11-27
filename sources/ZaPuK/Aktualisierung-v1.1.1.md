@@ -1,6 +1,6 @@
 # ZaPuK: Aktualisierung auf v1.1.1
 
-Stand: 2026-11-27. Die Quelle ist die lokale Kopie `quellen/zapuk-v1.1.1/` (Tag v1.1.1, <https://gitlab.opencode.de/it-planungsrat/fit-ab/zapuk/-/tree/v1.1.1>). Sie ersetzt `../zapuk-v1.0.0-121-g7419d8b/` sowie die Kopien von `main` (12.11.2026) und vom Branch `architecture-v1.1` (13.11.2026).
+Stand: 2026-11-27. Die Quelle ist die lokale Kopie `quellen/zapuk-v1.1.1/` (Tag v1.1.1, <https://gitlab.opencode.de/it-planungsrat/fit-ab/zapuk/-/tree/v1.1.1>). Sie ersetzt `quellen/zapuk-v1.0.0-121-g7419d8b/` sowie die Kopien von `main` (12.11.2026) und vom Branch `architecture-v1.1` (13.11.2026).
 
 ## Was sich bei ZaPuK geändert hat
 
@@ -83,6 +83,6 @@ Alle ZaPuK-Aussagen in `morph_box.csv`, in der Spalte ZaPuK von `existing_soluti
 
 ## Offen
 
-- **Vor dem Löschen von `../zapuk-v1.0.0-121-g7419d8b/`:** `sources.md` und `README.md` sind seit der Kohärenzprüfung auf v1.1.1 umgestellt. Noch darauf verweisen `BundID-ZBP/ZBP-Zusammenfassung.md`, `MJP/MJP-Zusammenfassung.md`, `MUK/MUK-Zusammenfassung.md`, `ELSTER/ELSTER-Zusammenfassung.md`, `Referenzen-ELSTER.md`, `Referenzen-MJP.md` und die `quellen/`-Notizen von MJP, MUK und BundID-ZBP. Diese Verweise sind anzupassen.
+- **Vor dem Löschen von `quellen/zapuk-v1.0.0-121-g7419d8b/`:** `sources.md` und `README.md` sind seit der Kohärenzprüfung auf v1.1.1 umgestellt. Noch darauf verweisen `BundID-ZBP/ZBP-Zusammenfassung.md`, `MJP/MJP-Zusammenfassung.md`, `MUK/MUK-Zusammenfassung.md`, `ELSTER/ELSTER-Zusammenfassung.md`, `Referenzen-ELSTER.md`, `Referenzen-MJP.md` und die `quellen/`-Notizen von MJP, MUK und BundID-ZBP. Diese Verweise sind anzupassen.
 - **Entbehrliche Kopien:** Die `*_main_2026-11-12.md`- und `*_v1.1-entwurf_*`-Kopien in `quellen/` sind weitgehend doppelt (Liste in den `_index.md`). Behalten werden müssen die Transitionspläne A–C und die ELSTER-Transitions-ADRs.
 - **Foliensatz:** `zapuk-v1.1.1/Foliensätze/2026-11-26_ZaPuK-und-Matrix_Architektur-Einführung.pdf` ist nicht als Kürzel aufgenommen. Er enthält keine Aussagen zum Beschluss.
