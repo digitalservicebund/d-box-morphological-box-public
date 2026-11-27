@@ -1,4 +1,14 @@
 version: 2
+
+# Dependabot should only maintain the tooling in tools/ and the CI that runs it
+# (.github/workflows). Everything under sources/ is a read-only snapshot of
+# third-party repositories (e.g. the Neo code) kept as reference material, so
+# Dependabot must not open PRs for it.
+#
+# tools/ currently contains shell scripts only, which Dependabot cannot update.
+# The entries below with open-pull-requests-limit 0 disable version updates and
+# exclude sources/ from security updates for the ecosystems found there.
+
 updates:
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -10,3 +20,45 @@ updates:
       prefix: "chore(deps)"
     # 0 would disable version updates; use a high value as "no limit".
     open-pull-requests-limit: 100
+
+  - package-ecosystem: "npm"
+    directories: ["/**"]
+    exclude-paths: ["sources/**"]
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 0
+
+  - package-ecosystem: "cargo"
+    directories: ["/**"]
+    exclude-paths: ["sources/**"]
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 0
+
+  - package-ecosystem: "pip"
+    directories: ["/**"]
+    exclude-paths: ["sources/**"]
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 0
+
+  - package-ecosystem: "bundler"
+    directories: ["/**"]
+    exclude-paths: ["sources/**"]
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 0
+
+  - package-ecosystem: "gradle"
+    directories: ["/**"]
+    exclude-paths: ["sources/**"]
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 0
+
+  - package-ecosystem: "docker"
+    directories: ["/**"]
+    exclude-paths: ["sources/**"]
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 0
