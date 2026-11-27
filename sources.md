@@ -8,7 +8,8 @@ Context: `morph_box.csv` is the morphological box for the d-box (central, bi-dir
 
 | Folder | What it is | Language | Format | Use it for |
 |---|---|---|---|---|
-| `zapuk-main/` | ZaPuK: Zielarchitektur für Postfach- und Kommunikationslösungen (FITKO / FIT-AB, IT-Planungsrat). 196 files. | German | Markdown, PDF | Architecture decisions, requirements, legal framework, glossary. The richest source for dimensions and options. |
+| `ZaPuK/quellen/zapuk-v1.1.1/` | ZaPuK: Zielarchitektur für Postfach- und Kommunikationslösungen (FITKO / FIT-AB, IT-Planungsrat), local copy of tag v1.1.1 (26.11.2026), the annexes to IT-PLR B-2026/43-IT. 217 files. | German | Markdown, PDF | Architecture decisions, Architekturkonzept v1.1.1 and v1.0, Überblick, Transitionsstrategie, Rechtsgutachten, requirements, glossary. The richest source for dimensions and options. |
+| `zapuk-main/` | Older mirror of the ZaPuK repo, superseded by `ZaPuK/quellen/zapuk-v1.1.1/` (see `ZaPuK/Aktualisierung-v1.1.1.md`). Kept until the remaining references in other source folders are updated. | German | Markdown, PDF | Do not use for new work. |
 | `neo-solution-architecture-develop/` | "Neo": Matrix-based, E2EE G2C communication channel (FITKO/BMDS), a child of ZaPuK. 64 files, arc42. | English | Markdown, Structurizr DSL | A concrete reference implementation: homeserver topology, BundID integration, message model, delivery legal concept. |
 | `ELSTER/` | ERiC developer documentation package (ELSTER, BayLfSt), ERiC 44.1.6.0, May 2026. About 2,100 files, 227 MB. | German | PDF, XSD, XML, ODS, HTML | How an existing German mailbox works technically: ELSTER-Postfach and Postfach 2.0, Datenabholung, Bereitstellung by other authorities, certificates, encryption, DIVA (elektronische Bekanntgabe), Vollmachten. Reference for the `ELSTER-Postfach` column in `existing_solutions.csv`. |
 | `BundID-ZBP/` | Zentrales Bürgerpostfach (ZBP, "BundID-Postfach"): condensed analysis plus local copies of primary sources from the BundID operator, FITKO / FIT-Connect, IT-PLR, Bundestag and Bundesrat. 94 files, retrieved 2026-11-17. | German | Markdown, PDF, JSON Schema, OpenAPI, Java | How the existing federal citizen mailbox works: operation and governance, Anbindung (direct REST or FIT-Connect ZBP-Adapter), Postkorb-Handle addressing, Bekanntgabe nach § 9 OZG, legal history. Reference for the `BundID heute (Deutschland)` column in `existing_solutions.csv`. |
@@ -18,8 +19,8 @@ Context: `morph_box.csv` is the morphological box for the d-box (central, bi-dir
 | `Referenzen-MUK.md` | Source list for Mein Unternehmenskonto: short codes, local paths in `MUK/quellen/` and URLs, evidence per dimension, deviations found during the check. Checked 2026-11-18. | German | Markdown | Reference for the `Unternehmenskonto heute (Deutschland)` column in `existing_solutions.csv` and the MUK entries in `morph_box.csv`. |
 | `MJP/` | Mein Justizpostfach (MJP), the free browser mailbox for natural persons in the elektronischer Rechtsverkehr with courts (sicherer Übermittlungsweg under § 130a Abs. 4 S. 1 Nr. 4 ZPO with § 13 ERVV): condensed analysis plus local copies of primary sources from the BLK-AG IT-Standards, MJP-Support, EGVP, BMJV, Westernacher, Bundestag and Bundesgesetzblatt. 102 files, retrieved 2026-11-18. | German | Markdown, PDF, JSON | How the existing justice mailbox for citizens works: EGVP/OSCI transport, SAFE directory, BundID login at Vertrauensniveau hoch, E2EE with a key file kept only by the user, förmliche Zustellung under § 173 ZPO, governance by the BLK. Reference for the `Mein Justizpostfach (Deutschland)` column in `existing_solutions.csv`. |
 | `Referenzen-MJP.md` | Source list for Mein Justizpostfach: short codes, local paths in `MJP/quellen/` and URLs, evidence per dimension, deviations found during the check. Checked 2026-11-18. | German | Markdown | Reference for the `Mein Justizpostfach (Deutschland)` column in `existing_solutions.csv` and the MJP entries in `morph_box.csv`. |
-| `ZaPuK/` | ZaPuK as a column of its own: condensed analysis plus local copies of upstream changes since `zapuk-main/` (`main` 2026-11-12, unmerged draft branch `architecture-v1.1` 2026-11-13 with Architekturkonzept v1.1, Transitionspläne for ZBP, MJP, MUK and Mein ELSTER, Rechtsgutachten), IT-PLR and FIT-AB Beschlüsse, Neo pilot results and press. About 120 files, retrieved 2026-11-19. | German | Markdown, PDF, PNG | What ZaPuK decides per dimension (ADR status, draft v1.1, Neo pilot), transition of existing mailboxes, legal feasibility (Schriftform, Bekanntgabe, Zustellung, Verfassungsrecht), governance and financing. Reference for the `ZaPuK (Zielarchitektur, Deutschland)` column in `existing_solutions.csv`. |
-| `Referenzen-ZaPuK.md` | Source list for ZaPuK: short codes, local paths in `ZaPuK/quellen/` and `zapuk-main/`, URLs, evidence per dimension, deviations found when checking the ZaPuK references in `morph_box.csv`. Checked 2026-11-19. | German | Markdown | Reference for the `ZaPuK (Zielarchitektur, Deutschland)` column in `existing_solutions.csv` and the ZaPuK entries in `morph_box.csv`. |
+| `ZaPuK/` | ZaPuK as a column of its own: condensed analysis, the v1.1.1 repo copy, update notes `Aktualisierung-v1.1.1.md`, draft Transitionspläne for ZBP, MJP, MUK and Mein ELSTER (only in the former branch `architecture-v1.1`, copied 2026-11-13, not in v1.1.1), IT-PLR Beschluss B-2026/43-IT with annexes, FIT-AB Beschlüsse, Neo pilot results and press. Retrieved 2026-11-19, updated to v1.1.1 on 2026-11-27. | German | Markdown, PDF, PNG | What ZaPuK decides per dimension (ADR status, draft v1.1, Neo pilot), transition of existing mailboxes, legal feasibility (Schriftform, Bekanntgabe, Zustellung, Verfassungsrecht), governance and financing. Reference for the `ZaPuK (Zielarchitektur, Deutschland)` column in `existing_solutions.csv`. |
+| `Referenzen-ZaPuK.md` | Source list for ZaPuK: short codes, local paths in `ZaPuK/quellen/` (including `zapuk-v1.1.1/`), URLs, evidence per dimension, deviations found when checking the ZaPuK references in `morph_box.csv`. Checked 2026-11-19, against v1.1.1 on 2026-11-27. | German | Markdown | Reference for the `ZaPuK (Zielarchitektur, Deutschland)` column in `existing_solutions.csv` and the ZaPuK entries in `morph_box.csv`. |
 | `Mein-Postkorb-Oesterreich/` | Austrian E-Zustellung ("Mein Postkorb"): condensed analysis plus local copies of ZustG and E-GovG (RIS), BKA white paper, ZUSE 2.4.0 specification and XML schemas, BKA, oesterreich.gv.at and USP pages. 30 files, retrieved 2026-11-23. | German | Markdown, PDF, ZIP | Federated delivery with licensed Zustelldienste, Teilnehmerverzeichnis and Anzeigemodul, bPK addressing, delivery receipts, company roles, mandatory participation. Reference for the `Österreich` column. |
 | `Referenzen-Mein-Postkorb-Oesterreich.md` | Source list for the Austrian E-Zustellung ("Mein Postkorb"): ZustG, E-GovG, BKA white paper and ZUSE specification, oesterreich.gv.at, USP, with evidence per dimension. Local copies in the folder of the same name, checked 2026-11-23. | German | Markdown | Reference for the `Österreich` column in `existing_solutions.csv` and the Österreich entries in `morph_box.csv`. |
 | `GOV-UK-Notify/` | GOV.UK Notify (GDS): condensed analysis plus local copies of service pages, REST API docs, GitHub README, Service Manual, Electronic Communications Act 2000 and Interpretation Act 1978. 35 files, retrieved 2026-11-23. | English (summary and indexes German) | Markdown | A central notification service without mailbox: API and web UI, channels, security, retention, pricing, UK rules on written form and service by post. Reference for the `UK (kein zentrales Postfach)` column. |
@@ -31,29 +32,31 @@ Context: `morph_box.csv` is the morphological box for the d-box (central, bi-dir
 | `MijnOverheid-Niederlande/` | Dutch MijnOverheid Berichtenbox, Berichtenbox voor bedrijven and the Federatief Berichtenstelsel (FBS): condensed analysis plus local copies of Awb, Wmebv, Wet digitale overheid and Dienstenwet (BWB XML), Kamerstukken, Logius connection guide 1.6.4 and FBS pages, MOZa proof of concept, mijn.overheid.nl, DigiD, eHerkenning and ondernemersplein pages. 94 files, retrieved 2026-11-26. | German, Dutch | Markdown, PDF, YAML, ZIP | Central mailbox today (Logius, GLOBE) and its migration to a federation where messages stay in the sender's store; opt-in per authority, Bekanntgabe under art. 2:19 Awb, DigiD Machtigen, Digikoppeling. Reference for the `Niederlande` column. |
 | `Referenzen-MijnOverheid-Niederlande.md` | Source list for the Dutch MijnOverheid Berichtenbox, Berichtenbox voor bedrijven and FBS: Awb, Wmebv, Wdo, Logius, MijnOverheid Zakelijk, mijn.overheid.nl, with evidence per dimension. Local copies in the folder of the same name, checked 2026-11-26. | German | Markdown | Reference for the `Niederlande` column in `existing_solutions.csv` and the Niederlande entries in `morph_box.csv`. |
 
-## 1. zapuk-main/
+## 1. ZaPuK/quellen/zapuk-v1.1.1/
 
-Mirror of the openCode repo ZaPuK. Document repo, no code. Target architecture for the federal mailbox and communication infrastructure (G2C/G2B, Bescheide, Rückfragen). It is meant to consolidate BundID-Postfach, ZBP, MJP, OZG-Plus-Postfach, TI-Messenger, BundesMessenger, EGVP and others.
+Local copy of tag v1.1.1 of the openCode repo ZaPuK (<https://gitlab.opencode.de/it-planungsrat/fit-ab/zapuk/-/tree/v1.1.1>). It replaces the older mirror `zapuk-main/`. Paths below are relative to `ZaPuK/quellen/zapuk-v1.1.1/`. Document repo, no code. Target architecture for the federal mailbox and communication infrastructure (G2C/G2B, Bescheide, Rückfragen). It is meant to consolidate BundID-Postfach, ZBP, MJP, OZG-Plus-Postfach, TI-Messenger, BundesMessenger, EGVP and others.
 
-Core stance: hybrid, federated architecture. Matrix as Kommunikationsschicht (ADR-0011). MLS for E2EE (ADR-0012). One central Postfach-Backend and one central Zugang, plus openness for third parties. Self-Service-Portal and SDKs. No messaging bridges for existing systems; they must migrate to Matrix and MLS (Architekturkonzept 3.2). Interoperability with systems outside the scope, e.g. EU systems, only via Protocol Converters that keep E2EE (ADR-0010).
+Core stance: hybrid, federated architecture. Matrix as Kommunikationsschicht (ADR-0011). MLS for E2EE (ADR-0012). One central Postfach-Backend and one central Zugang, plus openness for third parties. Self-Service-Portal and SDKs. No messaging bridges to systems outside the scope; for existing systems, v1.1 allows transitional bridges where messages are unencrypted anyway (Architekturkonzept v1.1, Transitionsstrategie); v1.0 had banned them (Architekturkonzept v1.0, 3.2). Interoperability with systems outside the scope, e.g. EU systems, only via Protocol Converters that keep E2EE (ADR-0010).
 
-Status caveat: `Zielarchitektur/Architekturkonzept` and `Zusammenfassung` reflect v1.0 (summer 2025). The ADRs from 1100 onward are more current (Sep-Nov 2026). The mirror predates upstream `main` of 2026-11-12: there, ADR-1105, 1106, 1109 and 1147 are downgraded to "Richtung entschieden", and the unmerged draft v1.1 allows transitional bridges to ZBP, ELSTER and Postfach 2.0 instead of the v1.0 bridge ban. Changed and new files are in `ZaPuK/quellen/architektur-technik/`; see section 7.
+Status caveat: v1.1 (Architekturkonzept, Überblick, Transitionsstrategie, Rechtsgutachten) was submitted to IT-PLR B-2026/43-IT of 25.11.2026 as annexes but not adopted; the Beschluss only declares Phase II complete. ADR-1105, 1106, 1109 and 1147 are "Richtung entschieden", ADR-1121 and 1122 "In Arbeit", ADR-1149 unbearbeitet. v1.0 versions are under `Vorversionen/v1.0/`. Changes and contradictions: `ZaPuK/Aktualisierung-v1.1.1.md`; see section 7.
 
 ### Entry points (reading order)
 
-1. `zapuk-main/README.md`: programme overview, IT-PLR Beschlüsse, roadmap, Logbuch (changelog).
-2. `zapuk-main/Zielarchitektur/README.md`: document map.
-3. `zapuk-main/Zielarchitektur/Architekturentscheidungen/README.md`: ADR index with status. Best table for dimensions and options.
-4. `zapuk-main/Zielarchitektur/Architekturkonzept/README.md`, section 2.5: ADR summaries by topic. Chapter 3: Brownfield and transition.
-5. `zapuk-main/Zielarchitektur/Zusammenfassung/README.md`: management summary, Kosten (3.3), implications, risks.
-6. `zapuk-main/Zielarchitektur/Rahmenbedingungen/README.md`: laws and Beschlüsse.
-7. `zapuk-main/Glossar.md` and `zapuk-main/Abkürzungen.md`: terminology.
+1. `README.md`: programme overview, IT-PLR Beschlüsse, roadmap, Logbuch (changelog).
+2. `Zielarchitektur/README.md`: document map.
+3. `Zielarchitektur/Architekturentscheidungen/README.md`: ADR index with status. Best table for dimensions and options.
+4. `Zielarchitektur/Architekturkonzept/README.md` (v1.1.1): chapter 3 Geschäftsarchitektur, chapter 4 development, operation and governance, section 5.4 ADR summaries by topic. v1.0 in `Vorversionen/v1.0/`.
+5. `Zielarchitektur/Zusammenfassung/README.md`: Überblick und Handlungsempfehlungen v1.1; v1.0 with Kosten (3.3) in `Vorversionen/v1.0/`.
+6. `Zielarchitektur/Transitionen/README.md`: Transitionsstrategie v1.1 for existing mailboxes.
+7. `Zielarchitektur/Rechtsgutachten/README.md`: legal opinion, Stand 19.10.2026, with section E on the IT-Staatsvertrag.
+8. `Zielarchitektur/Rahmenbedingungen/README.md`: laws and Beschlüsse.
+9. `Glossar.md` and `Abkürzungen.md`: terminology.
 
 ### Other content
 
-- `zapuk-main/Konsolidierte-Anforderungen/README.md`: requirements v0.7.0 with IDs (ANF_FUN_*, ANF_ARC_*, RAH_*, DAT_*, KOM_*, BED_*, LEI_*, WAR_*). `Lesefassung/` holds a readable version. `Vorversionen/` holds history.
-- `zapuk-main/Konsultationen/`: consultation rounds (Phase 1 requirements 2025-03-19, Phase 2 architecture 2026-01-21, ongoing feedback).
-- `zapuk-main/Zielarchitektur/Architekturentscheidungen/ADR-*.md`: one file per ADR (Status, Kontext, Optionen, Entscheidung). Option diagrams are in `images/`.
+- `Konsolidierte-Anforderungen/README.md`: requirements v0.7.1 with IDs (ANF_FUN_*, ANF_ARC_*, RAH_*, DAT_*, KOM_*, BED_*, LEI_*, WAR_*). `Lesefassung/` holds a readable version. `Vorversionen/` holds history.
+- `Konsultationen/`: consultation rounds (Phase 1 requirements 2025-03-19, Phase 2 architecture 2026-01-21, ongoing feedback).
+- `Zielarchitektur/Architekturentscheidungen/ADR-*.md`: one file per ADR (Status, Kontext, Optionen, Entscheidung). Option diagrams are in `images/`.
 - Low value: `.gitlab/`, `Foliensätze/` (slide PDFs duplicating the docs), PDF copies of the .md files, `images/`.
 
 ### Topic to ADR map
@@ -95,7 +98,7 @@ Snapshot of the public FITKO repo "Matrix G2C/G2X Communication Solution Archite
 - `neo-solution-architecture-develop/05_building_block_view.md`: Matrix event and message format spec (58 KB). Skim by headings. It matters only for message-model dimensions.
 - `neo-solution-architecture-develop/images/high-level-architecture.png`: overview diagram.
 - Process or meta only (skip): `13_methodology.md`, `docs/`, `CONTRIBUTING.md`, `SECURITY.md`, `LICENSES/`, `publiccode.yml`, CI and lint config.
-- The parent ZaPuK is referenced only by link. It is the `zapuk-main/` source.
+- The parent ZaPuK is referenced only by link. It is the `ZaPuK/quellen/zapuk-v1.1.1/` source.
 
 ## 3. ELSTER/
 
@@ -214,24 +217,25 @@ Each subfolder of `MJP/quellen/` has an `_index.md` with URL, publisher, date an
 
 ## 7. ZaPuK/
 
-Research on ZaPuK as a column in `existing_solutions.csv`. ZaPuK is a target architecture, not a running solution; running software exists only from the Neo pilot (closed by FIT-AB 2026/11 on 23.06.2026, demo integrations only). Version 1.1 and Phase III under BMDS lead are to be adopted at the 51st IT-PLR meeting on 25.11.2026; all v1.1 content is marked as draft.
+Research on ZaPuK as a column in `existing_solutions.csv`. ZaPuK is a target architecture, not a running solution; running software exists only from the Neo pilot (closed by FIT-AB 2026/11 on 23.06.2026, demo integrations only). IT-PLR Beschluss B-2026/43-IT (51st meeting, 25.11.2026) declared Phase II complete; the Bund confirmed its programme responsibility. Version 1.1 was submitted as annexes but not adopted; Phase III under BMDS lead, binding consolidation and financing were not decided. v1.1 content is marked "v1.1", content only in the draft Transitionspläne "Entwurf Transitionsplan".
 
-**Start with `ZaPuK/ZaPuK-Zusammenfassung.md`** (German): a condensed analysis along all `morph_box.csv` dimensions (section 5), with short codes, evidence markers (**[Entwurf]**, **[Folgerung]**, **[unverifiziert]**, **[veraltet?]**), contradictions (section 6) and gaps (section 7).
+**Start with `ZaPuK/ZaPuK-Zusammenfassung.md`** (German): a condensed analysis along all `morph_box.csv` dimensions (section 5), with short codes, evidence markers (**[v1.1]**, **[Entwurf]**, **[Folgerung]**, **[unverifiziert]**, **[veraltet?]**; in the CSVs these map to the levels in `Referenzen-ZaPuK.md`), contradictions (section 6) and gaps (section 7). Changes with v1.1.1: `ZaPuK/Aktualisierung-v1.1.1.md`.
 
-**`Referenzen-ZaPuK.md`** (German, next to the folder): source list with short codes, local paths and URLs, evidence per dimension, checked on 2026-11-19, plus the corrections made to the ZaPuK entries in `morph_box.csv`.
+**`Referenzen-ZaPuK.md`** (German, next to the folder): source list with short codes, local paths and URLs, evidence per dimension, checked on 2026-11-19 and against v1.1.1 on 2026-11-27, plus the corrections made to the ZaPuK entries in `morph_box.csv` and `existing_solutions.csv`.
 
 Each subfolder of `ZaPuK/quellen/` has an `_index.md` with URL, publisher, date and a content note per file, and a `_befunde.md` with findings per dimension. Read the index before opening a file.
 
 ### Subfolders
 
-- `ZaPuK/quellen/architektur-technik/`: upstream comparison with `zapuk-main/`. Copies of ADRs changed on `main` (2026-11-12) and of the draft branch `architecture-v1.1` (ADR index, glossary, Architekturkonzept v1.1, Zusammenfassung v1.1, Transitionspläne, TADRs Mein ELSTER, Rechtsgutachten); openCode issues from the consultation. Findings per dimension B1 to I5 and a check of all ZaPuK references in `morph_box.csv`.
-- `ZaPuK/quellen/recht-governance/`: Rechtsgutachten (Eichler Kern Klein and PLANIT // LEGAL for the FITKO, 06.10.2026) and Überblick und Handlungsempfehlungen v1.1; FIT-AB Beschlüsse 2026/11 and 2026/12; IT-PLR B-2026/04-IT, 14, 17, 29, press releases of the 49th and 50th meetings, meeting dates; BT-Drs. 21/7319. Findings for I1, I5, R1 to R4. Beschlüsse already in `BundID-ZBP/quellen/recht-governance/` are only referenced.
+- `ZaPuK/quellen/zapuk-v1.1.1/`: repo copy of tag v1.1.1, see section 1.
+- `ZaPuK/quellen/architektur-technik/`: findings against v1.1.1 with a concordance of old to new line numbers. Older copies of ADRs changed on `main` (2026-11-12) and of the former draft branch `architecture-v1.1` (largely duplicated by v1.1.1); openCode issues from the consultation. Findings per dimension B1 to I5 and a check of all ZaPuK references in `morph_box.csv`.
+- `ZaPuK/quellen/recht-governance/`: IT-PLR Beschluss B-2026/43-IT with presentation and FITKO-Einordnung of the Rechtsgutachten; older copies of the Rechtsgutachten (06.10.2026; current Stand 19.10.2026 in v1.1.1) and Überblick und Handlungsempfehlungen v1.1; FIT-AB Beschlüsse 2026/11 and 2026/12; IT-PLR B-2026/04-IT, 14, 17, 29, press releases of the 49th and 50th meetings, meeting dates; BT-Drs. 21/7319. Findings for I1, I5, R1 to R4. Beschlüsse already in `BundID-ZBP/quellen/recht-governance/` are only referenced.
 - `ZaPuK/quellen/umsetzung-rezeption/`: Neo pilot (closing slides, Integrationsleitfaden, project page, status slides, planning issues), Transitionsstrategie and plans for ZBP, MJP, MUK and Mein ELSTER, consultation statements, press and provider statements (heise, c't, netzpolitik.org, eGovernment, D64, Element, SET, matrix.org).
 
 ### Caveats
 
-- Version 1.1 documents exist only in the unmerged branch `architecture-v1.1`; the IT-PLR decision of 25.11.2026 is not yet known.
-- Some v1.1 documents exist in two subfolders with different headers (Architekturkonzept and Überblick v1.1, Rechtsgutachten, Transitionspläne). Line numbers in each `_befunde.md` refer to the copy in the same folder.
+- The draft Transitionspläne for ZBP, MJP and MUK and the ELSTER transition ADRs are not in v1.1.1; the branch `architecture-v1.1` no longer exists upstream, so the copies of 13.11.2026 in `ZaPuK/quellen/umsetzung-rezeption/` are the only source.
+- Some v1.1 documents exist as older copies in two subfolders and in `zapuk-v1.1.1/`. Line numbers in `Referenzen-ZaPuK.md` refer to `zapuk-v1.1.1/`; each `_befunde.md` has a concordance.
 - No financing concept (due for the 52nd meeting on 17.03.2027), no current cost figures, no operating site at federal level, no Neo production pilot.
 - Responses of the ZaPuK team to consultation issues need an openCode login and are not stored. The Bundesrechnungshof report of 31.07.2026 is not for publication and is not stored.
 
@@ -247,23 +251,23 @@ Caveats: regjeringen.no returns 403 (current Digitaliseringsrundskrivet missing,
 |---|---|
 | Anbindung von Fachverfahren / Behörden | zapuk ADR-0008, 0009, 1145, 1148; neo `03_context_and_scope.md` |
 | Topologie, Betrieb, Hosting | zapuk ADR-0002 to 0007, 1103, 1114; neo ADR-0001 to 0003, `structurizr/model/backend.dsl` |
-| Bestandssysteme, Transition, Dekommissionierung | zapuk Architekturkonzept Ch. 3, ADR-0010 |
+| Bestandssysteme, Transition, Dekommissionierung | zapuk `Zielarchitektur/Transitionen/README.md`, ADR-0010; draft Transitionspläne in `ZaPuK/quellen/umsetzung-rezeption/` |
 | Adressierung | zapuk ADR-1104, 1105, 1111 |
 | Identität, Authentifizierung, EUDI-Wallet | zapuk ADR-0013 to 0016, 1106 to 1110, 1146; neo structurizr, glossary |
 | Verschlüsselung, Sicherheit | zapuk ADR-0011, 0012, 1100, 1101, 1130, 1147; neo `02_architecture_constraints.md` |
-| Zustellung, Bescheid, Fristen, Rechtssicherheit | zapuk ADR-0018, 1118 to 1120, Rahmenbedingungen; neo `concepts/303-*.md` |
-| Benachrichtigung | zapuk (open ADR, D-Stack Beschluss 2026/18-IT) |
+| Zustellung, Bescheid, Fristen, Rechtssicherheit | zapuk ADR-0018, 1118 to 1121, Rechtsgutachten, Rahmenbedingungen; neo `concepts/303-*.md` |
+| Benachrichtigung | zapuk ADR-1122 (In Arbeit), D-Stack Beschluss 2026/18-IT |
 | Funktionspostfächer, Vertretung | zapuk ADR-1102, 1109, 1112, 1113 |
 | Aufbewahrung, Veraktung | zapuk ADR-1135 |
 | Clients / Frontends | neo `03_context_and_scope.md` |
-| Governance, Länder, Finanzierung | zapuk README Beschlüsse, Zusammenfassung 3.3 and 4.x |
+| Governance, Länder, Finanzierung | zapuk README Beschlüsse, Überblick v1.1 (`Zielarchitektur/Zusammenfassung/README.md`) 3.2 and 3.5, Architekturkonzept v1.1.1 chapter 4, Rechtsgutachten section E; costs v1.0 in `Zielarchitektur/Zusammenfassung/Vorversionen/v1.0/` 3.3; B-2026/43-IT in `ZaPuK/quellen/recht-governance/` |
 | Requirements as decision criteria | zapuk `Konsolidierte-Anforderungen/README.md` |
 | ELSTER as existing solution (Postfach, Postfach 2.0, Bekanntgabe, Vollmacht, Anbindung) | `Referenzen-ELSTER.md` for evidence per dimension, `ELSTER/ELSTER-Zusammenfassung.md` first, then `ELSTER/`: Entwicklerhandbuch 5.2, 7.5, 9.2, 9.3, 9.15 to 9.17; `ElsterBereitstellung-SSB`; `ElsterDatenabholung-v32` |
 | BundID / ZBP as existing solution (Anbindung, Postkorb-Handle, Bekanntgabe nach § 9 OZG, Betrieb) | `Referenzen-BundID-ZBP.md` for evidence per dimension, `BundID-ZBP/ZBP-Zusammenfassung.md` for context, then the `_index.md` of the relevant `BundID-ZBP/quellen/` subfolder |
 | Rechtsrahmen Bürgerkonto und Postfach (OZG, DIdG, IT-PLR Beschlüsse) | `BundID-ZBP/quellen/recht-governance/_index.md`; zapuk Rahmenbedingungen |
 | Mein Unternehmenskonto / Postfach 2.0 / OZG-PLUS-Postfach as existing solution (Anbindung über ELSTER-Transfer, Postfachhandle, Funktionspostfächer, Organisationszugang, Pflicht für Behörden) | `Referenzen-MUK.md` for evidence per dimension, `MUK/MUK-Zusammenfassung.md` for context, then the `_index.md` of the relevant `MUK/quellen/` subfolder |
 | Mein Justizpostfach as existing solution (EGVP/OSCI, SAFE, E2EE with local key file, sicherer Übermittlungsweg, Zustellung nach § 173 ZPO, BLK governance) | `Referenzen-MJP.md` for evidence per dimension, `MJP/MJP-Zusammenfassung.md` for context, then the `_index.md` of the relevant `MJP/quellen/` subfolder |
-| ZaPuK as a column (per-dimension status, draft v1.1, Neo pilot, transition of existing mailboxes, Rechtsgutachten, governance and financing) | `Referenzen-ZaPuK.md` for evidence per dimension, `ZaPuK/ZaPuK-Zusammenfassung.md` for context, then the `_index.md` of the relevant `ZaPuK/quellen/` subfolder; ADR texts in `zapuk-main/` or, if changed upstream, in `ZaPuK/quellen/architektur-technik/` |
+| ZaPuK as a column (per-dimension status, v1.1, Neo pilot, transition of existing mailboxes, Rechtsgutachten, governance and financing) | `Referenzen-ZaPuK.md` for evidence per dimension, `ZaPuK/ZaPuK-Zusammenfassung.md` for context, then the `_index.md` of the relevant `ZaPuK/quellen/` subfolder; ADR texts in `ZaPuK/quellen/zapuk-v1.1.1/` |
 | Österreich / Mein Postkorb as existing solution | `Referenzen-Mein-Postkorb-Oesterreich.md` for evidence per dimension, `Mein-Postkorb-Oesterreich/Mein-Postkorb-Oesterreich-Zusammenfassung.md` for context, then the `_index.md` of the relevant `Mein-Postkorb-Oesterreich/quellen/` subfolder |
 | UK / GOV.UK Notify as existing solution | `Referenzen-GOV-UK-Notify.md` for evidence per dimension, `GOV-UK-Notify/GOV-UK-Notify-Zusammenfassung.md` for context, then the `_index.md` of the relevant `GOV-UK-Notify/quellen/` subfolder |
 | Dänemark / Digital Post as existing solution | `Referenzen-Digital-Post-Daenemark.md` for evidence per dimension, `Digital-Post-Daenemark/Digital-Post-Daenemark-Zusammenfassung.md` for context, then the `_index.md` of the relevant `Digital-Post-Daenemark/quellen/` subfolder |
@@ -272,5 +276,5 @@ Caveats: regjeringen.no returns 403 (current Digitaliseringsrundskrivet missing,
 
 ## Gaps and caveats
 
-- No concrete hosting, cost, sizing or SLA data exists in neo (empty chapters). For cost, see zapuk `Zusammenfassung` 3.3.
-- The ZaPuK architecture documents (v1.0) are partly outdated relative to the later ADRs.
+- No concrete hosting, cost, sizing or SLA data exists in neo (empty chapters). For cost, see zapuk `Zielarchitektur/Zusammenfassung/Vorversionen/v1.0/` 3.3; no current cost figures, financing concept due for the 52nd IT-PLR meeting.
+- The ZaPuK v1.0 documents (`Vorversionen/v1.0/`) are outdated relative to the ADRs and v1.1; v1.1 itself is not adopted by the IT-PLR.

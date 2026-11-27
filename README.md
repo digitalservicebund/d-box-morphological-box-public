@@ -23,7 +23,7 @@ Diese Dateien bauen auf dem morphologischen Kasten auf oder ergänzen ihn:
 
 - Je untersuchter Lösung ein Ordner (z. B. `BundID-ZBP/`, `ELSTER/`, `Digital-Post-Daenemark/`) mit einer verdichteten Analyse und lokalen Kopien von Primärquellen wie Gesetzen, Spezifikationen und offizieller Dokumentation.
 - Je Lösung eine Datei `Referenzen-<Name>.md`, die die Hauptquellen mit Kürzeln auflistet und jeder Dimension ihre Aussage, Quellen und Evidenzstufe zuordnet. Die Evidenzstufen sind auch in den CSV-Zellen markiert: Unmarkierte Aussagen wurden in einer Primärquelle geprüft, `[Indiz]` stützt sich auf schwächere Belege und `[Annahme]` ist noch zu prüfen.
-- Spiegel der ZaPuK-Zielarchitektur (`zapuk-main/`) und von Neo, ihrer Matrix-basierten Referenzimplementierung (`neo-solution-architecture-develop/`).
+- Kopie der ZaPuK-Zielarchitektur, Tag v1.1.1 (`ZaPuK/quellen/zapuk-v1.1.1/`) und von Neo, ihrer Matrix-basierten Referenzimplementierung (`neo-solution-architecture-develop/`).
 
 [sources.md](sources.md) ist die Übersicht über diesen Ordner. Sie beschreibt jeden Ordner und jede Datei und wofür sie sich eignen.
 
@@ -62,7 +62,7 @@ These files build on or support the morphological box:
 
 - One folder per researched solution (e.g. `BundID-ZBP/`, `ELSTER/`, `Digital-Post-Daenemark/`) with a condensed analysis and local copies of primary sources such as laws, specifications and official documentation.
 - One `Referenzen-<Name>.md` file per solution, listing the main sources with short codes and mapping each dimension to its statement, sources and evidence level. The evidence levels are also marked in the CSV cells: unmarked statements were checked in a primary source, `[Indiz]` rests on weaker evidence, and `[Annahme]` is still to be checked.
-- Mirrors of the ZaPuK target architecture (`zapuk-main/`) and of Neo, its Matrix-based reference implementation (`neo-solution-architecture-develop/`).
+- Copies of the ZaPuK target architecture, tag v1.1.1 (`ZaPuK/quellen/zapuk-v1.1.1/`) and of Neo, its Matrix-based reference implementation (`neo-solution-architecture-develop/`).
 
 [sources.md](sources.md) is the navigation map for this folder. It describes each folder and file and what to use it for.
 
