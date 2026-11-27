@@ -1,0 +1,38 @@
+name: CodeQL
+
+# Advanced setup instead of the default setup, so that sources/ (read-only
+# snapshots of third-party repositories) is not analysed. Outside sources/ the
+# only analysable code is GitHub Actions workflows; the shell scripts in tools/
+# are not supported by CodeQL.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 4 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    name: Analyze (actions)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+
+      - uses: github/codeql-action/init@915412ff23e8b7659517e607487dbeae018f2934  # v4.39.5
+        with:
+          languages: actions
+          queries: security-extended
+          config: |
+            paths-ignore:
+              - sources/**
+
+      - uses: github/codeql-action/analyze@915412ff23e8b7659517e607487dbeae018f2934  # v4.39.5
+        with:
+          category: "/language:actions"
