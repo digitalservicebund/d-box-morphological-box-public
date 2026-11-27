@@ -1,0 +1,30 @@
+@startuml
+actor "Privatperson" as P
+participant "Zentraler\nPostfach-Zugang" as C
+participant "EUDI-Wallet" as W
+participant "Postfach-Backend" as B
+participant "Fachverfahren\n(Behörde)" as F
+participant "Wallet-Adapter\n(Issuer, Behörde)" as A
+participant "QTSP" as Q
+
+== Bereitstellung ==
+F -> A : Nachweisdaten bereitstellen
+A --> F : Abholschein\n(Credential Offer)
+F -> B : Bescheid und Abholschein (E2EE)
+B --> C : verschlüsselte Nachricht
+C -> C : entschlüsseln und anzeigen
+
+== Abholung ==
+P -> C : Nachweis abholen
+C -> W : Deep-Link haip-vci://
+W -> A : Token anfordern\n(Pre-Authorized Code)
+A --> W : Access Token
+W -> A : PID vorlegen
+A -> A : Re-Identifizierung
+W -> A : Nachweis anfordern\n(Schlüssel der Wallet)
+A -> Q : Hashwert des Nachweises
+Q --> A : Siegel
+A --> W : Nachweis (an die\nWallet gebunden)
+W -> W : Nachweis speichern
+
+@enduml

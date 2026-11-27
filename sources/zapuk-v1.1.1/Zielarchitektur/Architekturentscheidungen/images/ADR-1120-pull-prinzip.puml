@@ -1,0 +1,27 @@
+@startuml
+
+participant "Absender\n(Postfach-Zugang)" as A
+participant "Postfach-Backend\n(Absender)" as SA
+participant "Postfach-Backend\n(Empfänger)" as SB
+participant "Empfänger\n(Postfach-Zugang)" as B
+
+A -> SA : Anhang hochladen\n(verschlüsselt)
+SA --> A : mxc://backend-a/XYZ
+
+A -> SA : Nachricht senden\nverschlüsselt mit mxc-URI, Hash und Schlüssel
+SA -> SB : Föderation (Nachricht)
+SB -> B : Benachrichtigung
+
+note over SA, SB
+  Der Anhang bleibt im Medien-Repository
+  des Absender-Backends (Pull-Prinzip).
+  Die Bereitstellungsbestätigung deckt nur
+  die Nachricht ab, nicht die Datei.
+end note
+
+B -> SB : Anhang herunterladen
+SB -> SA : Anhang abrufen
+SA --> SB : verschlüsselter Anhang
+SB --> B : verschlüsselter Anhang
+B -> B : Entschlüsseln
+@enduml

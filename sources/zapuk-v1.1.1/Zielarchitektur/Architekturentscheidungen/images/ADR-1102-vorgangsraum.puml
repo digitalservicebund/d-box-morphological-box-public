@@ -1,0 +1,46 @@
+@startuml
+
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+
+participant "Postfach-Zugang\n(Absender)" as Absender
+participant "Postfach-Backend\n(Homeserver)" as HS
+participant "Raum-Management-Service\n(FP-Bot, ohne Schlüssel)" as RMS
+participant "Berechtigungsverzeichnis" as BV
+participant "Postfach-Zugang\n(Bearbeitende)" as Client
+
+== 1. Kontaktaufnahme ==
+
+Absender -> HS : lädt Funktionspostfach in einen Raum ein\n(@orgxy_datenschutz:post.gov.de)
+HS -> RMS : Event: Einladung des\nFunktionspostfachs
+RMS -> HS : nimmt Einladung an\n(Join als FP-Bot)
+
+== 2. Vorgangsraum ==
+
+RMS -> HS : erzeugt Vorgangsraum\n(#vorgang-123:post.gov.de)
+RMS -> BV : Abfrage: Wer ist\nzuständig?
+BV -> RMS : Liefert MXIDs\n(@m-abc123:post.gov.de)
+RMS -> HS : lädt Absender und Bearbeitende\nin den Vorgangsraum ein
+RMS -> HS : verlässt den Raum\ndes Absenders
+
+== 3. Raum-Beitritt und Nachricht ==
+
+HS -> Absender : Einladung in den Vorgangsraum
+Absender -> HS : Annahme (Join)
+HS -> Client : Einladung
+Client -> HS : Annahme (Join),\nIdentitätsnachweis vorlegen
+Absender -> Absender : Identitätsnachweis prüfen,\nNachricht verschlüsseln
+Absender -> HS : sendet Nachricht\nin den Vorgangsraum
+Absender -> Client : Sitzungsschlüssel teilen\n(nur bei gültigem Nachweis)
+HS -> Client : verschlüsselte Nachricht
+Client -> Client : Entschlüsselt Nachricht
+
+== 4. Antwort ==
+
+Client -> Client : Verfasst Antwort
+Client -> Client : Verschlüsselt Antwort
+Client -> HS : Antwort-Nachricht
+HS -> Absender : Antwort-Nachricht
+Absender -> Absender : Entschlüsselt Nachricht
+
+@enduml

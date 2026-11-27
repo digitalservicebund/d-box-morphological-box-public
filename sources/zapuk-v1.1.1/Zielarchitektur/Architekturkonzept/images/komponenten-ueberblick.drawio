@@ -1,0 +1,91 @@
+<mxfile>
+  <diagram name="Seite-1" id="354rYca8Jq-oVIpJQuwl">
+    <mxGraphModel grid="0" page="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" value="" />
+        <mxCell id="1" parent="0" value="" />
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-1" parent="1" style="swimlane;startSize=24;fillColor=#FFF8E8;strokeColor=#d6b656;rounded=1;html=1;fontSize=11;fontStyle=1;fontColor=#333333;" value="Infrastrukturnutzende Systeme" vertex="1">
+          <mxGeometry height="95" width="920" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-2" parent="AJkJS47e8NdRSiusL9hJ-1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;" value="Zentraler&#10;Postfach-Zugang" vertex="1">
+          <mxGeometry height="48" width="200" x="15" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-3" parent="AJkJS47e8NdRSiusL9hJ-1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=9;fontStyle=1;dashed=1;" value="Fachportal&#10;(dezentraler Postfach-Zugang)" vertex="1">
+          <mxGeometry height="48" width="200" x="235" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-4" parent="AJkJS47e8NdRSiusL9hJ-1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=9;fontStyle=1;dashed=1;" value="Fachverfahren&#10;(dezentraler Postfach-Zugang)" vertex="1">
+          <mxGeometry height="48" width="200" x="455" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-5" parent="AJkJS47e8NdRSiusL9hJ-1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=9;fontStyle=1;dashed=1;" value="Client-Applikation&#10;(dezentraler Postfach-Zugang)" vertex="1">
+          <mxGeometry height="48" width="200" x="675" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-6" parent="1" style="swimlane;startSize=24;fillColor=#EAF2FB;strokeColor=#6c8ebf;rounded=1;html=1;fontSize=11;fontStyle=1;fontColor=#333333;" value="Kerninfrastruktur" vertex="1">
+          <mxGeometry height="169" width="920" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-7" parent="AJkJS47e8NdRSiusL9hJ-6" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;" value="Postfach-Backend&#10;(zentral / dezentral)" vertex="1">
+          <mxGeometry height="48" width="200" x="15" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-8" parent="AJkJS47e8NdRSiusL9hJ-6" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;" value="Self-Service-Portal&#10;(SSP, zentral)" vertex="1">
+          <mxGeometry height="48" width="200" x="235" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-9" parent="AJkJS47e8NdRSiusL9hJ-6" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;" value="Adressregister&lt;br&gt;(föderiert)" vertex="1">
+          <mxGeometry height="48" width="200" x="455" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-10" parent="AJkJS47e8NdRSiusL9hJ-6" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;" value="Raum-Management-&#10;Service (RMS, zentral / dezentral)" vertex="1">
+          <mxGeometry height="48" width="200" x="675" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-11" parent="AJkJS47e8NdRSiusL9hJ-6" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;" value="Berechtigungsverzeichnis&lt;br&gt;(dezentral / zentral)" vertex="1">
+          <mxGeometry height="48" width="200" x="15" y="102" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-12" parent="AJkJS47e8NdRSiusL9hJ-6" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;" value="Protokollkonverter z.B. OSCI/EGVP&lt;br&gt;(zentral / dezentral)" vertex="1">
+          <mxGeometry height="48" width="200" x="235" y="102" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-13" parent="AJkJS47e8NdRSiusL9hJ-6" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;" value="Nachweisstellen&lt;br&gt;(zentral/dezentral)" vertex="1">
+          <mxGeometry height="48" width="200" x="455" y="102" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-24" parent="AJkJS47e8NdRSiusL9hJ-6" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;" value="Zuordnungsdienst&lt;br&gt;(je Bereich / zentral)" vertex="1">
+          <mxGeometry height="48" width="200" x="675" y="102" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-14" parent="AJkJS47e8NdRSiusL9hJ-15" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;dashed=1;" value="Qualifizierter Zeitstempeldienst" vertex="1">
+          <mxGeometry height="48" width="130" x="450" y="97" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-15" parent="1" style="swimlane;startSize=24;fillColor=#F5F5F5;strokeColor=#999999;rounded=1;html=1;fontSize=11;fontStyle=1;fontColor=#333333;" value="Unterstützende externe Systeme" vertex="1">
+          <mxGeometry height="169" width="920" y="325" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-16" parent="AJkJS47e8NdRSiusL9hJ-15" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;dashed=1;" value="BundID" vertex="1">
+          <mxGeometry height="48" width="130" x="15" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-28" parent="AJkJS47e8NdRSiusL9hJ-15" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;dashed=1;" value="Malware-Scanner" vertex="1">
+          <mxGeometry height="48" width="140" x="750" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-27" parent="AJkJS47e8NdRSiusL9hJ-15" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;dashed=1;" value="Wallet-Adapter / ZID" vertex="1">
+          <mxGeometry height="48" width="140" x="595" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-26" parent="AJkJS47e8NdRSiusL9hJ-15" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;dashed=1;" value="Öffentliche PKI" vertex="1">
+          <mxGeometry height="48" width="130" x="305" y="97" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-25" parent="AJkJS47e8NdRSiusL9hJ-15" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;dashed=1;" value="Zertifizierungs-&#10;stelle des Verbunds" vertex="1">
+          <mxGeometry height="48" width="130" x="160" y="97" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-17" parent="AJkJS47e8NdRSiusL9hJ-15" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;dashed=1;" value="Org-Konto (MUK)" vertex="1">
+          <mxGeometry height="48" width="130" x="160" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-18" parent="AJkJS47e8NdRSiusL9hJ-15" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;dashed=1;" value="PKI&#10;(V-PKI / ELSTER)" vertex="1">
+          <mxGeometry height="48" width="130" x="15" y="97" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-19" parent="AJkJS47e8NdRSiusL9hJ-15" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;fontStyle=1;dashed=1;" value="Siegeldienst" vertex="1">
+          <mxGeometry height="48" width="140" x="595" y="97" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-20" parent="AJkJS47e8NdRSiusL9hJ-15" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=9;fontStyle=1;dashed=1;" value="EUDI-Wallet&#10;(perspektivisch)" vertex="1">
+          <mxGeometry height="48" width="130" x="450" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-21" parent="AJkJS47e8NdRSiusL9hJ-15" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=9;fontStyle=1;dashed=1;" value="eID-Server" vertex="1">
+          <mxGeometry height="48" width="130" x="305" y="34" as="geometry" />
+        </mxCell>
+        <mxCell id="AJkJS47e8NdRSiusL9hJ-23" parent="AJkJS47e8NdRSiusL9hJ-15" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=9;fontStyle=1;dashed=1;" value="FöPD (Föderale API-Autorisierung)" vertex="1">
+          <mxGeometry height="48" width="140" x="750" y="97" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

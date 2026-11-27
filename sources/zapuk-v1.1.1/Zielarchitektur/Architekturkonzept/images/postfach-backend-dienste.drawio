@@ -1,0 +1,28 @@
+<mxfile>
+  <diagram name="Seite-1" id="dpvjAthcQSXVhvZNn4Y2">
+    <mxGraphModel grid="0" page="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="m7Lvi98XgOVp2kVbySep-1" value="Postfach-Backend" style="swimlane;startSize=30;fillColor=#EAF2FB;strokeColor=#6c8ebf;rounded=1;html=1;fontSize=13;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry width="700" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="m7Lvi98XgOVp2kVbySep-2" value="Schnittstelle zur&lt;br&gt;Adressregister-Abfrage" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=11;" vertex="1" parent="m7Lvi98XgOVp2kVbySep-1">
+          <mxGeometry x="15" y="45" width="210" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="m7Lvi98XgOVp2kVbySep-3" value="Matrix-Homeserver" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=11;" vertex="1" parent="m7Lvi98XgOVp2kVbySep-1">
+          <mxGeometry x="245" y="45" width="210" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="m7Lvi98XgOVp2kVbySep-4" value="Quittungsdienst" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=11;" vertex="1" parent="m7Lvi98XgOVp2kVbySep-1">
+          <mxGeometry x="475" y="45" width="210" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="m7Lvi98XgOVp2kVbySep-5" value="Content Repository" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=11;" vertex="1" parent="m7Lvi98XgOVp2kVbySep-1">
+          <mxGeometry x="15" y="110" width="210" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="m7Lvi98XgOVp2kVbySep-6" value="Benachrichtigungsdienst" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=11;" vertex="1" parent="m7Lvi98XgOVp2kVbySep-1">
+          <mxGeometry x="245" y="110" width="210" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

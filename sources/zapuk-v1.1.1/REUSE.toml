@@ -1,0 +1,9 @@
+# Lizenzangaben nach REUSE (https://reuse.software)
+version = 1
+
+# Texte, Diagramme und Bilder des Vorhabens
+[[annotations]]
+path = "**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "FITKO (Föderale IT-Kooperation)"
+SPDX-License-Identifier = "CC-BY-4.0"

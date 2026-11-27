@@ -1,0 +1,29 @@
+@startuml
+
+participant "Absender\n(Postfach-Zugang)" as A
+participant "Postfach-Backend\n(Empfänger)" as I
+participant "Zeitstempeldienst\n(qualifiziert)" as Z
+participant "Empfänger\n(Postfach-Zugang)" as E
+== Versand ==
+A -> I : Nachricht senden\n(E2EE-verschlüsselt, Abruf- und\nLesebestätigung angefordert)
+I -> Z : Zeitstempel über Hash
+Z --> I : Zeitstempel
+I -> I : Bereitstellungsbestätigung erzeugen\n(Siegel des Betreibers)
+note right : **ADR-0018**\nGrundlage der Bekanntgabe-\nund Zustellfiktion
+I --> A : Bereitstellungsbestätigung\nzurückmelden
+I -> E : Benachrichtigung\n(Push / E-Mail)
+== Abruf ==
+E -> I : Nachricht abrufen
+I --> E : Verschlüsselte Nachricht
+E -> E : Entschlüsseln und anzeigen
+E -> A : **Abrufbestätigung (Nachricht)**\nverschlüsseltes Custom Event
+note right : **ADR-1118**\nKeine Fiktionswirkung,\nbelegt den tatsächlichen Abruf
+== Anhang ==
+E -> I : Anhang herunterladen
+I --> E : Verschlüsselter Anhang
+E -> E : Entschlüsseln
+E -> A : **Abrufbestätigung (Anhang)**\nverschlüsseltes Custom Event\n+ Hash des Anhangs
+== Kenntnisnahme ==
+E -> A : **Lesebestätigung**\nverschlüsseltes Custom Event\n(aktive Nutzerhandlung)
+note right : **ADR-1118**\nEmpfangsbekenntnis nur bei\naktiver Abgabe (§ 173 ZPO)
+@enduml

@@ -1,0 +1,285 @@
+<mxfile>
+  <diagram id="VF6HPDo6EobH1J3jOiPE" name="Seite-1">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-106" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.application;appType=interface;archiType=square;strokeWidth=1;" value="Postfach-Zugang" vertex="1">
+          <mxGeometry height="75" width="150" x="1740" y="824.5" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-107" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.application;appType=role;archiType=square;strokeWidth=1;" value="Absender" vertex="1">
+          <mxGeometry height="75" width="150" x="1480" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-108" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.application;appType=role;archiType=square;strokeWidth=1;" value="Empfänger" vertex="1">
+          <mxGeometry height="75" width="150" x="1480" y="976" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-109" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.application;appType=proc;archiType=rounded;strokeWidth=1;" value="Nachricht senden" vertex="1">
+          <mxGeometry height="75" width="150" x="1660" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-110" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-107" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=oval;startFill=1;strokeWidth=1;" target="q-qaobr1_Ysm1UHJTDCW-109">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-111" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;dashed=1;dashPattern=1 1;strokeWidth=1;" target="q-qaobr1_Ysm1UHJTDCW-106">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1760" y="961" />
+              <mxPoint x="1760" y="961" />
+            </Array>
+            <mxPoint x="1760" y="941" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-112" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.application;appType=proc;archiType=rounded;strokeWidth=1;" value="Nachricht empfangen" vertex="1">
+          <mxGeometry height="75" width="150" x="1660" y="976" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-113" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-108" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=oval;startFill=1;strokeWidth=1;" target="q-qaobr1_Ysm1UHJTDCW-112">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-114" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;verticalLabelPosition=bottom;verticalAlign=top;align=center;shape=mxgraph.archimate3.actor;strokeWidth=1;" value="Nutzende Person" vertex="1">
+          <mxGeometry height="50" width="26.5" x="1390" y="837" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-115" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-114" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=oval;startFill=1;strokeWidth=1;" target="q-qaobr1_Ysm1UHJTDCW-108">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-116" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-114" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=oval;startFill=1;strokeWidth=1;" target="q-qaobr1_Ysm1UHJTDCW-107">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-117" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.application;appType=passive;archiType=square;verticalAlign=top;strokeWidth=1;" value="Postfach" vertex="1">
+          <mxGeometry height="75" width="150" x="1570" y="823.5" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-118" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.application;appType=passive;archiType=square;strokeWidth=1;" value="Nachricht" vertex="1">
+          <mxGeometry height="40" width="80" x="1605" y="847" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-119" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-109" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1;endArrow=open;endFill=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1710" y="824" />
+            </Array>
+            <mxPoint x="1710" y="824" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-120" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-117" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1;endArrow=open;endFill=0;" target="q-qaobr1_Ysm1UHJTDCW-112">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1710" y="961" />
+              <mxPoint x="1710" y="961" />
+            </Array>
+            <mxPoint x="1710" y="946" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-121" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.application;appType=passive;archiType=square;strokeWidth=1;" value="Nachricht" vertex="1">
+          <mxGeometry height="40" width="80" x="1595" y="853" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-122" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-109" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;dashed=1;dashPattern=1 1;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1760" y="825" />
+            </Array>
+            <mxPoint x="1760" y="825" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-123" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-127" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;dashed=1;dashPattern=1 2;strokeWidth=1;" target="q-qaobr1_Ysm1UHJTDCW-106">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1840" y="811" />
+              <mxPoint x="1840" y="811" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-124" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-127" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;strokeWidth=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1918" y="781" />
+              <mxPoint x="1918" y="781" />
+            </Array>
+            <mxPoint x="1918" y="776" as="sourcePoint" />
+            <mxPoint x="1918" y="821" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-125" connectable="0" parent="q-qaobr1_Ysm1UHJTDCW-124" style="edgeLabel;html=1;align=right;verticalAlign=middle;resizable=0;points=[];" value="erzeugt / &lt;br&gt;verschlüsselt" vertex="1">
+          <mxGeometry relative="1" x="-0.2384" y="1" as="geometry">
+            <mxPoint x="-4" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-126" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-127" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#0000FF;strokeWidth=2;" target="q-qaobr1_Ysm1UHJTDCW-131">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-127" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;strokeWidth=1;" value="Matrix-Client Absender" vertex="1">
+          <mxGeometry height="75" width="150" x="1830" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-128" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-129" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#0000FF;strokeWidth=2;" target="q-qaobr1_Ysm1UHJTDCW-135">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-129" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=interaction;archiType=rounded;strokeWidth=1;" value="Matrix Federation" vertex="1">
+          <mxGeometry height="75" width="150" x="2250" y="823.5" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-130" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-131" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#0000FF;strokeWidth=2;" target="q-qaobr1_Ysm1UHJTDCW-129">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-131" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;strokeWidth=1;" value="Homeserver Absender" vertex="1">
+          <mxGeometry height="75" width="150" x="2080" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-132" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;dashed=1;strokeColor=#0000FF;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2250" y="1006.5" as="sourcePoint" />
+            <mxPoint x="2193" y="1006.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-133" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-135" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=2;strokeColor=#0000FF;" target="q-qaobr1_Ysm1UHJTDCW-148">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2325" y="1071" />
+              <mxPoint x="1905" y="1071" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-134" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-135" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=2;strokeColor=#FF0000;" target="q-qaobr1_Ysm1UHJTDCW-129">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2350" y="941" />
+              <mxPoint x="2350" y="941" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-135" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;strokeWidth=1;" value="Homeserver Empfänger" vertex="1">
+          <mxGeometry height="75" width="150" x="2250" y="976" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-136" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-138" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;strokeWidth=1;" target="q-qaobr1_Ysm1UHJTDCW-146">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2140" y="941" />
+              <mxPoint x="2140" y="941" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-137" connectable="0" parent="q-qaobr1_Ysm1UHJTDCW-136" style="edgeLabel;html=1;align=right;verticalAlign=middle;resizable=0;points=[];" value="erzeugt / &lt;br&gt;signiert" vertex="1">
+          <mxGeometry relative="1" x="-0.2121" y="-2" as="geometry">
+            <mxPoint x="-9" y="15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-138" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;strokeWidth=1;" value="Quittungsdienst" vertex="1">
+          <mxGeometry height="75" width="150" x="2043" y="976" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-139" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-141" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;strokeWidth=1;" target="q-qaobr1_Ysm1UHJTDCW-138">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2010" y="991" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-140" connectable="0" parent="q-qaobr1_Ysm1UHJTDCW-139" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="liest" vertex="1">
+          <mxGeometry relative="1" x="-0.4636" y="1" as="geometry">
+            <mxPoint x="15" y="40" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-141" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=passive;archiType=square;strokeWidth=2;strokeColor=#0000FF;" value="Verschlüsselte Nachricht" vertex="1">
+          <mxGeometry height="75" width="150" x="1910" y="823.5" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-142" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-141" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;dashed=1;dashPattern=1 1;strokeWidth=1;" target="q-qaobr1_Ysm1UHJTDCW-121">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1930" y="921" />
+              <mxPoint x="1660" y="921" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-143" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-146" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;dashed=1;dashPattern=1 1;strokeWidth=1;" target="q-qaobr1_Ysm1UHJTDCW-121">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2090" y="931" />
+              <mxPoint x="1640" y="931" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-144" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-146" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;dashed=1;strokeWidth=1;" target="q-qaobr1_Ysm1UHJTDCW-127">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2110" y="811" />
+              <mxPoint x="1970" y="811" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-145" connectable="0" parent="q-qaobr1_Ysm1UHJTDCW-144" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="liest / &lt;br&gt;prüft" vertex="1">
+          <mxGeometry relative="1" x="0.689" y="-2" as="geometry">
+            <mxPoint x="-22" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-146" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=passive;archiType=square;strokeWidth=2;strokeColor=#FF0000;" value="Signierte Bereitstellungsbestätigung" vertex="1">
+          <mxGeometry height="75" width="150" x="2080" y="823.5" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-147" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-148" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 1;endArrow=block;endFill=0;strokeWidth=1;" target="q-qaobr1_Ysm1UHJTDCW-106">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1860" y="961" />
+              <mxPoint x="1860" y="961" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-148" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;strokeWidth=1;" value="Matrix-Client Empfänger" vertex="1">
+          <mxGeometry height="75" width="150" x="1830" y="976" as="geometry" />
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-149" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-141" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;strokeWidth=1;" target="q-qaobr1_Ysm1UHJTDCW-148">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1950" y="961" />
+              <mxPoint x="1950" y="961" />
+            </Array>
+            <mxPoint x="1950" y="946" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-150" connectable="0" parent="q-qaobr1_Ysm1UHJTDCW-149" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="entschlüsselt" vertex="1">
+          <mxGeometry relative="1" x="0.0869" as="geometry">
+            <mxPoint x="-40" y="18" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-151" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-129" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;strokeWidth=2;strokeColor=#FF0000;" target="q-qaobr1_Ysm1UHJTDCW-131">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2350" y="709" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-152" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-131" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=2;strokeColor=#FF0000;" target="q-qaobr1_Ysm1UHJTDCW-127">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2030" y="710" />
+              <mxPoint x="2030" y="710" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-153" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;strokeWidth=2;strokeColor=#FF0000;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2193" y="1026.5" as="sourcePoint" />
+            <mxPoint x="2250" y="1026.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-154" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-131" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeWidth=1;endArrow=open;endFill=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2190" y="791" />
+              <mxPoint x="2190" y="791" />
+            </Array>
+            <mxPoint x="2190" y="821" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-155" connectable="0" parent="q-qaobr1_Ysm1UHJTDCW-154" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="persistiert" vertex="1">
+          <mxGeometry relative="1" x="-0.2963" y="-3" as="geometry">
+            <mxPoint x="-29" y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-156" edge="1" parent="1" source="q-qaobr1_Ysm1UHJTDCW-135" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=1;dashed=1;endArrow=open;endFill=0;" target="q-qaobr1_Ysm1UHJTDCW-146">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2270" y="931" />
+              <mxPoint x="2192" y="931" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q-qaobr1_Ysm1UHJTDCW-157" connectable="0" parent="q-qaobr1_Ysm1UHJTDCW-156" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="persistiert" vertex="1">
+          <mxGeometry relative="1" x="-0.6842" as="geometry">
+            <mxPoint x="-30" y="11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

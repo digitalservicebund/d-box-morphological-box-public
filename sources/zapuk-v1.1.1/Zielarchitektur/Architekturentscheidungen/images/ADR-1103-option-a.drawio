@@ -1,0 +1,134 @@
+<mxfile>
+  <diagram name="Page-1" id="b8sai1TRqNOGXOw6APeS">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="NqC1U69IVnOXcSj_i35D-1" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=1;fontSize=16;" value="ADR 1103-A: Minimalanbindung" vertex="1">
+          <mxGeometry height="30" width="250" x="494" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-2" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;shape=mxgraph.archimate3.application;appType=grouping;archiType=square;dashed=1;verticalAlign=top;" value="Zentrale Infrastruktur" vertex="1">
+          <mxGeometry height="460" width="255" x="625" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-3" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;shape=mxgraph.archimate3.application;appType=grouping;archiType=square;dashed=1;fillColor=#f9f7ed;verticalAlign=top;fillStyle=auto;strokeColor=#36393d;" value="Machtbereich Organisation" vertex="1">
+          <mxGeometry height="460" width="330" x="290" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-4" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;verticalAlign=top;" value="Zentrales &lt;br&gt;Postfach-Backend" vertex="1">
+          <mxGeometry height="320" width="210" x="644" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-5" edge="1" parent="1" source="NqC1U69IVnOXcSj_i35D-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 2;" target="NqC1U69IVnOXcSj_i35D-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="385" y="560" />
+              <mxPoint x="385" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-6" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.application;appType=role;archiType=square;" value="Org-Admin" vertex="1">
+          <mxGeometry height="50" width="150" x="310" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-7" edge="1" parent="1" source="NqC1U69IVnOXcSj_i35D-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="NqC1U69IVnOXcSj_i35D-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-8" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" value="IdP&lt;br&gt;(z. B. Org-Konto)" vertex="1">
+          <mxGeometry height="50" width="150" x="890" y="431" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-9" edge="1" parent="1" source="NqC1U69IVnOXcSj_i35D-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;exitPerimeter=0;" target="NqC1U69IVnOXcSj_i35D-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="680" y="443" />
+              <mxPoint x="680" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-10" edge="1" parent="1" source="NqC1U69IVnOXcSj_i35D-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="NqC1U69IVnOXcSj_i35D-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+            <mxPoint x="750" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-11" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" value="Zentrales&lt;br&gt;Self-Service-Portal" vertex="1">
+          <mxGeometry height="52" width="210" x="644" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-13" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" value="Matrix-Homeserver" vertex="1">
+          <mxGeometry height="36" width="170" x="664" y="628" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-14" edge="1" parent="1" source="NqC1U69IVnOXcSj_i35D-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=oval;startFill=1;endArrow=block;endFill=1;" target="NqC1U69IVnOXcSj_i35D-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="395" y="680" />
+              <mxPoint x="395" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-15" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.application;appType=role;archiType=square;" value="Mitarbeitende" vertex="1">
+          <mxGeometry height="75" width="150" x="310" y="703" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-16" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.businessObject;overflow=fill;" value="Identität / Zertifikat" vertex="1">
+          <mxGeometry height="60" width="150" x="310" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-17" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" value="Postfach-Zugang" vertex="1">
+          <mxGeometry height="120" width="77" x="510" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-18" edge="1" parent="1" source="NqC1U69IVnOXcSj_i35D-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="NqC1U69IVnOXcSj_i35D-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-19" edge="1" parent="1" source="NqC1U69IVnOXcSj_i35D-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="NqC1U69IVnOXcSj_i35D-17">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="600" y="666" />
+              <mxPoint x="600" y="720" />
+            </Array>
+            <mxPoint x="640" y="670" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-20" edge="1" parent="1" source="NqC1U69IVnOXcSj_i35D-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 2;" target="NqC1U69IVnOXcSj_i35D-17">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="549" y="630" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-21" edge="1" parent="1" source="NqC1U69IVnOXcSj_i35D-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="NqC1U69IVnOXcSj_i35D-15">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="920" y="875" />
+              <mxPoint x="330" y="875" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-22" edge="1" parent="1" source="NqC1U69IVnOXcSj_i35D-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="NqC1U69IVnOXcSj_i35D-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="920" y="370" />
+              <mxPoint x="330" y="370" />
+            </Array>
+            <mxPoint x="960" y="450" as="sourcePoint" />
+            <mxPoint x="395" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-36" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;spacingTop=14;" value="RMS&lt;br&gt;(ohne Schlüssel)" vertex="1">
+          <mxGeometry height="52" width="80" x="664" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-37" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;spacingTop=14;" value="Berechtigungs-&lt;br&gt;verzeichnis" vertex="1">
+          <mxGeometry height="52" width="80" x="754" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-24" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.businessObject;overflow=fill;" value="Funktionspostfach" vertex="1">
+          <mxGeometry height="40" width="170" x="664" y="728" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-25" edge="1" parent="1" source="NqC1U69IVnOXcSj_i35D-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;dashed=1;dashPattern=1 2;" target="NqC1U69IVnOXcSj_i35D-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-33" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;spacingTop=14;" value="Adressregister-&lt;br&gt;Abfrage" vertex="1">
+          <mxGeometry height="52.5" width="80" x="664" y="557" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-34" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" value="Content&lt;br&gt;Repository" vertex="1">
+          <mxGeometry height="52.5" width="80" x="754" y="557" as="geometry" />
+        </mxCell>
+        <mxCell id="NqC1U69IVnOXcSj_i35D-35" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" value="Quittungsdienst" vertex="1">
+          <mxGeometry height="40" width="170" x="664" y="778" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

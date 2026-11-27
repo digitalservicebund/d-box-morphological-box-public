@@ -1,0 +1,202 @@
+<mxfile>
+  <diagram name="Page-1" id="5QB4pjfiIJOOdfeGtcBi">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-1" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=1;fontSize=16;" value="ADR 1103-C: Souveräner Betrieb" vertex="1">
+          <mxGeometry height="30" width="260" x="525" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-2" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;shape=mxgraph.archimate3.application;appType=grouping;archiType=square;dashed=1;verticalAlign=bottom;spacingBottom=6;" value="Zentrale Infrastruktur" vertex="1">
+          <mxGeometry height="360" width="192" x="938" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-3" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;shape=mxgraph.archimate3.application;appType=grouping;archiType=square;dashed=1;fillColor=#f9f7ed;verticalAlign=top;fillStyle=auto;strokeColor=#36393d;" value="Machtbereich Organisation" vertex="1">
+          <mxGeometry height="510" width="650" x="220" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-4" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;verticalAlign=top;" value="Postfach-Backend" vertex="1">
+          <mxGeometry height="350" width="200" x="650" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-5" edge="1" parent="1" source="XdmyIVyssZTWBOFGiuUG-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 2;" target="XdmyIVyssZTWBOFGiuUG-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="447.5" />
+              <mxPoint x="240" y="630" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-6" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.application;appType=role;archiType=square;" value="Org-Admin" vertex="1">
+          <mxGeometry height="75" width="150" x="250" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-7" edge="1" parent="1" source="XdmyIVyssZTWBOFGiuUG-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="XdmyIVyssZTWBOFGiuUG-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-8" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" value="IdP&lt;br&gt;(z. B. Org-Konto)" vertex="1">
+          <mxGeometry height="75" width="150" x="959" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-9" edge="1" parent="1" source="XdmyIVyssZTWBOFGiuUG-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;exitPerimeter=0;" target="XdmyIVyssZTWBOFGiuUG-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="519" />
+              <mxPoint x="880" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-10" edge="1" parent="1" source="XdmyIVyssZTWBOFGiuUG-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="XdmyIVyssZTWBOFGiuUG-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="538" />
+              <mxPoint x="880" y="538" />
+            </Array>
+            <mxPoint x="840" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-11" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" value="Zentrales&amp;nbsp;&lt;br&gt;Self-Service-Portal" vertex="1">
+          <mxGeometry height="75" width="150" x="958" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-12" edge="1" parent="1" source="XdmyIVyssZTWBOFGiuUG-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="XdmyIVyssZTWBOFGiuUG-28">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="610" y="676" />
+              <mxPoint x="610" y="608" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-13" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" value="Matrix-Homeserver" vertex="1">
+          <mxGeometry height="75" width="150" x="680" y="638" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-14" edge="1" parent="1" source="XdmyIVyssZTWBOFGiuUG-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=oval;startFill=1;endArrow=block;endFill=1;" target="XdmyIVyssZTWBOFGiuUG-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="335" y="690" />
+              <mxPoint x="335" y="690" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-15" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.application;appType=role;archiType=square;" value="Mitarbeitende" vertex="1">
+          <mxGeometry height="75" width="150" x="250" y="692.5" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-16" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.businessObject;overflow=fill;" value="Identität / Zertifikat" vertex="1">
+          <mxGeometry height="60" width="103" x="266.5" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-17" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" value="Postfach-Zugang" vertex="1">
+          <mxGeometry height="120" width="77" x="450" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-18" edge="1" parent="1" source="XdmyIVyssZTWBOFGiuUG-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="XdmyIVyssZTWBOFGiuUG-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-19" edge="1" parent="1" source="XdmyIVyssZTWBOFGiuUG-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="XdmyIVyssZTWBOFGiuUG-17">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="610" y="676" />
+              <mxPoint x="610" y="730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-20" edge="1" parent="1" source="XdmyIVyssZTWBOFGiuUG-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 2;" target="XdmyIVyssZTWBOFGiuUG-17">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-21" edge="1" parent="1" source="XdmyIVyssZTWBOFGiuUG-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="XdmyIVyssZTWBOFGiuUG-15">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1150" y="388" />
+              <mxPoint x="1150" y="885" />
+              <mxPoint x="325" y="885" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-22" edge="1" parent="1" source="XdmyIVyssZTWBOFGiuUG-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="XdmyIVyssZTWBOFGiuUG-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1030" y="330" />
+              <mxPoint x="290" y="330" />
+            </Array>
+            <mxPoint x="970" y="440" as="sourcePoint" />
+            <mxPoint x="405" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-23" edge="1" parent="1" source="XdmyIVyssZTWBOFGiuUG-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;startArrow=oval;startFill=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;entryPerimeter=0;" target="XdmyIVyssZTWBOFGiuUG-30">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="410" y="469" />
+              <mxPoint x="410" y="469" />
+            </Array>
+            <mxPoint x="690" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-24" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.businessObject;overflow=fill;" value="&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;font-size:1em;width:100%;height:100%;&quot;&gt;&lt;tbody&gt;&lt;tr style=&quot;height:20px;&quot;&gt;&lt;td align=&quot;center&quot;&gt;Funktionspostfach&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;left&quot; valign=&quot;top&quot; style=&quot;padding:4px;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" vertex="1">
+          <mxGeometry height="40" width="150" x="680" y="738" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-25" edge="1" parent="1" source="XdmyIVyssZTWBOFGiuUG-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classic;startFill=1;dashed=1;dashPattern=1 2;" target="XdmyIVyssZTWBOFGiuUG-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-26" edge="1" parent="1" source="XdmyIVyssZTWBOFGiuUG-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;" target="XdmyIVyssZTWBOFGiuUG-31">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="395" y="570" />
+              <mxPoint x="395" y="555" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-27" connectable="0" parent="XdmyIVyssZTWBOFGiuUG-26" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;fontSize=10;" value="fügt&lt;br&gt;Mitglieder&lt;br&gt;hinzu" vertex="1">
+          <mxGeometry relative="1" x="0" y="0" as="geometry">
+            <mxPoint x="0" y="-29" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-28" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" value="&lt;p data-pm-slice=&quot;1 1 [&amp;quot;bulletList&amp;quot;,{&amp;quot;isList&amp;quot;:true,&amp;quot;bullet&amp;quot;:&amp;quot;*&amp;quot;},&amp;quot;listItem&amp;quot;,{&amp;quot;dir&amp;quot;:null}]&quot;&gt;Raum-Management-Service (technische Nutzer)&lt;/p&gt;" vertex="1">
+          <mxGeometry height="75" width="157.5" x="422.5" y="562" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-29" edge="1" parent="1" source="XdmyIVyssZTWBOFGiuUG-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=1 2;" target="XdmyIVyssZTWBOFGiuUG-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-30" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" value="Berechtigungsverzeichnis (Rechte/Gruppen)" vertex="1">
+          <mxGeometry height="75" width="157.5" x="422.5" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-31" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.businessObject;overflow=fill;" value="Vorgangsraum (Matrix-Raum)" vertex="1">
+          <mxGeometry height="60" width="107" x="260" y="525" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-32" edge="1" parent="1" source="XdmyIVyssZTWBOFGiuUG-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;startFill=0;" target="XdmyIVyssZTWBOFGiuUG-31">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="230" y="730" />
+              <mxPoint x="230" y="555" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-33" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" value="Content Repository" vertex="1">
+          <mxGeometry height="67.5" width="70" x="680" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-34" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;fontSize=10;spacingTop=14;" value="Adressregister-&lt;br&gt;Abfrage" vertex="1">
+          <mxGeometry height="67.5" width="70" x="760" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-35" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.collaboration;" value="" vertex="1">
+          <mxGeometry height="35" width="60" x="875" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-36" edge="1" parent="1" style="edgeStyle=elbowEdgeStyle;html=1;endArrow=classic;elbow=vertical;endFill=1;rounded=0;" target="XdmyIVyssZTWBOFGiuUG-37" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="930" y="667" as="sourcePoint" />
+            <mxPoint x="980" y="667" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-37" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" value="Zentrales Postfach-Backend" vertex="1">
+          <mxGeometry height="75" width="150" x="959" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-38" edge="1" parent="1" source="XdmyIVyssZTWBOFGiuUG-35" style="edgeStyle=elbowEdgeStyle;html=1;endArrow=classic;elbow=vertical;endFill=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="XdmyIVyssZTWBOFGiuUG-13" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="890" y="620" as="sourcePoint" />
+            <mxPoint x="1050" y="620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-39" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" value="Matrix &lt;br&gt;Föderation" vertex="1">
+          <mxGeometry height="40" width="80" x="865" y="685" as="geometry" />
+        </mxCell>
+        <mxCell id="XdmyIVyssZTWBOFGiuUG-40" parent="1" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" value="Quittungsdienst" vertex="1">
+          <mxGeometry height="40" width="150" x="680" y="788" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

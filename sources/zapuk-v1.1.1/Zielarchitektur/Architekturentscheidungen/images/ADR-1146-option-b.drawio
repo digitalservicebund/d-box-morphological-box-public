@@ -1,0 +1,94 @@
+<mxfile>
+  <diagram name="Option B" id="Fz8hpxl4L2CLPri12yQP">
+    <mxGraphModel dx="1200" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1200" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-1" value="ZaPuK-Infrastruktur" style="html=1;outlineConnect=0;whiteSpace=wrap;shape=mxgraph.archimate3.application;appType=grouping;archiType=square;dashed=1;verticalAlign=top;fillColor=none;align=left;spacingLeft=8;" parent="1" vertex="1">
+          <mxGeometry x="380" y="120" width="300" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-2" value="Behörde" style="html=1;outlineConnect=0;whiteSpace=wrap;shape=mxgraph.archimate3.application;appType=grouping;archiType=square;dashed=1;verticalAlign=top;fillColor=none;align=left;spacingLeft=8;" parent="1" vertex="1">
+          <mxGeometry x="380" y="490" width="740" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-3" value="Privatperson" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#ffff99;shape=mxgraph.archimate3.application;appType=actor;archiType=square;" parent="1" vertex="1">
+          <mxGeometry x="620" y="20" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-4" value="Zentraler Postfach-Zugang&lt;br&gt;&lt;i style=&#39;font-size:11px&#39;&gt;Abholschein anzeigen,&lt;br&gt;Deep-Link haip-vci://&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" parent="1" vertex="1">
+          <mxGeometry x="400" y="160" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-5" value="Postfach-Backend&lt;br&gt;&lt;i style=&#39;font-size:11px&#39;&gt;nur verschlüsselte Inhalte&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" parent="1" vertex="1">
+          <mxGeometry x="400" y="320" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-6" value="EUDI-Wallet&lt;br&gt;&lt;i style=&#39;font-size:11px&#39;&gt;PID, Schlüssel für Holder-Binding&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" parent="1" vertex="1">
+          <mxGeometry x="840" y="160" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-7" value="Fachverfahren&lt;br&gt;&lt;i style=&#39;font-size:11px&#39;&gt;Bescheid, Nachweisdaten&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" parent="1" vertex="1">
+          <mxGeometry x="400" y="530" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-8" value="Wallet-Adapter (Issuer)&lt;br&gt;&lt;i style=&#39;font-size:11px&#39;&gt;öffentlicher Endpunkt für OID4VCI&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" parent="1" vertex="1">
+          <mxGeometry x="840" y="530" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-9" value="QTSP&lt;br&gt;&lt;i style=&#39;font-size:11px&#39;&gt;Fernsiegel&lt;/i&gt;" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#99ffff;shape=mxgraph.archimate3.application;appType=comp;archiType=square;" parent="1" vertex="1">
+          <mxGeometry x="1260" y="530" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="HTIFnMNnqfhDaA9mIjsv-4" target="HTIFnMNnqfhDaA9mIjsv-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="HTIFnMNnqfhDaA9mIjsv-6" target="HTIFnMNnqfhDaA9mIjsv-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="HTIFnMNnqfhDaA9mIjsv-5" target="HTIFnMNnqfhDaA9mIjsv-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="HTIFnMNnqfhDaA9mIjsv-4" target="HTIFnMNnqfhDaA9mIjsv-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-14" value="Abholschein" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];labelBackgroundColor=none;" parent="HTIFnMNnqfhDaA9mIjsv-13" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="0" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="HTIFnMNnqfhDaA9mIjsv-7" target="HTIFnMNnqfhDaA9mIjsv-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-16" value="Bescheid und Abholschein" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;" parent="HTIFnMNnqfhDaA9mIjsv-15" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="8" y="0" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="HTIFnMNnqfhDaA9mIjsv-7" target="HTIFnMNnqfhDaA9mIjsv-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-18" value="Nachweisdaten" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];labelBackgroundColor=none;" parent="HTIFnMNnqfhDaA9mIjsv-17" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="0" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;exitX=0.3;exitY=1;exitDx=0;exitDy=0;entryX=0.3;entryY=0;entryDx=0;entryDy=0;" parent="1" source="HTIFnMNnqfhDaA9mIjsv-6" target="HTIFnMNnqfhDaA9mIjsv-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-20" value="Pre-Authorized Code, PID" style="edgeLabel;html=1;align=right;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;" parent="HTIFnMNnqfhDaA9mIjsv-19" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-8" y="0" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=6 4;endArrow=block;endFill=1;exitX=0.7;exitY=0;exitDx=0;exitDy=0;entryX=0.7;entryY=1;entryDx=0;entryDy=0;" parent="1" source="HTIFnMNnqfhDaA9mIjsv-8" target="HTIFnMNnqfhDaA9mIjsv-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-22" value="Nachweis (QEAA)" style="edgeLabel;html=1;align=left;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;" parent="HTIFnMNnqfhDaA9mIjsv-21" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="8" y="0" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="HTIFnMNnqfhDaA9mIjsv-9" target="HTIFnMNnqfhDaA9mIjsv-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HTIFnMNnqfhDaA9mIjsv-24" value="Siegel über Hashwert" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];labelBackgroundColor=none;" parent="HTIFnMNnqfhDaA9mIjsv-23" connectable="0" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="0" y="-4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
